@@ -3,27 +3,74 @@ authority_id: bgnpcgn
 language: rus
 source_script: Cyrl
 destination_script: Latn
+name: ROMANIZATION OF RUSSIAN, BGN/PCGN 1947 System
+url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/807920/ROMANIZATION_OF_RUSSIAN.pdf
+confirmation_date: 2019-06
+description: |
+  The BGN/PCGN system for Russian was adopted by the BGN in 1944 and by the
+  PCGN in 1947 for use in romanizing names written in the Russian Cyrillic
+  alphabet.
+  
+notes:
+  - The character e should be romanized ye initially, after the vowel 
+    characters a, e, ё, и, о, у, ы, э, ю, and я, and after й, ъ, and ь. In 
+    all other instances, it should be romanized e.
+    
+  - The character ё is not considered a separate character of the 
+    Russian alphabet and the dieresis is generally not shown. When the 
+    dieresis is shown, the character should be romanized yë initially, 
+    after the vowel characters a, e, ё, и, о, у, ы, э, ю, and я, and after 
+    й, ъ, and ь. In all other instances, it should be romanized ё. When the 
+    dieresis is not shown, the character may still be romanized in the 
+    preceding manner or, alternatively, in accordance with note 1.
+    
+  - |
+    Unusual Russian character sequences occurring primarily in 
+    non-Russian-language names may be romanized as shown below in order to 
+    provide differentiation from regularly- occurring digraphs and 
+    character sequences.
+      й before а, у, ы, or э у·
+      ы before а, у, ы, or э у·
+      ы after any vowel character ·у
+      э after any consonant character except й ·е
+      TC t·s шч sh·ch
+      
+  - Unicode values are shown with the uppercase Cyrillic character first, 
+    followed by the lowercase character.
+
+  - |
+    An inventory of letter-diacritic combinations, with their Unicode 
+    encoding, in addition to the unmodified letters of the basic Roman 
+    script is:
+      All apostrophes appearing in romanization are U+2019 Ë (U+00CB)
+      ë (U+00EB)
+  - The Romanization column shows only lowercase forms but, when 
+    romanizing, uppercase and lowercase Roman letters as appropriate should 
+    be used.
+
 map:
+  rules:
+    - pattern: "/([ЄФІЦАаЕеИиЙйОоУуЫыЮюЯяії])\u0415/"
+      result: "\1YE"
+    - pattern: "/^\u0415/"
+      result: "YE"
+    - pattern: "/([йьъ])\u0415/"
+      result: "\1YE"
+    - pattern: "/([ЄФІЦАаЕеИиЙйОоУуЫыЮюЯяії])\u0435/"
+      result: "\1ye"
+    - pattern: "/^\u0435/"
+      result: "ye"
+    - pattern: "/([йьъ])\u0435/"
+      result: "\1ye"
+
   characters:
     "\u0410": "A"
     "\u0411": "B"
     "\u0412": "V"
     "\u0413": "G"
     "\u0414": "D"
-    "\u0415": 
-      rules:
-        - if:
-            after: *vowels
-          then: "YE"
-        - if: initial
-          then: "YE"
-        - if:
-            after:
-              - "й"
-              - "ь"
-              - "ъ" 
-          then: "YE"
-        - "E"        
+    "\u0415": "E"
+    "\u0435": "e"
     "\u0416": "Zh"
     "\u0417": "Z"
     "\u0418": "I"
@@ -55,20 +102,6 @@ map:
     "\u0432": "v"
     "\u0433": "g"
     "\u0434": "d"
-    "\u0435":
-      rules:
-        - if:
-            after: *vowels
-          then: "ye"
-        - if: initial
-          then: "ye"
-        - if:
-            after:
-              - "й"
-              - "ь"
-              - "ъ" 
-          then: "ye"
-        - "e"        
     "\u0436": "zh"
     "\u0437": "z"
     "\u0438": "i"
@@ -95,30 +128,3 @@ map:
     "\u044d": "e"
     "\u044e": "y"
     "\u044f": "ya"
-
-vowels: &vowels
-  - "\u0404"
-  - "\u0424"
-  - "\u0406"
-  - "\u0426"
-  - "\u0410"
-  - "\u0430"
-  - "\u0415"
-  - "\u0435"
-  - "\u0418"
-  - "\u0438"
-  - "\u0419"
-  - "\u0439"
-  - "\u041e"
-  - "\u043e"
-  - "\u0423"
-  - "\u0443"
-  - "\u042b"
-  - "\u044b"
-  - "\u042e"
-  - "\u044e"
-  - "\u042f"
-  - "\u044f"
-  - "\u0456"
-  - "\u0457"
-  
