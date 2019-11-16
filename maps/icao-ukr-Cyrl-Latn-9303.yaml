@@ -1,12 +1,33 @@
 ---
 authority_id: icao
-language: rus
+id: 9303
+language: ukr
 source_script: Cyrl
 destination_script: Latn
+name: ICAO Doc 9303 Machine Readable Travel Documents Part 3 -- Ukranian Cyrillic to Latin
+url: https://www.icao.int/publications/pages/publication.aspx?docnum=9303
+creation_date: 2015
+description: |
+  Part 3 defines specifications that are common to TD1, TD2 and TD3 
+  size machine readable travel documents (MRTDs) including those 
+  necessary for global interoperability using visual inspection and 
+  machine readable (optical character recognition) means. 
+
+  Since only Latin-alphabet characters are allowed in the VIZ, if 
+  mandatory data elements are in a national language that does not use 
+  the Latin alphabet, a transcription or transliteration shall also be 
+  provided.
+
+  This document defines the transliteration mappings used to produce 
+  this transcription or transliteration.
+tests:
+  - source: 
+    expected: 
+
 map:
   # https://www.icao.int/publications/Documents/9303_p3_cons_en.pdf
   characters:
-    "\u0027": ""     # ' 
+    "\u0027": ""     # '  
     "\u0410": "A"    # А 
     "\u0411": "B"    # Б 
     "\u0414": "D"    # Д 
@@ -15,7 +36,7 @@ map:
     "\u042D": "E"    # Э 
     "\u0424": "F"    # Ф 
     "\u0413": "G"    # Г 
-    "\u0418": "I"    # И 
+    "\u0418": "Y"    # И 
     "\u0419": "I"    # Й 
     "\u041A": "K"    # К 
     "\u041B": "L"    # Л 
@@ -51,6 +72,7 @@ map:
     "\u0404": "IE"   # Є 
     "\u0407": "I"    # Ї 
     "\u0403": "G"    # Ѓ 
+    "\u0406": "I"    # І  
 
     "\u0430": "a"    # а
     "\u0431": "b"    # б
@@ -60,7 +82,7 @@ map:
     "\u044D": "e"    # э
     "\u0444": "f"    # ф
     "\u0433": "g"    # г
-    "\u0438": "i"    # и
+    "\u0438": "y"    # и
     "\u0439": "i"    # й
     "\u043A": "k"    # к
     "\u043B": "l"    # л
@@ -71,21 +93,21 @@ map:
     "\u0440": "r"    # р
     "\u0441": "s"    # с
     "\u0442": "t"    # т
-    "\u0443": "u"    # у
+    "\u0443": ""     # у
     "\u0432": "v"    # в
     "\u044B": "y"    # ы
     "\u0437": "z"    # з
     "\u0447": "ch"   # ч
     "\u044F": "ia"   # я
-    "\u044E": "iu"   # ю
+    "\u044E": "i"    # ю
     "\u0445": "kh"   # х
     "\u0448": "sh"   # ш
-    "\u0449": "shch" # щ
+    "\u0449": "shch" # щщ
     "\u0446": "ts"   # ц
     "\u0436": "zh"   # ж
     "\u0491": "g"    # ґ
-    "\u045E": "u"    # ў
-    "\u046B": "u"    # ѫ
+    "\u045E": ""     # ў
+    "\u046B": ""     # ѫ
     "\u0452": "d"    # ђ
     "\u0455": "dz"   # ѕ
     "\u0458": "j"    # ј
@@ -96,3 +118,4 @@ map:
     "\u0454": "ie"   # є
     "\u0457": "i"    # ї
     "\u0453": "g"    # ѓ
+

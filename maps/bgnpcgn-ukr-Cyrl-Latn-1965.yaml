@@ -1,8 +1,23 @@
 ---
 authority_id: bgnpcgn
+id: 1965
 language: ukr
 source_script: Cyrl
 destination_script: Latn
+name: BGN/PCGN 1965 System
+url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/816788/ROMANIZATION_OF_UKRAINIAN.pdf
+creation_date: 1947
+confirmation_date: 2019-06
+description: |
+  The BGN/PCGN system for Ukrainian was designed for use in romanizing 
+  names written in the Ukrainian alphabet. The Ukrainian alphabet 
+  contains five characters not present in the Russian alphabet: ґ, є, і, 
+  ї, and ’.
+
+notes:
+  - The character sequences з г, к г, с г, т с and ц г and may be romanized z∙h, k∙h, s∙h, t∙s and ts∙h in order to differentiate those romanizations from the digraphs zh, kh, sh, ts, and the letter sequence tsh, which are used to render the characters ж, x, ц, ш, and the character sequence тш.
+  - All apostrophes appearing in romanization are Unicode encoding 2019.
+  - The Roman‐script columns show only lowercase forms but, when applying the table, uppercase and lowercase Roman letters as appropriate should be used.
 map:
   characters:
     "\u0430": 'a'

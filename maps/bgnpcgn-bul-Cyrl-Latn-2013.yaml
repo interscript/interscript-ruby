@@ -1,10 +1,34 @@
 ---
 authority_id: bgnpcgn
+id: 2013
 language: bul
 source_script: Cyrl
 destination_script: Latn
+name: BGN/PCGN 2013 Agreement
+url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/811509/ROMANIZATION_OF_BULGARIAN.pdf
+creation_date: 2013
+confirmation date: 2019-06
+description: |
+  This system reflects the Bulgarian national system officially adopted 
+  by state decree in March 2009. It was adopted by BGN and PCGN in 2013, 
+  replacing the BGN/PCGN system of 1952.
+  
+notes:
+  - When in final position, “ия” is romanized as “ia” (e.g., София = Sofia; София-Град= Sofia-Grad).
+  - An exception to the romanization system is allowed for the name of the state. Thus, България is roman-
+ized as Bulgaria.
+  - The Romanization column shows only lowercase forms but, when romanizing, uppercase and lowercase Roman letters as appropriate should be used.
+tests:
+  - source: София
+    expected: Sofia
+  - source: София-Град
+    expected: Sofia-Grad
+  - source: България
+    expected: Bulgaria
+
 map:
   characters:
+    'България': 'Bulgaria'
     '\u0410': 'A'
     '\u0411': 'B'
     '\u0412': 'V'
