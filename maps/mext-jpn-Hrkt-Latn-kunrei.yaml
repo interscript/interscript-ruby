@@ -2,7 +2,7 @@
 authority_id: mext
 id: kunrei
 language: jpn
-source_script: Cyrl
+source_script: Hrkt
 destination_script: Latn
 name: Romanization of Japanese, Kunrei-siki
 url: http://www.eki.ee/wgrs/rom2_ja.htm
@@ -19,8 +19,16 @@ notes:
   - The combination in parentheses is used to denote the word meaning ’big, great’.
 
 tests:
-  - source:
-    expected:
+  - source: かんおう
+    expected: kanô #kan'ô
+  - source: かのう
+    expected: kanô
+  - source: きんゆう
+    expected: kinyû # kin'yû
+  - source: きにゅう
+    expected: kinyû
+  - source: とうきょう
+    expected: tôkyô
 
 map:
   characters:
@@ -41,7 +49,7 @@ map:
     "そ": "so"
     "た": "ta"
     "ち": "ti"
-    "つ": "tu1"
+    "つ": "tu" # See note 1
     "て": "te"
     "と": "to"
     "な": "na"
@@ -178,7 +186,7 @@ map:
     "ソ": "so"
     "タ": "ta"
     "チ": "ti"
-    "ツ": "tu1" # See note 1
+    "ツ": "tu" # See note 1
     "テ": "te"
     "ト": "to"
     "ナ": "na"
