@@ -5,6 +5,7 @@ source_script: Cyrl
 destination_script: Latn
 name: ROMANIZATION OF RUSSIAN, BGN/PCGN 1947 System
 url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/807920/ROMANIZATION_OF_RUSSIAN.pdf
+creation_date: 1947
 confirmation_date: 2019-06
 description: |
   The BGN/PCGN system for Russian was adopted by the BGN in 1944 and by the
@@ -47,6 +48,107 @@ notes:
   - The Romanization column shows only lowercase forms but, when 
     romanizing, uppercase and lowercase Roman letters as appropriate should 
     be used.
+
+tests:
+  - source: |
+      Выборы депутатов Государственной Думы Федерального Собрания Российской Федерации седьмого созыва
+      Дата голосования: 18.09.2016
+
+      Наименование Избирательной комиссии:    ЦИК России
+
+      Сводная таблица результатов выборов по федеральному избирательному округу
+
+
+      Число избирателей, внесенных в список избирателей на момент окончания голосования
+      Число избирательных бюллетеней, полученных участковой избирательной комиссией
+      Число избирательных бюллетеней, выданных избирателям, проголосовавшим досрочно
+      Число избирательных бюллетеней, выданных в помещении для голосования в день голосования
+      Число избирательных бюллетеней, выданных вне помещения для голосования в день голосования
+      Число погашенных избирательных бюллетеней
+      Число избирательных бюллетеней, содержащихся в переносных ящиках для голосования
+      Число избирательных бюллетеней, содержащихся в стационарных ящиках для голосования
+      Число недействительных избирательных бюллетеней
+      Число действительных избирательных бюллетеней
+      Число открепительных удостоверений, полученных участковой избирательной комиссией
+      Число открепительных удостоверений, выданных на избирательном участке до дня голосования
+      Число избирателей, проголосовавших по открепительным удостоверениям на избирательном участке
+      Число погашенных неиспользованных открепительных удостоверений
+      Число открепительных удостоверений, выданных избирателям территориальной избирательной комиссией
+      Число утраченных открепительных удостоверений
+      Число утраченных избирательных бюллетеней
+      Число избирательных бюллетеней, не учтенных при получении
+      1. ВСЕРОССИЙСКАЯ ПОЛИТИЧЕСКАЯ ПАРТИЯ "РОДИНА"
+      2. Политическая партия КОММУНИСТИЧЕСКАЯ ПАРТИЯ КОММУНИСТЫ РОССИИ
+      3. Политическая партия "Российская партия пенсионеров за справедливость"
+      4. Всероссийская политическая партия "ЕДИНАЯ РОССИЯ"
+      5. Политическая партия "Российская экологическая партия "Зеленые"
+      6. Политическая партия "Гражданская Платформа"
+      7. Политическая партия ЛДПР - Либерально-демократическая партия России
+      8. Политическая партия "Партия народной свободы" (ПАРНАС)
+      9. Всероссийская политическая партия "ПАРТИЯ РОСТА"
+      10. Общественная организация Всероссийская политическая партия "Гражданская Сила"
+      11. Политическая партия "Российская объединенная демократическая партия "ЯБЛОКО"
+      12. Политическая партия "КОММУНИСТИЧЕСКАЯ ПАРТИЯ РОССИЙСКОЙ ФЕДЕРАЦИИ"
+      13. Политическая партия "ПАТРИОТЫ РОССИИ"
+      14. Политическая партия СПРАВЕДЛИВАЯ РОССИЯ
+
+      Данные окружных избирательных комиссий о числе открепительных удостоверений
+
+
+      Число открепительных удостоверений, полученных окружной избирательной комиссией
+      Число открепительных удостоверений, выданных территориальным избирательным комиссиям
+      Число неиспользованных открепительных удостоверений, погашенных окружной избирательной комиссией
+      Число открепительных удостоверений, утраченных в окружной избирательной комиссии
+
+    expected: |
+      VYBORY DEPUTATOV GOSUDARSTVENNOY DUMY FEDERAL’NOGO SOBRANIYA ROSSIYSKOY FEDERATSII SED’MOGO SOZYVA
+      DATA GOLOSOVANIYA: 18.09.2016
+
+      NAIMENOVANIE IZBIRATEL’NOY KOMISSII:    TSIK ROSSII
+
+      SVODNAYA TABLITSA REZUL’TATOV VYBOROV PO FEDERAL’NOMU IZBIRATEL’NOMU OKRUGU
+
+
+      CHISLO IZBIRATELEY, VNESENNYKH V SPISOK IZBIRATELEY NA MOMENT OKONCHANIYA GOLOSOVANIYA
+      CHISLO IZBIRATEL’NYKH BYULLETENEY, POLUCHENNYKH UCHASTKOVOY IZBIRATEL’NOY KOMISSIEY
+      CHISLO IZBIRATEL’NYKH BYULLETENEY, VYDANNYKH IZBIRATELYAM, PROGOLOSOVAVSHIM DOSROCHNO
+      CHISLO IZBIRATEL’NYKH BYULLETENEY, VYDANNYKH V POMESHCHENII DLYA GOLOSOVANIYA V DEN’ GOLOSOVANIYA
+      CHISLO IZBIRATEL’NYKH BYULLETENEY, VYDANNYKH VNE POMESHCHENIYA DLYA GOLOSOVANIYA V DEN’ GOLOSOVANIYA
+      CHISLO POGASHENNYKH IZBIRATEL’NYKH BYULLETENEY
+      CHISLO IZBIRATEL’NYKH BYULLETENEY, SODERZHASHCHIKHSYA V PERENOSNYKH YASHCHIKAKH DLYA GOLOSOVANIYA
+      CHISLO IZBIRATEL’NYKH BYULLETENEY, SODERZHASHCHIKHSYA V STATSIONARNYKH YASHCHIKAKH DLYA GOLOSOVANIYA
+      CHISLO NEDEYSTVITEL’NYKH IZBIRATEL’NYKH BYULLETENEY
+      CHISLO DEYSTVITEL’NYKH IZBIRATEL’NYKH BYULLETENEY
+      CHISLO OTKREPITEL’NYKH UDOSTOVERENIY, POLUCHENNYKH UCHASTKOVOY IZBIRATEL’NOY KOMISSIEY
+      CHISLO OTKREPITEL’NYKH UDOSTOVERENIY, VYDANNYKH NA IZBIRATEL’NOM UCHASTKE DO DNYA GOLOSOVANIYA
+      CHISLO IZBIRATELEY, PROGOLOSOVAVSHIKH PO OTKREPITEL’NYM UDOSTOVERENIYAM NA IZBIRATEL’NOM UCHASTKE
+      CHISLO POGASHENNYKH NEISPOL’ZOVANNYKH OTKREPITEL’NYKH UDOSTOVERENIY
+      CHISLO OTKREPITEL’NYKH UDOSTOVERENIY, VYDANNYKH IZBIRATELYAM TERRITORIAL’NOY IZBIRATEL’NOY KOMISSIEY
+      CHISLO UTRACHENNYKH OTKREPITEL’NYKH UDOSTOVERENIY
+      CHISLO UTRACHENNYKH IZBIRATEL’NYKH BYULLETENEY
+      CHISLO IZBIRATEL’NYKH BYULLETENEY, NE UCHTENNYKH PRI POLUCHENII
+      1. VSEROSSIYSKAYA POLITICHESKAYA PARTIYA "RODINA"
+      2. POLITICHESKAYA PARTIYA KOMMUNISTICHESKAYA PARTIYA KOMMUNISTY ROSSII
+      3. POLITICHESKAYA PARTIYA "ROSSIYSKAYA PARTIYA PENSIONEROV ZA SPRAVEDLIVOST’"
+      4. VSEROSSIYSKAYA POLITICHESKAYA PARTIYA "EDINAYA ROSSIYA"
+      5. POLITICHESKAYA PARTIYA "ROSSIYSKAYA EKOLOGICHESKAYA PARTIYA "ZELENYE"
+      6. POLITICHESKAYA PARTIYA "GRAZHDANSKAYA PLATFORMA"
+      7. POLITICHESKAYA PARTIYA LDPR - LIBERAL’NO-DEMOKRATICHESKAYA PARTIYA ROSSII
+      8. POLITICHESKAYA PARTIYA "PARTIYA NARODNOY SVOBODY" (PARNAS)
+      9. VSEROSSIYSKAYA POLITICHESKAYA PARTIYA "PARTIYA ROSTA"
+      10. OBSHCHESTVENNAYA ORGANIZATSIYA VSEROSSIYSKAYA POLITICHESKAYA PARTIYA "GRAZHDANSKAYA SILA"
+      11. POLITICHESKAYA PARTIYA "ROSSIYSKAYA OBEDINENNAYA DEMOKRATICHESKAYA PARTIYA ""YABLOKO"""
+      12. POLITICHESKAYA PARTIYA "KOMMUNISTICHESKAYA PARTIYA ROSSIYSKOY FEDERATSII"
+      13. POLITICHESKAYA PARTIYA "PATRIOTY ROSSII"
+      14. POLITICHESKAYA PARTIYA SPRAVEDLIVAYA ROSSIYA
+
+      DANNYYE OKRUZHNYKH IZBIRATYEL’NYKH KOMISSIY O CHISLYE OTKRYEPITYEL’NYKH UDOSTOVYERYENIY
+
+
+      CHISLO OTKREPITEL’NYKH UDOSTOVERENIY, POLUCHENNYKH OKRUZHNOY IZBIRATEL’NOY KOMISSIEY
+      CHISLO OTKREPITEL’NYKH UDOSTOVERENIY, VYDANNYKH TERRITORIAL’NYM IZBIRATEL’NYM KOMISSIYAM
+      CHISLO NEISPOL’ZOVANNYKH OTKREPITEL’NYKH UDOSTOVERENIY, POGASHENNYKH OKRUZHNOY IZBIRATEL’NOY KOMISSIEY
+      CHISLO OTKREPITEL’NYKH UDOSTOVERENIY, UTRACHENNYKH V OKRUZHNOY IZBIRATEL’NOY KOMISSII
 
 map:
   rules:
