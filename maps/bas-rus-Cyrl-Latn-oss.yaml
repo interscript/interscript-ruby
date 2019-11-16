@@ -1,0 +1,148 @@
+---
+authority_id: bas
+id: oss
+language: rus
+source_script: Cyrl
+destination_script: Latn
+name: Streamlined Romanization of Russian Cyrillic -- Optimized Streamlined System
+url: https://www.researchgate.net/publication/318402098
+creation_date: 2017-07
+description: |
+  The streamlined approach to transliteration was initiated by the 
+  author with the development of the Streamlined System for the 
+  Romanization of Bulgarian, which was eventually codified by the 
+  Transliteration Act of 2009 (ДВ 2009) of the Bulgarian Parliament.
+  
+  The four purposes of the system below are in order of priority:
+  1. ensure a plausible phonetic approximation of Russian words by English speaking users, including those having no knowledge of the Russian language and no available additional explanations;
+  2. the system should allow for the retrieval of the original Cyrillic spellings as much as feasible;
+  3. transliterated Russian words should fit an English language environment i.e. not be perceived as too ‘un-English’; and
+  4. transliterated word forms should be streamlined and simple. (Ivanov 2003, Ivanov et al. 2010)
+
+notes:
+  - Typical for the streamlined approach is its non-use of diacritics, 
+    its use of Latin y for rendering only Cyrillic й rather than both й and 
+    ы, its non-use of Latin j, as well as its use of Latin h rather than kh 
+    for Cyrillic х.
+
+tests:
+  - source: |
+      Эх, тройка! птица тройка, кто тебя выдумал? знать, у бойкого народа 
+      ты могла только родиться, в той земле, что не любит шутить, а
+      ровнем-гладнем разметнулась на полсвета, да и ступай считать версты, пока 
+      не зарябит тебе в очи. И не хитрый, кажись, дорожный снаряд, не
+      железным схвачен винтом, а наскоро живьём с одним топором да долотом 
+      снарядил и собрал тебя ярославский расторопный мужик. Не в немецких 
+      ботфортах ямщик: борода да рукавицы, и сидит чёрт знает на чём; а 
+      привстал, да замахнулся, да затянул песню — кони вихрем, спицы в
+      колесах смешались в один гладкий круг, только дрогнула дорога, да вскрикнул 
+      в испуге остановившийся пешеход — и вон она понеслась, понеслась,
+      понеслась!
+      
+      Н.В. Гоголь
+    expected: |
+      `Eh, troyka! ptitsa troyka, kto tebya v`idumal? znat', u boykogo 
+      naroda t`i mogla tol'ko rodit'sya, v toy zemle, chto ne lyubit shutit', 
+      a rovnem-gladnem razmetnulas' na polsveta, da i stupay schitay verst`i, 
+      poka ne zaryabit tebe v ochi. I ne hitr`iy, kazhis', dorozhn`iy 
+      snaryad, ne zhelezn`im shvachen vintom, a naskoro zhivy``em s odnim 
+      toporom da dolotom sobral tebya yaroslavskiy rastoropn`iy muzhik. Ne v 
+      nemetskih botfortah yamshchik: boroda da rukavits`i, i sidit ch``ert 
+      znaet na ch``em; a privstal, da zamahnulsya, da zatyanul pesnyu — koni 
+      vihrem, spits`i v kolesah smeshalis' v odin gladkiy krug, tol'ko 
+      drognula doroga, da vskriknul v ispuge ostanovivshiysya peshehod — i 
+      von ona poneslas', poneslas', poneslas'!
+      
+      N.V. Gogol'
+
+map:
+  characters:
+    "\u0027": ""     # ' 
+    "\u0410": "A"    # А 
+    "\u0411": "B"    # Б 
+    "\u0412": "V"    # В 
+    "\u0413": "G"    # Г 
+    "\u0414": "D"    # Д 
+    "\u0401": "``E"    # Ё 
+    "\u0415": "E"    # Е 
+    "\u0416": "ZH"   # Ж 
+    "\u042D": "E"    # Э 
+    "\u0418": "I"    # И 
+    "\u0419": "Y"    # Й 
+    "\u041A": "K"    # К 
+    "\u041B": "L"    # Л 
+    "\u041C": "M"    # М 
+    "\u041D": "N"    # Н 
+    "\u041E": "O"    # О 
+    "\u041F": "P"    # П 
+    "\u0420": "R"    # Р 
+    "\u0421": "S"    # С 
+    "\u0422": "T"    # Т 
+    "\u0423": "U"    # У 
+    "\u0424": "F"    # Ф 
+    "\u0425": "H"   # Х 
+    "\u0426": "TS"   # Ц 
+    "\u0427": "CH"   # Ч 
+    "\u0428": "SH"   # Ш 
+    "\u0429": "SHCH" # Щ 
+    "\u042B": "`I"    # Ы 
+    "\u0417": "`E"    # З 
+    "\u042F": "YA"   # Я 
+    "\u042E": "YU"   # Ю 
+
+    "\u042c\u0401": "YE"    # Ё 
+    "\u042c\u0415": "YE"    # Е 
+    "\u042c\u0412": "YI"
+    "\u042c\u041E": "YO"
+    "\u042c\u0417": "YZ"
+
+    # Ъ (otherwise) -> " (or none)
+    "\u042c": "'"
+    # Ъ  -> ' (or none)
+    "\u042a": '"'
+
+    "\u0430": "a"    # а
+    "\u0431": "b"    # б
+    "\u0432": "v"    # в
+    "\u0433": "g"    # г
+    "\u0434": "d"    # д
+    "\u0451": "``e"    # ё
+    "\u0435": "e"    # e
+    "\u0436": "zh"   # ж
+    "\u0437": "z"    # з
+    "\u0438": "i"    # и
+    "\u0439": "y"    # й
+    "\u043A": "k"    # к
+    "\u043B": "l"    # л
+    "\u043C": "m"    # м
+    "\u043D": "n"    # н
+    "\u043E": "o"    # о
+    "\u043F": "p"    # п
+    "\u0440": "r"    # р
+    "\u0441": "s"    # с
+    "\u0442": "t"    # т
+    "\u0443": "u"    # у
+    "\u0444": "f"    # ф
+    "\u0445": "h"    # х
+    "\u0446": "ts"   # ц
+    "\u0447": "ch"   # ч
+    "\u0448": "sh"   # ш
+    "\u0449": "shch" # щ
+    "\u044B": "`i"    # ы
+    "\u044D": "`e"    # э
+    "\u044F": "ya"   # я
+    "\u044E": "yu"   # ю
+
+    # ь (before е, ё, и, o, э)
+    "\u044c\u0435": "ye"
+    "\u044c\u0451": "ye"
+    "\u044c\u0438": "yi"
+    "\u044c\u006f": "yo"
+    "\u044c\u044d": "yz"
+    
+    # Ъ (otherwise) -> " (or none)
+    "\u044c": "'"
+
+    # Ъ  -> ' (or none)
+    "\u044a": '"'
+    
