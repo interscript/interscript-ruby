@@ -1,0 +1,130 @@
+---
+authority_id: bgnpcgn
+language: rus
+source_script: Cyrl
+destination_script: Latn
+name: ROMANIZATION OF RUSSIAN, BGN/PCGN 1947 System
+url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/807920/ROMANIZATION_OF_RUSSIAN.pdf
+confirmation_date: 2019-06
+description: |
+  The BGN/PCGN system for Russian was adopted by the BGN in 1944 and by the
+  PCGN in 1947 for use in romanizing names written in the Russian Cyrillic
+  alphabet.
+  
+notes:
+  - The character e should be romanized ye initially, after the vowel 
+    characters a, e, ё, и, о, у, ы, э, ю, and я, and after й, ъ, and ь. In 
+    all other instances, it should be romanized e.
+    
+  - The character ё is not considered a separate character of the 
+    Russian alphabet and the dieresis is generally not shown. When the 
+    dieresis is shown, the character should be romanized yë initially, 
+    after the vowel characters a, e, ё, и, о, у, ы, э, ю, and я, and after 
+    й, ъ, and ь. In all other instances, it should be romanized ё. When the 
+    dieresis is not shown, the character may still be romanized in the 
+    preceding manner or, alternatively, in accordance with note 1.
+    
+  - |
+    Unusual Russian character sequences occurring primarily in 
+    non-Russian-language names may be romanized as shown below in order to 
+    provide differentiation from regularly- occurring digraphs and 
+    character sequences.
+      й before а, у, ы, or э у·
+      ы before а, у, ы, or э у·
+      ы after any vowel character ·у
+      э after any consonant character except й ·е
+      TC t·s шч sh·ch
+      
+  - Unicode values are shown with the uppercase Cyrillic character first, 
+    followed by the lowercase character.
+
+  - |
+    An inventory of letter-diacritic combinations, with their Unicode 
+    encoding, in addition to the unmodified letters of the basic Roman 
+    script is:
+      All apostrophes appearing in romanization are U+2019 Ë (U+00CB)
+      ë (U+00EB)
+  - The Romanization column shows only lowercase forms but, when 
+    romanizing, uppercase and lowercase Roman letters as appropriate should 
+    be used.
+
+map:
+  rules:
+    - pattern: "/([ЄФІЦАаЕеИиЙйОоУуЫыЮюЯяії])\u0415/"
+      result: "\\1YE"
+    - pattern: "/^\u0415/"
+      result: "YE"
+    - pattern: "/([йьъ])\u0415/"
+      result: "\\1YE"
+    - pattern: "/([ЄФІЦАаЕеИиЙйОоУуЫыЮюЯяії])\u0435/"
+      result: "\\1ye"
+    - pattern: "/^\u0435/"
+      result: "ye"
+    - pattern: "/([йьъ])\u0435/"
+      result: "\\1ye"
+
+  characters:
+    "\u0410": "A"
+    "\u0411": "B"
+    "\u0412": "V"
+    "\u0413": "G"
+    "\u0414": "D"
+    "\u0415": "E"
+    "\u0435": "e"
+    "\u0416": "Zh"
+    "\u0417": "Z"
+    "\u0418": "I"
+    "\u0419": "Y"
+    "\u041a": "K"
+    "\u041b": "L"
+    "\u041c": "M"
+    "\u041d": "N"
+    "\u041e": "O"
+    "\u041f": "P"
+    "\u0420": "R"
+    "\u0421": "S"
+    "\u0422": "T"
+    "\u0423": "U"
+    "\u0424": "F"
+    "\u0425": "Kh"
+    "\u0426": "Ts"
+    "\u0427": "Ch"
+    "\u0428": "Sh"
+    "\u0429": "Shch"
+    "\u042a": "\""
+    "\u042b": "Y"
+    "\u042c": "\u2019"
+    "\u042d": "E"
+    "\u042e": "Y"
+    "\u042f": "Ya"
+    "\u0430": "a"
+    "\u0431": "b"
+    "\u0432": "v"
+    "\u0433": "g"
+    "\u0434": "d"
+    "\u0436": "zh"
+    "\u0437": "z"
+    "\u0438": "i"
+    "\u0439": "y"
+    "\u043a": "k"
+    "\u043b": "l"
+    "\u043c": "m"
+    "\u043d": "n"
+    "\u043e": "o"
+    "\u043f": "p"
+    "\u0440": "r"
+    "\u0441": "s"
+    "\u0442": "t"
+    "\u0443": ""
+    "\u0444": "f"
+    "\u0445": "kh"
+    "\u0446": "ts"
+    "\u0447": "ch"
+    "\u0448": "sh"
+    "\u0449": "shch"
+    "\u044a": "\""
+    "\u044b": "y"
+    "\u044c": "\u2019"
+    "\u044d": "e"
+    "\u044e": "y"
+    "\u044f": "ya"
