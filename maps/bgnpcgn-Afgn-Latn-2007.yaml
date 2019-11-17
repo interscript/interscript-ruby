@@ -1,0 +1,65 @@
+---
+authority_id: bgnpcgn
+id: 2007
+language: Afghan
+source_script: Afghan
+destination_script: Latn
+name: BGN/PCGN 2007 System - Consonant Characters
+url:
+creation_date: 2007
+description: |
+    This romanization system agreed by BGN and PCGN in November 2007, accommodates the
+    linguistic complexity of Afghanistan as manifest in its geographical names.
+
+
+notes:
+
+- Unicode values listed in this table are required for all BGN/PCGN production, to ensure standardization and to minimize confusion from competing representations of a given letter. Notably, the Persian ک (Unicode value 06A9) is prescribed rather than the Arabic ك (Unicode value 0643 or FEDA or FED9), the Persian گ (Unicode value 06AF) is prescribed rather than ګ (Unicode value 06AB) or ڰ (Unicode value 06B0) or ك (Unicode value 0643 or FEDA or FED9), and the Pashto letter ځ (Unicode value 0681) is prescribed rather than the heh with a dot
+above and a dot below (Unicode value unknown). For the letter ی in its many variations, care must be exercised to follow this romanization guide’s prescriptions to eliminate confusion for search engines and software. BGN/PCGN does not use the letter ی (Unicode value FEEF) in
+any Afghan word.
+
+- Occasionally the letter sequences سه ,زه ,که , and گه occur without intervening vowels. They may be romanized k·h, z·h, s·h, and g·h in order to differentiate these romanizations from the digraphs kh, zh, sh, and gh, which are used to represent the letters ش ,ژ ,خ , and غ. Additionally, the
+Pashto letters څ and ځ, routinely romanized ts and dz, may be alternatively romanized tŝ and dẑ when for special reasons it is desired that confusion be avoided with the character sequences تس (ts) and دز (dz), respectively.
+
+- The vagaries of written Afghan languages, as pertains to spacing and word division, are addressed as follows. Spaces may be added to or subtracted from Afghan words written in Arabic script, for the purposes of standardization. This is particularly relevant when the words are hand-written, are rendered “artistically”, or express other such non-standard flourishes, as long as the sense of the toponym, word, or phrase is not compromised. Analysts proceed in this regard conservatively.
+
+- The one-letter words د (Pashto) and و (Dari) are romanized dê and wa, respectively.
+
+- The word لله, meaning God, should always be romanized Allāh, except as specified in note 3. Note that the Unicode value FDF2 spells Allāh, but omits the alif in some common fonts, including Times New Roman. If in doubt, try in Arial Unicode MS to verify. Also note that the “dagger alif” ( ◌ ) above the second ل (lām) in the word لله, is not written but should be romanized ā, like a full-size alif.
+
+- In names of Arabic origin, the l of the definite article al is assimilated before the ‘sun letters’ t, s̄, d, z̄, r, z, s, sh, ş, ẕ, ţ, z̧, and n. In its romanization, the article should be separated from the name it precedes and should not be capitalized except at the beginning of a name, e.g. جبل
+السراج → Jabal as Sarāj
+
+- Specifically Arabic names, particularly those of Islamic significance, often include a consonant which would ordinarily be written with a tashdīd (shaddah) in Arabic, which may be romanized by writing the equivalent consonant twice, e.g., مُحَمَّد → Muḩammad. This rule is particularly in force if the word is commonly romanized with a doubled consonant by Afghan naming authorities. For example, ḩājī is rarely seen in Afghanproduced romanizations with a doubled consonant, but ‘Abbās is. The doubled y consonant is almost always seen thusly, as in Sayyid or Qayyūm.
+
+- In Afghan names which contain an iz􀓈āfah, it should be romanized as -e or –ye according to common pronunciations, but generally, -e is used if the preceding word ends with a consonant other than silent heh, and -ye if the preceding word ends with a vowel sound. Scholarly sources indicate that heh is silent in darah and qal‘ah (thus darah-ye, qal‘ah-ye), but lightly spoken in kōh and chāh (thus kōh-e, chāh-e).
+
+- The character sequence خو , where followed by ا or ی should be Romanized khwā or khwī, where the w is not pronounced, or only weakly so, as in khwājah.
+
+
+tests:
+  - source: بَغْلان
+    expected: Baghlān
+
+
+map:
+    characters:
+        '\u0628' : 'b'
+        '\u067E' : 'p'
+        '\u062A' : 't'
+        '\u067C' : 'ṯ'
+        '\u062B' : 's'
+        '\u062C' : 'j'
+        '\u0686' : 'ch'
+        '\u062D' : 'ḩ'
+        '\u062E' : 'kh'
+        '\u0681' : 'dz' # A variant form ج is seen infrequently; it does not have a single Unicode encoding.
+        '\u0685' : 'ts'
+        '\u062F' : 'd'
+
+
+
+
+
+
+
