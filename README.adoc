@@ -27,9 +27,11 @@ These transliteration systems currently work:
 
 [source,sh]
 ----
+# Transliterating Russian Cyrillic to Latin using the Streamlined System for Russian
 interscript samples/rus-Cyrl.txt --system=bas-rus-Cyrl-Latn-bss --output=rus-Latn.txt
 
-interscript samples/rus-Cyrl.txt --system=bas-rus-Cyrl-Latn-bss --output=rus-Latn.txt
+# Transliterating Russian Cyrillic to Latin using the BGN/PCGN Romanization of Russian
+interscript samples/rus-Cyrl.txt --system=bgnpcgn-rus-Cyrl-Latn-1947 --output=rus-Latn.txt
 ----
 
 
