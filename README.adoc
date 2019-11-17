@@ -16,10 +16,10 @@ The goal is to achieve interoperable transliteration schemes allowing quality co
 
 These transliteration systems currently work:
 
-`bgnpcgn-rus-Cyrl-Latn`:: BGN/PCGN Romanization of Russian
-`iso-rus-Cyrl-Latn`::     ISO 9 Romanization of Russian
-`icao-rus-Cyrl-Latn`::    ICAO MRZ Romanization of Russian
-`bas-rus-Cyrl-Latn`::     Bulgaria Academy of Science Streamlined System for Russian
+`bgnpcgn-rus-Cyrl-Latn-1947`:: BGN/PCGN Romanization of Russian
+`iso-rus-Cyrl-Latn-iso9`::     ISO 9 Romanization of Russian
+`icao-rus-Cyrl-Latn-9303`::    ICAO MRZ Romanization of Russian
+`bas-rus-Cyrl-Latn-bss`::      Bulgaria Academy of Science Streamlined System for Russian
 
 
 == Usage
@@ -27,7 +27,9 @@ These transliteration systems currently work:
 
 [source,sh]
 ----
-interscript samples/rus-Cyrl.txt --system=bas-rus-Cyrl-Latn --output=rus-Latn.txt
+interscript samples/rus-Cyrl.txt --system=bas-rus-Cyrl-Latn-bss --output=rus-Latn.txt
+
+interscript samples/rus-Cyrl.txt --system=bas-rus-Cyrl-Latn-bss --output=rus-Latn.txt
 ----
 
 
