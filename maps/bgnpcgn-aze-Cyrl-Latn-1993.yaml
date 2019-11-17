@@ -1,10 +1,10 @@
 ---
 authority_id: bgnpcgn
 id: 1993
-language: azeri
-source_script: Azeri
+language: aze
+source_script: Cyrillic
 destination_script: Latn
-name: AZERBAIJANI CYRILLIC-ROMAN
+name: AZERBAIJANI TABLE OF CORRESPONDENCES CYRILLIC-ROMAN -- BGN/PCGN 1993 Agreement
 url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/816656/TABLE_OF_CORRESPONDENCES_FOR_AZERBAIJANI.pdf
 creation_date: 1993
 confirmation date: 2019-06
@@ -17,7 +17,7 @@ notes:
 
   - The obsolete characters й, э, ю, and я should be romanized ẏ, ė, yu., and ya.
 
-  - Unicode values are shown with the uppercase Cyrillic character first, followed by the lowercase character. It is not known whether there exists an uppercase ‘J’ specific to the Cyrillic character set (row 13).
+  - Unicode values are shown with the uppercase Cyrillic character first, followed by the lowercase character. It is not known whether there exists an uppercase ‘J’ specific to the Cyrillic character set.
 
   - An inventory of letter-diacritic combinations, with their Unicode encoding, in addition to the unmodified letters of the basic Roman script is:
   Ğ (U+011E), ğ (U+011F)
