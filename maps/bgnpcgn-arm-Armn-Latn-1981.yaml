@@ -1,8 +1,32 @@
 ---
 authority_id: bgnpcgn
-language: per
-source_script: Arab
+id: 1981
+language: arm
+source_script: Armn
 destination_script: Latn
+name: BGN/PCGN 1981 System
+url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/810208/ROMANIZATION_OF_ARMENIAN.pdf
+creation_date: 2013
+confirmation date: 2019-06
+description: |
+  The BGN/PCGN system for Armenian was designed for use in romanizing 
+  names written in the Armenian alphabet. The Roman letters and letter 
+  combinations shown as equivalents to the Armenian characters reflect
+  the eastern variety of Armenian, i.e. the language spoken in the
+  Republic of Armenia.
+  
+notes:
+  - The character ե should be romanized ye initially and after the vowel characters ա, ե, է, ը, ի, ո, ու and օ. In all other instances, it should be romanized e.
+  - The character ո should be romanized vo initially except in the word ով, which should be roman- ized ov. In all other instances, it should be romanized o.
+  - In Soviet-era sources this upper-case digraph character is found as Եի (Unicode encoding 0535+056B).
+  - This lower-case character may be seen either in digraph form as եւ (Unicode encoding 0565+0582) or in single character form as եւ (Unicode encoding 0587).
+  - The characters ԵՎ , եւ and եւ should be romanized yev initially, in isolation, and after the vowel characters ա, ե, է, ը, ի, ո, ու, and օ. In all other instances these characters should be romanized ev.
+  - All apostrophes appearing in Armenian romanization are encoded Unicode 2019.
+  - The Romanization column shows only lowercase forms but, when romanizing, uppercase and lowercase Roman letters as appropriate should be used.
+  
+tests:
+  - source:
+    expected:
 map:
   characters:
     '\u0531' : 'A'

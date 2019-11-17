@@ -37,6 +37,13 @@ interscript samples/rus-Cyrl.txt --system=bas-rus-Cyrl-Latn --output=rus-Latn.tx
 Currently the schemes cover Cyrillic, Armenian, Greek, Arabic and Hebrew.
 
 
+== Sources
+
+* `rus-Cyrl-1.txt`: Copied from the XLS output from http://www.primorsk.vybory.izbirkom.ru/region/primorsk?action=show&global=true&root=254017025&tvd=4254017212287&vrn=100100067795849&prver=0&pronetvd=0&region=25&sub_region=25&type=242&vibid=4254017212287
+
+* `rus-Cyrl-2.txt`: Copied from the XLS output from http://www.yaroslavl.vybory.izbirkom.ru/region/yaroslavl?action=show&root=764013001&tvd=4764013188704&vrn=4764013188693&prver=0&pronetvd=0&region=76&sub_region=76&type=426&vibid=4764013188704
+
+
 == Credits
 
 This is a Ribose project.
