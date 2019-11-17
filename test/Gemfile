@@ -1,7 +1,5 @@
-# frozen_string_literal: true
+source 'https://rubygems.org'
 
-source "https://rubygems.org"
-
-# gem "rails"
+# Specify your gem's dependencies in prayertimes.gemspec
 gem "riot"
 gem "rubysl-yaml","~>2.1"
