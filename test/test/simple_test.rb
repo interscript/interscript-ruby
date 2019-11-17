@@ -1,78 +1,38 @@
-def welcome
-    args = Hash[ ARGV.flat_map{|s| s.scan(/--?([^=\s]+)(?:=(\S+))?/) } ]
-    file_name = ARGV[0]
-    puts file_name
-    language = args["system"]
-    languages = [
-        ["iso", Translate.new('iso-rus-Cyrl-Latn.yaml')],
-        ["icao", Translate.new('icao-rus-Cyrl-Latn.yaml')],
-        ["bgnpcgn", Translate.new('bgnpcgn-rus-Cyrl-Latn.yaml')],
-        ["bas", Translate.new('bas-rus-Cyrl-Latn.yaml')]
-    ]
+# coding: utf-8
 
-    index = if /^\d+$/.match(language) then
-        Integer(language) - 1
-    else
-        languages.index { |x| x[0].downcase == language }
-    end
+require 'rubygems'
+require 'riot'
+$:.unshift "#{File.dirname(__FILE__)}/../lib"
+require 'translit'
 
-    if index.nil? or (language = languages[index][1]).nil?
-        puts "Language is not yet supported within Translation Center."
-    else
-        language.translate(file_name)
-    end
+context "Translit#convert" do
+  should("transliterate English to Cyrillic") do
+    Translit.convert("Jeto prostoj test")
+  end.equals("Это простой тест")
+
+  should("transliterate Cyrillic to English") do
+    Translit.convert("Это простой тест")
+  end.equals("Jeto prostoj test")
+
+  should("leave input unmodified by default") do
+    str = "Это простой тест"
+    Translit.convert(str)
+    str
+  end.equals("Это простой тест")
 end
 
-class Translate
-    def initialize(file_name)
-        @file_name = file_name
-    end
-
-    def set_translation
-        require 'yaml'
-        @translations = YAML.load_file(@file_name)
-    end
-    
-    def create_russian_map(translation)
-        translation["map"].values[-1].inject({}) do |acc, tuple|
-        end
-    end
-
-    def checkQuitCommand(command) 
-        if command == "Q" 
-            puts"Quite"
-        end
-        command != "Q"  
-    end
-
-    def outputResult(fileName, text)
-        out_file = File.new(fileName, "w")
-        out_file.puts(text)
-        out_file.close
-        puts "output to converted_#{fileName}"
-    end
-
-    def translate(fileName)
-        set_translation()
-        create_russian_map(@translations)
-        puts "Enter word or phrase to be translated to authority_id #{@translations["authority_id"]}, press 'Q' to quit:"
-        data = File.read(fileName)
-        if checkQuitCommand(data)
-            inputArray = data.split('')
-            charactors = @translations["map"].values[-1]
-            out = ""
-            inputArray.each { |c|   
-                if (charactors || set_translation)[c]
-                    out += charactors[c]
-                else
-                    out += c
-                end
-            }
-            outputResult("converted_#{fileName}", out)
-            translate
-        end
-    end
-    welcome()
+context "Translit#convert!" do
+  should("transliterate input in place") do
+    str = "Это простой тест"
+    Translit.convert!(str)
+    str
+  end.equals("Jeto prostoj test")
 end
 
+context "Translit#convert with enforced language" do
+  should("transliterate to that language") { Translit.convert("test", :english)}.equals("test")
+  should("keep it the same if language matched the text") {Translit.convert("test", :russian)}.equals("тест")
 
+  should("transliterate to english language if input language is mixed") { Translit.convert("test тест", :english)}.equals("test test")
+  should("transliterate to russian language if input language is mixed") { Translit.convert("test тест", :russian)}.equals("тест тест")
+end
