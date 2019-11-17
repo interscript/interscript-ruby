@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+require 'rubygems'
+require_relative '../lib/interscript'
+
+if ARGV.empty?
+  puts "write source file, source format, and output file"
+else
+  args = Hash[ ARGV.flat_map{|s| s.scan(/--?([^=\s]+)(?:=(\S+))?/) } ]
+  input = ARGV[0]
+  system_code = args["system"]
+  output_file = args["output"]
+
+  raise "Please enter the system code with --system={system_code}" unless system_code
+
+  if output_file
+    Interscript.instance.transliterate_file(system_code, input, output_file)
+  else
+    puts Interscript.instance.transliterate(system_code, IO.read(input))
+  end
+end
+
+
