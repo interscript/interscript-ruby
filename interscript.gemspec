@@ -2,20 +2,20 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'transcriptionkit/version'
+require 'interscript/version'
 require 'rake'
 
 Gem::Specification.new do |spec|
-  spec.name          = "transcriptionkit"
-  spec.version       = TranscriptionKit::VERSION
+  spec.name          = "interscript"
+  spec.version       = Interscript::VERSION
   spec.required_rubygems_version = Gem::Requirement.new('>= 0') if spec.respond_to? :required_rubygems_version=
-  spec.summary       = %q{ Gem used for calculating translite.}
-  spec.description   = %q{Gem used for calculating translit.}
+  spec.summary       = %q{Interoperable script conversion systems}
+  spec.description   = %q{Interoperable script conversion systems}
   spec.authors = ['project_contibutors']
   spec.date = %q{2019-11-17}
   spec.homepage      = ""
   spec.license       = "MIT"
-  spec.files = FileList['{bin,lib,test}/**/*', 'README.markdown'].to_a
+  spec.files = FileList['{bin,lib,test}/**/*', 'README.adoc'].to_a
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]

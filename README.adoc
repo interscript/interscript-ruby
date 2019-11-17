@@ -1,4 +1,4 @@
-= Interoperable Transliteration Schemes and a Ruby implementation
+= Interscript: Interoperable Transliteration Schemes and a Ruby implementation
 
 == Introducation
 
@@ -7,29 +7,34 @@ This repository contains a number of transliteration schemes from:
 * BGN/PCGN
 * ICAO
 * ISO
+* UN (by UNGEGN)
 
-The goal is to achieve quality comparison and easily swappable transliteration schemes.
+The goal is to achieve interoperable transliteration schemes allowing quality comparisons.
+
+
+== STATUS (work in progress!)
+
+These transliteration systems currently work:
+
+`bgnpcgn-rus-Cyrl-Latn`:: BGN/PCGN Romanization of Russian
+`iso-rus-Cyrl-Latn`::     ISO 9 Romanization of Russian
+`icao-rus-Cyrl-Latn`::    ICAO MRZ Romanization of Russian
+`bas-rus-Cyrl-Latn`::     Bulgaria Academy of Science Streamlined System for Russian
+
+
+== Usage
+
+
+[source,sh]
+----
+interscript samples/rus-Cyrl.txt --system=bas-rus-Cyrl-Latn --output=rus-Latn.txt
+----
+
+
 
 == Covered languages
 
 Currently the schemes cover Cyrillic, Armenian, Greek, Arabic and Hebrew.
-
-
-== Initial work
-
-The initial work is to:
-
-1. Write a Ruby script that allows transliterating some text (under `samples/`)
-into the target writing system via the files in `maps/`.
-
-2. Initially we only want to compare Russian transcriptions. There are the following definition maps:
-
-.. BGN/PCGN Romanization of Russian (`bgnpcgn-rus-Cyrl-Latn.yaml`)
-.. ISO 9 Romanization of Russian (`iso-rus-Cyrl-Latn.yaml`)
-.. ICAO MRZ Romanization of Russian (`icao-rus-Cyrl-Latn.yaml`)
-.. Bulgaria Academy of Science Streamlined System for Russian (`bas-rus-Cyrl-Latn.yaml`)
-
-3. There should be a command to generate all 4 transliterations at once.
 
 
 == Credits

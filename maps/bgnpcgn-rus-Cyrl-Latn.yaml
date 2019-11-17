@@ -51,17 +51,17 @@ notes:
 map:
   rules:
     - pattern: "/([ЄФІЦАаЕеИиЙйОоУуЫыЮюЯяії])\u0415/"
-      result: "\1YE"
+      result: "\\1YE"
     - pattern: "/^\u0415/"
       result: "YE"
     - pattern: "/([йьъ])\u0415/"
-      result: "\1YE"
+      result: "\\1YE"
     - pattern: "/([ЄФІЦАаЕеИиЙйОоУуЫыЮюЯяії])\u0435/"
-      result: "\1ye"
+      result: "\\1ye"
     - pattern: "/^\u0435/"
       result: "ye"
     - pattern: "/([йьъ])\u0435/"
-      result: "\1ye"
+      result: "\\1ye"
 
   characters:
     "\u0410": "A"
@@ -70,7 +70,7 @@ map:
     "\u0413": "G"
     "\u0414": "D"
     "\u0415": "E"
-    "\u0435": "Yo"
+    "\u0435": "e"
     "\u0416": "Zh"
     "\u0417": "Z"
     "\u0418": "I"
@@ -102,8 +102,6 @@ map:
     "\u0432": "v"
     "\u0433": "g"
     "\u0434": "d"
-    "e"
-    "yo"
     "\u0436": "zh"
     "\u0437": "z"
     "\u0438": "i"
@@ -130,3 +128,4 @@ map:
     "\u044d": "e"
     "\u044e": "y"
     "\u044f": "ya"
+
