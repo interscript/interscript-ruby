@@ -1,4 +1,4 @@
-= Interscript: Interoperable Transliteration Schemes and a Ruby implementation
+= Interscript: Interoperable Script Conversion Systems and a Ruby implementation
 
 == Introducation
 
@@ -34,6 +34,18 @@ interscript samples/rus-Cyrl.txt --system=bas-rus-Cyrl-Latn-bss --output=rus-Lat
 interscript samples/rus-Cyrl.txt --system=bgnpcgn-rus-Cyrl-Latn-1947 --output=rus-Latn.txt
 ----
 
+
+== ISCS system codes
+
+The system code identifying a script conversion system has a few components:
+
+e.g. `bgnpcgn-rus-Cyrl-Latn-1947`
+
+`bgnpcgn`:: the authority identifier
+`rus`:: an ISO 639-2 3-letter language code that this system applies to
+`Cyrl`:: an ISO 15924 script code, identifying the source script
+`Latn`:: an ISO 15924 script code, identifying the target script
+`1947`:: an identifier unit within the authority to identify this system
 
 
 == Covered languages
