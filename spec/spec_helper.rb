@@ -1,1 +1,1 @@
-require 'Interscript'
+require 'interscript'
