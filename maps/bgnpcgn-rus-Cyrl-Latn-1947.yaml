@@ -102,69 +102,97 @@ tests:
       Число открепительных удостоверений, утраченных в окружной избирательной комиссии
 
     expected: |
-      VYBORY DEPUTATOV GOSUDARSTVENNOY DUMY FEDERAL’NOGO SOBRANIYA ROSSIYSKOY FEDERATSII SED’MOGO SOZYVA
-      DATA GOLOSOVANIYA: 18.09.2016
+      Vybory deputatov Gosudarstvennoy Dumy Federal’nogo Sobraniya Rossiyskoy Federatsii sed’mogo sozyva
+      Data golosovaniya: 18.09.2016
 
-      NAIMENOVANIE IZBIRATEL’NOY KOMISSII:    TSIK ROSSII
+      Naimenovaniye Izbiratel’noy komissii:    TsIK Rossii
 
-      SVODNAYA TABLITSA REZUL’TATOV VYBOROV PO FEDERAL’NOMU IZBIRATEL’NOMU OKRUGU
-
-
-      CHISLO IZBIRATELEY, VNESENNYKH V SPISOK IZBIRATELEY NA MOMENT OKONCHANIYA GOLOSOVANIYA
-      CHISLO IZBIRATEL’NYKH BYULLETENEY, POLUCHENNYKH UCHASTKOVOY IZBIRATEL’NOY KOMISSIEY
-      CHISLO IZBIRATEL’NYKH BYULLETENEY, VYDANNYKH IZBIRATELYAM, PROGOLOSOVAVSHIM DOSROCHNO
-      CHISLO IZBIRATEL’NYKH BYULLETENEY, VYDANNYKH V POMESHCHENII DLYA GOLOSOVANIYA V DEN’ GOLOSOVANIYA
-      CHISLO IZBIRATEL’NYKH BYULLETENEY, VYDANNYKH VNE POMESHCHENIYA DLYA GOLOSOVANIYA V DEN’ GOLOSOVANIYA
-      CHISLO POGASHENNYKH IZBIRATEL’NYKH BYULLETENEY
-      CHISLO IZBIRATEL’NYKH BYULLETENEY, SODERZHASHCHIKHSYA V PERENOSNYKH YASHCHIKAKH DLYA GOLOSOVANIYA
-      CHISLO IZBIRATEL’NYKH BYULLETENEY, SODERZHASHCHIKHSYA V STATSIONARNYKH YASHCHIKAKH DLYA GOLOSOVANIYA
-      CHISLO NEDEYSTVITEL’NYKH IZBIRATEL’NYKH BYULLETENEY
-      CHISLO DEYSTVITEL’NYKH IZBIRATEL’NYKH BYULLETENEY
-      CHISLO OTKREPITEL’NYKH UDOSTOVERENIY, POLUCHENNYKH UCHASTKOVOY IZBIRATEL’NOY KOMISSIEY
-      CHISLO OTKREPITEL’NYKH UDOSTOVERENIY, VYDANNYKH NA IZBIRATEL’NOM UCHASTKE DO DNYA GOLOSOVANIYA
-      CHISLO IZBIRATELEY, PROGOLOSOVAVSHIKH PO OTKREPITEL’NYM UDOSTOVERENIYAM NA IZBIRATEL’NOM UCHASTKE
-      CHISLO POGASHENNYKH NEISPOL’ZOVANNYKH OTKREPITEL’NYKH UDOSTOVERENIY
-      CHISLO OTKREPITEL’NYKH UDOSTOVERENIY, VYDANNYKH IZBIRATELYAM TERRITORIAL’NOY IZBIRATEL’NOY KOMISSIEY
-      CHISLO UTRACHENNYKH OTKREPITEL’NYKH UDOSTOVERENIY
-      CHISLO UTRACHENNYKH IZBIRATEL’NYKH BYULLETENEY
-      CHISLO IZBIRATEL’NYKH BYULLETENEY, NE UCHTENNYKH PRI POLUCHENII
-      1. VSEROSSIYSKAYA POLITICHESKAYA PARTIYA "RODINA"
-      2. POLITICHESKAYA PARTIYA KOMMUNISTICHESKAYA PARTIYA KOMMUNISTY ROSSII
-      3. POLITICHESKAYA PARTIYA "ROSSIYSKAYA PARTIYA PENSIONEROV ZA SPRAVEDLIVOST’"
-      4. VSEROSSIYSKAYA POLITICHESKAYA PARTIYA "EDINAYA ROSSIYA"
-      5. POLITICHESKAYA PARTIYA "ROSSIYSKAYA EKOLOGICHESKAYA PARTIYA "ZELENYE"
-      6. POLITICHESKAYA PARTIYA "GRAZHDANSKAYA PLATFORMA"
-      7. POLITICHESKAYA PARTIYA LDPR - LIBERAL’NO-DEMOKRATICHESKAYA PARTIYA ROSSII
-      8. POLITICHESKAYA PARTIYA "PARTIYA NARODNOY SVOBODY" (PARNAS)
-      9. VSEROSSIYSKAYA POLITICHESKAYA PARTIYA "PARTIYA ROSTA"
-      10. OBSHCHESTVENNAYA ORGANIZATSIYA VSEROSSIYSKAYA POLITICHESKAYA PARTIYA "GRAZHDANSKAYA SILA"
-      11. POLITICHESKAYA PARTIYA "ROSSIYSKAYA OBEDINENNAYA DEMOKRATICHESKAYA PARTIYA ""YABLOKO"""
-      12. POLITICHESKAYA PARTIYA "KOMMUNISTICHESKAYA PARTIYA ROSSIYSKOY FEDERATSII"
-      13. POLITICHESKAYA PARTIYA "PATRIOTY ROSSII"
-      14. POLITICHESKAYA PARTIYA SPRAVEDLIVAYA ROSSIYA
-
-      DANNYYE OKRUZHNYKH IZBIRATYEL’NYKH KOMISSIY O CHISLYE OTKRYEPITYEL’NYKH UDOSTOVYERYENIY
+      Svodnaya tablitsa rezul’tatov vyborov po federal’nomu izbiratel’nomu okrugu
 
 
-      CHISLO OTKREPITEL’NYKH UDOSTOVERENIY, POLUCHENNYKH OKRUZHNOY IZBIRATEL’NOY KOMISSIEY
-      CHISLO OTKREPITEL’NYKH UDOSTOVERENIY, VYDANNYKH TERRITORIAL’NYM IZBIRATEL’NYM KOMISSIYAM
-      CHISLO NEISPOL’ZOVANNYKH OTKREPITEL’NYKH UDOSTOVERENIY, POGASHENNYKH OKRUZHNOY IZBIRATEL’NOY KOMISSIEY
-      CHISLO OTKREPITEL’NYKH UDOSTOVERENIY, UTRACHENNYKH V OKRUZHNOY IZBIRATEL’NOY KOMISSII
+      Chislo izbirateley, vnesennykh v spisok izbirateley na moment okonchaniya golosovaniya
+      Chislo izbiratel’nykh byulleteney, poluchennykh uchastkovoy izbiratel’noy komissiyey
+      Chislo izbiratel’nykh byulleteney, vydannykh izbiratelyam, progolosovavshim dosrochno
+      Chislo izbiratel’nykh byulleteney, vydannykh v pomeshchenii dlya golosovaniya v den’ golosovaniya
+      Chislo izbiratel’nykh byulleteney, vydannykh vne pomeshcheniya dlya golosovaniya v den’ golosovaniya
+      Chislo pogashennykh izbiratel’nykh byulleteney
+      Chislo izbiratel’nykh byulleteney, soderzhashchikhsya v perenosnykh yashchikakh dlya golosovaniya
+      Chislo izbiratel’nykh byulleteney, soderzhashchikhsya v statsionarnykh yashchikakh dlya golosovaniya
+      Chislo nedeystvitel’nykh izbiratel’nykh byulleteney
+      Chislo deystvitel’nykh izbiratel’nykh byulleteney
+      Chislo otkrepitel’nykh udostovereniy, poluchennykh uchastkovoy izbiratel’noy komissiyey
+      Chislo otkrepitel’nykh udostovereniy, vydannykh na izbiratel’nom uchastke do dnya golosovaniya
+      Chislo izbirateley, progolosovavshikh po otkrepitel’nym udostovereniyam na izbiratel’nom uchastke
+      Chislo pogashennykh neispol’zovannykh otkrepitel’nykh udostovereniy
+      Chislo otkrepitel’nykh udostovereniy, vydannykh izbiratelyam territorial’noy izbiratel’noy komissiyey
+      Chislo utrachennykh otkrepitel’nykh udostovereniy
+      Chislo utrachennykh izbiratel’nykh byulleteney
+      Chislo izbiratel’nykh byulleteney, ne uchtennykh pri poluchenii
+      1. VSEROSSIYSKAYa POLITIChESKAYa PARTIYa "RODINA"
+      2. Politicheskaya partiya KOMMUNISTIChESKAYa PARTIYa KOMMUNISTY ROSSII
+      3. Politicheskaya partiya "Rossiyskaya partiya pensionerov za spravedlivost’"
+      4. Vserossiyskaya politicheskaya partiya "YEDINAYa ROSSIYa"
+      5. Politicheskaya partiya "Rossiyskaya ekologicheskaya partiya "Zelenyye"
+      6. Politicheskaya partiya "Grazhdanskaya Platforma"
+      7. Politicheskaya partiya LDPR - Liberal’no-demokraticheskaya partiya Rossii
+      8. Politicheskaya partiya "Partiya narodnoy svobody" (PARNAS)
+      9. Vserossiyskaya politicheskaya partiya "PARTIYa ROSTA"
+      10. Obshchestvennaya organizatsiya Vserossiyskaya politicheskaya partiya "Grazhdanskaya Sila"
+      11. Politicheskaya partiya "Rossiyskaya ob"yedinennaya demokraticheskaya partiya "YaBLOKO"
+      12. Politicheskaya partiya "KOMMUNISTIChESKAYa PARTIYa ROSSIYSKOY FEDERATsII"
+      13. Politicheskaya partiya "PATRIOTY ROSSII"
+      14. Politicheskaya partiya SPRAVEDLIVAYa ROSSIYa
+
+      Dannyye okruzhnykh izbiratel’nykh komissiy o chisle otkrepitel’nykh udostovereniy
+
+
+      Chislo otkrepitel’nykh udostovereniy, poluchennykh okruzhnoy izbiratel’noy komissiyey
+      Chislo otkrepitel’nykh udostovereniy, vydannykh territorial’nym izbiratel’nym komissiyam
+      Chislo neispol’zovannykh otkrepitel’nykh udostovereniy, pogashennykh okruzhnoy izbiratel’noy komissiyey
+      Chislo otkrepitel’nykh udostovereniy, utrachennykh v okruzhnoy izbiratel’noy komissii
 
 map:
   rules:
-    - pattern: ([ЄФІЦАаЕеИиЙйОоУуЫыЮюЯяії])\u0415
-      result: "\\1YE"
+    - pattern: (?<=[АaЕeЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\u0415
+      result: "YE"
     - pattern: \b\u0415
       result: YE
-    - pattern: ([йьъ])\u0415
-      result: "\\1YE"
-    - pattern: ([ЄФІЦАаЕеИиЙйОоУуЫыЮюЯяії])\u0435
-      result: "\\1ye"
+    - pattern: (?<=[АaЕeЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\u0435
+      result: "ye"
     - pattern: \b\u0435
       result: ye
-    - pattern: ([йьъ])\u0435
-      result: "\\1ye"
+    - pattern: (?<=[АaЕeЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\u0401 # Ё
+      result: Y\u00cb
+    - pattern: \b\u0401
+      result: Y\u00cb
+    - pattern: (?<=[АaЕeЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\u0451 # ё
+      result: Y\u00eb
+    - pattern: \b\u0451
+      result: y\u00eb
+    - pattern: \u0419(?=[АаУуЫыЭэ]) # Й before а, у, ы, or э
+      result: Y\u00b7
+    - pattern: \u0439(?<=[АаУуЫыЭэ]) # й before а, у, ы, or э
+      result: y\u00b7
+    # - pattern: ([АaЕeЁёИиОоУуЫыЭэЮюЯя])\u042b([АаУуЫыЭэ]) # Ы after any vowel character and before а, у, ы, or э
+    #   result: "\\1\u00b7Y\u00b7\\2"
+    # - pattern: ([АaЕeЁёИиОоУуЫыЭэЮюЯя])\u044b([АаУуЫыЭэ]) # ы after any vowel character and before а, у, ы, or э
+    #   result: "\\1\u00b7y\u00b7\\2"
+    - pattern: \u042b(?=[АаУуЫыЭэ]) # Ы before а, у, ы, or э
+      result: Y\u00b7
+    - pattern: \u044b(?=[АаУуЫыЭэ]) # ы before а, у, ы, or э
+      result: y\u00b7
+    - pattern: (?<=[АaЕeЁёИиОоУуЫыЭэЮюЯя])\u042b # Ы after any vowel character
+      result: \u00b7Y
+    - pattern: (?<=[АaЕeЁёИиОоУуЫыЭэЮюЯя])\u044b # ы after any vowel character
+      result: \u00b7y
+    - pattern: (?<=[БбВвГгДдЖжЗзКкЛлМмНнПпРрСсТтФфХхЦцЧчШшЩщ])\u042d # Э after any consonant character except й
+      result: \u00b7E
+    - pattern: (?<=[БбВвГгДдЖжЗзКкЛлМмНнПпРрСсТтФфХхЦцЧчШшЩщ])\u044d # э after any consonant character except й
+      result: \u00b7e
+    - pattern: (Т|т)(С|с) # тс => t·s
+      result: "\\1\u00b7\\2"
+    - pattern: (Ш|ш)(Ч|ч) # шч => sh·ch
+      result: "\\1\u00b7\\2"
 
   characters:
     "\u0410": "A"
@@ -173,7 +201,7 @@ map:
     "\u0413": "G"
     "\u0414": "D"
     "\u0415": "E"
-    "\u0435": "e"
+    "\u0401": "\u00cb" # Ё
     "\u0416": "Zh"
     "\u0417": "Z"
     "\u0418": "I"
@@ -194,9 +222,9 @@ map:
     "\u0427": "Ch"
     "\u0428": "Sh"
     "\u0429": "Shch"
-    "\u042a": "\""
+    "\u042a": "\"" # Ъ
     "\u042b": "Y"
-    "\u042c": "\u2019"
+    "\u042c": "\u2019" # Ь => ’
     "\u042d": "E"
     "\u042e": "Yu"
     "\u042f": "Ya"
@@ -205,6 +233,8 @@ map:
     "\u0432": "v"
     "\u0433": "g"
     "\u0434": "d"
+    "\u0435": "e"
+    "\u0451": "\u00eb" # ё
     "\u0436": "zh"
     "\u0437": "z"
     "\u0438": "i"
@@ -225,9 +255,9 @@ map:
     "\u0447": "ch"
     "\u0448": "sh"
     "\u0449": "shch"
-    "\u044a": "\""
+    "\u044a": "\"" # ъ
     "\u044b": "y"
-    "\u044c": "\u2019"
+    "\u044c": "\u2019" # ь => ’
     "\u044d": "e"
     "\u044e": "yu"
     "\u044f": "ya"

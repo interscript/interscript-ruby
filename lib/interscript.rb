@@ -27,11 +27,17 @@ module Interscript
       rules = system["map"]["rules"] || []
       charmap = system["map"]["characters"] || {}
 
+      output = string.clone
+      offsets = Array.new string.size, 1
       rules.each do |r|
-        string.gsub! %r{#{r["pattern"]}}, r["result"]
+        string.scan(/#{r["pattern"]}/) do |match|
+          pos = Regexp.last_match.offset(0).first
+          output[offsets[0..pos].sum - 1] = r["result"]
+          offsets[pos] = r["result"].size - match.size + 1
+        end
       end
 
-      string.split('').map do |char|
+      output.split('').map do |char|
         charmap[char] || char
       end.join('')
     end
