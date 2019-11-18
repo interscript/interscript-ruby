@@ -24,14 +24,53 @@ These transliteration systems currently work:
 
 == Usage
 
+Assume you have a file ready in the source script like this:
 
 [source,sh]
 ----
-# Transliterating Russian Cyrillic to Latin using the Streamlined System for Russian
-interscript samples/rus-Cyrl.txt --system=bas-rus-Cyrl-Latn-bss --output=rus-Latn.txt
+cat <<EOT > rus-Cyrl.txt
+Эх, тройка! птица тройка, кто тебя выдумал? знать, у бойкого народа ты
+могла только родиться, в той земле, что не любит шутить, а
+ровнем-гладнем разметнулась на полсвета, да и ступай считать версты,
+пока не зарябит тебе в очи. И не хитрый, кажись, дорожный снаряд, не
+железным схвачен винтом, а наскоро живьём с одним топором да долотом
+снарядил и собрал тебя ярославский расторопный мужик. Не в немецких
+ботфортах ямщик: борода да рукавицы, и сидит чёрт знает на чём; а
+привстал, да замахнулся, да затянул песню — кони вихрем, спицы в
+колесах смешались в один гладкий круг, только дрогнула дорога, да
+вскрикнул в испуге остановившийся пешеход — и вон она понеслась,
+понеслась, понеслась!
 
-# Transliterating Russian Cyrillic to Latin using the BGN/PCGN Romanization of Russian
-interscript samples/rus-Cyrl.txt --system=bgnpcgn-rus-Cyrl-Latn-1947 --output=rus-Latn.txt
+Н.В. Гоголь
+EOT
+----
+
+You can run `interscript` on this text using different transliteration systems.
+
+[source,sh]
+----
+interscript rus-Cyrl.txt \
+  --system=bgnpcgn-rus-Cyrl-Latn-1947 \
+  --output=bgnpcgn-rus-Latn.txt
+
+interscript rus-Cyrl.txt \
+  --system=iso-rus-Cyrl-Latn-iso9 \
+  --output=iso-rus-Latn.txt
+
+interscript rus-Cyrl.txt \
+  --system=icao-rus-Cyrl-Latn-9303 \
+  --output=icao-rus-Latn.txt
+
+interscript rus-Cyrl.txt \
+  --system=bas-rus-Cyrl-Latn-bss \
+  --output=bas-rus-Latn.txt
+----
+
+It is then easy to see the exact differences in rendering between the systems.
+
+[source,sh]
+----
+diff bgnpcgn-rus-Latn.txt bas-rus-Latn.txt
 ----
 
 
