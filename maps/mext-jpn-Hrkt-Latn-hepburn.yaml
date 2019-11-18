@@ -4,327 +4,663 @@ id: hepburn
 language: jpn
 source_script: Hrkt
 destination_script: Latn
-name: Romanization of Japanese, Modified Hepburn System
-url: http://www.eki.ee/wgrs/rom2_ja.htm
+name: 内閣告示第一号 -- ローマ字のつづり方
+url: http://www.mext.go.jp/b_menu/hakusho/nc/k19541209001/k19541209001.html
 creation_date: 1954
-adoption_date: 1954-12-09
-description: |
-  Widely used Romanization system in customs, e.g. in passports. In
-  international cartographic products the Modified Hepburn System remains
-  the most used system.
+adoption_date: 1954-12-09 # 昭和二十九年十二月九日
+description:
+  jp: |
+    国語を書き表わす場合に用いるローマ字のつづり方を次のように定める。
+
+    まえがき
+    １　一般に国語を書き表わす場合は、第1表に掲げたつづり方によるものとする。
+    ２　国際的関係その他従来の慣例をにわかに改めがたい事情にある場合に限り、第2表に掲げたつづり方によつてもさしつかえない。
+    ３　前二項のいずれの場合においても、おおむねそえがきを適用する。
+  en: |
+    The spelling method for Roman characters used when writing Japanese language is as follows.
+
+    Preface
+    1. In general, when the language is written, the spelling shown in Table 1 shall be used.
+    2. The spelling methods listed in Table 2 can be used only when there is a situation that is difficult to change due to international relations or other conventional practices.
+    3. In either case of the preceding two paragraphs, the general introduction will apply.
 
 notes:
-  - A small-script tu/tsu form (ッ / っ) is inserted between kana symbols to indicate a double consonant (kk, ss, ssh, tt, tts, tch, pp in Hepburn).
-  - ン / ん in modified Hepburn the character is romanized n’ before y or a vowel letter, n in all other cases; earlier also m was used before b, p, or m.
-  - Long vowels are expressed in Hepburn by placing a macron (¯) over a vowel.
-  - The romanization in parentheses (in modified Hepburn) is used only in those cases where the kana symbol is known to be pronounced in the manner indicated.
-  - The combination in parentheses is used to denote the word meaning ’big, great’.
+  - jp: はねる音「ン」はすべてnと書く。
+    en: ン / ん is romanized always n in Kunrei-siki
+  - jp: はねる音を表わすnと次にくる母音字またはyとを切り離す必要がある場合には、nの次に’を入れる。
+    en: When it is necessary to separate the sound n from the vowel or y to follow, the apostrophe is added after the n.
+  - jp: つまる音は、最初の子音字を重ねて表わす。
+    en: The clogged sound is represented by overlapping the first consonant characters.
+  - jp: 長音は母音字の上に＾をつけて表わす。なお、大文字の場合は母音字を並べてもよい。
+    en: Long vowels are expressed in Kunrei-siki by placing a circumflex (^) over a vowel. In the case of capital letters, vowel characters may be arranged.
+  - jp: 特殊音の書き表わし方は自由とする。
+    en: The way of writing special sounds is free.
+  - jp: 文の書きはじめ、および固有名詞は語頭を大文字で書く。なお、固有名詞以外の名詞の語頭を大文字で書いてもよい。
+    en: Begin writing sentences and proper nouns with capital letters. Note that the beginning of nouns other than proper nouns may be written in capital letters.
+
 
 tests:
-  - source: おばあさん
-    expected: obāsan
-  - source: おにいさん
-    expected: oniisan
-  - source: みずうみ
-    expected: mizuumi
-  - source: とおまわり
-    expected: tōmawari
-  - source: べんきょう
-    expected: benkyō
-  - source: じゃあく
-    expected: jaaku
-  - source: バレーボール
-    expected: barēbōru
-  - source: スーパーマン
-    expected: sūpāman
+  - source: かんおう
+    expected: kanō #kan'ō
+  - source: かのう
+    expected: kanō
+  - source: きんゆう
+    expected: kinyū # kin'yū
+  - source: とうきょう
+    expected: tōkyō
+  - source: がっこう
+    expected: gakkō
+  - source: かごっま
+    expected: kagomma
+  - source: ぽっぽっや
+    expected: poppoyya
+  - source: てっら
+    expected: terra
+  - source: にゃっほー
+    expected: nyahhō
 
 map:
+  rules:
+    - pattern: ([ЄФІЦАаЕеИиЙйОоУуЫыЮюЯяії])\u0415
+      result: "\\1YE"
+    - pattern: (?<=[АaЕeЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\u0415
+      result: "YE"
+    - pattern: (?<=っ([])
+
   characters:
     "あ": "a"
     "い": "i"
     "う": "u"
     "え": "e"
     "お": "o"
+
+    # Long vowels, note 4
+    "ああ": "ā"
+    "いい": "ī"
+    "うう": "û"
+    "ええ": "ē"
+    "おぅ": "ō"
+    "おお": "ō"
+
     "か": "ka"
     "き": "ki"
     "く": "ku"
-    "け":
-      - "ke"
-      - "ga" # See note 4
+    "け": "ke"
     "こ": "ko"
+    "きゃ": "kya"
+    "きゅ": "kyu"
+    "きょ": "kyo"
+    "こぅ": "kō"
+    "きゅぅ": "kyū"
+    "きょぅ": "kyō"
+
+
     "さ": "sa"
     "し": "shi"
     "す": "su"
     "せ": "se"
     "そ": "so"
+    "しゃ": "sha"
+    "しゅ": "shu"
+    "しょ": "sho"
+    "しゅぅ": "shū"
+    "しょぅ": "shō"
+    "そぅ": "sō"
+
     "た": "ta"
     "ち": "chi"
-    "つ": "tsu" # See note 1
+    "つ": "tsu"
     "て": "te"
     "と": "to"
+    "ちゃ": "cha"
+    "ちゅ": "chu"
+    "ちょ": "cho"
+    "ちゅぅ": "chū"
+    "ちょぅ": "chō"
+    "とぅ": "tō"
+
     "な": "na"
     "に": "ni"
     "ぬ": "nu"
     "ね": "ne"
     "の": "no"
-    "は":
-      - "ha"
-      - "wa" # See note 4
+    "にゃ": "nya"
+    "にゅ": "nyu"
+    "にょ": "nyo"
+    "にゅぅ": "nyū"
+    "にょぅ": "nyō"
+    "のぅ": "nō"
+
+    "は": "ha"
     "ひ": "hi"
     "ふ": "fu"
-    "へ":
-      - "he"
-      - "e" # See note 4
+    "へ": "he"
     "ほ": "ho"
+    "ひゃ": "hya"
+    "ひゅ": "hyu"
+    "ひょ": "hyo"
+    "ひゅぅ": "hyū"
+    "ひょぅ": "hyō"
+    "ほぅ": "hō"
+
     "ま": "ma"
     "み": "mi"
     "む": "mu"
     "め": "me"
     "も": "mo"
+    "みゃ": "mya"
+    "みゅ": "myu"
+    "みょ": "myo"
+    "みゅぅ": "myū"
+    "みょぅ": "myō"
+    "もぅ": "mō"
+
+    "や": "ya"
+    "ゆ": "yu"
+    "よ": "yo"
+    "よぅ": "yō"
+
     "ら": "ra"
     "り": "ri"
     "る": "ru"
     "れ": "re"
     "ろ": "ro"
+    "りゃ": "rya"
+    "りゅ": "ryu"
+    "りょ": "ryo"
+    "りゅぅ": "ryū"
+    "りょぅ": "ryō"
+    "ろぅ": "rō"
+
     "わ": "wa"
-    "ん": "n" # See note 2
+    "を": "o"
+
     "が": "ga"
     "ぎ": "gi"
     "ぐ": "gu"
     "げ": "ge"
     "ご": "go"
+    "ぎゃ": "gya"
+    "ぎゅ": "gyu"
+    "ぎょ": "gyo"
+    "ぎゅぅ": "gyū"
+    "ぎょぅ": "gyō"
+    "ごぅ": "gō"
+
     "ざ": "za"
     "じ": "ji"
     "ず": "zu"
     "ぜ": "ze"
     "ぞ": "zo"
+    "じゃ": "ja"
+    "じゅ": "ju"
+    "じょ": "jo"
+    "じゅぅ": "jū"
+    "じょぅ": "jō"
+    "ぞぅ": "zō"
+
+
     "だ": "da"
     "ぢ": "ji"
     "づ": "zu"
     "で": "de"
     "ど": "do"
+    "ぢゃ": "ja"
+    "ぢゅ": "ju"
+    "ぢょ": "jo"
+    "どぅ": "dō"
+
     "ば": "ba"
     "び": "bi"
     "ぶ": "bu"
     "べ": "be"
     "ぼ": "bo"
+    "びゃ": "bya"
+    "びゅ": "byu"
+    "びょ": "byo"
+    "びゅぅ": "byū"
+    "びょぅ": "byō"
+    "ぼぅ": "bō"
+
     "ぱ": "pa"
     "ぴ": "pi"
     "ぷ": "pu"
     "ぺ": "pe"
     "ぽ": "po"
-    "おぅ": "ō"
-    "おお": "ō" # See note 4
-    "きゃ": "kya"
-    "きゅ": "kyu"
-    "きゅぅ": "kyū"
-    "きょ": "kyo"
-    "きょぅ": "kyō"
-    "こぅ": "kō"
-    "しゃ": "sha"
-    "しゅ": "shu"
-    "しゅぅ": "shū"
-    "しょ": "sho"
-    "しょぅ": "shō"
-    "そぅ": "sō"
-    "ちゃ": "cha"
-    "ちゅ": "chu"
-    "ちゅぅ": "chū"
-    "ちょ": "cho"
-    "ちょぅ": "chō"
-    "とぅ": "tō"
-    "にゃ": "nya"
-    "にゅ": "nyu"
-    "にゅぅ": "nyū"
-    "にょ": "nyo"
-    "にょぅ": "nyō"
-    "のぅ": "nō"
-    "ひゃ": "hya"
-    "ひゅ": "hyu"
-    "ひゅぅ": "hyū"
-    "ひょ": "hyo"
-    "ひょぅ": "hyō"
-    "ほぅ":
-      - "hō"
-      - "ō" # See note 4
-    "みゃ": "mya"
-    "みゅ": "myu"
-    "みゅぅ": "myū"
-    "みょ": "myo"
-    "みょぅ": "myō"
-    "もぅ": "mō"
-    "よぅ": "yō"
-    "りゃ": "rya"
-    "りゅ": "ryu"
-    "りゅぅ": "ryū"
-    "りょ": "ryo"
-    "りょぅ": "ryō"
-    "ろぅ": "rō"
-    "ぎゃ": "gya"
-    "ぎゅ": "gyu"
-    "ぎゅぅ": "gyū"
-    "ぎょ": "gyo"
-    "ぎょぅ": "gyō"
-    "ごぅ": "gō"
-    "じゃ": "ja"
-    "じゅ": "ju"
-    "じゅぅ": "jū"
-    "じょ": "jo"
-    "じょぅ": "jō"
-    "ぞぅ": "zō"
-    "どぅ": "dō"
-    "びゃ": "bya"
-    "びゅ": "byu"
-    "びゅぅ": "byū"
-    "びょ": "byo"
-    "びょぅ": "byō"
-    "ぼぅ": "bō"
     "ぴゃ": "pya"
     "ぴゅ": "pyu"
-    "ぴゅぅ": "pyū"
     "ぴょ": "pyo"
+    "ぴゅぅ": "pyū"
     "ぴょぅ": "pyō"
     "ぽぅ": "pō"
+
+    "ん": "n" # See note 2
+
+
+    # Note 3. つまる音は、最初の子音字を重ねて表わす。
+
+    "っか": "kka"
+    "っき": "kki"
+    "っく": "kku"
+    "っけ": "kke"
+    "っこ": "kko"
+    "っきゃ": "kkya"
+    "っきゅ": "kkyu"
+    "っきょ": "kkyo"
+    "っこぅ": "kkō"
+    "っきゅぅ": "kkyū"
+    "っきょぅ": "kkyō"
+
+    "っさ": "ssa"
+    "っし": "sshi"
+    "っす": "ssu"
+    "っせ": "sse"
+    "っそ": "sso"
+    "っしゃ": "ssha"
+    "っしゅ": "sshu"
+    "っしょ": "ssho"
+    "っしゅぅ": "sshū"
+    "っしょぅ": "sshō"
+    "っそぅ": "ssō"
+
+    "った": "tta"
+    "っち": "tchi"
+    "っつ": "ttsu"
+    "って": "tte"
+    "っと": "tto"
+    "っちゃ": "tcha"
+    "っちゅ": "tchu"
+    "っちょ": "tcho"
+    "っちゅぅ": "tchū"
+    "っちょぅ": "tchō"
+    "っとぅ": "ttō"
+
+    "っな": "nna"
+    "っに": "nni"
+    "っぬ": "nnu"
+    "っね": "nne"
+    "っの": "nno"
+    "っにゃ": "nnya"
+    "っにゅ": "nnyu"
+    "っにょ": "nnyo"
+    "っにゅぅ": "nnyū"
+    "っにょぅ": "nnyō"
+    "っのぅ": "nnō"
+
+    "っは": "hha"
+    "っひ": "hhi"
+    "っふ": "hhu"
+    "っへ": "hhe"
+    "っほ": "hho"
+    "っひゃ": "hhya"
+    "っひゅ": "hhyu"
+    "っひょ": "hhyo"
+    "っひゅぅ": "hhyū"
+    "っひょぅ": "hhyō"
+    "っほぅ": "hhō"
+
+    "っが": "gga"
+    "っぎ": "ggi"
+    "っぐ": "ggu"
+    "っげ": "gge"
+    "っご": "ggo"
+    "っぎゃ": "ggya"
+    "っぎゅ": "ggyu"
+    "っぎょ": "ggyo"
+    "っぎゅぅ": "ggyū"
+    "っぎょぅ": "ggyō"
+    "っごぅ": "ggō"
+
+    "っざ": "zza"
+    "っじ": "jji"
+    "っず": "zzu"
+    "っぜ": "zze"
+    "っぞ": "zzo"
+    "っじゃ": "jja"
+    "っじゅ": "jju"
+    "っじょ": "jjo"
+    "っじゅぅ": "jjū"
+    "っじょぅ": "jjō"
+    "っぞぅ": "zzō"
+
+
+    "っだ": "dda"
+    "っぢ": "jji"
+    "っづ": "zzu"
+    "っで": "dde"
+    "っど": "ddo"
+    "っぢゃ": "jja"
+    "っぢゅ": "jju"
+    "っぢょ": "jjo"
+    "っどぅ": "ddō"
+
+    "っば": "bba"
+    "っび": "bbi"
+    "っぶ": "bbu"
+    "っべ": "bbe"
+    "っぼ": "bbo"
+    "っびゃ": "bbya"
+    "っびゅ": "bbyu"
+    "っびょ": "bbyo"
+    "っびゅぅ": "bbyū"
+    "っびょぅ": "bbyō"
+    "っぼぅ": "bbō"
+
+    "っぱ": "ppa"
+    "っぴ": "ppi"
+    "っぷ": "ppu"
+    "っぺ": "ppe"
+    "っぽ": "ppo"
+    "っぴゃ": "ppya"
+    "っぴゅ": "ppyu"
+    "っぴょ": "ppyo"
+    "っぴゅぅ": "ppyū"
+    "っぴょぅ": "ppyō"
+    "っぽぅ": "ppō"
+
+
+    # Supplementary
+    # "ゃ": "ya"
+    # "ゅ": "yu"
+    # "ょ": "yo"
+    # "ぅ": "u"
+    # "ょぅ": "yō"
+    # "ゅぅ": "yū"
+
     "ア": "a"
     "イ": "i"
     "ウ": "u"
     "エ": "e"
     "オ": "o"
+
+    # Long vowels, note 4
+    "アア": "ā"
+    "イイ": "ī"
+    "ウウ": "û"
+    "エエ": "ē"
+    "オオ": "ō"
+    "オゥ": "ō"
+
     "カ": "ka"
     "キ": "ki"
     "ク": "ku"
     "ケ": "ke"
     "コ": "ko"
+    "キャ": "kya"
+    "キュ": "kyu"
+    "キョ": "kyo"
+    "コゥ": "kō"
+    "キュゥ": "kyū"
+    "キョゥ": "kyō"
+    "コゥ": "kō"
+
     "サ": "sa"
     "シ": "shi"
     "ス": "su"
     "セ": "se"
     "ソ": "so"
+    "シャ": "sha"
+    "シュ": "shu"
+    "ショ": "sho"
+    "シュゥ": "shū"
+    "ショゥ": "shō"
+    "ソゥ": "sō"
+
     "タ": "ta"
     "チ": "chi"
-    "ツ": "tsu" # See note 1
+    "ツ": "tsu"
     "テ": "te"
     "ト": "to"
+    "チャ": "cha"
+    "チュ": "chu"
+    "チョ": "cho"
+    "チュゥ": "chū"
+    "チョゥ": "chō"
+    "トゥ": "tō"
+
     "ナ": "na"
     "ニ": "ni"
     "ヌ": "nu"
     "ネ": "ne"
     "ノ": "no"
-    "ハ":
-      - "ha"
-      - "wa" # See note 4
+    "ニャ": "nya"
+    "ニュ": "nyu"
+    "ニョ": "nyo"
+    "ニュゥ": "nyū"
+    "ニョゥ": "nyō"
+    "ノゥ": "nō"
+
+    "ハ": "ha"
     "ヒ": "hi"
     "フ": "fu"
-    "ヘ":
-      - "he"
-      - "e" # See note 4
+    "ヘ": "he"
     "ホ": "ho"
+    "ヒャ": "hya"
+    "ヒュ": "hyu"
+    "ヒョ": "hyo"
+    "ヒュゥ": "hyū"
+    "ヒョゥ": "hyō"
+    "ホゥ": "hō"
+
     "マ": "ma"
     "ミ": "mi"
     "ム": "mu"
     "メ": "me"
     "モ": "mo"
+    "ミャ": "mya"
+    "ミュ": "myu"
+    "ミョ": "myo"
+    "ミュゥ": "myū"
+    "ミョゥ": "myō"
+    "モゥ": "mō"
+
+    "ヤ": "ya"
+    "ユ": "yu"
+    "ヨ": "yo"
+    "ヨゥ": "yō"
+
     "ラ": "ra"
     "リ": "ri"
     "ル": "ru"
     "レ": "re"
     "ロ": "ro"
+    "リャ": "rya"
+    "リュ": "ryu"
+    "リョ": "ryo"
+    "リュゥ": "ryū"
+    "リョゥ": "ryō"
+    "ロゥ": "rō"
+
     "ワ": "wa"
-    "ン": "n" # See note 2
+    "ヲ": "o"
+
     "ガ": "ga"
     "ギ": "gi"
     "グ": "gu"
     "ゲ": "ge"
     "ゴ": "go"
+    "ギャ": "gya"
+    "ギュ": "gyu"
+    "ギョ": "gyo"
+    "ギュゥ": "gyū"
+    "ギョゥ": "gyō"
+    "ゴゥ": "gō"
+
     "ザ": "za"
     "ジ": "ji"
     "ズ": "zu"
     "ゼ": "ze"
     "ゾ": "zo"
+    "ジャ": "ja"
+    "ジュ": "ju"
+    "ジョ": "jo"
+    "ジュゥ": "jū"
+    "ジョゥ": "jō"
+    "ゾゥ": "zō"
+
     "ダ": "da"
     "ヂ": "ji"
     "ヅ": "zu"
     "デ": "de"
     "ド": "do"
+    "ヂャ": "ja"
+    "ヂュ": "ju"
+    "ヂョ": "jo"
+    "ドゥ": "dō"
+
     "バ": "ba"
     "ビ": "bi"
     "ブ": "bu"
     "ベ": "be"
     "ボ": "bo"
+    "ビャ": "bya"
+    "ビュ": "byu"
+    "ビョ": "byo"
+    "ビュゥ": "byū"
+    "ビョゥ": "byō"
+    "ボゥ": "bō"
+
     "パ": "pa"
     "ピ": "pi"
     "プ": "pu"
     "ペ": "pe"
     "ポ": "po"
-    "オゥ": "ō"
-    "オオ": "ō" # See note 4
-    "キャ": "kya"
-    "キュ": "kyu"
-    "キュゥ": "kyū"
-    "キョ": "kyo"
-    "キョゥ": "kyō"
-    "コゥ": "kō"
-    "シャ": "sha"
-    "シュ": "shu"
-    "シュゥ": "shū"
-    "ショ": "sho"
-    "ショゥ": "shō"
-    "ソゥ": "sō"
-    "チャ": "cha"
-    "チュ": "chu"
-    "チュゥ": "chū"
-    "チョ": "cho"
-    "チョゥ": "chō"
-    "トゥ": "tō"
-    "ニャ": "nya"
-    "ニュ": "nyu"
-    "ニュゥ": "nyū"
-    "ニョ": "nyo"
-    "ニョゥ": "nyō"
-    "ノゥ": "nō"
-    "ヒャ": "hya"
-    "ヒュ": "hyu"
-    "ヒュゥ": "hyū"
-    "ヒョ": "hyo"
-    "ヒョゥ": "hyō"
-    "ホゥ":
-      - "hō"
-      - "ō" # See note 4
-    "ミャ": "mya"
-    "ミュ": "myu"
-    "ミュゥ": "myū"
-    "ミョ": "myo"
-    "ミョゥ": "myō"
-    "モゥ": "mō"
-    "ヨゥ": "yō"
-    "リャ": "rya"
-    "リュ": "ryu"
-    "リュゥ": "ryū"
-    "リョ": "ryo"
-    "リョゥ": "ryō"
-    "ロゥ": "rō"
-    "ギャ": "gya"
-    "ギュ": "gyu"
-    "ギュゥ": "gyū"
-    "ギョ": "gyo"
-    "ギョゥ": "gyō"
-    "ゴゥ": "gō"
-    "ジャ": "ja"
-    "ジュ": "ju"
-    "ジュゥ": "jū"
-    "ジョ": "jo"
-    "ジョゥ": "jō"
-    "ゾゥ": "zō"
-    "ドゥ": "dō"
-    "ビャ": "bya"
-    "ビュ": "byu"
-    "ビュゥ": "byū"
-    "ビョ": "byo"
-    "ビョゥ": "byō"
-    "ボゥ": "bō"
     "ピャ": "pya"
     "ピュ": "pyu"
-    "ピュゥ": "pyū"
     "ピョ": "pyo"
+    "ピュゥ": "pyū"
     "ピョゥ": "pyō"
     "ポゥ": "pō"
+
+    "ン": "n" # See note 1
+
+
+    # Note 3. つまる音は、最初の子音字を重ねて表わす。
+
+    "ッカ": "kka"
+    "ッキ": "kki"
+    "ック": "kku"
+    "ッケ": "kke"
+    "ッコ": "kko"
+    "ッキャ": "kkya"
+    "ッキュ": "kkyu"
+    "ッキョ": "kkyo"
+    "ッコゥ": "kkō"
+    "ッキュゥ": "kkyū"
+    "ッキョゥ": "kkyō"
+
+    "ッサ": "ssa"
+    "ッシ": "sshi"
+    "ッス": "ssu"
+    "ッセ": "sse"
+    "ッソ": "sso"
+    "ッシャ": "ssha"
+    "ッシュ": "sshu"
+    "ッショ": "ssho"
+    "ッシュゥ": "sshū"
+    "ッショゥ": "sshō"
+    "ッソゥ": "ssō"
+
+    "ッタ": "tta"
+    "ッチ": "tchi"
+    "ッツ": "ttsu"
+    "ッテ": "tte"
+    "ット": "tto"
+    "ッチャ": "tcha"
+    "ッチュ": "tchu"
+    "ッチョ": "tcho"
+    "ッチュゥ": "tchū"
+    "ッチョゥ": "tchō"
+    "ットゥ": "ttō"
+
+    "ッナ": "nna"
+    "ッニ": "nni"
+    "ッヌ": "nnu"
+    "ッネ": "nne"
+    "ッノ": "nno"
+    "ッニャ": "nnya"
+    "ッニュ": "nnyu"
+    "ッニョ": "nnyo"
+    "ッニュゥ": "nnyū"
+    "ッニョゥ": "nnyō"
+    "ッノゥ": "nnō"
+
+    "ッハ": "hha"
+    "ッヒ": "hhi"
+    "ッフ": "hhu"
+    "ッヘ": "hhe"
+    "ッホ": "hho"
+    "ッヒャ": "hhya"
+    "ッヒュ": "hhyu"
+    "ッヒョ": "hhyo"
+    "ッヒュゥ": "hhyū"
+    "ッヒョゥ": "hhyō"
+    "ッホゥ": "hhō"
+
+    "ッガ": "gga"
+    "ッギ": "ggi"
+    "ッグ": "ggu"
+    "ッゲ": "gge"
+    "ッゴ": "ggo"
+    "ッギャ": "ggya"
+    "ッギュ": "ggyu"
+    "ッギョ": "ggyo"
+    "ッギュゥ": "ggyū"
+    "ッギョゥ": "ggyō"
+    "ッゴゥ": "ggō"
+
+    "ッザ": "zza"
+    "ッジ": "jji"
+    "ッズ": "zzu"
+    "ッゼ": "zze"
+    "ッゾ": "zzo"
+    "ッジャ": "jja"
+    "ッジュ": "jju"
+    "ッジョ": "jjo"
+    "ッジュゥ": "jjū"
+    "ッジョゥ": "jjō"
+    "ッゾゥ": "zzō"
+
+
+    "ッダ": "dda"
+    "ッヂ": "jji"
+    "ッヅ": "zzu"
+    "ッデ": "dde"
+    "ッド": "ddo"
+    "ッヂャ": "jja"
+    "ッヂュ": "jju"
+    "ッヂョ": "jjo"
+    "ッドゥ": "ddō"
+
+    "ッバ": "bba"
+    "ッビ": "bbi"
+    "ッブ": "bbu"
+    "ッベ": "bbe"
+    "ッボ": "bbo"
+    "ッビャ": "bbya"
+    "ッビュ": "bbyu"
+    "ッビョ": "bbyo"
+    "ッビュゥ": "bbyū"
+    "ッビョゥ": "bbyō"
+    "ッボゥ": "bbō"
+
+    "ッパ": "ppa"
+    "ッピ": "ppi"
+    "ップ": "ppu"
+    "ッペ": "ppe"
+    "ッポ": "ppo"
+    "ッピャ": "ppya"
+    "ッピュ": "ppyu"
+    "ッピョ": "ppyo"
+    "ッピュゥ": "ppyū"
+    "ッピョゥ": "ppyō"
+    "ッポゥ": "ppō"
+
+
+    # Supplementary
+    # "ャ": "ya"
+    # "ュ": "yu"
+    # "ョ": "yo"
+    # "ゥ": "u"
+    # "ョゥ": "yō"
+    # "ュゥ": "yū"
