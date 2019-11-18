@@ -4,18 +4,18 @@ id: iso9
 language: rus
 source_script: Cyrl
 destination_script: Latn
-name: ISO 9 
+name: ISO 9
 url: https://www.iso.org/standard/3589.html
 creation_date: 1995
 description: |
-  Establishes a system for the transliteration into Latin characters of 
-  Cyrillic characters constituting the alphabets of Slavic and non-Slavic 
-  languages. Table 3 includes in a single sequence, listed in the 
-  Cyrillic alphabetic order, the 118 single or diacritic-carrying 
+  Establishes a system for the transliteration into Latin characters of
+  Cyrillic characters constituting the alphabets of Slavic and non-Slavic
+  languages. Table 3 includes in a single sequence, listed in the
+  Cyrillic alphabetic order, the 118 single or diacritic-carrying
   characters that appear in one or another of the considered alphabets.
 tests:
-  - source: 
-    expected: 
+  - source:
+    expected:
 
 map:
   characters:
@@ -267,7 +267,7 @@ map:
     "\u046b": "\u01ce"                         # ѫ => ǎ
     "\u0473": "\u0066\u0300"                   # ѳ => f̀
     "\u0475": "\u1ef3"                         # ѵ => ỳ
-    "\u04c0": "\u2021"                         # Ӏ	=> ‡	
-    "\u02bc": "\u0060"                         # ʼ	=> `	
+    "\u04c0": "\u2021"                         # Ӏ	=> ‡
+    "\u02bc": "\u0060"                         # ʼ	=> `
     "\u02ee": "\u00a8"                         # ˮ => ¨
 

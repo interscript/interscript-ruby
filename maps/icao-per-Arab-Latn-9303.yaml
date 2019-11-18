@@ -8,21 +8,21 @@ name: ICAO Doc 9303 Machine Readable Travel Documents Part 3 -- Persian Arabic t
 url: https://www.icao.int/publications/pages/publication.aspx?docnum=9303
 creation_date: 2015
 description: |
-  Part 3 defines specifications that are common to TD1, TD2 and TD3 
-  size machine readable travel documents (MRTDs) including those 
-  necessary for global interoperability using visual inspection and 
-  machine readable (optical character recognition) means. 
+  Part 3 defines specifications that are common to TD1, TD2 and TD3
+  size machine readable travel documents (MRTDs) including those
+  necessary for global interoperability using visual inspection and
+  machine readable (optical character recognition) means.
 
-  Since only Latin-alphabet characters are allowed in the VIZ, if 
-  mandatory data elements are in a national language that does not use 
-  the Latin alphabet, a transcription or transliteration shall also be 
+  Since only Latin-alphabet characters are allowed in the VIZ, if
+  mandatory data elements are in a national language that does not use
+  the Latin alphabet, a transcription or transliteration shall also be
   provided.
 
-  This document defines the transliteration mappings used to produce 
+  This document defines the transliteration mappings used to produce
   this transcription or transliteration.
 tests:
-  - source: 
-    expected: 
+  - source:
+    expected:
 map:
   # https://www.icao.int/publications/Documents/9303_p3_cons_en.pdf
   characters:

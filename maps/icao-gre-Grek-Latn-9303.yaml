@@ -8,21 +8,21 @@ name: ICAO Doc 9303 Machine Readable Travel Documents Part 3 -- Greek to Latin
 url: https://www.icao.int/publications/pages/publication.aspx?docnum=9303
 creation_date: 2015
 description: |
-  Part 3 defines specifications that are common to TD1, TD2 and TD3 
-  size machine readable travel documents (MRTDs) including those 
-  necessary for global interoperability using visual inspection and 
-  machine readable (optical character recognition) means. 
+  Part 3 defines specifications that are common to TD1, TD2 and TD3
+  size machine readable travel documents (MRTDs) including those
+  necessary for global interoperability using visual inspection and
+  machine readable (optical character recognition) means.
 
-  Since only Latin-alphabet characters are allowed in the VIZ, if 
-  mandatory data elements are in a national language that does not use 
-  the Latin alphabet, a transcription or transliteration shall also be 
+  Since only Latin-alphabet characters are allowed in the VIZ, if
+  mandatory data elements are in a national language that does not use
+  the Latin alphabet, a transcription or transliteration shall also be
   provided.
 
-  This document defines the transliteration mappings used to produce 
+  This document defines the transliteration mappings used to produce
   this transcription or transliteration.
 tests:
-  - source: 
-    expected: 
+  - source:
+    expected:
 map:
   # https://en.wikipedia.org/wiki/Romanization_of_Greek
 
@@ -62,39 +62,39 @@ map:
     "\u03AA": "I",  # Ϊ
     "\u03AB": "Y",  # Ϋ
 
-    "\u03AC": "a",  # ά 
-    "\u03B1": "a",  # α 
-    "\u03B2": "b",  # β 
-    "\u03B3": "g",  # γ 
-    "\u03B4": "d",  # δ 
-    "\u03B5": "e",  # ε 
-    "\u03B6": "z",  # ζ 
-    "\u03B7": "i",  # η 
-    "\u03B8": "th", # θ 
-    "\u03B9": "i",  # ι 
-    "\u03BA": "k",  # κ 
-    "\u03BB": "l",  # λ 
-    "\u03BC": "m",  # μ 
-    "\u03BD": "n",  # ν 
-    "\u03BE": "x",  # ξ 
-    "\u03BF": "o",  # ο 
-    "\u03C0": "p",  # π 
-    "\u03C1": "p",  # ρ 
-    "\u03C3": "s",  # σ 
+    "\u03AC": "a",  # ά
+    "\u03B1": "a",  # α
+    "\u03B2": "b",  # β
+    "\u03B3": "g",  # γ
+    "\u03B4": "d",  # δ
+    "\u03B5": "e",  # ε
+    "\u03B6": "z",  # ζ
+    "\u03B7": "i",  # η
+    "\u03B8": "th", # θ
+    "\u03B9": "i",  # ι
+    "\u03BA": "k",  # κ
+    "\u03BB": "l",  # λ
+    "\u03BC": "m",  # μ
+    "\u03BD": "n",  # ν
+    "\u03BE": "x",  # ξ
+    "\u03BF": "o",  # ο
+    "\u03C0": "p",  # π
+    "\u03C1": "p",  # ρ
+    "\u03C3": "s",  # σ
 
-    "\u03C4": "t",  # τ 
-    "\u03C5": "y",  # υ 
-    "\u03C7": "ch", # χ 
-    "\u03C8": "ps", # ψ 
-    "\u03C9": "o",  # ω 
-    "\u03AD": "e",  # έ 
-    "\u03AE": "i",  # ή 
-    "\u03AF": "i",  # ί 
-    "\u03CC": "o",  # ό 
-    "\u03CD": "y",  # ύ 
-    "\u03CE": "o",  # ώ 
-    "\u03CA": "i",  # ϊ 
-    "\u03CB": "y",  # ϋ 
+    "\u03C4": "t",  # τ
+    "\u03C5": "y",  # υ
+    "\u03C7": "ch", # χ
+    "\u03C8": "ps", # ψ
+    "\u03C9": "o",  # ω
+    "\u03AD": "e",  # έ
+    "\u03AE": "i",  # ή
+    "\u03AF": "i",  # ί
+    "\u03CC": "o",  # ό
+    "\u03CD": "y",  # ύ
+    "\u03CE": "o",  # ώ
+    "\u03CA": "i",  # ϊ
+    "\u03CB": "y",  # ϋ
 
 
 
