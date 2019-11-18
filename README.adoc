@@ -23,6 +23,15 @@ These transliteration systems currently work:
 `icao-rus-Cyrl-Latn-9303`::    ICAO MRZ Romanization of Russian
 `bas-rus-Cyrl-Latn-bss`::      Bulgaria Academy of Science Streamlined System for Russian
 
+== Installation
+
+Interscript depends on Ruby. Once you manage to install Ruby, it's easy.
+
+[source,sh]
+----
+gem install interscript
+----
+
 
 == Usage
 
