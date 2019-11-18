@@ -1,0 +1,103 @@
+---
+authority_id: bgnpcgn
+id: 1993
+language: aze
+source_script: Cyrl
+destination_script: Latn
+name: AZERBAIJANI TABLE OF CORRESPONDENCES CYRILLIC-ROMAN -- BGN/PCGN 1993 Agreement
+url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/816656/TABLE_OF_CORRESPONDENCES_FOR_AZERBAIJANI.pdf
+creation_date: 1993
+confirmation date: 2019-06
+description: |
+    Azerbaijani, also known as Azeri, is the official language of the Republic of Azerbaijan. In 1991, the Azerbaijani government adopted the Roman alphabet to replace the existing Cyrillic alphabet. The presentation below provides a table of correspondences between the former Cyrillic alphabet and the current Roman alphabet. When Azerbaijani Roman-alphabet spellings are not available, this table can be used to convert Azerbaijani Cyrillic spellings.
+
+notes:
+
+  - The special letter Ə, ə known as schwa, should be reproduced in that form whenever encountered. The characters Ə (Unicode 04D8) and ə (Unicode 04D9) should be used for schwa when writing in the Cyrillic script, but characters Ə (Unicode 018F) and ə (Unicode 0259) should be used when writing in the Roman alphabet. In those instances when it cannot be reproduced, however, the letter Ä ä may be substituted for it (see below).
+
+  - The obsolete characters й, э, ю, and я should be romanized ẏ, ė, yu., and ya.
+
+  - Unicode values are shown with the uppercase Cyrillic character first, followed by the lowercase character. It is not known whether there exists an uppercase ‘J’ specific to the Cyrillic character set.
+
+  - An inventory of letter-diacritic combinations, with their Unicode encoding, in addition to the unmodified letters of the basic Roman script is:
+  Ğ (U+011E), ğ (U+011F)
+  Ə (U+018F), ə (U+0259)
+  İ (U+0130), ı (U+0131)
+  Ö (U+00D6), ö (U+00F6)
+  Ü (U+00DC), ü (U+00FC)
+  Ç (U+00C7), ç (U+00E7)
+  Ş (U+015E), ş (U+015F)
+
+  - The Roman-script columns show only lowercase forms but, when applying the table, uppercase and lowercase Roman letters as appropriate should be used.
+
+tests:
+  - source:
+    expected:
+
+map:
+  characters:
+    '\u0410' : 'A'
+    '\u0411' : 'B'
+    '\u0412' : 'G'
+    '\u0413' : 'V'
+    '\u0492' : 'Ğ'
+    '\u0414' : 'D'
+    '\u0415' : 'E'
+    '\u04D8' : 'Ә'
+    '\u0416' : 'J'
+    '\u0417' : 'Z'
+    '\u0418' : 'I'
+    '\u042B' : 'İ'
+    '\u0408' : 'Y'
+    '\u041A' : 'K'
+    '\u049C' : 'G'
+    '\u041B' : 'L'
+    '\u041C' : 'M'
+    '\u041D' : 'N'
+    '\u041E' : 'O'
+    '\u04E8' : 'ö'
+    '\u041F' : 'P'
+    '\u0420' : 'R'
+    '\u0421' : 'S'
+    '\u0422' : 'T'
+    '\u0423' : 'U'
+    '\u04AE' : 'Ü'
+    '\u0424' : 'F'
+    '\u0425' : 'X'
+    '\u04BA' : 'H'
+    '\u0427' : 'Ç'
+    '\u04B8' : 'C'
+    '\u0428' : 'Ş'
+
+    '\u0430' : 'a'
+    '\u0431' : 'b'
+    '\u0432' : 'v'
+    '\u0433' : 'g'
+    '\u0493' : 'ğ'
+    '\u0434' : 'd'
+    '\u0435' : 'e'
+    '\u04D9' : 'ә'
+    '\u0436' : 'j'
+    '\u0437' : 'z'
+    '\u0438' : 'i'
+    '\u044B' : 'ı'
+    '\u0458' : 'y'
+    '\u043A' : 'k'
+    '\u049D' : 'g'
+    '\u043B' : 'l'
+    '\u043C' : 'm'
+    '\u043D' : 'n'
+    '\u043E' : 'o'
+    '\u04E9' : 'ö'
+    '\u043F' : 'p'
+    '\u0440' : 'r'
+    '\u0441' : 's'
+    '\u0442' : 't'
+    '\u0443' : 'u'
+    '\u04AF' : 'ü'
+    '\u0444' : 'f'
+    '\u0445' : 'x'
+    '\u04BB' : 'h'
+    '\u0447' : 'ç'
+    '\u04B9' : 'c'
+    '\u0448' : 'ş'
