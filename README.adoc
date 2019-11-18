@@ -1,6 +1,6 @@
 = Interscript: Interoperable Script Conversion Systems and a Ruby implementation
 
-== Introducation
+== Introduction
 
 This repository contains a number of transliteration schemes from:
 
@@ -10,6 +10,8 @@ This repository contains a number of transliteration schemes from:
 * UN (by UNGEGN)
 
 The goal is to achieve interoperable transliteration schemes allowing quality comparisons.
+
+image:demo/20191118-interscript-demo-cast.gif["interscript screencast"]
 
 
 == STATUS (work in progress!)
