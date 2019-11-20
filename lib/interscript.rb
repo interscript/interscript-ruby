@@ -32,14 +32,35 @@ module Interscript
       rules.each do |r|
         string.scan(/#{r["pattern"]}/) do |match|
           pos = Regexp.last_match.offset(0).first
-          output[offsets[0..pos].sum - 1] = r["result"]
+          result = up_case_around?(string, pos) ? r["result"].upcase : r["result"]
+          output[offsets[0..pos].sum - 1, match.size] = result
           offsets[pos] = r["result"].size - match.size + 1
         end
       end
 
-      output.split('').map do |char|
-        charmap[char] || char
+      output.split('').map.with_index do |char, i|
+        if (c = charmap[char])
+          up_case_around?(output, i) ? c.upcase : c
+        else
+          char
+        end
       end.join('')
+    end
+
+    private
+
+    def up_case_around?(string, pos)
+      return false if string[pos] != string[pos].upcase
+
+      i = pos - 1
+      i -= 1 while i.positive? && string[i] !~ /[[:alpha:]]/
+      before = string[i].to_s.strip
+
+      i = pos + 1
+      i += 1 while i < string.size - 1 && string[i] !~ /[[:alpha:]]/
+      after = string[i].to_s.strip
+
+      !before.empty? && before == before.upcase || !after.empty? && after == after.upcase
     end
   end
 end
