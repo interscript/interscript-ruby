@@ -1,7 +1,7 @@
 ---
 authority_id: bgnpcgn
 id: 2007
-language: Afghan
+language: afg
 source_script: Afgn
 destination_script: Latn
 name: BGN/PCGN NATIONAL ROMANIZATION SYSTEM FOR AFGHANISTAN -- BGN/PCGN 2007 System
@@ -231,9 +231,54 @@ map:
     '\u0693': '\u1E5F'
     '\u0632': 'z'
     '\u0698': '\u007A\u0068'
-
-# TODO Incomplete
-
-
-
-
+    '\u0696': '\u007A\u0332\u0068\u0332'
+    '\u0633': 's'
+    '\u0634': '\u0073\u0068'
+    '\u069A': '\u0073\u0332\u0068\u0332'
+    '\u0635': 'ş'
+    '\u0636': 'ẕ'
+    '\u0637': 'ţ'
+    '\u0638': '\u007A\u0327'
+    '\u0639': '\u2018'
+    '\u063A': 'gh'
+    '\u0641': 'f'
+    '\u0642': 'q'
+    '\u06A9': 'k'
+    '\u06AF': 'g'
+    '\u0644': 'l'
+    '\u0645': 'm'
+    '\u0646': 'n'
+    '\u06BC': 'ṉ'
+    '\u0648': 'w'
+    '\u0647': 'h'
+    '\u0649': 'y'
+    
+    # Vowel, Diphthong and Diacritical Characters
+    
+    '\u064E': 'a'
+    '\u0650': 'e','i' # Both e and i are available to romanize this short vowel, depending on local usage and/or root language. In cases where the sound is uncertain, i is the default romanization in BGN/PCGN standardization procedures.
+    '\u064F': 'o','u' # Both o and u are available to romanize this short vowel, depending on local usage and/or root language. In cases where the sound is uncertain, u is the default romanization in BGN/PCGN standardization procedures.
+    '\u0659': 'ê'
+    '\u0622': 'ā' # An alif with mad ( آ ) is written only in the initial position by BGN/PCGN standardization procedures, in keeping with Persian language family standards of use of the Arabic alphabet. The same letter written in a medial or final position is written . . .
+    '\u0648': 'ō'
+    '\u0648': 'ū'
+    '\u0648': '\u006F\u0077'
+    '\u06CC': 'ī'
+    '\u06CC': 'ay' # Or 'ē'. The character ی should be romanized ay or ē according to its root language or local pronunciation. In case of uncertainty a reference source (such as the Fairchild Aerial Surveys map series, or a BGN/PCGN approved policy document/list of recommended spellings) should be consulted.
+    '\u06D0': 'ē'
+    '\u06CC': 'ay' # Or 'aī'. Both the combination ay and aī are available to romanize this character according to its root language or local pronunciation. In cases where the sound is uncertain ay is the default romanization in BGN/PCGN standardization procedures
+    '\u06CC': 'á'
+    '\u06CD': 'êy'
+    '\u0621': '’'
+    '\u0674': '-e','-ye'
+    
+    # Other Diacritical Marks and Language Conventions
+    
+    '\u0627': 'āy'
+    '\u06CC': 'īā' # 'iyā' or 'yā'. The character combination يا should be romanized īā, iyā or yā according to its root language or local pronunciation. In case of uncertainty a reference source (such as the Fairchild Aerial Surveys map series, or a BGN/PCGN approved policy document or list of recommended spellings) should be consulted.
+    
+    '\u0648': 'w'
+    '\u0626': '’'
+    
+    '\uFDF2': 'Allāh' # This convention applies only to the initial alif which has no sound of its own, serving as a seat for an unwritten short vowel. This is in keeping with Persian language family standards of use of the Arabic alphabet whereby words that begin or end with an unwritten short vowel must utilize a silent consonant to carry the sound in written form.
+    
