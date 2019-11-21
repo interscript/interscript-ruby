@@ -84,6 +84,64 @@ It is then easy to see the exact differences in rendering between the systems.
 diff bgnpcgn-rus-Latn.txt bas-rus-Latn.txt
 ----
 
+== Adding transliteration system
+
+Transliteration systems stored in a `maps` directory as YAML files. You can create a new file and add it to the directory. The file shout be named as `<system-code>.yaml`.
+
+=== File structure
+
+[source,yaml]
+----
+authority_id: bgnpcgn
+id: 1947
+language: rus
+source_script: Cyrl
+destination_script: Latn
+name: ROMANIZATION OF RUSSIAN, BGN/PCGN 1947 System
+url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/807920/ROMANIZATION_OF_RUSSIAN.pdf
+creation_date: 1947
+confirmation_date: 2019-06
+description: The BGN/PCGN system for Russian was adopted ...
+
+notes:
+  - The character e should be romanized ye initially, after the vowel ...
+
+tests:
+  - source: ДЛИННОЕ ПОКРЫВАЛО
+    expected: DLINNOYE POKRYVALO
+  - source: Еловая шишка
+    expected: Yelovaya shishka
+
+map:
+  rules:
+    - pattern: (?<=[АаЕеЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\u0415 # Е after a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь
+      result: Ye
+    - pattern: \b\u0415 # Е initially
+      result: Ye
+
+  characters:
+    "\u0410": "A"
+    "\u0411": "B"
+    "\u0412": "V"
+----
+
+=== Testing transliteration systems
+
+To test all transliteration systems in `maps` direcrory run a command:
+
+[source,sh]
+----
+bundle exec rspec
+----
+
+The command takes `source` texts from `test` section, transforma it using `rules` and `charmaps` from `map` section and compare resultat with `expected` text form `text` section.
+
+To test specific transliteration system set enviroment variable `TRANSLIT_SYSTEM` to code of desiered system. The code is name of YAML file without extention:
+
+[source,sh]
+----
+TRANSLIT_SYSTEM=bgnpcgn-rus-Cyrl-Latn-1947 bundle exec rspec
+----
 
 == ISCS system codes
 

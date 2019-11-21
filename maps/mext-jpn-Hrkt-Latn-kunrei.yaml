@@ -67,7 +67,7 @@ map:
       result: "\\1YE"
     - pattern: (?<=[АaЕeЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\u0415
       result: "YE"
-    - pattern: (?<=っ([])
+    # - pattern: (?<=っ([])
 
   characters:
     "あ": "a"
