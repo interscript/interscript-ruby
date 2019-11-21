@@ -25,32 +25,44 @@ module Interscript
       system = load_system_definition(system_code)
 
       rules = system["map"]["rules"] || []
-      charmap = system["map"]["characters"] || {}
+      charmap = system["map"]["characters"]&.sort_by { |k, _v| k.size }&.reverse&.to_h || {}
 
       output = string.clone
-      offsets = Array.new string.size, 1
+      offsets = Array.new string.to_s.size, 1
       rules.each do |r|
-        string.scan(/#{r["pattern"]}/) do |match|
+        string.to_s.scan(/#{r["pattern"]}/) do |match|
           pos = Regexp.last_match.offset(0).first
           result = up_case_around?(string, pos) ? r["result"].upcase : r["result"]
-          output[offsets[0..pos].sum - 1, match.size] = result
-          offsets[pos] = r["result"].size - match.size + 1
+          output[offsets[0...pos].sum, match.size] = result
+          offsets[pos] += r["result"].size - match.size
         end
       end
 
-      output.split('').map.with_index do |char, i|
-        if (c = charmap[char])
-          up_case_around?(output, i) ? c.upcase : c
-        else
-          char
+      output2 = output.clone
+      offsets = Array.new output.to_s.size, 1
+      charmap.each do |k, v|
+        output.to_s.scan(k) do |match|
+          pos = Regexp.last_match.offset(0).first
+          result = up_case_around?(output, pos) ? v.upcase : v
+          output2[offsets[0...pos].sum, match.size] = result
+          offsets[pos] += v.size - match.size
         end
-      end.join('')
+      end
+      output2
+
+      # output.to_s.split('').map.with_index do |char, i|
+      #   if (c = charmap[char])
+      #     up_case_around?(output, i) ? c.upcase : c
+      #   else
+      #     char
+      #   end
+      # end.join('')
     end
 
     private
 
     def up_case_around?(string, pos)
-      return false if string[pos] != string[pos].upcase
+      return false if string[pos] == string[pos].downcase
 
       i = pos - 1
       i -= 1 while i.positive? && string[i] !~ /[[:alpha:]]/
