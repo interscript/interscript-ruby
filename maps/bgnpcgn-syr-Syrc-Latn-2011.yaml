@@ -1,0 +1,88 @@
+---
+authority_id: bgnpcgn
+id: 2011
+language: syr
+source_script: Syrc
+destination_script: Latn
+name: ROMANIZATION OF MODERN SYRIAC SCRIPT -- BGN/PCGN 2011 System
+url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/693736/ROMANIZATION_OF_MODERN_SYRIAC.pdf
+creation_date: 2011
+confirmation date: 2017-11
+description: |
+    The modern Syriac script is used today by Assyrian writers of the neo-Aramaic language. This Romanization System may be applied to any toponyms written in this script as may be encountered in parts of northern Iraq, Syria, northern Iran and eastern Turkey. The Neo-Aramaic language has a degree of locally official status within Iraq, and accordingly some bilingual Arabic and modern Syriac signage may be encountered.
+    
+    The script is closely aligned to that of both Hebrew and Arabic, and, as these, is written from right to left. In this Romanization System, ‘strong’ consonants have been marked with a sub-dot so as not to give a closer visual relation to either Arabic (which marks such consonants with a cedilla) or Hebrew (which marks these with an underbar). The equivalences where they exist in the Arabic and Hebrew scripts have also been shown only for a guide to the cognate root.
+  
+notes:
+
+- Letters connect to the following letter (to the left) except those referenced to this note.
+
+- This is the form in independent or word-final position. The form initially and medially differs but this is not included in a standalone form in the Unicode Standard. The initial/medial form will however be automatically generated in using the letter’s Unicode encoding initially or medially in a word. To illustrate the different forms, using the Unicode encoding twice gives: '\u071F'; '\u0721'; and '\u0722'
+
+- Ālap (ܐ) has a number of functions in modern Syriac script:
+
+    - It appears word-initially to denote a vowel, and is sometimes followed by yōd or wāw to denote ī or ū respectively.
+    - It appears word-medially to denote what historically was a glottal stop. It is understood that this does not now function as a ‘stop’ in speech, though the Ālap still appears in the written form. This is romanized ’.
+    - It appears word-medially to denote a long vowel ā or ē.
+    - It appears word-finally to denote the long vowel ā or ē.
+    
+Given the ambiguity in its function, it is recommended that a reference source be consulted for further guidance as to the appropriate romanization.
+
+- Taw (ܬ) should be romanized t when unaspirated, and th when aspirated. A reference source should be consulted for further guidance as to the appropriate romanization.
+
+- Numerals in modern Syriac script are represented by letters of the alphabet: Ālap, Bēt, Gāmal = 1, 2, 3 etc.; Yōd = 10, Kāp = 20, Lāmad = 30 etc.; Qōp = 100, Rēsh = 200, Shīn = 300 and finally Taw = 400. Unlike Arabic, composite numerals are written from right-toleft, so for instance 12 is written ܒ ܝ . Given the limited number of single-character numerals, other numbers are naturally quite elaborately composed: for instance, 999 may be written as (90×10)+90+9 or as 400+400+100+90+9. Arabic numerals are also used.
+
+- An inventory of letter-diacritic combinations, with their Unicode encoding, in addition to the unmodified letters of the basic Roman script is:
+’ (U+2019) , ‘ (U+2018)
+Ā (U+0100) , ā (U+0101)
+Ē (U+0112) , ē (U+0113)
+Ū (U+016A) , ū (U+016B)
+Ḥ (U+0048+0323) , ḥ (U+0068+0323)
+Ṭ (U+0054+0323) , ṭ (U+0074+0323)
+Ī (U+012A) , ī (U+012B)
+Ṣ (U+0053+0323) , ṣ (U+0073+0323)
+
+- The Romanization column shows only lowercase forms but, when romanizing, uppercase and lowercase Roman letters as appropriate should be used.
+
+tests:
+  - source: 
+    expected:     
+
+map:
+  characters:
+    '\u0710': ''  # Ālap. See note 1
+    '\u0712': 'b'  # Bēt
+    '\u0713': 'g'  # Gāmal
+    '\u0715': 'd'  # Dālat. See note 1
+    '\u0717': 'h'  # Hēt. See note 1
+    '\u0718': 'w','ū'  # Wāw. See note 1
+    '\u0719': 'z'  # Zayn. See note 1
+    '\u071A': 'ḥ'  # Ḥēt
+    '\u071B': 'ṭ'  # Tēt
+    '\u071D': 'y','ī'  # Yōd
+    '\u071F': 'k'  # Kāp. See note 2
+    '\u0720': 'l'  # Lāmad
+    '\u0721': 'm'  # Mīm. See note 2
+    '\u0722': 'n'  # Nūn. See note 2
+    '\u0723' / '\u0724': 's'  # Semkat
+    '\u0725': '‘'  # ‘Ē
+    '\u0726': 'p'  # Pē
+    '\u0728': 'ṣ'  # Ṣādē. See note 1
+    '\u0729': 'q'  # Qōp
+    '\u072A': 'r'  # Rēsh
+    '\u072B': 'sh'  # Shīn
+    '\u072C': 't','th'  # Taw. See note 1
+    
+    # Vowel pointing marks
+    
+    # Vowels are represented either by the ‘matres lectionis’ (‘mothers of reading’) ālap(ܐ), yōd (ܝ) a nd w āw (ܘ), that function both as consonants and vowels, or by pointingmarks appearing above or below other letters. The pointing marks are, however, frequently omitted.
+    
+    '\u0732': 'a'
+    '\u0733': 'o'
+    '\u0734': 'u'
+    '\u0735': 'ā'
+    '\u0738': 'i'
+    '\u0739': 'ē'
+    '\u073C': 'ī'
+    
+    
