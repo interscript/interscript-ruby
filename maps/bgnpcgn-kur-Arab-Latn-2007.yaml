@@ -1,0 +1,102 @@
+---
+authority_id: bgnpcgn
+id: 2007
+language: kur
+source_script: Arab
+destination_script: Latn
+name: ROMANIZATION OF KURDISH -- BGN/PCGN 2007
+url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/693727/ROMANIZATION_OF_KURDISH.pdf
+creation_date: 2007
+confirmation date: 2017-12
+description: |
+    The tabulation below is applicable to the Kurdish language as a whole. It is based for the most part on the Hawar Roman alphabet used in the Library of Congress Standard Kurdish Orthography Table, but it also incorporates certain non-Hawar elements found in A Kurdish-English Dictionary (Taufiq Wahby & C J Edmonds, OUP, 1966). The tabulation covers both major varieties of the Kurdish language: Kurmanji and Sorani. Kurmanji is spoken principally in Turkey and in Iraq north of the Great Zab River (Dahūk/Dihok Governorate). It is generally written in Roman script, and usually employs the Roman orthography. Sorani is spoken principally in Iraq south of the Great Zab river (Arbīl/Hewlêr and As Sulaymānīyah/Slêmanî governorates). It is generally written in Perso-Arabic script, and usually employs the Perso-Arabic script orthography.
+    
+    Kurdish forms of geographical names in Turkey will usually be found in Roman script, and so no romanization process will be required. The digraph options for consonant letters '\u0686', '\u0634', and '\u063A' will not be encountered for such names. In Iraq, Syria, and Iran, Kurdish will usually be encountered in Perso-Arabic script, in which case it should be romanized into the corresponding Roman script form. Kurdish geographical names for places and features outside Turkey, found in Roman script form, should, where necessary and if possible, be tailored to fit the orthography of the Romanization shown below and should employ the digraph options for consonant letters '\u0686', '\u0634', and '\u063A'.
+  
+notes:
+
+- In pure Kurdish words hamza is borne by yā’ ( ئ ) and occurs only before initial vowels; it is not romanized. Medial and final hamza in Arabic borrowings are romanized by ’ (apostrophe – Unicode encoding 2019).
+
+- The letters ث ذ ص ض ط ظ do not occur in pure Kurdish words. In Arabic borrowings some writers retain these letters, others substitute س ز س ز ت ز respectively. Only the letters ط ض and ص are catered for in the Library of Congress tabulation, as reflected in lines 16-18 of the above Consonant table. Words of obvious Arabic origin occurring in a Kurdish toponymic environment will be treated as Kurdish rather than Arabic, as will words of other non-Kurdish origins.
+
+- The digraph options appearing in rows 6, 15 and 20 of the consonants table should be used for Kurdish geographical names in Iraq, Iran, and Syria. The single character options should be used for Kurdish geographical names in Turkey.
+
+- ڨ is used to represent v in foreign words. Some southern Kurdish writers use it to represent the v in borrowings from northern Kurdish dialects. و is pronounced as a v in the north and as a w elsewhere.
+
+- Hā’ can be used as a vowel or a consonant. The initial (ه) and medial (forms are used for the consonant h, Consonant table, row 31, while the final (ه) and independent (forms are used to represent the vowel e, Vowel table, row 1. Therefore, when used as a consonant, the final and independent forms of hā’ will be seen as ‘ه’ instead of ‘and ‘ه’, respectively. For example, مهه meh, (“month”). When used as ‘e’, the hā’ behaves like the letters alif (ا) , wāw, dāl (د) , and rā (ر) , in that it never joins to the following letter (i.e., it has no medial form). Consequently, the following letter will display the initial form, e.g. هەولێر Hewlêr (unless there is only one following letter, in which case it will be written in the independent form, e.g. ماوەت Mawet). As with other vowels (see special rules 2 and 3), initial e is preceded by the kursî hamza, yielding initial ئه , e.g. ئهني enî “forehead”.
+
+- In pure Kurdish words, the vowel ى is always long î, e.g. كانى ماسێ Kanî Masê. When it represents îzafe, it is also romanized î and joined by means of a hyphen to its preceding word e.g. پارێزگاى دهۆك Parêzga-î Dihok.
+
+- An inventory of letter-diacritic combinations, used in addition to the unmodified letters of the basic Roman script in the Romanization of Kurdish, with their Unicode encoding, is:
+
+'‘': '\u2018' , '’': '2019'
+'Ç': '00C7' , 'ç': '00E7'
+'Ḍ': '1E0C' , 'ḍ': '1E0D'
+'Ê': '00CA' , 'ê': '00EA'
+'Ḧ': '0048+0308' , 'ḧ': '0068+0308' # There is no single Unicode encoding for these letter-diacritic combinations.
+'Î': '00CE' , 'î': '00EE'
+'Ł': '0141' , 'ł': '0142'
+'Ö': '00D6' , 'ö': '00F6'
+'Ṟ': '1E5E' , 'ṟ': '1E5F'
+'Ş': '015E' , 'ş': '015F'
+'Ṣ': '1E62' , 'ṣ': '1E63'
+'Ṭ': '1E6C' , 'ṭ': '1E6D'
+'Û': '00DB' , 'û': '00FB'
+'Ü': '00DC' , 'ü': '00FC'
+'Ẍ': '1E8C' , 'ẍ': '1E8D'
+
+- The Romanization column shows only lowercase forms but, when romanizing, uppercase and lowercase Roman letters as appropriate should be used.
+
+
+tests:
+  - source:
+    expected:
+
+map:
+  characters:
+  '\u0621': '’' # ء (see note 1 and 7)
+  '\u0628': 'b'  # ب
+  '\u067E': 'p'  # پ
+  '\u062A': 't'  # ت (see note 2)
+  '\u062C': 'c'  # ج
+  '\u0686': 'ch' / 'ç'  # چ (see notes 3 and 7)
+  '\u062D': 'ḧ'  # ح
+  '\u062E': 'x'  # خ
+  '\u062F': 'd'  # د 
+  '\u0631': 'r'  # ر
+  '\u0695': 'ṟ'  # ڕ (Formerly written ڒ ڔ or رر according to typeface available; may vary on older sources. See note 7.)
+  '\u0632': 'z'  # ز (see note 2)
+  '\u0698': 'j'  # ژ
+  '\u0633': 's'  # س (see note 2)
+  '\u0634': 'sh' / 'ş'  # ش (see notes 3 and 7)
+  '\u0635': 'ṣ'  # ص (see notes 2 and 7)
+  '\u0636': 'ḍ'  # ض (see notes 2 and 7)
+  '\u0637': 'ṭ'  # ط  (see notes 2 and 7)
+  '\u0639': '‘'  # ع  (see note 7)
+  '\u063A': 'gh' / 'ẍ'  # غ (see notes 3 and 7)
+  '\u0341': 'f'  # ف
+  '\u06A8': 'v'  # ڨ  (see note 4)
+  '\u0642': 'q'  # ق
+  '\u06A9': 'k'  # ك
+  '\u06AF': 'g'  # گ
+  '\u0644': 'l'  # ل
+  '\u06B5': 'ł'  # ڵ  (Formerly written ڶ according to type available; may vary on older sources. See note 7)
+  '\u0645': 'm'  # م
+  '\u0646': 'n'  # ن
+  '\u0648': 'w'  # و  (see note 4)
+  '\u0647': 'h'  # ه  (see note 5)
+  '\u064A': 'y'  # ي
+  
+  
+  # VOWELS  
+  'ئه/ه' : 'e' # See notes 1 and 5
+  'ئا /ا' : 'a' # See note 1
+  'ئي/ ي' : 'î' # See notes 1, 6 and 7
+  'ئ' : 'i'
+  'ئێ /ێ' : 'ê' # See note 7
+  'ئو /و' : 'u'
+  'ئوو / وو' : 'û' # See note 7
+  'ئۆ /ۆ' : 'o'
+  'و' : 'ö' # Rare; previously written وي . See note 7
+  'ۊ' : 'ü' # Only appearing in some dialects and only in old sources. Often equated to /û/ (row 7 above). Sometimes written يو See note 7.
+  
