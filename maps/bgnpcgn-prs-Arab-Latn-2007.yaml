@@ -1,8 +1,8 @@
 ---
 authority_id: bgnpcgn
 id: 2007
-language: afg
-source_script: Afgn
+language: prs # prs stands for Dari (https://iso639-3.sil.org/code/prs&_ga=GA1.2.2054538372.1574092823)
+source_script: Arab
 destination_script: Latn
 name: BGN/PCGN NATIONAL ROMANIZATION SYSTEM FOR AFGHANISTAN -- BGN/PCGN 2007 System
 url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/693661/ROMANIZATION_FOR_AFGHANISTAN.pdf
@@ -252,9 +252,9 @@ map:
     '\u0648': 'w'
     '\u0647': 'h'
     '\u0649': 'y'
-    
+
     # Vowel, Diphthong and Diacritical Characters
-    
+
     '\u064E': 'a'
     '\u0650': 'e','i' # Both e and i are available to romanize this short vowel, depending on local usage and/or root language. In cases where the sound is uncertain, i is the default romanization in BGN/PCGN standardization procedures.
     '\u064F': 'o','u' # Both o and u are available to romanize this short vowel, depending on local usage and/or root language. In cases where the sound is uncertain, u is the default romanization in BGN/PCGN standardization procedures.
@@ -271,14 +271,14 @@ map:
     '\u06CD': 'êy'
     '\u0621': '’'
     '\u0674': '-e','-ye'
-    
+
     # Other Diacritical Marks and Language Conventions
-    
+
     '\u0627': 'āy'
     '\u06CC': 'īā' # 'iyā' or 'yā'. The character combination يا should be romanized īā, iyā or yā according to its root language or local pronunciation. In case of uncertainty a reference source (such as the Fairchild Aerial Surveys map series, or a BGN/PCGN approved policy document or list of recommended spellings) should be consulted.
-    
+
     '\u0648': 'w'
     '\u0626': '’'
-    
+
     '\uFDF2': 'Allāh' # This convention applies only to the initial alif which has no sound of its own, serving as a seat for an unwritten short vowel. This is in keeping with Persian language family standards of use of the Arabic alphabet whereby words that begin or end with an unwritten short vowel must utilize a silent consonant to carry the sound in written form.
-    
+
