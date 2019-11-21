@@ -89,14 +89,21 @@ map:
   
   
   # VOWELS  
-  'ئه' / 'ه' : 'e' # See notes 1 and 5
-  'ئا' / 'ا' : 'a' # See note 1
-  'ئي' / 'ي' : 'î' # See notes 1, 6 and 7
-  'ئ' : 'i'
-  'ئێ' / 'ێ' : 'ê' # See note 7
-  'ئو' / 'و' : 'u'
-  'ئوو' / 'وو' : 'û' # See note 7
-  'ئۆ' / 'ۆ' : 'o'
+  'ه' : 'e' # See notes 1 and 5
+  'ئه' : 'e' # See notes 1 and 5  
+  'ا' : 'a' # See note 1
+  'ئا' : 'a' # See note 1 
+  'ي' : 'î' # See notes 1, 6 and 7
+  'ئي' : 'î' # See notes 1, 6 and 7  
+  'ئ' : 'i' 
+  'ێ' : 'ê' # See note 7
+  'ئێ' : 'ê' # See note 7
+  'و' : 'u'
+  'ئو' : 'u'  
+  'وو' : 'û' # See note 7
+  'ئوو' : 'û' # See note 7
+  'ۆ' : 'o'
+  'ئۆ' : 'o'  
   'و' : 'ö' # Rare; previously written وي . See note 7
   'ۊ' : 'ü' # Only appearing in some dialects and only in old sources. Often equated to /û/ (row 7 above). Sometimes written يو See note 7.
   
