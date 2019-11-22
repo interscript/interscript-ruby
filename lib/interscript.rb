@@ -30,11 +30,14 @@ module Interscript
       output = string.clone
       offsets = Array.new string.to_s.size, 1
       rules.each do |r|
-        string.to_s.scan(/#{r["pattern"]}/) do |match|
-          pos = Regexp.last_match.offset(0).first
-          result = up_case_around?(string, pos) ? r["result"].upcase : r["result"]
-          output[offsets[0...pos].sum, match.size] = result
-          offsets[pos] += r["result"].size - match.size
+        string.to_s.scan(/#{r["pattern"]}/) do |matches|
+          match = Regexp.last_match
+          pos = match.offset(0).first
+          result = r["result"].clone
+          matches.each.with_index { |v, i| result.sub!(/\\#{i + 1}/, v) } if matches.is_a? Array
+          result.upcase! if up_case_around?(string, pos)
+          output[offsets[0...pos].sum, match[0].size] = result
+          offsets[pos] += result.size - match[0].size
         end
       end
 

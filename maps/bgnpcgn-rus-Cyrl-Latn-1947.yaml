@@ -180,8 +180,10 @@ tests:
     expected: O·Y·U O·y·u o·y·u
   - source: СЭ Сэ сэ
     expected: S·E S·e s·e
-  - source: ТС Тс тС тс
-    expected: TS
+  - source: ТС тс Тс тС
+    expected: T·S t·s T·s t·S
+  - source: ШЧ шч Шч шЧ
+    expected: SH·CH sh·ch Sh·ch sh·Ch
 
 map:
   rules:

@@ -28,12 +28,13 @@ RSpec.describe Interscript do
         puts
         warn "  Fail system: #{name}"
         tests.each do |test|
-          warn "    expected: #{test[:expected]}"
-          warn "         got: #{test[:got]}"
+          puts
           if test[:expected].lines.count > 2
-            puts
             warn "Diff:"
             warn test[:diff]
+          else
+            warn "    expected: #{test[:expected]}"
+            warn "         got: #{test[:got]}"
           end
         end
       end
