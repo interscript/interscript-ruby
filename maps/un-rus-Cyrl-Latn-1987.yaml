@@ -4,147 +4,157 @@ id: 1987
 language: rus
 source_script: Cyrl
 destination_script: Latn
-name: REPORT ON THE CURRENT STATUS OF
-UNITED NATIONS ROMANIZATION SYSTEMS FOR GEOGRAPHICAL NAMES -- Russian Romanization system
+name: REPORT ON THE CURRENT STATUS OF UNITED NATIONS ROMANIZATION SYSTEMS FOR GEOGRAPHICAL NAMES -- Russian Romanization system
 url: http://www.eki.ee/wgrs/rom1_ru.htm
 creation_date: 1987
 confirmation_date: 2016
 description: |
-    The United Nations recommended system was approved in 1987 (V/18), based on the official system of the Main Administration of Geodesy and Cartography of the former Soviet Union, also known as the GOST 1983 system (GOST 16876-71). The table was published as an annex to the resolution.
+  The United Nations recommended system was approved in 1987 (V/18),
+  based on the official system of the Main Administration of Geodesy and
+  Cartography of the former Soviet Union, also known as the GOST 1983
+  system (GOST 16876-71). The table was published as an annex to the
+  resolution.
 
-    The system is used in the Russian Federation and increasingly in international cartographic products.
+  The system is used in the Russian Federation and increasingly in
+  international cartographic products.
 
-    Russian uses the Cyrillic script which is alphabetic. The romanization table is unambiguous and can be applied automatically. The system is reversible, although rarely there can be ambiguities.
+  Russian uses the Cyrillic script which is alphabetic. The
+  romanization table is unambiguous and can be applied automatically. The
+  system is reversible, although rarely there can be ambiguities.
 
 notes:
-- Cursive forms of some characters might be formed differently: Аа Бб Вв Гг Дд Ее Ёё Жж Зз Ии Йй Кк Лл Мм Нн Оо Пп Рр Сс Тт Уу Фф Хх Цц Чч Шш Щщ Ъъ Ыы Ьь Ээ Юю Яя.
+  - Cursive forms of some characters might be formed differently: Аа Бб
+    Вв Гг Дд Ее Ёё Жж Зз Ии Йй Кк Лл Мм Нн Оо Пп Рр Сс Тт Уу Фф Хх Цц Чч Шш
+    Щщ Ъъ Ыы Ьь Ээ Юю Яя.
 
-- Fifth United Nations Conference on the Standardization of Geographical Names. Montreal, 18–31 August 1987. Vol. I. Report of the Conference, pp. 40–41.
+  - Fifth United Nations Conference on the Standardization of
+    Geographical Names. Montreal, 18–31 August 1987. Vol. I. Report of the
+    Conference, pp. 40–41.
 
-tests:    
+tests:
   - source: Aнaпa
     expected: Anapa
-    
+
   - source: Бaбушкин
     expected: Babuškin
-    
+
   - source: Baвилово
     expected: Vavilovo
-    
+
   - source: Гaгaрин
     expected: Gagarin
-    
+
   - source: Дудинкa
     expected: Dudinka
-    
+
   - source: Елисeeвкa
     expected: Eliseevka
-    
+
   - source: Ёлкинo
     expected: Ёlkino
-    
+
   - source: Псëл
     expected: Psël
-    
+
   - source: Жyжa
     expected: Žuža
 
   - source: Звëздный
     expected: Zvëzdnyj
-    
+
   - source: Идpицa
     expected: Idrica
-    
+
   - source: Зapaйcк
     expected: Zarajsk
-    
+
   - source: Кокaнд
     expected: Kokand
-    
+
   - source: Лaлвap
     expected: Lalvar
-    
+
   - source: Мaймaк
     expected: Majmak
-    
+
   - source: Нeжин
     expected: Nežin
-    
+
   - source: Обoдoвкa
     expected: Obodovka
-    
+
   - source: Пaп
     expected: Pap
-    
+
   - source: Peбpихa
     expected: Rebriha
-    
+
   - source: Сaсoвo
     expected: Sasovo
-    
+
   - source: Тaттa
     expected: Tatta
-    
+
   - source: Уpжyм
     expected: Uržum
-    
+
   - source: Фoфaнoвo
     expected: Fofonavo
-    
+
   - source: Хoхлмa
     expected: Hohloma
-    
+
   - source: Цвeткoвo
     expected: Cvetkovo
-    
+
   - source: Чeчeлъник
     expected: Čečel’nick
-    
+
   - source: Шишкинo
     expected: Šiškino
-    
+
   - source: Шyкинo
     expected: Ščukino
-    
+
   - source: Пoдъячeвo
     expected: Pod”jačevo
-    
+
   - source: Ыныкчaнcкий
     expected: Ynykčaskij
-    
+
   - source: Пapaньгa
     expected: Paran’ga
-    
+
   - source: Кaзaнь
     expected: Kazan’
-    
+
   - source: Щучьe
     expected: Ščuč’e
-    
+
   - source: Элиcтa
     expected: Èlista
-    
+
   - source: Юринo
     expected: Jurino
-    
+
   - source: Юхнoв
     expected: Juhnov
-    
+
   - source: Юpюэaнь
     expected: Jurjuzan’
 
   - source: Ямaл
     expected: Jamal
-    
+
   - source: Яэъявaн
     expected: Jaz”javan
-    
+
   - source: Яя
     expected: Jaja
-    
+
   - source: Bяэьмa
     expected: Vjaz’ma
-    
+
 
 map:
   characters:
@@ -181,7 +191,7 @@ map:
     '\u042D' : 'È' # Э
     '\u042E' : 'Ju' # Ю
     '\u02BF' : 'Ja'  # Я
-    
+
     '\u0430' : 'a'  # а
     '\u0431' : 'b'  # б
     '\u0432' : 'v'  # в
@@ -215,4 +225,3 @@ map:
     '\u044D' : 'è'  # э
     '\u044E' : 'ju' # ю
     '\u044F' : 'ja' # я
-    
