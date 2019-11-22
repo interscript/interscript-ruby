@@ -51,10 +51,15 @@ notes:
   - |
     Alif (ا) should be romanized as follows:
 
-    a. Initially, it indicates that the word begins with a vowel or diphthong; the alif itself is not romanized, but rather the short vowel it “carr es” is romanized; e.g., ميړ أَسَلم ژرَندَه → Mī Aslam Zhrandah
-    b. When it carries a maddah (آ) (see vowel table, row 6), it represents ā; e.g., آب بَند → Āb Band.
-    c. Medially and finally it represents ā (see vowel table, row 5); e.g., ماڼۍ → Māṉêy
-    d. Medially and finally in words of Arabic origin, alif may serve as the bearer of hamzah, e.g. رأس → ra’s.
+    a. Initially, it indicates that the word begins with a vowel or
+      diphthong; the alif itself is not romanized, but rather the short vowel
+      it “carr es” is romanized; e.g., ميړ أَسَلم ژرَندَه → Mī Aslam Zhrandah
+    b. When it carries a maddah (آ) (see vowel table, row 6), it
+      represents ā; e.g., آب بَند → Āb Band.
+    c. Medially and finally it represents ā (see vowel table, row 5);
+      e.g., ماڼۍ → Māṉêy
+    d. Medially and finally in words of Arabic origin, alif may serve
+      as the bearer of hamzah, e.g. رأس → ra’s.
 
   - Occasionally the letter sequences سه ,زه ,که, and گه occur without
     intervening vowels. They may be romanized k·h, z·h, s·h, and g·h in
@@ -143,53 +148,55 @@ notes:
     character ی in any Afghan word.
 
   - |
-    An inventory of letter-diacritic combinations in addition to the unmodified letters of the basic Roman script is:
+    An inventory of letter-diacritic combinations in addition to the
+    unmodified letters of the basic Roman script is:
 
-    ‘ (U+2018)
-    Ā (U+0100)
-    Á (U+00C1)
-    Ḏ (U+0044+0031)
-    Ē (U+9112)
-    Ê (U+00CA)
-    Ḩ (U+1E28)
-    Ī (U+012A)
-    N-bar-top (U+004E+0304)
-    Ō (U+014C)
-    R-bar-bottom (U+0052+0031)
-    Ş (U+015E)
-    S-bar-top (U+0053+0304)
-    Ṯ (U+0054+0031)
-    Ţ (U+0162)
-    Ū (U+918A)
-    Z-comma-bottom (U+005A+0327)
-    Z-bar-top (U+005A+0304)
-    Ẕ (U+005A+0331)
-    ẔH (U+005A+0048+035F)
-
-
-    ʼ (U+2019)
-    ā (U+0101)
-    á (U+00E1)
-    ḏ (U+0064+00031)
-    ē (U+0113)
-    ê (U+00EA)
-    ḩ (U+1E29)
-    ī (U+912B)
-    n-bar-top (U+004E+0304)
-    ō (U+014D)
-    r-bar-bottom (U+0072+0031)
-    ş (U+015F)
-    s-bar-top (U+0073+0304)
-    ṯ (U+0074+0031)
-    ţ (U+0163)
-    ū (U+918B)
-    z-comma-bottom (U+007A+0327)
-    z-bar-top (U+007A+0304)
-    ẕ (U+007A+0331)
-    zh-under-bar (U+007A+0068+035F)
+      ‘ (U+2018)
+      Ā (U+0100)
+      Á (U+00C1)
+      Ḏ (U+0044+0031)
+      Ē (U+9112)
+      Ê (U+00CA)
+      Ḩ (U+1E28)
+      Ī (U+012A)
+      N-bar-top (U+004E+0304)
+      Ō (U+014C)
+      R-bar-bottom (U+0052+0031)
+      Ş (U+015E)
+      S-bar-top (U+0053+0304)
+      Ṯ (U+0054+0031)
+      Ţ (U+0162)
+      Ū (U+918A)
+      Z-comma-bottom (U+005A+0327)
+      Z-bar-top (U+005A+0304)
+      Ẕ (U+005A+0331)
+      ẔH (U+005A+0048+035F)
 
 
-  - The Romanization columns show only lowercase forms but, when romanizing, uppercase and lowercase Roman letters as appropriate should be used.
+      ʼ (U+2019)
+      ā (U+0101)
+      á (U+00E1)
+      ḏ (U+0064+00031)
+      ē (U+0113)
+      ê (U+00EA)
+      ḩ (U+1E29)
+      ī (U+912B)
+      n-bar-top (U+004E+0304)
+      ō (U+014D)
+      r-bar-bottom (U+0072+0031)
+      ş (U+015F)
+      s-bar-top (U+0073+0304)
+      ṯ (U+0074+0031)
+      ţ (U+0163)
+      ū (U+918B)
+      z-comma-bottom (U+007A+0327)
+      z-bar-top (U+007A+0304)
+      ẕ (U+007A+0331)
+      zh-under-bar (U+007A+0068+035F)
+
+  - The Romanization columns show only lowercase forms but, when
+    romanizing, uppercase and lowercase Roman letters as appropriate should
+    be used.
 
 
 tests:
@@ -258,22 +265,66 @@ map:
 
     # Vowel, Diphthong and Diacritical Characters
 
-    '\u064E': 'a','â'
-    '\u0650': 'e','i' # Both e and i are available to romanize this short vowel, depending on local usage and/or root language. In cases where the sound is uncertain, i is the default romanization in BGN/PCGN standardization procedures.
-    '\u064F': 'o','u' # Both o and u are available to romanize this short vowel, depending on local usage and/or root language. In cases where the sound is uncertain, u is the default romanization in BGN/PCGN standardization procedures.
-    '\u0659': 'ə','ê'
-    '\u0622': 'ā' # An alif with mad ( آ ) is written only in the initial position by BGN/PCGN standardization procedures, in keeping with Persian language family standards of use of the Arabic alphabet. The same letter written in a medial or final position is written . . .
+    '\u064E':
+      - 'a'
+      - 'â'
+
+    # Both e and i are available to romanize this short vowel,
+    # depending on local usage and/or root language. In cases where the sound
+    # is uncertain, i is the default romanization in BGN/PCGN standardization
+    # procedures.
+    '\u0650':
+      - 'e'
+      - 'i'
+
+    # Both o and u are available to romanize this short vowel,
+    # depending on local usage and/or root language. In cases where the sound
+    # is uncertain, u is the default romanization in BGN/PCGN standardization
+    # procedures.
+    '\u064F':
+      - 'o'
+      - 'u'
+
+    '\u0659':
+      - 'ə'
+      - 'ê'
+    '\u0622': 'ā'
+
+    # An alif with mad ( آ ) is written only in the initial position by
+    # BGN/PCGN standardization procedures, in keeping with Persian language
+    # family standards of use of the Arabic alphabet. The same letter written
+    # in a medial or final position is written . . .
     '\u0648': 'ō'
-    '\u0648': 'u','ū'
+
+    '\u0648':
+      - 'u'
+      - 'ū'
+
     '\u0648': 'aw' # Or 'āw'
     '\u06CC': 'i' # Or 'ī'
-    '\u06CC': 'ay' # Or 'ē'. The character ی should be romanized ay or ē according to its root language or local pronunciation. In case of uncertainty a reference source (such as the Fairchild Aerial Surveys map series, or a BGN/PCGN approved policy document/list of recommended spellings) should be consulted.
+
+    # Or 'ē'. The character ی should be romanized ay or ē according to
+    # its root language or local pronunciation. In case of uncertainty a
+    # reference source (such as the Fairchild Aerial Surveys map series, or a
+    # BGN/PCGN approved policy document/list of recommended spellings) should
+    # be consulted.
+    '\u06CC': 'ay'
+
     '\u06D0': 'ē' # Or 'ay'
-    '\u06CC': 'ay' # Or 'āy'. Both the combination ay and aī are available to romanize this character according to its root language or local pronunciation. In cases where the sound is uncertain ay is the default romanization in BGN/PCGN standardization procedures
+    '\u06CC': 'ay' # Or 'āy'.
+
+    # Both the combination ay and aī are available to romanize this
+    # character according to its root language or local pronunciation. In
+    # cases where the sound is uncertain ay is the default romanization in
+    # BGN/PCGN standardization procedures
     '\u06CC': 'ā'
+
     '\u06CD': 'ə y' # Or 'ay'
     '\u0621': '’'
-    '\u0674': '-i-','e','ī'
+    '\u0674':
+      - '-i-'
+      - 'e'
+      - 'ī'
 
     # Other Diacritical Marks and Language Conventions
 

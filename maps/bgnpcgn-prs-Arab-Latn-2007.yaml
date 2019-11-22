@@ -51,7 +51,9 @@ notes:
   - |
     Alif (ا) should be romanized as follows:
 
-    a. Initially, it indicates that the word begins with a vowel or diphthong; the alif itself is not romanized, but rather the short vowel it “carr es” is romanized; e.g., ميړ أَسَلم ژرَندَه → Mī Aslam Zhrandah
+    a. Initially, it indicates that the word begins with a vowel or
+      diphthong; the alif itself is not romanized, but rather the short vowel
+      it “carr es” is romanized; e.g., ميړ أَسَلم ژرَندَه → Mī Aslam Zhrandah
     b. When it carries a maddah (آ) (see vowel table, row 6), it represents ā; e.g., آب بَند → Āb Band.
     c. Medially and finally it represents ā (see vowel table, row 5); e.g., ماڼۍ → Māṉêy
     d. Medially and finally in words of Arabic origin, alif may serve as the bearer of hamzah, e.g. رأس → ra’s.
@@ -143,7 +145,8 @@ notes:
     character ی in any Afghan word.
 
   - |
-    An inventory of letter-diacritic combinations in addition to the unmodified letters of the basic Roman script is:
+    An inventory of letter-diacritic combinations in addition to the
+    unmodified letters of the basic Roman script is:
 
     ‘ (U+2018)
     Ā (U+0100)
@@ -197,178 +200,178 @@ notes:
 tests:
   - source: بَغْلان
     expected: Baghlān
-    
+
   - source: پوټكى
     expected: Pōṯakay
-    
+
   - source: شِرين تَگَاب
     expected: Shīrīn Tagāb
-    
+
   - source: کُوْټ
     expected: Kōṯ
-    
+
   - source: ثَابِر
     expected: Sā̄bir
-    
+
   - source: جَلال آبَاد
     expected: Jalālābād
-    
+
   - source: چَاريكَار
     expected: Chārīkār
-    
+
   - source: سُلْطَان حَضْرَتِ
     expected: Ḩaẕrat-e Sulţān
-    
+
   - source: خُوْسْت
     expected: Khōst
-    
+
   - source: ځَدْرَاڼ
     expected: Dzadrāṉ
-    
+
   - source: څَوْآۍ
     expected: Tsowkêy
-    
+
   - source: سْپِين بُوْلْدَک
     expected: Spīn Bōldak
-    
+
   - source: ډَنْډ وَ پَتَان
     expected: Ḏanḏ wa Patān
-    
+
   - source: گُذَرْگَاهٔ نُور
     expected: Guz̄argāh-e Nūr
-    
+
   - source: آَنْدَهَار
     expected: Kandahār
-    
+
   - source: اَنْدَړ
     expected: Andaṟ
-    
+
   - source: آُنْدُز
     expected: Kunduz
-    
+
   - source: ژْرَنْدَه مِيراَسْلَم
     expected: Mīr Aslam Zhrandah
 
   - source: ږِيَره
     expected: Zh̲ī̲rah
-    
+
   - source: سَمَنْگَان
     expected: Samangān
-    
+
   - source: مَزَارِ شَريف
     expected: Mazār-e Sharīf
-    
+
   - source: آښتَه آَلا
     expected: Ks̲h̲êtah Kalā
-    
+
   - source: قَيْصَار
     expected: Qayşār
-    
+
   - source: فَيْض آبَاد
     expected: Faīẕābād
-    
+
   - source: سُلْطَان حَضْرَتِ
     expected: Ḩaẕrat-e Sulţān
-    
+
   - source: ظَاهِر آَلا
     expected: Zā̧hir Kalā
-    
+
   - source: پُلِ عَلَم
     expected: Pul-e ‘Alam
-    
+
   - source: غَزْنِى
     expected: Ghaznī
-    
+
   - source: مَزَارِ شَريف
     expected: Mazār-e Sharīf
-    
+
   - source: قَيْصَار
     expected: Qayşār
-    
+
   - source: آَنْدَهَار
     expected: Kandahār
-    
+
   - source: گَرْدېز
     expected: Gardēz
-    
+
   - source: کَابُل
     expected: Kābul
-    
+
   - source: مَيمَنَه
     expected: Maīmanah
-    
+
   - source: خَان آبَاد
     expected: Khānābād
-    
+
   - source: مَاڼۍ
     expected: Māṉêy
-    
+
   - source: وَاخَان
     expected: Wākhān
-    
+
   - source: هِرَات
     expected: Herāt
-    
+
   - source: يَنْگِی قَلعَه
     expected: Yangī Qal‘ah
-    
+
   - source: جَلال آبَاد
     expected: Jalālābād
-    
+
   - source: پُلِ حِصَار هِرات
     expected: Herāt, Pul-e Ḩişār
-    
+
   - source: کَابُل مُرْغَاب
     expected: Murghāb, Kābul
-    
+
   - source: گردُون
     expected: Gêrdōn
 
   - source: آب بَنْد
     expected: Āb Band
-    
+
   - source: بُوْلْدَک سْپِين
     expected: Spīn Bōldak
-    
+
   - source: بَالا بُلُوک
     expected: Bālā Bulūk
-    
+
   - source: جَوزجَان
     expected: Jowzjān
-    
+
   - source: ، سْپِين غَزْنِى
     expected: Ghaznī, Spīn
-    
+
   - source: ، ريگ مَيوَنْد
     expected: Maywand, Rēg
-    
+
   - source: گَرْدېز
     expected: Gardēz
-    
+
   - source: مَيدان شَهْر
     expected: Maīdān Shahr
-    
+
   - source: ډَنْډِ سُفْلىٰ
     expected: Ḏanḏ-e Suflá
-    
+
   - source: څَوْآۍ
     expected: Tsowkêy
-    
+
   - source: هَوائِى ډَگَر
     expected: Hawā’ī D̲agar
-    
+
   - source: شَريف مَزارِ
     expected: Mazār-e Sharīf
-    
+
   - source: دايکندی
     expected: Dāykundī
-    
+
   - source: زيارت
     expected: Zīārat
-    
+
   - source: غوريان
     expected: Ghōriyān
-    
+
   - source: ميا
     expected: Myā
 
@@ -389,10 +392,10 @@ map:
     '\u062C': 'j'
     '\u0686': 'ch'
 
-    # The variant form ج is seen infrequently and does not have a single Unicode encoding.
+    # The variant form ج is seen infrequently and does not have a
+    # single Unicode encoding.
     '\u0681': 'dz' # Note 2
     '\u0685': 'ts' # Note 2
-
 
     '\u062D': 'ḩ'
     '\u062E': 'kh'
@@ -428,32 +431,62 @@ map:
     # Vowel, Diphthong and Diacritical Characters
 
     '\u064E': 'a'
-    '\u0650': 'e','i' # Both e and i are available to romanize this short vowel, depending on local usage and/or root language. In cases where the sound is uncertain, i is the default romanization in BGN/PCGN standardization procedures.
-    '\u064F': 'o','u' # Both o and u are available to romanize this short vowel, depending on local usage and/or root language. In cases where the sound is uncertain, u is the default romanization in BGN/PCGN standardization procedures.
+
+    # Both e and i are available to romanize this short vowel,
+    # depending on local usage and/or root language. In cases where the sound
+    # is uncertain, i is the default romanization in BGN/PCGN standardization
+    # procedures.
+    '\u0650':
+      - 'e'
+      - 'i'
+
+    # Both o and u are available to romanize this short vowel,
+    # depending on local usage and/or root language. In cases where the sound
+    # is uncertain, u is the default romanization in BGN/PCGN standardization
+    # procedures.
+    '\u064F':
+      - 'o'
+      - 'u'
     '\u0659': 'ê'
-    '\u0622': 'ā' # An alif with mad ( آ ) is written only in the initial position by BGN/PCGN standardization procedures, in keeping with Persian language family standards of use of the Arabic alphabet. The same letter written in a medial or final position is written . . .
+
+    # An alif with mad ( آ ) is written only in the initial position by
+    # BGN/PCGN standardization procedures, in keeping with Persian language
+    # family standards of use of the Arabic alphabet. The same letter written
+    # in a medial or final position is written . . .
+    '\u0622': 'ā'
+
     '\u0648': 'ō'
     '\u0648': 'ū'
     '\u0648': '\u006F\u0077'
     '\u06CC': 'ī'
-    '\u06CC': 'ay' # Or 'ē'. The character ی should be romanized ay or ē according to its root language or local pronunciation. In case of uncertainty a reference source (such as the Fairchild Aerial Surveys map series, or a BGN/PCGN approved policy document/list of recommended spellings) should be consulted.
+
+    # Or 'ē'. The character ی should be romanized ay or ē according to
+    # its root language or local pronunciation. In case of uncertainty a
+    # reference source (such as the Fairchild Aerial Surveys map series, or a
+    # BGN/PCGN approved policy document/list of recommended spellings) should
+    # be consulted.
+    '\u06CC': 'ay'
     '\u06D0': 'ē'
-    '\u06CC': 'ay' # Or 'aī'. Both the combination ay and aī are available to romanize this character according to its root language or local pronunciation. In cases where the sound is uncertain ay is the default romanization in BGN/PCGN standardization procedures
-    '\u06CC': 'á'
+
+    # Or 'aī'. Both the combination ay and aī are available to romanize
+    # this character according to its root language or local pronunciation.
+    # In cases where the sound is uncertain ay is the default romanization in
+    # BGN/PCGN standardization procedures
+    '\u06CC':
+      - 'ay'
+      - 'á'
     '\u06CD': 'êy'
     '\u0621': '’'
-    '\u0674': '-e','-ye'
+    '\u0674':
+      - '-e'
+      - '-ye'
 
     # Other Diacritical Marks and Language Conventions
 
-    '\u0627\u06CC': 'āy'
-    '\u06CC\u0627': 'īā' # 'iyā' or 'yā'. The character combination يا should be romanized īā, iyā or yā according to its root language or local pronunciation. In case of uncertainty a reference source (such as the Fairchild Aerial Surveys map series, or a BGN/PCGN approved policy document or list of recommended spellings) should be consulted.
-    
-    '\u0627' : '' # This convention applies only to the initial alif which has no sound of its own, serving as a seat for an unwritten short vowel. This is in keeping with Persian language family standards of use of the Arabic alphabet whereby words that begin or end with an unwritten short vowel must utilize a silent consonant to carry the sound in written form.
+    '\u0627': 'āy'
 
     '\u0648': 'w'
-    '\u0626': '’'    
+    '\u0626': '’'
     '\u06C0': ''
     '\u0651': ''
     '\uFDF2': 'Allāh' # See note 5
-
