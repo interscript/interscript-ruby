@@ -23,15 +23,17 @@ RSpec.describe Interscript do
 
     unless results.empty?
       puts
-      puts "Failures:"
+      warn "Failures:"
       results.each do |name, tests|
-        puts "  Fail system: #{name}"
+        puts
+        warn "  Fail system: #{name}"
         tests.each do |test|
-          puts "    expected: #{test[:expected]}"
-          puts "         got: #{test[:got]}"
+          warn "    expected: #{test[:expected]}"
+          warn "         got: #{test[:got]}"
           if test[:expected].lines.count > 2
-            puts "Diff:"
-            puts test[:diff]
+            puts
+            warn "Diff:"
+            warn test[:diff]
           end
         end
       end

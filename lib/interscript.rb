@@ -38,25 +38,14 @@ module Interscript
         end
       end
 
-      output2 = output.clone
-      offsets = Array.new output.to_s.size, 1
       charmap.each do |k, v|
-        output.to_s.scan(k) do |match|
-          pos = Regexp.last_match.offset(0).first
+        while (match = output&.match(/#{k}/))
+          pos = match.offset(0).first
           result = up_case_around?(output, pos) ? v.upcase : v
-          output2[offsets[0...pos].sum, match.size] = result
-          offsets[pos] += v.size - match.size
+          output[pos, match.size] = result
         end
       end
-      output2
-
-      # output.to_s.split('').map.with_index do |char, i|
-      #   if (c = charmap[char])
-      #     up_case_around?(output, i) ? c.upcase : c
-      #   else
-      #     char
-      #   end
-      # end.join('')
+      output
     end
 
     private
