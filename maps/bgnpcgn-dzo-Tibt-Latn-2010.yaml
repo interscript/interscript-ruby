@@ -1,0 +1,220 @@
+---
+authority_id: bgnpcgn
+id: 2010
+language: dzo
+source_script: Tibt
+destination_script: Latn
+name: ROMANIZATION OF DZONGKHA -- BGN/PCGN 2010 AGREEMENT
+url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/693691/ROMANIZATION_OF_DZONGKHA.pdf
+creation_date: 2010
+confirmation date: 2017-10
+description: |
+
+    This romanization system for Dzongkha was developed by
+    the Dzongkha Development Commission. Bhutan's Ministry
+    of Home Affairs approved this system in 1997 and 
+    mandated that the Bhutanese government use standardized 
+    spellings of geographical names and official guidelines 
+    for romanization. The tabulation shown below is derived 
+    from the version available on the UNGEGN Working Group 
+    on Romanization Systems website. A number of fonts to 
+    display Dzongkha are available. The Bhutanese 
+    government provides several Unicode compliant fonts.
+
+notes:
+
+- Dzongkha words are divided into syllables by a special symbol called tsheg (་) as in the word མ་ thim-phu: 
+Thimphu. Geographical names greater than three syllables 
+are divided after the second syllable: e.g. བ་ཤིས་ང་ཙེ (four 
+syllables) tra-shi-yang-tse: Trashi Yangtse.
+
+- A syllable may be composed of several elements, including 
+prefixed, superscript, subscript and suffixed consonant 
+characters often stacked upon one another, e.g.  s 
+(superscript) upon k upon ya (subscript) generating skya.
+
+- Prefixed consonants are not romanized, e.g. གང ་ནག Dungna 
+[ག (prefix)  (root with vowel marking) ང (suffix) ་ 
+(syllable break) ན (root) ག (suffix)] and མགར་ས Gasa [མ 
+(prefix) ག (root) ར (suffix) ་ (syllable break) ས (root)].
+
+- Superscript consonants are not romanized with the 
+exception of  lha, e.g. བསགས་ང Sakteng [བ (prefix) ས (root) 
+ག (suffix) ས (secondary suffix) ་ (syllable break)  (root 
+with superscript and vowel marking) ང(suffix)]; ང་་ས 
+Tangsibji [ (root with superscript) ང (suffix) ་ (syllable 
+break)  (root with vowel marking) ་ (syllable break)  
+(root with subscript, superscript, and vowel marking) ས 
+(suffix)], but ན་་ Lhuentse [ (root with subscript and 
+vowel marking) ན (suffix) ་ (syllable beak)  (root with 
+vowel marking)].
+
+- Suffixed consonants are romanized or not romanized based 
+on local pronunciation, e.g. ང ་ཁག Drungkhag [ (root with 
+subscript and vowel marking) ང (suffix) ་ (syllable break) ཁ 
+(root) ག (suffix)], དབང ་ག Wangchhuk [ད(prefix) བ(root) 
+ང(suffix) ་ (syllable break)  (root with subscript and 
+vowel marking) ག (suffix)], ག Ta [ (root with 
+superscript) ག (suffix)].
+
+- Secondary suffixed consonants are not romanized; however, 
+there are exceptions, e.g. བར་མཚམས Bartsham [བ (root) ར 
+(suffix) ་ (syllable break) མ (prefix) ཚ (root) མ (suffix) ས 
+(secondary suffix)], ངས་ Dangchhu [ (root with 
+subscript) ང (suffix) ས (secondary suffix) ་ (syllable 
+break)  (root with vowel marking)]. གཞལམ་ང Zhemgang [ག 
+(prefix) ཞ (root) ལ (suffix) མ (secondary suffix) ་(syllable
+break)  (root with superscript) ང (suffix)] is an 
+exception in which the suffix is not romanized but the 
+secondary suffix is romanized.
+
+# Special Notes:
+- Pronunciation of Dzongkha names may vary according to 
+local usage and there are several exceptions to the present 
+romanization guidelines.
+
+- Additional characters that are found mainly in words of Indic provenance are romanized as follows: ཊ tra, ཋ thra, ཌ dra, ཎ na, ཥ kha, ཀྵ chha.
+
+tests:
+  - source: ཐྀམ་ཕུ
+    expected: Thimphu
+    
+  - source: བཀྲ་ཤིས་གྱང་ཙེ
+    expected: Trashi Yangtse
+    
+  - source: སྟང་སི་སྦྱིས
+    expected: Tangsibji
+    
+
+map:
+  characters:
+    '\u0F40' : 'ka'  # ཀ
+    '\u0F41' : 'kha'  # ཁ
+    '\u0F42' : 'ga'  # ག
+    '\u0F44' : 'nga'  # ང
+    '\u0F45' : 'cha'  # ཅ
+    '\u0F46' : 'chha'  # ཆ
+    '\u0F47' : 'ja'  # ཇ
+    '\u0F49' : 'mya'  # ཉ
+    '\u0F4F' : 'ta'  # ཏ
+    '\u0F50' : 'tha'  # ཐ
+    '\u0F51' : 'da'  # ད
+    '\u0F53' : 'na'  # ན
+    '\u0F54' : 'pa'  # པ
+    '\u0F55' : 'pha'  # ཕ
+    '\u0F56' : 
+     - 'ba'  # བ
+     - 'wa'  # བ
+    '\u0F58' : 'ma'  # མ
+    '\u0F59' : 'tsa'  # ཙ
+    '\u0F5A' : 'tsha'  # ཚ
+    '\u0F5B' : 'dza'  # ཛ
+    '\u0F5D' : 'wa'  # ཝ
+    '\u0F5E' : 'zha'  # ཞ
+    '\u0F5F' : 'za'  # ཟ
+    '\u0F60' : 'z'  # འ
+    '\u0F61' : 'ya'  # ཡ
+    '\u0F62' : 'ra'  # ར
+    '\u0F63' : 'la'  # ལ
+    '\u0F64' : 'sha'  # ཤ
+    '\u0F66' : 'sa'  # ས
+    '\u0F67' : 'ha'  # ཧ
+    '\u0F68' : 'a'  # ཨ    
+    
+    # a) The character '\u0F56' is romanized as either ba 
+    # or wa depending on dialect. See special note number 1.
+    
+    # b) The subscript variant of the character '\u0F5D' 
+    # (wa): '\u0FAD' is not romanized: '\u0F41\u0FAD' ka, 
+    # '\u0F51\u0FAD' da, '\u0F5A\u0FAD' tsha.
+    
+    # c) The subscript variant of the character '\u0F61' is 
+    # '\u0FB1' (ya), e.g. '\u0F40\u0FB1'. See syllable 
+    # initial consonant combination table for romanized forms.
+    
+    # d) The superscript variant of character '\u0F62' (ra) 
+    # is not romanized:  ka,  da,  dza. The subscript 
+    # variant of this character is ◌ྲ: see syllable initial 
+    # consonant combination table for romanized forms.
+    
+    # Vowels (where ཨ stands for any consonant character):
+    
+    # Romanized e or ay if followed by a suffix ད་ ན་ འ་ ས་
+    '\u0F68' : 'a' # ཨ (see note a)
+    '\u0f68\u0f72' : 'i' # ཨི
+    
+    # Romanized ue or u if followed by a suffix ད་ ན་ འ་ ས་
+    '\u0f40\u0f74' : 'u' # ཀུ (see note b)
+    '\u0F68\u0F7A' : 'e' # ཨེ
+    
+    # Romanized oe or o if followed by a suffix ད་ ན་ འ་ ས་
+    '\u0F68\u0F7C' : 'o' # ཨོ (see note c)
+    
+    # a) Romanized e or ay if followed by a suffix ད་ ན་ འ་ ས་
+    # b) Romanized ue or u if followed by a suffix ད་ ན་ འ་ ས་
+    # c) Romanized oe or o if followed by a suffix ད་ ན་ འ་ ས་
+    
+    
+    # Syllable-initial Consonant Combinations (This list is 
+    # not complete. Only those consonant clusters with non-standard 
+    # romanizations are given. Also see “General guidelines before transliterating”.):
+    
+    '\u0F40\u0FB1' : 
+     - 'cha' # ཀྱ
+     - 'ka' # (see note A)
+    '\u0F41\u0FB1' : 
+     - 'chha'
+     - 'kha' # (see note A)
+    '\u0F42\u0FB1' : 
+     - 'ja' #
+     - 'gya' # (see note A)
+    '\u0F54\u0FB1' : 
+     - 'cha'
+     - 'pcha'
+    '\u0F54\u0FB1' : 
+     - 'chha'
+     - 'pchha'
+    '\u0F56\u0FB1' : 
+     - 'ja'
+     - 'bja'
+    '\u0f51\u0F56\u0FB1' : 'ya'
+    '\u0f58\u0FB1' : 'nya'
+    '\u0F40\u0FB2' : 'tra' # ཀྲ
+    '\u0F41\u0FB2' : 'thra' # ཁྲ
+    '\u0F42\u0FB2' : 'dra' # གྲ
+    # '' : 'tra' # 12. (unicode not found)
+    '\u0F50\u0FB2' : 'thra' # ཐྲ
+    '\u0f51\u0FB2' : 'dra' # དྲ
+    '\u0F54\u0FB2' : 'tra' # པྲ
+    '\u0F55\u0FB2' : 'thra' # ཕྲ
+    '\u0F56\u0FB2' : 'dra' # བྲ
+    '\u0F64\u0FB2' : 'shra' # ཤྲ
+    '\u0F66\u0FB2' : 'sa' # སྲ
+    # '' : 'hra' # 20. (unicode not found)
+    '\u0F51\u0F56' : 'wa' # དབ (see note B)
+    '\u0F5F\u0FA8' : 'da' # ཟྨ
+    '\u0F63\u0FB7' : 'lha' # ལྷ
+    
+    # A) Palatal variants ch, chh, j are generally used before a, o, and u.
+    # B) Not romanized if followed by any other vowel than a.
+    
+    
+    # Syllable Endings (suffixes):
+    '\u0F42' : # ག
+     - 'g' # 
+     - 'k' # or not romanized
+    '\u0F44' : 'ng' # or not romanized
+    '\u0F51' : '' # Not romanized
+    '\u0F53' : 'n' # or not romanized 
+    '\u0F56' : # བ
+     - 'b'
+     - 'p'
+    '\u0F58' : 'm' # མ 
+    '\u0F60' : '' # not romanized
+    '\u0F62' : 'r' # or not romanized
+    '\u0F63' : 'I' # or not romanized 
+    '\u0F66' : '' # not romanized
+    
+    
+    
+    
