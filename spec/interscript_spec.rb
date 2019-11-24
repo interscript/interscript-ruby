@@ -3,7 +3,6 @@
 require "diffy"
 
 RSpec.describe Interscript do
-
   Dir["maps/*.yaml"].each do |system_file|
     context "#{system_file} system" do
       system = YAML.load_file(system_file)
@@ -13,7 +12,7 @@ RSpec.describe Interscript do
 
         it "test for #{test}" do
           result = Interscript.transliterate system_name, test["source"]
-          puts "#{test["expected"]} result #{result}"
+          # puts "#{test["expected"]} result #{result}"
           expect(result).to eq(test["expected"])
 
           # diff = Diffy::Diff.new test["expected"], result
