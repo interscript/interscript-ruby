@@ -38,7 +38,7 @@ tests:
   - source: Бaбушкин
     expected: Babuškin
 
-  - source: Baвилово
+  - source: Вaвилово
     expected: Vavilovo
 
   - source: Гaгaрин
@@ -50,28 +50,28 @@ tests:
   - source: Елисeeвкa
     expected: Eliseevka
 
-  - source: Ёлкинo
-    expected: Ёlkino
+  - source: Ёлкино
+    expected: "\u00CBlkino"
 
   - source: Псëл
     expected: Psël
 
-  - source: Жyжa
+  - source: Жужa
     expected: Žuža
 
   - source: Звëздный
     expected: Zvëzdnyj
 
-  - source: Идpицa
+  - source: Идрицa
     expected: Idrica
 
-  - source: Зapaйcк
+  - source: Зaрaйск
     expected: Zarajsk
 
   - source: Кокaнд
     expected: Kokand
 
-  - source: Лaлвap
+  - source: Лaлвaр
     expected: Lalvar
 
   - source: Мaймaк
@@ -86,7 +86,7 @@ tests:
   - source: Пaп
     expected: Pap
 
-  - source: Peбpихa
+  - source: Рeбрихa
     expected: Rebriha
 
   - source: Сaсoвo
@@ -95,34 +95,34 @@ tests:
   - source: Тaттa
     expected: Tatta
 
-  - source: Уpжyм
+  - source: Уржум
     expected: Uržum
 
   - source: Фoфaнoвo
-    expected: Fofonavo
+    expected: Fofanovo
 
-  - source: Хoхлмa
+  - source: Хoхломa
     expected: Hohloma
 
   - source: Цвeткoвo
     expected: Cvetkovo
 
-  - source: Чeчeлъник
-    expected: Čečel’nick
+  - source: Чeчeльник
+    expected: Čečel’nik
 
   - source: Шишкинo
     expected: Šiškino
 
-  - source: Шyкинo
+  - source: Щукинo
     expected: Ščukino
 
   - source: Пoдъячeвo
     expected: Pod”jačevo
 
-  - source: Ыныкчaнcкий
-    expected: Ynykčaskij
+  - source: Ыныкчaнский
+    expected: Ynykčanskij
 
-  - source: Пapaньгa
+  - source: Пaрaньгa
     expected: Paran’ga
 
   - source: Кaзaнь
@@ -131,7 +131,7 @@ tests:
   - source: Щучьe
     expected: Ščuč’e
 
-  - source: Элиcтa
+  - source: Элистa
     expected: Èlista
 
   - source: Юринo
@@ -140,19 +140,19 @@ tests:
   - source: Юхнoв
     expected: Juhnov
 
-  - source: Юpюэaнь
+  - source: Юрюзaнь
     expected: Jurjuzan’
 
   - source: Ямaл
     expected: Jamal
 
-  - source: Яэъявaн
+  - source: Язъявaн
     expected: Jaz”javan
 
   - source: Яя
     expected: Jaja
 
-  - source: Bяэьмa
+  - source: Вязьмa
     expected: Vjaz’ma
 
 
@@ -190,7 +190,7 @@ map:
     '\u042C' : '’'  # Ь
     '\u042D' : 'È' # Э
     '\u042E' : 'Ju' # Ю
-    '\u02BF' : 'Ja'  # Я
+    '\u042F' : 'Ja'  # Я
 
     '\u0430' : 'a'  # а
     '\u0431' : 'b'  # б

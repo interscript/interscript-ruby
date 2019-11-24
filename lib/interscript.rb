@@ -58,11 +58,11 @@ module Interscript
 
       i = pos - 1
       i -= 1 while i.positive? && string[i] !~ /[[:alpha:]]/
-      before = string[i].to_s.strip
+      before = i >= 0 && i < pos ? string[i].to_s.strip : ""
 
       i = pos + 1
       i += 1 while i < string.size - 1 && string[i] !~ /[[:alpha:]]/
-      after = string[i].to_s.strip
+      after = i > pos ? string[i].to_s.strip : ""
 
       !before.empty? && before == before.upcase || !after.empty? && after == after.upcase
     end
