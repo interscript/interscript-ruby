@@ -1,0 +1,22 @@
+name: test
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: Run specs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.6'
+          architecture: 'x64'
+      - uses: actions/checkout@master
+      - name: Update gems
+        run: |
+          gem install bundler -v "~> 2"
+          bundle install --jobs 4 --retry 3
+      - name: Run RSpecs
+        run: |
+          bundle exec rspec
