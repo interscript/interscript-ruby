@@ -26,8 +26,7 @@ notes:
     for Cyrillic х.
 
 tests:
-  - source: |
-      Эх, тройка! птица тройка, кто тебя выдумал? знать, у бойкого народа
+  - source: "Эх, тройка! птица тройка, кто тебя выдумал? знать, у бойкого народа
       ты могла только родиться, в той земле, что не любит шутить, а
       ровнем-гладнем разметнулась на полсвета, да и ступай считать версты, пока
       не зарябит тебе в очи. И не хитрый, кажись, дорожный снаряд, не
@@ -37,11 +36,9 @@ tests:
       привстал, да замахнулся, да затянул песню — кони вихрем, спицы в
       колесах смешались в один гладкий круг, только дрогнула дорога, да вскрикнул
       в испуге остановившийся пешеход — и вон она понеслась, понеслась,
-      понеслась!
+      понеслась!\nН.В. Гоголь"
 
-      Н.В. Гоголь
-    expected: |
-      `Eh, troyka! ptitsa troyka, kto tebya v`idumal? znat', u boykogo
+    expected: "`Eh, troyka! ptitsa troyka, kto tebya v`idumal? znat', u boykogo
       naroda t`i mogla tol'ko rodit'sya, v toy zemle, chto ne lyubit shutit',
       a rovnem-gladnem razmetnulas' na polsveta, da i stupay schitay verst`i,
       poka ne zaryabit tebe v ochi. I ne hitr`iy, kazhis', dorozhn`iy
@@ -51,9 +48,7 @@ tests:
       znaet na ch``em; a privstal, da zamahnulsya, da zatyanul pesnyu — koni
       vihrem, spits`i v kolesah smeshalis' v odin gladkiy krug, tol'ko
       drognula doroga, da vskriknul v ispuge ostanovivshiysya peshehod — i
-      von ona poneslas', poneslas', poneslas'!
-
-      N.V. Gogol'
+      von ona poneslas', poneslas', poneslas'!\nN.V. Gogol'"
 
 map:
   characters:
