@@ -1,0 +1,284 @@
+---
+authority_id: bgnpcgn
+id: 2008
+language: bal
+source_script: Arab
+destination_script: Latn
+name: ROMANIZATION OF BALUCHI -- BGN/PCGN 2008 System
+url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/693687/ROMANIZATION_OF_BALUCHI.pdf
+creation_date: 2008
+confirmation date: 2017-11
+description: |
+    The following is the BGN/PCGN-approved romanization 
+    system for deriving standard spellings of Baluchi 
+    geographic names. The romanization system is based on 
+    the Hunterian system of romanization, which has been 
+    used by the Surveys of India and Pakistan for 
+    romanizing Baluchi geographic names for more than one 
+    hundred years. The romanization system is compatible 
+    with all dialects of Baluchi, including Eastern 
+    Baluchi, Western Baluchi, and Southern Baluchi.
+    
+    The BGN/PCGN system laid out below includes diacritical
+    marks in order that the original script can be derived 
+    from the romanized form (i.e. it is reversible). For 
+    desk users requiring a diacritic-free form, these 
+    diacritics can simply be removed. In almost every case 
+    the same basic Roman-script characters are kept as are 
+    used in the Hunterian system. The BGN/PCGN forms have 
+    further been designed to harmonize with the BGN/PCGN 
+    Urdu romanization system. In rigorous romanization 
+    (i.e. including diacritics), retroflexion is marked by 
+    a sub-dot, and aspiration is marked by an apostrophe, 
+    where confusion with fricative digraphs could arise. 
+    For letters used only in Arabic loan words, the 
+    rigorous forms have further been designed to harmonize 
+    with the BGN/PCGN Persian romanization system.
+    
+notes:
+- Occasionally, sequences of /z/ or /s/ plus /h/ may be 
+encountered, i.e. z·h, s·h. These may be romanized with the 
+Unicode 'center dot' (U+00B7) separating the two letters, 
+to distinguish them from the digraphs /zh/ and /sh/.
+
+- The character ة is found very rarely in Baluchi, principally in certain Arabic religious terms, e.g. zakāt
+('alms'). It should be romanized t.
+
+- When the letters ال are found, representing the Arabic 
+definite article, the ل is assimilated to a following 'sun letter' ,د ,ث ,ت
+ل ,ظ ,ط , ض , ,ص ,ش ,س , ,ر ,ذ or ن and is romanized t, , d, , r, z, s, sh, ş, ẕ ţ z , l, n accordingly.
+
+- In romanization, the suffixes ءَ (-ā, singular definite) 
+and ءِ (-ay, possessive) are connected to the previous word 
+by a hyphen, though they are usually written separately.
+
+- The word for 'and', written as و or ءُ, should be 
+romanized as –u-, linked by hyphens to the two words it 
+connects; e.g.,
+ہ ٹد و س ٹد → Sind-u-Hind ('The Gangetic Plain').
+
+- Except as specified in notes 4 and 5, word division in romanization should follow word division in the Baluchi script.
+
+- Note that the short vowels in the Baluchi examples are not pointed.
+
+- Certain initial, medial and final characters are not 
+readily available in a Unicode-encoded font in a standalone form.
+
+- The Romanization columns show only lowercase forms but, 
+when romanizing, uppercase and lowercase Roman letters as 
+appropriate should be used.
+
+tests:
+    # 'Japan'
+  - source: جا پان
+    expected: Jāpān
+    
+    # 'village'
+  - source: ج لق
+    expected: ḩalq
+    
+    # 'foothills or skirts of a mountain'
+  - source: دامان
+    expected: dāmān
+    
+  - source: ڈاڈر
+    expected: Ḍāḍar
+    
+    # 'tomb'
+  - source: گم ٹذ
+    expected: gumbudh
+    
+    # 'crossroads'
+  - source: جار راہ
+    expected: chār rāh
+    
+    # 'market'
+  - source: پازار
+    expected: bāzār
+    
+    # 'homeland'
+  - source: وطن
+    expected: waţan
+    
+    # 'Bandar Abbas'
+  - source: ع ٹّاس
+    expected: ‘Abbās
+    
+    # 'Taiwan'
+  - source: فارموسا
+    expected: Fārmosā
+    
+    # 'village'
+  - source: جلق
+    expected: ḩalq
+    
+  - source: ڈاک
+    expected: Ḍāk
+    
+    # 'stream, irrigated area, pasture'
+  - source: مل
+    expected: mall
+    
+  - source: ہ یرات
+    expected: Herāt
+    
+    # 'Philippines'
+  - source: فلپاٸن
+    expected: Filpā’in
+    
+  - source: مرگاپ
+    expected: Murgāp
+    
+  - source: مرو
+    expected: Marw
+
+
+map:
+  characters:
+    '\u0628' : 'b'
+    '\u067E' : 'p'
+    '\u062A' : 't'
+    '\u0679' : 'ṭ'  # see note 8
+    '\u067C' : 'ṭ'  # see note 8
+    
+    # Represents [θ] in Eastern Baluchi, intervocalically 
+    # and word-finally. Underbar distinguishes from aspirated 
+    # [t^h] (see digraphs section).    
+    '\u062B' : '\u0074\u0332\u0068\u0332'  # see note 8
+    '\u067F' : '\u0074\u0332\u0068\u0332'  # see note 8
+    '\u062C' : 'j'  # 
+    '\u0686' : 'ch'  #    
+    '\u062D' : 'ḩ' # Also seen جلک
+    
+    # Largely identical to ح in pronunciation
+    '\u062E' : 'kh'  
+    '\u062F' : 'd'  # 
+    '\u0688' : 'ḍ'  # 
+    '\u0689' : 'ḍ'  # see note 8
+    
+    # Represents [ð] in Eastern Baluchi,
+    # intervocalically and word-finally.
+    '\u0630' : '\u0064\u0332\u0068\u0332'
+    '\u0631' : 'r'  # 
+    '\u0691' : '\u1E5B'  # see note 8
+    '\u0693' : '\u1E5B'  # see note 8
+    '\u0632' : 'z'  # 
+    '\u0698' : 'zh'  # 
+    '\u0633' : 's'  # 
+    '\u0634' : 'sh'  # 
+    '\u0635' : 'ş'  # 
+    '\u0636' : 'ẕ'  # 
+    '\u0637' : 'ţ'  # Also spelled و نو
+    '\u0638' : 'z'  # 
+    '\u0639' : '‘'  # Usually not pronounced.
+    '\u063A' : 'gh'  
+    
+    # Common in Eastern Baluchi, occurs only sporadically 
+    # in Western and Southern Baluchi, 
+    # where it is often replaced by پ
+    '\u0641' : 'f'  # 
+    '\u0642' : 'q'  # Pronounced identically to ک
+    '\u06A9' : 'k'  # see note 8
+    '\u0643' : 'k'  # see note 8
+    '\u06AF' : 'g'
+    '\u0644' : 'l'  # see note 3
+    '\u0645' : 'm'
+    '\u0646' : 'n'
+    
+    # It is undecided whether this character should form 
+    # part of the Baluchi alphabet; we follow Jahani in accepting it.
+    '\u06BA' : 'ñ'  
+    '\u0648' : 'w'
+    
+    # Final heh following a consonant represents a short
+    # vowel. See vowel section for Romanization.
+    '\u0647' : 'h'
+    '\u06C1' : 'h'
+    
+    # ‘Two-eyed heh’ used to represent aspirated consonants 
+    # in Eastern Baluchi.
+    '\u06BE' : 'h'
+    '\u0621' : '’'
+    '\u0626' : '’'
+    '\u0649' : 'y'
+    
+    # Consonantal Diagraphs
+    
+    # Aspiration is only contrastive in Eastern Baluchi
+    '\u0628\u06BE' : 'bh'
+    
+    # Aspiration is only contrastive in Eastern Baluchi
+    '\u067E\u06BE' : 'ph'  
+    
+    # Aspiration is only contrastive in Eastern Baluchi. 
+    # Apostrophe distinguishes from fricative /th/.
+    '\u062A\u06BE' : 'th’'  
+    
+    # Aspiration is only contrastive in Eastern Baluchi
+    '\u0679\u06BE' : 'ṭh'  
+    
+    # Aspiration is only contrastive in Eastern Baluchi
+    '\u062C\u06BE' : 'jh'  
+    
+    # Aspiration is only contrastive in Eastern Baluchi
+    '\u0686\u06BE' : 'chh'  
+    
+    # Aspiration is only contrastive in Eastern Baluchi. 
+    # Apostrophe distinguishes from fricative /dh/
+    '\u062D\u06BE' : 'dh’'  
+    
+    # Aspiration is only contrastive in Eastern Baluchi
+    '\u0688\u06BE' : 'ḍh'  
+    
+    # Aspiration is only contrastive in Eastern Baluchi
+    '\u0631\u06BE' : '\u1E5B\u0068'  
+    
+    # Aspiration is only contrastive in Eastern Baluchi. 
+    # Apostrophe distinguishes from fricative /kh/
+    '\u06A9\u06BE' : 'kh’'  
+    
+    # Aspiration is only contrastive in Eastern Baluchi. 
+    # Apostrophe distinguishes from fricative /gh/
+    '\u06AF\u06BE' : 'gh’'  # 
+    '\u0644\u0627' : 'lā'  # 
+    '\u06A9\u0627' : 'kā'  # 
+    '\u06AF\u0627' : 'gā'  #     
+    '\u06A9\u0644' : 'kl'  # 
+    '\u06AF\u0644' : 'gl'  # 
+    
+    # Vowels, Diphthongs, and Diacritical Marks
+    '\u0650\u0649' : 'ī'  # 
+    '\u0650' : 'i'  # 
+    '\u06D2' : 'e'  # 
+    '\u0627' : 'ā'  # 
+    '\u0622' : 'ā'  # 
+    '\u064E' : 'a'  # 
+    '\u0648' : 'o'  # 
+    '\u064F' : 'u'  # 
+    '\u064F\u0648' : 'ū'  # 
+    '\u064E\u06D2' : 'ay'  # 
+    '\u064E\u0648' : 'aw'  # 
+    '\u0652' : ''  # Not Romanized
+    '\u0670' : 'á'  # 
+    '\u0651' : ''  # Double Consonant 
+    '\u0621\u064E' : '-ā'  # see note 4
+    '\u0621\u0650' : '-ay'  # see note 4
+    
+    # Numerals
+    '۰' : '0'
+    '۱' : '1'  
+    '۲' : '2'
+    '۳' : '3'
+    '۴' : '4'
+    '۵' : '5'
+    '۶' : '6'
+    '۷' : '7'
+    '۸' : '8'
+    '۹' : '9'
+    # Although Perso-Arabic script is written from right to 
+    # left, numerical expressions, e.g. ۸۶۹۱ → 1968, are 
+    # written from left to right. A comma is inserted into 
+    # longer sequences, either after thousands, millions,     etc.
+    
+    
+    
