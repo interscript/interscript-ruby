@@ -40,31 +40,27 @@ notes:
 
 
 tests:
-  # - source: かんおう
-  #   expected: kan'ô
-  # - source: かのう
-  #   expected: kanô
-  # - source: きんゆう
-  #   expected: kin'yû
-  # - source: とうきょう
-  #   expected: tôkyô
-  # - source: がっこう
-  #   expected: gakkô
-  # - source: かごっま
-  #   expected: kagomma
-  # - source: ぽっぽっや
-  #   expected: poppoyya
-  # - source: てっら
-  #   expected: terra
-  # - source: にゃっほー
-  #   expected: nyahhô
+  - source: かんおう
+    expected: kan'ô
+  - source: かのう
+    expected: kanô
+  - source: きんゆう
+    expected: kin'yû
+  - source: とうきょう
+    expected: tôkyô
+  - source: がっこう
+    expected: gakkô
+  - source: かごっま
+    expected: kagomma
+  - source: ぽっぽっや
+    expected: poppoyya
+  - source: てっら
+    expected: terra
+  - source: にゃっほー
+    expected: nyahhô
 
 map:
   rules:
-    - pattern: ([ЄФІЦАаЕеИиЙйОоУуЫыЮюЯяії])\u0415
-      result: "\\1YE"
-    - pattern: (?<=[АaЕeЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\u0415
-      result: "YE"
     # - pattern: (?<=っ([])
 
   characters:
@@ -80,6 +76,7 @@ map:
     "うう": "û"
     "ええ": "ê"
     "おぅ": "ô"
+    "おう": "ô"
     "おお": "ô"
 
 
@@ -91,6 +88,7 @@ map:
     "きゃ": "kya"
     "きゅ": "kyu"
     "きょ": "kyo"
+    "こう": "kô"
     "こぅ": "kô"
     "きゅぅ": "kyû"
     "きょぅ": "kyô"
@@ -106,6 +104,7 @@ map:
     "しょ": "syo"
     "しゅぅ": "syû"
     "しょぅ": "syô"
+    "そう": "sô"
     "そぅ": "sô"
 
     "た": "ta"
@@ -118,6 +117,7 @@ map:
     "ちょ": "tyo"
     "ちゅぅ": "tyû"
     "ちょぅ": "tyô"
+    "とう": "tô"
     "とぅ": "tô"
 
     "な": "na"
@@ -130,6 +130,7 @@ map:
     "にょ": "nyo"
     "にゅぅ": "nyû"
     "にょぅ": "nyô"
+    "のう": "nô"
     "のぅ": "nô"
 
     "は": "ha"
@@ -142,6 +143,7 @@ map:
     "ひょ": "hyo"
     "ひゅぅ": "hyû"
     "ひょぅ": "hyô"
+    "ほう": "hô"
     "ほぅ": "hô"
 
     "ま": "ma"
@@ -154,11 +156,13 @@ map:
     "みょ": "myo"
     "みゅぅ": "myû"
     "みょぅ": "myô"
+    "もう": "mô"
     "もぅ": "mô"
 
     "や": "ya"
     "ゆ": "yu"
     "よ": "yo"
+    "よう": "yô"
     "よぅ": "yô"
 
     "ら": "ra"
@@ -171,6 +175,7 @@ map:
     "りょ": "ryo"
     "りゅぅ": "ryû"
     "りょぅ": "ryô"
+    "ろう": "rô"
     "ろぅ": "rô"
 
     "わ": "wa"
@@ -186,6 +191,7 @@ map:
     "ぎょ": "gyo"
     "ぎゅぅ": "gyû"
     "ぎょぅ": "gyô"
+    "ごう": "gô"
     "ごぅ": "gô"
 
     "ざ": "za"
@@ -198,6 +204,7 @@ map:
     "じょ": "zyo"
     "じゅぅ": "zyû"
     "じょぅ": "zyô"
+    "ぞう": "zô"
     "ぞぅ": "zô"
 
 
@@ -209,6 +216,7 @@ map:
     "ぢゃ": "zya"
     "ぢゅ": "zyu"
     "ぢょ": "zyo"
+    "どう": "dô"
     "どぅ": "dô"
 
     "ば": "ba"
@@ -221,6 +229,7 @@ map:
     "びょ": "byo"
     "びゅぅ": "byû"
     "びょぅ": "byô"
+    "ぼう": "bô"
     "ぼぅ": "bô"
 
     "ぱ": "pa"
@@ -233,6 +242,7 @@ map:
     "ぴょ": "pyo"
     "ぴゅぅ": "pyû"
     "ぴょぅ": "pyô"
+    "ぽう": "pô"
     "ぽぅ": "pô"
 
     "ん": "n" # See note 2
