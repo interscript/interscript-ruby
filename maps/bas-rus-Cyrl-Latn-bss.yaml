@@ -116,8 +116,9 @@ map:
     "\u042c\u041E": "YO"    # O
     "\u042c\u0417": "YE"    # Э
 
-    # Ъ (otherwise) -> (none)
+    # Ь (otherwise) -> (none)
     "\u042c": ""
+
     # Ъ  -> (none)
     "\u042a": ""
 

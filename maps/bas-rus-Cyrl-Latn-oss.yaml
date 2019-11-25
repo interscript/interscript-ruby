@@ -105,16 +105,16 @@ map:
     "\u042E": "Yu"   # Ю
 
     # Ь (before Е, Ё, И, O, Э)
-    "\u042c\u0401": "Y``E"  # Ё
-    "\u042c\u0415": "YE"    # Е
-    "\u042c\u0418": "YI"    # И
-    "\u042c\u041E": "YO"    # O
-    "\u042c\u0417": "Y`E"    # Э
+    "\u042c\u0401": "Y``e"  # Ё
+    "\u042c\u0415": "Ye"    # Е
+    "\u042c\u0418": "Yi"    # И
+    "\u042c\u041E": "Yo"    # O
+    "\u042c\u0417": "Y`e"    # Э
 
-
-    # Ъ (otherwise) -> " (or none)
+    # Ь (otherwise) -> ' (or none)
     "\u042c": "'"
-    # Ъ  -> ' (or none)
+
+    # Ъ  -> " (or none)
     "\u042a": '"'
 
     "\u0430": "a"    # а
@@ -156,8 +156,8 @@ map:
     "\u044c\u006f": "yo"    # o
     "\u044c\u044d": "y`e"    # э
 
-    # Ъ (otherwise) -> " (or none)
+    # ь (otherwise) -> ' (or none)
     "\u044c": "'"
 
-    # Ъ  -> ' (or none)
+    # ъ  -> " (or none)
     "\u044a": '"'
