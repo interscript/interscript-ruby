@@ -15,8 +15,7 @@ description: |
 
 notes:
   - When in final position, “ия” is romanized as “ia” (e.g., София = Sofia; София-Град= Sofia-Grad).
-  - An exception to the romanization system is allowed for the name of the state. Thus, България is roman-
-ized as Bulgaria.
+  - An exception to the romanization system is allowed for the name of the state. Thus, България is romanized as Bulgaria.
   - The Romanization column shows only lowercase forms but, when romanizing, uppercase and lowercase Roman letters as appropriate should be used.
 tests:
   - source: София
@@ -27,8 +26,10 @@ tests:
     expected: Bulgaria
 
 map:
+  rules:
+    - pattern: България
+      result: Bulgaria
   characters:
-    'България': 'Bulgaria'
     '\u0410': 'A'
     '\u0411': 'B'
     '\u0412': 'V'
@@ -56,7 +57,7 @@ map:
     '\u0428': 'SH'
     '\u0429': 'SHT'
     '\u042a': '\u016c'
-    '\u042c': "\'"
+    '\u042c': "\\'"
     '\u042e': 'YU'
     '\u042f': 'YA'
     '\u0430': 'a'
@@ -86,7 +87,7 @@ map:
     '\u0448': 'sh'
     '\u0449': 'sht'
     '\u044a': '\u016d'
-    '\u044c': "\'"
+    '\u044c': "\\'"
     '\u044e': 'yu'
     '\u044f': 'ya'
 

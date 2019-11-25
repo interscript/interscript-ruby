@@ -19,14 +19,15 @@ notes:
 
   - Unicode values are shown with the uppercase Cyrillic character first, followed by the lowercase character. It is not known whether there exists an uppercase ‘J’ specific to the Cyrillic character set.
 
-  - An inventory of letter-diacritic combinations, with their Unicode encoding, in addition to the unmodified letters of the basic Roman script is:
-  Ğ (U+011E), ğ (U+011F)
-  Ə (U+018F), ə (U+0259)
-  İ (U+0130), ı (U+0131)
-  Ö (U+00D6), ö (U+00F6)
-  Ü (U+00DC), ü (U+00FC)
-  Ç (U+00C7), ç (U+00E7)
-  Ş (U+015E), ş (U+015F)
+  - |
+    An inventory of letter-diacritic combinations, with their Unicode encoding, in addition to the unmodified letters of the basic Roman script is:
+    Ğ (U+011E), ğ (U+011F)
+    Ə (U+018F), ə (U+0259)
+    İ (U+0130), ı (U+0131)
+    Ö (U+00D6), ö (U+00F6)
+    Ü (U+00DC), ü (U+00FC)
+    Ç (U+00C7), ç (U+00E7)
+    Ş (U+015E), ş (U+015F)
 
   - The Roman-script columns show only lowercase forms but, when applying the table, uppercase and lowercase Roman letters as appropriate should be used.
 

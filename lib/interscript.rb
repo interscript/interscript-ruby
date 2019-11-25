@@ -25,40 +25,44 @@ module Interscript
       system = load_system_definition(system_code)
 
       rules = system["map"]["rules"] || []
-      charmap = system["map"]["characters"] || {}
+      charmap = system["map"]["characters"]&.sort_by { |k, _v| k.size }&.reverse&.to_h || {}
 
       output = string.clone
-      offsets = Array.new string.size, 1
+      offsets = Array.new string.to_s.size, 1
       rules.each do |r|
-        string.scan(/#{r["pattern"]}/) do |match|
-          pos = Regexp.last_match.offset(0).first
-          result = up_case_around?(string, pos) ? r["result"].upcase : r["result"]
-          output[offsets[0..pos].sum - 1, match.size] = result
-          offsets[pos] = r["result"].size - match.size + 1
+        string.to_s.scan(/#{r["pattern"]}/) do |matches|
+          match = Regexp.last_match
+          pos = match.offset(0).first
+          result = r["result"].clone
+          matches.each.with_index { |v, i| result.sub!(/\\#{i + 1}/, v) } if matches.is_a? Array
+          result.upcase! if up_case_around?(string, pos)
+          output[offsets[0...pos].sum, match[0].size] = result
+          offsets[pos] += result.size - match[0].size
         end
       end
 
-      output.split('').map.with_index do |char, i|
-        if (c = charmap[char])
-          up_case_around?(output, i) ? c.upcase : c
-        else
-          char
+      charmap.each do |k, v|
+        while (match = output&.match(/#{k}/))
+          pos = match.offset(0).first
+          result = up_case_around?(output, pos) ? v.upcase : v
+          output[pos, match.size] = result
         end
-      end.join('')
+      end
+      output
     end
 
     private
 
     def up_case_around?(string, pos)
-      return false if string[pos] != string[pos].upcase
+      return false if string[pos] == string[pos].downcase
 
       i = pos - 1
       i -= 1 while i.positive? && string[i] !~ /[[:alpha:]]/
-      before = string[i].to_s.strip
+      before = i >= 0 && i < pos ? string[i].to_s.strip : ""
 
       i = pos + 1
       i += 1 while i < string.size - 1 && string[i] !~ /[[:alpha:]]/
-      after = string[i].to_s.strip
+      after = i > pos ? string[i].to_s.strip : ""
 
       !before.empty? && before == before.upcase || !after.empty? && after == after.upcase
     end

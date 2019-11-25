@@ -72,9 +72,9 @@ map:
     "ᠱ": "x"
     "ᠶ": "y"
     "ᠽ": "z"
-    "ᠣ":
-      - "o" # General use
-      - "ô" # For place names
-    "ᠤ":
-      - "u" # General use
-      - "û" # For place names
+    "ᠣ": "o"
+      # - "o" # General use
+      # - "ô" # For place names
+    "ᠤ": "u"
+      # - "u" # General use
+      # - "û" # For place names

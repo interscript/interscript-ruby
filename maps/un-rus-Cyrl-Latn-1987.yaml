@@ -1,0 +1,227 @@
+---
+authority_id: ungegn
+id: 1987
+language: rus
+source_script: Cyrl
+destination_script: Latn
+name: REPORT ON THE CURRENT STATUS OF UNITED NATIONS ROMANIZATION SYSTEMS FOR GEOGRAPHICAL NAMES -- Russian Romanization system
+url: http://www.eki.ee/wgrs/rom1_ru.htm
+creation_date: 1987
+confirmation_date: 2016
+description: |
+  The United Nations recommended system was approved in 1987 (V/18),
+  based on the official system of the Main Administration of Geodesy and
+  Cartography of the former Soviet Union, also known as the GOST 1983
+  system (GOST 16876-71). The table was published as an annex to the
+  resolution.
+
+  The system is used in the Russian Federation and increasingly in
+  international cartographic products.
+
+  Russian uses the Cyrillic script which is alphabetic. The
+  romanization table is unambiguous and can be applied automatically. The
+  system is reversible, although rarely there can be ambiguities.
+
+notes:
+  - "Cursive forms of some characters might be formed differently: Аа Бб
+    Вв Гг Дд Ее Ёё Жж Зз Ии Йй Кк Лл Мм Нн Оо Пп Рр Сс Тт Уу Фф Хх Цц Чч Шш
+    Щщ Ъъ Ыы Ьь Ээ Юю Яя."
+
+  - Fifth United Nations Conference on the Standardization of
+    Geographical Names. Montreal, 18–31 August 1987. Vol. I. Report of the
+    Conference, pp. 40–41.
+
+tests:
+  - source: Aнaпa
+    expected: Anapa
+
+  - source: Бaбушкин
+    expected: Babuškin
+
+  - source: Вaвилово
+    expected: Vavilovo
+
+  - source: Гaгaрин
+    expected: Gagarin
+
+  - source: Дудинкa
+    expected: Dudinka
+
+  - source: Елисeeвкa
+    expected: Eliseevka
+
+  - source: Ёлкино
+    expected: "\u00CBlkino"
+
+  - source: Псëл
+    expected: Psël
+
+  - source: Жужa
+    expected: Žuža
+
+  - source: Звëздный
+    expected: Zvëzdnyj
+
+  - source: Идрицa
+    expected: Idrica
+
+  - source: Зaрaйск
+    expected: Zarajsk
+
+  - source: Кокaнд
+    expected: Kokand
+
+  - source: Лaлвaр
+    expected: Lalvar
+
+  - source: Мaймaк
+    expected: Majmak
+
+  - source: Нeжин
+    expected: Nežin
+
+  - source: Обoдoвкa
+    expected: Obodovka
+
+  - source: Пaп
+    expected: Pap
+
+  - source: Рeбрихa
+    expected: Rebriha
+
+  - source: Сaсoвo
+    expected: Sasovo
+
+  - source: Тaттa
+    expected: Tatta
+
+  - source: Уржум
+    expected: Uržum
+
+  - source: Фoфaнoвo
+    expected: Fofanovo
+
+  - source: Хoхломa
+    expected: Hohloma
+
+  - source: Цвeткoвo
+    expected: Cvetkovo
+
+  - source: Чeчeльник
+    expected: Čečel’nik
+
+  - source: Шишкинo
+    expected: Šiškino
+
+  - source: Щукинo
+    expected: Ščukino
+
+  - source: Пoдъячeвo
+    expected: Pod”jačevo
+
+  - source: Ыныкчaнский
+    expected: Ynykčanskij
+
+  - source: Пaрaньгa
+    expected: Paran’ga
+
+  - source: Кaзaнь
+    expected: Kazan’
+
+  - source: Щучьe
+    expected: Ščuč’e
+
+  - source: Элистa
+    expected: Èlista
+
+  - source: Юринo
+    expected: Jurino
+
+  - source: Юхнoв
+    expected: Juhnov
+
+  - source: Юрюзaнь
+    expected: Jurjuzan’
+
+  - source: Ямaл
+    expected: Jamal
+
+  - source: Язъявaн
+    expected: Jaz”javan
+
+  - source: Яя
+    expected: Jaja
+
+  - source: Вязьмa
+    expected: Vjaz’ma
+
+
+map:
+  characters:
+    '\u0410' : 'A'  # A
+    '\u0411' : 'B'  # Б
+    '\u0412' : 'V'  # B
+    '\u0413' : 'G'  # Г
+    '\u0414' : 'D'  # Д
+    '\u0415' : 'E' # Е
+    '\u0401' : 'Ë' # Ё
+    '\u0416' : 'Ž' # Ж
+    '\u0417' : 'Z'  # З
+    '\u0418' : 'I'  # И
+    '\u0419' : 'J'  # Й
+    '\u041A' : 'K'  # К
+    '\u041B' : 'L'  # Л
+    '\u041C' : 'M'  # М
+    '\u041D' : 'N'  # Н
+    '\u041E' : 'O'  # О
+    '\u041F' : 'P'  # П
+    '\u0420' : 'R'  # Р
+    '\u0421' : 'S'  # С
+    '\u0422' : 'T'  # Т
+    '\u0423' : 'U'  # У
+    '\u0424' : 'F'  # Ф
+    '\u0425' : 'H'  # Х
+    '\u0426' : 'C' # Ц
+    '\u0427' : 'Č' # Ч
+    '\u0428' : 'Š' # Ш
+    '\u0429' : 'Šč' # Щ
+    '\u042A' : '”'  # Ъ
+    '\u042B' : 'Y'  # Ы
+    '\u042C' : '’'  # Ь
+    '\u042D' : 'È' # Э
+    '\u042E' : 'Ju' # Ю
+    '\u042F' : 'Ja'  # Я
+
+    '\u0430' : 'a'  # а
+    '\u0431' : 'b'  # б
+    '\u0432' : 'v'  # в
+    '\u0433' : 'g'  # г
+    '\u0434' : 'd'  # д
+    '\u0435' : 'e' # е
+    '\u0451' : 'ë' # ё
+    '\u0436' : 'ž' # ж
+    '\u0437' : 'z'  # з
+    '\u0438' : 'i'  # и
+    '\u0439' : 'j'  # й
+    '\u043A' : 'k'  # к
+    '\u043B' : 'l'  # л
+    '\u043C' : 'm'  # м
+    '\u043D' : 'n'  # н
+    '\u043E' : 'o'  # о
+    '\u043F' : 'p'  # п
+    '\u0440' : 'r'  # р
+    '\u0441' : 's'  # с
+    '\u0442' : 't'  # т
+    '\u0443' : 'u'  # у
+    '\u0444' : 'f'  # ф
+    '\u0445' : 'h'  # х
+    '\u0446' : 'c' # ц
+    '\u0447' : 'č' # ч
+    '\u0448' : 'š' # ш
+    '\u0449' : 'šč' # щ
+    '\u044A' : '”'  # ъ
+    '\u044B' : 'y'  # ы
+    '\u044C' : '’'  # ь
+    '\u044D' : 'è'  # э
+    '\u044E' : 'ju' # ю
+    '\u044F' : 'ja' # я

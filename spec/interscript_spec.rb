@@ -1,12 +1,17 @@
 # frozen_string_literal: true
 
 RSpec.describe Interscript do
-  context "bgnpcgn-rus-Cyrl-Latn-1947" do
-    it "convert internal test text" do
-      system = YAML.load_file "maps/bgnpcgn-rus-Cyrl-Latn-1947.yaml"
-      system["tests"].each do |test|
-        result = Interscript.transliterate "bgnpcgn-rus-Cyrl-Latn-1947", test["source"]
-        expect(result).to eq test["expected"]
+  mask = ENV["TRANSLIT_SYSTEM"] || "*"
+  Dir["maps/#{mask}.yaml"].each do |system_file|
+    context "#{system_file} system" do
+      system = YAML.load_file(system_file)
+      system_name = File.basename(system_file, ".yaml")
+
+      system["tests"]&.reduce([]) do |testresults, test|
+        it "test for #{test}" do
+          result = Interscript.transliterate system_name, test["source"]
+          expect(result).to eq(test["expected"])
+        end
       end
     end
   end
