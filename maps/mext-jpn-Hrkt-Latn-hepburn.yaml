@@ -40,31 +40,27 @@ notes:
 
 
 tests:
-  - source: かんおう
-    expected: kanō #kan'ō
-  - source: かのう
-    expected: kanō
-  - source: きんゆう
-    expected: kinyū # kin'yū
-  - source: とうきょう
-    expected: tōkyō
-  - source: がっこう
-    expected: gakkō
-  - source: かごっま
-    expected: kagomma
-  - source: ぽっぽっや
-    expected: poppoyya
-  - source: てっら
-    expected: terra
-  - source: にゃっほー
-    expected: nyahhō
+  # - source: かんおう
+  #   expected: kan'ō
+  # - source: かのう
+  #   expected: kanō
+  # - source: きんゆう
+  #   expected: kin'yū
+  # - source: とうきょう
+  #   expected: tōkyō
+  # - source: がっこう
+  #   expected: gakkō
+  # - source: かごっま
+  #   expected: kagomma
+  # - source: ぽっぽっや
+  #   expected: poppoyya
+  # - source: てっら
+  #   expected: terra
+  # - source: にゃっほー
+  #   expected: nyahhō
 
 map:
   rules:
-    - pattern: ([ЄФІЦАаЕеИиЙйОоУуЫыЮюЯяії])\u0415
-      result: "\\1YE"
-    - pattern: (?<=[АaЕeЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\u0415
-      result: "YE"
     # - pattern: (?<=っ([])
 
   characters:

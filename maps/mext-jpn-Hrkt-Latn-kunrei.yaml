@@ -40,26 +40,24 @@ notes:
 
 
 tests:
-  - source: かんおう
-    expected: kanô #kan'ô
-  - source: かのう
-    expected: kanô
-  - source: きんゆう
-    expected: kinyû # kin'yû
-  - source: きにゅう
-    expected: kinyû
-  - source: とうきょう
-    expected: tôkyô
-  - source: がっこう
-    expected: gakkô
-  - source: かごっま
-    expected: kagomma
-  - source: ぽっぽっや
-    expected: poppoyya
-  - source: てっら
-    expected: terra
-  - source: にゃっほー
-    expected: nyahhô
+  # - source: かんおう
+  #   expected: kan'ô
+  # - source: かのう
+  #   expected: kanô
+  # - source: きんゆう
+  #   expected: kin'yû
+  # - source: とうきょう
+  #   expected: tôkyô
+  # - source: がっこう
+  #   expected: gakkô
+  # - source: かごっま
+  #   expected: kagomma
+  # - source: ぽっぽっや
+  #   expected: poppoyya
+  # - source: てっら
+  #   expected: terra
+  # - source: にゃっほー
+  #   expected: nyahhô
 
 map:
   rules:
