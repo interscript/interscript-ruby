@@ -1,5 +1,7 @@
 = Interscript: Interoperable Script Conversion Systems and a Ruby implementation
 
+image:https://github.com/riboseinc/interoperable-transliteration/workflows/test/badge.svg["Build Status", link="https://github.com/riboseinc/interoperable-transliteration/actions?workflow=test"]
+
 == Introduction
 
 This repository contains a number of transliteration schemes from:
