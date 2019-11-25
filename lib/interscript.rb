@@ -45,7 +45,7 @@ module Interscript
         while (match = output&.match(/#{k}/))
           pos = match.offset(0).first
           result = up_case_around?(output, pos) ? v.upcase : v
-          output[pos, match.size] = result
+          output[pos, match[0].size] = result
         end
       end
       output
