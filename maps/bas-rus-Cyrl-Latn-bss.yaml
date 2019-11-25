@@ -41,19 +41,38 @@ tests:
 
       Н.В. Гоголь
     expected: |
-      Eh, troyka! ptitsa troyka, kto tebya vidumal? znat, u boykogo
-      naroda ti mogla tolko roditsya, v toy zemle, chto ne lyubit shutit, a
-      rovnem-gladnem razmetnulas na polsveta, da i stupay schitay versti,
-      poka ne zaryabit tebe v ochi. I ne hitriy, kazhis, dorozhniy snaryad,
-      ne zheleznim shvachen vintom, a naskoro zhivyem s odnim toporom da
-      dolotom sobral tebya yaroslavskiy rastoropniy muzhik. Ne v nemetskih
-      botfortah yamshchik: boroda da rukavitsi, i sidit chert znaet na chem;
-      a privstal, da zamahnulsya, da zatyanul pesnyu — koni vihrem, spitsi v
-      kolesah smeshalis v odin gladkiy krug, tolko drognula doroga, da
-      vskriknul v ispuge ostanovivshiysya peshehod — i von ona poneslas,
-      poneslas, poneslas!
+      Eh, troyka! ptitsa troyka, kto tebya vidumal? znat, u boykogo naroda
+      ti mogla tolko roditsya, v toy zemle, chto ne lyubit shutit, a
+      rovnem-gladnem razmetnulas na polsveta, da i stupay schitat versti, poka
+      ne zaryabit tebe v ochi. I ne hitriy, kazhis, dorozhniy snaryad, ne
+      zheleznim shvachen vintom, a naskoro zhivyem s odnim toporom da dolotom
+      snaryadil i sobral tebya yaroslavskiy rastoropniy muzhik. Ne v nemetskih
+      botfortah yamshchik: boroda da rukavitsi, i sidit chert znaet na chem; a
+      privstal, da zamahnulsya, da zatyanul pesnyu — koni vihrem, spitsi v
+      kolesah smeshalis v odin gladkiy krug, tolko drognula doroga, da vskriknul
+      v ispuge ostanovivshiysya peshehod — i von ona poneslas, poneslas,
+      poneslas!
 
       N.V. Gogol
+
+  - source: ЁЖ Ёж ёж
+    expected: EZH Ezh ezh
+  - source: Цветущий сад
+    expected: Tsvetushchiy sad
+  - source: Чувство юмора
+    expected: Chuvstvo yumora
+  - source: Широкий выбор
+    expected: Shirokiy vibor
+  - source: Все подъезды заблокированны
+    expected: Vse podezdi zablokirovanni
+  - source: Ожерелье
+    expected: Ozherelye
+  - source: Ручьи
+    expected: Ruchyi
+  - source: Каньон
+    expected: Kanon
+  - source: Бельэтаж
+    expected: Belyetazh
 
 map:
   characters:
@@ -65,7 +84,7 @@ map:
     "\u0414": "D"    # Д
     "\u0401": "E"    # Ё
     "\u0415": "E"    # Е
-    "\u0416": "ZH"   # Ж
+    "\u0416": "Zh"   # Ж
     "\u0417": "Z"    # З
     "\u042D": "E"    # Э
     "\u0418": "I"    # И
@@ -82,13 +101,13 @@ map:
     "\u0423": "U"    # У
     "\u0424": "F"    # Ф
     "\u0425": "H"    # Х
-    "\u0426": "TS"   # Ц
-    "\u0427": "CH"   # Ч
-    "\u0428": "SH"   # Ш
-    "\u0429": "SHCH" # Щ
+    "\u0426": "Ts"   # Ц
+    "\u0427": "Ch"   # Ч
+    "\u0428": "Sh"   # Ш
+    "\u0429": "Shch" # Щ
     "\u042B": "I"    # Ы
-    "\u042F": "YA"   # Я
-    "\u042E": "YU"   # Ю
+    "\u042F": "Ya"   # Я
+    "\u042E": "Yu"   # Ю
 
     # Ь (before Е, Ё, И, O, Э)
     "\u042c\u0401": "YE"    # Ё
