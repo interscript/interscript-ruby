@@ -29,6 +29,11 @@ map:
   rules:
     - pattern: България
       result: Bulgaria
+    - pattern: (?<=\u0418)\u042f(?=\b) # final position, “ИЯ” is romanized as “IA”
+      result: A
+    - pattern: (?<=\u0438)\u044f(?=\b) # final position, “ия” is romanized as “ia”
+      result: a
+
   characters:
     '\u0410': 'A'
     '\u0411': 'B'
