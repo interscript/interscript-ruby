@@ -25,6 +25,7 @@ module Interscript
       system = load_system_definition(system_code)
 
       rules = system["map"]["rules"] || []
+      postrules = system["map"]["postrules"] || []
       charmap = system["map"]["characters"]&.sort_by { |k, _v| k.size }&.reverse&.to_h || {}
 
       output = string.clone
@@ -47,6 +48,10 @@ module Interscript
           result = up_case_around?(output, pos) ? v.upcase : v
           output[pos, match[0].size] = result
         end
+      end
+
+      postrules.each do |r|
+        output.gsub! /#{r["pattern"]}/, r["result"]
       end
       output
     end
