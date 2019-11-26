@@ -70,11 +70,17 @@ tests:
   - source: Ручьи
     expected: Ruchyi
   - source: Каньон
-    expected: Kanon
+    expected: Kanyon
   - source: Бельэтаж
     expected: Belyetazh
 
 map:
+  rules:
+    - pattern: \u042c(?=[ЕеЁёИиОоЭэ]) # Ь (before Е, Ё, И, O, Э)
+      result: Y
+    - pattern: \u044c(?=[ЕеЁёИиОоЭэ]) # ь (before Е, Ё, И, O, Э)
+      result: y
+
   characters:
     "\u0027": ""    # '
     "\u0410": "A"    # А
@@ -110,11 +116,11 @@ map:
     "\u042E": "Yu"   # Ю
 
     # Ь (before Е, Ё, И, O, Э)
-    "\u042c\u0401": "YE"    # Ё
-    "\u042c\u0415": "YE"    # Е
-    "\u042c\u0418": "YI"    # И
-    "\u042c\u041E": "YO"    # O
-    "\u042c\u0417": "YE"    # Э
+    # "\u042c\u0401": "YE"    # Ё
+    # "\u042c\u0415": "YE"    # Е
+    # "\u042c\u0418": "YI"    # И
+    # "\u042c\u041E": "YO"    # O
+    # "\u042c\u0417": "YE"    # Э
 
     # Ь (otherwise) -> (none)
     "\u042c": ""
@@ -155,11 +161,11 @@ map:
     "\u044E": "yu"   # ю
 
     # ь (before е, ё, и, o, э)
-    "\u044c\u0435": "ye"    # ё
-    "\u044c\u0451": "ye"    # е
-    "\u044c\u0438": "yi"    # и
-    "\u044c\u006f": "yo"    # o
-    "\u044c\u044d": "ye"    # э
+    # "\u044c\u0435": "ye"    # ё
+    # "\u044c\u0451": "ye"    # е
+    # "\u044c\u0438": "yi"    # и
+    # "\u044c\u006f": "yo"    # o
+    # "\u044c\u044d": "ye"    # э
 
     # ь (otherwise) -> (none)
     "\u044c": ""
