@@ -48,24 +48,57 @@ tests:
   #   expected: kin'yū
   # - source: とうきょう
   #   expected: tōkyō
-  # - source: がっこう
-  #   expected: gakkō
+  - source: がっこう
+    expected: gakkō
   - source: かごっま
     expected: kagomma
-  # - source: ぽっぽっや
-  #   expected: poppoyya
-  # - source: てっら
-  #   expected: terra
-  # - source: にゃっほー
-  #   expected: nyahhō
+  - source: ぽっぽっや
+    expected: poppoyya
+  - source: てっら
+    expected: terra
+  - source: にゃっほー
+    expected: nyahhō
 
 map:
+
   rules:
     # - pattern: (?<=っ([])
 
   postrules:
+    # Note 3. つまる音は、最初の子音字を重ねて表わす。
     - pattern: \u3063([BbCcDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvXxZz]) # っ folloved by consonant
       result: "\\1\\1"
+    - pattern: ッ([BbCcDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvXxZz]) # ッ folloved by consonant
+      result: "\\1\\1"
+
+    # Note 2. はねる音を表わすnと次にくる母音字またはyとを切り離す必要がある場合には、nの次に’を入れる。
+    # - pattern: "([aeiou])n"
+    #   result: "\\1'n"
+    - pattern: "n([aeiouāīūēō])"
+      result: "n'\\1"
+    - pattern: "ny"
+      result: "n'y"
+
+    - pattern: aー
+      result: ā
+    - pattern: aー
+      result: ī
+    - pattern: uー
+      result: ū
+    - pattern: eー
+      result: ē
+    - pattern: oー
+      result: ō
+    - pattern: a{2}
+      result: ā
+    - pattern: i{2}
+      result: ī
+    - pattern: u{2}
+      result: ū
+    - pattern: e{2}
+      result: ē
+    - pattern: o{2}
+      result: ō
 
   characters:
     "あ": "a"
@@ -77,7 +110,7 @@ map:
     # Long vowels, note 4
     "ああ": "ā"
     "いい": "ī"
-    "うう": "û"
+    "うう": "ū"
     "ええ": "ē"
     "おぅ": "ō"
     "おお": "ō"
@@ -250,128 +283,6 @@ map:
     "ん": "n" # See note 2
 
 
-    # Note 3. つまる音は、最初の子音字を重ねて表わす。
-
-    # "っか": "kka"
-    # "っき": "kki"
-    # "っく": "kku"
-    # "っけ": "kke"
-    # "っこ": "kko"
-    # "っきゃ": "kkya"
-    # "っきゅ": "kkyu"
-    # "っきょ": "kkyo"
-    # "っこぅ": "kkō"
-    # "っきゅぅ": "kkyū"
-    # "っきょぅ": "kkyō"
-
-    # "っさ": "ssa"
-    # "っし": "sshi"
-    # "っす": "ssu"
-    # "っせ": "sse"
-    # "っそ": "sso"
-    # "っしゃ": "ssha"
-    # "っしゅ": "sshu"
-    # "っしょ": "ssho"
-    # "っしゅぅ": "sshū"
-    # "っしょぅ": "sshō"
-    # "っそぅ": "ssō"
-
-    # "った": "tta"
-    # "っち": "tchi"
-    # "っつ": "ttsu"
-    # "って": "tte"
-    # "っと": "tto"
-    # "っちゃ": "tcha"
-    # "っちゅ": "tchu"
-    # "っちょ": "tcho"
-    # "っちゅぅ": "tchū"
-    # "っちょぅ": "tchō"
-    # "っとぅ": "ttō"
-
-    # "っな": "nna"
-    # "っに": "nni"
-    # "っぬ": "nnu"
-    # "っね": "nne"
-    # "っの": "nno"
-    # "っにゃ": "nnya"
-    # "っにゅ": "nnyu"
-    # "っにょ": "nnyo"
-    # "っにゅぅ": "nnyū"
-    # "っにょぅ": "nnyō"
-    # "っのぅ": "nnō"
-
-    # "っは": "hha"
-    # "っひ": "hhi"
-    # "っふ": "hhu"
-    # "っへ": "hhe"
-    # "っほ": "hho"
-    # "っひゃ": "hhya"
-    # "っひゅ": "hhyu"
-    # "っひょ": "hhyo"
-    # "っひゅぅ": "hhyū"
-    # "っひょぅ": "hhyō"
-    # "っほぅ": "hhō"
-
-    # "っが": "gga"
-    # "っぎ": "ggi"
-    # "っぐ": "ggu"
-    # "っげ": "gge"
-    # "っご": "ggo"
-    # "っぎゃ": "ggya"
-    # "っぎゅ": "ggyu"
-    # "っぎょ": "ggyo"
-    # "っぎゅぅ": "ggyū"
-    # "っぎょぅ": "ggyō"
-    # "っごぅ": "ggō"
-
-    # "っざ": "zza"
-    # "っじ": "jji"
-    # "っず": "zzu"
-    # "っぜ": "zze"
-    # "っぞ": "zzo"
-    # "っじゃ": "jja"
-    # "っじゅ": "jju"
-    # "っじょ": "jjo"
-    # "っじゅぅ": "jjū"
-    # "っじょぅ": "jjō"
-    # "っぞぅ": "zzō"
-
-
-    # "っだ": "dda"
-    # "っぢ": "jji"
-    # "っづ": "zzu"
-    # "っで": "dde"
-    # "っど": "ddo"
-    # "っぢゃ": "jja"
-    # "っぢゅ": "jju"
-    # "っぢょ": "jjo"
-    # "っどぅ": "ddō"
-
-    # "っば": "bba"
-    # "っび": "bbi"
-    # "っぶ": "bbu"
-    # "っべ": "bbe"
-    # "っぼ": "bbo"
-    # "っびゃ": "bbya"
-    # "っびゅ": "bbyu"
-    # "っびょ": "bbyo"
-    # "っびゅぅ": "bbyū"
-    # "っびょぅ": "bbyō"
-    # "っぼぅ": "bbō"
-
-    # "っぱ": "ppa"
-    # "っぴ": "ppi"
-    # "っぷ": "ppu"
-    # "っぺ": "ppe"
-    # "っぽ": "ppo"
-    # "っぴゃ": "ppya"
-    # "っぴゅ": "ppyu"
-    # "っぴょ": "ppyo"
-    # "っぴゅぅ": "ppyū"
-    # "っぴょぅ": "ppyō"
-    # "っぽぅ": "ppō"
-
-
     # Supplementary
     # "ゃ": "ya"
     # "ゅ": "yu"
@@ -389,7 +300,7 @@ map:
     # Long vowels, note 4
     "アア": "ā"
     "イイ": "ī"
-    "ウウ": "û"
+    "ウウ": "ū"
     "エエ": "ē"
     "オオ": "ō"
     "オゥ": "ō"
@@ -546,129 +457,6 @@ map:
     "ポゥ": "pō"
 
     "ン": "n" # See note 1
-
-
-    # Note 3. つまる音は、最初の子音字を重ねて表わす。
-
-    "ッカ": "kka"
-    "ッキ": "kki"
-    "ック": "kku"
-    "ッケ": "kke"
-    "ッコ": "kko"
-    "ッキャ": "kkya"
-    "ッキュ": "kkyu"
-    "ッキョ": "kkyo"
-    "ッコゥ": "kkō"
-    "ッキュゥ": "kkyū"
-    "ッキョゥ": "kkyō"
-
-    "ッサ": "ssa"
-    "ッシ": "sshi"
-    "ッス": "ssu"
-    "ッセ": "sse"
-    "ッソ": "sso"
-    "ッシャ": "ssha"
-    "ッシュ": "sshu"
-    "ッショ": "ssho"
-    "ッシュゥ": "sshū"
-    "ッショゥ": "sshō"
-    "ッソゥ": "ssō"
-
-    "ッタ": "tta"
-    "ッチ": "tchi"
-    "ッツ": "ttsu"
-    "ッテ": "tte"
-    "ット": "tto"
-    "ッチャ": "tcha"
-    "ッチュ": "tchu"
-    "ッチョ": "tcho"
-    "ッチュゥ": "tchū"
-    "ッチョゥ": "tchō"
-    "ットゥ": "ttō"
-
-    "ッナ": "nna"
-    "ッニ": "nni"
-    "ッヌ": "nnu"
-    "ッネ": "nne"
-    "ッノ": "nno"
-    "ッニャ": "nnya"
-    "ッニュ": "nnyu"
-    "ッニョ": "nnyo"
-    "ッニュゥ": "nnyū"
-    "ッニョゥ": "nnyō"
-    "ッノゥ": "nnō"
-
-    "ッハ": "hha"
-    "ッヒ": "hhi"
-    "ッフ": "hhu"
-    "ッヘ": "hhe"
-    "ッホ": "hho"
-    "ッヒャ": "hhya"
-    "ッヒュ": "hhyu"
-    "ッヒョ": "hhyo"
-    "ッヒュゥ": "hhyū"
-    "ッヒョゥ": "hhyō"
-    "ッホゥ": "hhō"
-
-    "ッガ": "gga"
-    "ッギ": "ggi"
-    "ッグ": "ggu"
-    "ッゲ": "gge"
-    "ッゴ": "ggo"
-    "ッギャ": "ggya"
-    "ッギュ": "ggyu"
-    "ッギョ": "ggyo"
-    "ッギュゥ": "ggyū"
-    "ッギョゥ": "ggyō"
-    "ッゴゥ": "ggō"
-
-    "ッザ": "zza"
-    "ッジ": "jji"
-    "ッズ": "zzu"
-    "ッゼ": "zze"
-    "ッゾ": "zzo"
-    "ッジャ": "jja"
-    "ッジュ": "jju"
-    "ッジョ": "jjo"
-    "ッジュゥ": "jjū"
-    "ッジョゥ": "jjō"
-    "ッゾゥ": "zzō"
-
-
-    "ッダ": "dda"
-    "ッヂ": "jji"
-    "ッヅ": "zzu"
-    "ッデ": "dde"
-    "ッド": "ddo"
-    "ッヂャ": "jja"
-    "ッヂュ": "jju"
-    "ッヂョ": "jjo"
-    "ッドゥ": "ddō"
-
-    "ッバ": "bba"
-    "ッビ": "bbi"
-    "ッブ": "bbu"
-    "ッベ": "bbe"
-    "ッボ": "bbo"
-    "ッビャ": "bbya"
-    "ッビュ": "bbyu"
-    "ッビョ": "bbyo"
-    "ッビュゥ": "bbyū"
-    "ッビョゥ": "bbyō"
-    "ッボゥ": "bbō"
-
-    "ッパ": "ppa"
-    "ッピ": "ppi"
-    "ップ": "ppu"
-    "ッペ": "ppe"
-    "ッポ": "ppo"
-    "ッピャ": "ppya"
-    "ッピュ": "ppyu"
-    "ッピョ": "ppyo"
-    "ッピュゥ": "ppyū"
-    "ッピョゥ": "ppyō"
-    "ッポゥ": "ppō"
-
 
     # Supplementary
     # "ャ": "ya"
