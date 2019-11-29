@@ -21,6 +21,8 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
   spec.bindir = 'bin'
 
+  spec.add_dependency "thor"
+
   spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "debase"
   spec.add_development_dependency "rake"

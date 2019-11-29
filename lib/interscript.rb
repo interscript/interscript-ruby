@@ -11,7 +11,7 @@ module Interscript
       input = File.read(input_file)
       output = transliterate(system_code, input)
 
-      File.open(output_file, "w") do |f|
+      File.open(output_file, 'w') do |f|
         f.puts(output)
       end
       puts "Output written to: #{output_file}"
@@ -24,17 +24,17 @@ module Interscript
     def transliterate(system_code, string)
       system = load_system_definition(system_code)
 
-      rules = system["map"]["rules"] || []
-      postrules = system["map"]["postrules"] || []
-      charmap = system["map"]["characters"]&.sort_by { |k, _v| k.size }&.reverse&.to_h || {}
+      rules = system['map']['rules'] || []
+      postrules = system['map']['postrules'] || []
+      charmap = system['map']['characters']&.sort_by { |k, _v| k.size }&.reverse&.to_h || {}
 
       output = string.clone
       offsets = Array.new string.to_s.size, 1
       rules.each do |r|
-        string.to_s.scan(/#{r["pattern"]}/) do |matches|
+        string.to_s.scan(/#{r['pattern']}/) do |matches|
           match = Regexp.last_match
           pos = match.offset(0).first
-          result = r["result"].clone
+          result = r['result'].clone
           matches.each.with_index { |v, i| result.sub!(/\\#{i + 1}/, v) } if matches.is_a? Array
           result.upcase! if up_case_around?(string, pos)
           output[offsets[0...pos].sum, match[0].size] = result
@@ -51,7 +51,7 @@ module Interscript
       end
 
       postrules.each do |r|
-        output.gsub! /#{r["pattern"]}/, r["result"]
+        output.gsub!(/#{r['pattern']}/, r['result'])
       end
       output
     end
@@ -63,11 +63,11 @@ module Interscript
 
       i = pos - 1
       i -= 1 while i.positive? && string[i] !~ /[[:alpha:]]/
-      before = i >= 0 && i < pos ? string[i].to_s.strip : ""
+      before = i >= 0 && i < pos ? string[i].to_s.strip : ''
 
       i = pos + 1
       i += 1 while i < string.size - 1 && string[i] !~ /[[:alpha:]]/
-      after = i > pos ? string[i].to_s.strip : ""
+      after = i > pos ? string[i].to_s.strip : ''
 
       !before.empty? && before == before.upcase || !after.empty? && after == after.upcase
     end
