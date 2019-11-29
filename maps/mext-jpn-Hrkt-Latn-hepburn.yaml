@@ -48,7 +48,7 @@ tests:
   #   expected: kin'yū
   # - source: とうきょう
   #   expected: tōkyō
-  - source: がっこう
+  - source: がっこう
     expected: gakkō
   - source: かごっま
     expected: kagomma
@@ -57,7 +57,7 @@ tests:
   - source: てっら
     expected: terra
   - source: にゃっほー
-    expected: nyahhō
+    expected: n'yahhō
 
 map:
 
@@ -66,9 +66,9 @@ map:
 
   postrules:
     # Note 3. つまる音は、最初の子音字を重ねて表わす。
-    - pattern: \u3063([BbCcDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvXxZz]) # っ folloved by consonant
+    - pattern: \u3063([BbCcDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz]) # っ folloved by consonant
       result: "\\1\\1"
-    - pattern: ッ([BbCcDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvXxZz]) # ッ folloved by consonant
+    - pattern: ッ([BbCcDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz]) # ッ folloved by consonant
       result: "\\1\\1"
 
     # Note 2. はねる音を表わすnと次にくる母音字またはyとを切り離す必要がある場合には、nの次に’を入れる。
