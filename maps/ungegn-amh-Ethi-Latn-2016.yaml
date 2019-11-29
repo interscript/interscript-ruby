@@ -1,0 +1,401 @@
+---
+authority_id: ungegn
+id: 2016
+language: amh
+source_script: Ethi
+destination_script: Latn
+name: ROMANIZATION OF AMHARIC -- UNGEGN 2016 System
+url: http://www.eki.ee/wgrs/rom1_am.pdf
+creation_date: 1967
+confirmation date: 2016-03
+description: |
+
+    The United Nations recommended romanization system was approved in 1967 (resolution I/17), based on the Amharic to English Transliteration System (2nd revised edition, August 1962) by the Imperial Ethiopian Mapping and Geography Institute. The table has been published in volume II of the conference report (see Ref. in Notes section).
+
+    The UN-approved system is not being used in Ethiopia, instead a simple version without diacritical marks is used. In international cartographic products mostly the BGN/PCGN 1967 system is used which differs from the former mainly by using diacritical marks differently. Often the same spellings are used without any diacritical marks.
+
+    Amharic uses the Ethiopic syllabic script whereby each syllable denotes a combination of a consonant and a vowel. It has 34 basic characters, each character having several different forms, usually called orders, according to the vowel with which the basic character is combined. The system is mainly reversible with the exception of some syllables of the 1st order which are pronounced in the same manner as the syllables of the 4th order, and some consonants.
+    
+notes:
+
+- (A) The vowel of the sixth order (i̠) is eliminated in spelling except when the actual pronunciation requires it (e.g. not Me̠ni̠gi̠si̠ti̠ but Me̠ngi̠st).
+
+- (B) Sounds identical to fourth-order form.
+
+- (C) Row 34 and most combinations with W and Y are not present in the original table. These Amharic syllable characters have been taken from the BGN/PCGN 1967 table, preserving however the indication of vowels as it is done elsewhere in the table.
+
+- |
+    Other systems of romanization.
+    The BGN/PCGN 1967 System is practically very close to the system above, except for the diacritical marks used with vowels:
+
+                UN  BGN/PCGN
+    1st order	e̠	 e
+    1st order	a	ā (ሀ hā, ሐ hā, ኀ hā, አ ā, ’ā, ዐ ‘ā)
+    3rd order	i	ī
+    5th order	e   ē
+    6th order	i̠	 i
+
+    Other differences:
+
+    1. The vowel characters in row 16 should be romanized in the BGN/PCGN System ā, u, ī, a, ē, i, and o initially and ’ā, ’u, ’ī, ’a, ’ē, ’i, and ’o in all other positions.
+
+    2. The characters in row 20 should be romanized in the BGN/PCGN System ‘ā, ‘u, ‘ī, ‘a, ‘ē, ‘ or ‘i, and ‘o.
+
+    3. The syllables gwe̠, hwe̠, kwe̠, k’we̠ of the UN system are treated as variations of the syllables go, ho, ko, k’o in the BGN/PCGN system.
+
+    4. For documentation purposes the following consonants may be romanized with diacritical marks in the BGN/PCGN system: ḥ (row 3), š (row 5), ḫ (row 13), ẖ (row 18), t͟s’ (row 31).
+
+
+- (Ref.) Second United Nations Conference on the Standardization of Geographical Names. London, 10–31 May 1972. Vol. II. Technical papers, pp. 165–168 (Table 2).
+
+tests:
+
+    # Taken from: 
+    # http://unstats.un.org/unsd/geoinfo/geonames/
+    
+  - source: ኢትዮጵያ
+    expected: Ityop’iya
+    
+  - source: የኢትዮጵያ ፈደራላዊ ዲሞክራሲያዊ ሪፐብሊክ
+    expected: Ye̱Ityop’iya Fe̱de̱ralawi Dimokrasiyawi Ripe̱blik
+
+map:
+  characters:
+    '\u1200' : 'ha'  # ሀ (see note B)
+    '\u1201' : 'hu'  # ሁ
+    '\u1202' : 'hi'  # ሂ
+    '\u1203' : 'ha'  # ሃ
+    '\u1204' : 'he'  # ሄ
+    '\u1205' : 'hi̠'  # ህ
+    '\u1206' : 'ho'  # ሆ
+    # Combinations with W and Y (see note C):
+    '\u1207' : 'hwa'  # ሇ
+    
+    '\u1208' : 'le̠'  # ለ
+    '\u1209' : 'lu'  # ሉ
+    '\u120A' : 'li'  # ሊ
+    '\u120B' : 'la'  # ላ
+    '\u120C' : 'le'  # ሌ
+    '\u120D' : 'li̠'  # ል	
+    '\u120E' : 'lo'  # ሎ
+    # Combinations with W and Y (see note C):
+    '\u120F' : 'lwa'  # ሏ 
+    
+    '\u1210' : 'ha'  # ሐ (see note B)
+    '\u1211' : 'hu'  # ሑ
+    '\u1212' : 'hi'  # ሒ
+    '\u1213' : 'ha'  # ሓ
+    '\u1214' : 'he'  # ሔ
+    '\u1215' : 'hi̠'  # ሕ
+    '\u1216' : 'ho'  # ሖ
+    
+    '\u1218' : 'me̠'  # መ
+    '\u1219' : 'mu'  # ሙ
+    '\u121A' : 'mi'  # ሚ
+    '\u121B' : 'ma'  # ማ
+    '\u121C' : 'me'  # ሜ
+    '\u121D' : 'mi̠'  # ም
+    '\u121E' : 'mo'  # ሞ
+    # Combinations with W and Y (see note C):
+    '\u121F' : 'mwa'  # ሟ
+    '\u1359' : 'mya'  # ፙ
+    
+    '\u1220' : 'se̠'  # ሠ
+    '\u1221' : 'su'  # ሡ
+    '\u1222' : 'si'  # ሢ
+    '\u1223' : 'sa'  # ሣ
+    '\u1224' : 'se'  # ሤ
+    '\u1225' : 'si̠'  # ሥ
+    '\u1226' : 'so'  # ሦ
+    
+    '\u1228' : 're̠'  # ረ
+    '\u1229' : 'ru'  # ሩ
+    '\u122A' : 'ri'  # ሪ
+    '\u122B' : 'ra'  # ራ
+    '\u122C' : 're'  # ሬ
+    '\u122D' : 'ri̠'  # ር
+    '\u122E' : 'ro'  # ሮ
+    # Combinations with W and Y (see note C):
+    '\u122F' : 'rwa'  # ሯ
+    '\u1358' : 'rya'  # ፘ
+    
+    '\u1230' : 'se̠'  # ሰ
+    '\u1231' : 'su'  # ሱ
+    '\u1232' : 'si'  # ሲ
+    '\u1233' : 'sa'  # ሳ
+    '\u1234' : 'se'  # ሴ
+    '\u1235' : 'si̠'  # ስ
+    '\u1236' : 'so'  # ሶ
+    # Combinations with W and Y (see note C):
+    '\u1237' : 'swa'  # ሷ
+    
+    '\u1238' : 'she̠'  # ሸ
+    '\u1239' : 'shu'  # ሹ
+    '\u123A' : 'shi'  # ሺ
+    '\u123B' : 'sha'  # ሻ
+    '\u123C' : 'she'  # ሼ
+    '\u123D' : 'shi̠'  # ሽ
+    '\u123E' : 'sho'  # ሾ
+    # Combinations with W and Y (see note C):
+    '\u123F' : 'shwa'  # ሿ
+    
+    '\u1240' : 'k’e̠'  # ቀ
+    '\u1241' : 'k’u'  # ቁ
+    '\u1242' : 'k’i'  # ቂ
+    '\u1243' : 'k’a'  # ቃ
+    '\u1244' : 'k’e'  # ቄ
+    '\u1245' : 'k’i̠'  # ቅ
+    '\u1246' : 'k’o'  # ቆ
+    # Combinations with W and Y (see note C):
+    '\u1248' : 'k’we̠'  # ቈ
+    '\u124A' : 'k’wi'  # ቊ
+    '\u124B' : 'k’wa'  # ቋ
+    '\u124C' : 'k’we'  # ቌ
+    '\u124D' : 'k’wi̠'  # ቍ
+    
+    '\u1260' : 'be̠'  # በ
+    '\u1261' : 'bu'  # ቡ
+    '\u1262' : 'bi'  # ቢ
+    '\u1263' : 'ba'  # ባ
+    '\u1264' : 'be'  # ቤ
+    '\u1265' : 'bi̠'  # ብ
+    '\u1266' : 'bo'  # ቦ
+    # Combinations with W and Y (see note C):
+    '\u1267' : 'bwa'  # ቧ
+    
+    '\u1270' : 'te̠'  # ተ
+    '\u1271' : 'tu'  # ቱ
+    '\u1272' : 'ti'  # ቲ
+    '\u1273' : 'ta'  # ታ
+    '\u1274' : 'te'  # ቴ
+    '\u1275' : 'ti̠'  # ት
+    '\u1276' : 'to'  # ቶ
+    # Combinations with W and Y (see note C):
+    '\u1277' : 'twa'  # ቷ
+    
+    '\u1278' : 'che̠'  # ቸ
+    '\u1279' : 'chu'  # ቹ
+    '\u127A' : 'chi'  # ቺ
+    '\u127B' : 'cha'  # ቻ
+    '\u127C' : 'che'  # ቼ
+    '\u127D' : 'chi̠'  # ች
+    '\u127E' : 'cho'  # ቾ
+    # Combinations with W and Y (see note C):
+    '\u127F' : 'chwa'  # ቿ
+    
+    '\u1280' : 'ha'  # ኀ (note B)
+    '\u1281' : 'hu'  # ኁ
+    '\u1282' : 'hi'  # ኂ
+    '\u1283' : 'ha'  # ኃ
+    '\u1284' : 'he'  # ኄ
+    '\u1285' : 'hi̠'  # ኅ
+    '\u1286' : 'ho'  # ኆ
+    # Combinations with W and Y (see note C):
+    '\u1288' : 'hwe̠'  # ኈ
+    '\u128A' : 'hwi'  # ኊ
+    '\u128B' : 'hwa'  # ኋ
+    '\u128C' : 'hwe'  # ኌ
+    '\u128D' : 'hwi̠'  # ኍ
+    
+    '\u1290' : 'ne̠'  # ነ
+    '\u1291' : 'nu'  # ኑ
+    '\u1292' : 'ni'  # ኒ
+    '\u1293' : 'na'  # ና
+    '\u1294' : 'ne'  # ኔ
+    '\u1295' : 'ni̠'  # ን
+    '\u1296' : 'no'  # ኖ
+    # Combinations with W and Y (see note C):
+    '\u1297' : 'nwa'  # ኗ
+    
+    '\u1298' : 'nye̠'  # ኘ
+    '\u1299' : 'nyu'  # ኙ
+    '\u129A' : 'nyi'  # ኚ
+    '\u129B' : 'nya'  # ኛ
+    '\u129C' : 'nye'  # ኜ
+    '\u129D' : 'nyi̠'  # 1
+    '\u129E' : 'nyo'  # ኞ
+    # Combinations with W and Y (see note C):
+    '\u129F' : 'nywa'  # ኟ
+    
+    '\u12A0' : 'a'  # አ (note B)
+    '\u12A1' : 'u'  # ኡ
+    '\u12A2' : 'i'  # ኢ
+    '\u12A3' : 'a'  # ኣ
+    '\u12A4' : 'e'  # ኤ
+    '\u12A5' : 'i̠'  # እ
+    '\u12A6' : 'o'  # ኦ
+    
+    '\u12A8' : 'ke̠'  # ከ
+    '\u12A9' : 'ku'  # ኩ
+    '\u12AA' : 'ki'  # ኪ
+    '\u12AB' : 'ka'  # ካ
+    '\u12AC' : 'ke'  # ኬ
+    '\u12AD' : 'ki̠'  # ክ
+    '\u12AE' : 'ko'  # ኮ
+    # Combinations with W and Y (see note C):
+    '\u12B0' : 'kwe̠'  # ኰ
+    '\u12B2' : 'kwi'  # ኲ
+    '\u12B3' : 'kwa'  # ኳ
+    '\u12B4' : 'kwe'  # ኴ
+    '\u12B5' : 'kwi̠'  # ኵ
+    
+    '\u12B8' : 'he̠'  # ኸ
+    '\u12B9' : 'hu'  # ኹ
+    '\u12BA' : 'hi'  # ኺ
+    '\u12BB' : 'ha'  # ኻ
+    '\u12BC' : 'he'  # ኼ
+    '\u12BD' : 'hi̠'  # ኽ
+    '\u12BE' : 'ho'  # ኾ
+    
+    '\u12C8' : 'we̠'  # ወ
+    '\u12C9' : 'wu'  # ዉ
+    '\u12CA' : 'wi'  # ዊ
+    '\u12CB' : 'wa'  # ዋ
+    '\u12CC' : 'we'  # ዌ
+    '\u12CD' : 'wi̠'  # ው
+    '\u12CE' : 'wo'  # ዎ
+    
+    '\u12D0' : 'a'  # ዐ (note B)
+    '\u12D1' : 'u'  # ዑ
+    '\u12D2' : 'i'  # ዒ
+    '\u12D3' : 'a'  # ዓ
+    '\u12D4' : 'e'  # ዔ
+    '\u12D5' : 'i̠'  # ዕ
+    '\u12D6' : 'o'  # ዖ
+    
+    '\u12D8' : 'ze̠'  # ዘ
+    '\u12D9' : 'zu'  # ዙ
+    '\u12DA' : 'zi'  # ዚ
+    '\u12DB' : 'za'  # ዛ
+    '\u12DC' : 'ze'  # ዜ
+    '\u12DD' : 'zi̠'  # ዝ
+    '\u12DE' : 'zo'  # ዞ
+    # Combinations with W and Y (see note C):
+    '\u12DF' : 'zwa'  # ዟ
+    
+    '\u12E0' : 'zhe̠'  # ዠ
+    '\u12E1' : 'zhu'  # ዡ
+    '\u12E2' : 'zhi'  # ዢ
+    '\u12E3' : 'zha'  # ዣ
+    '\u12E4' : 'zhe'  # ዤ
+    '\u12E5' : 'zhi̠'  # ዥ
+    '\u12E6' : 'zho'  # ዦ
+    # Combinations with W and Y (see note C):
+    '\u12E7' : 'zhwa'  # ዧ
+    
+    '\u12E8' : 'ye̠'  # የ
+    '\u12E9' : 'yu'  # ዩ
+    '\u12EA' : 'yi'  # ዪ
+    '\u12EB' : 'ya'  # ያ
+    '\u12EC' : 'ye'  # ዬ
+    '\u12ED' : 'yi̠'  # ይ
+    '\u12EE' : 'yo'  # ዮ
+    '\u12EF' : 'ywa'  # ዯ
+    
+    '\u12F0' : 'de̠'  # ደ
+    '\u12F1' : 'du'  # ዱ
+    '\u12F2' : 'di'  # ዲ
+    '\u12F3' : 'da'  # ዳ
+    '\u12F4' : 'de'  # ዴ
+    '\u12F5' : 'di̠'  # ድ
+    '\u12F6' : 'do'  # ዶ
+    # Combinations with W and Y (see note C):
+    '\u12F7' : 'dwa'  # ዷ
+    
+    '\u1300' : '3e̠'  # ጀ
+    '\u1301' : 'ju'  # ጁ
+    '\u1302' : 'ji'  # ጂ
+    '\u1303' : 'ja'  # ጃ
+    '\u1304' : 'je'  # ጄ
+    '\u1305' : 'ji̠'  # ጅ
+    '\u1306' : 'jo'  # ጆ
+    # Combinations with W and Y (see note C):
+    '\u1307' : 'jwa'  # ጇ
+    
+    '\u1308' : 'ge̠'  # ገ
+    '\u1309' : 'gu'  # ጉ
+    '\u130A' : 'gi'  # ጊ
+    '\u130B' : 'ga'  # ጋ
+    '\u130C' : 'ge'  # ጌ
+    '\u130D' : 'gi̠'  # ግ
+    '\u130E' : 'go'  # ጎ
+    # Combinations with W and Y (see note C):
+    '\u1310' : 'gwe̠'  # ጐ
+    '\u1312' : 'gwi'  # ጒ
+    '\u1313' : 'gwa'  # ጓ
+    '\u1314' : 'gwe'  # ጔ
+    '\u1315' : 'gwi̠'  # ጕ
+    
+    '\u1320' : 't’e̠'  # ጠ
+    '\u1321' : 't’u'  # ጡ
+    '\u1322' : 't’i'  # ጢ
+    '\u1323' : 't’a'  # ጣ
+    '\u1324' : 't’e'  # ጤ
+    '\u1325' : 't’i̠'  # ጥ
+    '\u1326' : 't’o'  # ጦ
+    # Combinations with W and Y (see note C):
+    '\u1327' : 't’wa'  # ጧ
+    
+    '\u1328' : 'ch’e̠'  # ጨ
+    '\u1329' : 'ch’u'  # ጩ
+    '\u132A' : 'ch’i'  # ጪ
+    '\u132B' : 'ch’a'  # ጫ
+    '\u132C' : 'ch’e'  # ጬ
+    '\u132D' : 'ch’i̠'  # ጭ
+    '\u132E' : 'ch’o'  # ጮ
+    # Combinations with W and Y (see note C):
+    '\u132F' : 'ch’wa'  # ጯ
+    
+    '\u1330' : 'p’e̠'  # ጰ
+    '\u1331' : 'p’u'  # ጱ
+    '\u1332' : 'p’i'  # ጲ
+    '\u1333' : 'p’a'  # ጳ
+    '\u1334' : 'p’e'  # ጴ
+    '\u1335' : 'p’i̠'  # ጵ
+    '\u1336' : 'p’o'  # ጶ
+    
+    '\u1338' : 'ts’e̠'  # ጸ
+    '\u1339' : 'ts’u'  # ጹ
+    '\u133A' : 'ts’i'  # ጺ
+    '\u133B' : 'ts’a'  # ጻ
+    '\u133C' : 'ts’e'  # ጼ
+    '\u133D' : 'ts’i̠'  # ጽ
+    '\u133E' : 'ts’o'  # ጾ
+    # Combinations with W and Y (see note C):
+    '\u133F' : 'ts’wa'  # ጿ
+    
+    '\u1340' : 'ts’e̠'  # ፀ
+    '\u1341' : 'ts’u'  # ፁ
+    '\u1342' : 'ts’i'  # ፂ
+    '\u1343' : 'ts’a'  # ፃ
+    '\u1344' : 'ts’e'  # ፄ
+    '\u1345' : 'ts’i̠'  # ፅ
+    '\u1346' : 'ts’o'  # ፆ
+    
+    '\u1348' : 'fe̠'  # ፈ
+    '\u1349' : 'fu'  # ፉ
+    '\u134A' : 'fi'  # ፊ
+    '\u134B' : 'fa'  # ፋ
+    '\u134C' : 'fe'  # ፌ
+    '\u134D' : 'fi̠'  # ፍ
+    '\u134E' : 'fo'  # ፎ
+    # Combinations with W and Y (see note C):
+    '\u134F' : 'fwa'  # ፏ
+    '\u135A' : 'fya'  # ፚ
+    
+    '\u1350' : 'pe̠'  # ፐ
+    '\u1351' : 'pu'  # ፑ
+    '\u1352' : 'pi'  # ፒ
+    '\u1353' : 'pa'  # ፓ
+    '\u1354' : 'pe'  # ፔ
+    '\u1355' : 'pi̠'  # ፕ
+    '\u1356' : 'po'  # ፖ
+    
+    '\u1268' : 've̠'  # ቨ
+    '\u1269' : 'vu'  # ቩ
+    '\u126A' : 'vi'  # ቪ
+    '\u126B' : 'va'  # ቫ
+    '\u126C' : 've'  # ቬ
+    '\u126D' : 'vi̠'  # ቭ
+    '\u126E' : 'vo'  # ቮ
+    
