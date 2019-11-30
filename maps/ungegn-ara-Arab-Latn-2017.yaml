@@ -1,0 +1,290 @@
+---
+authority_id: ungegn
+id: 2017
+language: ara
+source_script: Arab
+destination_script: Latn
+name: ROMANIZATION OF ARABIC -- UNGEGN 2017 System
+url: http://www.eki.ee/wgrs/rom1_ar.pdf
+creation_date: 2017
+confirmation date: 2018-06
+description: |
+
+    The current United Nations recommended romanization 
+    system was approved in 2017 (resolution XI/3), based on 
+    the system adopted by Arabic experts at the conference 
+    held in Beirut in 2007, the Unified Arabic 
+    Transliteration System, taking into account the 
+    practical amendments and corrections carried out and 
+    agreed upon by the representatives of the Arabic-
+    speaking countries at the Fourth Arab Conference on 
+    Geographical Names, held in Beirut in 2008, and some 
+    clarifications and amendments agreed in Riyadh in 20171.
+
+    Previously, the United Nations had approved a 
+    romanization system in 1972 (resolution II/8), based on the system adopted by Arabic experts at the conference 
+    held at Beirut in 1971 with the practical amendments carried out 
+    and agreed upon by the representatives of the Arabic-speaking 
+    countries at their conference. The table was published in volume II of the conference report2.
+
+    In UN resolution XI/3 it is specifically stated that the 
+    system was recommended for the “romanization of the 
+    geographical names within those Arabic-speaking countries 
+    where this system is officially adopted”. There is 
+    evidence of its partial implementation in Jordan, Oman and 
+    Saudi Arabia. The UNGEGN Working Group on Romanization 
+    Systems intends to continue monitoring the UN system’s 
+    implementation across Arabic-speaking countries.
+
+    In some countries there exist local romanization schemes 
+    or practices. The geographical names of Algeria, Djibouti, 
+    Mauritania, Morocco and Tunisia are generally rendered in 
+    the traditional manner which conforms to the principles of 
+    the French orthography.
+
+    The previous UN-approved system is still found in 
+    considerable international usage.
+
+    Arabic is written from right to left. The Arabic script 
+    usually omits vowel points and diacritical marks from 
+    writing which makes it difficult to obtain uniform results 
+    in the romanization of Arabic. It is essential to identify 
+    correctly the words which appear in any particular name 
+    and to know the standard Arabic-script spelling including 
+    the relevant vowels. One must also take into account 
+    dialectal and idiosyncratic deviations. The romanization 
+    is generally reversible though there may be some ambiguous 
+    letter sequences (dh, kh, sh, th) which may also point to 
+    combinations of Arabic characters in addition to the 
+    respective single characters.
+
+notes:
+
+- When the definite article al precedes a word beginning with 
+one of the "sun letters" (t, th, d, dh, r, z, s, sh, s̱, ḏ, ṯ, d͟h, l, n) the l of the definite article is assimilated with 
+the first consonant of the word: الشارقة Ash Shāriqah.
+
+- The definite article is always written with a capital 
+initial: الزيتون Az Zaytūn, البلد Al Balad, منية الضنية Minyat Aḏ 
+Ḏinniyyah.
+
+- Nunation is unlikely to be found in geographical names and 
+the last letter remains silent: جبل = جبلٌ Jabal (not Jabalun).
+
+- In order to disambiguate certain character sequences a 
+middle dot (·) may be used: سهيلة S·haylah (cf. شيلة Shaylah), دهيب 
+D·hayb (cf. ذيب Dhayb), أدهم Ad·ham (cf. أذم Adham).
+
+
+tests:
+    
+    # Examples taken from: 
+    # https://unstats.un.org/unsd/geoinfo/geonames/
+    
+  - source: إسرائيل
+    expected: Isrā‘īl
+    
+  - source: دولة إسرائيل
+    expected: Dawlat Isrā‘īl
+    
+  - source: العراق
+    expected: Al ‘Irāq
+    
+  - source: جمهورية العراق
+    expected: Al Jumhūrīyah al ‘Irāqīyah
+    
+  - source: بغداد
+    expected: Baghdād
+    
+  - source: الكويت
+    expected: Al Kuwayt
+    
+  - source: دولة الكويت
+    expected: Dawlat al Kuwayt
+
+  - source: قطر
+    expected: Qaţar
+    
+  - source: دولة قطر
+    expected: Dawlat Qaţar
+     
+  - source: الدوحة
+    expected: Ad Dawḩah
+    
+  - source: المملكة العربية السعودية
+    expected: As Su‘ūdīyah
+    
+  - source: المملكة العربية السعودية
+    expected: Al Mamlakah al ‘Arabīyah as Su‘ūdīyah
+    
+  - source: الرياض
+    expected: Ar Riyāḑ
+
+
+map:
+  characters:
+  
+    # Tool used for Unicode finding:
+    # https://www.branah.com/unicode-converter
+  
+    '\u0621' : # ء
+     - '’'
+     - '' # see note A
+     
+    # See note B
+    '\u0627' : ''  # ا
+    '\uFE8E' : ''  # ﺎ
+    
+    '\u0628' : 'b'  # ب
+    '\uFE91' : 'b'  # ﺑ
+    '\uFE92' : 'b'  # ﺒ
+    '\uFE90' : 'b'  # ﺐ
+    
+    # See note C
+    '\u062a' : 't'  # ت
+    '\ufe97' : 't'  # ﺗ
+    '\ufe98' : 't'  # ﺘ
+    '\ufe96' : 't'  # ﺖ
+    
+    '\u062b' : 'th'  # ث
+    '\ufe9b' : 'th'  # ﺛ
+    '\ufe9c' : 'th'  # ﺜ
+    '\ufe9a' : 'th'  # ﺚ
+    
+    '\u062c' : 'j'  # ج
+    '\ufe9f' : 'j'  # ﺟ
+    '\ufea0' : 'j'  # ﺠ
+    '\ufe9e' : 'j'  # ﺞ
+    
+    '\u062d' : 'ẖ' # ح
+    '\ufea3' : 'ẖ' # ﺣ
+    '\ufea4' : 'ẖ' # ﺤ
+    '\ufea2' : 'ẖ' # ﺢ
+    
+    '\u062e' : 'ẖ'  # خ
+    '\ufea7' : 'ẖ'  # ﺧ
+    '\ufea8' : 'ẖ'  # ﺨ
+    '\ufea6' : 'ẖ'  # ﺦ
+    
+    '\u062f' : 'd'  # د
+    '\ufeaa' : 'd'  # ﺪ
+    
+    '\u0630' : 'dh'  # ذ
+    '\ufeac' : 'dh'  # ﺬ
+    
+    '\u0631' : 'r'  # ر
+    '\ufeae' : 'r'  # ﺮ
+    
+    '\u0632' : 'z'  # ز
+    '\ufeb0' : 'z'  # ﺰ
+    
+    '\u0633' : 's'  # س
+    '\ufeb3' : 's'  # ﺳ
+    '\ufeb4' : 's'  # ﺴ
+    '\ufeb2' : 's'  # ﺲ
+   
+    '\u0634' : 'sh'  # ش
+    '\ufeb7' : 'sh'  # ﺷ
+    '\ufeb8' : 'sh'  # ﺸ
+    '\ufeb6' : 'sh'  # ﺶ
+    
+    '\u0635' : 's̱'  # ص
+    '\ufebb' : 's̱'  # ﺻ
+    '\ufebc' : 's̱'  # ﺼ
+    '\ufeba' : 's̱'  # ﺺ
+    
+    '\u0636' : 'ḏ'  # ض
+    '\ufebf' : 'ḏ'  # ﺿ
+    '\ufec0' : 'ḏ'  # ﻀ
+    '\ufebe' : 'ḏ'  # ﺾ
+    
+    '\u0637' : 'ṯ'  # ط
+    '\ufec3' : 'ṯ'  # ﻃ
+    '\ufec4' : 'ṯ'  # ﻄ
+    '\ufec2' : 'ṯ'  # ﻂ
+    
+    '\u0638' : '\u0064\u035f\u0068'  # ظ
+    '\ufec7' : '\u0064\u035f\u0068'  # ﻇ
+    '\ufec8' : '\u0064\u035f\u0068'  # ﻈ
+    '\ufec6' : '\u0064\u035f\u0068'  # ﻆ
+    
+    '\u0639' : '‘'  # ع
+    '\ufecb' : '‘'  # ﻋ
+    '\ufecc' : '‘'  # ﻌ
+    '\ufeca' : '‘'  # ﻊ
+    
+    '\u063a' : 'gh'  # غ
+    '\ufecf' : 'gh'  # ﻏ
+    '\ufed0' : 'gh'  # ﻐ
+    '\ufece' : 'gh'  # ﻎ
+  
+    '\u0641' : 'f'  # ف
+    '\ufed3' : 'f'  # ﻓ
+    '\ufed4' : 'f'  # ﻔ
+    '\ufed2' : 'f'  # ﻒ
+    
+    '\u0642' : 'q'  # ق
+    '\ufed7' : 'q'  # ﻗ
+    '\ufed8' : 'q'  # ﻘ
+    '\ufed6' : 'q'  # ﻖ
+    
+    '\u0643' : 'k'  # ك
+    '\ufedb' : 'k'  # ﻛ
+    '\ufedc' : 'k'  # ﻜ
+    '\ufeda' : 'k'  # ﻚ
+    
+    '\u0644' : 'l'  # ل
+    '\ufedf' : 'l'  # ﻟ
+    '\ufee0' : 'l'  # ﻠ
+    '\ufede' : 'l'  # ﻞ
+    
+    '\u0645' : 'm'  # م
+    '\ufee3' : 'm'  # ﻣ
+    '\ufee4' : 'm'  # ﻤ
+    '\ufee2' : 'm'  # ﻢ
+    
+    '\u0646' : 'n'  # ن
+    '\ufee7' : 'n'  # ﻧ
+    '\ufee8' : 'n'  # ﻨ
+    '\ufee6' : 'n'  # ﻦ
+    
+    # See note C
+    '\u0647' : 'h'  # ه
+    '\ufeeb' : 'h'  # ﻫ
+    '\ufeec' : 'h'  # ﻬ
+    '\ufeea' : 'h'  # ﻪ
+    
+    '\u0648' : 'w'  # و
+    '\ufeee' : 'w'  # ﻮ
+    
+    '\u064a' : 'y'  # ي
+    '\ufef3' : 'y'  # ﻳ
+    '\ufef4' : 'y'  # ﻴ
+    '\ufef1' : 'y'  # ﻱ
+    
+    # (A) Not romanized word-initially.
+
+    # (B) Not romanized, but see romanizations accompanying alif (ا) in the table for vowels.
+
+    # (C) In certain endings, an original tā’ (ت) is written ة, i.e., like hā’ (ه) with two dots, and is known as tā’ marbūṯah. It is romanized h, except in the construct form of feminine nouns, where it is romanized t, instead.
+    
+    
+    # Vowels, diphthongs and diacritical marks 
+    # (ـ stands for any consonant)    
+    
+    'ـَ' : 'a'  # see note A below
+    '\u0640\u064e\u0648\u0652' : 'aw'  # ـَوْ   
+    '\u0640\u064e\u064a\u0652' : 'ay'  # ـَيْ
+    'ـِ' : 'i'  # see note A below
+    'ـُ' : 'u'  # see note A below
+    'ـْ' : ''  # see note A below
+    '\u0640\u064e\u0627' : 'ā'  # ـَا
+    '\u0622' : 'ā'  # آ
+    '\u0640\u0650\u064a' : 'ī'  # ـِي
+    '\u0640\u064f\u0648' : 'ū'  # ـُو
+    '\u0640\u064e\u0649' : 'á'  # ـَى
+    'ـّ' : ''  # see note B below
+
+    # (A) Marks absence of the vowel.
+    # (B) Marks doubling of the consonant.    
+    
