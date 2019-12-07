@@ -81,6 +81,36 @@ tests:
   - source: "ত্য"
     expected: "tya"
 
+  - source: |
+      আমার সোনার বাংলা, আমি তোমায় ভালোবাসি।
+      চিরদিন তোমার আকাশ, তোমার বাতাস, আমার প্রাণে বাজায় বাঁশি॥
+      ও মা, ফাগুনে তোর আমের বনে ঘ্রাণে পাগল করে, মরি হায়, হায় রে—
+      ও মা, অঘ্রাণে তোর ভরা ক্ষেতে আমি কী দেখেছি মধুর হাসি॥
+
+      কী শোভা, কী ছায়া গো, কী স্নেহ, কী মায়া গো—
+      কী আঁচল বিছায়েছ বটের মূলে, নদীর কূলে কূলে।
+      মা, তোর মুখের বাণী আমার কানে লাগে সুধার মতো,
+      মরি হায়, হায় রে—
+      মা, তোর বদনখানি মলিন হলে, ও মা, আমি নয়নজলে ভাসি॥
+
+    # Note: There are still couple of improvements we can do in the
+    # transilation system, but for now this could work
+    #
+    # But please revisit this - specially the use case of `য়`, it's adding
+    # some mixed character in the text.
+    #
+    expected: |
+      āmaāra saonaāra baāṁlaā, āmai taomaāj̱aA় bhaālaobaāsai।
+      chairadaina taomaāra ākaāsha, taomaāra baātaāsa, āmaāra praāṇae baājaāj̱aA় baām̐shai॥
+      o maā, phaāgaunae taora āmaera banae ghraāṇae paāgala karae, marai haāj̱aA়, haāj̱aA় rae—
+      o maā, aghraāṇae taora bharaā kṣhaetae āmai kaī daekhaechhai madhaura haāsai॥
+
+      kaī shaobhaā, kaī chhaāj̱aA়ā gao, kaī snaeha, kaī maāj̱aA়ā gao—
+      kaī ām̐chala baichhaāj̱aA়echha baṭaera maūlae, nadaīra kaūlae kaūlae।
+      maā, taora maukhaera baāṇaī āmaāra kaānae laāgae saudhaāra matao,
+      marai haāj̱aA়, haāj̱aA় rae—
+      maā, taora badanakhaānai malaina halae, o maā, āmai naj̱aA়najalae bhaāsai॥
+
 map:
   characters:
 
@@ -177,10 +207,14 @@ map:
 
     # V. Ligatures
     # Adscript forms of some consonants
-    # TODO: Move to 'pattern' rule
-    'র্‍':	'r-:'
-    '‍্র':	'-r:'
-    '‍্য':	'-y:'
+    #
+    # We already implemented one to one mapping for most commonly used
+    # combined letters - (Zuktabarna), so we can ignore this custom rules
+    # fro now.
+    #
+    # 'র্‍':	'r-:'
+    # '‍্র':	'-r:'
+    # '‍্য':	'-y:'
 
 
     # Other ligatures (the list is not complete)
@@ -317,3 +351,182 @@ map:
     'হ্ম': 'hma'
     'হ্র': 'hra'
     'হ্ল': 'hla'
+
+    # Zuktabarna - combined letters
+    #
+    # The followings are not the official list, but this has been
+    # collected and varified from some reliable source.
+    # Source: https://www.somewhereinblog.net/blog/trivuzblog/28849694
+    #
+    'ক্ট্র': 'kṭra'
+    'ক্ত্র': 'ktra'
+    'ক্য': 'kya'
+    'ক্ষ্ণ': 'kṣhṇa'
+    'ক্ষ্ম': 'kṣhma'
+    'খ্য': 'khaj̱a'
+    'খ্র': 'khra'
+    'গ্‌ণ': 'gṇa'
+    'গ্ধ্য': 'gdhaj̱a'
+    'গ্ধ্র': 'gdhara'
+    'গ্ন্য': 'gnaj̱a'
+    'গ্ব': 'gba'
+    'গ্য': 'gya'
+    'গ্র্য': 'graya'
+    'ঘ্ন': 'ghna'
+    'ঘ্য': 'ghya'
+    'ঙ্‌ক্ত': 'ṅkata'
+    'ঙ্ক্য': 'ṅkaya'
+    'ঙ্ক্ষ': 'ṅkasha'
+    'ঙ্খ': 'ṅkha'
+    'ঙ্গ্য': 'ṅgasha' # Clearify: ঙ্গ্য = ঙ + গ + য; যেমন- ব্যঙ্গ্যার্থ, ব্যঙ্গ্যোক্তি
+    'ঙ্ঘ': 'ṅgha'
+    'ঙ্ঘ্য': 'ṅghaya'
+    'ঙ্ঘ্র': 'ṅghara'
+    'ঙ্ম': 'ṅma'
+    'চ্ছ্র': 'chchhara'
+    'চ্ব': 'chba'
+    'চ্য': 'chya'
+    'জ্য': 'jya'
+    'জ্র': 'jra'
+    'ট্ব': 'ṭba'
+    'ট্ম': 'ṭma'
+    'ট্য': 'ṭya'
+    'ট্র': 'ṭra'
+    'ড্ব': 'ḍba'
+    'ড্য': 'ḍya'
+    'ড্র': 'ḍra'
+    'ড়্গ': 'ṙga'
+    'ঢ্য': 'ḍhya'
+    'ঢ্র': 'ḍhra'
+    'ণ্ঠ্য': 'ṇṭhaya'
+    'ণ্ড্য': 'ṇḍaya'
+    'ণ্ড্র': 'ṇḍara'
+    'ণ্ঢ': 'ṇḍha'
+    'ণ্ণ': 'ṇṇa'
+    'ণ্ব': 'ṇba'
+    'ণ্ম': 'ṇma'
+    'ণ্য': 'ṇya'
+    'ৎক': 'tka'
+    'ত্ত্য': 'ttaya'
+    'ত্ম্য': 'tmaya'
+    'ত্য': 'tya'
+    'ত্র্য': 'traj̱a'
+    'ৎল': 'tla'
+    'ৎস': 'tsa'
+    'থ্ব': 'thba'
+    'থ্য': 'thya'
+    'থ্র': 'thra'
+    'দ্গ': 'dga'
+    'দ্ঘ': 'dgha'
+    'দ্ভ্র': 'dbhara'
+    'দ্য': 'dya'
+    'দ্র্য': 'draj̱a'
+    'ধ্ন': 'dhna'
+    'ধ্ব': 'dhba'
+    'ধ্ম': 'dhma'
+    'ধ্য': 'dya'
+    'ন্ট': 'nṭa'
+    'ন্ট্র': 'nṭara'
+    'ন্ড্র': 'nḍara'
+    'ন্ত্ব': 'ntaba'
+    'ন্ত্য': 'ntaya'
+    'ন্ত্র্য': 'ntaraj̱a'
+    'ন্থ্র': 'nthara'
+    'ন্দ্য': 'ndaj̱a'
+    'ন্দ্ব': 'ndaba'
+    'ন্ধ্য': 'ndhaj̱a'
+    'ন্ধ্র': 'ndhara'
+    'ন্য': 'nya'
+    'প্ট': 'pṭa'
+    'প্য': 'pya'
+    'প্র্য': 'praj̱a'
+    'প্স': 'psa'
+    'ফ্ল': 'phla'
+    'ব্য': 'bya'
+    'ব্ল': 'bla'
+    'ভ্ব': 'bhaba'
+    'ভ্য': 'bhya'
+    'ম্ন': 'mna'
+    'ম্প্র': 'mpara'
+    'ম্ফ': 'mpha'
+    'ম্ব্র': 'mbara'
+    'ম্য': 'mya'
+    'য্য': 'j̱aya'
+    'র্ক': 'rka'
+    'র্ক্য': 'rkaya'
+    'র্গ্য': 'rgaya'
+    'র্ঘ্য': 'rghaya'
+    'র্চ্য': 'rchaya'
+    'র্জ্য': 'rjaya'
+    'র্ণ্য': 'rṇaya'
+    'র্ত্য': 'rtaya'
+    'র্থ্য': 'rthaya'
+    'র্ব্য': 'rbaya'
+    'র্ম্য': 'rmaya'
+    'র্শ্য': 'rshaya'
+    'র্ষ্য': 'rṣhaya'
+    'র্হ্য': 'rhaya'
+    'র্খ': 'rkha'
+    'র্গ': 'rga'
+    'র্গ্র': 'rgara'
+    'র্ঘ': 'rgha'
+    'র্চ': 'rcha'
+    'র্ছ': 'rchha'
+    'র্জ': 'rja'
+    'র্ঝ': 'rjha'
+    'র্ট': 'rṭa'
+    'র্ড': 'rḍa'
+    'র্ণ': 'rṇa'
+    'র্ত': 'rta'
+    'র্ত্র': 'rtara'
+    'র্থ': 'rtha'
+    'র্দ': 'rda'
+    'র্দ্ব': 'rdaba' # clearify: র্দ্ব = র + দ + ব; যেমন- নির্দ্বিধা
+    'র্দ্র': 'rdara'
+    'র্ধ': 'rdha'
+    'র্ধ্ব': 'rdhaba'
+    'র্ন': 'rna'
+    'র্প': 'rpa'
+    'র্ফ': 'rpha'
+    'র্ভ': 'rbha'
+    'র্ম': 'rma'
+    'র্য': 'rj̱a'
+    'র্ল': 'rla'
+    'র্শ': 'rsha'
+    'র্শ্ব': 'rshaba'
+    'র্ষ': 'rṣha'
+    'র্স': 'rsa'
+    'র্হ': 'rha'
+    'র্ঢ্য': 'rḍhaya'
+    'ল্ক্য': 'lkaya'
+    'ল্গ': 'lga'
+    'ল্প': 'lpa'
+    'ল্‌ফ': 'lpha'
+    'ল্ব': 'lba'
+    'ল্‌ভ': 'lbha'
+    'ল্য': 'lya'
+    'শ্য': 'shya'
+    'ষ্ক্র': 'ṣhkara'
+    'ষ্ট্য': 'ṣhṭaya'
+    'ষ্ঠ্য': 'ṣhṭhaya'
+    'ষ্ণ': 'ṣhṇa'
+    'ষ্প্র': 'ṣhpara'
+    'ষ্ব': 'ṣhba'
+    'ষ্ম': 'ṣhma'
+    'ষ্য': 'ṣhya'
+    'স্ট': 'sṭa'
+    'স্ট্র': 'sṭra'
+    'স্ত্ব': 'staba'
+    'স্ত্য': 'staṣha'
+    'স্ত্র': 'stara'
+    'স্থ': 'stha'
+    'স্থ্য': 'sthaya'
+    'স্প': 'spa'
+    'স্প্র': 'spara'
+    'স্প্‌ল': 'spala'
+    'স্ফ': 'spha'
+    'স্য': 'sya'
+    'স্ল': 'sla'
+    'হ্ণ': 'hṇa'
+    'হ্ব': 'hba'
+    'হ্য': 'hya'
