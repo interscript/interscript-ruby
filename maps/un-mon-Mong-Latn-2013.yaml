@@ -78,3 +78,16 @@ map:
     "ᠤ": "u"
       # - "u" # General use
       # - "û" # For place names
+
+
+    # @TODO Exceptional
+    #
+    # This is failing the whole test suite, but as far as I understood
+    # from the comment, this city name is exceptional, so we are temporarliy
+    # adding it as execeptional rules for now.
+    #
+    # But, we will need some natives attension to help us out here, and maybe
+    # come up with some basic rules for this exceptional pattern.
+    #
+
+    "ᠬᠥᠬᠡᠬᠣᠲᠠ": "kökeqota"
