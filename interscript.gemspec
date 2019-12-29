@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "thor"
 
-  spec.add_development_dependency "bundler", "~> 2.0"
+  spec.add_development_dependency "pry"
   spec.add_development_dependency "debase"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"
