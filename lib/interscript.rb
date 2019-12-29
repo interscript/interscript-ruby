@@ -1,12 +1,15 @@
 # frozen_string_literal: true
 
-require 'yaml'
+require "yaml"
+require "interscript/mapping"
 
 # Transliteration
 module Interscript
-  SYSTEM_DEFINITIONS_PATH = File.expand_path('../maps', __dir__)
-
   class << self
+    def root_path
+      @root_path ||= Pathname.new(File.dirname(__dir__))
+    end
+
     def transliterate_file(system_code, input_file, output_file)
       input = File.read(input_file)
       output = transliterate(system_code, input)
@@ -17,20 +20,14 @@ module Interscript
       puts "Output written to: #{output_file}"
     end
 
-    def load_system_definition(system_code)
-      YAML.load_file(File.join(SYSTEM_DEFINITIONS_PATH, "#{system_code}.yaml"))
-    end
-
     def transliterate(system_code, string)
-      system = load_system_definition(system_code)
-
-      rules = system['map']['rules'] || []
-      postrules = system['map']['postrules'] || []
-      charmap = system['map']['characters']&.sort_by { |k, _v| k.size }&.reverse&.to_h || {}
+      mapping = Interscript::Mapping.for(system_code)
+      charmap = mapping.characters&.sort_by { |k, _v| k.size }&.reverse&.to_h
 
       output = string.clone
       offsets = Array.new string.to_s.size, 1
-      rules.each do |r|
+
+      mapping.rules.each do |r|
         string.to_s.scan(/#{r['pattern']}/) do |matches|
           match = Regexp.last_match
           pos = match.offset(0).first
@@ -50,9 +47,10 @@ module Interscript
         end
       end
 
-      postrules.each do |r|
+      mapping.postrules.each do |r|
         output.gsub!(/#{r['pattern']}/, r['result'])
       end
+
       output
     end
 
