@@ -43,6 +43,7 @@ module Interscript
         while (match = output&.match(/#{k}/))
           pos = match.offset(0).first
           result = up_case_around?(output, pos) ? v.upcase : v
+          result = result[0] if result.is_a?(Array) # if more than one, choose the first one
           output[pos, match[0].size] = result
         end
       end
