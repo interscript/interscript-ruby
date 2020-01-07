@@ -1,8 +1,8 @@
 ---
-authority_id: hk
-id: lshk
+authority_id: lshk
+id: jyutping
 language: yue
-source_script: Hant
+source_script: Han
 destination_script: Latn
 name: LSHK Jyutping 
 url: https://lshk.org/jyutping
