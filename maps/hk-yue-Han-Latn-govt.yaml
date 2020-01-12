@@ -19,13 +19,16 @@ description:
 
 notes:
   - Tone is not represented in this system.
-  - Earlier Cantonese pronunciations is kept distinctive in this scheme, 
-    which includes the distinction between ts and ch, Sh and s, the 
+  - Earlier Cantonese pronunciations is kept distinctive in this scheme,
+    which includes the distinction between ts and ch, Sh and s, the
     rimes -ze and -i, etc. However, many
     consonants and vowels are spelt identically, e.g. p represents both [p]
     and [ph], a represents both [a] and [A]. This is because these
     distinctions were represented by ’ or diacritics (e.g. á vs. a), but were
     removed in printed / typeset documents.
+
+# Each transliterated character will be separated by this character
+character_separator: " "
 
 #A longer test list will be generated from GeoNames database
 tests:
