@@ -22,7 +22,7 @@ module Interscript
 
     def transliterate(system_code, string)
       mapping = Interscript::Mapping.for(system_code)
-      character_separator = mapping.character_separator || ""
+      separator = mapping.character_separator || ""
       charmap = mapping.characters&.sort_by { |k, _v| k.size }&.reverse&.to_h
 
       output = string.clone
@@ -45,7 +45,7 @@ module Interscript
           pos = match.offset(0).first
           result = up_case_around?(output, pos) ? v.upcase : v
           result = result[0] if result.is_a?(Array) # if more than one, choose the first one
-          output[pos, match[0].size] = character_separator + result
+          output[pos, match[0].size] = add_separator(separator, pos, result)
         end
       end
 
@@ -57,6 +57,10 @@ module Interscript
     end
 
     private
+
+    def add_separator(separator, pos, result)
+      pos == 0 ? result : separator + result
+    end
 
     def up_case_around?(string, pos)
       return false if string[pos] == string[pos].downcase
