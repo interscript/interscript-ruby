@@ -17,6 +17,7 @@ module Interscript
       :creation_date,
       :source_script,
       :destination_script,
+      :character_separator,
     )
 
     def initialize(system_code, options = {})
@@ -69,6 +70,7 @@ module Interscript
       @creation_date = mappings.fetch("creation_date", nil)
       @source_script = mappings.fetch("source_script", nil)
       @destination_script = mappings.fetch("destination_script", nil)
+      @character_separator = mappings["map"]["character_separator"] || nil
 
       @rules = mappings["map"]["rules"] || []
       @postrules = mappings["map"]["postrules"] || []
