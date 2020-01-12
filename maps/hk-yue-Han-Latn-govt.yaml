@@ -53,6 +53,8 @@ tests:
     expected: "Fan Lau Tung Wan "
 
 map:
+  character_separator: " "
+
   rules:
   #  - pattern: \u042c(?=[ЕеЁёИиОоЭэ]) # Ь (before Е, Ё, И, O, Э)
   #    result: Y
