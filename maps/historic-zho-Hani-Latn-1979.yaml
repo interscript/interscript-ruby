@@ -21,126 +21,53 @@ tests:
     expected: "Chien-shan-chiao"
   - source: 烏溝口
     expected: "Wu-kou-k’ou"
+  - source: 七美國小
+    expected: "Ch’i-mei Kuo-hsiao"
+  - source: 七美國中
+    expected: "Ch’i-mei Kuo-chung"
+  - source: 玉蓮寺
+    expected: "Yü-lien Ssu"
   - source: 山腳仔
     expected: "Shan-chiao-tzu"
+  - source: 七美嶼
+    expected: "Ch’i-mei Yü"
   - source: 西北灣
     expected: "Hsi-pei-wan"
-  - source: 内埔
-    expected: "Nei-pu"
+  - source: 森法殿
+    expected: "Sen-fa Tien"
+  - source: 七美水庫
+    expected: "Ch’i-mei Shui-k’u"
   - source: 山頂
     expected: "Shan-ting"
-  - source: 淮美
-    expected: "Huai-mei"
-  - source: 古合
-    expected: "Ku-ho"
-  - source: 頂隙
-    expected: "Ting-hsi"
-  - source: 頂隙
-    expected: "Ting-hsi"
-  - source: 北塭
-    expected: "Pei-wen"
-  - source: 南塭
-    expected: "Nan-wen"
-  - source: 白沙塭
-    expected: "Pai-sha-wen"
-  - source: 籠塭
-    expected: "Lung-wen"
-  - source: 大瀨仔
-    expected: "Ta-lai-tzu"
-  - source: 天臺山塭
-    expected: "T’ien-t’ai-shan-wen"
-  - source: 長瀨仔
-    expected: "Ch’ang-lai-tzu"
-  - source: 鼻尾
-    expected: "Pi-wei"
-  - source: 西籠
-    expected: "Hsi-lung"
-  - source: 西洞尾
-    expected: "Hsi-tung-wei"
-  - source: 尖山仔
-    expected: "Chien-shan-tzu"
-  - source: 花宅坪
-    expected: "Hua-chai-p’ing"
-  - source: 中社
-    expected: "Chung-she"
-  - source: 前寮
-    expected: "Ch’ien-liao"
-  - source: 西埔
-    expected: "Hsi-pu"
-  - source: 井子脚
-    expected: "Ching-tzu-chiao"
-  - source: 花宅
-    expected: "Hua-chai"
-  - source: 後寮
-    expected: "Hou-liao"
-  - source: 山寮
-    expected: "Shan-liao"
-  - source: 水垵
-    expected: "Shui-an"
-
-map:
-  rules:
-    #- pattern: "^(.{2,})(?:大橋|吊橋|橋|山|國小|溪|宮|新村|村|國中|里|公墓|隧道|寺|鄉|農場|廟|堤防|車站|站|溪口|漁港|分校|埤|圳|鎮|嶼|礁|交流道|江|塘|高中|工業區|殿|堤|嶺|鼻|市|公園|灣|湖|中學|小學|政府|醫院|陸橋)$"
-    #  result: "\\1 "   
+  - source: 黄德宮
+    expected: "Huang-te Kung"
+  - source: 南一高爾夫球場
+    expected: "Nan-i Kao-erh-fu Ch’iu-ch’ang"
     
-    - pattern: ([^\s]) #insert dash after each character
-      result: "\\1-"
+map:
+
+  character_separator: "-"
+  word_separator: " "
+  title_case: true
+
+  rules:
+      # Phrases below are generic items generated from Taiwan GeoNames data.
+      # This list is in no way complete. There are other generic terms that 
+      # are missing from the dataset.
+      # 
+      # Note: For monosyllables, items marked with a generic may sometimes
+      # attach to the previous word. Monosyllabic suffixes are commonly 
+      # considered to be part of the previous segment. Here we only keep
+      # it as a separate generic item if the term is capitalized in over 
+      # 70% of all occurence.
+      #
+    - pattern: "(高爾夫球場|少年輔育院|海水浴場|通信中心|自來水廠|醫學中心)$"
+      result: " \\1"
+
+    - pattern: "(?<=..)(球場|輔育院|浴場|中心|大橋|吊橋|陸橋|新村|漁港|分校|埤|政府|交流道|工業區|排水溝|發電廠|工作站|檢查哨|派出所|排水線|遊樂區|轉播站|防潮堤|檢查站|畜牧場|畜殖場|試驗所|防波堤|體育場|動物園|博物館|排水缐|瞭望台|瞭望臺|紀念碑|取水站|守衛站|實驗所|三角點|休息站|排水口|林務所|氣象站|水浴場|煉油廠|療養院|蓄殖場|蓄牧場|護管所|農牧區|造船廠|遊樂園|運動場|電信局|養殖帶|鹽田區|國小|國中|公墓|隧道|農場|堤防|溪口|車站|高中|公園|醫院|學院|中學|大學|水庫|山莊|石礦|公司|煤礦|社區|排水|礦場|學校|牧場|瀑布|溫泉|燈塔|鐵路|糖廠|墓園|碼頭|鹽場|山脈|苗圃|工廠|樂園|電臺|監獄|電台|水道|温泉|花園|飯店|教會|水壩|糖厰|賓館|公路|林場|油庫|港道|漁塭|船澳|農埸|電廠|魚池|倉庫|市場|水線|水閘|海峽|運河|三莊|列島|小學|山口|支流|水塔|池塘|沙洲|河口|法院|海岸|港口|砂礦|群島|船塢|船廠|農廠|酒廠|銅礦|鐵道|高工|堂|壇|宮|寺|尖|山|嶼|市|廟|村|橋|殿|池|河|溪|祠|站|鄉|里|鎮|鼻)$"
+      result: " \\1"    
 
   postrules:
-    - pattern: "-$" #remove final dash
-      result: ""
-    - pattern: ^a(.*)
-      result: "A\\1"
-    - pattern: ^b(.*)
-      result: "B\\1"
-    - pattern: ^c(.*)
-      result: "C\\1"
-    - pattern: ^d(.*)
-      result: "D\\1"
-    - pattern: ^e(.*)
-      result: "E\\1"
-    - pattern: ^f(.*)
-      result: "F\\1"
-    - pattern: ^g(.*)
-      result: "G\\1"
-    - pattern: ^h(.*)
-      result: "H\\1"
-    - pattern: ^i(.*)
-      result: "I\\1"
-    - pattern: ^j(.*)
-      result: "J\\1"
-    - pattern: ^k(.*)
-      result: "K\\1"
-    - pattern: ^l(.*)
-      result: "L\\1"
-    - pattern: ^m(.*)
-      result: "M\\1"
-    - pattern: ^n(.*)
-      result: "N\\1"
-    - pattern: ^o(.*)
-      result: "O\\1"
-    - pattern: ^p(.*)
-      result: "P\\1"
-    - pattern: ^q(.*)
-      result: "Q\\1"
-    - pattern: ^r(.*)
-      result: "R\\1"
-    - pattern: ^s(.*)
-      result: "S\\1"
-    - pattern: ^t(.*)
-      result: "T\\1"
-    - pattern: ^u(.*)
-      result: "U\\1"
-    - pattern: ^v(.*)
-      result: "V\\1"
-    - pattern: ^w(.*)
-      result: "W\\1"
-    - pattern: ^x(.*)
-      result: "X\\1"
-    - pattern: ^y(.*)
-      result: "Y\\1"
-    - pattern: ^z(.*)
-      result: "Z\\1"
 
   characters:
     "⾡": "ch’o"
