@@ -18,6 +18,8 @@ module Interscript
       :source_script,
       :destination_script,
       :character_separator,
+      :word_separator,
+      :title_case
     )
 
     def initialize(system_code, options = {})
@@ -71,7 +73,8 @@ module Interscript
       @source_script = mappings.fetch("source_script", nil)
       @destination_script = mappings.fetch("destination_script", nil)
       @character_separator = mappings["map"]["character_separator"] || nil
-
+      @word_separator = mappings["map"]["word_separator"] || nil
+      @title_case = mappings["map"]["title_case"] || false
       @rules = mappings["map"]["rules"] || []
       @postrules = mappings["map"]["postrules"] || []
       @characters = mappings["map"]["characters"] || {}
