@@ -52,17 +52,17 @@ module Interscript
         end
       end
 
+      mapping.postrules.each do |r|
+        output.gsub!(/#{r['pattern']}/, r['result'])
+      end
+
       if output
         output.sub!(/^(.)/,  &:upcase) if title_case
         if word_separator != ''
           output.gsub!(/#{word_separator}#{separator}/,word_separator)
           output.gsub!(/#{word_separator}(.)/, &:upcase) if title_case
         end
-      end
-
-      mapping.postrules.each do |r|
-        output.gsub!(/#{r['pattern']}/, r['result'])
-      end
+      end      
 
       output
     end
