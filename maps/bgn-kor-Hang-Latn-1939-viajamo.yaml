@@ -435,7 +435,7 @@ map:
     - pattern: "ᆰ(-?)ᄃ"
       result: "k\\1t" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG TIKEUT
     - pattern: "ᆰ(-?)ᄅ"
-      result: "ng\\1l" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG RIEUL
+      result: "ng\\1n" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG RIEUL
     - pattern: "ᆰ(-?)ᄆ"
       result: "ng\\1m" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG MIEUM
     - pattern: "ᆰ(-?)ᄇ"
@@ -473,7 +473,7 @@ map:
     - pattern: "ᆱ(-?)ᄃ"
       result: "m\\1d" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG TIKEUT
     - pattern: "ᆱ(-?)ᄅ"
-      result: "m\\1l" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG RIEUL
+      result: "m\\1n" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG RIEUL
     - pattern: "ᆱ(-?)ᄆ"
       result: "l\\1m" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG MIEUM
     - pattern: "ᆱ(-?)ᄇ"
@@ -511,7 +511,7 @@ map:
     - pattern: "ᆲ(-?)ᄃ"
       result: "p\\1t" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG TIKEUT
     - pattern: "ᆲ(-?)ᄅ"
-      result: "m\\1l" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG RIEUL
+      result: "m\\1n" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG RIEUL
     - pattern: "ᆲ(-?)ᄆ"
       result: "m\\1m" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG MIEUM
     - pattern: "ᆲ(-?)ᄇ"
