@@ -1,6 +1,6 @@
 ---
 authority_id: moct
-id: 2000
+id: 2000-viajamo
 language: kor
 source_script: Hang
 destination_script: Latn
@@ -8,10 +8,57 @@ name: Korean Ministry of Culture and Tourism 2000 System
 url: https://www.korean.go.kr/front_eng/roman/roman_01.do
 creation_date: 2000
 adoption_date: 2002
-description:
+description: |
+  Generation of Jamo from Hangul
+
+  This is how the Hangul-to-Jamo maps are generated. Please refer to this page
+  for details about Korean text handling in Unicode.
+  http://gernot-katzers-spice-pages.com/var/korean_hangul_unicode.html
+
+  This formula copied from the page above is used:
+  [stem]
+  ====
+  tail = mod (Hangul codepoint − 44032, 28)
+  vowel = 1 + mod (Hangul codepoint − 44032 − tail, 588) / 28
+  lead = 1 + int [ (Hangul codepoint − 44032)/588 ]
+  ====
+
+  [source,python]
+  ----
+  import pandas as pd
+  import re
+  import math
+
+  leadjamo = [chr(0x1100+i) for i in range(0,19)]
+  # ᄀᄁᄂᄃᄄᄅᄆᄇᄈᄉᄊᄋᄌᄍᄎᄏᄐᄑᄒ
+  voweljamo = [chr(0x1161+i) for i in range(0,21)]
+  # ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ
+  tailjamo = ['']+[chr(0x11A8+i) for i in range(0,27)]
+  # ᆨᆩᆪᆫᆬᆭᆮᆯᆰᆱᆲᆳᆴᆵᆶᆷᆸᆹᆺᆻᆼᆽᆾᆿᇀᇁᇂ
+
+  hanguls = [chr(i) for i in range(44032,55172)]
+  tails = [tailjamo[(i-44032) % 28] for i in range(44032,55172)]
+  vowels = [voweljamo[((i-44032-((i-44032) % 28)) % 588) // 28] for i in range(44032,55172)]
+  leads = [leadjamo[math.floor((i-44032)// 588)] for i in range(44032,55172)]
+
+  kr_df = pd.DataFrame({'Hangul':hanguls, 'Lead':leads,'Vowel':vowels, 'Tail':tails})
+  ----
+
+  Hangul	Lead	Vowel	Tail
+  0	가	ᄀ	ᅡ
+  1	각	ᄀ	ᅡ	ᆨ
+  2	갂	ᄀ	ᅡ	ᆩ
+  3	갃	ᄀ	ᅡ	ᆪ
+  4	간	ᄀ	ᅡ	ᆫ
+  5	갅	ᄀ	ᅡ	ᆬ
+  6	갆	ᄀ	ᅡ	ᆭ
+  7	갇	ᄀ	ᅡ	ᆮ
+  8	갈	ᄀ	ᅡ	ᆯ
+  9	갉	ᄀ	ᅡ	ᆰ
+
 
 notes:
-  
+
 tests:
   - source: 불국사
     expected: "Bulguksa"
@@ -47,7 +94,7 @@ map:
   rules:
     # convert numbers to space + Hangul
     - pattern: "([^0-9 ])(?=[0-9])"
-      result: "\\1 "      
+      result: "\\1 "
     - pattern: "1"
       result: "일"
     - pattern: "2"
@@ -68,7 +115,7 @@ map:
       result: "구"
 
     # add hyphen in front of generics
-    - pattern: "(?<=.)(도|시|군|구|읍|면|리|동|가)$" 
+    - pattern: "(?<=.)(도|시|군|구|읍|면|리|동|가)$"
       result: "-\\1"
 
   postrules:
