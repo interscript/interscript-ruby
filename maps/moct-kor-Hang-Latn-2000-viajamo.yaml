@@ -1,18 +1,17 @@
 ---
-authority_id: bgn
-id: 1939
+authority_id: moct
+id: 2000
 language: kor
 source_script: Hang
 destination_script: Latn
-name: BGN Agreement -- Korean McCune-Reischauer System (1943)
-url: http://geonames.nga.mil/gns/html/Romanization/ROMANIZATION%20OF%20KOREAN-%20MR%20for%20DPRK.pdf
-creation_date: 1939
-adoption_date: 
+name: Korean Ministry of Culture and Tourism 2000 System
+url: https://www.korean.go.kr/front_eng/roman/roman_01.do
+creation_date: 2000
+adoption_date: 2002
 description:
 
 notes:
-  BGN/PCGN 1945 Agreement
-
+  
 tests:
   - source: 불국사
     expected: "Bulguksa"
