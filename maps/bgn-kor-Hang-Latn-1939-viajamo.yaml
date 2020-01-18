@@ -74,6 +74,10 @@ tests:
     expected: "Hwangu"
   - source: 자작보
     expected: "Chajakpo"
+  - source: 비파1동
+    expected: "Pip’a Il-tong"
+  - source: 문암 오동
+    expected: "Munam O-dong"
 
 map:
   character_separator: ""
@@ -115,10 +119,6 @@ map:
       result: " "
     - pattern: "$"
       result: " "
-
-    # Onset Rule (두음법칙)
-    - pattern: "(^ᄅ| ᄅ)(?=[ᅣᅧᅨᅭᅲᅵ])" #CHOSEONG RIEUL
-      result: "ᄋ" #CHOSEONG IEUNG
 
     # From Unicode Chart
     # https://github.com/unicode-org/cldr/blob/master/common/transforms/Korean-Latin-BGN.xml
@@ -542,53 +542,53 @@ map:
       result: "p\\1ss" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG SSANGSIOS
     - pattern: "ᆲ(-?)ᄍ"
       result: "p\\1tch" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG SSANGCIEUC
-    - pattern: "(^ᄀ| ᄀ)"
+    - pattern: "(?<= )ᄀ"
       result: "k" # HANGUL CHOSEONG KIYEOK
-    - pattern: "(^ᄂ| ᄂ)"
+    - pattern: "(?<= )ᄂ"
       result: "n" # HANGUL CHOSEONG NIEUN
-    - pattern: "(^ᄃ| ᄃ)"
+    - pattern: "(?<= )ᄃ"
       result: "t" # HANGUL CHOSEONG TIKEUT
-    - pattern: "(^ᄅ| ᄅ)(?=[ᅣᅤᅧᅨᅭᅲ])"
+    - pattern: "(?<= )ᄅ(?=[ᅣᅤᅧᅨᅭᅲ])"
       result: "" # HANGUL CHOSEONG RIEUL # R-onset rule
-    - pattern: "(^ᄅ| ᄅ)"
+    - pattern: "(?<= )ᄅ"
       result: "n" # HANGUL CHOSEONG RIEUL
-    - pattern: "(^ᄆ| ᄆ)"
+    - pattern: "(?<= )ᄆ"
       result: "m" # HANGUL CHOSEONG MIEUM
-    - pattern: "(^ᄇ| ᄇ)"
+    - pattern: "(?<= )ᄇ"
       result: "p" # HANGUL CHOSEONG PIEUP
-    - pattern: "(^ᄉ| ᄉ)"
+    - pattern: "(?<= )ᄉ"
       result: "s" # HANGUL CHOSEONG SIOS
-    - pattern: "(^ᄋ| ᄋ)"
+    - pattern: "(?<= )ᄋ"
       result: "" # HANGUL CHOSEONG IEUNG
-    - pattern: "(^ᄌ| ᄌ)"
+    - pattern: "(?<= )ᄌ"
       result: "ch" # HANGUL CHOSEONG CIEUC
-    - pattern: "(^ᄎ| ᄎ)"
+    - pattern: "(?<= )ᄎ"
       result: "ch’" # HANGUL CHOSEONG CHIEUCH
-    - pattern: "(^ᄏ| ᄏ)"
+    - pattern: "(?<= )ᄏ"
       result: "k’" # HANGUL CHOSEONG KHIEUKH
-    - pattern: "(^ᄐ| ᄐ)"
+    - pattern: "(?<= )ᄐ"
       result: "t’" # HANGUL CHOSEONG THIEUTH
-    - pattern: "(^ᄑ| ᄑ)"
+    - pattern: "(?<= )ᄑ"
       result: "p’" # HANGUL CHOSEONG PHIEUPH
-    - pattern: "(^ᄒ| ᄒ)"
+    - pattern: "(?<= )ᄒ"
       result: "h" # HANGUL CHOSEONG HIEUH
-    - pattern: "(^ᄁ| ᄁ)"
+    - pattern: "(?<= )ᄁ"
       result: "kk" # HANGUL CHOSEONG SSANGKIYEOK
-    - pattern: "(^ᄭ| ᄭ)"
+    - pattern: "(?<= )ᄭ"
       result: "kk" # HANGUL CHOSEONG SIOS-KIYEOK
-    - pattern: "(^ᄄ| ᄄ)"
+    - pattern: "(?<= )ᄄ"
       result: "tt" # HANGUL CHOSEONG SSANGTIKEUT
-    - pattern: "(^ᄯ| ᄯ)"
+    - pattern: "(?<= )ᄯ"
       result: "tt" # HANGUL CHOSEONG SIOS-TIKEUT
-    - pattern: "(^ᄈ| ᄈ)"
+    - pattern: "(?<= )ᄈ"
       result: "pp" # HANGUL CHOSEONG SSANGPIEUP
-    - pattern: "(^ᄲ| ᄲ)"
+    - pattern: "(?<= )ᄲ"
       result: "pp" # HANGUL CHOSEONG SIOS-PIEUP
-    - pattern: "(^ᄊ| ᄊ)"
+    - pattern: "(?<= )ᄊ"
       result: "ss" # HANGUL CHOSEONG SSANGSIOS
-    - pattern: "(^ᄍ| ᄍ)"
+    - pattern: "(?<= )ᄍ"
       result: "tch" # HANGUL CHOSEONG SSANGCIEUC
-    - pattern: "(^ᄶ| ᄶ)"
+    - pattern: "(?<= )ᄶ"
       result: "tch" # HANGUL CHOSEONG SIOS-CIEUC
     - pattern: "ᅡ"
       result: "a" # HANGUL JUNGSEONG A
@@ -632,35 +632,35 @@ map:
       result: "wae" # HANGUL JUNGSEONG WAE
     - pattern: "ᅰ"
       result: "we" # HANGUL JUNGSEONG WE
-    - pattern: "(ᆨ$|ᆨ[ -])"
+    - pattern: "ᆨ(?=[ -])"
       result: "k" # HANGUL JONGSEONG KIYEOK
-    - pattern: "(ᆫ$|ᆫ[ -])"
+    - pattern: "ᆫ(?=[ -])"
       result: "n" # HANGUL JONGSEONG NIEUN
-    - pattern: "(ᆮ$|ᆮ[ -])"
+    - pattern: "ᆮ(?=[ -])"
       result: "t" # HANGUL JONGSEONG TIKEUT
-    - pattern: "(ᆯ$|ᆯ[ -])"
+    - pattern: "ᆯ(?=[ -])"
       result: "l" # HANGUL JONGSEONG RIEUL
-    - pattern: "(ᆷ$|ᆷ[ -])"
+    - pattern: "ᆷ(?=[ -])"
       result: "m" # HANGUL JONGSEONG MIEUM
-    - pattern: "(ᆸ$|ᆸ[ -])"
+    - pattern: "ᆸ(?=[ -])"
       result: "p" # HANGUL JONGSEONG PIEUP
-    - pattern: "(ᆺ$|ᆺ[ -])"
+    - pattern: "ᆺ(?=[ -])"
       result: "t" # HANGUL JONGSEONG SIOS
-    - pattern: "(ᆼ$|ᆼ[ -])"
+    - pattern: "ᆼ(?=[ -])"
       result: "ng" # HANGUL JONGSEONG IEUNG
-    - pattern: "(ᆽ$|ᆽ[ -])"
+    - pattern: "ᆽ(?=[ -])"
       result: "t" # HANGUL JONGSEONG CIEUC
-    - pattern: "(ᆾ$|ᆾ[ -])"
+    - pattern: "ᆾ(?=[ -])"
       result: "t" # HANGUL JONGSEONG CHIEUCH
-    - pattern: "(ᆿ$|ᆿ[ -])"
+    - pattern: "ᆿ(?=[ -])"
       result: "k" # HANGUL JONGSEONG KHIEUKH
-    - pattern: "(ᇀ$|ᇀ[ -])"
+    - pattern: "ᇀ(?=[ -])"
       result: "t" # HANGUL JONGSEONG THIEUTH
-    - pattern: "(ᇁ$|ᇁ[ -])"
+    - pattern: "ᇁ(?=[ -])"
       result: "p" # HANGUL JONGSEONG PHIEUPH
-    - pattern: "(ᆰ$|ᆰ[ -])"
+    - pattern: "ᆰ(?=[ -])"
       result: "k" # HANGUL JONGSEONG RIEUL-KIYEOK
-    - pattern: "(ᆲ$|ᆲ[ -])"
+    - pattern: "ᆲ(?=[ -])"
       result: "p" # HANGUL JONGSEONG RIEUL-PIEUP
 
     # Remove space added
