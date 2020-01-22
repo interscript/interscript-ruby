@@ -165,6 +165,8 @@ tests:
     expected: "Viorin"
   - source: クォーター
     expected: "Kwōtā"
+  - source: パッチリ
+    expected: "Patchiri"
 
 
 map:
@@ -181,7 +183,7 @@ map:
     - pattern: "[っッ]([BbDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvXxZz])" # っ or ッ folloved by consonant
       result: "\\1\\1"
     - pattern: "[っッ]([Cc])" # ッ followed by ch-
-      result: "\\1\\1"
+      result: "t\\1"
     - pattern: "a[ーa]"
       result: "ā"
     - pattern: "i[ーi]"
