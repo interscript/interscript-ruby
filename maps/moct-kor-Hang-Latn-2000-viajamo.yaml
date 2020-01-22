@@ -395,43 +395,43 @@ map:
     - pattern: "ᆼᄍ"
       result: "ngjj" # HANGUL JONGSEONG IEUNG + CHOSEONG SSANGCIEUC
     - pattern: "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄀ"
-      result: "\\1g" # HANGUL JONGSEONG KIYEOK + CHOSEONG KIYEOK
+      result: "g" # VOWEL + CHOSEONG KIYEOK
     - pattern: "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄂ"
-      result: "\\1n" # HANGUL JONGSEONG KIYEOK + CHOSEONG NIEUN
+      result: "n" # VOWEL + CHOSEONG NIEUN
     - pattern: "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄃ"
-      result: "\\1d" # HANGUL JONGSEONG KIYEOK + CHOSEONG TIKEUT
+      result: "d" # VOWEL + CHOSEONG TIKEUT
     - pattern: "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄅ"
-      result: "\\1r" # HANGUL JONGSEONG KIYEOK + CHOSEONG RIEUL
+      result: "r" # VOWEL + CHOSEONG RIEUL
     - pattern: "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄆ"
-      result: "\\1m" # HANGUL JONGSEONG KIYEOK + CHOSEONG MIEUM
+      result: "m" # VOWEL + CHOSEONG MIEUM
     - pattern: "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄇ"
-      result: "\\1b" # HANGUL JONGSEONG KIYEOK + CHOSEONG PIEUP
+      result: "b" # VOWEL + CHOSEONG PIEUP
     - pattern: "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄉ"
-      result: "\\1s" # HANGUL JONGSEONG KIYEOK + CHOSEONG SIOS
+      result: "s" # VOWEL + CHOSEONG SIOS
     - pattern: "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄋ"
-      result: "\\1" # HANGUL JONGSEONG KIYEOK + CHOSEONG IEUNG
+      result: "" # VOWEL + CHOSEONG IEUNG
     - pattern: "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄌ"
-      result: "\\1j" # HANGUL JONGSEONG KIYEOK + CHOSEONG CIEUC
+      result: "j" # VOWEL + CHOSEONG CIEUC
     - pattern: "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄎ"
-      result: "\\1ch" # HANGUL JONGSEONG KIYEOK + CHOSEONG CHIEUCH
+      result: "ch" # VOWEL + CHOSEONG CHIEUCH
     - pattern: "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄏ"
-      result: "\\1k" # HANGUL JONGSEONG KIYEOK + CHOSEONG KHIEUKH
+      result: "k" # VOWEL + CHOSEONG KHIEUKH
     - pattern: "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄐ"
-      result: "\\1t" # HANGUL JONGSEONG KIYEOK + CHOSEONG THIEUTH
+      result: "t" # VOWEL + CHOSEONG THIEUTH
     - pattern: "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄑ"
-      result: "\\1p" # HANGUL JONGSEONG KIYEOK + CHOSEONG PHIEUPH
+      result: "p" # VOWEL + CHOSEONG PHIEUPH
     - pattern: "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄒ"
-      result: "h" # HANGUL JONGSEONG KIYEOK + CHOSEONG HIEUH
+      result: "h" # VOWEL + CHOSEONG HIEUH
     - pattern: "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄁ"
-      result: "kk" # HANGUL JONGSEONG KIYEOK + CHOSEONG SSANGKIYEOK
+      result: "kk" # VOWEL + CHOSEONG SSANGKIYEOK
     - pattern: "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄄ"
-      result: "tt" # HANGUL JONGSEONG KIYEOK + CHOSEONG SSANGTIKEUT
+      result: "tt" # VOWEL + CHOSEONG SSANGTIKEUT
     - pattern: "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄈ"
-      result: "pp" # HANGUL JONGSEONG KIYEOK + CHOSEONG SSANGPIEUP
+      result: "pp" # VOWEL + CHOSEONG SSANGPIEUP
     - pattern: "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄊ"
-      result: "ss" # HANGUL JONGSEONG KIYEOK + CHOSEONG SSANGSIOS
+      result: "ss" # VOWEL + CHOSEONG SSANGSIOS
     - pattern: "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄍ"
-      result: "jj" # HANGUL JONGSEONG KIYEOK + CHOSEONG SSANGCIEUC
+      result: "jj" # VOWEL + CHOSEONG SSANGCIEUC
     - pattern: "ᆰᄀ"
       result: "lg" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG KIYEOK
     - pattern: "ᆰᄂ"
