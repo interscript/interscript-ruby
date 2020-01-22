@@ -12,9 +12,12 @@ description:
 
 notes:
 
+  - Here is a list of features that are listed in the guideline but 
+    not unimplemented in this map.
+
   - Note 3.2
     The combination n+r is romanized as -ll- only when it is "considered
-    to be longstanding". In this implementation, all n+r is romanized as
+    to be longstanding". In this implementation, all n+r will be romanized as
     -ll- for the sake of simplicity.
 
   - Note 3.3
@@ -27,15 +30,16 @@ notes:
     Except for the n-g combination, this has not been implemented.
 
   - Note 4.4
-    Geographical names may be transliterated or translated. In this map, all
-    names will be transliterated, not translated.
+    Geographical names "may be transliterated or translated". In this map, 
+    all names will be transliterated, not translated. Numerals will not be 
+    transliterated.
 
   - Note 4.5
-    Spacing rule for personal names have not been implemented.
+    Spacing rule for personal names has not been implemented.
 
   - Note 4.7
-    Optional omission of diacritics, and simplification of KK, TT, PP, SS, JJ
-    have not been implemented.
+    Optional omission of diacritics and optional simplification of 
+    KK, TT, PP, SS, JJ to single letter have not been implemented.
 
 tests:
   # Note1.5
