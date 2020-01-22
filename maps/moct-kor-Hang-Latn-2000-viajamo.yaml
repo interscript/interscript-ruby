@@ -84,6 +84,8 @@ tests:
     expected: "Pyeongni Il-dong"
   - source: 평리2동
     expected: "Pyeongni I-dong"
+  - source: 탑안이
+    expected: "Tabani"
 
 map:
   character_separator: ""
@@ -295,7 +297,7 @@ map:
     - pattern: "ᆸᄉ"
       result: "ps" # HANGUL JONGSEONG PIEUP + CHOSEONG SIOS
     - pattern: "ᆸᄋ"
-      result: "p" # HANGUL JONGSEONG PIEUP + CHOSEONG IEUNG
+      result: "b" # HANGUL JONGSEONG PIEUP + CHOSEONG IEUNG
     - pattern: "ᆸᄌ"
       result: "pj" # HANGUL JONGSEONG PIEUP + CHOSEONG CIEUC
     - pattern: "ᆸᄎ"
@@ -333,7 +335,7 @@ map:
     - pattern: "ᆺᄉ"
       result: "ts" # HANGUL JONGSEONG SIOS + CHOSEONG SIOS
     - pattern: "ᆺᄋ"
-      result: "t" # HANGUL JONGSEONG SIOS + CHOSEONG IEUNG
+      result: "d" # HANGUL JONGSEONG SIOS + CHOSEONG IEUNG
     - pattern: "ᆺᄌ"
       result: "tj" # HANGUL JONGSEONG SIOS + CHOSEONG CIEUC
     - pattern: "ᆺᄎ"
@@ -477,7 +479,7 @@ map:
     - pattern: "ᆱᄃ"
       result: "md" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG TIKEUT
     - pattern: "ᆱᄅ"
-      result: "ml" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG RIEUL
+      result: "mn" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG RIEUL
     - pattern: "ᆱᄆ"
       result: "lm" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG MIEUM
     - pattern: "ᆱᄇ"
