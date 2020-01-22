@@ -6,8 +6,8 @@ source_script: Hang
 destination_script: Latn
 name: Korean Democratic People's Republic of Korea Korean System (2002)
 url: https://unstats.un.org/unsd/geoinfo/UNGEGN/docs/8th-uncsgn-docs/inf/8th_UNCSGN_econf.94_INF.72.pdf
-creation_date: 
-adoption_date: 
+creation_date:
+adoption_date:
 description:
 
 notes:
@@ -24,17 +24,17 @@ notes:
 
   - Note 4.1
     Hyphen "may be inserted in case of a possible confusion in pronunciation".
-    Except for the n-g combination, this has not been implemented. 
+    Except for the n-g combination, this has not been implemented.
 
   - Note 4.4
     Geographical names may be transliterated or translated. In this map, all
-    names will be transliterated, not translated. 
+    names will be transliterated, not translated.
 
   - Note 4.5
-    Spacing rule for personal names have not been implemented. 
+    Spacing rule for personal names have not been implemented.
 
-  - Note 4.7 
-    Optional omission of diacritics, and simplification of KK, TT, PP, SS, JJ 
+  - Note 4.7
+    Optional omission of diacritics, and simplification of KK, TT, PP, SS, JJ
     have not been implemented.
 
 tests:
@@ -94,22 +94,17 @@ tests:
   - source: "천리마"
     expected: "Chŏllima"
   # - source: "한나산"  # Typo in the original document
-  - source: "한라산"  
+  - source: "한라산"
     expected: "Hallasan"
   - source: "전라도"
     expected: "Jŏlla-do"
 
   # Note3.3
-  # The issue here is that in DPRK standard orthography, 
-  # 
-  # 
-  # See this page:
-  # https://en.wikipedia.org/wiki/North%E2%80%93South_differences_in_the_Korean_language#Sai_siot_(%EC%82%AC%EC%9D%B4_%EC%8B%9C%EC%98%B7,_%22middle_%E3%85%85%22)
 
-  # - source: "기대산"   # ROK: 깃대산 
+  # - source: "기대산"   # ROK: 깃대산
   #   expected: "Kittaesan"
   # - source: "새별읍"   # ROK: 샛별
-  #   expected: "Saeppyŏl-üp"  # hyphen 
+  #   expected: "Saeppyŏl-üp"  # hyphen
   # - source: "뒤문"    # ROK: 뒷문
   #   expected: "Twinmun"
 
@@ -147,7 +142,7 @@ map:
     # This system does not require transliteration of numerals
     # convert numbers to space + Hangul
     # - pattern: "([^0-9 ])(?=[0-9])"
-    #   result: "\\1 "      
+    #   result: "\\1 "
     # - pattern: "1"
     #   result: "일"
     # - pattern: "2"
@@ -292,7 +287,7 @@ map:
       result: "ᆯᄎ"
     - pattern: "ᆶ"
       result: "ᆯ"
-    
+
     # HANGUL JONGSEONG PIEUP-SIOS
     - pattern: "ᆹᄋ"
       result: "ᄇᄉ"
@@ -304,7 +299,7 @@ map:
       result: "ᆺᄊ"
     - pattern: "ᆻ"
       result: "ᆺ"
-    
+
     # HANGUL JONGSEONG CIEUC
     - pattern: "ᆽᄋ"
       result: "ᆺᄌ"

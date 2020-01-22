@@ -7,7 +7,7 @@ destination_script: Latn
 name: BGN Agreement -- Korean McCune-Reischauer System (1943)
 url: http://geonames.nga.mil/gns/html/Romanization/ROMANIZATION%20OF%20KOREAN-%20MR%20for%20DPRK.pdf
 creation_date: 1939
-adoption_date: 
+adoption_date:
 description:
 
 notes:
@@ -16,7 +16,7 @@ notes:
 tests:
   - source: 은하리
     expected: "Ŭnha-ri"
-  - source: 은중리   
+  - source: 은중리
     expected: "Ŭnjung-ni"
   - source: 은장령
     expected: "Ŭnjang-nyŏng"
@@ -88,7 +88,7 @@ map:
   rules:
     # convert numbers to space + Hangul
     - pattern: "([^0-9 ])(?=[0-9])"
-      result: "\\1 "      
+      result: "\\1 "
     - pattern: "1"
       result: "일"
     - pattern: "2"
@@ -185,7 +185,7 @@ map:
       result: "ᆯ\\1ᄎ"
     - pattern: "ᆶ(-?)"
       result: "ᆯ\\1"
-    
+
     # HANGUL JONGSEONG PIEUP-SIOS
     - pattern: "ᆹ(-?)ᄋ"
       result: "ᄇ\\1ᄉ"
@@ -197,7 +197,7 @@ map:
       result: "ᆺ\\1ᄊ"
     - pattern: "ᆻ(-?)"
       result: "ᆺ\\1"
-    
+
     # HANGUL JONGSEONG CIEUC
     - pattern: "ᆽ(-?)ᄋ"
       result: "ᆺ\\1ᄌ"

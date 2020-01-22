@@ -193,7 +193,7 @@ map:
       result: "ᆯᄎ"
     - pattern: "ᆶ"
       result: "ᆯ"
-    
+
     # HANGUL JONGSEONG PIEUP-SIOS
     - pattern: "ᆹᄋ"
       result: "ᄇᄉ"
@@ -205,7 +205,7 @@ map:
       result: "ᆺᄊ"
     - pattern: "ᆻ"
       result: "ᆺ"
-    
+
     # HANGUL JONGSEONG CIEUC
     - pattern: "ᆽᄋ"
       result: "ᆺᄌ"
