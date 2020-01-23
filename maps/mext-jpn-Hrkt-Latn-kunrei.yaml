@@ -40,32 +40,59 @@ notes:
 
 
 tests:
-  # - source: かんおう
-  #   expected: kan'ô
-  # - source: かのう
-  #   expected: kanô
-  # - source: きんゆう
-  #   expected: kin'yû
-  # - source: とうきょう
-  #   expected: tôkyô
-  # - source: がっこう
-  #   expected: gakkô
-  # - source: かごっま
-  #   expected: kagomma
-  # - source: ぽっぽっや
-  #   expected: poppoyya
-  # - source: てっら
-  #   expected: terra
-  # - source: にゃっほー
-  #   expected: nyahhô
+  - source: かんおう
+    expected: kan'ô
+  - source: かのう
+    expected: kanô
+  - source: きんゆう
+    expected: kin'yû
+  - source: とうきょう
+    expected: tôkyô
+  - source: がっこう
+    expected: gakkô
+  - source: かごっま
+    expected: kagomma
+  - source: ぽっぽっや
+    expected: poppoyya
+  - source: てっら
+    expected: terra
+  - source: にゃっほー
+    expected: nyahhô
+  - source: ゴッホ
+    expected: gohho
 
 map:
   rules:
-    - pattern: ([ЄФІЦАаЕеИиЙйОоУуЫыЮюЯяії])\u0415
-      result: "\\1YE"
-    - pattern: (?<=[АaЕeЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\u0415
-      result: "YE"
-    # - pattern: (?<=っ([])
+    - pattern: "([んン])(?=[あいうえおやゆよアイウエオヤユヨ])"
+      result: "\\1'"
+
+  postrules:
+    # Handling of っ/ッ
+    #
+    # The kana っ/ッ is a geminate marker. 
+    # When followed by a consonant, repeat the first letter of
+    # the following syllable.
+    #
+    # If っ/ッ is not followed by a consonant, then it is usually 
+    # phonetically realised as an abrupt stop or shorterning of 
+    # the previous syllable. There is no documented or commonly
+    # accepted way to transliterate this sound.
+
+    - pattern: "[っッ]([BbCcDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz])" # っ or ッ folloved by consonant
+      result: "\\1\\1"
+    - pattern: "[っッ]" # drop all other っッ. 
+      result: ""
+
+    - pattern: "a[ーa]"
+      result: "â"
+    - pattern: "i[ーi]"
+      result: "î"
+    - pattern: "u[ーu]"
+      result: "û"
+    - pattern: "e[ーe]"
+      result: "ê"
+    - pattern: "o[ーo]"
+      result: "ô"
 
   characters:
     "あ": "a"
@@ -75,12 +102,7 @@ map:
     "お": "o"
 
     # Long vowels, note 4
-    "ああ": "â"
-    "いい": "î"
-    "うう": "û"
-    "ええ": "ê"
-    "おぅ": "ô"
-    "おお": "ô"
+    "おう": "ô"
 
 
     "か": "ka"
@@ -91,10 +113,8 @@ map:
     "きゃ": "kya"
     "きゅ": "kyu"
     "きょ": "kyo"
-    "こぅ": "kô"
-    "きゅぅ": "kyû"
-    "きょぅ": "kyô"
-
+    "きょう": "kyô"
+    "こう": "kô"
 
     "さ": "sa"
     "し": "si"
@@ -104,9 +124,8 @@ map:
     "しゃ": "sya"
     "しゅ": "syu"
     "しょ": "syo"
-    "しゅぅ": "syû"
-    "しょぅ": "syô"
-    "そぅ": "sô"
+    "しょう": "syô"
+    "そう": "sô"
 
     "た": "ta"
     "ち": "ti"
@@ -116,9 +135,8 @@ map:
     "ちゃ": "tya"
     "ちゅ": "tyu"
     "ちょ": "tyo"
-    "ちゅぅ": "tyû"
-    "ちょぅ": "tyô"
-    "とぅ": "tô"
+    "ちょう": "tyô"
+    "とう": "tô"
 
     "な": "na"
     "に": "ni"
@@ -128,9 +146,8 @@ map:
     "にゃ": "nya"
     "にゅ": "nyu"
     "にょ": "nyo"
-    "にゅぅ": "nyû"
-    "にょぅ": "nyô"
-    "のぅ": "nô"
+    "にょう": "nyô"
+    "のう": "nô"
 
     "は": "ha"
     "ひ": "hi"
@@ -140,9 +157,8 @@ map:
     "ひゃ": "hya"
     "ひゅ": "hyu"
     "ひょ": "hyo"
-    "ひゅぅ": "hyû"
-    "ひょぅ": "hyô"
-    "ほぅ": "hô"
+    "ひょう": "hyô"
+    "ほう": "hô"
 
     "ま": "ma"
     "み": "mi"
@@ -152,14 +168,13 @@ map:
     "みゃ": "mya"
     "みゅ": "myu"
     "みょ": "myo"
-    "みゅぅ": "myû"
-    "みょぅ": "myô"
-    "もぅ": "mô"
+    "みょう": "myô"
+    "もう": "mô"
 
     "や": "ya"
     "ゆ": "yu"
     "よ": "yo"
-    "よぅ": "yô"
+    "よう": "yô"
 
     "ら": "ra"
     "り": "ri"
@@ -169,9 +184,8 @@ map:
     "りゃ": "rya"
     "りゅ": "ryu"
     "りょ": "ryo"
-    "りゅぅ": "ryû"
-    "りょぅ": "ryô"
-    "ろぅ": "rô"
+    "りょう": "ryô"
+    "ろう": "rô"
 
     "わ": "wa"
     "を": "o"
@@ -184,9 +198,9 @@ map:
     "ぎゃ": "gya"
     "ぎゅ": "gyu"
     "ぎょ": "gyo"
-    "ぎゅぅ": "gyû"
-    "ぎょぅ": "gyô"
-    "ごぅ": "gô"
+    "ぎゅう": "gyû"
+    "ぎょう": "gyô"
+    "ごう": "gô"
 
     "ざ": "za"
     "じ": "zi"
@@ -196,9 +210,8 @@ map:
     "じゃ": "zya"
     "じゅ": "zyu"
     "じょ": "zyo"
-    "じゅぅ": "zyû"
-    "じょぅ": "zyô"
-    "ぞぅ": "zô"
+    "じょう": "zyô"
+    "ぞう": "zô"
 
 
     "だ": "da"
@@ -209,7 +222,8 @@ map:
     "ぢゃ": "zya"
     "ぢゅ": "zyu"
     "ぢょ": "zyo"
-    "どぅ": "dô"
+    "ぢょう": "zyô"
+    "どう": "dô"
 
     "ば": "ba"
     "び": "bi"
@@ -219,9 +233,8 @@ map:
     "びゃ": "bya"
     "びゅ": "byu"
     "びょ": "byo"
-    "びゅぅ": "byû"
-    "びょぅ": "byô"
-    "ぼぅ": "bô"
+    "びょう": "byô"
+    "ぼう": "bô"
 
     "ぱ": "pa"
     "ぴ": "pi"
@@ -231,142 +244,16 @@ map:
     "ぴゃ": "pya"
     "ぴゅ": "pyu"
     "ぴょ": "pyo"
-    "ぴゅぅ": "pyû"
-    "ぴょぅ": "pyô"
-    "ぽぅ": "pô"
+    "ぴょう": "pyô"
+    "ぽう": "pô"
 
     "ん": "n" # See note 2
 
 
     # Note 3. つまる音は、最初の子音字を重ねて表わす。
+    # Handled by postrules
 
-    "っか": "kka"
-    "っき": "kki"
-    "っく": "kku"
-    "っけ": "kke"
-    "っこ": "kko"
-    "っきゃ": "kkya"
-    "っきゅ": "kkyu"
-    "っきょ": "kkyo"
-    "っこぅ": "kkô"
-    "っきゅぅ": "kkyû"
-    "っきょぅ": "kkyô"
-
-    "っさ": "ssa"
-    "っし": "ssi"
-    "っす": "ssu"
-    "っせ": "sse"
-    "っそ": "sso"
-    "っしゃ": "ssya"
-    "っしゅ": "ssyu"
-    "っしょ": "ssyo"
-    "っしゅぅ": "ssyû"
-    "っしょぅ": "ssyô"
-    "っそぅ": "ssô"
-
-    "った": "tta"
-    "っち": "tti"
-    "っつ": "ttu"
-    "って": "tte"
-    "っと": "tto"
-    "っちゃ": "ttya"
-    "っちゅ": "ttyu"
-    "っちょ": "ttyo"
-    "っちゅぅ": "ttyû"
-    "っちょぅ": "ttyô"
-    "っとぅ": "ttô"
-
-    "っな": "nna"
-    "っに": "nni"
-    "っぬ": "nnu"
-    "っね": "nne"
-    "っの": "nno"
-    "っにゃ": "nnya"
-    "っにゅ": "nnyu"
-    "っにょ": "nnyo"
-    "っにゅぅ": "nnyû"
-    "っにょぅ": "nnyô"
-    "っのぅ": "nnô"
-
-    "っは": "hha"
-    "っひ": "hhi"
-    "っふ": "hhu"
-    "っへ": "hhe"
-    "っほ": "hho"
-    "っひゃ": "hhya"
-    "っひゅ": "hhyu"
-    "っひょ": "hhyo"
-    "っひゅぅ": "hhyû"
-    "っひょぅ": "hhyô"
-    "っほぅ": "hhô"
-
-    "っが": "gga"
-    "っぎ": "ggi"
-    "っぐ": "ggu"
-    "っげ": "gge"
-    "っご": "ggo"
-    "っぎゃ": "ggya"
-    "っぎゅ": "ggyu"
-    "っぎょ": "ggyo"
-    "っぎゅぅ": "ggyû"
-    "っぎょぅ": "ggyô"
-    "っごぅ": "ggô"
-
-    "っざ": "zza"
-    "っじ": "zzi"
-    "っず": "zzu"
-    "っぜ": "zze"
-    "っぞ": "zzo"
-    "っじゃ": "zzya"
-    "っじゅ": "zzyu"
-    "っじょ": "zzyo"
-    "っじゅぅ": "zzyû"
-    "っじょぅ": "zzyô"
-    "っぞぅ": "zzô"
-
-
-    "っだ": "dda"
-    "っぢ": "zzi"
-    "っづ": "zzu"
-    "っで": "dde"
-    "っど": "ddo"
-    "っぢゃ": "zzya"
-    "っぢゅ": "zzyu"
-    "っぢょ": "zzyo"
-    "っどぅ": "ddô"
-
-    "っば": "bba"
-    "っび": "bbi"
-    "っぶ": "bbu"
-    "っべ": "bbe"
-    "っぼ": "bbo"
-    "っびゃ": "bbya"
-    "っびゅ": "bbyu"
-    "っびょ": "bbyo"
-    "っびゅぅ": "bbyû"
-    "っびょぅ": "bbyô"
-    "っぼぅ": "bbô"
-
-    "っぱ": "ppa"
-    "っぴ": "ppi"
-    "っぷ": "ppu"
-    "っぺ": "ppe"
-    "っぽ": "ppo"
-    "っぴゃ": "ppya"
-    "っぴゅ": "ppyu"
-    "っぴょ": "ppyo"
-    "っぴゅぅ": "ppyû"
-    "っぴょぅ": "ppyô"
-    "っぽぅ": "ppô"
-
-
-    # Supplementary
-    # "ゃ": "ya"
-    # "ゅ": "yu"
-    # "ょ": "yo"
-    # "ぅ": "u"
-    # "ょぅ": "yô"
-    # "ゅぅ": "yû"
+    # Katakana
 
     "ア": "a"
     "イ": "i"
@@ -375,12 +262,7 @@ map:
     "オ": "o"
 
     # Long vowels, note 4
-    "アア": "â"
-    "イイ": "î"
-    "ウウ": "û"
-    "エエ": "ê"
-    "オオ": "ô"
-    "オゥ": "ô"
+    "オウ": "ô"
 
     "カ": "ka"
     "キ": "ki"
@@ -390,10 +272,8 @@ map:
     "キャ": "kya"
     "キュ": "kyu"
     "キョ": "kyo"
-    "コゥ": "kô"
-    "キュゥ": "kyû"
-    "キョゥ": "kyô"
-    "コゥ": "kô"
+    "キョウ": "kyô"
+    "コウ": "kô"
 
     "サ": "sa"
     "シ": "si"
@@ -403,9 +283,8 @@ map:
     "シャ": "sya"
     "シュ": "syu"
     "ショ": "syo"
-    "シュゥ": "syû"
-    "ショゥ": "syô"
-    "ソゥ": "sô"
+    "ショウ": "syô"
+    "ソウ": "sô"
 
     "タ": "ta"
     "チ": "ti"
@@ -415,9 +294,8 @@ map:
     "チャ": "tya"
     "チュ": "tyu"
     "チョ": "tyo"
-    "チュゥ": "tyû"
-    "チョゥ": "tyô"
-    "トゥ": "tô"
+    "チョウ": "tyô"
+    "トウ": "tô"
 
     "ナ": "na"
     "ニ": "ni"
@@ -427,9 +305,8 @@ map:
     "ニャ": "nya"
     "ニュ": "nyu"
     "ニョ": "nyo"
-    "ニュゥ": "nyû"
-    "ニョゥ": "nyô"
-    "ノゥ": "nô"
+    "ニョウ": "nyô"
+    "ノウ": "nô"
 
     "ハ": "ha"
     "ヒ": "hi"
@@ -439,9 +316,8 @@ map:
     "ヒャ": "hya"
     "ヒュ": "hyu"
     "ヒョ": "hyo"
-    "ヒュゥ": "hyû"
-    "ヒョゥ": "hyô"
-    "ホゥ": "hô"
+    "ヒョウ": "hyô"
+    "ホウ": "hô"
 
     "マ": "ma"
     "ミ": "mi"
@@ -451,14 +327,13 @@ map:
     "ミャ": "mya"
     "ミュ": "myu"
     "ミョ": "myo"
-    "ミュゥ": "myû"
-    "ミョゥ": "myô"
-    "モゥ": "mô"
+    "ミョウ": "myô"
+    "モウ": "mô"
 
     "ヤ": "ya"
     "ユ": "yu"
     "ヨ": "yo"
-    "ヨゥ": "yô"
+    "ヨウ": "yô"
 
     "ラ": "ra"
     "リ": "ri"
@@ -468,9 +343,8 @@ map:
     "リャ": "rya"
     "リュ": "ryu"
     "リョ": "ryo"
-    "リュゥ": "ryû"
-    "リョゥ": "ryô"
-    "ロゥ": "rô"
+    "リョウ": "ryô"
+    "ロウ": "rô"
 
     "ワ": "wa"
     "ヲ": "o"
@@ -483,9 +357,8 @@ map:
     "ギャ": "gya"
     "ギュ": "gyu"
     "ギョ": "gyo"
-    "ギュゥ": "gyû"
-    "ギョゥ": "gyô"
-    "ゴゥ": "gô"
+    "ギョウ": "gyô"
+    "ゴウ": "gô"
 
     "ザ": "za"
     "ジ": "zi"
@@ -495,9 +368,8 @@ map:
     "ジャ": "zya"
     "ジュ": "zyu"
     "ジョ": "zyo"
-    "ジュゥ": "zyû"
-    "ジョゥ": "zyô"
-    "ゾゥ": "zô"
+    "ジョウ": "zyô"
+    "ゾウ": "zô"
 
     "ダ": "da"
     "ヂ": "zi"
@@ -507,7 +379,8 @@ map:
     "ヂャ": "zya"
     "ヂュ": "zyu"
     "ヂョ": "zyo"
-    "ドゥ": "dô"
+    "ヂョウ": "zyô"
+    "ドウ": "dô"
 
     "バ": "ba"
     "ビ": "bi"
@@ -517,9 +390,8 @@ map:
     "ビャ": "bya"
     "ビュ": "byu"
     "ビョ": "byo"
-    "ビュゥ": "byû"
-    "ビョゥ": "byô"
-    "ボゥ": "bô"
+    "ビョウ": "byô"
+    "ボウ": "bô"
 
     "パ": "pa"
     "ピ": "pi"
@@ -529,139 +401,11 @@ map:
     "ピャ": "pya"
     "ピュ": "pyu"
     "ピョ": "pyo"
-    "ピュゥ": "pyû"
-    "ピョゥ": "pyô"
-    "ポゥ": "pô"
+    "ピョウ": "pyô"
+    "ポウ": "pô"
 
     "ン": "n" # See note 1
 
 
     # Note 3. つまる音は、最初の子音字を重ねて表わす。
-
-    "ッカ": "kka"
-    "ッキ": "kki"
-    "ック": "kku"
-    "ッケ": "kke"
-    "ッコ": "kko"
-    "ッキャ": "kkya"
-    "ッキュ": "kkyu"
-    "ッキョ": "kkyo"
-    "ッコゥ": "kkô"
-    "ッキュゥ": "kkyû"
-    "ッキョゥ": "kkyô"
-
-    "ッサ": "ssa"
-    "ッシ": "ssi"
-    "ッス": "ssu"
-    "ッセ": "sse"
-    "ッソ": "sso"
-    "ッシャ": "ssya"
-    "ッシュ": "ssyu"
-    "ッショ": "ssyo"
-    "ッシュゥ": "ssyû"
-    "ッショゥ": "ssyô"
-    "ッソゥ": "ssô"
-
-    "ッタ": "tta"
-    "ッチ": "tti"
-    "ッツ": "ttu"
-    "ッテ": "tte"
-    "ット": "tto"
-    "ッチャ": "ttya"
-    "ッチュ": "ttyu"
-    "ッチョ": "ttyo"
-    "ッチュゥ": "ttyû"
-    "ッチョゥ": "ttyô"
-    "ットゥ": "ttô"
-
-    "ッナ": "nna"
-    "ッニ": "nni"
-    "ッヌ": "nnu"
-    "ッネ": "nne"
-    "ッノ": "nno"
-    "ッニャ": "nnya"
-    "ッニュ": "nnyu"
-    "ッニョ": "nnyo"
-    "ッニュゥ": "nnyû"
-    "ッニョゥ": "nnyô"
-    "ッノゥ": "nnô"
-
-    "ッハ": "hha"
-    "ッヒ": "hhi"
-    "ッフ": "hhu"
-    "ッヘ": "hhe"
-    "ッホ": "hho"
-    "ッヒャ": "hhya"
-    "ッヒュ": "hhyu"
-    "ッヒョ": "hhyo"
-    "ッヒュゥ": "hhyû"
-    "ッヒョゥ": "hhyô"
-    "ッホゥ": "hhô"
-
-    "ッガ": "gga"
-    "ッギ": "ggi"
-    "ッグ": "ggu"
-    "ッゲ": "gge"
-    "ッゴ": "ggo"
-    "ッギャ": "ggya"
-    "ッギュ": "ggyu"
-    "ッギョ": "ggyo"
-    "ッギュゥ": "ggyû"
-    "ッギョゥ": "ggyô"
-    "ッゴゥ": "ggô"
-
-    "ッザ": "zza"
-    "ッジ": "zzi"
-    "ッズ": "zzu"
-    "ッゼ": "zze"
-    "ッゾ": "zzo"
-    "ッジャ": "zzya"
-    "ッジュ": "zzyu"
-    "ッジョ": "zzyo"
-    "ッジュゥ": "zzyû"
-    "ッジョゥ": "zzyô"
-    "ッゾゥ": "zzô"
-
-
-    "ッダ": "dda"
-    "ッヂ": "zzi"
-    "ッヅ": "zzu"
-    "ッデ": "dde"
-    "ッド": "ddo"
-    "ッヂャ": "zzya"
-    "ッヂュ": "zzyu"
-    "ッヂョ": "zzyo"
-    "ッドゥ": "ddô"
-
-    "ッバ": "bba"
-    "ッビ": "bbi"
-    "ッブ": "bbu"
-    "ッベ": "bbe"
-    "ッボ": "bbo"
-    "ッビャ": "bbya"
-    "ッビュ": "bbyu"
-    "ッビョ": "bbyo"
-    "ッビュゥ": "bbyû"
-    "ッビョゥ": "bbyô"
-    "ッボゥ": "bbô"
-
-    "ッパ": "ppa"
-    "ッピ": "ppi"
-    "ップ": "ppu"
-    "ッペ": "ppe"
-    "ッポ": "ppo"
-    "ッピャ": "ppya"
-    "ッピュ": "ppyu"
-    "ッピョ": "ppyo"
-    "ッピュゥ": "ppyû"
-    "ッピョゥ": "ppyô"
-    "ッポゥ": "ppô"
-
-
-    # Supplementary
-    # "ャ": "ya"
-    # "ュ": "yu"
-    # "ョ": "yo"
-    # "ゥ": "u"
-    # "ョゥ": "yô"
-    # "ュゥ": "yû"
+    # Handled by postrules
