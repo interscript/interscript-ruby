@@ -1,47 +1,27 @@
 ---
 authority_id: var
-id: hepburn-1954
+id: hepburn-1886
 language: jpn
 source_script: Hrkt
 destination_script: Latn
-name: Modified Hepburn
-url: 
-creation_date: 1954
+name: Traditional Hepburn
+url: http://www.ab.cyberhome.ne.jp/~kaizu/roomazi/doc/hep3.html
+creation_date: 1886
 adoption_date: 
 description:
-    This is a modified version of Hepburn romanization, which was 
-    adopted by Kenkyusha's New Japanese-English Dictionary (3rd edition)
-    One crucial difference between Modified and Tranditional Hepburn is 
-    that the ん/ン sound is always transliterated as n, even before the 
-    letters b,m,p.
+    This is a traditional version of Hepburn romanization. 
 
 notes:
+    The book was published before the Japanese orthographic reform.
+    https://en.wikipedia.org/wiki/Historical_kana_orthography
 
 tests:
-  # - source: かんおう
-  #   expected: kan'ō
-  # - source: かのう
-  #   expected: kanō
-  # - source: きんゆう
-  #   expected: kin'yū
-  # - source: とうきょう
-  #   expected: tōkyō
-  # - source: がっこう
-  #   expected: gakkō
-  - source: かごっま
-    expected: kagomma
-  # - source: ぽっぽっや
-  #   expected: poppoyya
-  # - source: てっら
-  #   expected: terra
-  # - source: にゃっほー
-  #   expected: nyahhō
 
 map:
 
   rules:
     - pattern: "([んン])(?=[あいうえおやゆよアイウエオヤユヨ])"
-      result: "\\1’"
+      result: "\\1-"
 
   postrules:
     # Handling of っ/ッ
@@ -63,16 +43,20 @@ map:
     - pattern: "[っッ]" # drop all other っッ. 
       result: ""
 
-    - pattern: "a[ー]"
+    - pattern: "a[ー]" # Double a, double i and double e are written as repeating letters
       result: "ā"
     - pattern: "i[ー]"
       result: "ī"
     - pattern: "u[ーu]"
       result: "ū"
-    - pattern: "e[ーe]"
+    - pattern: "e[ー]"
       result: "ē"
     - pattern: "o[ーo]"
       result: "ō"
+
+    # Handling ん before b, m, p
+    - pattern: "n(?=[bmp])"
+      result: "m"
 
   characters:
     "あ": "a"
@@ -167,7 +151,7 @@ map:
     "ろう": "rō"
 
     "わ": "wa"
-    "を": "o"
+    "を": "wo"
 
     "が": "ga"
     "ぎ": "gi"
@@ -321,7 +305,7 @@ map:
     "ロウ": "rō"
 
     "ワ": "wa"
-    "ヲ": "o"
+    "ヲ": "wo"
 
     "ガ": "ga"
     "ギ": "gi"
