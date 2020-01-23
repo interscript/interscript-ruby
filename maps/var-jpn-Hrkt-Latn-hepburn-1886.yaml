@@ -12,10 +12,43 @@ description:
     This is a traditional version of Hepburn romanization. 
 
 notes:
+    "
     The book was published before the Japanese orthographic reform.
     https://en.wikipedia.org/wiki/Historical_kana_orthography
 
+    The distinction for long-vowel vs. repeating vowels has not been
+    implemented. 
+    For example, the consecutive o's in these words are considered
+    a case of long vowel, and is transliterated as ō:
+        
+        氷 (こおり) - kōri, 大阪（おおさか）- Ōsaka 
+
+    If there are two consecutive o's in a string, but they belong to
+    different morpheme, then they should be transliterated separately.
+
+        小躍り（こおどり）- koodori
+
+    The same goes for the combinations o+u, u+u as well.
+
+    However, this cannot be easily determined from the Kana.
+    Lexical knowledge is needed, and sometimes the Kanji representation
+    will give more hints about morpheme boundary.
+
+    For now, this map will assume that all o+o, o+u, u+u combinations to
+    be instances of long vowels.
+    "
+
 tests:
+    source: "ぐんま"
+    expected: "gumma"
+    source: "しんよう"
+    expected: "shin-yo"
+    source: "きんようび"
+    expected: "kin-yōbi"
+    source: "とうきょう"
+    expected: "tōkyō"
+    source: "しんばし"
+    expected: "shimbashi"
 
 map:
 
