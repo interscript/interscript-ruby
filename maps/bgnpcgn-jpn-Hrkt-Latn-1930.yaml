@@ -17,8 +17,6 @@ notes:
     individually and an apostrophe (’) shall be placed between the vowels.
     However since this is a map from Kana to Hepburn, there is no way to
     implement this feature.
-  - This map cannot handle new consonants from these columns:-
-    ヴァ, ファ, グァ, クァ"
   - The documentation did not specify how the hyphen should be used.
 
 tests:
