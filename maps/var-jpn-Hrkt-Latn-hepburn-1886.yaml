@@ -39,15 +39,15 @@ notes:
     "
 
 tests:
-    source: "ぐんま"
+  - source: "ぐんま"
     expected: "gumma"
-    source: "しんよう"
-    expected: "shin-yo"
-    source: "きんようび"
+  - source: "しんよう"
+    expected: "shin-yō"
+  - source: "きんようび"
     expected: "kin-yōbi"
-    source: "とうきょう"
+  - source: "とうきょう"
     expected: "tōkyō"
-    source: "しんばし"
+  - source: "しんばし"
     expected: "shimbashi"
 
 map:
