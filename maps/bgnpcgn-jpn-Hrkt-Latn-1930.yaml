@@ -165,7 +165,8 @@ tests:
     expected: "Kwōtā"
   - source: パッチリ
     expected: "Patchiri"
-
+  - source: ぽっぽっや
+    expected: "Poppoyya"
 
 map:
   character_separator: ""
@@ -178,10 +179,25 @@ map:
       result: "\\1’"
 
   postrules:
-    - pattern: "[っッ]([BbDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvXxZz])" # っ or ッ folloved by consonant
+    # Handling of っ/ッ
+    #
+    # The kana っ/ッ is a geminate marker. 
+    # When followed by a consonant, repeat the first letter of
+    # the following syllable. Exception: the combination -cch-
+    # should be transliterated as -tch-
+    #
+    # If っ/ッ is not followed by a consonant, then it is usually 
+    # phonetically realised as an abrupt stop or shorterning of 
+    # the previous syllable. There is no documented or commonly
+    # accepted way to transliterate this sound.
+
+    - pattern: "[っッ]([BbDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz])" # っ or ッ folloved by consonant
       result: "\\1\\1"
     - pattern: "[っッ]([Cc])" # ッ followed by ch-
       result: "t\\1"
+    - pattern: "[っッ]" # drop all other っッ. 
+      result: ""
+
     - pattern: "a[ーa]"
       result: "ā"
     - pattern: "i[ーi]"
