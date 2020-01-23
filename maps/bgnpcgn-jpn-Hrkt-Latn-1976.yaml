@@ -172,7 +172,7 @@ map:
   character_separator: ""
   word_separator: " "
   title_case: True
-  extend: mext-jpn-Hrkt-Latn-hepburn
+  extend: var-jpn-Hrkt-Latn-hepburn-1954
 
   rules:
     - pattern: "([んン])(?=[あいうえおやゆよアイウエオヤユヨ])"
