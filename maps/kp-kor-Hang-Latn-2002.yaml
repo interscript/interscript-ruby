@@ -139,7 +139,7 @@ map:
   character_separator: ""
   word_separator: " "
   title_case: True
-  extend: "nil-kor-Hang-Hang-jamo"
+  inherit: "nil-kor-Hang-Hang-jamo"
 
   rules:
 

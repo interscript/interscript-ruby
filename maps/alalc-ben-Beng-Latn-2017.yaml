@@ -43,7 +43,7 @@ tests:
     expected: "tya"
 
 map:
-  extend: "un-ben-Beng-Latn-2016"
+  inherit: "un-ben-Beng-Latn-2016"
 
   characters:
 
