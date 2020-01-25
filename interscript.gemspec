@@ -19,12 +19,12 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
-  spec.bindir = 'bin'
+  spec.bindir = "bin"
 
   spec.add_dependency "thor"
 
-  spec.add_development_dependency "pry"
   spec.add_development_dependency "debase"
+  spec.add_development_dependency "pry"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "ruby-debug-ide"
