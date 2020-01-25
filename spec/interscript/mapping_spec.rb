@@ -14,8 +14,8 @@ RSpec.describe Interscript::Mapping do
       end
     end
 
-    context "with valid and extened system" do
-      it "returns system mappings with extended rules" do
+    context "with valid and inherited system" do
+      it "returns system mappings with inherited rules" do
         system_code = "alalc-ben-Beng-Latn-2017"
 
         mapping = Interscript::Mapping.for(system_code)
