@@ -64,7 +64,6 @@ module Interscript
       @url = mappings.fetch("url", nil)
       @name = mappings.fetch("name", nil)
       @notes = mappings.fetch("notes", nil)
-      @notes = mappings.fetch("notes", nil)
       @tests = mappings.fetch("tests", [])
       @language = mappings.fetch("language", nil)
       @description = mappings.fetch("description", nil)
