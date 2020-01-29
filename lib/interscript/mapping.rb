@@ -64,7 +64,6 @@ module Interscript
       @url = mappings.fetch("url", nil)
       @name = mappings.fetch("name", nil)
       @notes = mappings.fetch("notes", nil)
-      @notes = mappings.fetch("notes", nil)
       @tests = mappings.fetch("tests", [])
       @language = mappings.fetch("language", nil)
       @description = mappings.fetch("description", nil)
@@ -79,15 +78,18 @@ module Interscript
       @postrules = mappings["map"]["postrules"] || []
       @characters = mappings["map"]["characters"] || {}
 
-      include_extended_characters_mappings(mappings)
+      include_inherited_mappings(mappings)
     end
 
-    def include_extended_characters_mappings(mappings)
-      extend_systems = mappings["map"]["extend"]
+    def include_inherited_mappings(mappings)
+      inherit_systems = mappings["map"]["inherit"]
 
-      if extend_systems
-        extended_mapping = Mapping.for(extend_systems, depth: depth + 1)
-        @characters = (extended_mapping.characters || {}).merge(characters)
+      if inherit_systems
+        inherited_mapping = Mapping.for(inherit_systems, depth: depth + 1)
+
+        @rules = [inherited_mapping.rules, rules].flatten
+        @postrules = [inherited_mapping.postrules, postrules].flatten
+        @characters = inherited_mapping.characters.merge(characters)
       end
     end
   end

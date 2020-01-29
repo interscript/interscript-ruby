@@ -1,91 +1,139 @@
 ---
-authority_id: moct
-id: 2000-viajamo
+authority_id: kp
+id: 2002
 language: kor
 source_script: Hang
 destination_script: Latn
-name: Korean Ministry of Culture and Tourism 2000 System
-url: https://www.korean.go.kr/front_eng/roman/roman_01.do
-creation_date: 2000
-adoption_date: 2002
-description: |
-  Generation of Jamo from Hangul
-
-  This is how the Hangul-to-Jamo maps are generated. Please refer to this page
-  for details about Korean text handling in Unicode.
-  http://gernot-katzers-spice-pages.com/var/korean_hangul_unicode.html
-
-  This formula copied from the page above is used:
-  [stem]
-  ====
-  tail = mod (Hangul codepoint − 44032, 28)
-  vowel = 1 + mod (Hangul codepoint − 44032 − tail, 588) / 28
-  lead = 1 + int [ (Hangul codepoint − 44032)/588 ]
-  ====
-
-  [source,python]
-  ----
-  import pandas as pd
-  import re
-  import math
-
-  leadjamo = [chr(0x1100+i) for i in range(0,19)]
-  # ᄀᄁᄂᄃᄄᄅᄆᄇᄈᄉᄊᄋᄌᄍᄎᄏᄐᄑᄒ
-  voweljamo = [chr(0x1161+i) for i in range(0,21)]
-  # ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ
-  tailjamo = ['']+[chr(0x11A8+i) for i in range(0,27)]
-  # ᆨᆩᆪᆫᆬᆭᆮᆯᆰᆱᆲᆳᆴᆵᆶᆷᆸᆹᆺᆻᆼᆽᆾᆿᇀᇁᇂ
-
-  hanguls = [chr(i) for i in range(44032,55172)]
-  tails = [tailjamo[(i-44032) % 28] for i in range(44032,55172)]
-  vowels = [voweljamo[((i-44032-((i-44032) % 28)) % 588) // 28] for i in range(44032,55172)]
-  leads = [leadjamo[math.floor((i-44032)// 588)] for i in range(44032,55172)]
-
-  kr_df = pd.DataFrame({'Hangul':hanguls, 'Lead':leads,'Vowel':vowels, 'Tail':tails})
-  ----
-
-  Hangul	Lead	Vowel	Tail
-  0	가	ᄀ	ᅡ
-  1	각	ᄀ	ᅡ	ᆨ
-  2	갂	ᄀ	ᅡ	ᆩ
-  3	갃	ᄀ	ᅡ	ᆪ
-  4	간	ᄀ	ᅡ	ᆫ
-  5	갅	ᄀ	ᅡ	ᆬ
-  6	갆	ᄀ	ᅡ	ᆭ
-  7	갇	ᄀ	ᅡ	ᆮ
-  8	갈	ᄀ	ᅡ	ᆯ
-  9	갉	ᄀ	ᅡ	ᆰ
-
+name: Korean Democratic People's Republic of Korea Korean System (2002)
+url: https://unstats.un.org/unsd/geoinfo/UNGEGN/docs/8th-uncsgn-docs/inf/8th_UNCSGN_econf.94_INF.72.pdf
+creation_date:
+adoption_date:
+description:
 
 notes:
 
+  - Here is a list of features that are listed in the guideline but 
+    not unimplemented in this map.
+
+  - Note 3.2
+    The combination n+r is romanized as -ll- only when it is "considered
+    to be longstanding". In this implementation, all n+r will be romanized as
+    -ll- for the sake of simplicity.
+
+  - Note 3.3
+    Sai-siot (Connective ㅅ) is not written out in DPRK Korean, but it is
+    supposed to be romanized. Sai-siot is not predictable.
+    This has not been implemented.
+
+  - Note 4.1
+    Hyphen "may be inserted in case of a possible confusion in pronunciation".
+    Except for the n-g combination, this has not been implemented.
+
+  - Note 4.4
+    Geographical names "may be transliterated or translated". In this map, 
+    all names will be transliterated, not translated. Numerals will not be 
+    transliterated.
+
+  - Note 4.5
+    Spacing rule for personal names has not been implemented.
+
+  - Note 4.7
+    Optional omission of diacritics and optional simplification of 
+    KK, TT, PP, SS, JJ to single letter have not been implemented.
+
 tests:
-  - source: 불국사
-    expected: "Bulguksa"
-  - source: 묵호
-    expected: "Mukho"
-  - source: 울산
+  # Note1.5
+  - source: "우리산"
+    expected: "Urisan"
+
+  # Note2.1
+  - source: "교구동"
+    expected: "Kyogu-dong"
+  - source: "초도"
+    expected: "Chodo"
+  - source: "고비리"
+    expected: "Kobi-ri"
+  - source: "강동"
+    expected: "Kangdong"
+  - source: "금교"
+    expected: "Kümgyo"
+  - source: "칠보산"
+    expected: "Chilbosan"
+
+  # Note2.2
+  - source: "곡산"
+    expected: "Koksan"
+  - source: "갑산"
+    expected: "Kapsan"
+  - source: "앞산"
+    expected: "Apsan"
+  - source: "삿갓봉"
+    expected: "Satkatbong"
+
+  # Note2.3
+  - source: "울산"
     expected: "Ulsan"
-  - source: 독립문
-    expected: "Dongnimmun"
-  - source: 강남역
-    expected: "Gangnamyeok"
-  - source: 남산리
-    expected: "Namsan-ri" #Note: no assimilation for -ri even after nasals
-  - source: 내월리
-    expected: "Naewol-ri"
-  - source: 울릉군
-    expected: "Ulleung-gun"
-  - source: 설악산
-    expected: "Seoraksan"
-  - source: 삼죽면
-    expected: "Samjuk-myeon"
-  - source: 평리1동
-    expected: "Pyeongni Il-dong"
-  - source: 평리2동
-    expected: "Pyeongni I-dong"
-  - source: 탑안이
-    expected: "Tabani"
+  # - source: "은률"
+  #   expected: "Ünryul" # This is an exceptino to note 3.1
+
+  # Note2.4
+  - source: "닭섬"
+    expected: "Taksŏm"
+  - source: "물곬"
+    expected: "Mulkol"
+  - source: "붉은바위"
+    expected: "Pulgünbawi"
+  - source: "앉은바위"
+    expected: "Anjünbawi"
+
+  # Note3.1
+  - source: "백마산"
+    expected: "Paengmasan"
+  - source: "꽃마을"
+    expected: "Kkonmaül"
+  - source: "압록강"
+    expected: "Amrokgang"
+
+  # Note3.2
+  - source: "천리마"
+    expected: "Chŏllima"
+  # - source: "한나산"  # Typo in the original document
+  - source: "한라산"
+    expected: "Hallasan"
+  - source: "전라도"
+    expected: "Jŏlla-do"
+
+  # Note3.3
+
+  # - source: "기대산"   # ROK: 깃대산
+  #   expected: "Kittaesan"
+  # - source: "새별읍"   # ROK: 샛별
+  #   expected: "Saeppyŏl-üp"  # hyphen
+  # - source: "뒤문"    # ROK: 뒷문
+  #   expected: "Twinmun"
+
+  # Note4.1 - Separator (OPTIONAL)
+
+  - source: "앞-언덕"
+    expected: "Ap-ŏndŏk"
+  - source: "부억-안골"
+    expected: "Puŏk-angol"
+  - source: "판교"
+    expected: "Phan-gyo"
+  # - source: "방어동"
+  #   expected: "Pang-ŏ-dong"
+
+  # Note4.2
+  - source: "평안남도 평성시"
+    expected: "Phyŏngannam-do Phyŏngsŏng-si"
+
+  # Note4.3
+  - source: "3.1동"
+    expected: "3.1-dong"
+
+  # Note4.6
+  - source: "평양"
+    expected: "Pyongyang"
 
 map:
   character_separator: ""
@@ -94,31 +142,81 @@ map:
   inherit: "nil-kor-Hang-Hang-jamo"
 
   rules:
+
+    # This system does not require transliteration of numerals
     # convert numbers to space + Hangul
-    - pattern: "([^0-9 ])(?=[0-9])"
-      result: "\\1 "
-    - pattern: "1"
-      result: "일"
-    - pattern: "2"
-      result: "이"
-    - pattern: "3"
-      result: "삼"
-    - pattern: "4"
-      result: "사"
-    - pattern: "5"
-      result: "오"
-    - pattern: "6"
-      result: "육"
-    - pattern: "7"
-      result: "칠"
-    - pattern: "8"
-      result: "팔"
-    - pattern: "9"
-      result: "구"
+    # - pattern: "([^0-9 ])(?=[0-9])"
+    #   result: "\\1 "
+    # - pattern: "1"
+    #   result: "일"
+    # - pattern: "2"
+    #   result: "이"
+    # - pattern: "3"
+    #   result: "삼"
+    # - pattern: "4"
+    #   result: "사"
+    # - pattern: "5"
+    #   result: "오"
+    # - pattern: "6"
+    #   result: "육"
+    # - pattern: "7"
+    #   result: "칠"
+    # - pattern: "8"
+    #   result: "팔"
+    # - pattern: "9"
+    #   result: "구"
+
+    # Use voiced onset for geographical features
+    # Note 4.3.1
+    - pattern: "(?<=..)산( |$)"
+      result: "san\\1"
+    - pattern: "(?<=..)거리( |$)"
+      result: "gŏri\\1"
+    - pattern: "(?<=..)고개( |$)"
+      result: "gogae\\1"
+    - pattern: "(?<=..)대( |$)"
+      result: "dae\\1"
+    - pattern: "(?<=..)봉( |$)"
+      result: "bong\\1"
+    - pattern: "(?<=..)교( |$)"
+      result: "gyo\\1"
+    - pattern: "(?<=..)골( |$)"
+      result: "gol\\1"
+    - pattern: "(?<=..)각( |$)"
+      result: "gak\\1"
+    - pattern: "(?<=..)벌( |$)"
+      result: "bŏl\\1"
+    - pattern: "(?<=..)관( |$)"
+      result: "gwan\\1"
+    - pattern: "(?<=..)곶( |$)"
+      result: "got\\1"
+    - pattern: "(?<=..)강( |$)"
+      result: "gang\\1"
 
     # add hyphen in front of generics
-    - pattern: "(?<=.)(도|시|군|구|읍|면|리|동|가)$"
-      result: "-\\1"
+    # Only add hyphen if the name is three syllables or longer
+    - pattern: "(?<=..)도( |$)"
+      result: "-do\\1"
+    - pattern: "(?<=..)시( |$)"
+      result: "-si\\1"
+    - pattern: "(?<=..)군( |$)"
+      result: "-gun\\1"
+    - pattern: "(?<=..)면( |$)"
+      result: "-myŏn\\1"
+    - pattern: "(?<=..)리( |$)"
+      result: "-ri\\1"
+    - pattern: "(?<=..)동( |$)"
+      result: "-dong\\1"
+    - pattern: "(?<=..)구( |$)"
+      result: "-gu\\1"
+    - pattern: "(?<=..)구역( |$)"
+      result: "-guyŏk\\1"
+
+    # The name Pyongyang will be an exception
+    # Not Phyŏngyang
+
+    - pattern: "평양"
+      result: "Pyongyang"
 
   postrules:
 
@@ -250,22 +348,18 @@ map:
 
     # From Unicode Chart
     # https://github.com/unicode-org/cldr/blob/master/common/transforms/Korean-Latin-BGN.xml
-
-    - pattern: "ᆮᄋ" # HANGUL JONGSEONG TIEUT + CHOSEONG IEUNG
-      result: "d"
-
     - pattern: "ᆨᄀ"
-      result: "kg" # HANGUL JONGSEONG KIYEOK + CHOSEONG KIYEOK
+      result: "kk" # HANGUL JONGSEONG KIYEOK + CHOSEONG KIYEOK
     - pattern: "ᆨᄂ"
       result: "ngn" # HANGUL JONGSEONG KIYEOK + CHOSEONG NIEUN
     - pattern: "ᆨᄃ"
-      result: "kd" # HANGUL JONGSEONG KIYEOK + CHOSEONG TIEUT
+      result: "kt" # HANGUL JONGSEONG KIYEOK + CHOSEONG TIEUT
     - pattern: "ᆨᄅ"
       result: "ngn" # HANGUL JONGSEONG KIYEOK + CHOSEONG RIEUL
     - pattern: "ᆨᄆ"
       result: "ngm" # HANGUL JONGSEONG KIYEOK + CHOSEONG MIEUM
     - pattern: "ᆨᄇ"
-      result: "kb" # HANGUL JONGSEONG KIYEOK + CHOSEONG PIEUP
+      result: "kp" # HANGUL JONGSEONG KIYEOK + CHOSEONG PIEUP
     - pattern: "ᆨᄉ"
       result: "ks" # HANGUL JONGSEONG KIYEOK + CHOSEONG SIOS
     - pattern: "ᆨᄋ"
@@ -275,9 +369,9 @@ map:
     - pattern: "ᆨᄎ"
       result: "kch" # HANGUL JONGSEONG KIYEOK + CHOSEONG CHIEUCH
     - pattern: "ᆨᄏ"
-      result: "kk" # HANGUL JONGSEONG KIYEOK + CHOSEONG KHIEUKH # NOTE: the dash is always skipped
+      result: "kkh" # HANGUL JONGSEONG KIYEOK + CHOSEONG KHIEUKH # NOTE: the dash is always skipped
     - pattern: "ᆨᄐ"
-      result: "kt" # HANGUL JONGSEONG KIYEOK + CHOSEONG THIEUTH
+      result: "kth" # HANGUL JONGSEONG KIYEOK + CHOSEONG THIEUTH
     - pattern: "ᆨᄑ"
       result: "kp" # HANGUL JONGSEONG KIYEOK + CHOSEONG PHIEUPH
     - pattern: "ᆨᄒ"
@@ -293,7 +387,7 @@ map:
     - pattern: "ᆨᄍ"
       result: "kjj" # HANGUL JONGSEONG KIYEOK + CHOSEONG SSANGCIEUC
     - pattern: "ᆫᄀ"
-      result: "ng" # HANGUL JONGSEONG NIEUN + CHOSEONG KIEUK
+      result: "n-g" # HANGUL JONGSEONG NIEUN + CHOSEONG KIEUK
     - pattern: "ᆫᄂ"
       result: "nn" # HANGUL JONGSEONG NIEUN + CHOSEONG NIEUN
     - pattern: "ᆫᄃ"
@@ -313,11 +407,11 @@ map:
     - pattern: "ᆫᄎ"
       result: "nch" # HANGUL JONGSEONG NIEUN + CHOSEONG CHIEUCH
     - pattern: "ᆫᄏ"
-      result: "nk" # HANGUL JONGSEONG NIEUN + CHOSEONG KHIEUKH
+      result: "nkh" # HANGUL JONGSEONG NIEUN + CHOSEONG KHIEUKH
     - pattern: "ᆫᄐ"
-      result: "nt" # HANGUL JONGSEONG NIEUN + CHOSEONG THIEUTH
+      result: "nth" # HANGUL JONGSEONG NIEUN + CHOSEONG THIEUTH
     - pattern: "ᆫᄑ"
-      result: "np" # HANGUL JONGSEONG NIEUN + CHOSEONG PHIEUPH
+      result: "nph" # HANGUL JONGSEONG NIEUN + CHOSEONG PHIEUPH
     - pattern: "ᆫᄒ"
       result: "nh" # HANGUL JONGSEONG NIEUN + CHOSEONG HIEUH
     - pattern: "ᆫᄁ"
@@ -331,11 +425,11 @@ map:
     - pattern: "ᆫᄍ"
       result: "njj" # HANGUL JONGSEONG NIEUN + CHOSEONG SSANGCIEUC
     - pattern: "ᆯᄀ"
-      result: "lg" # HANGUL JONGSEONG RIEUL + CHOSEONG KIYEOK
+      result: "lk" # HANGUL JONGSEONG RIEUL + CHOSEONG KIYEOK
     - pattern: "ᆯᄂ"
       result: "ll" # HANGUL JONGSEONG RIEUL + CHOSEONG NIEUN
     - pattern: "ᆯᄃ"
-      result: "ld" # HANGUL JONGSEONG RIEUL + CHOSEONG TIEUT
+      result: "lt" # HANGUL JONGSEONG RIEUL + CHOSEONG TIEUT
     - pattern: "ᆯᄅ"
       result: "ll" # HANGUL JONGSEONG RIEUL + CHOSEONG RIEUL
     - pattern: "ᆯᄆ"
@@ -351,13 +445,13 @@ map:
     - pattern: "ᆯᄎ"
       result: "lch" # HANGUL JONGSEONG RIEUL + CHOSEONG CHIEUCH
     - pattern: "ᆯᄏ"
-      result: "lk" # HANGUL JONGSEONG RIEUL + CHOSEONG KHIEUKH
+      result: "lkh" # HANGUL JONGSEONG RIEUL + CHOSEONG KHIEUKH
     - pattern: "ᆯᄐ"
-      result: "lt" # HANGUL JONGSEONG RIEUL + CHOSEONG THIEUTH
+      result: "lth" # HANGUL JONGSEONG RIEUL + CHOSEONG THIEUTH
     - pattern: "ᆯᄑ"
-      result: "lp" # HANGUL JONGSEONG RIEUL + CHOSEONG PHIEUPH
+      result: "lph" # HANGUL JONGSEONG RIEUL + CHOSEONG PHIEUPH
     - pattern: "ᆯᄒ"
-      result: "rh" # HANGUL JONGSEONG RIEUL + CHOSEONG HIEUH
+      result: "lh" # HANGUL JONGSEONG RIEUL + CHOSEONG HIEUH
     - pattern: "ᆯᄁ"
       result: "lkk" # HANGUL JONGSEONG RIEUL + CHOSEONG SSANGKIYEOK
     - pattern: "ᆯᄄ"
@@ -375,7 +469,7 @@ map:
     - pattern: "ᆷᄃ"
       result: "md" # HANGUL JONGSEONG MIEUM + CHOSEONG TIEUT
     - pattern: "ᆷᄅ"
-      result: "mn" # HANGUL JONGSEONG MIEUM + CHOSEONG RIEUL
+      result: "mr" # HANGUL JONGSEONG MIEUM + CHOSEONG RIEUL  # Note 3.1
     - pattern: "ᆷᄆ"
       result: "mm" # HANGUL JONGSEONG MIEUM + CHOSEONG MIEUM
     - pattern: "ᆷᄇ"
@@ -389,11 +483,11 @@ map:
     - pattern: "ᆷᄎ"
       result: "mch" # HANGUL JONGSEONG MIEUM + CHOSEONG CHIEUCH
     - pattern: "ᆷᄏ"
-      result: "mk" # HANGUL JONGSEONG MIEUM + CHOSEONG KHIEUKH
+      result: "mkh" # HANGUL JONGSEONG MIEUM + CHOSEONG KHIEUKH
     - pattern: "ᆷᄐ"
-      result: "mt" # HANGUL JONGSEONG MIEUM + CHOSEONG THIEUTH
+      result: "mth" # HANGUL JONGSEONG MIEUM + CHOSEONG THIEUTH
     - pattern: "ᆷᄑ"
-      result: "mp" # HANGUL JONGSEONG MIEUM + CHOSEONG PHIEUPH
+      result: "mph" # HANGUL JONGSEONG MIEUM + CHOSEONG PHIEUPH
     - pattern: "ᆷᄒ"
       result: "mh" # HANGUL JONGSEONG MIEUM + CHOSEONG HIEUH
     - pattern: "ᆷᄁ"
@@ -407,17 +501,17 @@ map:
     - pattern: "ᆷᄍ"
       result: "mjj" # HANGUL JONGSEONG MIEUM + CHOSEONG SSANGCIEUC
     - pattern: "ᆸᄀ"
-      result: "pg" # HANGUL JONGSEONG PIEUP + CHOSEONG KIYEOK
+      result: "pk" # HANGUL JONGSEONG PIEUP + CHOSEONG KIYEOK
     - pattern: "ᆸᄂ"
       result: "mn" # HANGUL JONGSEONG PIEUP + CHOSEONG NIEUN
     - pattern: "ᆸᄃ"
-      result: "pd" # HANGUL JONGSEONG PIEUP + CHOSEONG TIEUT
+      result: "pt" # HANGUL JONGSEONG PIEUP + CHOSEONG TIEUT
     - pattern: "ᆸᄅ"
-      result: "mn" # HANGUL JONGSEONG PIEUP + CHOSEONG RIEUL
+      result: "mr" # HANGUL JONGSEONG PIEUP + CHOSEONG RIEUL
     - pattern: "ᆸᄆ"
       result: "mm" # HANGUL JONGSEONG PIEUP + CHOSEONG MIEUM
     - pattern: "ᆸᄇ"
-      result: "pb" # HANGUL JONGSEONG PIEUP + CHOSEONG PIEUP
+      result: "pp" # HANGUL JONGSEONG PIEUP + CHOSEONG PIEUP
     - pattern: "ᆸᄉ"
       result: "ps" # HANGUL JONGSEONG PIEUP + CHOSEONG SIOS
     - pattern: "ᆸᄋ"
@@ -427,11 +521,11 @@ map:
     - pattern: "ᆸᄎ"
       result: "pch" # HANGUL JONGSEONG PIEUP + CHOSEONG CHIEUCH
     - pattern: "ᆸᄏ"
-      result: "pk" # HANGUL JONGSEONG PIEUP + CHOSEONG KHIEUKH
+      result: "pkh" # HANGUL JONGSEONG PIEUP + CHOSEONG KHIEUKH
     - pattern: "ᆸᄐ"
-      result: "pt" # HANGUL JONGSEONG PIEUP + CHOSEONG THIEUTH
+      result: "pth" # HANGUL JONGSEONG PIEUP + CHOSEONG THIEUTH
     - pattern: "ᆸᄑ"
-      result: "pp" # HANGUL JONGSEONG PIEUP + CHOSEONG PHIEUPH
+      result: "pph" # HANGUL JONGSEONG PIEUP + CHOSEONG PHIEUPH
     - pattern: "ᆸᄒ"
       result: "ph" # HANGUL JONGSEONG PIEUP + CHOSEONG HIEUH
     - pattern: "ᆸᄁ"
@@ -445,31 +539,31 @@ map:
     - pattern: "ᆸᄍ"
       result: "pjj" # HANGUL JONGSEONG PIEUP + CHOSEONG SSANGCIEUC
     - pattern: "ᆺᄀ"
-      result: "tg" # HANGUL JONGSEONG SIOS + CHOSEONG KIYEOK
+      result: "tk" # HANGUL JONGSEONG SIOS + CHOSEONG KIYEOK
     - pattern: "ᆺᄂ"
       result: "nn" # HANGUL JONGSEONG SIOS + CHOSEONG NIEUN
     - pattern: "ᆺᄃ"
-      result: "td" # HANGUL JONGSEONG SIOS + CHOSEONG TIEUT
+      result: "tt" # HANGUL JONGSEONG SIOS + CHOSEONG TIEUT
     - pattern: "ᆺᄅ"
-      result: "nn" # HANGUL JONGSEONG SIOS + CHOSEONG RIEUL
+      result: "nr" # HANGUL JONGSEONG SIOS + CHOSEONG RIEUL  # Note 3.1
     - pattern: "ᆺᄆ"
       result: "nm" # HANGUL JONGSEONG SIOS + CHOSEONG MIEUM
     - pattern: "ᆺᄇ"
-      result: "tb" # HANGUL JONGSEONG SIOS + CHOSEONG PIEUP
+      result: "tp" # HANGUL JONGSEONG SIOS + CHOSEONG PIEUP
     - pattern: "ᆺᄉ"
       result: "ts" # HANGUL JONGSEONG SIOS + CHOSEONG SIOS
     - pattern: "ᆺᄋ"
-      result: "s" # HANGUL JONGSEONG SIOS + CHOSEONG IEUNG
+      result: "d" # HANGUL JONGSEONG SIOS + CHOSEONG IEUNG
     - pattern: "ᆺᄌ"
       result: "tj" # HANGUL JONGSEONG SIOS + CHOSEONG CIEUC
     - pattern: "ᆺᄎ"
       result: "tch" # HANGUL JONGSEONG SIOS + CHOSEONG CHIEUCH
     - pattern: "ᆺᄏ"
-      result: "tk" # HANGUL JONGSEONG SIOS + CHOSEONG KHIEUKH
+      result: "tkh" # HANGUL JONGSEONG SIOS + CHOSEONG KHIEUKH
     - pattern: "ᆺᄐ"
-      result: "tt" # HANGUL JONGSEONG SIOS + CHOSEONG THIEUTH
+      result: "tth" # HANGUL JONGSEONG SIOS + CHOSEONG THIEUTH
     - pattern: "ᆺᄑ"
-      result: "tp" # HANGUL JONGSEONG SIOS + CHOSEONG PHIEUPH
+      result: "tph" # HANGUL JONGSEONG SIOS + CHOSEONG PHIEUPH
     - pattern: "ᆺᄒ"
       result: "th" # HANGUL JONGSEONG SIOS + CHOSEONG HIEUH
     - pattern: "ᆺᄁ"
@@ -503,11 +597,11 @@ map:
     - pattern: "ᆼᄎ"
       result: "ngch" # HANGUL JONGSEONG IEUNG + CHOSEONG CHIEUCH
     - pattern: "ᆼᄏ"
-      result: "ngk" # HANGUL JONGSEONG IEUNG + CHOSEONG KHIEUKH
+      result: "ngkh" # HANGUL JONGSEONG IEUNG + CHOSEONG KHIEUKH
     - pattern: "ᆼᄐ"
-      result: "ngt" # HANGUL JONGSEONG IEUNG + CHOSEONG THIEUTH
+      result: "ngth" # HANGUL JONGSEONG IEUNG + CHOSEONG THIEUTH
     - pattern: "ᆼᄑ"
-      result: "ngp" # HANGUL JONGSEONG IEUNG + CHOSEONG PHIEUPH
+      result: "ngph" # HANGUL JONGSEONG IEUNG + CHOSEONG PHIEUPH
     - pattern: "ᆼᄒ"
       result: "ngh" # HANGUL JONGSEONG IEUNG + CHOSEONG HIEUH
     - pattern: "ᆼᄁ"
@@ -521,17 +615,17 @@ map:
     - pattern: "ᆼᄍ"
       result: "ngjj" # HANGUL JONGSEONG IEUNG + CHOSEONG SSANGCIEUC
     - pattern: "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄀ"
-      result: "g" # VOWEL + CHOSEONG KIYEOK
+      result: "g" # VOWEL + CHOSEONG KIYEOK # c.f. Note 3.3
     - pattern: "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄂ"
-      result: "n" # VOWEL + CHOSEONG NIEUN
+      result: "n" # VOWEL + CHOSEONG NIEUN # c.f. Note 3.3
     - pattern: "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄃ"
-      result: "d" # VOWEL + CHOSEONG TIEUT
+      result: "d" # VOWEL + CHOSEONG TIEUT # c.f. Note 3.3
     - pattern: "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄅ"
       result: "r" # VOWEL + CHOSEONG RIEUL
     - pattern: "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄆ"
-      result: "m" # VOWEL + CHOSEONG MIEUM
+      result: "m" # VOWEL + CHOSEONG MIEUM # c.f. Note 3.3
     - pattern: "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄇ"
-      result: "b" # VOWEL + CHOSEONG PIEUP
+      result: "b" # VOWEL + CHOSEONG PIEUP # c.f. Note 3.3
     - pattern: "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄉ"
       result: "s" # VOWEL + CHOSEONG SIOS
     - pattern: "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄋ"
@@ -541,11 +635,11 @@ map:
     - pattern: "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄎ"
       result: "ch" # VOWEL + CHOSEONG CHIEUCH
     - pattern: "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄏ"
-      result: "k" # VOWEL + CHOSEONG KHIEUKH
+      result: "kh" # VOWEL + CHOSEONG KHIEUKH
     - pattern: "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄐ"
-      result: "t" # VOWEL + CHOSEONG THIEUTH
+      result: "th" # VOWEL + CHOSEONG THIEUTH
     - pattern: "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄑ"
-      result: "p" # VOWEL + CHOSEONG PHIEUPH
+      result: "ph" # VOWEL + CHOSEONG PHIEUPH
     - pattern: "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄒ"
       result: "h" # VOWEL + CHOSEONG HIEUH
     - pattern: "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄁ"
@@ -563,13 +657,13 @@ map:
     - pattern: "ᆰᄂ"
       result: "ngn" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG NIEUN
     - pattern: "ᆰᄃ"
-      result: "kd" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG TIEUT
+      result: "kt" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG TIEUT
     - pattern: "ᆰᄅ"
       result: "ngn" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG RIEUL
     - pattern: "ᆰᄆ"
       result: "ngm" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG MIEUM
     - pattern: "ᆰᄇ"
-      result: "kb" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG PIEUP
+      result: "kp" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG PIEUP
     - pattern: "ᆰᄉ"
       result: "ks" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG SIOS
     - pattern: "ᆰᄋ"
@@ -579,13 +673,13 @@ map:
     - pattern: "ᆰᄎ"
       result: "kch" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG CHIEUCH
     - pattern: "ᆰᄏ"
-      result: "lk" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG KHIEUKH
+      result: "lkh" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG KHIEUKH
     - pattern: "ᆰᄐ"
-      result: "kt" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG THIEUTH
+      result: "kth" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG THIEUTH
     - pattern: "ᆰᄑ"
-      result: "kp" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG PHIEUPH
+      result: "kph" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG PHIEUPH
     - pattern: "ᆰᄒ"
-      result: "lk" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG HIEUH
+      result: "lkh" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG HIEUH
     - pattern: "ᆰᄁ"
       result: "lkk" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG SSANGKIYEOK
     - pattern: "ᆰᄄ"
@@ -603,7 +697,7 @@ map:
     - pattern: "ᆱᄃ"
       result: "md" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG TIEUT
     - pattern: "ᆱᄅ"
-      result: "mn" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG RIEUL
+      result: "mr" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG RIEUL
     - pattern: "ᆱᄆ"
       result: "lm" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG MIEUM
     - pattern: "ᆱᄇ"
@@ -617,11 +711,11 @@ map:
     - pattern: "ᆱᄎ"
       result: "mch" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG CHIEUCH
     - pattern: "ᆱᄏ"
-      result: "mk" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG KHIEUKH
+      result: "mkh" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG KHIEUKH
     - pattern: "ᆱᄐ"
-      result: "mt" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG THIEUTH
+      result: "mth" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG THIEUTH
     - pattern: "ᆱᄑ"
-      result: "mp" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG PHIEUPH
+      result: "mph" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG PHIEUPH
     - pattern: "ᆱᄒ"
       result: "mh" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG HIEUH
     - pattern: "ᆱᄁ"
@@ -635,13 +729,13 @@ map:
     - pattern: "ᆱᄍ"
       result: "mjj" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG SSANGCIEUC
     - pattern: "ᆲᄀ"
-      result: "pg" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG KIYEOK
+      result: "pk" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG KIYEOK
     - pattern: "ᆲᄂ"
       result: "mn" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG NIEUN
     - pattern: "ᆲᄃ"
-      result: "pd" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG TIEUT
+      result: "pt" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG TIEUT
     - pattern: "ᆲᄅ"
-      result: "mn" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG RIEUL
+      result: "mr" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG RIEUL
     - pattern: "ᆲᄆ"
       result: "mm" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG MIEUM
     - pattern: "ᆲᄇ"
@@ -655,13 +749,13 @@ map:
     - pattern: "ᆲᄎ"
       result: "pch" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG CHIEUCH
     - pattern: "ᆲᄏ"
-      result: "pk" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG KHIEUKH
+      result: "pkh" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG KHIEUKH
     - pattern: "ᆲᄐ"
-      result: "pt" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG THIEUTH
+      result: "pth" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG THIEUTH
     - pattern: "ᆲᄑ"
-      result: "lp" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG PHIEUPH
+      result: "lph" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG PHIEUPH
     - pattern: "ᆲᄒ"
-      result: "lp" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG HIEUH
+      result: "lph" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG HIEUH
     - pattern: "ᆲᄁ"
       result: "pkk" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG SSANGKIYEOK
     - pattern: "ᆲᄄ"
@@ -673,19 +767,23 @@ map:
     - pattern: "ᆲᄍ"
       result: "pjj" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG SSANGCIEUC
     - pattern: "(?<= )ᄀ"
-      result: "g" # HANGUL CHOSEONG KIYEOK
+      result: "k" # HANGUL CHOSEONG KIYEOK
     - pattern: "(?<= )ᄂ"
       result: "n" # HANGUL CHOSEONG NIEUN
     - pattern: "(?<= )ᄃ"
-      result: "d" # HANGUL CHOSEONG TIEUT
-    - pattern: "(?<= )ᄅ(?=[ᅣᅤᅧᅨᅭᅲ])"
-      result: "" # HANGUL CHOSEONG RIEUL # R-onset rule
+      result: "t" # HANGUL CHOSEONG TIEUT
+
+    # DPRK does not follow the R-onset rule
+    # - pattern: "(?<= )ᄅ(?=[ᅣᅤᅧᅨᅭᅲ])"
+    #   result: "" # HANGUL CHOSEONG RIEUL # R-onset rule
     - pattern: "(?<= )ᄅ"
-      result: "n" # HANGUL CHOSEONG RIEUL
+    # result: "n" # HANGUL CHOSEONG RIEUL
+      result: "r"
+
     - pattern: "(?<= )ᄆ"
       result: "m" # HANGUL CHOSEONG MIEUM
     - pattern: "(?<= )ᄇ"
-      result: "b" # HANGUL CHOSEONG PIEUP
+      result: "p" # HANGUL CHOSEONG PIEUP
     - pattern: "(?<= )ᄉ"
       result: "s" # HANGUL CHOSEONG SIOS
     - pattern: "(?<= )ᄋ"
@@ -695,11 +793,11 @@ map:
     - pattern: "(?<= )ᄎ"
       result: "ch" # HANGUL CHOSEONG CHIEUCH
     - pattern: "(?<= )ᄏ"
-      result: "k" # HANGUL CHOSEONG KHIEUKH
+      result: "kh" # HANGUL CHOSEONG KHIEUKH
     - pattern: "(?<= )ᄐ"
-      result: "t" # HANGUL CHOSEONG THIEUTH
+      result: "th" # HANGUL CHOSEONG THIEUTH
     - pattern: "(?<= )ᄑ"
-      result: "p" # HANGUL CHOSEONG PHIEUPH
+      result: "ph" # HANGUL CHOSEONG PHIEUPH
     - pattern: "(?<= )ᄒ"
       result: "h" # HANGUL CHOSEONG HIEUH
     - pattern: "(?<= )ᄁ"
@@ -725,9 +823,9 @@ map:
     - pattern: "ᅣ"
       result: "ya" # HANGUL JUNGSEONG YA
     - pattern: "ᅥ"
-      result: "eo" # HANGUL JUNGSEONG EO
+      result: "ŏ" # HANGUL JUNGSEONG EO
     - pattern: "ᅧ"
-      result: "yeo" # HANGUL JUNGSEONG YEO
+      result: "yŏ" # HANGUL JUNGSEONG YEO
     - pattern: "ᅩ"
       result: "o" # HANGUL JUNGSEONG O
     - pattern: "ᅭ"
@@ -737,7 +835,7 @@ map:
     - pattern: "ᅲ"
       result: "yu" # HANGUL JUNGSEONG YU
     - pattern: "ᅳ"
-      result: "eu" # HANGUL JUNGSEONG EU
+      result: "ü" # HANGUL JUNGSEONG EU
     - pattern: "ᅵ"
       result: "i" # HANGUL JUNGSEONG I
     - pattern: "ᅢ"
@@ -753,7 +851,7 @@ map:
     - pattern: "ᅱ"
       result: "wi" # HANGUL JUNGSEONG WI
     - pattern: "ᅴ"
-      result: "ui" # HANGUL JUNGSEONG YI
+      result: "üi" # HANGUL JUNGSEONG YI
     - pattern: "ᅪ"
       result: "wa" # HANGUL JUNGSEONG WA
     - pattern: "ᅯ"
@@ -762,35 +860,35 @@ map:
       result: "wae" # HANGUL JUNGSEONG WAE
     - pattern: "ᅰ"
       result: "we" # HANGUL JUNGSEONG WE
-    - pattern: "ᆨ(?=[ -])"
+    - pattern: "ᆨ(?=[ A-Za-z0-9-])"
       result: "k" # HANGUL JONGSEONG KIYEOK
-    - pattern: "ᆫ(?=[ -])"
+    - pattern: "ᆫ(?=[ A-Za-z0-9-])"
       result: "n" # HANGUL JONGSEONG NIEUN
-    - pattern: "ᆮ(?=[ -])"
+    - pattern: "ᆮ(?=[ A-Za-z0-9-])"
       result: "t" # HANGUL JONGSEONG TIEUT
-    - pattern: "ᆯ(?=[ -])"
+    - pattern: "ᆯ(?=[ A-Za-z0-9-])"
       result: "l" # HANGUL JONGSEONG RIEUL
-    - pattern: "ᆷ(?=[ -])"
+    - pattern: "ᆷ(?=[ A-Za-z0-9-])"
       result: "m" # HANGUL JONGSEONG MIEUM
-    - pattern: "ᆸ(?=[ -])"
+    - pattern: "ᆸ(?=[ A-Za-z0-9-])"
       result: "p" # HANGUL JONGSEONG PIEUP
-    - pattern: "ᆺ(?=[ -])"
+    - pattern: "ᆺ(?=[ A-Za-z0-9-])"
       result: "t" # HANGUL JONGSEONG SIOS
-    - pattern: "ᆼ(?=[ -])"
+    - pattern: "ᆼ(?=[ A-Za-z0-9-])"
       result: "ng" # HANGUL JONGSEONG IEUNG
-    - pattern: "ᆽ(?=[ -])"
+    - pattern: "ᆽ(?=[ A-Za-z0-9-])"
       result: "t" # HANGUL JONGSEONG CIEUC
-    - pattern: "ᆾ(?=[ -])"
+    - pattern: "ᆾ(?=[ A-Za-z0-9-])"
       result: "t" # HANGUL JONGSEONG CHIEUCH
-    - pattern: "ᆿ(?=[ -])"
+    - pattern: "ᆿ(?=[ A-Za-z0-9-])"
       result: "k" # HANGUL JONGSEONG KHIEUKH
-    - pattern: "ᇀ(?=[ -])"
+    - pattern: "ᇀ(?=[ A-Za-z0-9-])"
       result: "t" # HANGUL JONGSEONG THIEUTH
-    - pattern: "ᇁ(?=[ -])"
+    - pattern: "ᇁ(?=[ A-Za-z0-9-])"
       result: "p" # HANGUL JONGSEONG PHIEUPH
-    - pattern: "ᆰ(?=[ -])"
+    - pattern: "ᆰ(?=[ A-Za-z0-9-])"
       result: "k" # HANGUL JONGSEONG RIEUL-KIYEOK
-    - pattern: "ᆲ(?=[ -])"
+    - pattern: "ᆲ(?=[ A-Za-z0-9-])"
       result: "p" # HANGUL JONGSEONG RIEUL-PIEUP
 
     # Remove space added
