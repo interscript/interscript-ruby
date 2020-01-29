@@ -5,14 +5,14 @@ language: jpn
 source_script: Hrkt
 destination_script: Latn
 name: Modified Hepburn
-url: 
+url:
 creation_date: 1954
-adoption_date: 
+adoption_date:
 description:
-    This is a modified version of Hepburn romanization, which was 
+    This is a modified version of Hepburn romanization, which was
     adopted by Kenkyusha's New Japanese-English Dictionary (3rd edition)
-    One crucial difference between Modified and Tranditional Hepburn is 
-    that the ん/ン sound is always transliterated as n, even before the 
+    One crucial difference between Modified and Tranditional Hepburn is
+    that the ん/ン sound is always transliterated as n, even before the
     letters b,m,p.
 
 notes:
@@ -46,26 +46,35 @@ map:
   postrules:
     # Handling of っ/ッ
     #
-    # The kana っ/ッ is a geminate marker. 
+    # The kana っ/ッ is a geminate marker.
     # When followed by a consonant, repeat the first letter of
     # the following syllable. Exception: the combination -cch-
     # should be transliterated as -tch-
     #
-    # If っ/ッ is not followed by a consonant, then it is usually 
-    # phonetically realised as an abrupt stop or shorterning of 
+    # If っ/ッ is not followed by a consonant, then it is usually
+    # phonetically realised as an abrupt stop or shorterning of
     # the previous syllable. There is no documented or commonly
     # accepted way to transliterate this sound.
 
-    - pattern: "[っッ]([BbDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz])" 
+    - pattern: "[っッ]([BbDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz])" # っ or ッ folloved by consonant
       result: "\\1\\1"
     - pattern: "[っッ]([Cc])" # ッ followed by ch-
       result: "t\\1"
-    - pattern: "[っッ]" # drop all other っッ. 
+    - pattern: "[っッ]" # drop all other っッ.
       result: ""
 
-    - pattern: "a[ー]"
+    # In Modified Hepburn, long vowels within the same morpheme are
+    # transliterated using a macron, i.e. ā, ī, ū, ē, ō.
+    #
+    # If two repeating letters are split across a morpheme boundary
+    # then they should not be changed into macron.
+    #
+    # Long vowels in loanwords are indicated with a macron instead
+    # of letter doubling.
+
+    - pattern: "a[ーa]"
       result: "ā"
-    - pattern: "i[ー]"
+    - pattern: "i[ーi]"
       result: "ī"
     - pattern: "u[ーu]"
       result: "ū"
@@ -75,13 +84,14 @@ map:
       result: "ō"
 
   characters:
+
+    # Hiragana
+
     "あ": "a"
     "い": "i"
     "う": "u"
     "え": "e"
     "お": "o"
-
-    # Long vowels, note 4
     "おう": "ō"
 
     "か": "ka"
@@ -191,7 +201,6 @@ map:
     "じょう": "jō"
     "ぞう": "zō"
 
-
     "だ": "da"
     "ぢ": "ji"
     "づ": "zu"
@@ -224,7 +233,7 @@ map:
     "ぴょう": "pyō"
     "ぽう": "pō"
 
-    "ん": "n" # See note 2
+    "ん": "n"
 
     # Katakana
 
@@ -233,8 +242,6 @@ map:
     "ウ": "u"
     "エ": "e"
     "オ": "o"
-
-    # Long vowels, note 4
     "オウ": "ō"
 
     "カ": "ka"
@@ -245,7 +252,6 @@ map:
     "キャ": "kya"
     "キュ": "kyu"
     "キョ": "kyo"
-    "コウ": "kō"
     "キョウ": "kyō"
     "コウ": "kō"
 
@@ -377,4 +383,4 @@ map:
     "ピョウ": "pyō"
     "ポウ": "pō"
 
-    "ン": "n" # See note 1
+    "ン": "n"

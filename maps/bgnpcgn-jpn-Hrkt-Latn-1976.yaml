@@ -172,42 +172,7 @@ map:
   character_separator: ""
   word_separator: " "
   title_case: True
-  extend: var-jpn-Hrkt-Latn-hepburn-1954
-
-  rules:
-    - pattern: "([んン])(?=[あいうえおやゆよアイウエオヤユヨ])"
-      result: "\\1’"
-
-  postrules:
-    # Handling of っ/ッ
-    #
-    # The kana っ/ッ is a geminate marker. 
-    # When followed by a consonant, repeat the first letter of
-    # the following syllable. Exception: the combination -cch-
-    # should be transliterated as -tch-
-    #
-    # If っ/ッ is not followed by a consonant, then it is usually 
-    # phonetically realised as an abrupt stop or shorterning of 
-    # the previous syllable. There is no documented or commonly
-    # accepted way to transliterate this sound.
-
-    - pattern: "[っッ]([BbDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz])" # っ or ッ folloved by consonant
-      result: "\\1\\1"
-    - pattern: "[っッ]([Cc])" # ッ followed by ch-
-      result: "t\\1"
-    - pattern: "[っッ]" # drop all other っッ. 
-      result: ""
-
-    - pattern: "a[ーa]"
-      result: "ā"
-    - pattern: "i[ーi]"
-      result: "ī"
-    - pattern: "u[ーu]"
-      result: "ū"
-    - pattern: "e[ーe]"
-      result: "ē"
-    - pattern: "o[ーo]"
-      result: "ō"
+  inherit: var-jpn-Hrkt-Latn-hepburn-1954
 
   characters:
     # Rare sounds, Table 2 & 4
@@ -288,5 +253,5 @@ map:
     "ウォ": "wo"
     "ゔぉ": "vo"
     "ヴォ": "vo"
-    "ゔ": "v"
-    "ヴ": "v"
+    "ゔ": "vu"
+    "ヴ": "vu"

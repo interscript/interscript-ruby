@@ -7,21 +7,23 @@ destination_script: Latn
 name: Traditional Hepburn
 url: http://www.ab.cyberhome.ne.jp/~kaizu/roomazi/doc/hep3.html
 creation_date: 1886
-adoption_date: 
+adoption_date:
 description:
-    This is a traditional version of Hepburn romanization. 
+    This is a traditional version of Hepburn romanization.
 
 notes:
     "
-    The book was published before the Japanese orthographic reform.
+    The book was published before the Japanese orthographic reform,
+    and this map takes the reformed orthography in Kana as the source
+    form.
     https://en.wikipedia.org/wiki/Historical_kana_orthography
 
     The distinction for long-vowel vs. repeating vowels has not been
-    implemented. 
+    implemented.
     For example, the consecutive o's in these words are considered
     a case of long vowel, and is transliterated as ō:
-        
-        氷 (こおり) - kōri, 大阪（おおさか）- Ōsaka 
+
+        氷 (こおり) - kōri, 大阪（おおさか）- Ōsaka
 
     If there are two consecutive o's in a string, but they belong to
     different morpheme, then they should be transliterated separately.
@@ -53,30 +55,44 @@ tests:
 map:
 
   rules:
+    # Add a dash (-) between ん and a vowel sound or ya, yu, yo
     - pattern: "([んン])(?=[あいうえおやゆよアイウエオヤユヨ])"
       result: "\\1-"
+
+    # Convert ん into m before b, m, p
+    - pattern: "[んン](?=[ばびぶべぼまみむめもぱぴぷぺぽバビブベボマミムメモパピプペポ])"
+      result: "m"
 
   postrules:
     # Handling of っ/ッ
     #
-    # The kana っ/ッ is a geminate marker. 
+    # The kana っ/ッ is a geminate marker.
     # When followed by a consonant, repeat the first letter of
     # the following syllable. Exception: the combination -cch-
     # should be transliterated as -tch-
     #
-    # If っ/ッ is not followed by a consonant, then it is usually 
-    # phonetically realised as an abrupt stop or shorterning of 
+    # If っ/ッ is not followed by a consonant, then it is usually
+    # phonetically realised as an abrupt stop or shorterning of
     # the previous syllable. There is no documented or commonly
     # accepted way to transliterate this sound.
 
-    - pattern: "[っッ]([BbDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz])" 
+    - pattern: "[っッ]([BbDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz])"
       result: "\\1\\1"
     - pattern: "[っッ]([Cc])" # ッ followed by ch-
       result: "t\\1"
-    - pattern: "[っッ]" # drop all other っッ. 
+    - pattern: "[っッ]" # drop all other っッ.
       result: ""
 
-    - pattern: "a[ー]" # Double a, double i and double e are written as repeating letters
+    # In Traditional Hepburn, long o (which can be o+o or o+u), and long u
+    # are transliterated as ō and ū.
+    #
+    # Macron should not be used if two repeating letters split across
+    # a morpheme boundary.
+    #
+    # Long vowels in loanwords are indicated with a macron instead
+    # of letter doubling.
+
+    - pattern: "a[ー]"
       result: "ā"
     - pattern: "i[ー]"
       result: "ī"
@@ -87,18 +103,15 @@ map:
     - pattern: "o[ーo]"
       result: "ō"
 
-    # Handling ん before b, m, p
-    - pattern: "n(?=[bmp])"
-      result: "m"
-
   characters:
+
+    # Hiragana
+
     "あ": "a"
     "い": "i"
     "う": "u"
     "え": "e"
     "お": "o"
-
-    # Long vowels, note 4
     "おう": "ō"
 
     "か": "ka"
@@ -208,7 +221,6 @@ map:
     "じょう": "jō"
     "ぞう": "zō"
 
-
     "だ": "da"
     "ぢ": "ji"
     "づ": "zu"
@@ -241,7 +253,7 @@ map:
     "ぴょう": "pyō"
     "ぽう": "pō"
 
-    "ん": "n" # See note 2
+    "ん": "n"
 
     # Katakana
 
@@ -250,8 +262,6 @@ map:
     "ウ": "u"
     "エ": "e"
     "オ": "o"
-
-    # Long vowels, note 4
     "オウ": "ō"
 
     "カ": "ka"
@@ -262,7 +272,6 @@ map:
     "キャ": "kya"
     "キュ": "kyu"
     "キョ": "kyo"
-    "コウ": "kō"
     "キョウ": "kyō"
     "コウ": "kō"
 
@@ -394,4 +403,4 @@ map:
     "ピョウ": "pyō"
     "ポウ": "pō"
 
-    "ン": "n" # See note 1
+    "ン": "n"
