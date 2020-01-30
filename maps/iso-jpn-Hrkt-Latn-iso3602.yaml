@@ -1,0 +1,62 @@
+---
+authority_id: iso
+id: iso3602
+language: jpn
+source_script: Hrkt
+destination_script: Latn
+name: ISO 3602 Romanization of Japanese (Kana Script)
+url: 
+creation_date: 
+adoption_date: 
+description:
+
+notes:
+
+tests:
+  - source: かんおう
+    expected: kan’ô
+  - source: かのう
+    expected: kanô
+  - source: きんゆう
+    expected: kin’yû
+  - source: とうきょう
+    expected: tôkyô
+  - source: がっ•こう
+    expected: gakkô
+  - source: かごっま
+    expected: kagomma
+  - source: ぽっぽっや
+    expected: poppoyya
+  - source: てっら
+    expected: terra
+  - source: にゃっほー
+    expected: nyahhô
+  - source: ゴッホ
+    expected: gohho
+  - source: おも•う
+    expected: omou
+  - source: こうし
+    expected: kôsi
+  - source: こう•し #格子
+    expected: kôsi
+  - source: こ•うし #子牛
+    expected: kousi
+  - source: ぎゃあ
+    expected: gyâ
+
+map:
+  inherit: mext-jpn-Hrkt-Latn-kunrei
+
+  rules:
+    # Remove morpheme boundary marker after sokuon っ/ッ
+    - pattern: "([っッ])•"
+      result: "\\1"
+
+  postrules:
+    # Remove morpheme boundary marker
+    - pattern: "•"
+      result: ""
+
+    # Use ’ instead of '
+    - pattern: "'"
+      result: "’"
