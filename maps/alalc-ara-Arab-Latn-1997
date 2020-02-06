@@ -1,0 +1,12 @@
+  
+---
+authority_id: alalc
+id: 1997
+language: ara
+source_script: Arab
+destination_script: Latn
+name: Arabic Romanization, 1997
+url: http://catdir.loc.gov/catdir/cpso/romanization/arabic.pdf
+creation_date: 2017
+description: |
+  ALA-LC Romanization table for Arabic
