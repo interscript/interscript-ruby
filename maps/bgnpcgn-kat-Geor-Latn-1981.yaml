@@ -20,6 +20,28 @@ tests:
   - source: ჯვრის წყალსაცავი
     expected: jvris tsqalsats’avi
 
+  - source: ჯვავიაკვარა
+    expected: jvaviak’vara
+
+  - source: ჯობრია
+    expected: jobria
+
+  - source: ძულუხირა
+    expected: dzulukhira
+
+  - source: ლეკუხონა
+    expected: lek’ukhona
+
+  - source: აბაშა
+    expected: abasha
+
+  - source: ააცი
+    expected: aats’i
+
+  # TODO: This belongs to which system?!
+  # - source: აბააჟახვუ
+  #   expected: abaazhvakhu
+
   # TODO: These examples from GNDB are clearly using the BGNPCGN 2009 system
   #
   # - source: ხობის მუნიციპალიტეტი
@@ -27,6 +49,37 @@ tests:
   #
   # - source: მყინვარი ჩრდილოეთი ლეადაშატი
   #   expected: mq’invari chrdiloeti leadashat’i
+  #
+  # - source: ხეწკვარა
+  #   expected: khets’k’vara
+  #
+  # - source: ჯამპალი
+  #   expected: jamp’ali
+  #
+  # - source: ჯავის მუნიციპალიტეტი
+  #   expected: javis munitsip’alit’et’i
+  #
+  # - source: ხოიჯგეთა
+  #   expected: khoijgeta
+  #
+  # - source: ხობის მუნიციპალიტეტი
+  #   expected: khobis munitsip’alit’et’i
+  #
+  # - source: წვიშარხუ
+  #   expected: ts’visharkhu
+  # - source: აღმოსავლეთი გუმისთა
+  #   expected: aghmosavleti gumista
+  #
+  # - source: ქვემო ბირცხა
+  #   expected: kvemo birtskha
+  #
+  # - source: ზემო ბირცხა
+  #   expected: zemo birtskha
+  #
+  # - source: აბჟაყვა
+  #   expected: abzhaq’va
+
+
 
 map:
   characters:
