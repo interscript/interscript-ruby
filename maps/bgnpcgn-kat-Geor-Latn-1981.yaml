@@ -1,0 +1,74 @@
+---
+authority_id: bgnpcgn
+id: 1981
+language: kat
+source_script: Geor
+destination_script: Latn
+name: ROMANIZATION OF GEORGIAN; BGN/PCGN 1981 System
+url: https://transliteration.eki.ee/pdf/Georgian.pdf
+creation_date: 1981
+confirmation_date: 1981
+description: |
+  BGN/PCGN system of 1981.
+
+notes:
+
+tests:
+  - source: ჰებუდი
+    expected: hebudi
+
+  - source: ჯვრის წყალსაცავი
+    expected: jvris tsqalsats’avi
+
+  # TODO: These examples from GNDB are clearly using the BGNPCGN 2009 system
+  #
+  # - source: ხობის მუნიციპალიტეტი
+  #   expected: khobis munitsip’alit’et’i
+  #
+  # - source: მყინვარი ჩრდილოეთი ლეადაშატი
+  #   expected: mq’invari chrdiloeti leadashat’i
+
+map:
+  characters:
+    '\u10d0' : 'a' # ა
+    '\u10d1' : 'b' # ბ
+    '\u10d2' : 'g' # გ
+    '\u10d3' : 'd' # დ
+    '\u10d4' : 'e' # ე
+    '\u10d5' : 'v' # ვ
+    '\u10d6' : 'z' # ზ
+
+    '\u10f1' : 'ey' # ჱ
+
+    '\u10d7' : 't’' # თ
+    '\u10d8' : 'i' # ი
+    '\u10d9' : 'k’' # კ
+    '\u10da' : 'l' # ლ
+    '\u10db' : 'm' # მ
+    '\u10dc' : 'n' # ნ
+
+    '\u10f2' : 'j' # ჲ
+
+    '\u10dd' : 'o' # ო
+    '\u10de' : 'p' # პ
+    '\u10df' : 'zh' # ჟ
+    '\u10e0' : 'r' # რ
+    '\u10e1' : 's' # ს
+    '\u10e2' : 't' # ტ
+    '\u10e3' : 'u' # უ
+    '\u10e4' : 'p’' # ფ
+    '\u10e5' : 'k’' # ქ
+    '\u10e6' : 'gh' # ღ
+    '\u10e7' : 'q' # ყ
+    '\u10e8' : 'sh' # შ
+    '\u10e9' : 'ch’' # ჩ
+    '\u10ea' : 'ts’' # ც
+    '\u10eb' : 'dz' # ძ
+    '\u10ec' : 'ts' # წ
+    '\u10ed' : 'ch' # ჭ
+    '\u10ee' : 'kh' # ხ
+
+    '\u10f4' : 'q’' # ჴ
+
+    '\u10ef' : 'j' # ჯ
+    '\u10f0' : 'h' # ჰ
