@@ -1,0 +1,130 @@
+---
+authority_id: alalc
+id: 1997
+language: kat
+source_script: Geor
+destination_script: Latn
+name: ALA-LC Georgian System (1997)
+url: https://www.loc.gov/catdir/cpso/romanization/georgian.pdf
+creation_date: 1997
+confirmation_date: 1997
+description: |
+  Values are shown for the older Khutsuri and the modern Mkhedruli alphabets.
+  There are no upper case letters in Mkhedruli.
+
+notes:
+
+tests:
+
+  - source: ხაოფსე
+    expected: khaopse
+
+  - source: ჭლოუ
+    expected: ch’lou
+
+  - source: ჩოხულდი
+    expected: chokhuldi
+
+  - source: ქვემო ლინდა
+    expected: kvemo linda
+
+  - source: ტამკვაჩ იგვავერა
+    expected: t’amk’vach-igvavera
+
+  - source: სვანეთი
+    expected: svaneti
+
+  - source: საცხვარისი
+    expected: satskhvarisi
+
+  - source: მუხრან-თელეთი
+    expected: mukhran-teleti
+
+  - source: მუცდი
+    expected: mutsdi
+
+  - source: ლეჩხუმი
+    expected: lechkhumi
+
+  - source: ლასილი
+    expected: lasili
+
+  - source: ვერხნაია მწარა
+    expected: verkhnaia mts’ara
+
+  - source: ეგრისის ქედი
+    expected: egrisis kedi
+
+  - source: დოჩარიფშა
+    expected: docharipsha
+
+  - source: გუბაზეული
+    expected: gubazeuli
+
+  - source: ბოლოკო
+    expected: bolok’o
+
+  - source: აჭანდარა
+    expected: ach’andara
+
+  - source: აუალიცა
+    expected: aualitsa
+
+  - source: აკალამრა
+    expected: ak’alamra
+
+
+
+map:
+  characters:
+    '\u10d0' : 'a' # ა
+    '\u10d1' : 'b' # ბ
+    '\u10d2' : 'g' # გ
+    '\u10d3' : 'd' # დ
+    '\u10d4' : 'e' # ე
+    '\u10d5' : 'v' # ვ
+    '\u10d6' : 'z' # ზ
+
+    '\u10f1' : 'ē' # ჱ
+
+    '\u10d7' : 'tʻ' # თ
+    '\u10d8' : 'i' # ი
+    '\u10d9' : 'k' # კ
+    '\u10da' : 'l' # ლ
+    '\u10db' : 'm' # მ
+    '\u10dc' : 'n' # ნ
+
+    '\u10f2' : 'y' # ჲ
+
+    '\u10dd' : 'o' # ო
+    '\u10de' : 'p' # პ
+    '\u10df' : 'z̆' # ჟ
+    '\u10e0' : 'r' # რ
+    '\u10e1' : 's' # ს
+    '\u10e2' : 't' # ტ
+
+    '\u10f3' : 'w' # ჳ
+
+    '\u10e3' : 'u' # უ
+    '\u10e4' : 'pʻ' # ფ
+    '\u10e5' : 'kʻ' # ქ
+    '\u10e6' : 'ġ' # ღ
+    '\u10e7' : 'q' # ყ
+    '\u10e8' : 'š' # შ
+    '\u10e9' : 'čʻ' # ჩ
+    '\u10ea' : 'cʻ' # ც
+    '\u10eb' : 'ż' # ძ
+    '\u10ec' : 'c' # წ
+    '\u10ed' : 'č' # ჭ
+    '\u10ee' : 'x' # ხ
+
+    '\u10f4' : 'x̣' # ჴ
+
+    '\u10ef' : 'j' # ჯ
+    '\u10f0' : 'h' # ჰ
+
+    '\u10f5' : 'ō' # ჵ
+
+    '\u10f6' : 'f' # ჶ
+    '\u10f7' : 'ĕ' # ჷ
+    '\u10f8' : 'ʻ' # ჸ
