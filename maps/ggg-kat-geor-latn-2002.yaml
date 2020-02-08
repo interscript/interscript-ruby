@@ -31,6 +31,25 @@ tests:
   - source: ბაყაყი
     expected: baq’aq’i
 
+  - source: ჩხალთის ქედი
+    expected: chkhaltis kedi
+
+  - source: აბჟააფთრა
+    expected: abzhaaptra
+
+  - source: ამბროლაურის მუნიციპალიტეტი
+    expected: ambrolauris munitsip’alit’et’i
+
+  - source: მარტვილის მუნიციპალიტეტი
+    expected: mart’vilis munitsip’alit’et’i
+
+  - source: ლეკუხონა
+    expected: lek’ukhona
+
+  - source: მყინვარი აღმოსავლეთი მაგუაშირხა
+    expected: mq’invari aghmosavleti maguashirkha
+
+
 
 map:
   characters:
