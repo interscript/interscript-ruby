@@ -16,63 +16,69 @@ notes:
 
 tests:
 
-  - source: ხაოფსე
-    expected: khaopse
+  # TODO: Need more tests! GNDB data for kat_Geor2Latn_ALA_1997 is probably all wrong.
 
-  - source: ჭლოუ
-    expected: ch’lou
+  # These are from GNDB but are clearly not ALA-LC.
+  #
+  # - source: ხაოფსე
+  #   expected: khaopse
+  #
+  # - source: ჭლოუ
+  #   expected: ch’lou
+  #
+  # - source: ჩოხულდი
+  #   expected: chokhuldi
+  #
+  # - source: ქვემო ლინდა
+  #   expected: kvemo linda
+  #
+  # - source: ტამკვაჩ იგვავერა
+  #   expected: t’amk’vach-igvavera
+  #
+  # - source: სვანეთი
+  #   expected: svaneti
+  #
+  # - source: საცხვარისი
+  #   expected: satskhvarisi
+  #
+  # - source: მუხრან-თელეთი
+  #   expected: mukhran-teleti
+  #
+  # - source: მუცდი
+  #   expected: mutsdi
+  #
+  # - source: ლეჩხუმი
+  #   expected: lechkhumi
+  #
+  # - source: ვერხნაია მწარა
+  #   expected: verkhnaia mts’ara
+  #
+  # - source: ეგრისის ქედი
+  #   expected: egrisis kedi
+  #
+  # - source: დოჩარიფშა
+  #   expected: docharipsha
+  #
+  # - source: ბოლოკო
+  #   expected: bolok’o
+  #
+  # - source: აჭანდარა
+  #   expected: ach’andara
+  #
+  # - source: აუალიცა
+  #   expected: aualitsa
+  #
+  # - source: აკალამრა
+  #   expected: ak’alamra
 
-  - source: ჩოხულდი
-    expected: chokhuldi
-
-  - source: ქვემო ლინდა
-    expected: kvemo linda
-
-  - source: ტამკვაჩ იგვავერა
-    expected: t’amk’vach-igvavera
-
-  - source: სვანეთი
-    expected: svaneti
-
-  - source: საცხვარისი
-    expected: satskhvarisi
-
-  - source: მუხრან-თელეთი
-    expected: mukhran-teleti
-
-  - source: მუცდი
-    expected: mutsdi
-
-  - source: ლეჩხუმი
-    expected: lechkhumi
-
+  # These pass because they luckily share the same character
+  # mapping with the BGN/PCGN system.
+  #
   - source: ლასილი
     expected: lasili
 
-  - source: ვერხნაია მწარა
-    expected: verkhnaia mts’ara
-
-  - source: ეგრისის ქედი
-    expected: egrisis kedi
-
-  - source: დოჩარიფშა
-    expected: docharipsha
-
   - source: გუბაზეული
     expected: gubazeuli
-
-  - source: ბოლოკო
-    expected: bolok’o
-
-  - source: აჭანდარა
-    expected: ach’andara
-
-  - source: აუალიცა
-    expected: aualitsa
-
-  - source: აკალამრა
-    expected: ak’alamra
-
 
 
 map:
