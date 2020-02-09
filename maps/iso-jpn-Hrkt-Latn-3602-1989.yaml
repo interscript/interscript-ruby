@@ -45,7 +45,7 @@ tests:
     expected: gyâ
 
 map:
-  inherit: mext-jpn-Hrkt-Latn-kunrei
+  inherit: mext-jpn-Hrkt-Latn-1954
 
   rules:
     # Remove morpheme boundary marker after sokuon っ/ッ
