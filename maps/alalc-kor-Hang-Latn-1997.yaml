@@ -1,0 +1,94 @@
+---
+authority_id: alalc
+id: 1997
+language: kor
+source_script: Hang
+destination_script: Latn
+name: ALA-LC Romanization Table -- Korean (1997)
+url: http://catdir.loc.gov/catdir/cpso/romanization/korean.pdf
+creation_date: 1997
+adoption_date: 
+description:
+  "1. General Practice
+The Library of Congress will continue to follow the McCune-Reischauer system
+to romanize Korean with the exceptions noted in this document. See:
+Romanization of the Korean Language: Based upon its Phonetic Structure by
+G.M. McCune and E.O. Reischauer ([S.l.: s.n., 1939?), reprinted from the
+Transactions of the Korea Branch of the Royal Asiatic Society. Full text of the
+original document is available online from the National Library of Australia Web
+site: http://www.nla.gov.au/librariesaustralia/cjk/download/ras_1939.pdf"
+
+notes:
+
+
+tests:
+  - source: 은하리
+    expected: "Ŭnha-ri"
+  - source: 은중리
+    expected: "Ŭnjung-ni"
+  - source: 은장령
+    expected: "Ŭnjang-nyŏng"
+  - source: 은혜동
+    expected: "Ŭnhye-dong"
+  - source: 은호리
+    expected: "Ŭnho-ri"
+  - source: 은행정
+    expected: "Ŭnhaengjŏng"
+  - source: 은행동
+    expected: "Ŭnhaeng-dong"
+  - source: 은행촌
+    expected: "Ŭnhaeng-ch’on"
+  - source: 원수
+    expected: "Wŏnsu"
+  - source: 원소리고개
+    expected: "Wŏnsori-gogae"
+  - source: 원소참
+    expected: "Wŏnsoch’am"
+  - source: 원소리
+    expected: "Wŏnso-ri"
+  - source: 원신리
+    expected: "Wŏnsil-li"
+  - source: 난곡
+    expected: "Nan’gok"
+  - source: 난산리
+    expected: "Nansal-li"
+  - source: 난직
+    expected: "Nanjik"
+  - source: 영곡
+    expected: "Yŏnggok"
+  - source: 윗두밀
+    expected: "Wittumil"
+  - source: 윗도심이
+    expected: "Wittosimi"
+  - source: 둔지
+    expected: "Tunji"
+  - source: 서승
+    expected: "Sŏsŭng"
+  # - source: 신촌
+  #   expected: "Sinch’on"
+  - source: 비암덕
+    expected: "Piamdŏk"
+  - source: 바위안
+    expected: "Pawian"
+  - source: 오송평
+    expected: "Osongp’yŏng"
+  - source: 그물목
+    expected: "Kŭmulmok"
+  - source: 구원정
+    expected: "Kuwŏnjŏng"
+  - source: 일하
+    expected: "Irha"
+  - source: 황우
+    expected: "Hwangu"
+  - source: 자작보
+    expected: "Chajakpo"
+  - source: 비파1동
+    expected: "Pip’a Il-tong"
+  - source: 문암 오동
+    expected: "Munam O-dong"
+
+map:
+  character_separator: ""
+  word_separator: " "
+  title_case: True
+  inherit: "bgn-kor-Hang-Latn-1939"
