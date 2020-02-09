@@ -1,6 +1,6 @@
 ---
-authority_id: cn
-id: pinyin
+authority_id: sac
+id: 1979
 language: chn
 source_script: Hans
 destination_script: Latn

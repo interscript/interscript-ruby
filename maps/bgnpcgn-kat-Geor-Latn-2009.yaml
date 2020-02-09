@@ -39,5 +39,5 @@ tests:
     expected: baq’aq’i
 
 map:
-  inherit: "ggg-kat-geor-latn-2002"
+  inherit: "ggg-kat-Geor-Latn-2002"
 

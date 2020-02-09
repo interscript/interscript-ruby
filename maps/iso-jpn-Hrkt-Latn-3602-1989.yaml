@@ -1,13 +1,13 @@
 ---
 authority_id: iso
-id: iso3602
+id: 3602-1989
 language: jpn
 source_script: Hrkt
 destination_script: Latn
 name: ISO 3602 Romanization of Japanese (Kana Script)
-url: 
-creation_date: 
-adoption_date: 
+url:
+creation_date:
+adoption_date:
 description:
 
 notes:

@@ -1,6 +1,6 @@
 ---
 authority_id: hk
-id: govt
+id: 1888
 language: yue
 source_script: Hani
 destination_script: Latn
@@ -56,7 +56,7 @@ tests:
 
 map:
   character_separator: " "
-  word_separator: " "  
+  word_separator: " "
   title_case: true
 
   rules:
