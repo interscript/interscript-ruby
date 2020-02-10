@@ -188,13 +188,13 @@ tests:
 map:
   rules:
     - pattern: (?<=[АаЕеЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\u0415 # Е after a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь
-      result: Ye
+      result: "Y\u0415"
     - pattern: \b\u0415 # Е initially
-      result: Ye
+      result: "Y\u0435"
     - pattern: (?<=[АаЕеЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\u0435 # е after a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь
-      result: ye
+      result: "y\u0435"
     - pattern: \b\u0435 # е initially
-      result: ye
+      result: "y\u0435"
     - pattern: (?<=[АаЕеЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\u0401 # Ё after a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь
       result: "Y\u00eb"
     - pattern: \b\u0401
@@ -207,6 +207,10 @@ map:
       result: "Y\u00b7"
     - pattern: \u0439(?=[АаУуЫыЭэ]) # й before а, у, ы, or э
       result: "y\u00b7"
+    - pattern: (?<=[АаЕеЁёИиОоУуЫыЭэЮюЯя])\u042b(?=[АаУуЫыЭэ]) # Ы after any vowel character and before а, у, ы, or э
+      result: "\u00b7Y\u00b7"
+    - pattern: (?<=[АаЕеЁёИиОоУуЫыЭэЮюЯя])\u044b(?=[АаУуЫыЭэ]) # ы after any vowel character and before а, у, ы, or э
+      result: "\u00b7y\u00b7"
     - pattern: \u042b(?=[АаУуЫыЭэ]) # Ы before а, у, ы, or э
       result: "Y\u00b7"
     - pattern: \u044b(?=[АаУуЫыЭэ]) # ы before а, у, ы, or э
@@ -223,6 +227,15 @@ map:
       result: "\\1\u00b7\\2"
     - pattern: (Ш|ш)(Ч|ч) # шч => sh·ch
       result: "\\1\u00b7\\2"
+
+  postrules:
+
+    #YE
+    - pattern: "((?<=[A-ZË])Ye(?=[A-ZË])?|(?<=[A-ZË])?Ye(?=[A-ZË]))"
+      result: "YE"
+    #YË
+    - pattern: "((?<=[A-ZË])Yë(?=[A-ZË])?|(?<=[A-ZË])?Yë(?=[A-ZË]))"
+      result: "YË"
 
   characters:
     "\u0410": "A"

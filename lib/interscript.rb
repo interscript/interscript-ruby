@@ -31,16 +31,19 @@ module Interscript
       output = string.clone
       offsets = Array.new string.to_s.size, 1
 
+      # mapping.rules.each do |r|
+      #   string.to_s.scan(/#{r['pattern']}/) do |matches|
+      #     match = Regexp.last_match
+      #     pos = match.offset(0).first
+      #     result = r['result'].clone
+      #     matches.each.with_index { |v, i| result.sub!(/\\#{i + 1}/, v) } if matches.is_a? Array
+      #     result.upcase! if up_case_around?(string, pos)
+      #     output[offsets[0...pos].sum, match[0].size] = result
+      #     offsets[pos] += result.size - match[0].size
+      #   end
+      # end
       mapping.rules.each do |r|
-        string.to_s.scan(/#{r['pattern']}/) do |matches|
-          match = Regexp.last_match
-          pos = match.offset(0).first
-          result = r['result'].clone
-          matches.each.with_index { |v, i| result.sub!(/\\#{i + 1}/, v) } if matches.is_a? Array
-          result.upcase! if up_case_around?(string, pos)
-          output[offsets[0...pos].sum, match[0].size] = result
-          offsets[pos] += result.size - match[0].size
-        end
+        output.gsub!(/#{r['pattern']}/, r['result'])
       end
 
       charmap.each do |k, v|
