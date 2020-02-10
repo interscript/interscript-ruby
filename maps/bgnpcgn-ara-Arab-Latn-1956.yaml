@@ -1,0 +1,373 @@
+---
+authority_id: bgnpcgn
+id: 1956
+language: ara
+source_script: Arab
+destination_script: Latn
+name: ROMANIZATION OF ARABIC -- BGN/PCGN 1956 System
+url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/858000/ROMANIZATION_OF_ARABIC.pdf
+creation_date: 1956
+confirmation date: 2019-12
+description: |
+
+    This System was adopted by the BGN in 1946 and by the PCGN in 1956 and is applied by BGN and PCGN in the systematic romanization of Arabic geographical names in Bahrain, Egypt, Iraq, Jordan, Kuwait, Libya, Oman, Qatar, Saudi Arabia, Syria, the United Arab Emirates, Yemen, the West Bank and Gaza Strip.
+    
+    Uniform results in the romanization of Arabic are difficult to obtain, since vowel points and diacritical marks are generally omitted from both handwriting and printed script. It follows that for correct identification of the words which appear in any particular name, knowledge of its standard Arabic-script spelling including proper pointing, and recognition of dialectal and idiosyncratic deviations are essential.
+    
+    In order to bring about uniformity in the Roman-script spelling of geographical names in Arabic-language areas, the system is based insofar as possible on fully pointed Modern Standard Arabic (MSA). In the interest of clarity, vowel pointing to indicate short vowels has been applied to the examples given below, and examples of the, more usual, unpointed script have also been provided; it should also be noted that the dots which occur on some characters of the Arabic script are not vowels but rather are an integral part of the base consonant.
+    
+    Arabic script is written from right to left, and does not make a distinction between upper and lower case.
+
+
+
+notes:
+
+- (NOTE 1) The symbol ◌ is used in this system to symbolise any Arabic consonant character. It is not itself an Arabic letter.
+
+- (NOTE 2) Hamzah (ء) is written in Arabic in association with most instances of initial alif, except those which belong to the definite article al or which bear a maddah (see note 9). Hamzah is written above the alif ( أَ) if the accompanying short vowel is a fatḩah or ḑammah and usually below the alif( أ ) if the accompanying short vowel is a kasrah. When the purpose is to indicate the presence of a glottal stop, hamzah is written over medial alif ( أ ), wāw (ؤ) and yā’, typically without dots (ئ); or following final alif ( أ ء ), these characters serving only to “bear” the hamzah. Hamzah following kasrah ( ) is written (ئ); the yā’ is usually in the initial or medial form and the dots are omitted e.g. bi’r ( بئ ر ). Hamzah following ḑammah ( ) is written (ؤ). Hamzah following a long vowel is written without a bearer and is positioned on the line of print like a regular character, e.g. صنعاء Şan‘ā’. The romanization of hamzah (’ - Unicode encoding 2019) should always be carefully distinguished from that of ‘ayn (‘ - Unicode encoding 2018).
+
+- (NOTE 3) Alif (ا) occurs with the following uses: |
+    a. Initially, it indicates that the word begins with a vowel or diphthong; the alif itself is not romanized, but rather “carries” the short vowel, which is romanized; e.g., ظب ي أبو → Abū Z̧aby.
+    
+    b. With maddah (آ – row 18 in the vowel table), it is represented ā; e.g., مُ عيط آلب و → Ālbū Mu‘ayţ. See also note 9.
+    
+    c. Medially and finally it is represented ā; e.g., ب ا ب → Bāb, صيدا → Şaydā.
+    
+    d. Medially and finally, alif may serve as the bearer of hamzah, e.g. رأس → ra’s. See also note 2.
+
+- (NOTE 4) The tā’ marbūţah character (ة), which looks like hā’ with two dots above and occurs only at the end of words, is romanized h, except in an iḑāfah noun phrase construction, where it is romanized t, in accordance with pronunciation. e.g. Muḩāfaz̧ah (as an isolated word) but Muḩāfaz̧at Baghdād. In exceptional cases, when it is necessary to distinguish it from the tā’ marbūţah, the ending fatḩah + hā’ ( ه ) may be romanized a·h when the character hā’ (ه) is pronounced as such. Example: Muntaza·h. (see also special rule 13). The tā marbūţah is always preceded by the short vowel fatḩah ( ) and is therefore romanized as ah or at, except when it is preceded by alif when it is romanized āh (not āah), e.g. Ḩamāh (حماة ), and as āt within an iḑāfah construction.
+
+- (NOTE 5) The character yā’ (in final form but without dots) preceded by the vowel point fatḩah is known as alif maqşūrah. This character may also be pointed ى and should be romanized á. See character 7 in the vowel table.
+
+- (NOTE 6) The classical Arabic grammatical endings written with the nunation symbols (tanwīn) may be romanized, when necessary, by an, in, un. In modern spoken Arabic, these endings have become silent and should not be romanized: e.g. classical alifun; modern alif.
+
+- (NOTE 7) Doubled consonant sounds are represented in Arabic script by placing a shaddah ( ) over a consonant character, although like the short vowels the shaddah may not always be written. In romanization the letter should be doubled, e.g. Quwwah, ‘Abbās. However, the combination of the consonant character yā’ with a shaddah preceded by a kasrah ( ي ) at the end of a word is romanized ī, e.g. Gharbī; a word ending kasrah + yā’ with a shaddah + tā’ marbūţah is romanized īyah (rather than iyyah), e.g. ال س ل يمانِ ية
+is romanized As Sulaymānīyah and not As Sulaymāniyyah; and when the kasrah + yā’ + shaddah combination is followed by the sound masculine plural ending ( يين or يون ) it should be romanized as –īyīn/īyūn, e.g. ساحة العباسيين should be romanized as Sāḩat al ‘Abbāsīyīn.
+
+- (NOTE 8) Hamzat al waşl (ٱ), which is utilized only in the pointing of classical Arabic, is romanized ’ as illustrated in the classical form of its name hamzatu’l waşli.
+
+- (NOTE 9) Since maddah ( أ ), which is placed over alif ( أ ), often occurs in word-initial position, no confusion results from the use of ā for alif maddah ( أ ) as well as for fatḩah followed by alif ( اَ ).
+
+- (NOTE 10) The ligature ل ا represents lām-alif, and should be romanized lā.
+
+- (NOTE 11) In word initial position the combination Alif +Wāw (او ) is sometimes used to render an initial long vowel sound in words of non-Arabic origin. Where this is clearly the case it should be romanized Ū. In words of Arabic or uncertain origin it should be romanized Aw. In word-medial or word-final position it should always be romanized āw. Similarly the combination Alif +Yā’ (اي ) is romanized Ī to render an initial long vowel sound but as āy in word-medial or word-final position.
+
+# SPECIAL RULES
+
+- The Arabic definite article al (ال ) should be treated as follows: |
+    a. Initial definite articles should be capitalized and hyphens should not be used to connect parts of names, e.g. Ash Shāriqah. When appearing medially in a name the initial ‘a’ should be lower case, e.g. Tall al Laḩm.
+    
+    b. When the definite article precedes a word beginning with one of the “sun letters” t, th, d, dh, r, z, s, sh, ş, ḑ, ţ, z̧, l, or n – the l is assimilated in pronunciation and romanization, thus yielding, for example, the romanization Ar Riyāḑ, rather than Al Riyāḑ for ال ريا ض .
+    
+    c. If sources contradict over the inclusion or non-inclusion of the definite article in a name, preference should be given to the form with the article.
+    
+- Conjunctions and prepositions should be romanized according to their written form in Arabic script and should be lower case. In cases where the conjunction or preposition ends in a long or short vowel any assimilated pronunciation should not be shown in the romanized form. e.g. Khabb wa ash Sha‘f (خب والشعف ). |
+    
+    There are two exceptions to this rule:
+    
+    a. In the case of the preposition li (ل), where the alif of the definite article is assimilated in the written form as well as pronunciation, the written form should be shown in romanization as follows: Mişr liţ Ţayarān (مصر للطيران ); Ash Sharikah al ‘Āmmah lil Maghāzil (الشركة العامة للمغازل ).
+    
+    b. In the case of the preposition bi (ب), the alif of the definite article is assimilated in pronunciation and, although the alif remains in the written form the short vowel it carries changes from ‘a’ to ‘i’. For example: Al Qaryah bid Duwayr (القرية بالدوير ) but Ad Duwayr (الدوير ); and Al Ḩarajah bil Qur’ān (الحرجة بالقرآن ) but Al Qur’ān (القرآن ).
+    
+    
+- The Arabic word for God ( لله) should be written Allāh. The alif khanjarīyah (dagger alif) ( ) above the second ل (lām) in the word لله , like the short vowels, is not usually written but should be romanized ā, like a full-size alif. This diacritical mark appears in a few other Arabic words, for instance on the alif maqşūrah as described in note 5.
+
+- Names which consist of noun phrases (see also note 4) should be written as separate words. The definite article within such names should be romanized al, not ul, e.g., ‘Abd Allāh, ‘Abd ar Raḩmān, Dhū al Faqār, and as noted in special rule 1, the medial al should be lower case.
+
+- The Arabic word ب ن should be romanized Bin rather than Ibn whenever written without alif, that is between two proper nouns, e.g., ‘Umar Bin al Khaţţāb. Where it appears with alif ( )اب ن , it should be romanized Ibn.
+
+- The Turkish word Paşa should be romanized from Arabic script as Bāshā. The Turkish word Bey should be romanized as Bey in Egyptian names, no matter how it is written in Arabic-language sources, but in other Arabic areas it should be romanized as Bak where written بك and as Bayk when written بيك .
+
+- The modern colloquial word Sīdī (سيدي ) should be give precedence over the classical form Sayyidī. This does not preclude the spelling Sayyidī if the latter is indicated by the Arabic script or other evidence – for instance, if the yā’ is written with a shaddah ( ).
+
+- The colloquial word Bū should not be changed to the standard form Abū.
+
+- The colloquial word for water, written مي ة on Arabic maps, should be romanized Mayyat.
+
+- Place names of Aramaic origin in Syria often contain initial consonant clusters consisting of b plus another consonant such as l or h. In romanization, the clusters bl, bh, etc., should be so represented.
+
+- In names containing the Arabic word for back, ridge, or hill, appearing as either ظهر (Z̧ahr) or ضه ر (Ḑahr) in Arabic sources, the word should be romanized to reflect the particular Arabic spelling shown. Where sources differ, preference should be given to the form found on the most authoritative source.
+
+- In formal Arabic, the spelling of some words ending in a long vowel character may change according to that word’s grammatical function in a sentence. For example, the personal name Abū Bakr (ابو بكر ) would become Abī Bakr (ابي بكر ) when preceded by a generic in an iḑāfah construction (used in Moroccan Arabic Script) e.g. Shāri‘ Abī Bakr (شارع ابي بكر – Abu Bakr Street). The spelling of such words as found on the most authoritative source should be used in the romanized form of the name. Other common words affected by this rule are Banū/Banī (sons of…) and Dhū/Dhī (owner of ...). Examples of names in this category include Jabal Abā aş Şabbān (جبل ابا الصبان ) and Muḩāfaz̧at Dhī Qār ( محافظة ذي قار ).
+
+- Occasionally the character sequences ك ه , ده , س ه , and ت occur. They may be romanized k·h, d·h, s·h, and t·h in order to differentiate these romanizations from the digraphs kh, dh, sh, and th, which are used to represent the characters خ, ذ, ش, and ث respectively. See also note 4.
+
+
+tests:
+
+    - source: أَبُو ظ بْي
+      expected: Abū Z̧aby
+      
+    - source: بِئْر زيْت
+      expected: Bi’r Zayt
+      
+    - source: أُمّ أل ع مد
+      expected: Umm al ‘Amad
+      
+    - source: أل بح رين
+      expected: Al Baḩrayn
+      
+    - source: ألكُوت
+      expected: Al Kūt
+      
+    - source: ألثُّ ليثُ و أت
+      expected: Ath Thulaythuwāt
+      
+    - source: أل جزِي رة
+      expected: Al Jazīrah
+      
+    - source: أل محْمُودِيَّة
+      expected: Al Maḩmūdīyah
+      
+    - source: خيْ ب ر
+      expected: Khaybar
+      
+    - source: د منْهُور  
+      expected: Damanhūr
+      
+    - source: ذ هب
+      expected: Dhahab
+      
+    - source: ألرَّوْ ضة
+      expected: Ar Rawḑah
+      
+    - source: زُ و أ ر ة
+      expected: Zuwārah
+      
+    - source: ألسُّ ليْ مانِيَّة
+      expected: As Sulaymānīyah
+      
+    - source: ألشَّام
+      expected: Ash Shām
+      
+    - source: قيْصُو مة
+      expected: Qayşūmah
+      
+    - source: ضوْر
+      expected: Ḑawr
+      
+    - source: ألقُ نيْطِ ر ة
+      expected: Al Qunayţirah
+      
+    - source: ظُ ف ار
+      expected: Z̧ufār
+      
+    - source: أَبُو عرِيش
+      expected: Abū ‘Arīsh
+      
+    - source: بغْ دأد
+      expected: Baghdād
+      
+    - source: ألفُ رأت
+      expected: Al Furāt
+      
+    - source: ق ط ر
+      expected: Qaţar
+      
+    - source: ألكُ ويْت
+      expected: Al Kuwayt
+
+    - source: ح لب
+      expected: Ḩalab
+      
+    - source: مكَّة
+      expected: Makkah
+      
+    - source: ن خْل
+      expected: Nakhl
+      
+    - source: ج بل هارُون
+      expected: Jabal Hārūn
+      
+    - source: وأدِي غ ضا
+      expected: Wādī Ghaḑā
+      
+    - source: أل ي من
+      expected: Al Yaman
+      
+    - source: أل ق اهِ رة
+      expected: Al Qāhirah
+      
+    - source: أل مدِي نة ألمُ نوَّ رة
+      expected: Al Madīnah al Munawwarah
+      
+    - source: مُ ح اف ظة دِ مشْق
+      expected: Muḩāfaz̧at Dimashq
+
+    - source: أل بصْ رة
+      expected: Al Başrah
+      
+    - source: ألرِّ ياض
+      expected: Ar Riyāḑ
+      
+    - source: ألقُدْس
+      expected: Al Quds
+      
+    - source: باب أل منْ دب
+      expected: Bāb al Mandab
+      
+    - source: أل مدِي نة
+      expected: Al Madīnah
+      
+    - source: صُور
+      expected: Şūr
+      
+    - source: مرْ سى مطْرُو ح
+      expected: Marsá Maţrūḩ
+      
+    - source: صيْ دأ
+      expected: Şaydā
+      
+    - source: ألدَّوْ حة
+      expected: Ad Dawḩah
+      
+    - source: مُ حمَّد
+      expected: Muḩammad
+      
+    - source: أُوزُونْ لار
+      expected: Ūzūnlār
+      
+    - source: أ وْ سط
+      expected: Awsaţ
+      
+    - source: س ناو
+      expected: Sanāw
+      
+    - source: أِي رأن
+      expected: Īrān
+      
+    - source: تلّ ألسَّ رأي
+      expected: Tall as Sarāy
+      
+    - source: أ لْبُو مُ عيْط
+      expected: Ālbū Mu‘ayţ
+      
+    - source: قُرأ ن
+      expected: Qur’ān
+      
+    - source: سلْمان پاك
+      expected: Salmān Pāk
+      
+    - source: ألصَّغِ ير تلّ كوچِ ك 
+      expected: Tall Kūchik aş Şaghīr
+      
+    - source: مزَّة ڤِيلَّ ات غ ر بِ ية
+      expected: Mazzah Vīllāt Gharbīyah
+      
+    - source: ڨفْ صة
+      expected: Gafşah
+      
+    - source: تلّ گمْر
+      expected: Tall Gamr
+      
+    - source: زأڭ و رة
+      expected: Zāgūrah
+
+
+map:
+    characters:
+        
+        # Standard Arabic Consonant Characters
+        
+        # not romanized in word-initial position (see Note 2)
+        '\u0621': '\u2019'
+        # See Notes 3 and 10
+        '\u0627': ''
+        '\u0628': 'b'
+        '\u062A': 't'
+        '\u062B': 'th'
+        '\u062C': 'j'
+        '\u062D': 'ḩ'
+        '\u062E': 'kh'
+        '\u062F': 'd'
+        '\u0630': 'dh'
+        '\u0631': 'r'
+        '\u0632': 'z'
+        '\u0633': 's'
+        '\u0634': 'sh'
+        '\u0635': 'ş'
+        '\u0636': 'ḑ'
+        '\u0637': 'ţ'
+        '\u0638': 'z̧'
+        '\u0639': '\u2018''
+        '\u063A': 'gh'
+        '\u0641': 'f'
+        '\u0642': 'q'
+        '\u06A9': 'k'
+        '\u0644': '\u006C' # See Note 10
+        '\u0645': 'm' 
+        '\u0646': 'n'
+        '\u0647': 'h'
+        '\u0648': 'w'
+        '\u064A': 'y'
+        '\uFE93': 
+            - 'ah'
+            - 'at' # See Note 4
+        
+        # Vowel Characters and Diacritical Marks
+
+        '\u064E': 'a'
+        #This vowel mark should be romanized as ‘i’ when it occurs below the consonant character or below the shaddah (see row 14 and Note 7), which itself occurs above a consonant character.
+        '\u0650': 'i' 
+        '\u064F': 'u'
+        '\u0627': '\u0101' # See Notes 3 and 10
+        '\u0649': '\u012B'
+        '\u0648': '\u016B'
+        '\u0649': '\u00E1' # See Note 5
+        '\u0649\u0670': '\u00E1' # See Note 5
+        # Not romanized (Indicates absence of short vowel)
+        '\u0652': '' 
+        '\u064A': 
+            - '\u0061\u0079'
+            - '\u0061\u012B'
+        '\u0648': 'aw'
+        '\u064B': '' # See Note 6
+        '\u064D': '' # See Note 6
+        '\u064C': '' # See Note 6
+        # Doubling of consonant (see Note 7)
+        '\u0651': '' 
+        '\u0627\u0648': 
+            # in word inital position (see Note 11)
+            - '\u016A' 
+            - '\u0041\u0077'
+            # in word medial of final position (see Note 11)
+            - '\u0101\u0077' 
+        '\u0627\u064A': 
+            # in word initial position (see Note 11)
+            - '\u012B'
+            # in word medial or final position
+            - '\u0101\u0079'
+        '\u0671': '\u2019' # See Note 8
+        '\u0622': 
+            # in word initial position (see Notes 3 and 9)
+            - '\u0101'
+            # in word medial position (see Notes 3 and 9)
+            - '\u2019\u0101'
+
+        # Modified/Non-Standard Arabic Script Characters
+
+        '\u067E': 'p'
+        '\u0686': 'ch'
+        '\u06A4': 'v'
+        # Used in Tunisian Arabic Script.
+        '\u06A8': 'g'
+        # Used principally in Iraq, but also sometimes used in other Arabic speaking countries to represent the ‘g’ sound.
+        '\u06AF': 'g'
+        # Used in Moroccan Arabic Script.
+        '\u06B4': 'g'
+
+        # NUMERALS
+        
+        # Although Perso-Arabic script is written from right to left, numerical expressions, e.g. ۱۹٦۸ → 1968, are written from left to right.        
+        '۰': '0'
+        '۱': '1'
+        '۲': '2'
+        '۳': '3'
+        '٤': '4'
+        '٥': '5'
+        '٦': '6'
+        '۷': '7'
+        '۸': '8'
+        '۹': '9'
+        
+        
