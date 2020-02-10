@@ -1,0 +1,109 @@
+---
+authority_id: iso
+id: 11940-1998
+language: tha
+source_script: Thai
+destination_script: Latn
+name: ISO 11940:1998 Information and documentation -- Transliteration of Thai
+url: https://www.iso.org/standard/20574.html
+creation_date: 1998
+adoption_date: 
+description:
+
+notes:
+
+tests:
+  - source: 'ภาษาไทย'
+    expected: 'p̣hās̛̄āịthy'
+  - source: 'เชียงใหม่'
+    expected: 'echīyngıh̄m̀'
+
+map:
+
+  characters:
+    '\u0e01': 'k' # ก THAI CHARACTER KO KAI
+    '\u0e02': 'k̄h' # ข THAI CHARACTER KHO KHAI
+    '\u0e03': 'ḳ̄h' # ฃ THAI CHARACTER KHO KHUAT
+    '\u0e04': 'kh' # ค THAI CHARACTER KHO KHWAI
+    '\u0e05': 'k̛h' # ฅ THAI CHARACTER KHO KHON
+    '\u0e06': 'ḳh' # ฆ THAI CHARACTER KHO RAKHANG
+    '\u0e07': 'ng' # ง THAI CHARACTER NGO NGU
+    '\u0e08': 'c' # จ THAI CHARACTER CHO CHAN
+    '\u0e09': 'c̄h' # ฉ THAI CHARACTER CHO CHING
+    '\u0e0a': 'ch' # ช THAI CHARACTER CHO CHANG
+    '\u0e0b': 's' # ซ THAI CHARACTER SO SO
+    '\u0e0c': 'c̣h' # ฌ THAI CHARACTER CHO CHOE
+    '\u0e0d': 'ỵ' # ญ THAI CHARACTER YO YING
+    '\u0e0e': 'ḍ' # ฎ THAI CHARACTER DO CHADA
+    '\u0e0f': 'ṭ' # ฏ THAI CHARACTER TO PATAK
+    '\u0e10': 'ṭ̄h' # ฐ THAI CHARACTER THO THAN
+    '\u0e11': 'ṯh' # ฑ THAI CHARACTER THO NANGMONTHO
+    '\u0e12': 't̛h' # ฒ THAI CHARACTER THO PHUTHAO
+    '\u0e13': 'ṇ' # ณ THAI CHARACTER NO NEN
+    '\u0e14': 'd' # ด THAI CHARACTER DO DEK
+    '\u0e15': 't' # ต THAI CHARACTER TO TAO
+    '\u0e16': 't̄h' # ถ THAI CHARACTER THO THUNG
+    '\u0e17': 'th' # ท THAI CHARACTER THO THAHAN
+    '\u0e18': 'ṭh' # ธ THAI CHARACTER THO THONG
+    '\u0e19': 'n' # น THAI CHARACTER NO NU
+    '\u0e1a': 'b' # บ THAI CHARACTER BO BAIMAI
+    '\u0e1b': 'p' # ป THAI CHARACTER PO PLA
+    '\u0e1c': 'p̄h' # ผ THAI CHARACTER PHO PHUNG
+    '\u0e1d': 'f̄' # ฝ THAI CHARACTER FO FA
+    '\u0e1e': 'ph' # พ THAI CHARACTER PHO PHAN
+    '\u0e1f': 'f' # ฟ THAI CHARACTER FO FAN
+    '\u0e20': 'p̣h' # ภ THAI CHARACTER PHO SAMPHAO
+    '\u0e21': 'm' # ม THAI CHARACTER MO MA
+    '\u0e22': 'y' # ย THAI CHARACTER YO YAK
+    '\u0e23': 'r' # ร THAI CHARACTER RO RUA
+    '\u0e24': 'v' # ฤ THAI CHARACTER RU
+    '\u0e25': 'l' # ล THAI CHARACTER LO LING
+    '\u0e26': 'ł' # ฦ THAI CHARACTER LU
+    '\u0e27': 'w' # ว THAI CHARACTER WO WAEN
+    '\u0e28': 'ṣ̄' # ศ THAI CHARACTER SO SALA
+    '\u0e29': 's̛̄' # ษ THAI CHARACTER SO RUSI
+    '\u0e2a': 's̄' # ส THAI CHARACTER SO SUA
+    '\u0e2b': 'h̄' # ห THAI CHARACTER HO HIP
+    '\u0e2c': 'ḷ' # ฬ THAI CHARACTER LO CHULA
+    '\u0e2d': 'x' # อ THAI CHARACTER O ANG
+    '\u0e2e': 'ḥ' # ฮ THAI CHARACTER HO NOKHUK
+    '\u0e2f': 'ǂ' # ฯ THAI CHARACTER PAIYANNOI
+    '\u0e30': 'a' # ะ THAI CHARACTER SARA A
+    '\u0e31': 'ạ' # ั THAI CHARACTER MAI HAN-AKAT
+    '\u0e32': 'ā' # า THAI CHARACTER SARA AA
+    '\u0e33': 'å' # ำ THAI CHARACTER SARA AM
+    '\u0e34': 'i' # ิ THAI CHARACTER SARA I
+    '\u0e35': 'ī' # ี THAI CHARACTER SARA II
+    '\u0e36': 'ụ' # ึ THAI CHARACTER SARA UE
+    '\u0e37': 'ụ̄' # ื THAI CHARACTER SARA UEE
+    '\u0e38': 'u' # ุ THAI CHARACTER SARA U
+    '\u0e39': 'ū' # ู THAI CHARACTER SARA UU
+    '\u0e3a': '–̥' # ฺ THAI CHARACTER PHINTHU
+    '\u0e40': 'e' # เ THAI CHARACTER SARA E
+    '\u0e41': 'æ' # แ THAI CHARACTER SARA AE
+    '\u0e42': 'o' # โ THAI CHARACTER SARA O
+    '\u0e43': 'ı' # ใ THAI CHARACTER SARA AI MAIMUAN
+    '\u0e44': 'ị' # ไ THAI CHARACTER SARA AI MAIMALAI
+    '\u0e45': 'ɨ' # ๅ THAI CHARACTER LAKKHANGYAO
+    '\u0e46': '«' # ๆ THAI CHARACTER MAIYAMOK
+    '\u0e47': '̆' # ็ THAI CHARACTER MAITAIKHU
+    '\u0e48': '̀' # ่ THAI CHARACTER MAI EK
+    '\u0e49': '̂' # ้ THAI CHARACTER MAI THO
+    '\u0e4a': '́' # ๊ THAI CHARACTER MAI TRI
+    '\u0e4b': '̌' # ๋ THAI CHARACTER MAI CHATTAWA
+    '\u0e4c': '̒' # ์ THAI CHARACTER THANTHAKHAT
+    '\u0e4d': '̊' # ํ THAI CHARACTER NIKHAHIT
+    '\u0e4e': '~' # ๎ THAI CHARACTER YAMAKKAN
+    '\u0e4f': '§' # ๏ THAI CHARACTER FONGMAN
+    '\u0e50': '0' # ๐ THAI DIGIT ZERO
+    '\u0e51': '1' # ๑ THAI DIGIT ONE
+    '\u0e52': '2' # ๒ THAI DIGIT TWO
+    '\u0e53': '3' # ๓ THAI DIGIT THREE
+    '\u0e54': '4' # ๔ THAI DIGIT FOUR
+    '\u0e55': '5' # ๕ THAI DIGIT FIVE
+    '\u0e56': '6' # ๖ THAI DIGIT SIX
+    '\u0e57': '7' # ๗ THAI DIGIT SEVEN
+    '\u0e58': '8' # ๘ THAI DIGIT EIGHT
+    '\u0e59': '9' # ๙ THAI DIGIT NINE
+    '\u0e5a': 'ǁ' # ๚ THAI CHARACTER ANGKHANKHU
+    '\u0e5b': '»' # ๛ THAI CHARACTER KHOMUT
