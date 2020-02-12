@@ -16,70 +16,80 @@ notes:
 
 tests:
 
-  # TODO: Need more tests! GNDB data for kat_Geor2Latn_ALA_1997 is probably all wrong.
+  - source: ხაოფსე
+    expected: xaopʻse
 
-  # These are from GNDB but are clearly not ALA-LC.
-  #
-  # - source: ხაოფსე
-  #   expected: khaopse
-  #
-  # - source: ჭლოუ
-  #   expected: ch’lou
-  #
-  # - source: ჩოხულდი
-  #   expected: chokhuldi
-  #
-  # - source: ქვემო ლინდა
-  #   expected: kvemo linda
-  #
-  # - source: ტამკვაჩ იგვავერა
-  #   expected: t’amk’vach-igvavera
-  #
-  # - source: სვანეთი
-  #   expected: svaneti
-  #
-  # - source: საცხვარისი
-  #   expected: satskhvarisi
-  #
-  # - source: მუხრან-თელეთი
-  #   expected: mukhran-teleti
-  #
-  # - source: მუცდი
-  #   expected: mutsdi
-  #
-  # - source: ლეჩხუმი
-  #   expected: lechkhumi
-  #
-  # - source: ვერხნაია მწარა
-  #   expected: verkhnaia mts’ara
-  #
-  # - source: ეგრისის ქედი
-  #   expected: egrisis kedi
-  #
-  # - source: დოჩარიფშა
-  #   expected: docharipsha
-  #
-  # - source: ბოლოკო
-  #   expected: bolok’o
-  #
-  # - source: აჭანდარა
-  #   expected: ach’andara
-  #
-  # - source: აუალიცა
-  #   expected: aualitsa
-  #
-  # - source: აკალამრა
-  #   expected: ak’alamra
+  - source: ჭლოუ
+    expected: člou
 
-  # These pass because they luckily share the same character
-  # mapping with the BGN/PCGN system.
-  #
+  - source: ჩოხულდი
+    expected: čʻoxuldi
+
+  - source: ქვემო ლინდა
+    expected: kʻvemo linda
+
+  - source: ტამკვაჩ იგვავერა
+    expected: tamkvačʻ-igvavera
+
+  - source: სვანეთი
+    expected: svanetʻi
+
+  - source: საცხვარისი
+    expected: sacʻxvarisi
+
+  - source: მუხრან-თელეთი
+    expected: muxran-tʻeletʻi
+
+  - source: მუცდი
+    expected: mucʻdi
+
+  - source: ლეჩხუმი
+    expected: lečʻxumi
+
+  - source: ვერხნაია მწარა
+    expected: verxnaia mcara
+
+  - source: ეგრისის ქედი
+    expected: egrisis kʻedi
+
+  - source: დოჩარიფშა
+    expected: dočʻaripʻša
+
+  - source: ბოლოკო
+    expected: boloko
+
+  - source: აჭანდარა
+    expected: ačandara
+
+  - source: აუალიცა
+    expected: aualicʻa
+
+  - source: აკალამრა
+    expected: akalamra
+
   - source: ლასილი
     expected: lasili
 
   - source: გუბაზეული
     expected: gubazeuli
 
+  - source: ბაყაყი
+    expected: baqaqi
+
+  - source: ძროხა
+    expected: żroxa
+
+  - source: ჰაერი
+    expected: haeri
+
+  - source: ჟოლო
+    expected: zolo
+
+  - source: ჯართი
+    expected: jartʻi
+
+  - source: ღრმაღელე
+    expected: ġrmaġele
 
 map:
   characters:
