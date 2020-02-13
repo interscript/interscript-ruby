@@ -11,8 +11,7 @@ description: |
   This table contains the data on how Unicode Hanzi characters
   are pronounced in P.R.China.
 tests:
-  - source:
-    expected:
+
 
 notes:
   - Nine tab-separated columns. Column #1 is the Unicode (in hex), Columns #2 to #6 are Pinyin (tone '5' means Qingsheng)

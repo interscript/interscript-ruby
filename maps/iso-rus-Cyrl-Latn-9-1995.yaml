@@ -14,8 +14,7 @@ description: |
   Cyrillic alphabetic order, the 118 single or diacritic-carrying
   characters that appear in one or another of the considered alphabets.
 tests:
-  - source:
-    expected:
+
 
 map:
   characters:

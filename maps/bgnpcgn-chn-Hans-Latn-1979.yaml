@@ -26,8 +26,7 @@ description: |
   BGN or PCGN.
 
 tests:
-  - source:
-    expected:
+
 
 notes:
   - Sourced from the BGN/PCGN 32 Conference paper on Automatic Romanization

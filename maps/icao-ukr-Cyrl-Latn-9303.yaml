@@ -21,8 +21,7 @@ description: |
   This document defines the transliteration mappings used to produce
   this transcription or transliteration.
 tests:
-  - source:
-    expected:
+
 
 map:
   # https://www.icao.int/publications/Documents/9303_p3_cons_en.pdf

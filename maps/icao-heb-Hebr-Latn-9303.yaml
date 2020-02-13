@@ -21,8 +21,7 @@ description: |
   This document defines the transliteration mappings used to produce
   this transcription or transliteration.
 tests:
-  - source:
-    expected:
+
 map:
   # https://en.wikipedia.org/wiki/Romanization_of_Hebrew
 

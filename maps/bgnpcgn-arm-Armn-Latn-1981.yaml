@@ -25,8 +25,7 @@ notes:
   - The Romanization column shows only lowercase forms but, when romanizing, uppercase and lowercase Roman letters as appropriate should be used.
 
 tests:
-  - source:
-    expected:
+
 map:
   characters:
     '\u0531' : 'A'
