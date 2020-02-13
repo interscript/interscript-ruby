@@ -29,7 +29,7 @@ tests:
     expected: kʻvemo linda
 
   - source: ტამკვაჩ იგვავერა
-    expected: tamkvačʻ-igvavera
+    expected: tamkvačʻ igvavera
 
   - source: სვანეთი
     expected: svanetʻi
@@ -77,19 +77,19 @@ tests:
     expected: baqaqi
 
   - source: ძროხა
-    expected: żroxa
+    expected: żroxa
 
   - source: ჰაერი
     expected: haeri
 
   - source: ჟოლო
-    expected: zolo
+    expected: žolo
 
   - source: ჯართი
     expected: jartʻi
 
   - source: ღრმაღელე
-    expected: ġrmaġele
+    expected: ġrmaġele
 
 map:
   characters:
@@ -114,7 +114,7 @@ map:
 
     '\u10dd' : 'o' # ო
     '\u10de' : 'p' # პ
-    '\u10df' : 'z̆' # ჟ
+    '\u10df' : 'ž' # ჟ
     '\u10e0' : 'r' # რ
     '\u10e1' : 's' # ს
     '\u10e2' : 't' # ტ
@@ -124,12 +124,12 @@ map:
     '\u10e3' : 'u' # უ
     '\u10e4' : 'pʻ' # ფ
     '\u10e5' : 'kʻ' # ქ
-    '\u10e6' : 'ġ' # ღ
+    '\u10e6' : 'ġ' # ღ
     '\u10e7' : 'q' # ყ
-    '\u10e8' : 'š' # შ
-    '\u10e9' : 'čʻ' # ჩ
+    '\u10e8' : 'š' # შ
+    '\u10e9' : 'čʻ' # ჩ
     '\u10ea' : 'cʻ' # ც
-    '\u10eb' : 'ż' # ძ
+    '\u10eb' : 'ż' # ძ
     '\u10ec' : 'c' # წ
     '\u10ed' : 'č' # ჭ
     '\u10ee' : 'x' # ხ
@@ -139,8 +139,8 @@ map:
     '\u10ef' : 'j' # ჯ
     '\u10f0' : 'h' # ჰ
 
-    '\u10f5' : 'ō' # ჵ
+    '\u10f5' : 'ō' # ჵ
 
     '\u10f6' : 'f' # ჶ
-    '\u10f7' : 'ĕ' # ჷ
+    '\u10f7' : 'ĕ' # ჷ
     '\u10f8' : 'ʻ' # ჸ
