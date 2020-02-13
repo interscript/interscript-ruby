@@ -62,9 +62,9 @@ module Interscript
           output.gsub!(/#{word_separator}#{separator}/,word_separator)
           output.gsub!(/#{word_separator}(.)/, &:upcase) if title_case
         end
-      end      
+      end
 
-      output
+      output.unicode_normalize
     end
 
     private
