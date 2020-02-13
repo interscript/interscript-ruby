@@ -64,7 +64,7 @@ module Interscript
         end
       end
 
-      output.unicode_normalize
+      output ? output.unicode_normalize : output
     end
 
     private

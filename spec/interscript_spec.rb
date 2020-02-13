@@ -9,8 +9,10 @@ RSpec.describe Interscript do
 
       system["tests"]&.reduce([]) do |testresults, test|
         it "test for #{test}" do
-          result = Interscript.transliterate system_name, test["source"]
-          expect(result.unicode_normalize).to eq(test["expected"].unicode_normalize)
+          result = Interscript.transliterate(system_name, test["source"]) || ""
+          expected = (test["expected"] || "").unicode_normalize
+
+          expect(result).to eq(expected)
         end
       end
     end
