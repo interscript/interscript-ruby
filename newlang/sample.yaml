@@ -1,0 +1,362 @@
+---
+
+# This is a sample YAML file for the proposed language that describes
+# script conversion systems.
+# 
+# Note: This is a transform that converts Written Japanese in Kanji (Hani)
+#       and Kana (Hrkt) into Latin (Latn) transcriptions
+
+
+# 1 - Transform Properties
+
+transform:
+  # source: source textual representation, which is an array of
+  #         language-script combinations
+  # 
+  # Sometimes two source TR will be needed for accurate processing.
+  # Japanese transliteration requires both Hani (Kanji) and Hrkt (Kana).
+
+  source:
+    - language: jpn # Japanese
+      script: Hani
+    - language: jpn
+      script: Hrkt
+
+  # target: target textual representation, which is an array 
+  #         language-script combinations
+  target:
+    - language: jpn
+      script: Latn
+
+  standard:
+    authority_id: 
+    name:
+    url: 
+    creation_date:
+    description:
+    note:
+
+  deterministic: false
+  # true or false, if true, the map can be an intermediate step
+  # of a transform chain.
+
+  operation_level: lex 
+  # Options are:
+  # char: only character-based, e.g. Russian, from Cyrillic to Latin
+  # lex:  lexical information is required, e.g. Thai, Thai to Latin
+  # comp: complex models will be needed, e.g. transliteraiton of Arabic (unpointed)
+
+# 2 - Engine Configuration
+#
+# Customize behavior of the engine.
+
+engine:
+  solution: best 
+  # Options are best and all
+  
+# 3 - Pipeline
+# 
+
+pipeline:
+
+  inherit: [] # Inherit the results from a different transform
+              # E.g. a Hangul(kor) to Romanization transcription task
+              # can inherit from a Hangul-to-Jamo transform
+
+  # 3.1 Normalization
+  normalization:
+    process: default
+
+    # A list of normalization map，applied in order.
+    maps: [ NFD, KanaFullWidth ] 
+
+    # Additional rules can be applied.
+    rules:
+      - pattern: ''
+        result: ''
+    test:
+      - source: ''
+        expected: ''
+
+  # 3.2 Named Entity Recognition
+  named_entity_recognition:
+    categories:
+      - name: address
+        tag: ad
+        labels: [country, pref, city, ku, chome, ban, go]
+      - name: geonames
+        tag: g
+        labels: [name, generic]
+        expand_number: true
+      - name: person
+        tag: p
+        labels: [surname, firstname, middlename, general]
+      - name: datetime
+        tag: datetime
+        labels: [year, month, day, week]
+      - name: number
+        tag: n
+    localgrammar:  
+      - name: 'address1'
+        grammar: '(?<chome>:[0-9]{1,2})-(?<ban>[0-9]{1,2})-(?<go>[0-9A-Za-z]{3,4})'
+    external: 'ner_parser'
+    test:
+      - source: ''
+        expected: ''
+
+  # 3.3 Segmentation
+  segmentation:
+    separator:
+      syllable: none
+      morpheme: '|'
+      affix: '-'
+      word: ' '
+      sentence: none
+    process: 
+
+      # Syllabification is needed for phonemic writing systems that do not 
+      # mark syllable/word boundaries in the orthography
+      # - name: syllabifcation
+      #   method: greedy
+      #   pattern: '{}'
+      #   level: syllable
+
+      # Useful for source languages that do not mark word boundaries
+      # e.g. Cantonese, Mandarin, Japanese, Thai, Lao, Burmese
+      - name: wordsegmentation
+        method: lookup
+        level: word
+        dictionary: jap_dict
+
+    # external: 'open_nlp' # The name of the segmenter
+    test:
+      - source: ''
+        expected: ''
+
+  # 3.4 Dictionary Lookup
+  lookup: jap_dict
+
+  # 3.5 Replacement
+  replacement: # In the same order
+    maps:
+      - pre_rules
+      - hiragana_map
+      - katakana_map
+      - post_rules
+    test:
+      - source: ''
+        expected: ''
+
+  # 3.6 Post-processing
+
+  post-processing:
+    formatting:
+      - category: geonames
+        labels:
+          - label: 'name'
+            title_case: true
+            preceded_by: ''
+            followed_by: ''
+          - label: 'generic'
+            title_case: false
+            preceded_by: '-'
+            followed_by: ''
+    remove_separator:
+      - '|'
+    test:
+      - source: ''
+        expected: ''
+
+# 4 - Maps
+maps:
+  - id: pre_rules
+    rules: # An ordered list of mapping and/or substitution.
+      - type: substitution
+        pattern: "([んン])(?=[あいうえおやゆよアイウエオヤユヨ])"
+        result: "\\1'"
+  - id: hiragana_map
+    rules: 
+      - type: mapping
+        list:
+          - あ → a
+          - い → i
+          - う → u
+          - え → e
+          - お → o
+          - おう → ô
+          - か → ka
+          - き → ki
+          - く → ku
+          - け → ke
+          - こ → ko
+          - きゃ → kya
+          - きゅ → kyu
+          - きょ → kyo
+          - きょう → kyô
+          - こう → kô
+          - さ → sa
+          - し → si
+          - す → su
+          - せ → se
+          - そ → so
+          - しゃ → sya
+          - しゅ → syu
+          - しょ → syo
+          - しょう → syô
+          - そう → sô
+          - た → ta
+          - ち → ti
+          - つ → tu
+          - て → te
+          - と → to
+          - ちゃ → tya
+          - ちゅ → tyu
+          - ちょ → tyo
+          - ちょう → tyô
+          - とう → tô
+          - な → na
+          - に → ni
+          - ぬ → nu
+          - ね → ne
+          - の → no
+          - にゃ → nya
+          - にゅ → nyu
+          - にょ → nyo
+          - にょう → nyô
+          - のう → nô
+          - は → ha
+          - ひ → hi
+          - ふ → hu
+          - へ → he
+          - ほ → ho
+          - ひゃ → hya
+          - ひゅ → hyu
+          - ひょ → hyo
+          - ひょう → hyô
+          - ほう → hô
+          - ま → ma
+          - み → mi
+          - む → mu
+          - め → me
+          - も → mo
+          - みゃ → mya
+          - みゅ → myu
+          - みょ → myo
+          - みょう → myô
+          - もう → mô
+          - や → ya
+          - ゆ → yu
+          - よ → yo
+          - よう → yô
+          - ら → ra
+          - り → ri
+          - る → ru
+          - れ → re
+          - ろ → ro
+          - りゃ → rya
+          - りゅ → ryu
+          - りょ → ryo
+          - りょう → ryô
+          - ろう → rô
+          - わ → wa
+          - を → o
+          - が → ga
+          - ぎ → gi
+          - ぐ → gu
+          - げ → ge
+          - ご → go
+          - ぎゃ → gya
+          - ぎゅ → gyu
+          - ぎょ → gyo
+          - ぎゅう → gyû
+          - ぎょう → gyô
+          - ごう → gô
+          - ざ → za
+          - じ → zi
+          - ず → zu
+          - ぜ → ze
+          - ぞ → zo
+          - じゃ → zya
+          - じゅ → zyu
+          - じょ → zyo
+          - じょう → zyô
+          - ぞう → zô
+          - だ → da
+          - ぢ → zi
+          - づ → zu
+          - で → de
+          - ど → do
+          - ぢゃ → zya
+          - ぢゅ → zyu
+          - ぢょ → zyo
+          - ぢょう → zyô
+          - どう → dô
+          - ば → ba
+          - び → bi
+          - ぶ → bu
+          - べ → be
+          - ぼ → bo
+          - びゃ → bya
+          - びゅ → byu
+          - びょ → byo
+          - びょう → byô
+          - ぼう → bô
+          - ぱ → pa
+          - ぴ → pi
+          - ぷ → pu
+          - ぺ → pe
+          - ぽ → po
+          - ぴゃ → pya
+          - ぴゅ → pyu
+          - ぴょ → pyo
+          - ぴょう → pyô
+          - ぽう → pô
+          - ん → n
+  - id: katakana_map
+
+  - id: post_rules
+    rules:
+      - type: substitution
+        pattern: "[っッ]([BbCcDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz])" # っ or ッ folloved by consonant
+        result: "\\1\\1"
+      - type: substitution
+        pattern: "[っッ]" # drop all other っッ.
+        result: ""
+      - type: substitution
+        pattern: "a[ーa]"
+        result: "â"
+      - type: substitution
+        pattern: "i[ーi]"
+        result: "î"
+      - type: substitution
+        pattern: "u[ーu]"
+        result: "û"
+      - type: substitution
+        pattern: "e[ーe]"
+        result: "ê"
+      - type: substitution
+        pattern: "o[ーo]"
+        result: "ô"
+
+# 5 - Dictionaries
+# This is a simple look-up map. A more sophisticated design will 
+# involve resolving ambiguities when there are multiple pronunciations.
+
+dictionaries:
+  - name: jap_dict
+    fields: [ Kanji, Kana ]
+    entries:
+      '世界': 'せかい'
+      '的': 'てき'
+      '話す': 'はなす'
+      '第': 'だい'
+      '回': 'かい'
+      '会議': 'かいぎ'
+      '開かれ': 'ひらかれ'
+      '年': 'ねん'
+      '月': 'がつ'
+      '日': 'にち'
+
+tests: # end-to-end test
+  - source: '世界的に話すなら、Unicodeです。第10回のUnicode会議は1997年3月10～12日、ドイツのマインツで開かれます。'
+    expected: 'Sekaiteki ni hanasu nara, Unicode desu. Dai 10 kai no Unicode kaigi ha 1997-nen 3-gatu 10 ~ 12 niti, Doitu no Maintu de hirakaremasu.'

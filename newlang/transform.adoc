@@ -1,0 +1,180 @@
+= Script conversions: Proposal
+
+Ref: [Unicode Transforms]
+(https://unicode.org/reports/tr35/tr35-general.html#Transforms)
+
+The goal of this document is to outline a language specification that handles all possible types of script conversions.
+
+This language should give all necessary information on how the transform is done. If an external process or reference is required, this should also be specified by the language.
+
+== Definitions
+
+=== Language
+
+Refers to linguistic varieties that are spoken, signed, or written.
+
+=== Textual representation
+
+A convention on how a language is represented textually. English written in the Latin script is a textual representation of the language. If a particular language has a standard orthography, the standard orthography is likely to be its most common textual representation. Specification on formatting (layout, spacing, font, etc.), alignment, writing direction is not the scope of textual representation.
+
+=== Transformation
+
+The process by which conversion is performed between two textual representations.
+
+=== Transform
+
+A system of tranformation, specifically defined for the conversion between two particular textual representations
+
+=== Script
+
+A set of symbols (characters) used in written languages. Note that the same script can be used for multiple languages, and different subsets of the same script may utilized when writing different languages. Note that a textual representation can contain one script or a mixture of scripts.
+
+=== Grapheme
+
+A basic element, usually a character (or a combination of characters), in a particular textual representation.
+
+=== Phoneme
+
+A basic sound unit of a spoken language that can form meaningful contrasts with other units.
+
+== Nature of the script conversion process
+
+=== Types
+
+Script conversion is common calssified according to the nature of the conversion. The two main types are transliteration and transcription.
+
+*Transliteration* concerns the conversion between two scripts that are basically grapheme-to-grapheme correspondance. The grapheme-to-phoeneme correspondance is preserved to some extent (so that for any grapheme pair (a,b) in the G2G relation, G2Ps(a) and G2Pd(b) are often similar sounds), but such overlap is done for the convenience of the users and is not a requirement for transliteration.
+
+*Transcription* is the conversion of phonemes of the source language to a textual representation in the destination script. It is often the case that the destination script has shallow orthography (ideally one-letter-one-phoneme), but this is also done for the convenience of the users.
+
+For both transliteration and transcription, the destination script can be the same script as the source script, as well as a different script.
+
+The crucial difference is that transcription has an extra step: grapheme-to-phoneme conversion of the source language.
+
+There are other types of script conversion, such as character transformation within the same script (e.g. Full-width <-> Half-width for Kana, Punctuation, etc.), Normalization (e.g. NFC<->NFD), or different versions of the same script (German before and after the spelling reform that removes `ß`), or spelling conversions between two closely related languages (e.g. American to British English).
+
+=== Information represented
+
+A textual representation often does not retain all information of the language. The source and target textual representations will inevitably retain different information. In such case, linguistic and world knwolege will be needed to uncover information that is missing in the source textual representation but is required in the target textual representation.
+
+For instance, English written in the Latin script preserves historical spelling of the language, whether or not it is proper noun, etc., but does not indicate the actual pronunciation of words. English transcribed in the IPA alphabet, on the other hand, indicates how a word is pronounced, but does not contain semantic information for homophones.
+
+The mismatch in two systems presents great challenge to a transformation system. Many transform will never be 100% accurate, and roundtrip conversion is often impossible.
+
+Here is a list of information mismatch that should be considered.
+
+1. Phonemicity
+
+Some scripts are primarily logographic or ideographic in nature, and does not provide phonemic information at all.
+Scripts that are phonemic in nature vary in phonemicity (the relation between graphemes and phonemes). Some scripts are highly regular (or shallow, e.g. Turkish, Finnish), some scripts are highly irregular (or deep, e.g. English, Arabic, Thai), some fall between the two extremes. Transforms that involve grapheme-to-phoneme conversion (i.e. transcription) for Non-phonemic or deep orthography will end up with unrecoverable phonemic information, and the transform will rely on dictionary lookups or other statistical strategies.
+
+2. Boundary-marking
+
+Most languages use space to mark word boundaries, and punctuations to mark sentence boundaries. This is not true for many East Asian languages (e.g. Chinese, Japanese, Thai). To transform a textual representation in Chinese (Hani) into Latin (Latn) transcription requires an additional process of segmentation.
+There may also be requirements to mark boundaries between place names and generics (road, district, county, prefecture), or hyphenate different syllables of first names, etc.
+The marking of boundaries using space, hyphenation, punctuations, new line or even change of script is a feature of each textual representation. These requirements need to be specified in the language.
+
+3. Casing
+
+Some scripts make a distinction between the UPPER case and the lower case. Case can be a way to mark named-entities (as in English and many other languages), grammatical class (as in German), or a way to mark emphasis or contrast.
+
+4. Special marking for named-entities
+
+Some textual representation requires special rules for named-entities.
+For example, the transliteration of Place names may follow a slightly different spacing or spelling rules then other cases.
+
+5. Number of Scripts
+
+Some languages utilize multiple scripts. Japanese uses at least three scripts: Hiragana, Katakana, and Kanji, which reflects the historical origin of a word or for different purposes (e.g. Katakana for animal names or non-Sinitic foreign words). Some languages allow the use of multiple scripts within one (e.g. Serbian) for emphasis. The use of script contains important information for segmentation or semantic disambiguation.
+
+Factors above will affect the accuracy and should be clearly documented when a transform is created.
+
+== Nature of the Transform
+
+Take transcription as an example. The transcription of a language with a shallow orthography will be way easier than an ideographic script. A langauge with explicit marking of name-entities will be easier to handle than one that does not. This is not a language-specific issue, but the nature of the transform, which is determined by the task rather than the (ir)regularity of a textual representation (e.g. the standard written language).
+
+Such limitation of a transform should be stated clearly in the metadata.
+
+=== Operation Level
+
+* Character-level transforms
+
+Character-level transforms should be the most robust. It only requires an exhaustive character-based mapping, which is operated on one or more characters.
+
+* Lexical lookup transforms
+
+Lexical lookup transforms are less reliable, requires a dictionary that exhaustively maps the source to the target, and poses issues with maintenance. This is unavoidable for deep orthography and non-phonemic systems, e.g. the transform from Mandarin (man) written in Hani to the Latin script.
+
+
+* Complex transforms
+
+When an exhausive list is not possible (due to the number of combinations), some transforms may require consideration of non-lingusitic factors, as well as other additional information, which cannot be determined with a standard solution.
+For most transcription tasks, task-specific probablistic solutions will be needed.
+
+=== Deterministicity and Directionality
+
+Consider this conversion of the Thai language (ISO 639-2: tha) in Thai script (Thai). The new orthography removes two letters, and merge them with two existing letters.
+
+From one direction, Thai (pre-reform) to Thai (post-reform) is unambiguous, but the other direction, the transform cannot be defined deterministically. One will need to create a list of words with the obsolete letters.
+
+A bidirectional transform is a transform that can operate on both t_A to t_B and t_B to t_A. Bidirectional maps should only be used for simplier transforms that do not require preprocessing. This can ensure that certain mapping rules can be reused.
+
+If the two textual representations contain different lingusitic information, there is no way to specify segmentation and dictionary lookup for both of the directions. Two separate unidirectional transforms will be needed.
+
+=== Domain Specificity
+
+Some transforms contain a special set of rules for certain classes of entities or texts. For example, the transcription of person names and geonames, conversion of species or chemical elements into a different script, different handling for dates, etc.
+
+=== Requiring multiple results
+
+There are two possible cases that may require multiple results:
+
+1 - The system explicitly specified two ways to transform the same string.
+2 - Only one answer is corrected, but the judgement requires lingusitic or world knowledge.
+
+Some transforms are defined more loosely, and there could be two or more equally valid answers.
+
+If a system allows multiple answers (e.g. the purpose of the transform is to find out whether the X is or is not a valid transliteration of Y), then the return should be a list rather than a single answer.
+
+=== Chaining
+If a transform from A to C is needed, and only transforms for A to B and B to C are available, then the two transforms can be applied sequentially to achieve the result.
+
+All systems should be chainable. However if error rate is too high, the transform chain will be unreliable.
+
+== The Transform Pipeline
+
+The transformation process can sometimes be captured by a simple codepoint mapping, but there are cases in which more complex processing is required. Here is a general pipeline that is required for general transcription tasks. For more complex systems, all or part of the processing will require complex modelling that cannot be handled by a rule-based transformation.
+
+Instead of completely externalizing the process. The attempt here will be to transform the original form into a more phonemic representation, and then this phonemic representation will be transformed according to the transcription specification.
+
+=== Normalization
+
+A list of transformation rules that ensures the transformation can be performed correctly.
+
+This includes removing invalid sequence of characters, ordering of diacritics, etc.
+
+Define range of acceptable (operable) characters. Common normaliation tasks are NFD<->NFC, removing or fixing invalid sequence or combination of characters, ordering of multiple diacritics etc. Normalization task should not operate on the lexical level, e.g. fixing typographical errors.
+
+=== Named-entity marking
+
+Assuming a separate process that marks all named-entities in the text. The type of name-entity marking required should be specified in the language.
+
+
+=== Segementation
+
+This can either be handled by an external process, or by a default algorithm (greedy, trigram, maximum syllable structure), or simply using a separator. English uses space as a word seaprator. Thai uses space as a sentence separator, and there is no word-based separator. Word separator is not used in some languages, and most languages do not mark syllable/morpheme boundaries.
+
+Number of segmentation levels required for this task varies. E.g. Japanese transcription sometimes require morpheme-boundary information.
+
+=== Dictionary Lookup
+
+A large dictionary that is designed to be large chunk of data. Done by going through the input string, matching maximum number of characters of the string while not breaking further parsing. It may go directly to the final-form, or a rule that transform words into a more phonemic representation for the use of subsequent replacement rules.
+
+=== Replacement Rule
+Character-based conversion rules. These rules are only used to handle global replacement for a small set of characters. E.g. an alphabet of less than 100 types.
+
+=== Postprocessing
+Remove unnecessary tagging for output. Tags (specified earlier in the file) will be removed, and escaped characters will be restored.
+
+
+= The Language (see sample.yaml)
