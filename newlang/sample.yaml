@@ -18,17 +18,18 @@ transform:
 
   source:
     - language: jpn # Japanese
-      script: Hani
-      name: Kanji
+      script: Jpan
+      layer: Kanji
     - language: jpn
       script: Hrkt
-      name: Kana
+      layer: Kana
 
   # target: target textual representation, which is an array 
   #         language-script combinations
   target:
     - language: jpn
       script: Latn
+      layer: Romanized_Final
 
   standard:
     authority_id: 
@@ -54,9 +55,6 @@ transform:
 
 engine:
   solution: best   # Options are best and all
-  return_layer: Output  
-  # New layers will be created by each process in the pipeline
-  # This parameter specifies which layer to return
 
 # 3 - Pipeline
 # 
@@ -69,11 +67,12 @@ pipeline:
 
   # 3.1 Normalization
   normalization:
-    process: default
     from: Kanji
     to: Kanji1
+
+    process: default
     # A list of normalization map，applied in order.
-    maps: [ NFD, KanaFullWidth ] 
+    maps: [ NFC, KanaFullWidth ] 
 
     # Additional rules can be applied.
     rules:
@@ -91,7 +90,7 @@ pipeline:
       - name: address
         tag: ad
         labels: [country, pref, city, ku, chome, ban, go]
-      - name: geonames
+      - name: geoname
         tag: g
         labels: [name, generic]
         expand_number: true
@@ -116,19 +115,25 @@ pipeline:
     from: [Kanji2, Kana]
     to: Kana_segmented
     separator:
-      syllable: none
+      syllable: '-'
       morpheme: '|'
-      affix: '-'
+      affix: '='
       word: ' '
       sentence: none
     process: 
 
       # Syllabification is needed for phonemic writing systems that do not 
       # mark syllable/word boundaries in the orthography
-      # - name: syllabifcation
-      #   method: greedy
-      #   pattern: '{}'
-      #   level: syllable
+      - name: syllabifcation
+        method: greedy
+        pattern: 'SY?(L)(N|Q)'
+        mnemonics:
+          'S': '[アイウエオカ-ヂツ-モヤユヨラ-ロワヲ]'
+          'Y': '[ァィゥェォャュョヮ]*'
+          'L': 'ー*'
+          'N': 'ン'
+          'Q': 'ッ'
+        level: syllable
 
       # Useful for source languages that do not mark word boundaries
       # e.g. Cantonese, Mandarin, Japanese, Thai, Lao, Burmese
@@ -174,10 +179,9 @@ pipeline:
         expected: ''
 
   # 3.6 Post-processing
-
   post-processing:
     from: Romanized
-    to: Final
+    to: Romanized_Final
     formatting:
       - category: geonames
         labels:
@@ -191,6 +195,7 @@ pipeline:
             followed_by: ''
     remove_separator:
       - '|'
+      - '-'
     test:
       - source: ''
         expected: ''
