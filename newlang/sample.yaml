@@ -19,8 +19,10 @@ transform:
   source:
     - language: jpn # Japanese
       script: Hani
+      name: Kanji
     - language: jpn
       script: Hrkt
+      name: Kana
 
   # target: target textual representation, which is an array 
   #         language-script combinations
@@ -51,9 +53,11 @@ transform:
 # Customize behavior of the engine.
 
 engine:
-  solution: best 
-  # Options are best and all
-  
+  solution: best   # Options are best and all
+  return_layer: Output  
+  # New layers will be created by each process in the pipeline
+  # This parameter specifies which layer to return
+
 # 3 - Pipeline
 # 
 
@@ -66,7 +70,8 @@ pipeline:
   # 3.1 Normalization
   normalization:
     process: default
-
+    from: Kanji
+    to: Kanji1
     # A list of normalization map，applied in order.
     maps: [ NFD, KanaFullWidth ] 
 
@@ -80,6 +85,8 @@ pipeline:
 
   # 3.2 Named Entity Recognition
   named_entity_recognition:
+    from: Kanji1
+    to: Kanji2
     categories:
       - name: address
         tag: ad
@@ -106,6 +113,8 @@ pipeline:
 
   # 3.3 Segmentation
   segmentation:
+    from: [Kanji2, Kana]
+    to: Kana_segmented
     separator:
       syllable: none
       morpheme: '|'
@@ -134,10 +143,27 @@ pipeline:
         expected: ''
 
   # 3.4 Dictionary Lookup
-  lookup: jap_dict
+  # This is not necessary for this file, since Kana has been provided
+  # as an additional layer.
+  #
+  # # Arabic
+  # lookup:
+  #   from: Unpointed
+  #   to: Pointed
+  #   dict: arabic_pointed
+  #   level: word
+  
+  # # Cantonese
+  # lookup:
+  #   from: Char
+  #   to: Jyutping
+  #   dict: canto_jyutping
+  #   level: word
 
   # 3.5 Replacement
   replacement: # In the same order
+    from: Kana_segmented
+    to: Romanized
     maps:
       - pre_rules
       - hiragana_map
@@ -150,6 +176,8 @@ pipeline:
   # 3.6 Post-processing
 
   post-processing:
+    from: Romanized
+    to: Final
     formatting:
       - category: geonames
         labels:
