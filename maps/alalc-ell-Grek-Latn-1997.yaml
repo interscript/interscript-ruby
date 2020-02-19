@@ -1,41 +1,512 @@
 ---
-authority_id: icao
-id: 9303
-language: gre
+authority_id: alalc
+id: 1997
+language: ell
 source_script: Grek
 destination_script: Latn
-name: ICAO Doc 9303 Machine Readable Travel Documents Part 3 -- Greek to Latin
-url: https://www.icao.int/publications/pages/publication.aspx?docnum=9303
-creation_date: 2015
+name: Greek Romanization, 1997
+url: http://catdir.loc.gov/catdir/cpso/romanization/greek.pdf
+creation_date: 1997
 description: |
-  Part 3 defines specifications that are common to TD1, TD2 and TD3
-  size machine readable travel documents (MRTDs) including those
-  necessary for global interoperability using visual inspection and
-  machine readable (optical character recognition) means.
+  ALA-LC Romanization table for Greek
 
-  Since only Latin-alphabet characters are allowed in the VIZ, if
-  mandatory data elements are in a national language that does not use
-  the Latin alphabet, a transcription or transliteration shall also be
-  provided.
-
-  This document defines the transliteration mappings used to produce
-  this transcription or transliteration.
+note:
+  - Applies to texts after 1453 (Modern Greek)
+  - This table presupposes monotonic accentuation; rough breathings are accordingly not addressed.
+    
 tests:
+
+  - source: |
+        Ένα πράμα μόνον με παρακίνησε κι εμένα να γράψω ότι τούτην την πατρίδα την έχομεν όλοι μαζί, και σοφοί κι αμαθείς και πλούσιοι και φτωχοί και πολιτικοί και στρατιωτικοί και οι πλέον μικρότεροι άνθρωποι· όσοι αγωνιστήκαμεν, αναλόγως ο καθείς, έχομεν να ζήσομεν εδώ. Το λοιπόν δουλέψαμεν όλοι μαζί, να την φυλάμεν κι όλοι μαζί και να μην λέγει ούτε ο δυνατός «εγώ» ούτε ο αδύνατος. Ξέρετε πότε να λέγει ο καθείς «εγώ»; Όταν αγωνιστεί μόνος του και φκιάσει ή χαλάσει, να λέγει «εγώ»· όταν όμως αγωνίζονται πολλοί και φκιάνουν, τότε να λένε «εμείς». Είμαστε εις το «εμείς» κι όχι εις το «εγώ». Και εις το εξής να μάθομεν γνώση, αν θέλομεν να φκιάσομεν χωριόν, να ζήσομεν όλοι μαζί.
+
+        Γιάννης Μακρυγιάννης.
+
+    expected: |
+        Ena prama monon me parakinēse ki emena na grapsō oti toutēn tēn patrida tēn echomen oloi mazi, kai sophoi ki amatheis kai plousioi kai phtōchoi kai politikoi kai stratiōtikoi kai oi pleon mikroteroi anthrōpoi; osoi agōnistēkamen, analogōs o katheis, echomen na zēsomen edō. To loipon doulepsamen oloi mazi, na tēn phylamen ki oloi mazi kai na mēn legei oute o dynatos «egō» oute o adynatos. Xerete pote na legei o katheis «egō»? Otan agōnistei monos tou kai phkiasei ē chalasei, na legei «egō»; otan omōs agōnizontai polloi kai phkianoun, tote na lene «emeis». Eimaste eis to «emeis» ki ochi eis to «egō». Kai eis to exēs na mathomen gnōsē, an thelomen na phkiasomen chōrion, na zēsomen oloi mazi.
+       
+        Giannēs Makrygiannēs.
+
+
+  - source: ΑΘΗΝΑ
+    expected: ATHĒNA
+  - source: μπαμπάκι
+    expected: bampaki
+  - source: νταντά
+    expected: ḏanta
+  - source: Αθήνα
+    expected: Athēna
+  - source: Άγιον Όρος
+    expected: Agion Oros
+  - source: Άγραφα
+    expected: Agrapha
+  - source: Αγρίνιο
+    expected: Agrinio
+  - source: Αίγινα
+    expected: Aigina
+  - source: Αίγιο
+    expected: Aigio
+  - source: Αλεξανδρούπολη
+    expected: Alexandroupolē
+  - source: Αλεποχώρι
+    expected: Alepochōri
+  - source: Αμοργός
+    expected: Amorgos
+  - source: Άμφισσα
+    expected: Amphissa
+  - source: Αράχωβα
+    expected: Arachōva
+  - source: Άργος
+    expected: Argos
+  - source: Αρκαδία
+    expected: Arkadia
+  - source: Άρτα
+    expected: Arta
+  - source: Βελούχι
+    expected: Velouchi
+  - source: Βέροια
+    expected: Veroia
+  - source: Βοιωτία
+    expected: Voiōtia
+  - source: Βόλος
+    expected: Volos
+  - source: Βόνιτσα
+    expected: Vonitsa
+  - source: Γαλαξίδι
+    expected: Galaxidi
+  - source: Γαλάτσι
+    expected: Galatsi
+  - source: Γιαννιτσά
+    expected: Giannitsa
+  - source: Γλυφάδα
+    expected: Glyphada
+  - source: Γρανίτσα
+    expected: Granitsa
+  - source: Γρεβενά
+    expected: Grevena
+  - source: Γύθειο
+    expected: Gytheio
+  - source: Διόνυσος
+    expected: Dionysos
+  - source: Δίστομο
+    expected: Distomo
+  - source: Δολιανά
+    expected: Doliana
+  - source: Δράμα
+    expected: Drama
+  - source: Δωδεκάνησα
+    expected: Dōdekanēsa
+  - source: Έδεσσα
+    expected: Edessa
+  - source: Ελευσίνα
+    expected: Eleusina
+  - source: Επίδαυρος
+    expected: Epidauros
+  - source: Επτάνησα
+    expected: Eptanēsa
+  - source: Ερμούπολη
+    expected: Ermoupolē
+  - source: Εύβοια
+    expected: Euvoia
+  - source: Ζάκυνθος
+    expected: Zakynthos
+  - source: Ήπειρος
+    expected: Ēpeiros
+  - source: Ηράκλειο
+    expected: Ērakleio
+  - source: Θάσος
+    expected: Thasos
+  - source: Θεσσαλονίκη
+    expected: Thessalonikē
+  - source: Θεσσαλία
+    expected: Thessalia
+  - source: Θεσπρωτία
+    expected: Thesprōtia
+  - source: Θήβα
+    expected: Thēva
+  - source: Θράκη
+    expected: Thrakē
+  - source: Ιθάκη
+    expected: Ithakē
+  - source: Ίος
+    expected: Ios
+  - source: Ιωάννινα
+    expected: Iōannina
+  - source: Καβάλα
+    expected: Kavala
+  - source: Καλάβρυτα
+    expected: Kalavryta
+  - source: Καλαμάτα
+    expected: Kalamata
+  - source: Καλαμπάκα
+    expected: Kalampaka
+  - source: Καλύβια
+    expected: Kalyvia
+  - source: Κάλυμνος
+    expected: Kalymnos
+  - source: Καρδίτσα
+    expected: Karditsa
+  - source: Καρπενήσι
+    expected: Karpenēsi
+  - source: Κάρυστος
+    expected: Karystos
+  - source: Καστελλόριζο
+    expected: Kastellorizo
+  - source: Καστοριά
+    expected: Kastoria
+  - source: Κατερίνη
+    expected: Katerinē
+  - source: Κάτω Αχαΐα
+    expected: Katō Achaia
+  - source: Κερατέα
+    expected: Keratea
+  - source: Κέρκυρα
+    expected: Kerkyra
+  - source: Κεφαλλονιά
+    expected: Kephallonia
+  - source: Κηφισιά
+    expected: Kēphisia
+  - source: Κιλκίς
+    expected: Kilkis
+  - source: Κοζάνη
+    expected: Kozanē
+  - source: Κολωνός
+    expected: Kolōnos
+  - source: Κομοτηνή
+    expected: Komotēnē
+  - source: Κόρινθος
+    expected: Korinthos
+  - source: Κορώνη
+    expected: Korōnē
+  - source: Κρανίδι
+    expected: Kranidi
+  - source: Κρέστενα
+    expected: Krestena
+  - source: Κρήτη
+    expected: Krētē
+  - source: Κύθηρα
+    expected: Kythēra
+  - source: Κυκλάδες
+    expected: Kyklades
+  - source: Κύμη
+    expected: Kymē
+  - source: Κυψέλη
+    expected: Kypselē
+  - source: Κως
+    expected: Kōs
+  - source: Λαγκαδάς
+    expected: Lankadas
+  - source: Λαμία
+    expected: Lamia
+  - source: Λάρισα
+    expected: Larisa
+  - source: Λαύριο
+    expected: Laurio
+  - source: Λέρος
+    expected: Leros
+  - source: Λέσβος
+    expected: Lesvos
+  - source: Λευκάδα
+    expected: Leukada
+  - source: Λήμνος
+    expected: Lēmnos
+  - source: Λιβαδειά
+    expected: Livadeia
+  - source: Μακεδονία
+    expected: Makedonia
+  - source: Μάνη
+    expected: Manē
+  - source: Μαραθώνας
+    expected: Marathōnas
+  - source: Μαρκόπουλο
+    expected: Markopoulo
+  - source: Μαρούσι
+    expected: Marousi
+  - source: Μέγαρα
+    expected: Megara
+  - source: Μεσολόγγι
+    expected: Mesolongi
+  - source: Μεταξουργείο
+    expected: Metaxourgeio
+  - source: Μέτσοβο
+    expected: Metsovo
+  - source: Μήλος
+    expected: Mēlos
+  - source: Μύκονος
+    expected: Mykonos
+  - source: Μυστράς
+    expected: Mystras
+  - source: Μυτιλήνη
+    expected: Mytilēnē
+  - source: Νάξος
+    expected: Naxos
+  - source: Νάουσα
+    expected: Naousa
+  - source: Ναύπακτος
+    expected: Naupaktos
+  - source: Ναύπλιο
+    expected: Nauplio
+  - source: Νέα Σμύρνη
+    expected: Nea Smyrnē
+  - source: Νίσυρος
+    expected: Nisyros
+  - source: Ξάνθη
+    expected: Xanthē
+  - source: Όλυμπος
+    expected: Olympos
+  - source: Παγκράτι
+    expected: Pankrati
+  - source: Παπάγου
+    expected: Papagou
+  - source: Πάρος
+    expected: Paros
+  - source: Πασαλιμάνι
+    expected: Pasalimani
+  - source: Πατήσια
+    expected: Patēsia
+  - source: Πάτμος
+    expected: Patmos
+  - source: Πάτρα
+    expected: Patra
+  - source: Πειραιάς
+    expected: Peiraias
+  - source: Πελοπόννησος
+    expected: Peloponnēsos
+  - source: Περιστέρι
+    expected: Peristeri
+  - source: Πεύκη
+    expected: Peukē
+  - source: Πήλιο
+    expected: Pēlio
+  - source: Πολύγυρος
+    expected: Polygyros
+  - source: Πόρος
+    expected: Poros
+  - source: Πρέβεζα
+    expected: Preveza
+  - source: Πτολεμαΐδα
+    expected: Ptolemaida
+  - source: Πύλος
+    expected: Pylos
+  - source: Πύργος
+    expected: Pyrgos
+  - source: Ρέθυμνο
+    expected: Rethymno
+  - source: Ρόδος
+    expected: Rodos
+  - source: Ρούμελη
+    expected: Roumelē
+  - source: Σαλαμίνα
+    expected: Salamina
+  - source: Σαμοθράκη
+    expected: Samothrakē
+  - source: Σάμος
+    expected: Samos
+  - source: Σαντορίνη
+    expected: Santorinē
+  - source: Σέρρες
+    expected: Serres
+  - source: Σίκινος
+    expected: Sikinos
+  - source: Σίφνος
+    expected: Siphnos
+  - source: Σκιάθος
+    expected: Skiathos
+  - source: Σκόπελος
+    expected: Skopelos
+  - source: Σούλι
+    expected: Souli
+  - source: Σπάρτη
+    expected: Spartē
+  - source: Στερεά Ελλάδα
+    expected: Sterea Ellada
+  - source: Στύρα
+    expected: Styra
+  - source: Σύμη
+    expected: Symē
+  - source: Σύρος
+    expected: Syros
+  - source: Σφακιά
+    expected: Sphakia
+  - source: Τήλος
+    expected: Tēlos
+  - source: Τήνος
+    expected: Tēnos
+  - source: Τρίκαλα
+    expected: Trikala
+  - source: Τρίπολη
+    expected: Tripolē
+  - source: Τσακωνιά
+    expected: Tsakōnia
+  - source: Ύδρα
+    expected: Ydra
+  - source: Φάληρο
+    expected: Phalēro
+  - source: Φλώρινα
+    expected: Phlōrina
+  - source: Φολέγανδρος
+    expected: Pholegandros
+  - source: Χάλκη
+    expected: Chalkē
+  - source: Χαλκίδα
+    expected: Chalkida
+  - source: Χαλάνδρι
+    expected: Chalandri
+  - source: Χαλκιδική
+    expected: Chalkidikē
+  - source: Χανιά
+    expected: Chania
+  - source: Χίος
+    expected: Chios
+  - source: Ψαρά
+    expected: Psara
+  - source: Αβάνα
+    expected: Avana
+  - source: Αγγλία
+    expected: Anglia
+  - source: Αϊβαλί
+    expected: Aivali
+  - source: Αλεξάνδρεια
+    expected: Alexandreia
+  - source: Άμστερνταμ
+    expected: Amsterntam
+  - source: Βαυαρία
+    expected: Vauaria
+  - source: Βενετία
+    expected: Venetia
+  - source: Βερολίνο
+    expected: Verolino
+  - source: Βερόνα
+    expected: Verona
+  - source: Βιέννη
+    expected: Viennē
+  - source: Γένοβα
+    expected: Genova
+  - source: Δουβλίνο
+    expected: Douvlino
+  - source: Καλαβρία
+    expected: Kalavria
+  - source: Καλιφόρνια
+    expected: Kaliphornia
+  - source: Καύκασος
+    expected: Kaukasos
+  - source: Κονγκό
+    expected: Konnko
+  - source: Κορσική
+    expected: Korsikē
+  - source: Κουρδιστάν
+    expected: Kourdistan
+  - source: Κωνσταντινούπολη
+    expected: Kōnstantinoupolē
+  - source: Κατεχόμενη Κύπρος
+    expected: Katechomenē Kypros
+  - source: Λαπωνία
+    expected: Lapōnia
+  - source: Λευκωσία
+    expected: Leukōsia
+  - source: Λιβόρνο
+    expected: Livorno
+  - source: Λονδίνο
+    expected: Londino
+  - source: Λυών
+    expected: Lyōn
+  - source: Μάλαγα
+    expected: Malaga
+  - source: Μασσαλία
+    expected: Massalia
+  - source: Μικρονησία
+    expected: Mikronēsia
+  - source: Μιλάνο
+    expected: Milano
+  - source: Μόσχα
+    expected: Moscha
+  - source: Μπολόνια
+    expected: Bolonia
+  - source: Νάπολη
+    expected: Napolē
+  - source: Νταγκεστάν
+    expected: Ḏankestan
+  - source: Νέα Υόρκη
+    expected: Nea Yorkē
+  - source: Οξφόρδη
+    expected: Oxphordē
+  - source: Ουαλία
+    expected: Oualia
+  - source: Παρίσι
+    expected: Parisi
+  - source: Πάφος
+    expected: Paphos
+  - source: Πολυνησία
+    expected: Polynēsia
+  - source: Ρώμη
+    expected: Rōmē
+  - source: Σαμάρεια
+    expected: Samareia
+  - source: Σικελία
+    expected: Sikelia
+  - source: Σκανδιναβία
+    expected: Skandinavia
+  - source: Σκόπια
+    expected: Skopia
+  - source: Σκωτία
+    expected: Skōtia
+  - source: Σμύρνη
+    expected: Smyrnē
+  - source: Ταϊτή
+    expected: Taitē
+  - source: Ταταρστάν
+    expected: Tatarstan
+  - source: Τζαμάικα
+    expected: Tzamaika
+  - source: Τηλλυρία
+    expected: Tēllyria
+  - source: Τιρόλο
+    expected: Tirolo
+  - source: Τορίνο
+    expected: Torino
+  - source: Φανάρι
+    expected: Phanari
+  - source: Φλωρεντία
+    expected: Phlōrentia
+  - source: Χαβάη
+    expected: Chavaē
+  - source: Χονγκ Κονγκ
+    expected: Chonnk Konnk
 
 map:
   # https://en.wikipedia.org/wiki/Romanization_of_Greek
+  rules:
+    - pattern: (?<=[ΑαΕεΟο])\u03A5    # Υ (after Α, Ε, Ο)
+      result: U
+    - pattern: (?<=[ΑαΕεΟο])\u03C5    # υ (after Α, Ε, Ο)
+      result: u
+    - pattern: (?<=[ΑαΕεΟο])\u03CD    # ύ (after Α, Ε, Ο)
+      result: u
+    - pattern: \u03B3(?=[γΓκΚξΞχΧ])    # γ (before Γ, Κ, Ξ, Χ)
+      result: n
+    - pattern: (?<=\b)\u039D\u03A4    # ΝΤ
+      result: Ḏ
+    - pattern: (?<=\b)\u039D\u03C4    # Ντ
+      result: Ḏ
+    - pattern: (?<=\b)\u03BD\u03C4    # ντ
+      result: ḏ
+    - pattern: (?<=\b)\u039C\u03A0    # ΜΠ
+      result: B
+    - pattern: (?<=\b)\u039C\u03C0    # Μπ
+      result: B
+    - pattern: (?<=\b)\u03BC\u03C0    # μπ
+      result: b
 
   characters:
     "\u0027": ""
     "\u0386": "A"  # Ά
     "\u0391": "A"  # Α
-    "\u0392": "B"  # Β
+    "\u0392": "V"  # Β
     "\u0393": "G"  # Γ
     "\u0394": "D"  # Δ
     "\u0395": "E"  # Ε
     "\u0396": "Z"  # Ζ
-    "\u0397": "I"  # Η
-    "\u0398": "TH" # Θ
+    "\u0397": "Ē"  # Η
+    "\u0398": "Th" # Θ
     "\u0399": "I"  # Ι
     "\u039A": "K"  # Κ
     "\u039B": "L"  # Λ
@@ -44,31 +515,31 @@ map:
     "\u039E": "X"  # Ξ
     "\u039F": "O"  # Ο
     "\u03A0": "P"  # Π
-    "\u03A1": "P"  # Ρ
+    "\u03A1": "R"  # Ρ
     "\u03A3": "S"  # Σ
-    "\u03C2": "s"  # ς
     "\u03A4": "T"  # Τ
     "\u03A5": "Y"  # Υ
-    "\u03A7": "CH" # Χ
-    "\u03A8": "PS" # Ψ
-    "\u03A9": "O"  # Ω
+    "\u03A6": "Ph" # Φ
+    "\u03A7": "Ch" # Χ
+    "\u03A8": "Ps" # Ψ
+    "\u03A9": "Ō"  # Ω
     "\u0388": "E"  # Έ
-    "\u0389": "I"  # Ή
+    "\u0389": "Ē"  # Ή
     "\u038A": "I"  # Ί
     "\u038C": "O"  # Ό
     "\u038E": "Y"  # Ύ
-    "\u038F": "O"  # Ώ
+    "\u038F": "Ō"  # Ώ
     "\u03AA": "I"  # Ϊ
     "\u03AB": "Y"  # Ϋ
 
     "\u03AC": "a"  # ά
     "\u03B1": "a"  # α
-    "\u03B2": "b"  # β
+    "\u03B2": "v"  # β
     "\u03B3": "g"  # γ
     "\u03B4": "d"  # δ
     "\u03B5": "e"  # ε
     "\u03B6": "z"  # ζ
-    "\u03B7": "i"  # η
+    "\u03B7": "ē"  # η
     "\u03B8": "th" # θ
     "\u03B9": "i"  # ι
     "\u03BA": "k"  # κ
@@ -78,23 +549,28 @@ map:
     "\u03BE": "x"  # ξ
     "\u03BF": "o"  # ο
     "\u03C0": "p"  # π
-    "\u03C1": "p"  # ρ
+    "\u03C1": "r"  # ρ
     "\u03C3": "s"  # σ
-
+    "\u03C2": "s"  # ς
     "\u03C4": "t"  # τ
     "\u03C5": "y"  # υ
+    "\u03C6": "ph" # φ
     "\u03C7": "ch" # χ
     "\u03C8": "ps" # ψ
-    "\u03C9": "o"  # ω
+    "\u03C9": "ō"  # ω
     "\u03AD": "e"  # έ
-    "\u03AE": "i"  # ή
+    "\u03AE": "ē"  # ή
     "\u03AF": "i"  # ί
     "\u03CC": "o"  # ό
     "\u03CD": "y"  # ύ
-    "\u03CE": "o"  # ώ
+    "\u03CE": "ō"  # ώ
     "\u03CA": "i"  # ϊ
     "\u03CB": "y"  # ϋ
+    "\u0390": "i"  # ΐ
+    "\u03B0": "y"  # ΰ
 
-
-
+    ";": "?"
+    "\u037E": "?"   # ;
+    "\u0387": ";"   # ·
+    "\u00B7": ";"   # ·
 
