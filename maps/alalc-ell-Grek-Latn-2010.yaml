@@ -1,19 +1,18 @@
 ---
 authority_id: alalc
-id: 1997
+id: 2010
 language: ell
 source_script: Grek
 destination_script: Latn
-name: Greek Romanization, 1997
+name: Greek Romanization, 2010
 url: http://catdir.loc.gov/catdir/cpso/romanization/greek.pdf
-creation_date: 1997
+creation_date: 2010
 description: |
   ALA-LC Romanization table for Greek
 
 note:
   - Applies to texts after 1453 (Modern Greek)
   - This table presupposes monotonic accentuation; rough breathings are accordingly not addressed.
-  - The diphthong definition for upsilon is taken from the 2010 version
   - Generalised gramma digraph rule to capitals
     
 tests:
@@ -36,9 +35,9 @@ tests:
   - source: νταντά
     expected: ḏanta
   - source: γκέγκε
-    expected: nkenke
+    expected: gkenke
   - source: Γκαμπόν
-    expected: Nkampon
+    expected: Gkampon
   - source: Μάγχη
     expected: Manchē
   - source: κογξ
@@ -511,7 +510,7 @@ tests:
   - source: Χαβάη
     expected: Chavaē
   - source: Χονγκ Κονγκ
-    expected: Chonnk Konnk
+    expected: Chongk Kongk
 
 map:
   # https://en.wikipedia.org/wiki/Romanization_of_Greek
@@ -526,9 +525,13 @@ map:
       result: U
     - pattern: \u03C5(?=[Ιιί])        # Υ (before Ι)
       result: u
-    - pattern: \u0393(?=[γΓκΚξΞχΧ])    # Γ (before Γ, Κ, Ξ, Χ)
+    - pattern: \u0393(?=[γΓξΞχΧ])    # Γ (before Γ, Ξ, Χ)
       result: N
-    - pattern: \u03B3(?=[γΓκΚξΞχΧ])    # γ (before Γ, Κ, Ξ, Χ)
+    - pattern: \u03B3(?=[γΓξΞχΧ])    # γ (before Γ, Ξ, Χ)
+      result: n
+    - pattern: (?<=[[:alpha:]])\u0393(?=[κΚ][[:alpha:]])    # Γ (before Κ medially)
+      result: N
+    - pattern: (?<=[[:alpha:]])\u03B3(?=[κΚ][[:alpha:]])    # Γ (before Κ medially)
       result: n
     - pattern: (?<=\b)\u039D\u03A4    # ΝΤ
       result: Ḏ

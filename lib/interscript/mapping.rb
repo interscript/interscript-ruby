@@ -19,7 +19,8 @@ module Interscript
       :destination_script,
       :character_separator,
       :word_separator,
-      :title_case
+      :title_case,
+      :downcase
     )
 
     def initialize(system_code, options = {})
@@ -74,6 +75,7 @@ module Interscript
       @character_separator = mappings["map"]["character_separator"] || nil
       @word_separator = mappings["map"]["word_separator"] || nil
       @title_case = mappings["map"]["title_case"] || false
+      @downcase = mappings["map"]["downcase"] || false
       @rules = mappings["map"]["rules"] || []
       @postrules = mappings["map"]["postrules"] || []
       @characters = mappings["map"]["characters"] || {}
