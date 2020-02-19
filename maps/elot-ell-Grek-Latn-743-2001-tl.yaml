@@ -1,0 +1,20 @@
+---
+authority_id: elot
+id: 2001
+language: ell
+source_script: Grek
+destination_script: Latn
+name: ELOT 743:2001
+url: https://docplayer.gr/docview/18/849832/#file=/storage/18/849832/849832.pdf
+creation_date: 2001
+description: |
+  Reversible transliteration standard, ELOT
+
+note:
+  - Transliteration standard (reversible): Clause 3.1, Table 1
+
+map:
+  character_separator: ""
+  word_separator: " "
+  inherit: "iso-ell-Grek-Latn-843-1997-t1"
+
