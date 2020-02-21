@@ -50,16 +50,43 @@ notes: |
 
 tests:
   # Note: these test cases follow the pre-reform standard.
-  - source: "けふ"
-    expected: "kyō"
-  - source: "ぎうにう"
-    expected: "gyūnyū"
-  - source: "きふ"   # きふ should always be kifu in Modern Japanese
-    expected: "kyū"
-  - source: "ちう"
-    expected: "chū"
-  - source: "けう"
-    expected: "kyō"
+  # They are commented out for now.
+  # 
+  # - source: "けふ"
+  #   expected: "kyō"
+  # - source: "ぎうにう"
+  #   expected: "gyūnyū"
+  # - source: "きふ"   # きふ should always be kifu in Modern Japanese
+  #   expected: "kyū"
+  # - source: "ちう"
+  #   expected: "chū"
+  # - source: "けう"
+  #   expected: "kyō"
+
+  # Modern Japanese test cases
+  - source: "しんばし"
+    expected: "shimbashi"
+  - source: "とうきょう"
+    expected: "tōkyō"
+  - source: "しんじゅく"
+    expected: "shinjuku"
+  - source: かんおう
+    expected: kan’ō
+  - source: かのう
+    expected: kanō
+  - source: きんゆう
+    expected: kin’yū
+  - source: とうきょう
+    expected: tōkyō
+  - source: かごっま
+    expected: kagomma
+  - source: ぽっぽっや
+    expected: poppoyya
+  - source: てっら
+    expected: terra
+  - source: にゃっほー
+    expected: nyahhō
+
 
 map:
 
@@ -72,25 +99,26 @@ map:
   postrules:
     # Handle obsolete forms
     # Note that these forms are present in the rules, but will break
-    # if used with Modern Japanese
-    - pattern: "ef?[uo]|iyau"
-      result: "yō"
-    - pattern: "if?u"
-      result: "yū"
-    - pattern: "[ao]f?[uo]"
-      result: "ō"
-    - pattern: "iy"
-      result: "y"
-    - pattern: "ty"
-      result: "ch"
-    - pattern: "dy"
-      result: "j"
-    - pattern: "[jz]y"
-      result: "j"
-    - pattern: "(?<=[sc])hy"
-      result: "h"
-    - pattern: "sy"
-      result: "sh"
+    # if used with Modern Japanese. They are commented out for now.
+    # 
+    # - pattern: "ef?[uo]|iyau"
+    #   result: "yō"
+    # - pattern: "if?u"
+    #   result: "yū"
+    # - pattern: "[ao]f?[uo]"
+    #   result: "ō"
+    # - pattern: "iy"
+    #   result: "y"
+    # - pattern: "ty"
+    #   result: "ch"
+    # - pattern: "dy"
+    #   result: "j"
+    # - pattern: "[jz]y"
+    #   result: "j"
+    # - pattern: "(?<=[sc])hy"
+    #   result: "h"
+    # - pattern: "sy"
+    #   result: "sh"
 
   characters:
     # ke
