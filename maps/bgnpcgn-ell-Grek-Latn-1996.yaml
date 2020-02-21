@@ -1,0 +1,21 @@
+---
+authority_id: bgnpcgn
+id: 1996
+language: ell
+source_script: Grek
+destination_script: Latn
+name: BGN/PCGN 1996 System
+url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/693694/ROMANIZATION_OF_GREEK.pdf
+creation_date: 1996
+description: |
+  BGN/PCGN Romanization table for Greek
+
+note:
+  - Identical to ELOT 743:1982, which is also adopted as ISO 843:1997 and by UNGEGN
+
+map:
+  character_separator: ""
+  word_separator: " "
+  title_case: True
+  inherit: "elot-ell-Grek-Latn-743-1982"
+

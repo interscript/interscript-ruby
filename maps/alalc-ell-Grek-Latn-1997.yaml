@@ -67,6 +67,12 @@ tests:
     expected: Myrtōo
   - source: αέρας
     expected: aeras
+  - source: γαυ γαυ
+    expected: gau gau
+  - source: Ταΰγετος
+    expected: Taygetos
+  - source: σπρέυ
+    expected: sprey
 
   - source: Αθήνα
     expected: Athēna
