@@ -46,6 +46,27 @@ tests:
     expected: uios
   - source: Υιός
     expected: Uios
+  - source: νεράντζι
+    expected: nerantzi
+  - source: Γοίθιος
+    expected: Goithios
+  - source: μπέικον
+    expected: beikon
+  - source: μπέϊκον
+    expected: beikon
+  - source: βόλεϊ
+    expected: volei
+  - source: αθεΐα
+    expected: atheia
+  - source: Εϊγιαφιάτλαγιοκουτλ
+    expected: Eigiaphiatlagiokoutl
+  - source: Εΐτζι
+    expected: Eitzi
+  - source: Μυρτώο
+    expected: Myrtōo
+  - source: αέρας
+    expected: aeras
+
   - source: Αθήνα
     expected: Athēna
   - source: Άγιον Όρος
