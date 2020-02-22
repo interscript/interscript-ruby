@@ -1,0 +1,1148 @@
+---
+authority_id: alalc
+id: 1997
+language: ara
+source_script: Arab
+destination_script: Latn
+name: ALA-LC Romanization Table -- Arabic (1997)
+url: http://catdir.loc.gov/catdir/cpso/romanization/arabic.pdf
+creation_date: 1997
+description: |
+  ALA-LC Romanization table for Arabic
+
+notes:
+
+  - For the use of alif to support hamzah, see rule 2.  For the romanization of hamzah by the consonantal sign ’ (alif), see rule 8(a).  For other orthographic uses of alif see rules 3-5.
+
+  - The Maghribī variations ڢ and ڧ are romanized f and q respectively.
+
+  - ة in a word in the construct state is romanized t.  See rule 7(b).
+
+
+# RULES OF APPLICATION
+
+  # Arabic Letters Romanized in Different Ways Depending on Their Context
+  - |
+  As indicated in the table, ﻭ and ي may represent:
+
+  (a) The consonants romanized w and y, respectively.
+
+			waḍ‘				وضع
+			‘iwaḍ				عوض
+			dalw				دلو
+			yad				    يد
+			ḥiyal				حيل
+			ṭahy				طهي
+
+  (b) The long vowels romanized ū, ī, and ā respectively.
+
+  			ūlá				    أولى
+			ṣūrah				صورة
+			dhū				    ذو
+			īmān				إيمان
+			jīl				    جيل
+			fī				    في
+			kitāb				كتاب
+			saḥāb				سحاب
+			jumān				جمان
+
+     See also rules 11(a) and 11(b)(1-2).
+
+  (c) The diphthongs romanized aw and ay, respectively.
+
+			awj				    أوج
+			nawm				نوم
+			law				    لو
+			aysar				أيسر
+			shaykh				شيخ
+			‘aynay				عيني
+
+     See also rules 11(a)(2) and 11(b)(3).
+
+  - ا (alif), و and ى when used to support ء (hamzah) are not represented in romanization.  See rule 8(a).
+
+  - ا (alif) when used to support waṣlah ( ٱ ) and maddah ( آ ) is not represented in romanization.  See rules 9 and 10.
+
+  - |
+  ا (alif) and و when used as orthographic signs without phonetic significance are not represented in romanization.
+
+            fa‘alū				فعلوا
+			ulā’ika				أولائك
+			ūqīyah		 	     أوقية
+
+    See also rule 12 and examples cited in rules 23-26.
+
+
+  - |
+  ا (alif) is used to represent the long vowel romanized ā, as indicated in the table.
+
+  			fā‘il				فاعل
+			riḍā				رضا
+
+    This alif, when medial, is sometimes omitted in Arabic; it is always indicated in romanization.  See rule 19.
+
+   - |
+   Final ى appears in the following special cases:
+
+   (a)	As ﻯ َ (alif maqṣūrah) used in place of َا to represent the long vowel romanized ā.
+
+			ḥattá				حتَّى
+			maḍá				مضَى
+			kubrá				كبرَى
+			Yaḥyá				يحيَى
+			musammá			    مسمَّى
+			Muṣṭafá				مصطفَى
+
+    (b)	As ِ ﻯّ in nouns and adjectives of the form fā‘īl which are derived from defective roots.  This ending is romanized ī, not īy, without regard to the presence of  ّ (shaddah).  See rule 11(b)(2).
+
+			Raḍī al-Dīn			  رضي الدين
+
+    Compare the fa‘īl form of the same root  الرضى[without shaddah] al-Raḍī.
+
+    (c)	As ِ ﻯّ in the relative adjective (nisbah).  The ending, like (b) above, is romanized ī, not īy.
+
+			al-Miṣrī				المصرِيّ
+
+    Compare المصرِيّة al-Miṣrīyah and see rule 11(b)(1).
+
+
+    - |
+    ة (tā’ marbūṭah)
+
+    (a)	When the noun or adjective ending in ة is indefinite, or is preceded by the definite article, ة is romanized h.  The ة in such positions is often replaced by ه.
+
+			ṣalāh				        صلاة
+			al-Risālah al-bahīyah		الرسالة البهية
+			mir’āh				        مرآة
+			Urjūzah fī al-ṭibb		    أرجوزة فى الطب
+
+
+    (b)	When the word ending in ة is in the construct state [muḍāf wa-muḍāf ilayh], ة is romanized t.
+
+			Wizārat al-Tarbiyah		وزارة التربية
+			Mir’āt al-zamān			مرآة الزمان
+
+
+    (c)	When the word ending in ة is used adverbially, ة (vocalized ةً) is romanized tan.  See rule 12(b).
+
+
+    # Romanization of Arabic Orthographic Symbols Other than Letters and Vowel Signs
+    # The signs listed below are frequently omitted from unvocalized
+    # Arabic writing and printing; their presence or absence must then
+    # be inferred.  They are represented in romanization according to the following rules:
+
+    - |
+    ء (hamzah)
+
+    (a)	In initial position, whether at the beginning of a word, following a prefixed preposition or conjunction, or following the definite article, ء is not represented in romanization.  When medial or final, ء is romanized as ’ (alif).
+
+			asad				أسد
+			uns				    أنس
+			idhā				إذا
+			mas’alah			مسألة
+			mu’tamar			مؤتمر
+			dā’im				دائم
+			mala’a				ملأ
+			khaṭi’a				خطئ
+
+    (b)	ء, when replaced by the sign   (waṣlah) and then known as hamzat al-waṣl, is not represented in romanization.  See rule 9 below.
+
+    - (waṣlah), like initial ء, is not represented in romanization.  See also rule 8(b) above.  When the alif which supports waṣlah belongs to the article ال, the initial vowel of the article is romanized a.  See rule 17(b).  In other words, beginning with hamzat al-waṣl, the initial vowel is romanized i.
+
+			Riḥlat Ibn Jubayr		        رحلة ٱبن جبير
+			al-istidrāk			           الإستدراك
+			kutub iqtanatʹhā			    كتب ٱقتنتها
+			bi-ihtimām ‘Abd al-Majīd		باهتمام عبد ٱلمجيد
+
+    - |
+     ˜ (maddah)
+
+     (a) Initial آ is romanized ā.
+
+			ālah				        آلة
+			Kullīyat al-Ādāb			كلية الآداب
+
+     (b) Medial آ, when it represents the phonetic combination ’ā, is so romanized.
+
+			ta’ālīf				    تآليف
+			ma’āthir				مآثر
+
+     (c)˜ is otherwise not represented in romanization.
+
+			khulafā’				خلفآء
+
+    - |
+        ّ (shaddah or tashdīd)
+
+      (a) Over و:
+
+           (1)	ُوّ, representing the combination of long vowel plus consonant, is romanized ūw.
+
+			‘adūw				عدُوّ
+			qūwah				قُوّة
+
+            (2)	َوّ, representing the combination of diphthong plus consonant, is romanized aww.
+
+			Shawwāl			شَوّال
+			ṣawwara			صَوّر
+			jaww				جوّ
+
+
+    	   See also rule 1(c).
+
+        (b)	Over ى:
+
+            (1)	Medial ِىّ, representing the combination of long vowel plus consonant, is romanized īy.
+
+			    al-Miṣrīyah			المصرِيّة
+
+                See also rule 1(b).
+
+            (2)	Final ِىّ is romanized ī.  See rules 6(b) and 6(c).
+
+            (3)	Medial and final َىّ, representing the combination of diphthong plus consonant, is romanized ayy.
+
+        			 ayyām				أَيّام
+			         sayyid				سَيّد
+			         Quṣayy				قصَيّ
+
+                See also rule 1(c).
+
+        (c)	Over other letters, ّ is represented in romanization by doubling the letter or digraph concerned.
+
+			al-Ghazzī			الغزّيّ
+			al-Kashshāf			الكشّاف
+
+    - |
+    Tanwīn may take the written form ٌ, ً (ًا), or ٍ, romanized un, an, and in, respectively. Tanwīn is normally disregarded in romanization, however. It is indicated in the following cases:
+
+    (a)	When it occurs in indefinite nouns derived from defective roots.
+
+			qāḍin				قاضٍ
+			ma‘nan				معنىً
+
+    (b)	When it indicates the adverbial use of a noun or adjective.
+
+			ṭab‘an				    طبعًا
+			faj’atan				فجأةً
+			al-Mushtarik waḍ‘an		المشترك وضعاً
+            wa-al-muftariq ṣuq‘an	والمفترق صقعاً
+
+    # Grammatical Structure as It Affects Romanization
+
+    - |
+    Final inflections of verbs are retained in romanization, except in pause. represent
+
+			man waliya Miṣr			           من ولي مصر
+			ma‘rifat mā yajibu la-hum	       معرفة ما يجب لهم
+			ṣallá Allāh ‘alayhi wa-sallam	   صلى الله عليه وسلم
+			al-Lu’lu’ al-maknūn fī ḥukm	       اللؤلؤ المكنون فى حكم
+            al-ikhbār ‘ammā sa-yakūn	       الإخبار عما سيكون
+
+    - |
+    Final inflections of nouns and adjectives:
+
+        (a)	Vocalic endings are not represented in romanization, except preceding pronominal suffixes, and except when the text being romanized is in verse.
+
+			uṣūluhā al-nafsīyah wa-ṭuruq	 أصولها النفسية وطرق تدريسها
+             tadrīsihā
+			ilá yawminā hādhā		         الى يومنا هذا
+
+        (b)	Tanwīn is not represented in romanization, except as specified in rule 12.
+
+        (c)	ة (tā’ marbūṭah) is romanized h or t as specified in rule 7.
+
+        (d)	For the romanization of the relative adjective (nisbah) see rule 6(c).
+
+    - |
+    Pronouns, pronominal suffixes, and demonstratives:
+
+        (a)	Vocalic endings are retained in romanization.
+
+			anā wa-anta			        انا وانت
+			hādhihi al-ḥāl			    هذه الحال
+			mu’allafātuhu wa-shurūḥuhā	مؤلفاته وشروحها
+
+        (b)	At the close of a phrase or sentence, the ending is romanized in its pausal form.
+
+            ḥayātuhu wa-‘aṣruh		    حياته وعصره
+            Tawfīq al-Ḥakīm, afkāruh, 	توفيق الحكيم، أفكاره، آثاره
+             āthāruh
+
+    - |
+    Prepositions and conjunctions:
+
+        (a)	Final vowels of separable prepositions and conjunctions are retained in romanization.
+
+			anna				    أن
+			annahu				    أنه
+			bayna yadayhi			بين يديه
+
+        Note the special cases: مما mimmā, ممن mimman.
+
+        (b)	Inseparable prepositions, conjunctions, and other prefixes are connected with what follows by a hyphen.
+
+			bi-hi				    به
+			wa-ma‘ahu			    ومعه
+			lā-silkī				لاسلكي
+
+    - |
+    The definite article:
+
+        (a)	The romanized form al is connected with the following word by a hyphen.
+
+			al-kitāb al-thānī			الكتاب الثاني
+			al-ittiḥād			        الإتحاد
+			al-aṣl				        الأصل
+			al-āthār				    الآثار
+
+        (b)	When ال is initial in the word, and when it follows an inseparable preposition or conjunction, it is always romanized al regardless of whether the preceding word, as romanized, ends in a vowel or a consonant.
+
+			ilá al-ān				          الى الآن
+			Abū al-Wafā’			          ابو الوفاء
+			Maktabat al-Nahḍah al-Miṣrīyah 	  مكتبة النهضة المصرية
+			bi-al-tamām wa-al-kamāl	          بالتمام والكمال
+
+        Note the exceptional treatment of the preposition ل followed by the article:
+
+			lil-Shirbīnī			للشربيني
+
+        See also rule 23.
+
+        (c)	The ل of the article is always romanized l, whether it is followed by a “sun letter” or not, i.e., regardless of whether or not it is assimilated in pronunciation to the initial consonant of the word to which it is attached.
+
+			al-ḥurūf al-abjadīyah		الحروف الأبجدية
+			Abū al-Layth al-Samarqandī	ابو الليث السمرقندي
+
+    # Orthography of Arabic in Romanization
+    - |
+    Capitalization:
+
+        (a)	Rules for the capitalization of English are followed, except that the definite article al is given in lower case in all positions.
+
+        (b)	Diacritics are used with both upper and lower case letters.
+
+			al-Ījī				    الايجي
+			al-Ālūsī				الآلوسي
+
+    - |
+    The macron or the acute accent, as appropriate, is used to indicate all long vowels, including those which in Arabic script are written defectively.  The macron or the acute accent, as the case may be, is retained over final long vowels which are shortened in pronunciation before hamzat al-waṣl.
+
+			Ibrāhīm				إبراهيم ، إبرهيم
+			Dā’ūd				داؤود ، داؤد
+			Abū al-Ḥasan		ابو الحسن
+			ru’ūs				رؤوس
+			dhālika				ذلك
+			‘alá al-‘ayn		على العين
+
+    - |
+    The hyphen is used:
+
+        (a)	To connect the definite article al with the word to which it is attached.  See rule 17(a).
+
+        (b)	Between an inseparable prefix and what follows.  See rules 16(b) and 17(b) above.
+
+        (c)	Between bin and the following element in personal names when they are written in Arabic as a single word.  See rule 25.
+
+    - |
+    The prime ( ʹ ) is used:
+
+        (a)	To separate two letters representing two distinct consonantal sounds, when the combination might otherwise be read as a digraph.
+
+			Adʹham				أدهم
+			akramatʹhā			أكرمتها
+
+        (b)	To mark the use of a letter in its final form when it occurs in the middle of a word.
+
+			Qal‘ahʹjī				قلعه‌جى
+			Shaykhʹzādah			شيخ زاده
+
+    - |
+    As in the case of romanization from other languages, foreign words which occur in an Arabic context and are written in Arabic letters are romanized according to the rules for romanizing Arabic.
+
+		Jārmānūs (not Germanos nor Germanus)	جارمانوس
+		Lūrd Ghrānfīl (not Lord Granville)		لورد غرانفيل
+		Īsāghūjī (not Isagoge)				    ايساغوجي
+
+    For short vowels not indicated in the Arabic, the Arabic vowel nearest to the original pronunciation is supplied.
+
+		Gharsiyā Khayin (not García Jaén)		غرسيا خين
+
+    # Examples of Irregular Arabic Orthography
+
+    - |
+    Note the romanization of الله, alone and in combination.
+
+			Allāh				الله
+			billāh				
+			lillāh				
+			bismillāh			بسم الله
+			al-Mustanṣir billāh		
+
+    - |
+    Note the romanization of the following personal names:
+
+			Ṭāhā				طه
+			Yāsīn				يس ، يسن
+			‘Amr				عمرو
+			Bahjat				بهجت ، بهجة
+
+    - |
+    ابن and بن are both romanized ibn in all positions.
+
+		Aḥmad ibn Muḥammad ibn Abī al-Rabī‘	    احمد بن محمد بن ابي الربيع
+		Sharḥ Ibn ‘Aqīl ‘alá Alfīyat Ibn Mālik	شرح ابن عقيل على الفية ابن مالك
+
+    Exception is made in the case of modern names, typically North African, in which the element بن is pronounced bin.
+
+			Bin Khiddah			    بن خده
+			Bin-‘Abd Allāh			بنعبد الله
+
+    - Note the anomalous spelling مائة, romanized mi’ah.
+
+
+tests:
+    # From Rule 1 - part a
+  - source: وضع
+    expected: waḍ‘
+  - source: عوض
+    expected: ‘iwaḍ
+  - source: دلو
+    expected: dalw
+  - source: يد
+    expected: yad
+  - source: حيل
+    expected: ḥiyal
+  - source: طهي
+    expected: ṭahy
+
+    # From Rule 1 - part b
+  - source: أولى
+    expected: ūlá
+  - source: صورة
+    expected: ṣūrah
+  - source: ذو
+    expected: dhū
+  - source: إيمان
+    expected: īmān
+  - source: جيل
+    expected: jīl
+  - source: في
+    expected: fī
+  - source: كتاب
+    expected: kitāb
+  - source: سحاب
+    expected: saḥāb
+  - source: جمان
+    expected: jumān
+
+    # From Rule 1 - part c
+  - source: أوج
+    expected: awj
+  - source: نوم
+    expected: nawm
+  - source: لو
+    expected: law
+  - source: أيسر
+    expected: aysar
+  - source: شيخ
+    expected: shaykh
+  - source: عيني
+    expected: ‘aynay
+
+    # From Rule 4
+  - source: فعلوا
+    expected: fa‘alū
+  - source: أولائك
+    expected: ulā’ika
+  - source: أوقية
+    expected: ūqīyah
+
+    # From Rule 5
+  - source: فاعل
+    expected: fā‘il
+  - source: رضا
+    expected: riḍā
+
+    # From Rule 6 - part a
+  - source: حتَّى
+    expected: ḥattá
+  - source: مضَى
+    expected: maḍá
+  - source: كبرَى
+    expected: kubrá
+  - source: يحيَى
+    expected: Yaḥyá
+  - source: مسمَّى
+    expected: musamm
+  - source: مصطفَى
+    expected: Muṣṭafá
+
+    # From Rule 6 - part b
+  - source: رضي الدين
+    expected: Raḍī al-Dīn
+
+    # From Rule 6 - part c
+  - source: المصرِيّ
+    expected: al-Miṣrī
+
+    # From Rule 7 - part a
+  - source: صلاة
+    expected: ṣalāh
+  - source: الرسالة البهية
+    expected: al-Risālah al-bahīyah
+  - source: مرآة
+    expected: mir’āh
+  - source: أرجوزة فى الطب
+    expected: Urjūzah fī al-ṭibb
+
+    # From Rule 7 - part b
+  - source: وزارة التربية
+    expected: Wizārat al-Tarbiyah
+  - source: مرآة الزمان
+    expected: Mir’āt al-zamān
+
+    # From Rule 8 - part a
+  - source: أسد
+    expected: asad
+  - source: أنس
+    expected: uns
+  - source: إذا
+    expected: idhā
+  - source: مسألة
+    expected: mas’alah
+  - source: مؤتمر
+    expected: mu’tamar
+  - source: دائم
+    expected: dā’im
+  - source: ملأ
+    expected: mala’a
+  - source: خطئ
+    expected: khaṭi’a
+
+    # From Rule 9
+  - source: رحلة ٱبن جبير
+    expected: Riḥlat Ibn Jubayr
+  - source: الإستدراك
+    expected: al-istidrāk
+  - source: كتب ٱقتنتها
+    expected: kutub iqtanatʹhā
+  - source: باهتمام عبد ٱلمجيد
+    expected: bi-ihtimām ‘Abd al-Majīd
+
+    # From Rule 10 - part a
+  - source: آلة
+    expected: ālah
+  - source: كلية الآداب
+    expected: Kullīyat al-Ādāb
+
+    # From Rule 10 - part b
+  - source: تآليف
+    expected: ta’ālīf
+  - source: مآثر
+    expected: ma’āthir
+
+    # From Rule 10 - part c
+  - source: خلفآء
+    expected: khulafā’
+
+    # From Rule 11 - part a-1
+  - source: عدُوّ
+    expected: ‘adūw
+  - source: ُوّة
+    expected: qūwah
+
+    # From Rule 11 - part a-2
+  - source: شَوّال
+    expected: Shawwāl
+  - source: صَوّر
+    expected: ṣawwara
+  - source: جوّ
+    expected: jaww
+
+    # From Rule 11 - part b-1
+  - source: المصرِيّة
+    expected: al-Miṣrīyah
+
+    # From Rule 11 - part b-3
+  - source: َيّام
+    expected: ayyām
+  - source: سَيّد
+    expected: sayyid
+  - source: قصَيّ
+    expected: Quṣayy
+
+    # From Rule 11 - part c
+  - source: الغزّيّ
+    expected: al-Ghazzī
+  - source: الكشّاف
+    expected: al-Kashshāf
+
+    # From Rule 12 - part a
+  - source: قاضٍ
+    expected: qāḍin
+  - source: معنىً
+    expected: ma‘nan
+
+    # From Rule 12 - part b
+  - source: طبعًا
+    expected: ṭab‘an
+  - source: فجأةً
+    expected: faj’atan
+  - source: المشترك وضعاً
+    expected: al-Mushtarik waḍ‘an
+  - source: والمفترق صقعاً
+    expected: wa-al-muftariq ṣuq‘an
+
+    # From Rule 13
+  - source: من ولي مصر
+    expected: man waliya Miṣr
+  - source: معرفة ما يجب لهم
+    expected: ma‘rifat mā yajibu la-hum
+  - source: صلى الله عليه وسلم
+    expected: ṣallá Allāh ‘alayhi wa-sallam
+  - source: اللؤلؤ المكنون فى حكم
+    expected: al-Lu’lu’ al-maknūn fī ḥukm
+  - source: الإخبار عما سيكون
+    expected: al-ikhbār ‘ammā sa-yakūn
+
+    # From Rule 14 - part a
+  - source:  أصولها النفسية وطرق تدريسها
+    expected: uṣūluhā al-nafsīyah wa-ṭuruq tadrīsihā
+  - source: الى يومنا هذا
+    expected: ilá yawminā hādhā
+
+    # From Rule 15 - part a
+  - source: انا وانت
+    expected: anā wa-anta
+  - source: هذه الحال
+    expected: hādhihi al-ḥāl
+  - source: مؤلفاته وشروحها
+    expected: mu’allafātuhu wa-shurūḥuhā
+
+    # From Rule 15 - part b
+  - source: حياته وعصره
+    expected: ḥayātuhu wa-‘aṣruh
+  - source: توفيق الحكيم، أفكاره، آثاره
+    expected: Tawfīq al-Ḥakīm, afkāruh, āthāruh
+
+    # From Rule 16 - part a
+  - source: أن
+    expected: anna
+  - source: أنه
+    expected: annahu
+  - source: بين يديه
+    expected: bayna yadayhi
+
+    # From Rule 16 - part b
+  - source: به
+    expected: bi-hi
+  - source: ومعه
+    expected: wa-ma‘ahu
+  - source: لاسلكي
+    expected: lā-silkī
+
+    # From Rule 17 - part a
+  - source: الكتاب الثاني
+    expected: al-kitāb al-thānī
+  - source: الإتحاد
+    expected: al-ittiḥād
+  - source: الأصل
+    expected: al-aṣl
+  - source: الآثار
+    expected: al-āthār
+
+    # From Rule 17 - part b
+  - source: الى الآن
+    expected: ilá al-ān
+  - source: ابو الوفاء
+    expected: Abū al-Wafā’
+  - source: مكتبة النهضة المصرية
+    expected: Maktabat al-Nahḍah al-Miṣrīyah
+  - source: بالتمام والكمال
+    expected: bi-al-tamām wa-al-kamāl
+  - source: للشربيني
+    expected: lil-Shirbīnī
+
+    # From Rule 17 - part c
+  - source: الحروف الأبجدية
+    expected: al-ḥurūf al-abjadīyah
+  - source: ابو الليث السمرقندي
+    expected: Abū al-Layth al-Samarqandī
+
+    # From Rule 18 - part b
+  - source: الايجي
+    expected: al-Ījī
+  - source: الآلوسي
+    expected: al-Ālūsī
+
+    # From Rule 19
+  - source: إبراهيم ، إبرهيم
+    expected: Ibrāhīm
+  - source: داؤود ، داؤد
+    expected: Dā’ūd
+  - source: ابو الحسن
+    expected: Abū al-Ḥasan
+  - source: رؤوس
+    expected: ru’ūs
+  - source: ذلك
+    expected: dhālika
+  - source: على العين
+    expected: ‘alá al-‘ayn
+
+    # From Rule 21 - part a
+  - source: أدهم
+    expected: Adʹham
+  - source: أكرمتها
+    expected: akramatʹhā
+
+    # From Rule 21 - part b
+  - source: قلعه‌جى
+    expected: Qal‘ahʹjī
+  - source: شيخ زاده
+    expected: Shaykhʹzādah
+
+    # From Rule 22
+  - source: جارمانوس
+    expected: Jārmānūs # not Germanos nor Germanus
+  - source: لورد غرانفيل
+    expected: Lūrd Ghrānfīl # not Lord Granville
+  - source: ايساغوجي
+    expected: Īsāghūjī # not Isagoge
+  - source: غرسيا خين
+    expected: Gharsiyā Khayin # not García Jaén
+
+    # From Rule 23
+  - source: الله
+    expected: Allāh
+  - source: بسم الله
+    expected: bismillāh
+
+    # From Rule 24
+  - source: طه
+    expected: Ṭāhā
+  - source: يس ، يسن
+    expected: Yāsīn
+  - source: عمرو
+    expected: ‘Amr
+  - source: بهجت ، بهجة
+    expected: Bahjat
+
+    # From Rule 25
+  - source: احمد بن محمد بن ابي الربيع
+    expected: Aḥmad ibn Muḥammad ibn Abī al-Rabī‘
+  - source: شرح ابن عقيل على الفية ابن مالك
+    expected: Sharḥ Ibn ‘Aqīl ‘alá Alfīyat Ibn Mālik
+  - source: بن خده
+    expected: Bin Khiddah
+  - source: بنعبد الله
+    expected: Bin-‘Abd Allāh
+
+
+
+map:
+  characters:
+
+    # Initial
+    '\u0627': '' # ا -- omit (see Note 1)
+    '\ufe91': 'b' # ﺑ
+    '\ufe97': 't' # ﺗ
+    '\ufe9b': 'th' # ﺛ
+    '\ufe9f': 'j' # ﺟ
+    '\ufea3': 'ḥ' # ﺣ
+    '\ufea7': 'kh' # ﺧ
+    '\ufea9': 'd' # ﺩ
+    '\ufeab': 'dh' # ﺫ
+    '\ufead': 'r' # ﺭ
+    '\ufeaf': 'z' # ﺯ
+    '\ufeb3': 's' # ﺳ
+    '\ufeb7': 'sh' # ﺷ
+    '\ufebb': 'ṣ' # ﺻ
+    '\ufebf': 'ḍ' # ﺿ
+    '\ufec3': 'ṭ' # ﻃ
+    '\ufec7': 'ẓ' # ﻇ
+    '\ufecb': '‘' # ﻋ
+    '\ufecf': 'gh' # ﻏ
+    '\ufed3': 'f' # ﻓ -- see Note 2
+    '\ufed7': 'q' # ﻗ -- see Note 2
+    '\ufedb': 'k' # ﻛ
+    '\ufedf': 'l' # ﻟ
+    '\ufee3': 'm' # ﻣ
+    '\ufee7': 'n' # ﻧ
+    '\ufeeb': 'h' # ﻫ
+    '\ufeed': 'w' # ﻭ
+    '\ufef3': 'y' # ﻳ
+
+    # Medial
+    '\ufe8e': '' # ﺎ -- omit (see Note 1)
+    '\ufe92': 'b' # ﺒ
+    '\ufe98': 't' # ﺘ
+    '\ufe9c': 'th' # ﺜ
+    '\ufea0': 'j' # ﺠ
+    '\ufea4': 'ḥ' # ﺤ
+    '\ufea8': 'kh' # ﺨ
+    '\ufeaa': 'd' # ﺪ
+    '\ufeac': 'dh' # ﺬ
+    '\ufeae': 'r' # ﺮ
+    '\ufeb0': 'z' # ﺰ
+    '\ufeb4': 's' # ﺴ
+    '\ufeb8': 'sh' # ﺸ
+    '\ufebc': 'ṣ' # ﺼ
+    '\ufec0': 'ḍ' # ﻀ
+    '\ufec4': 'ṭ' # ﻄ
+    '\ufec8': 'ẓ' # ﻈ
+    '\ufecc': '‘' # ﻌ
+    '\ufed0': 'gh' # ﻐ
+    '\ufed4': 'f' # ﻔ -- see Note 2
+    '\ufed8': 'q' # ﻘ -- see Note 2
+    '\ufedc': 'k' # ﻜ
+    '\ufee0': 'l' # ﻠ
+    '\ufee4': 'm' # ﻤ
+    '\ufee8': 'n' # ﻨ
+    '\ufeec': 'h' # ﻬ -- see Note 3
+    '\ufeee': 'w' # ﻮ
+    '\ufef4': 'y' # ﻴ
+
+    # Final
+    '\ufe8e': '' # ﺎ -- omit (see Note 1)
+    '\ufe90': 'b' # ﺐ
+    '\ufe96': 't' # ﺖ
+    '\ufe9a': 'th' # ﺚ
+    '\ufe9e': 'j' # ﺞ
+    '\ufea2': 'ḥ' # ﺢ
+    '\ufea6': 'kh' # ﺦ
+    '\ufeaa': 'd' # ﺪ
+    '\ufeac': 'dh' # ﺬ
+    '\ufeae': 'r' # ﺮ
+    '\ufeb0': 'z' # ﺰ
+    '\ufeb1': 's' # ﺱ
+    '\ufeb6': 'sh' # ﺶ
+    '\ufeba': 'ṣ' # ﺺ
+    '\ufebe': 'ḍ' # ﺾ
+    '\ufec2': 'ṭ' # ﻂ
+    '\ufec6': 'ẓ' # ﻆ
+    '\ufeca': '‘' # ﻊ
+    '\ufece': 'gh' # ﻎ
+    '\ufed2': 'f' # ﻒ -- see Note 2
+    '\ufed6': 'q' # ﻖ -- see Note 2
+    '\ufeda': 'k' # ﻚ
+    '\ufede': 'l' # ﻞ
+    '\ufee2': 'm' # ﻢ
+    '\ufee6': 'n' # ﻦ
+    '\ufeea': 'h' # ﻪ -- see Note 3
+    '\u0629': 'h' # ة -- see Note 3
+    '\ufeee': 'w' # ﻮ
+    '\u064a': 'y' # ي
+
+    # Alone
+#   '\u0627': '' # ا  -- omit (see Note 1)
+    '\ufe8f': 'b' # ﺏ
+    '\ufe95': 't' # ﺕ
+    '\ufe99': 'th' # ﺙ
+    '\ufe9d': 'j' # ﺝ
+    '\ufea1': 'ḥ' # ﺡ
+    '\ufea5': 'kh' # ﺥ
+    '\ufea9': 'd' # ﺩ
+    '\ufeab': 'dh' # ﺫ
+    '\ufead': 'r' # ﺭ
+    '\ufeaf': 'z' # ﺯ
+    '\ufeb1': 's' # ﺱ
+    '\ufeb5': 'sh' # ﺵ
+    '\ufeb9': 'ṣ' # ﺹ
+    '\ufebd': 'ḍ' # ﺽ
+    '\ufec1': 'ṭ' # ﻁ
+    '\ufec5': 'ẓ' # ﻅ
+    '\ufec9': '‘' # ﻉ (ayn)
+    '\ufecd': 'gh' # ﻍ
+    '\ufed1': 'f' # ﻑ -- see Note 2
+    '\ufed5': 'q' # ﻕ -- see Note 2
+    '\ufed9': 'k' # ﻙ
+    '\ufedd': 'l' # ﻝ
+    '\ufee1': 'm' # ﻡ
+    '\ufee5': 'n' # ﻥ
+    '\u0647': 'h' # ه
+#   '\u0629': 'h' # ة
+    '\ufeed': 'w' # ﻭ
+#   '\u064a': 'y' # ي
+
+    # Vowels and Diphthongs
+    '\u064e': 'a'
+    '\u064f': 'u'
+    '\u0650': 'i'
+    '\u064e\u0627': 'ā' # see Rule 5
+    '\ufeef \u064e': 'á' # see Rule 6(a)
+    '\ufeed \u064f': 'ū'
+    '\ufeef \u0650': 'ī'
+    '\ufeed\u0652 \u064e': 'aw'
+    '\ufeef\u0652 \u064e': 'ay'
+
+    # Letters Representing Non-Arabic Consonants
+    # (this list in not exhaustive)
+    '\u06af': 'g' # گ
+    '\u06b4': 'ñ' # ڴ
+    '\u067e': 'p' # پ
+    '\u0686':
+        - 'ch' # چ
+        - 'zh'
+    '\u0698': 'zh' # ژ
+    '\u06a4': 'v' # ڤ
+    '\u06cb': 'v' # ۋ
+    '\u06a5': 'v' # ڥ
+
+    # Arabic standard Unicode block
+    '\u0600': '' # ؀
+    '\u0601': '' # ؁
+    '\u0602': '' # ؂
+    '\u0603': '' # ؃
+    '\u0604': '' # ؄
+    '\u0605': '' # ؅
+    '\u0606': '' # ؆
+    '\u0607': '' # ؇
+    '\u0608': '' # ؈
+    '\u0609': '' # ؉
+    '\u060a': '' # ؊
+    '\u060b': '' # ؋
+    '\u060c': '' # ،
+    '\u060d': '' # ؍
+    '\u060e': '' # ؎
+    '\u060f': '' # ؏
+    '\u0610': '' #  ؐ
+    '\u0611': '' #  ؑ
+    '\u0612': '' #  ؒ
+    '\u0613': '' #  ؓ
+    '\u0614': '' #  ؔ
+    '\u0615': '' #  ؕ
+    '\u0616': '' #  ؖ
+    '\u0617': '' #  ؗ
+    '\u0618': '' #  ؘ
+    '\u0619': '' #  ؙ
+    '\u061a': '' #  ؚ
+    '\u061b': '' # ؛
+    '\u061c': '' #
+    '\u061d': '' #
+    '\u061e': '' # ؞
+    '\u061f': '' # ؟
+    '\u0620': '' # ؠ
+    '\u0621': '' # ء
+    '\u0622': '' # آ
+    '\u0623': '' # أ
+    '\u0624': '' # ؤ
+    '\u0625': '' # إ
+    '\u0626': '' # ئ
+#   '\u0627': '' # ا -- omit
+    '\u0628': 'b' # ب
+#   '\u0629': 'h' # ة -- see Note 3
+    '\u062a': 't' # ت
+    '\u062b': 'th' # ث
+    '\u062c': 'j' # ج
+    '\u062d': 'ḥ' # ح
+    '\u062e': 'kh' # خ
+    '\u062f': 'd' # د
+    '\u0630': 'dh' # ذ
+    '\u0631': 'r' # ر
+    '\u0632': 'z' # ز
+    '\u0633': 's' # س
+    '\u0634': 'sh' # ش
+    '\u0635': 'ṣ' # ص
+    '\u0636': 'ḍ' # ض
+    '\u0637': 'ṭ' # ط
+    '\u0638': 'ẓ' # ظ
+    '\u0639': '‘' # ع
+    '\u063a': 'gh' # غ
+    '\u063b': '' # ػ
+    '\u063c': '' # ؼ
+    '\u063d': '' # ؽ
+    '\u063e': '' # ؾ
+    '\u063f': '' # ؿ
+    '\u0640': '' # ـ
+    '\u0641': 'f' # ف -- see Note 2
+    '\u0642': 'q' #  ق -- see Note 2
+    '\u0643': 'k' # ك
+    '\u0644': 'l' # ل
+    '\u0645': 'm' # م
+    '\u0646': 'n' # ن
+#   '\u0647': 'h' # ه -- see Note 3
+    '\u0648': 'w' # و
+    '\u0649': '' # ى
+#   '\u064a': 'y' # ي
+    '\u064b': '' #  ً
+    '\u064c': '' #  ٌ
+    '\u064d': '' #  ٍ
+    '\u064e': '' #  َ
+    '\u064f': '' #  ُ
+    '\u0650': '' #  ِ
+    '\u0651': '' #  ّ
+    '\u0652': '' #  ْ
+    '\u0653': '' #  ٓ
+    '\u0654': '' # ٔ
+    '\u0655': '' # ٕ
+    '\u0656': '' # ٖ
+    '\u0657': '' # ٗ
+    '\u0658': '' # ٘
+    '\u0659': '' # ٙ
+    '\u065a': '' #  ٚ
+    '\u065b': '' # ٛ
+    '\u065c': '' # ٜ
+    '\u065d': '' #  ٝ
+    '\u065e': '' # ٞ
+    '\u065f': '' # ٟ
+    '\u0660': '' # ٠
+    '\u0661': '' # ١
+    '\u0662': '' # ٢
+    '\u0663': '' # ٣
+    '\u0664': '' # ٤
+    '\u0665': '' # ٥
+    '\u0666': '' # ٦
+    '\u0667': '' # ٧
+    '\u0668': '' # ٨
+    '\u0669': '' # ٩
+    '\u066a': '' # ٪
+    '\u066b': '' # ٫
+    '\u066c': '' # ٬
+    '\u066d': '' # ٭
+    '\u066e': '' # ٮ
+    '\u066f': '' # ٯ
+    '\u0670': '' #  ٰ
+    '\u0671': '' # ٱ
+    '\u0672': '' # ٲ
+    '\u0673': '' # ٳ
+    '\u0674': '' # ٴ
+    '\u0675': '' # ٵ
+    '\u0676': '' # ٶ
+    '\u0677': '' # ٷ
+    '\u0678': '' # ٸ
+    '\u0679': '' # ٹ
+    '\u067a': '' # ٺ
+    '\u067b': '' # ٻ
+    '\u067c': '' # ټ
+    '\u067d': '' # ٽ
+#   '\u067e': 'p' # پ
+    '\u067f': '' # ٿ
+    '\u0680': '' # ڀ
+    '\u0681': '' # ځ
+    '\u0682': '' # ڂ
+    '\u0683': '' # ڃ
+    '\u0684': '' # ڄ
+    '\u0685': '' # څ
+#   '\u0686': 'ch' # چ
+    '\u0687': '' # ڇ
+    '\u0688': '' # ڈ
+    '\u0689': '' # ډ
+    '\u068a': '' # ڊ
+    '\u068b': '' # ڋ
+    '\u068c': '' # ڌ
+    '\u068d': '' # ڍ
+    '\u068e': '' # ڎ
+    '\u068f': '' # ڏ
+    '\u0690': '' # ڐ
+    '\u0691': '' # ڑ
+    '\u0692': '' # ڒ
+    '\u0693': '' # ړ
+    '\u0694': '' # ڔ
+    '\u0695': '' # ڕ
+    '\u0696': '' # ږ
+    '\u0697': '' # ڗ
+#   '\u0698': 'zh' # ژ
+    '\u0699': '' # ڙ
+    '\u069a': '' # ښ
+    '\u069b': '' # ڛ
+    '\u069c': '' # ڜ
+    '\u069d': '' # ڝ
+    '\u069e': '' # ڞ
+    '\u069f': '' # ڟ
+    '\u06a0': '' # ڠ
+    '\u06a1': '' # ڡ
+    '\u06a2': '' # ڢ
+    '\u06a3': '' # ڣ
+#   '\u06a4': 'v' # ڤ
+#   '\u06a5': 'v' # ڥ
+    '\u06a6': '' # ڦ
+    '\u06a7': '' # ڧ
+    '\u06a8': '' # ڨ
+    '\u06a9': '' # ک
+    '\u06aa': '' # ڪ
+    '\u06ab': '' # ګ
+    '\u06ac': '' # ڬ
+    '\u06ad': '' # ڭ
+    '\u06ae': '' # ڮ
+#   '\u06af': 'g' # گ
+    '\u06b0': '' # ڰ
+    '\u06b1': '' # ڱ
+    '\u06b2': '' # ڲ
+    '\u06b3': '' # ڳ
+#   '\u06b4': 'ñ' # ڴ
+    '\u06b5': '' # ڵ
+    '\u06b6': '' # ڶ
+    '\u06b7': '' # ڷ
+    '\u06b8': '' # ڸ
+    '\u06b9': '' # ڹ
+    '\u06ba': '' # ں
+    '\u06bb': '' # ڻ
+    '\u06bc': '' # ڼ
+    '\u06bd': '' # ڽ
+    '\u06be': '' # ھ
+    '\u06bf': '' # ڿ
+    '\u06c0': '' # ۀ
+    '\u06c1': '' # ہ
+    '\u06c2': '' # ۂ
+    '\u06c3': '' # ۃ
+    '\u06c4': '' # ۄ
+    '\u06c5': '' # ۅ
+    '\u06c6': '' # ۆ
+    '\u06c7': '' # ۇ
+    '\u06c8': '' # ۈ
+    '\u06c9': '' # ۉ
+    '\u06ca': '' # ۊ
+#   '\u06cb': 'v' # ۋ
+    '\u06cc': '' # ی
+    '\u06cd': '' # ۍ
+    '\u06ce': '' # ێ
+    '\u06cf': '' # ۏ
+    '\u06d0': '' # ې
+    '\u06d1': '' # ۑ
+    '\u06d2': '' # ے
+    '\u06d3': '' # ۓ
+    '\u06d4': '' # ۔
+    '\u06d5': '' # ە
+    '\u06d6': '' #  ۖ
+    '\u06d7': '' # ۗ
+    '\u06d8': '' # ۘ
+    '\u06d9': '' #  ۙ
+    '\u06da': '' #  ۚ
+    '\u06db': '' #  ۛ
+    '\u06dc': '' #  ۜ
+    '\u06dd': '' # ۝
+    '\u06de': '' # ۞
+    '\u06df': '' #  ۟
+    '\u06e0': '' #  ۠
+    '\u06e1': '' #  ۡ
+    '\u06e2': '' #  ۢ
+    '\u06e3': '' #  ۣ
+    '\u06e4': '' #  ۤ
+    '\u06e5': '' # ۥ
+    '\u06e6': '' # ۦ
+    '\u06e7': '' #  ۧ
+    '\u06e8': '' #  ۨ
+    '\u06e9': '' # ۩
+    '\u06ea': '' #  ۪
+    '\u06eb': '' #  ۫
+    '\u06ec': '' #  ۬
+    '\u06ed': '' #  ۭ
+    '\u06ee': '' # ۮ
+    '\u06ef': '' # ۯ
+    '\u06f0': '' # ۰
+    '\u06f1': '' # ۱
+    '\u06f2': '' # ۲
+    '\u06f3': '' # ۳
+    '\u06f4': '' # ۴
+    '\u06f5': '' # ۵
+    '\u06f6': '' # ۶
+    '\u06f7': '' # ۷
+    '\u06f8': '' # ۸
+    '\u06f9': '' # ۹
+    '\u06fa': '' # ۺ
+    '\u06fb': '' # ۻ
+    '\u06fc': '' # ۼ
+    '\u06fd': '' # ۽
+    '\u06fe': '' # ۾
+    '\u06ff': '' # ۿ
