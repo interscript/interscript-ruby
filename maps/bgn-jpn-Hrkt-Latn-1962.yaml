@@ -21,37 +21,48 @@ notes: |
   slightly to the right of or below the regular line. These characters
   are trasnliterated as k before k; s before s or sh; t before t, ts, or
   ch; and p before p. Occasionally, when a "ku" (ク/く) or "ki" (キ/き) form
-  precedes k, the u in ku or the i in ki is dropped. 
+  precedes k, the u in ku or the i in ki is dropped.
 
   2. The transliterations in parentheses are used in specific cases when
-  the kana symbol is known to be so pronounced. 
+  the kana symbol is known to be so pronounced.
 
-  3. The transliteration m is used before b, p, and m. 
+  3. The transliteration m is used before b, p, and m.
 
   4. This letter has been added for the use in transliterating foreign
-  words. 
+  words.
 
   5. The asterisk (*) indicates standard combined forms. Those combined
   forms not so marked are rarely used.
 
   ----
 
-  Additional Notes: 
+  Implementation Notes:
 
-  a. Despite the mentioning of the term "Modified Hepburn in the
+  a. Despite the mentioning of the term "Modified Hepburn" in the
   specification, the handling of ん/ン in this standard is different from
   Modified Hepburn. It follows the Traditional Hepburn in that the
-  letter m is used before b, m, p. 
+  letter m is used before b, m, p.
 
   b. This document includes obsolete (pre-reform) combinations.
+  Pre-reform combinations will clash with modern Japanese transliteration.
 
   c. There is no discussion on how cross-morpheme vowel sounds should be
   handled.
 
+  d. There is no mentioning of separation mark between n and another vowel.
+
+  e. Everything not explicitly stated in the specification will be
+  assumed to be inherited from var-jpn-Hrkt-Latn-hepburn-1954.
+
+  f. Obsolete combinations can be handled by post rules, and are
+  included for the sake of completeness only. They have been commented
+  out, since they are rarely used and follow different rules than modern
+  Japanese.
+
 tests:
   # Note: these test cases follow the pre-reform standard.
   # They are commented out for now.
-  # 
+  #
   # - source: "けふ"
   #   expected: "kyō"
   # - source: "ぎうにう"
@@ -92,7 +103,7 @@ map:
 
   inherit: var-jpn-Hrkt-Latn-hepburn-1954
 
-  rules: 
+  rules:
     # Convert ん into m before b, m, p
     - pattern: "[んン](?=[ばびぶべぼまみむめもぱぴぷぺぽバビブベボマミムメモパピプペポ])"
       result: "m"
@@ -100,7 +111,7 @@ map:
     # Handle obsolete forms
     # Note that these forms are present in the rules, but will break
     # if used with Modern Japanese. They are commented out for now.
-    # 
+    #
     # - pattern: "ef?[uo]|iyau"
     #   result: "yō"
     # - pattern: "if?u"
@@ -123,7 +134,7 @@ map:
   characters:
     # ke
     # These are listed as alternative pronunciation, but in fact this usage of ヶ
-    # as the archaic possessive marker is not found in Kana only texts. 
+    # as the archaic possessive marker is not found in Kana only texts.
     # Also it is always typed using the smaller form. (ヶ U+30F6)
     "け": ["ke", "ga", "ka", "ko"]
     "ケ": ["ke", ga", "ka", "ko"]
