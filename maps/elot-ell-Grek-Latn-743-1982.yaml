@@ -49,7 +49,7 @@ tests:
   - source: Γοίθιος
     expected: Goíthios
   - source: μπέικον
-    expected: béïkon
+    expected: béikon
   - source: μπέϊκον
     expected: béïkon
   - source: βόλεϊ
@@ -607,7 +607,6 @@ map:
     "\u0395\u03AA": "Εï"  # ΕΪ
     "\u0395\u03CA": "Εï"  # Εϊ
     "\u0388\u03CA": "Éï"  # Έϊ
-    "\u0388\u03CA": "Éï"  # Έι
     "\u0396": "Z"  # Ζ
     "\u0397": "I"  # Η
     "\u0398": "Th" # Θ
@@ -644,7 +643,7 @@ map:
     "\u03B5": "e"  # ε
     "\u03B5\u03CA": "eï"  # εϊ
     "\u03AD\u03CA": "éï"  # έϊ
-    "\u03AD\u03B9": "éï"  # έι
+    "\u03AD\u03B9": "éi"  # έι
     "\u03B6": "z"  # ζ
     "\u03B7": "i"  # η
     "\u03B8": "th" # θ
