@@ -12,8 +12,6 @@ description: |
 
 note:
   - Transliteration standard (reversible): Clause 3.1, Table 1
-  - Assuming that ou, au, eu transliterations are only intended for historical diphthongs /u, av, ev/, and that όυ, άυ, έυ are not to be transliterated as ou, au, eu
-  - Introduced casing to digamma and lunate sigma. (Casing was late introduction to character sets for those characters)
 
 map:
   character_separator: ""

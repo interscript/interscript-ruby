@@ -1,17 +1,18 @@
 ---
-authority_id: elot
-id: 2001
+authority_id: iso
+id: 1997
 language: ell
 source_script: Grek
 destination_script: Latn
-name: ELOT 743:2001
-url: https://docplayer.gr/docview/18/849832/#file=/storage/18/849832/849832.pdf
-creation_date: 2001
+name: ISO 843:1997
+url: 
+creation_date: 1997
 description: |
-  Reversible transliteration standard, ELOT
+  ISO Transcription table for Greek
 
 note:
-  - Transcription standard (reversible): Clause 3.1, Table 2
+  - Transliteration of Greek into Latin: Type 2, Clause 3 Table 2
+  - Introduced casing to digamma, yot, and lunate sigma. (Casing was late introduction to character sets for those characters)
 
 tests:
 
@@ -28,5 +29,13 @@ tests:
 map:
   character_separator: ""
   word_separator: " "
-  inherit: "iso-ell-Grek-Latn-843-1997-t2"
+  inherit: "elot-ell-Grek-Latn-743-1982"
+
+  characters:
+    "\u03DC": "W"   # Ϝ
+    "\u03DD": "w"   # ϝ
+    "\u03F2": "s"   # ϲ
+    "\u03F9": "S"   # Ϲ
+    "\u03F3": "j"
+    "\u037F": "j"
 
