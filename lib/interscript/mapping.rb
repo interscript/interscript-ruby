@@ -20,7 +20,10 @@ module Interscript
       :character_separator,
       :word_separator,
       :title_case,
-      :downcase
+      :downcase,
+      :dictionary,
+      :characters_hash,
+      :dictionary_hash
     )
 
     def initialize(system_code, options = {})
@@ -36,7 +39,7 @@ module Interscript
     end
 
     def load_and_serialize_system_mappings
-      if depth < 3
+      if depth < 5
         mappings = load_system_mappings
         serialize_system_mappings(mappings)
       end
@@ -79,20 +82,29 @@ module Interscript
       @rules = mappings["map"]["rules"] || []
       @postrules = mappings["map"]["postrules"] || []
       @characters = mappings["map"]["characters"] || {}
+      @dictionary = mappings["map"]["dictionary"] || {}
 
       include_inherited_mappings(mappings)
+      build_hashes
     end
 
     def include_inherited_mappings(mappings)
-      inherit_systems = mappings["map"]["inherit"]
+      inherit_systems = [].append(mappings["map"]["inherit"]).flatten
+      for inherit_system in inherit_systems do
+        if (inherit_system)
+          inherited_mapping = Mapping.for(inherit_system, depth: depth + 1)
 
-      if inherit_systems
-        inherited_mapping = Mapping.for(inherit_systems, depth: depth + 1)
-
-        @rules = [inherited_mapping.rules, rules].flatten
-        @postrules = [inherited_mapping.postrules, postrules].flatten
-        @characters = inherited_mapping.characters.merge(characters)
+          @rules = [inherited_mapping.rules, rules].flatten
+          @postrules = [inherited_mapping.postrules, postrules].flatten
+          @characters = (inherited_mapping.characters|| {}).merge(characters)
+          @dictionary = (inherited_mapping.dictionary|| {}).merge(dictionary)
+        end
       end
+    end
+
+    def build_hashes()
+      @characters_hash = characters&.sort_by { |k, _v| k.size }&.reverse&.to_h
+      @dictionary_hash = dictionary&.sort_by { |k, _v| k.size }&.reverse&.to_h
     end
   end
 end
