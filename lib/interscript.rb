@@ -25,6 +25,7 @@ module Interscript
       separator = mapping.character_separator || ""
       word_separator = mapping.word_separator || ""
       title_case = mapping.title_case
+      downcase = mapping.downcase
 
       charmap = mapping.characters&.sort_by { |k, _v| k.size }&.reverse&.to_h
 
@@ -46,7 +47,7 @@ module Interscript
       charmap.each do |k, v|
         while (match = output&.match(/#{k}/))
           pos = match.offset(0).first
-          result = up_case_around?(output, pos) ? v.upcase : v
+          result = !downcase && up_case_around?(output, pos) ? v.upcase : v
           result = result[0] if result.is_a?(Array) # if more than one, choose the first one
           output[pos, match[0].size] = add_separator(separator, pos, result)
         end
