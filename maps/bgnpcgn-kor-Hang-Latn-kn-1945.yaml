@@ -1,0 +1,46 @@
+---
+authority_id: bgnpcgn
+id: kn-1945
+language: kor
+source_script: Hang
+destination_script: Latn
+name: BGN/PCGN 1945 Agreement
+url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/693725/ROMANIZATION_OF_KOREAN-_MR_for_DPRK.pdf
+creation_date: 1945
+adoption_date:
+description:
+
+notes:
+  BGN/PCGN 1945 Agreement
+
+tests:
+  # TODO: Add R-onset rule test cases
+  - source: 비암덕
+    expected: "Piamdŏk"
+  - source: 바위안
+    expected: "Pawian"
+  - source: 오송평
+    expected: "Osongp’yŏng"
+  - source: 그물목
+    expected: "Kŭmulmok"
+  - source: 구원정
+    expected: "Kuwŏnjŏng"
+  - source: 일하
+    expected: "Irha"
+  - source: 황우
+    expected: "Hwangu"
+  - source: 자작보
+    expected: "Chajakpo"
+  - source: 비파1동
+    expected: "Pip’a Il-tong"
+  - source: 문암 오동
+    expected: "Munam O-dong"
+
+map:
+  character_separator: ""
+  word_separator: " "
+  title_case: True
+  inherit: [var-kor-Hang-Latn-mr-1939]
+
+  rules:
+    # Remove the r-onset rule

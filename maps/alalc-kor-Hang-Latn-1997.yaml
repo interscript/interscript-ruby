@@ -91,4 +91,4 @@ map:
   character_separator: ""
   word_separator: " "
   title_case: True
-  inherit: "bgn-kor-Hang-Latn-1939"
+  inherit: "var-kor-Hang-Latn-mr-1939"
