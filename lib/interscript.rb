@@ -5,14 +5,15 @@ require "interscript/mapping"
 
 # Transliteration
 module Interscript
+
   class << self
     def root_path
       @root_path ||= Pathname.new(File.dirname(__dir__))
     end
 
-    def transliterate_file(system_code, input_file, output_file)
+    def transliterate_file(system_code, input_file, output_file, maps)
       input = File.read(input_file)
-      output = transliterate(system_code, input)
+      output = transliterate(system_code, input, maps)
 
       File.open(output_file, 'w') do |f|
         f.puts(output)
@@ -20,14 +21,31 @@ module Interscript
       puts "Output written to: #{output_file}"
     end
 
-    def transliterate(system_code, string)
-      mapping = Interscript::Mapping.for(system_code)
+    def transliterate(system_code, string, maps={})
+      if (!maps.has_key?system_code)
+        maps[system_code] = Interscript::Mapping.for(system_code)
+      end
+      # mapping = Interscript::Mapping.for(system_code)
+      mapping = maps[system_code]
       separator = mapping.character_separator || ""
       word_separator = mapping.word_separator || ""
       title_case = mapping.title_case
       downcase = mapping.downcase
 
-      charmap = mapping.characters&.sort_by { |k, _v| k.size }&.reverse&.to_h
+      # charmap = mapping.characters&.sort_by { |k, _v| k.size }&.reverse&.to_h
+      # dictmap = mapping.dictionary&.sort_by { |k, _v| k.size }&.reverse&.to_h
+      charmap = mapping.characters_hash
+      dictmap = mapping.dictionary_hash
+
+      pos = 0
+      while pos < string.to_s.size
+        m = 0
+        while (pos + m < string.to_s.size) && (dictmap.has_key?string[pos..pos+m]) 
+          m += 1 
+        end
+        string[pos..pos+m-1] = dictmap[string[pos..pos+m-1]] if (m > 0)
+        pos += [m, 1].max
+      end
 
       output = string.clone
       offsets = Array.new string.to_s.size, 1
