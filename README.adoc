@@ -137,6 +137,59 @@ Pattern is a regex expression. It should be representing as a string without `//
 
 Result is a replacement a for pattern's match. It can contain a string, an Unicode characters specified by a hexadecimal number, a captured group reference. String with hexadecimal number or captured group reference should be double quoted. For example `"Y\u00eb"` or `"\\1\u00b7\\2"`. Captured group are referred by double backslash and group's number.
 
+Because rules are applied in order, multiple rules applicable to the same segment of a string can be addressed by rule ordering, and rules can be used as priority over characters. For example:
+
+[source,yaml]
+----
+map:
+  rules:
+    - pattern: \u03B3\u03B3    # γ (before Γ, Ξ, Χ)
+      result: ng
+    - pattern: (?<![Γγ])\u03B3(?=[ΕεέΗηήΙιίΥυύ])    # γ (before front vowels)
+      result: y
+----
+
+(γι maps to `yi`; but γγ maps to `ng`. In the case of γγι, the first rule takes priority, and the transliteration is `ngi`: it makes the second rule impossible.)
+
+[source,yaml]
+----
+map:
+  rules:
+    - pattern: (?<=\b)\u03BC[πΠ]    # μπ (initially)
+      result: b
+    - pattern: \u03BC[πΠ]    # μπ (medially)
+      result: mb
+----
+
+(The first rule applies at the start of a word; the second rule does not specify a context, as it applies in all other cases not covered by the first rule.)
+
+[source,yaml]
+----
+map:
+  rules:
+    - pattern: ";"
+      result: "?"
+
+  characters
+    "\u00B7": ";
+----
+
+(This guarantees that any `;` are converted to `?` before any new `;` are introduced; because all three are Latin script, they could be mixed up in ordering.)
+
+Normally rules "bleed" each other: once a rule applies to a segment, that segment cannot trigger other rules, because it is already converted to Roman. Exceptionally, it will be necessary to have a rule add or remove characters in the original script, rather than transliterate them, so that the same context can be invoked by two rules in succession:
+
+[source,yaml]
+----
+map:
+  rules:
+    - pattern: (?<=[АаЕеЁёИиОоУуЫыЭэЮюЯя])\u042b # Ы after any vowel character
+      result: "\u00b7Ы"
+    - pattern: \u042b(?=[АаУуЫыЭэ]) # Ы before а, у, ы, or э
+      result: "Ы\u00b7"
+----
+
+(If the result were "\u00B7Y", the second rule could not be applied afterwards; but we want ОЫУ to transliterate as `O·Y·U`. In order to make that happen, we preserve the Ы during the rules phase, resulting in О·Ы·У; we only convert the letters to Roman script in the `characters` phase.)
+
 === Testing transliteration systems
 
 To test all transliteration systems in `maps` directory run a command:

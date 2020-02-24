@@ -551,13 +551,13 @@ map:
       result: Ng
     - pattern: (?<!\b)\u03B3[Κκ]    # γ (before Κ medially)
       result: ng
-    - pattern: (?<![Γγ])\u0393(?=[ΕεέΗηήΙιίΥυύ])    # Γ (before front vowels)
+    - pattern: \u0393(?=[ΕεέΗηήΙιίΥυύ])    # Γ (before front vowels)
       result: Y
-    - pattern: (?<![Γγ])\u03B3(?=[ΕεέΗηήΙιίΥυύ])    # γ (before front vowels)
+    - pattern: \u03B3(?=[ΕεέΗηήΙιίΥυύ])    # γ (before front vowels)
       result: y
-    - pattern: (?<![Γγ])\u0393(?=[Oo][Ιιί])    # Γ (before front vowels)
+    - pattern: \u0393(?=[Oo][Ιιί])    # Γ (before front vowels)
       result: Y
-    - pattern: (?<![Γγ])\u03B3(?=[Oo][Ιιί])    # γ (before front vowels)
+    - pattern: \u03B3(?=[Oo][Ιιί])    # γ (before front vowels)
       result: y
     - pattern: (?<=\b)\u039D[τΤ]    # ΝΤ (initially)
       result: D
@@ -575,9 +575,9 @@ map:
       result: B
     - pattern: (?<=\b)\u03BC[πΠ]    # μπ (initially)
       result: b
-    - pattern: (?<!\b)\u039C[πΠ]    # ΜΠ (medially)
+    - pattern: \u039C[πΠ]    # ΜΠ (medially)
       result: Mb
-    - pattern: (?<!\b)\u03BC[πΠ]    # μπ (medially)
+    - pattern: \u03BC[πΠ]    # μπ (medially)
       result: mb
     - pattern: (?<=[νΝ])\u0394(?=[ρΡ])    # νδρ
       result: d
