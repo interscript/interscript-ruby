@@ -595,6 +595,10 @@ map:
       result: Mp
     - pattern: (?<!\b)\u03BC[πΠ]    # μπ (medially)
       result: mp
+    - pattern: \u037E   # ;
+      result: "?"
+    - pattern: \u003B   # ;
+      result: "?"
 
   characters:
     "\u0027": ""
@@ -676,8 +680,6 @@ map:
     "\u0390": "ḯ"  # ΐ
     "\u03B0": "ÿ́"  # ΰ
 
-    ";": "?"
-    "\u037E": "?"   # ;
     "\u0387": ";"   # ·
     "\u00B7": ";"   # ·
 

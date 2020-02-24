@@ -563,14 +563,14 @@ map:
       result: D
     - pattern: (?<=\b)\u03BD[τΤ]    # ντ (initially)
       result: d
-    - pattern: (?<!\b)\u039D[τΤ]    # ΝΤ (medially)
-      result: Nd
-    - pattern: (?<!\b)\u03BD[τΤ]    # ντ (medially)
-      result: nd
     - pattern: \u039D[τΤ][ζΖ]    # ΝΤΖ
       result: NTZ
     - pattern: \u03BD[τΤ][ζΖ]    # ντζ
       result: ntz
+    - pattern: (?<!\b)\u039D[τΤ]    # ΝΤ (medially)
+      result: Nd
+    - pattern: (?<!\b)\u03BD[τΤ]    # ντ (medially)
+      result: nd
     - pattern: (?<=\b)\u039C[πΠ]    # ΜΠ (initially)
       result: B
     - pattern: (?<=\b)\u03BC[πΠ]    # μπ (initially)
@@ -601,6 +601,10 @@ map:
       result: ï
     - pattern: (?<=[ΑΆαάΟΌοό])\u03AE    # αή, οή
       result: ḯ
+    - pattern: \u037E   # ;
+      result: "?"
+    - pattern: \u003B   # ;
+      result: "?"
 
   characters:
     "\u0027": ""
@@ -693,8 +697,6 @@ map:
     "\u0390": "ḯ"  # ΐ
     "\u03B0": "ḯ"  # ΰ
 
-    ";": "?"
-    "\u037E": "?"   # ;
     "\u0387": ";"   # ·
     "\u00B7": ";"   # ·
 
