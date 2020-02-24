@@ -1,29 +1,32 @@
-= Interscript: Interoperable Script Conversion Systems and a Ruby implementation
+= Interscript: Interoperable Script Conversion Systems, with a Ruby implementation
 
-image:https://github.com/riboseinc/interoperable-transliteration/workflows/test/badge.svg["Build Status", link="https://github.com/riboseinc/interoperable-transliteration/actions?workflow=test"]
+image:https://github.com/riboseinc/interscript/workflows/test/badge.svg["Build Status", link="https://github.com/riboseinc/interscript/actions?workflow=test"]
 
 == Introduction
 
-This repository contains a number of transliteration schemes from:
+This repository contains interoperable transliteration schemes from:
 
+* ALA-LC
 * BGN/PCGN
 * ICAO
 * ISO
 * UN (by UNGEGN)
+* Many, many other script conversion system authorities.
 
 The goal is to achieve interoperable transliteration schemes allowing quality comparisons.
 
-image:demo/20191118-interscript-demo-cast.gif["interscript screencast"]
 
+== Demonstration
 
-== STATUS (work in progress!)
-
-These transliteration systems currently work:
+These transliteration systems are used in the demo:
 
 `bgnpcgn-rus-Cyrl-Latn-1947`:: BGN/PCGN Romanization of Russian
 `iso-rus-Cyrl-Latn-iso9`::     ISO 9 Romanization of Russian
 `icao-rus-Cyrl-Latn-9303`::    ICAO MRZ Romanization of Russian
 `bas-rus-Cyrl-Latn-bss`::      Bulgaria Academy of Science Streamlined System for Russian
+
+image:demo/20191118-interscript-demo-cast.gif["interscript screencast"]
+
 
 == Installation
 
@@ -88,7 +91,12 @@ diff bgnpcgn-rus-Latn.txt bas-rus-Latn.txt
 
 == Adding transliteration system
 
-Transliteration systems stored in a `maps` directory as YAML files. You can create a new file and add it to the directory. The file shout be named as `<system-code>.yaml`.
+Transliteration systems stored in a `maps/` directory as YAML files.
+You can create a new file and add it to the directory.
+
+The file should be named as `<system-code>.yaml`, where `system-code`
+is in accordance with
+http://calconnect.gitlab.io/tc-localization/csd-transcription-systems[ISO/CC 24229].
 
 === File structure
 
@@ -127,9 +135,10 @@ map:
     "\u0412": "V"
 ----
 
+
 === Rules
 
-The subsection `rules` is placed in the `map` section. All rules are applied in order they are placed before the subsection `characters` applying. Rules apply to an original text, not to a result of previous rules applying.
+The subsection `rules` is placed under the `map` key. All rules are applied in order they are placed before the subsection `characters` applying. Rules apply to an original text, not to a result of previous rules applying.
 
 Each rule has `pattern` and `result` elements.
 
@@ -155,9 +164,9 @@ map:
 ----
 map:
   rules:
-    - pattern: (?<=\b)\u03BC[πΠ]    # μπ (initially)
+    - pattern: (?<=\b)\u03BC[πΠ]  # μπ (initially)
       result: b
-    - pattern: \u03BC[πΠ]    # μπ (medially)
+    - pattern: \u03BC[πΠ]         # μπ (medially)
       result: mb
 ----
 
@@ -176,7 +185,7 @@ map:
 
 (This guarantees that any `;` are converted to `?` before any new `;` are introduced; because all three are Latin script, they could be mixed up in ordering.)
 
-Normally rules "bleed" each other: once a rule applies to a segment, that segment cannot trigger other rules, because it is already converted to Roman. Exceptionally, it will be necessary to have a rule add or remove characters in the original script, rather than transliterate them, so that the same context can be invoked by two rules in succession:
+Normally rules "`bleed`" each other: once a rule applies to a segment, that segment cannot trigger other rules, because it is already converted to Roman. Exceptionally, it will be necessary to have a rule add or remove characters in the original script, rather than transliterate them, so that the same context can be invoked by two rules in succession:
 
 [source,yaml]
 ----
@@ -184,35 +193,42 @@ map:
   rules:
     - pattern: (?<=[АаЕеЁёИиОоУуЫыЭэЮюЯя])\u042b # Ы after any vowel character
       result: "\u00b7Ы"
-    - pattern: \u042b(?=[АаУуЫыЭэ]) # Ы before а, у, ы, or э
+    - pattern: \u042b(?=[АаУуЫыЭэ])              # Ы before а, у, ы, or э
       result: "Ы\u00b7"
 ----
 
-(If the result were "\u00B7Y", the second rule could not be applied afterwards; but we want ОЫУ to transliterate as `O·Y·U`. In order to make that happen, we preserve the Ы during the rules phase, resulting in О·Ы·У; we only convert the letters to Roman script in the `characters` phase.)
+(If the result were `\u00B7Y`, the second rule could not be applied afterwards; but we want ОЫУ to transliterate as `O·Y·U`. In order to make that happen, we preserve the Ы during the rules phase, resulting in О·Ы·У; we only convert the letters to Roman script in the `characters` phase.)
 
 === Testing transliteration systems
 
-To test all transliteration systems in `maps` directory run a command:
+To test all transliteration systems in the `maps/` directory, run:
 
 [source,sh]
 ----
 bundle exec rspec
 ----
 
-The command takes `source` texts from `test` section, transforma it using `rules` and `charmaps` from `map` section and compare resultat with `expected` text form `text` section.
+The command takes `source` texts from the `test` section, transforms
+them using `rules` and `charmaps` from the `map` key, and compares the
+results with `expected:` text from the `source:` section.
 
-To test specific transliteration system set environment variable `TRANSLIT_SYSTEM` to code of desired system. The code is name of YAML file without extension:
+To test a specific transliteration system, set the environment variable
+`TRANSLIT_SYSTEM` to the system code of the desired system
+(i.e. the "`basename`" of the system's YAML file):
 
 [source,sh]
 ----
 TRANSLIT_SYSTEM=bgnpcgn-rus-Cyrl-Latn-1947 bundle exec rspec
 ----
 
+
 == ISCS system codes
 
-The system code identifying a script conversion system has a few components:
+In accordance with
+http://calconnect.gitlab.io/tc-localization/csd-transcription-systems[ISO/CC 24229],
+the system code identifying a script conversion system has the following components:
 
-e.g. `bgnpcgn-rus-Cyrl-Latn-1947`
+e.g. `bgnpcgn-rus-Cyrl-Latn-1947`:
 
 `bgnpcgn`:: the authority identifier
 `rus`:: an ISO 639-2 3-letter language code that this system applies to
@@ -226,7 +242,7 @@ e.g. `bgnpcgn-rus-Cyrl-Latn-1947`
 Currently the schemes cover Cyrillic, Armenian, Greek, Arabic and Hebrew.
 
 
-== Sources
+== Samples to play with
 
 * `rus-Cyrl-1.txt`: Copied from the XLS output from http://www.primorsk.vybory.izbirkom.ru/region/primorsk?action=show&global=true&root=254017025&tvd=4254017212287&vrn=100100067795849&prver=0&pronetvd=0&region=25&sub_region=25&type=242&vibid=4254017212287
 
@@ -235,11 +251,15 @@ Currently the schemes cover Cyrillic, Armenian, Greek, Arabic and Hebrew.
 
 == Links to system definitions
 
-* ALA-LC Romanization systems from 1997 are available here: http://catdir.loc.gov/catdir/cpso/roman.html
-* ALA-LC Romanization systems in current use are here: https://www.loc.gov/catdir/cpso/roman.html
-* UN systems are available here: http://www.eki.ee/wgrs/
-
+* https://www.iso.org/committee/48750.html[ISO/TC 46 (see standards published by WG 3)]
+* http://geonames.nga.mil/gns/html/romanization.html[BGN/PCGN and BGN Romanization systems (BGN)]
+* https://www.gov.uk/government/publications/romanization-systems[BGN/PCGN Romanization systems (PCGN)]
+* https://www.loc.gov/catdir/cpso/roman.html[ALA-LC Romanization systems in current use]
+* http://catdir.loc.gov/catdir/cpso/roman.html[ALA-LC Romanization systems from 1997]
+* http://www.eki.ee/wgrs/[UN Romanization systems]
+* http://www.eki.ee/knab/kblatyl2.htm[EKI KNAB systems]
 
 == License
 
 Copyright Ribose.
+
