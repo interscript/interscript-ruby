@@ -17,8 +17,8 @@ note:
   - The vowels are taken from the specification, but some are controversial: /ɑ ɛ/ but /o/.
   - Stress is not indicated. (To do so in IPA would require syllabification in preprocessing, since stress is positioned at syllable breaks)
   - Followed specification in treating final μπ as b, but final ντ as nd. That distinction is dubious.
-  - τζ is not correctly transcribed as dz
-  - not reducing geminated consonants
+  - τζ is not correctly transcribed as dz: fixed
+  - not reducing geminated consonants: fixed
 
 tests:
 
@@ -50,11 +50,11 @@ tests:
         
         ksɛrɛtɛ potɛ nɑ lɛɣi o kɑθis «ɛɣo»? otɑn ɑɣonisti monos tu kɛ fkiɑsi i xɑlɑsi, nɑ lɛɣi «ɛɣo»; 
         
-        otɑn omos ɑɣonizondɛ polli kɛ fkiɑnun, totɛ nɑ lɛnɛ «ɛmis». imɑstɛ is to «ɛmis» ki oxi is to «ɛɣo». 
+        otɑn omos ɑɣonizondɛ poli kɛ fkiɑnun, totɛ nɑ lɛnɛ «ɛmis». imɑstɛ is to «ɛmis» ki oxi is to «ɛɣo». 
         
         kɛ is to ɛksis nɑ mɑθomɛn ɣnosi, ɑn θɛlomɛn nɑ fkiɑsomɛn xorion, nɑ zisomɛn oli mɑzi.
        
-        ɣiɑnnis mɑkriɣiɑnnis.
+        ɣiɑnis mɑkriɣiɑnis.
 
 
   - source: ΑΘΗΝΑ
@@ -90,7 +90,7 @@ tests:
   - source: Εϊγιαφιάτλαγιοκουτλ
     expected: ɛiɣiɑfiɑtlɑɣiokutl
   - source: Εΐτζι
-    expected: ɛitzi
+    expected: ɛidzi
   - source: Μυρτώο
     expected: mirtoo
   - source: αέρας
@@ -121,7 +121,7 @@ tests:
   - source: Αμοργός
     expected: ɑmorɣos
   - source: Άμφισσα
-    expected: ɑmfissɑ
+    expected: ɑmfisɑ
   - source: Αράχωβα
     expected: ɑrɑxovɑ
   - source: Άργος
@@ -145,7 +145,7 @@ tests:
   - source: Γαλάτσι
     expected: ɣɑlɑtsi
   - source: Γιαννιτσά
-    expected: ɣiɑnnitsɑ
+    expected: ɣiɑnitsɑ
   - source: Γλυφάδα
     expected: ɣlifɑðɑ
   - source: Γρανίτσα
@@ -165,7 +165,7 @@ tests:
   - source: Δωδεκάνησα
     expected: ðoðɛkɑnisɑ
   - source: Έδεσσα
-    expected: ɛðɛssɑ
+    expected: ɛðɛsɑ
   - source: Ελευσίνα
     expected: ɛlɛfsinɑ
   - source: Επίδαυρος
@@ -175,7 +175,7 @@ tests:
   - source: Ερμούπολη
     expected: ɛrmupoli
   - source: Εύβοια
-    expected: ɛvviɑ
+    expected: ɛviɑ
   - source: Ζάκυνθος
     expected: zɑkinθos
   - source: Ήπειρος
@@ -185,9 +185,9 @@ tests:
   - source: Θάσος
     expected: θɑsos
   - source: Θεσσαλονίκη
-    expected: θɛssɑloniki
+    expected: θɛsɑloniki
   - source: Θεσσαλία
-    expected: θɛssɑliɑ
+    expected: θɛsɑliɑ
   - source: Θεσπρωτία
     expected: θɛsprotiɑ
   - source: Θήβα
@@ -199,7 +199,7 @@ tests:
   - source: Ίος
     expected: ios
   - source: Ιωάννινα
-    expected: ioɑnninɑ
+    expected: ioɑninɑ
   - source: Καβάλα
     expected: kɑvɑlɑ
   - source: Καλάβρυτα
@@ -219,7 +219,7 @@ tests:
   - source: Κάρυστος
     expected: kɑristos
   - source: Καστελλόριζο
-    expected: kɑstɛllorizo
+    expected: kɑstɛlorizo
   - source: Καστοριά
     expected: kɑstoriɑ
   - source: Κατερίνη
@@ -231,7 +231,7 @@ tests:
   - source: Κέρκυρα
     expected: kɛrkirɑ
   - source: Κεφαλλονιά
-    expected: kɛfɑlloniɑ
+    expected: kɛfɑloniɑ
   - source: Κηφισιά
     expected: kifisiɑ
   - source: Κιλκίς
@@ -339,7 +339,7 @@ tests:
   - source: Πειραιάς
     expected: pirɛɑs
   - source: Πελοπόννησος
-    expected: pɛloponnisos
+    expected: pɛloponisos
   - source: Περιστέρι
     expected: pɛristɛri
   - source: Πεύκη
@@ -373,7 +373,7 @@ tests:
   - source: Σαντορίνη
     expected: sɑndorini
   - source: Σέρρες
-    expected: sɛrrɛs
+    expected: sɛrɛs
   - source: Σίκινος
     expected: sikinos
   - source: Σίφνος
@@ -387,7 +387,7 @@ tests:
   - source: Σπάρτη
     expected: spɑrti
   - source: Στερεά Ελλάδα
-    expected: stɛrɛɑ ɛllɑðɑ
+    expected: stɛrɛɑ ɛlɑðɑ
   - source: Στύρα
     expected: stirɑ
   - source: Σύμη
@@ -447,7 +447,7 @@ tests:
   - source: Βερόνα
     expected: vɛronɑ
   - source: Βιέννη
-    expected: viɛnni
+    expected: viɛni
   - source: Γένοβα
     expected: ɣɛnovɑ
   - source: Δουβλίνο
@@ -481,7 +481,7 @@ tests:
   - source: Μάλαγα
     expected: mɑlɑɣɑ
   - source: Μασσαλία
-    expected: mɑssɑliɑ
+    expected: mɑsɑliɑ
   - source: Μικρονησία
     expected: mikronisiɑ
   - source: Μιλάνο
@@ -525,9 +525,9 @@ tests:
   - source: Ταταρστάν
     expected: tɑtɑrstɑn
   - source: Τζαμάικα
-    expected: tzɑmɑikɑ
+    expected: dzɑmɑikɑ
   - source: Τηλλυρία
-    expected: tilliriɑ
+    expected: tiliriɑ
   - source: Τιρόλο
     expected: tirolo
   - source: Τορίνο
@@ -606,7 +606,7 @@ map:
       result: n
     - pattern: \u03B3(?=[ξΞχΧ])    # γ (before Γ, Ξ, Χ)
       result: n
-    - pattern: (?<!\b)ss\u0393[Γγ]    # Γ (before Γ)
+    - pattern: (?<!\b)\u0393[Γγ]    # Γ (before Γ)
       result: ŋɡ
     - pattern: (?<!\b)\u03B3\u03B3    # γ (before Γ)
       result: ŋɡ
@@ -658,6 +658,10 @@ map:
       result: i
     - pattern: \u03BF[Ιιί] # οι
       result: i
+    - pattern: \u03A4[ζΖ] # Τζ
+      result: dz
+    - pattern: \u03c4[ζΖ] # Τζ
+      result: dz
 
   characters:
     "\u0027": ""
@@ -742,3 +746,33 @@ map:
     "\u037E": "?"   # ;
     "\u0387": ";"   # ·
     "\u00B7": ";"   # ·
+    
+  postrules:
+    - pattern: vv
+      result: "v"  
+    - pattern: ðð
+      result: "ð"  
+    - pattern: zz
+      result: "z"  
+    - pattern: θθ
+      result: "θ"  
+    - pattern: kk
+      result: "k"  
+    - pattern: ll
+      result: "l"  
+    - pattern: mm
+      result: "m"  
+    - pattern: nn
+      result: "n"  
+    - pattern: pp
+      result: "p"  
+    - pattern: rr
+      result: "r"  
+    - pattern: ss
+      result: "s"  
+    - pattern: tt
+      result: "t"  
+    - pattern: ff
+      result: "f"  
+    - pattern: xx
+      result: "x"  
