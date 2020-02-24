@@ -42,6 +42,8 @@ module Interscript
           output[offsets[0...pos].sum, match[0].size] = result
           offsets[pos] += result.size - match[0].size
         end
+        string = output.clone
+      offsets = Array.new string.to_s.size, 1
       end
 
       charmap.each do |k, v|

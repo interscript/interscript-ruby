@@ -521,45 +521,45 @@ map:
       result: f
     - pattern: (?<=[ΑαΕεΗη])\u03C5(?=\b)    # υ (after Α, Ε, Η)
       result: f
-    - pattern: (?<=[ΑαΕεΗη])\u03A5(?![θΘκΚξΞπΠσΣςτΤφΦχΧψΨ]|\b)    # Υ (after Α, Ε, Η)
+    - pattern: (?<=[ΑαΕεΗη])\u03A5    # Υ (after Α, Ε, Η)
       result: V
-    - pattern: (?<=[ΑαΕεΗη])\u03C5(?![θΘκΚξΞπΠσΣςτΤφΦχΧψΨ]|\b)    # υ (after Α, Ε, Η)
+    - pattern: (?<=[ΑαΕεΗη])\u03C5    # υ (after Α, Ε, Η)
       result: v
     - pattern: \u0391\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])    # Αύ
       result: Áf
     - pattern: \u0391\u03CD(?=\b)    # Αύ
       result: Áf
-    - pattern: \u0391\u03CD(?![θΘκΚξΞπΠσΣςτΤφΦχΧψΨ]|\b)    # Αύ
+    - pattern: \u0391\u03CD    # Αύ
       result: Áv
     - pattern: \u03B1\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])    # Αύ
       result: áf
     - pattern: \u03B1\u03CD(?=\b)    # Αύ
       result: áf
-    - pattern: \u03B1\u03CD(?![θΘκΚξΞπΠσΣςτΤφΦχΧψΨ]|\b)    # Αύ
+    - pattern: \u03B1\u03CD    # Αύ
       result: áv
     - pattern: \u0395\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])    # Εύ
       result: Éf
     - pattern: \u0395\u03CD(?=\b)    # Εύ
       result: Éf
-    - pattern: \u0395\u03CD(?![θΘκΚξΞπΠσΣςτΤφΦχΧψΨ]|\b)    # Εύ
+    - pattern: \u0395\u03CD    # Εύ
       result: Év
     - pattern: \u03B5\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])    # Εύ
       result: éf
     - pattern: \u03B5\u03CD(?=\b)    # Εύ
       result: éf
-    - pattern: \u03B5\u03CD(?![θΘκΚξΞπΠσΣςτΤφΦχΧψΨ]|\b)    # Εύ
+    - pattern: \u03B5\u03CD    # Εύ
       result: év
     - pattern: \u0397\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])    # Εύ
       result: Íf
     - pattern: \u0397\u03CD(?=\b)    # Εύ
       result: Íf
-    - pattern: \u0397\u03CD(?![θΘκΚξΞπΠσΣςτΤφΦχΧψΨ]|\b)    # Εύ
+    - pattern: \u0397\u03CD    # Εύ
       result: Ív
     - pattern: \u03B7\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])    # Εύ
       result: íf
     - pattern: \u03B7\u03CD(?=\b)    # Εύ
       result: íf
-    - pattern: \u03B7\u03CD(?![θΘκΚξΞπΠσΣςτΤφΦχΧψΨ]|\b)    # Εύ
+    - pattern: \u03B7\u03CD    # Εύ
       result: ív
     - pattern: (?<=[Οο])\u03A5    # Υ (after Ο)
       result: U
@@ -595,6 +595,10 @@ map:
       result: Mp
     - pattern: (?<!\b)\u03BC[πΠ]    # μπ (medially)
       result: mp
+    - pattern: \u037E   # ;
+      result: "?"
+    - pattern: \u003B   # ;
+      result: "?"
 
   characters:
     "\u0027": ""
@@ -675,8 +679,6 @@ map:
     "\u0390": "ḯ"  # ΐ
     "\u03B0": "ÿ́"  # ΰ
 
-    ";": "?"
-    "\u037E": "?"   # ;
     "\u0387": ";"   # ·
     "\u00B7": ";"   # ·
 
