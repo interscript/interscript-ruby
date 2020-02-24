@@ -542,6 +542,10 @@ map:
       result: B
     - pattern: (?<=\b)\u03BC\u03C0    # μπ
       result: b
+    - pattern: \u037E   # ;
+      result: "?"
+    - pattern: \u003B   # ;
+      result: "?"
 
   characters:
     "\u0027": ""
@@ -616,8 +620,6 @@ map:
     "\u0390": "i"  # ΐ
     "\u03B0": "y"  # ΰ
 
-    ";": "?"
-    "\u037E": "?"   # ;
     "\u0387": ";"   # ·
     "\u00B7": ";"   # ·
 

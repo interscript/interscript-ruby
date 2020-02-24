@@ -522,6 +522,10 @@ map:
       result: u
     - pattern: (?<=[ΑαΕεΟο])\u03CD    # ύ (after Ο)
       result: ú      
+    - pattern: \u037E   # ;
+      result: "?"
+    - pattern: \u003B   # ;
+      result: "?"
 
   characters:
     "\u0027": ""
@@ -601,7 +605,6 @@ map:
     "\u03F2": "s"   # ϲ
     "\u03F9": "S"   # Ϲ
 
-    ";": "?"
-    "\u037E": "?"   # ;
     "\u0387": ";"   # ·
     "\u00B7": ";"   # ·
+
