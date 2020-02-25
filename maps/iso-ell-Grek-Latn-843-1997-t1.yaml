@@ -12,7 +12,7 @@ description: |
 
 note:
   - Transliteration of Greek into Latin: Type 1, Clause 3 Table 1
-  - Equivalent to elot-ell-Grek-Latn-reversible-743-2001, the transliteration table of ELOT 743:2001
+  - Equivalent to elot-ell-Grek-Latn-743-2001-ts, the transliteration table of ELOT 743:2001
   - Assuming that ou, au, eu transliterations are only intended for historical diphthongs /u, av, ev/, and that όυ, άυ, έυ are not to be transliterated as ou, au, eu
   - Introduced casing to digamma and lunate sigma. (Casing was late introduction to character sets for those characters)
 
