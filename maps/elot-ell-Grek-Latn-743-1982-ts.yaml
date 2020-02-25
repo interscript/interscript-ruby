@@ -5,13 +5,17 @@ language: ell
 source_script: Grek
 destination_script: Latn
 name: ELOT 743:1982
-url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/693694/ROMANIZATION_OF_GREEK.pdf
+url: 
 creation_date: 1982
 description: |
-  BGN/PCGN Romanization table for Greek; 
+  ELOT 743:1982 transcription table for Greek.
 
 note:
   - Also adopted as ISO 843:1997, by United Nations Group of Experts on Geographical Names (UNGEGN) (http://www.eki.ee/wgrs), and as the BGN/PCGN 1996 transliteration.
+  - "Transliteration" as used in this specification and its inheritors refers to reversible transliteration, as distinct fro
+m "transcription", which is a simpler transliteration and which is intended for default use.
+
+
 
 tests:
 
