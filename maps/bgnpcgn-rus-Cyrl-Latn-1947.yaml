@@ -187,6 +187,10 @@ tests:
 
 map:
   rules:
+    - pattern: (?<=[АаЕеЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\u0401 # Ё after a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь
+      result: "Y\u00eb"
+    - pattern: (?<=[АаЕеЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\u0451 # ё after a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь
+      result: "y\u00eb"
     - pattern: (?<=[АаЕеЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\u0415 # Е after a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь
       result: "Y\u0415"
     - pattern: \b\u0415 # Е initially
@@ -212,13 +216,13 @@ map:
     - pattern: (?<=[АаЕеЁёИиОоУуЫыЭэЮюЯя])\u044b(?=[АаУуЫыЭэ]) # ы after any vowel character and before а, у, ы, or э
       result: "\u00b7y\u00b7"
     - pattern: \u042b(?=[АаУуЫыЭэ]) # Ы before а, у, ы, or э
-      result: "Y\u00b7"
+      result: "Ы\u00b7"
     - pattern: \u044b(?=[АаУуЫыЭэ]) # ы before а, у, ы, or э
-      result: "y\u00b7"
-    - pattern: (?<=[АаЕеЁёИиОоУуЫыЭэЮюЯя])\u042b # Ы after any vowel character
-      result: "\u00b7Y"
-    - pattern: (?<=[АаЕеЁёИиОоУуЫыЭэЮюЯя])\u044b # ы after any vowel character
-      result: "\u00b7y"
+      result: "ы\u00b7"
+    - pattern: \b\u0401
+      result: "Y\u00eb"
+    - pattern: \b\u0451
+      result: "y\u00eb"
     - pattern: (?<=[БбВвГгДдЖжЗзКкЛлМмНнПпРрСсТтФфХхЦцЧчШшЩщ])\u042d # Э after any consonant character except й
       result: "\u00b7E"
     - pattern: (?<=[БбВвГгДдЖжЗзКкЛлМмНнПпРрСсТтФфХхЦцЧчШшЩщ])\u044d # э after any consonant character except й

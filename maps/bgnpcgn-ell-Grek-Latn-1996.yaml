@@ -16,5 +16,5 @@ note:
 map:
   character_separator: ""
   word_separator: " "
-  inherit: "elot-ell-Grek-Latn-743-1982"
+  inherit: "elot-ell-Grek-Latn-743-1982-ts"
 

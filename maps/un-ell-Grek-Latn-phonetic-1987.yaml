@@ -12,11 +12,19 @@ description: |
 
 
 note: 
+<<<<<<< HEAD
   - Also included in ISO 843:1997, Annex B, Column 5.
   - Corrected obvious errors: χ > x, x > ks, oï > oi.
   - The vowels are taken from the specification, but some are controversial: /ɑ ɛ/ but /o/.
   - Stress is not indicated. (To do so in IPA would require syllabification in preprocessing, since stress is positioned at syllable breaks)
   - Followed specification in treating final μπ as b, but final ντ as nd. That distinction is dubious.
+=======
+  - Also included in ISO 843:1997, Annex B, Column 5, and ELOT 743:1982, column 5.
+  - Corrected obvious errors, which occur every time the table has reappeared: χ > x, x > ks, oï > oi.
+  - The vowels are taken from the specification, but some are controversial: /ɑ ɛ/ but /o/.
+  - Stress is not indicated. (To do so in IPA would require syllabification in preprocessing, since stress is positioned at syllable breaks)
+  - Followed specification in treating final μπ as b, but final ντ as nd. That distinction is dubious. (In ELOT 743:1982, both d and nd are erroneously marked as initial, and no final is given.)
+>>>>>>> greek
   - τζ is not correctly transcribed as dz: fixed
   - not reducing geminated consonants: fixed
 
