@@ -1,47 +1,55 @@
 = Script conversions: Proposal
 
-Ref: [Unicode Transforms]
-(https://unicode.org/reports/tr35/tr35-general.html#Transforms)
+== Purpose
+
+Ref: https://unicode.org/reports/tr35/tr35-general.html#Transforms[Unicode Transforms]
 
 The goal of this document is to outline a language specification that handles all possible types of script conversions.
 
 This language should give all necessary information on how the transform is done. If an external process or reference is required, this should also be specified by the language.
 
-== Definitions
+== Terms and definitions
 
-=== Language
+=== language
 
 Refers to linguistic varieties that are spoken, signed, or written.
 
-=== Textual representation
+=== textual representation
 
 A convention on how a language is represented textually. English written in the Latin script is a textual representation of the language. If a particular language has a standard orthography, the standard orthography is likely to be its most common textual representation. Specification on formatting (layout, spacing, font, etc.), alignment, writing direction is not the scope of textual representation.
 
-=== Transformation
+=== transformation
 
-The process by which conversion is performed between two textual representations.
+process by which conversion is performed between two textual representations
 
-=== Transform
+=== transform
 
-A system of tranformation, specifically defined for the conversion between two particular textual representations
+action of tranformation, specifically of the conversion between two particular textual representations
 
-=== Script
+=== script
 
-A set of symbols (characters) used in written languages. Note that the same script can be used for multiple languages, and different subsets of the same script may utilized when writing different languages. Note that a textual representation can contain one script or a mixture of scripts.
+set of symbols (characters) used in written languages
 
-=== Grapheme
+NOTE: The same script can be used for multiple languages, and different subsets (or supersets) of the same script may utilized when writing different languages. A textual representation can contain one script or a mixture of scripts.
 
-A basic element, usually a character (or a combination of characters), in a particular textual representation.
+=== grapheme
 
-=== Phoneme
+basic element, usually a character (or a combination of characters), in a particular textual representation
 
-A basic sound unit of a spoken language that can form meaningful contrasts with other units.
+=== phoneme
+
+basic sound unit of a spoken language that can form meaningful contrasts with other units
+
+=== geoname
+
+proper noun used as a designation to identify a geographic feature
+
 
 == Nature of the script conversion process
 
 === Types
 
-Script conversion is common calssified according to the nature of the conversion. The two main types are transliteration and transcription.
+Script conversion is common classified according to the nature of the conversion. The two main types are transliteration and transcription.
 
 *Transliteration* concerns the conversion between two scripts that are basically grapheme-to-grapheme correspondance. The grapheme-to-phoeneme correspondance is preserved to some extent (so that for any grapheme pair (a,b) in the G2G relation, G2Ps(a) and G2Pd(b) are often similar sounds), but such overlap is done for the convenience of the users and is not a requirement for transliteration.
 
@@ -51,17 +59,20 @@ For both transliteration and transcription, the destination script can be the sa
 
 The crucial difference is that transcription has an extra step: grapheme-to-phoneme conversion of the source language.
 
-There are other types of script conversion, such as character transformation within the same script (e.g. Full-width <-> Half-width for Kana, Punctuation, etc.), Normalization (e.g. NFC<->NFD), or different versions of the same script (German before and after the spelling reform that removes `ß`), or spelling conversions between two closely related languages (e.g. American to British English).
+There are other types of script conversion, such as character transformation within the same script (e.g. Full-width <-> Half-width for Kana, punctuation, etc.), Normalization (e.g. NFC<->NFD), or different versions of the same script (German before and after the spelling reform that removes `ß`), or spelling conversions between two closely related languages (e.g. American to British English).
+
 
 === Information represented
 
-A textual representation often does not retain all information of the language. The source and target textual representations will inevitably retain different information. In such case, linguistic and world knwolege will be needed to uncover information that is missing in the source textual representation but is required in the target textual representation.
+==== General
+
+A textual representation often does not retain all information of the language. The source and target textual representations will inevitably retain different information. In such case, linguistic and world knowledge will be needed to uncover information that is missing in the source textual representation but is required in the target textual representation.
 
 For instance, English written in the Latin script preserves historical spelling of the language, whether or not it is proper noun, etc., but does not indicate the actual pronunciation of words. English transcribed in the IPA alphabet, on the other hand, indicates how a word is pronounced, but does not contain semantic information for homophones.
 
 The mismatch in two systems presents great challenge to a transformation system, due to which many transforms will never be 100% accurate, making roundtrip conversion impossible.
 
-Here is a list of information mismatch that should be considered.
+Here is a list of information mismatches that should be considered.
 
 1. Phonemicity
 
@@ -70,8 +81,10 @@ Scripts that are phonemic in nature vary in phonemicity (the relation between gr
 
 2. Boundary-marking
 
-Most languages use space to mark word boundaries, and punctuations to mark sentence boundaries. This is not true for many East Asian languages (e.g. Chinese, Japanese, Thai). To transform a textual representation in Chinese (Hani) into Latin (Latn) transcription requires an additional process of segmentation.
+Most languages use space to mark word boundaries, and punctuations to mark sentence boundaries. This is not true for many East Asian languages (e.g. Chinese, Japanese, Thai). To transform a textual representation in Chinese (`Hani`) into Latin (`Latn`) transcription requires an additional process of segmentation.
+
 There may also be requirements to mark boundaries between place names and generics (road, district, county, prefecture), or hyphenate different syllables of first names, etc.
+
 The marking of boundaries using space, hyphenation, punctuations, new line or even change of script is a feature of each textual representation. These requirements need to be specified in the language.
 
 3. Casing
@@ -87,31 +100,35 @@ For example, the transliteration of Place names may follow a slightly different 
 
 Some languages utilize multiple scripts. Japanese uses at least three scripts: Hiragana, Katakana, and Kanji, which reflects the historical origin of a word or for different purposes (e.g. Katakana for animal names or non-Sinitic foreign words). Some languages allow the use of multiple scripts within one (e.g. Serbian) for emphasis. The use of script contains important information for segmentation or semantic disambiguation.
 
-Any of the above factors can affect the accuracy of the transform task, or worse, rendering the problem unresolveable. These should be clearly documented when a transform is created.
+Any of the above factors can affect the accuracy of the transform task, or worse, rendering the problem unresolvable. These should be clearly documented when a transform is created.
 
 == Nature of the Transform
 
 Take transcription as an example. The transcription of a language with a shallow orthography will be way easier than an ideographic script. A source textual representation with explicit marking of name-entities will be easier to handle than one that does not. This is not a language-specific problem. In fact, it is determined by the task, the nature of the transform, rather than the (ir)regularity of a textual representation (e.g. the standard written language).
 
-Parameters related to the nature of the transform is specified under the key `trasnform`.
+Parameters related to the nature of the transform is specified under the key `transform`.
 
 === Source and Target textual representations
 
 `source` is a list containing all textual representations for the source. If two textual representations are provided as the source, then source should be a list that contains two elements. Each of them should be a dictionary entry like this:
 
-``
+[source,yaml]
+----
     - language: kor
       script: Hang
       layer: Hangul
-``
+----
 
-`language`: ISO-639-3 code for the language
-`script` : ISO-15924 code for the script
-`layer`: a name for this textual representation, which can be referred to later on.
+Where:
 
-Note that a textual representation can be a mixture of scripts, e.g. for Japanese, the normal convention is to use both Kanji (Hani) and Kana (Hrkt) in the same piece of writing. If only the conventional written form is provided, then that is considered to be ONE textual representation.
+`language`:: ISO 639-2 or ISO 639-3 code for the language;
+`script`:: ISO 15924 code for the script;
+`layer`:: name for this textual representation, which can be referred to later on.
 
-``
+NOTE: A textual representation can be a mixture of scripts. e.g. for Japanese, the normal convention is to use both Kanji (`Hani`) and Kana (`Hrkt`) in the same piece of writing. If only the conventional written form is provided, then that is considered to be ONE textual representation.
+
+[source,yaml]
+----
   source:
     - language: jpn
       script: Jpan
@@ -119,15 +136,17 @@ Note that a textual representation can be a mixture of scripts, e.g. for Japanes
     - language: jpn
       script: Hrkt
       layer: Kana
-``
+----
 
 `target` are target textual representations.
+
 
 === Standard
 
 This is the standard that the transform implements, and should be placed under the `standard` key.
 
-``
+[source,yaml]
+----
   standard:
     authority_id: bgnpcgn
     id: 2013
@@ -135,25 +154,27 @@ This is the standard that the transform implements, and should be placed under t
     source_script: Cyrl
     destination_script: Latn
     name: BGN/PCGN 2013 Agreement
-    url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/811509/ROMANIZATION_OF_BULGARIAN.pdf
+    url: https://assets.publishing.service.gov.uk/.../ROMANIZATION_OF_BULGARIAN.pdf
     creation_date: 2013
     description:
     note:
-``
+----
 
-=== Deterministicity
 
-`deterministic` is a boolean value (`true` or `false`).
+=== Determinism
 
-Consider this conversion of the Thai language (ISO 639-3: tha) in Thai script (Thai). The new orthography removes two letters, and merge them with two existing letters.
+`deterministic`:: set as a boolean value (`true` or `false`).
+
+Consider this conversion of the Thai language (ISO 639-3: `tha`) in Thai script (ISO 15924: `Thai`). The new orthography removes two letters, and merges them with two existing letters.
 
 From one direction, Thai (pre-reform) to Thai (post-reform) is unambiguous, and `deterministic` should be set to `true`, but the other direction cannot be defined deterministically (an external source of words with the obsolete letters will be needed), and therefore should be set to `false`.
 
-*Note on Direcitonality*
+NOTE: On directionality: +
++
+A bidirectional transform is a transform that can operate on both t_A to t_B and t_B to t_A. Bidirectional maps should only be used for simpler transforms that do not require preprocessing. This can ensure that certain mapping rules can be reused. +
++
+If the two textual representations contain different linguistic information, there is no way to specify segmentation and dictionary lookup for both of the directions. Two separate unidirectional transforms will be needed.
 
-A bidirectional transform is a transform that can operate on both t_A to t_B and t_B to t_A. Bidirectional maps should only be used for simplier transforms that do not require preprocessing. This can ensure that certain mapping rules can be reused.
-
-If the two textual representations contain different lingusitic information, there is no way to specify segmentation and dictionary lookup for both of the directions. Two separate unidirectional transforms will be needed.
 
 === Operation Level
 
@@ -165,35 +186,36 @@ Character-level transforms should be the most robust. It only requires an exhaus
 
 * Lexical lookup transforms `lex`
 
-Lexical lookup transforms are less reliable, requires a dictionary that exhaustively maps the source to the target, and poses issues with maintenance. This is unavoidable for deep orthography and non-phonemic systems, e.g. the transform from Mandarin (chn) written in Hani to the Latin script.
+Lexical lookup transforms are less reliable, requires a dictionary that exhaustively maps the source to the target, and poses issues with maintenance. This is unavoidable for deep orthography and non-phonemic systems, e.g. the transform from Mandarin (`chn`) written in Hani to the Latin script.
 
 * Complex transforms `comp`
 
-When an exhausive list is not possible (due to the number of combinations), some transforms may require consideration of non-lingusitic factors, as well as other additional information, which cannot be determined with a standard solution.
+When an exhaustive list is not possible (due to the number of combinations), some transforms may require consideration of non-linguistic factors, as well as other additional information, which cannot be determined with a standard solution.
 
 
-For most transcription tasks, task-specific probablistic solutions will be needed.
+For most transcription tasks, task-specific probabilistic solutions will be needed.
 
 
 == Configuration of the Engine
 
 The same transform can be used for different tasks. And all parameters that configure the behavior of the engine should go under `engine`.
 
-``
+[source,yaml]
+----
 engine:
   solution: best
-``
+----
 
 === Requiring multiple results
 
 The two options are `best` and `all`.
 
-`best` returns the first (best) result from the layer.
+`best` returns the first ("best") result from the layer.
 
 There are two possible cases that may require multiple results:
 
-1 - The system explicitly specified two ways to transform the same string.
-2 - Only one answer is corrected, but the judgement requires lingusitic or world knowledge.
+. The system explicitly specified two ways to transform the same string.
+. Only one answer is corrected, but the judgement requires linguistic or world knowledge.
 
 Some transforms are defined more loosely, and there could be two or more equally valid answers.
 
@@ -204,7 +226,8 @@ If a system allows multiple answers (e.g. the purpose of the transform is to fin
 
 All configuration about the transformation process should go under the key `pipeline`. Here is the basic structure.
 
-``
+[source,yaml]
+----
 pipeline:
   inherit: []
   normalization: ...
@@ -214,7 +237,7 @@ pipeline:
   replacement: ...
   post-processing: ...
 
-``
+----
 
 The transformation process can sometimes be captured by a simple codepoint mapping, but there are cases in which more complex processing is required. Here is a general pipeline that is required for general transcription tasks. For more complex systems, all or part of the processing will require complex modelling that cannot be handled by a rule-based transformation.
 
@@ -224,20 +247,22 @@ The transformation process can sometimes be captured by a simple codepoint mappi
 
 Each process in the pipeline involves taking one (or more) layers specified in `from` as input, performing some actions, and return one (or more) layers specified in `to` as output. For example, the below specification will take the layers `Kanji2` and `Kana` as input, and the results will go to a layer called `Kana_segmented`.
 
-``
+[source,yaml]
+----
     from: [Kanji2, Kana]
     to: Kana_segmented
-``
+----
 
 ==== Tests
 
 Test cases can be provided for each individual step, using this syntax:
 
-``
+[source,yaml]
+----
     test:
       - source: ''
         expected: ''
-``
+----
 
 *Note*
 Instead of completely externalizing the process. The attempt here will be to transform the original form into a more phonemic representation, and then this phonemic representation will be transformed according to the transcription specification.
@@ -248,12 +273,12 @@ Configuration for normalization goes to `normalization`.
 
 A list of transformation rules that ensures the transformation can be performed correctly. This includes removing invalid sequence of characters, ordering of diacritics, etc.
 
-Common normaliation tasks are NFD<->NFC, removing or fixing invalid sequence or combination of characters, ordering of multiple diacritics etc. Normalization task should not operate on the lexical level, e.g. fixing typographical errors.
+Common normalization tasks are NFD<->NFC, removing or fixing invalid sequence or combination of characters, ordering of multiple diacritics etc. Normalization task should not operate on the lexical level, e.g. fixing typographical errors.
 
 A sample normalization section goes like this:
 
-
-``
+[source,yaml]
+----
   # 3.1 Normalization
   normalization:
     from: Kanji
@@ -270,7 +295,8 @@ A sample normalization section goes like this:
     test:
       - source: ''
         expected: ''
-``
+----
+
 
 === Named-entity marking
 
@@ -278,7 +304,8 @@ Some transforms contain a special set of rules for certain classes of entities o
 
 This is the simplest configuration, which contains only one category: `person`, and uses an external process called `ner_parser` to handle named entities.
 
-``
+[source,yaml]
+----
   named_entity_recognition:
     from: Kanji1
     to: Kanji2
@@ -287,7 +314,7 @@ This is the simplest configuration, which contains only one category: `person`, 
         tag: p
         labels: [surname, firstname, middlename, general]
     external: ner_parser
-``
+----
 
 
 `categories` is a list containing all categories of named entities that will be extracted. Each category is a dictionary that contains three keys:
@@ -301,38 +328,43 @@ Optional keys:
 
 Here is a sample category for geonames.
 
-``
+[source,yaml]
+----
       - name: geoname
         tag: g
         labels: [name, generic]
         expand_number: true
-``
+----
 
 Given this specification, and a correct process that recognizes geonames, the Korean geoname 제주도 (Jeju Island) will be marked as:
 
-``
+[source,xml]
+----
 <g name='제주' generic='도'>제주도</g>
-``
+----
 
 
 If a category can be extracted easily with a regular expression, this can be specified in the `localgrammar` list, directly under `named_entity_recognition`. Here is an example that extracts the `chome`, `ban` and `go` tags for a Japanese address.
 
-``
+[source,yaml]
+----
     localgrammar:
       - name: 'address1'
         grammar: '(?<chome>:[0-9]{1,2})-(?<ban>[0-9]{1,2})-(?<go>[0-9A-Za-z]{3,4})'
-``
+----
 
 
 Named-entity recognition (NER) is a difficult task and often requires external libraries specifically designed for this purpose.
 
-``
+[source,yaml]
+----
     external: 'ner_parser'
-``
+----
 
-Here is a fully expanded example of the named_entity_recognition section.
+Here is a fully expanded example of the `named_entity_recognition` section.
 
-``
+[source,yaml]
+----
   # 3.2 Named Entity Recognition
   named_entity_recognition:
     from: Kanji1
@@ -360,36 +392,39 @@ Here is a fully expanded example of the named_entity_recognition section.
     test:
       - source: ''
         expected: ''
-``
+----
 
-=== Segementation
+=== Segmentation
 
 Segmentation configuration goes to the `segmentation` section.
 
-This can either be handled by an external process, or by a default algorithm (greedy, trigram, maximum syllable structure), or simply using a separator. English uses space as a word seaprator. Thai uses space as a sentence separator, and there is no word-based separator. Word separator is not used in some languages, and most languages do not mark syllable/morpheme boundaries.
+This can either be handled by an external process, or by a default algorithm (greedy, trigram, maximum syllable structure), or simply using a separator. English uses space as a word separator. Thai uses space as a sentence separator, and there is no word-based separator. Word separator is not used in some languages, and most languages do not mark syllable/morpheme boundaries.
 
 The most important configuration for this part is setting up a separator for each level of linguistic analysis. All characters designated as separators will be escaped before the process marks the boundaries by the required symbols.
 
 Not all levels are needed in every transformation process. If a level does not need to be marked, use `none`.
 
-``
+[source,yaml]
+----
     separator:
       syllable: '-'
       morpheme: '|'
       affix: '='
       word: ' '
       sentence: none
-``
+----
 
 Segmentation is a major obstacle in the processing of certain languages (e.g. Thai, Chinese) which do not use any sort of delimiter between lexical items. If an external process is needed, it should be specified in the `external` tag.
 
-``
+[source,yaml]
+----
     external: 'open_nlp' # The name of the segmenter
-``
+----
 
 If the task is manageable by a simple greedy or probabilistic model, they can be added to the `process` list below, if `greedy` is supplied as the method, then the string will be parsed and match with the regex under `pattern`. Before matching, letters in the `pattern` string will be replaced by the values from the `mnemonics` dictionary. The example below is an attempt to syllabify a Japanese Katakana string.
 
-``
+[source,yaml]
+----
     process:
       - name: syllabifcation
         method: greedy
@@ -401,11 +436,11 @@ If the task is manageable by a simple greedy or probabilistic model, they can be
           'N': 'ン'
           'Q': 'ッ'
         level: syllable
-``
+----
 
 Number of segmentation levels required for this task varies. E.g. Japanese transcription sometimes require morpheme-boundary information.
 
-=== Dictionary Lookup
+=== Dictionary lookup
 
 Dictionary lookup configuration should go to the `lookup` section under `pipeline`.
 
@@ -413,17 +448,17 @@ This will direct the engine to go through a dictionary and replace all words in 
 
 The input string from the `from` layer will be matched maximally with the dictionary, while not breaking further parsing. The resulting string can be the final form, or a rule that transform words into a more phonemic representation for the use of subsequent replacement rules.
 
-
-``
+[source,yaml]
+----
   # Arabic
   lookup:
     from: Unpointed
     to: Pointed
     dict: arabic_pointed
     level: word
-``
+----
 
-=== Replacement Rule
+=== Replacement rule
 
 `replacement` is a set of maps that directs the engine to perform global replacement, both character/string mappings and regex global substitution, in the specified order. Note that these rules should not be large lexical sets (which should be done by dictionary lookup instead).
 
@@ -431,7 +466,8 @@ The input string from the `from` layer will be matched maximally with the dictio
 
 A sample of `replacement` section here.
 
-``
+[source,yaml]
+----
   # 3.5 Replacement
   replacement: # In the same order
     from: Kana_segmented
@@ -441,13 +477,13 @@ A sample of `replacement` section here.
       - hiragana_map
       - katakana_map
       - post_rules
-``
+----
 
 === Postprocessing
 
 Post-processing configuration goes to the `postprocessing` section.
 
-This is used to remove unnecessary tagging and restore escaped characters for output. In the processs, specific formatting requirements, such as spacing, casing, hyphenation for named-entities will be handled.
+This is used to remove unnecessary tagging and restore escaped characters for output. In the process, specific formatting requirements, such as spacing, casing, hyphenation for named-entities will be handled.
 
 == Maps
 
@@ -459,7 +495,8 @@ If it is a `mapping`, then it should have another list called `list`. `list` sho
 
 If it is a `substitution`, then there should be two other keys, `pattern` which is a regex pattern, and `result`.
 
-``
+[source,yaml]
+----
 # 4 - Maps
 maps:
   - id: hiragana_map
@@ -473,14 +510,17 @@ maps:
           - お → o
   - id: post_rules
     rules:
-      - type: substitution
-        pattern: "[っッ]([BbCcDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz])" # っ or ッ followed by consonant
-        result: "\\1\\1"
-      - type: substitution
-        pattern: "[っッ]" # drop all other っッ.
-        result: ""
 
-``
+      # っ or ッ followed by consonant
+      - type: substitution
+        pattern: "[っッ]([BbCcDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz])"
+        result: "\\1\\1"
+
+      # drop all other っッ.
+      - type: substitution
+        pattern: "[っッ]"
+        result: ""
+----
 
 == Dictionaries
 
@@ -492,7 +532,8 @@ maps:
 
 Here is a sample.
 
-``
+[source,yaml]
+----
 # 5 - Dictionaries
 dictionaries:
   - name: jap_dict
@@ -501,14 +542,18 @@ dictionaries:
       '世界': 'せかい'
       '的': 'てき'
       '話す': 'はなす'
-``
+----
 
-= The Language
+== The Language
 
-(see sample.yaml)
+(see `sample.yaml`)
+
+== Chaining
+
+All transformation systems should be chain-able.
+
+For example, if a transform from A to C is needed, and only transforms for A to B and B to C are available, then the two transforms can be applied sequentially to achieve the result.
+
+NOTE: If error rate is too high, the transform chain will be unreliable.
 
 
-*Note on Chaining*
-If a transform from A to C is needed, and only transforms for A to B and B to C are available, then the two transforms can be applied sequentially to achieve the result.
-
-All systems should be chainable. However if error rate is too high, the transform chain will be unreliable.
