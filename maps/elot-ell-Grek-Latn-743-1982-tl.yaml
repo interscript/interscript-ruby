@@ -12,10 +12,9 @@ description: |
 
 note:
   - This was the intended system in ELOT 743:1982 for transliteration, as is apparent from un-ell-Grek-Latn-1987-tl and iso-ell-Grek-Latn-843-1997-t2, and ELOT 743:2001, Annex B; but the reversible character diacritics are missing from the currently available document, and the document does not indicate what there was supposed to be.
-  - "Transliteration" as used in this specification and its inheritors refers to reversible transliteration, as distinct from "transcription", which is a simpler transliteration and which is intended for default use.
+  - "\"Transliteration\" as used in this specification and its inheritors refers to reversible transliteration, as distinct from \"transcription\", which is a simpler transliteration and which is intended for default use."
 
 tests:
-
   - source: |
         Ένα πράμα μόνον με παρακίνησε κι εμένα να γράψω ότι τούτην την πατρίδα την έχομεν όλοι μαζί, και σοφοί κι αμαθείς και πλούσιοι και φτωχοί και πολιτικοί και στρατιωτικοί και οι πλέον μικρότεροι άνθρωποι· όσοι αγωνιστήκαμεν, αναλόγως ο καθείς, έχομεν να ζήσομεν εδώ. Το λοιπόν δουλέψαμεν όλοι μαζί, να την φυλάμεν κι όλοι μαζί και να μην λέγει ούτε ο δυνατός «εγώ» ούτε ο αδύνατος. Ξέρετε πότε να λέγει ο καθείς «εγώ»; Όταν αγωνιστεί μόνος του και φκιάσει ή χαλάσει, να λέγει «εγώ»· όταν όμως αγωνίζονται πολλοί και φκιάνουν, τότε να λένε «εμείς». Είμαστε εις το «εμείς» κι όχι εις το «εγώ». Και εις το εξής να μάθομεν γνώση, αν θέλομεν να φκιάσομεν χωριόν, να ζήσομεν όλοι μαζί.
 
