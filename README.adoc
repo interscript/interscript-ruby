@@ -16,6 +16,7 @@ This repository contains interoperable transliteration schemes from:
 The goal is to achieve interoperable transliteration schemes allowing quality comparisons.
 
 
+
 == Demonstration
 
 These transliteration systems are used in the demo:
@@ -247,6 +248,13 @@ Currently the schemes cover Cyrillic, Armenian, Greek, Arabic and Hebrew.
 * `rus-Cyrl-1.txt`: Copied from the XLS output from http://www.primorsk.vybory.izbirkom.ru/region/primorsk?action=show&global=true&root=254017025&tvd=4254017212287&vrn=100100067795849&prver=0&pronetvd=0&region=25&sub_region=25&type=242&vibid=4254017212287
 
 * `rus-Cyrl-2.txt`: Copied from the XLS output from http://www.yaroslavl.vybory.izbirkom.ru/region/yaroslavl?action=show&root=764013001&tvd=4764013188704&vrn=4764013188693&prver=0&pronetvd=0&region=76&sub_region=76&type=426&vibid=4764013188704
+
+
+== References
+
+Reference documents are located at the
+https://github.com/riboseinc/interscript-references[interscript-references repository].
+Some specifications that have distribution limitations may not be reproduced there.
 
 
 == Links to system definitions
