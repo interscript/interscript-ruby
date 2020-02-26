@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "timeout"
+
 RSpec.describe Interscript do
   mask = ENV["TRANSLIT_SYSTEM"] || "*"
   Dir["maps/#{mask}.yaml"].each do |system_file|
@@ -9,10 +11,12 @@ RSpec.describe Interscript do
 
       system["tests"]&.reduce([]) do |testresults, test|
         it "test for #{test}" do
-          result = Interscript.transliterate(system_name, test["source"]) || ""
-          expected = (test["expected"] || "").unicode_normalize
+          Timeout::timeout(5) {
+            result = Interscript.transliterate(system_name, test["source"]) || ""
+            expected = (test["expected"] || "").unicode_normalize
 
-          expect(result).to eq(expected)
+            expect(result).to eq(expected)
+          }
         end
       end
     end
