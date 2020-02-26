@@ -1,11 +1,18 @@
 name: test
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [ master ]
+  pull_request:
 
 jobs:
   build:
     name: Run specs
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-latest, ubuntu-latest]
     steps:
       - name: Use Ruby
         uses: actions/setup-ruby@v1
