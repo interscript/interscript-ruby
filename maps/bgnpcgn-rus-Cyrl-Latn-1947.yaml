@@ -219,6 +219,10 @@ map:
       result: "Ы\u00b7"
     - pattern: \u044b(?=[АаУуЫыЭэ]) # ы before а, у, ы, or э
       result: "ы\u00b7"
+    - pattern: (?<=[Оо])\u042b # Ы after о
+      result: "\u00b7Y"
+    - pattern: (?<=[Оо])\u044b # ы after о
+      result: "\u00b7y"
     - pattern: \b\u0401
       result: "Y\u00eb"
     - pattern: \b\u0451
