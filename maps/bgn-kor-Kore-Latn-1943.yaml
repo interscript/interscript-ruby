@@ -13,26 +13,16 @@ description:
 notes:
 
 tests:
-  - source: 은하리
-    expected: "Ŭnha-ri"
-  - source: 은중리
-    expected: "Ŭnjung-ni"
-  - source: 은장령
-    expected: "Ŭnjang-nyŏng"
-  - source: 은혜동
-    expected: "Ŭnhye-dong"
-  - source: 隱湖里
-    expected: "Ŭnho-ri"
-  - source: 은행정
-    expected: "Ŭnhaengjŏng"
-  - source: 銀杏洞
-    expected: "Ŭnhaeng-dong"
-  - source: 은행촌
-    expected: "Ŭnhaeng-ch’on"
-  - source: 元帥
-    expected: "Wŏnsu"
-  - source: 원소리고개
-    expected: "Wŏnsori-gogae"
+  - source: 서을
+    expected: "Sŏŭl"
+  - source: 平壤
+    expected: "P’yŏngyang"
+  - source: 釜山
+    expected: "Pusan"
+  - source: 大邱
+    expected: "Taegu"
+  - source: 慶尚南道
+    expected: "Kyŏngsangnamdo"
 
 map:
   character_separator: ""

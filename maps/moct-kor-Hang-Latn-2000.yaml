@@ -36,10 +36,10 @@ description: |
   tailjamo = ['']+[chr(0x11A8+i) for i in range(0,27)]
   # ᆨᆩᆪᆫᆬᆭᆮᆯᆰᆱᆲᆳᆴᆵᆶᆷᆸᆹᆺᆻᆼᆽᆾᆿᇀᇁᇂ
 
-  hanguls = [chr(i) for i in range(44032,55172)]
-  tails = [tailjamo[(i-44032) % 28] for i in range(44032,55172)]
-  vowels = [voweljamo[((i-44032-((i-44032) % 28)) % 588) // 28] for i in range(44032,55172)]
-  leads = [leadjamo[math.floor((i-44032)// 588)] for i in range(44032,55172)]
+  hanguls = [chr(i) for i in range(44032,55204)]
+  tails = [tailjamo[(i-44032) % 28] for i in range(44032,55204)]
+  vowels = [voweljamo[((i-44032-((i-44032) % 28)) % 588) // 28] for i in range(44032,55204)]
+  leads = [leadjamo[math.floor((i-44032)// 588)] for i in range(44032,55204)]
 
   kr_df = pd.DataFrame({'Hangul':hanguls, 'Lead':leads,'Vowel':vowels, 'Tail':tails})
   ----

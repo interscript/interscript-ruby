@@ -16,6 +16,10 @@ notes:
   This map add Hanja resolution to var-kor-Hang-Latn-mr-1939
 
 tests:
+  - source: "博物館"
+    expected: "Pangmulgwan"
+  - source: "사발"
+    expected: "Sabal"
   - source: 韓國
     expected: Han’guk
   - source: "韓國 의 맛"
