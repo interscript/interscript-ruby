@@ -1,23 +1,24 @@
 ---
-authority_id: by
-id: '8/16668'
+authority_id: gki
+id: '8/4488'
 language: bel
 source_script: Cyrl
 destination_script: Latn
-name: REGULATORY LEGAL ACTS OF THE NATIONAL BANK, NATIONAL ACADEMY OF SCIENCES OF BELARUS, MINISTRIES, OTHER REPUBLICAN GOVERNMENT BODIES 8/16668
-url: http://www.pravo.by/pdf/2007-159/2007-159(027-028).pdf
-creation_date: 2007
+name: On approval of the Instructions for the transliteration of geographical names of the Republic of Belarus with letters of the Latin alphabet
+url: https://registr.by/doc/103003
+creation_date: 2000
 description: |
-  RESOLUTION OF THE STATE COMMITTEE 
-  ON PROPERTY OF THE REPUBLIC OF BELARUS June 11, 2007 No. 38
-
-  8/16668 (06/18/2007) On amendments and additions to the Instructions 
-  for the transliteration of geographical names of the 
-  Republic of Belarus in letters of the Latin alphabet
-
-  Based on the Regulation on the State Property Committee of the Republic of Belarus,
-  approved by the Decree of the Council of Ministers of the Republic of Belarusdated July 29, 2006
-  No. 958 "Issues of the State Committee on Property of the Republic of Belarus"
+  Act name: 
+    On approval of the Instructions for the transliteration of geographical names of
+    the Republic of Belarus in letters of the Latin alphabet
+  Type of act, adoption authority, date and number of adoption (publication):
+    Resolution of the State Committee for Land Resources, Geodesy and Cartography of
+    the Republic of Belarus of November 23, 2000 No. 15
+  National Registry Registration Number: 8/4488
+  Date of inclusion in the National Register: 11/30/2000
+  Source (s) of official publication:
+    National Register of Legal Acts of the Republic of Belarus, 2001,
+    No. 3, 8/4488 (published - January 11, 2001)
 tests:
   - source: Аршанскi
     expected: Aršanski
@@ -26,25 +27,27 @@ tests:
   - source: Віцебск
     expected: Viciebsk
   - source: Гомель
-    expected: Homieĺ
+    expected: Homiel'
   - source: Гаўя
     expected: Haŭja
   - source: Добруш
     expected: Dobruš
   - source: Ельск
-    expected: Jeĺsk
+    expected: Jel'sk
   - source: Бабаедава
     expected: Babajedava
-  - source: Венцавічы
-    expected: Viencavičy
+  - source: Лепель
+    expected: Liepiel'
   - source: Ёды
     expected: Jody
   - source: Вераб'ёвічы
     expected: Vierabjovičy
   - source: Мёры
     expected: Miory
+  - source: Жодзiшкi
+    expected: Žodziški
   - source: Зэльва
-    expected: Zeĺva
+    expected: Zel'va
   - source: Iванава
     expected: Ivanava
   - source: Iўе
@@ -53,10 +56,8 @@ tests:
     expected: Lahojsk
   - source: Круглае
     expected: Kruhlaje
-  - source: Лошыца
-    expected: Lošyca
   - source: Любань
-    expected: Liubań
+    expected: Liuban'
   - source: Магілёў
     expected: Mahilioŭ
   - source: Нясвіж
@@ -67,8 +68,8 @@ tests:
     expected: Pastavy
   - source: Рагачоў
     expected: Rahačoŭ
-  - source: Смаргонь
-    expected: Smarhoń
+  - source: Светлагорск
+    expected: Svietlahorsk # original doc Svetlahorsk but it looks like mistake https://en.wikipedia.org/wiki/Svietlahorsk
   - source: Талачын
     expected: Talačyn
   - source: Узда
@@ -76,7 +77,7 @@ tests:
   - source: Шаркаўшчына
     expected: Šarkaŭščyna
   - source: Фаніпаль
-    expected: Fanipaĺ
+    expected: Fanipal'
   - source: Хоцімск
     expected: Chocimsk
   - source: Цёмны Лес
@@ -85,30 +86,28 @@ tests:
     expected: Čavusy
   - source: Шумілiна
     expected: Šumilina
+  - source: Раз'езд
+    expected: Razjezd
   - source: Чыгірынка
     expected: Čyhirynka
   - source: Чэрвень
-    expected: Červień
-  - source: Друць
-    expected: Druć
+    expected: Červien'
   - source: Чачэрск
     expected: Čačersk
   - source: Юхнаўка
     expected: Juchnaŭka
   - source: Гаюціна
     expected: Hajucina
-  - source: Цюрлi
-    expected: Ciurli
   - source: Любонічы
     expected: Liuboničy
   - source: Ямнае
     expected: Jamnaje
   - source: Баяры
     expected: Bajary
-  - source: Валяр'яны
-    expected: Valiarjany
   - source: Вязынка
     expected: Viazynka
+  - source: Валяр'яны
+    expected: Valiarjany
 
 map:
   rules:
@@ -128,27 +127,9 @@ map:
       result: IA
     - pattern: (?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\u044F # я after consonants
       result: ia
-    - pattern: \u0417\u042C # ЗЬ
-      result: "\u0179"
-    - pattern: \u0437\u044C # зь
-      result: "\u017A"
-    - pattern: \u041B\u042C # ЛЬ
-      result: "\u0139"
-    - pattern: \u043B\u044C # ль
-      result: "\u013A"
-    - pattern: \u0421\u042C # СЬ
-      result: "\u015A"
-    - pattern: \u0441\u044C # сь
-      result: "\u015B"
-    - pattern: \u0426\u042C # ЦЬ
-      result: "\u0106"
-    - pattern: \u0446\u044C # ць
-      result: "\u0107"
-    - pattern: \u041D\u042C # НЬ
-      result: "\u0143"
-    - pattern: \u043D\u044C # нь
-      result: "\u0144"
   characters:
+    '\u0027' : ''   # '
+
     '\u0410' : 'A'  # A
     '\u0411' : 'B'  # Б
     '\u0412' : 'V'  # B
@@ -177,7 +158,7 @@ map:
     '\u0427' : 'Č'  # Ч
     '\u0428' : 'Š'  # Ш
     '\u042B' : 'Y'  # Ы
-    '\u042C' : ''   # Ь
+    '\u042C' : "'"  # Ь
     '\u042D' : 'E'  # Э
     '\u042E' : 'Ju' # Ю
     '\u042F' : 'Ja' # Я
@@ -210,9 +191,7 @@ map:
     '\u0447' : 'č'  # ч
     '\u0448' : 'š'  # ш
     '\u044B' : 'y'  # ы
-    '\u044C' : ''   # ь
+    '\u044C' : "'"  # ь
     '\u044D' : 'e'  # э
     '\u044E' : 'ju' # ю
     '\u044F' : 'ja' # я
-
-    '\u0027' : ''   # '
