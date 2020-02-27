@@ -1,6 +1,6 @@
 ---
 authority_id: un
-id: '8/16668'
+id: 2007
 language: bel
 source_script: Cyrl
 destination_script: Latn
@@ -111,4 +111,4 @@ tests: # the same as "by-bel-cyrl-Latn-2007"
     expected: Viazynka
 
 map:
-  inherit: "by-bel-cyrl-Latn-2007"
+  inherit: "by-bel-Cyrl-Latn-2007"

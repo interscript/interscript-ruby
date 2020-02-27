@@ -1,6 +1,6 @@
 ---
 authority_id: gki
-id: '8/4488'
+id: 2000
 language: bel
 source_script: Cyrl
 destination_script: Latn
@@ -127,6 +127,12 @@ map:
       result: IA
     - pattern: (?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\u044F # я after consonants
       result: ia
+  postrules:
+    - pattern: '\u042C' # Ь
+      result: "'"
+    - pattern: '\u044C' # ь
+      result: "'"
+
   characters:
     '\u0027' : ''   # '
 
@@ -158,7 +164,6 @@ map:
     '\u0427' : 'Č'  # Ч
     '\u0428' : 'Š'  # Ш
     '\u042B' : 'Y'  # Ы
-    '\u042C' : "'"  # Ь
     '\u042D' : 'E'  # Э
     '\u042E' : 'Ju' # Ю
     '\u042F' : 'Ja' # Я
@@ -191,7 +196,6 @@ map:
     '\u0447' : 'č'  # ч
     '\u0448' : 'š'  # ш
     '\u044B' : 'y'  # ы
-    '\u044C' : "'"  # ь
     '\u044D' : 'e'  # э
     '\u044E' : 'ju' # ю
     '\u044F' : 'ja' # я
