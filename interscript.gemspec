@@ -8,7 +8,7 @@ require 'rake'
 Gem::Specification.new do |spec|
   spec.name          = "interscript"
   spec.version       = Interscript::VERSION
-  spec.required_rubygems_version = Gem::Requirement.new('>= 0') if spec.respond_to? :required_rubygems_version=
+  spec.required_rubygems_version = Gem::Requirement.new('>= 2.4.0') if spec.respond_to? :required_rubygems_version=
   spec.summary       = %q{Interoperable script conversion systems}
   spec.description   = %q{Interoperable script conversion systems}
   spec.authors = ['project_contibutors']

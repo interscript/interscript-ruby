@@ -89,7 +89,7 @@ module Interscript
     end
 
     def include_inherited_mappings(mappings)
-      inherit_systems = [].append(mappings["map"]["inherit"]).flatten
+      inherit_systems = [].push(mappings["map"]["inherit"]).flatten
       for inherit_system in inherit_systems do
         if (inherit_system)
           inherited_mapping = Mapping.for(inherit_system, depth: depth + 1)
