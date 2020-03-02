@@ -1,0 +1,135 @@
+---
+authority_id: alalc
+id: 2013
+language: srp
+source_script: Cyrl
+destination_script: Latn
+name: ROMANIZATION OF SERBIAN, ALA-LC 2013 System
+url: https://www.loc.gov/catdir/cpso/romanization/serbian.pdf
+creation_date: 2013
+description: |
+  Serbian uses the Cyrillic and Roman alphabets. When the Roman alphabet is used it is the same as Croatian.
+
+tests:
+  - source: Шупља Стена
+    expected: Šuplja Stena
+  - source: Чукарица
+    expected: Čukarica
+  - source: Црна Трава
+    expected: Crna Trava
+  - source: Херцег Нови
+    expected: Herceg Novi
+  - source: Улцињ
+    expected: Ulcinj
+  - source: Ужице
+    expected: Užice
+  - source: Тресаначка Река
+    expected: Tresanačka Reka
+  - source: Сјеница
+    expected: Sjenica
+  - source: Рожаје
+    expected: Rožaje
+  - source: Пљевља
+    expected: Pljevlja
+  - source: Оџаци
+    expected: Odžaci
+  - source: Никшић
+    expected: Nikšić
+  - source: Медвеђа
+    expected: Medveđa
+  - source: Лозница
+    expected: Loznica
+  - source: Књажевац
+    expected: Knjaževac
+  - source: Зрењанин
+    expected: Zrenjanin
+  - source: Житорађа
+    expected: Žitorađa
+  - source: Ервеник
+    expected: Ervenik
+  - source: Доње Љупче
+    expected: Donje Ljupče
+  - source: Гусиње
+    expected: Gusinje
+  - source: ГУСИЊЕ
+    expected: GUSINJE
+  - source: Врњачка Бања
+    expected: Vrnjačka Banja
+  - source: Бијело Поље
+    expected: Bijelo Polje
+  - source: Алибунар
+    expected: Alibunar
+
+map:
+  postrules:
+    #LJ
+    - pattern: "((?<=[A-ZĐŽĆČŠ])Lj(?=[A-ZĐŽĆČŠ])?|(?<=[A-ZĐŽĆČŠ])?Lj(?=[A-ZĐŽĆČŠ]))"
+      result: "LJ"
+    #NJ
+    - pattern: "((?<=[A-ZĐŽĆČŠ])Nj(?=[A-ZĐŽĆČŠ])?|(?<=[A-ZĐŽĆČŠ])?Nj(?=[A-ZĐŽĆČŠ]))"
+      result: "NJ"
+    #DŽ
+    - pattern: "((?<=[A-ZĐŽĆČŠ])Dž(?=[A-ZĐŽĆČŠ])?|(?<=[A-ZĐŽĆČŠ])?Dž(?=[A-ZĐŽĆČŠ]))"
+      result: "DŽ"
+
+  characters:
+    "\u0410": "A"
+    "\u0411": "B"
+    "\u0412": "V"
+    "\u0413": "G"
+    "\u0414": "D"
+    "\u0402": "\u0110" # Đ
+    "\u0415": "E"
+    "\u0416": "\u005a\u030c" # Ž
+    "\u0417": "Z"
+    "\u0418": "I"
+    "\u0408": "J"
+    "\u041A": "K"
+    "\u041B": "L"
+    "\u0409": "Lj"
+    "\u041C": "M"
+    "\u041D": "N"
+    "\u040A": "Nj"
+    "\u041E": "O"
+    "\u041F": "P"
+    "\u0420": "R"
+    "\u0421": "S"
+    "\u0422": "T"
+    "\u040B": "\u0043\u0301" # Ć
+    "\u0423": "U"
+    "\u0424": "F"
+    "\u0425": "H"
+    "\u0426": "C"
+    "\u0427": "\u0043\u030c" # Č
+    "\u040F": "D\u007a\u030c" # Dž
+    "\u0428": "\u0053\u030c" # Š
+    "\u0430": "a"
+    "\u0431": "b"
+    "\u0432": "v"
+    "\u0433": "g"
+    "\u0434": "d"
+    "\u0452": "\u0111" # đ
+    "\u0435": "e"
+    "\u0436": "\u007a\u030c" # ž
+    "\u0437": "z"
+    "\u0438": "i"
+    "\u0458": "j"
+    "\u043A": "k"
+    "\u043B": "l"
+    "\u0459": "lj"
+    "\u043C": "m"
+    "\u043D": "n"
+    "\u045A": "nj"
+    "\u043E": "o"
+    "\u043F": "p"
+    "\u0440": "r"
+    "\u0441": "s"
+    "\u0442": "t"
+    "\u045B": "\u0063\u0301" # ć́
+    "\u0443": "u"
+    "\u0444": "f"
+    "\u0445": "h"
+    "\u0446": "c"
+    "\u0447": "\u0063\u030c" # č
+    "\u045F": "d\u007a\u030c" # dž
+    "\u0448": "\u0073\u030c" # š
