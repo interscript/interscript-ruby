@@ -94,13 +94,13 @@ tests:
 map:
   postrules:
     #LJ
-    - pattern: "((?<=[A-ZË])Lj(?=[A-ZË])?|(?<=[A-ZË])?Lj(?=[A-ZË]))"
+    - pattern: "((?<=[A-ZĐŽĆČŠ])Lj(?=[A-ZĐŽĆČŠ])?|(?<=[A-ZĐŽĆČŠ])?Lj(?=[A-ZĐŽĆČŠ]))"
       result: "LJ"
     #NJ
-    - pattern: "((?<=[A-ZË])Nj(?=[A-ZË])?|(?<=[A-ZË])?Nj(?=[A-ZË]))"
+    - pattern: "((?<=[A-ZĐŽĆČŠ])Nj(?=[A-ZĐŽĆČŠ])?|(?<=[A-ZĐŽĆČŠ])?Nj(?=[A-ZĐŽĆČŠ]))"
       result: "NJ"
     #DŽ
-    - pattern: "((?<=[A-ZË])Dž(?=[A-ZË])?|(?<=[A-ZË])?Dž(?=[A-ZË]))"
+    - pattern: "((?<=[A-ZĐŽĆČŠ])Dž(?=[A-ZĐŽĆČŠ])?|(?<=[A-ZĐŽĆČŠ])?Dž(?=[A-ZĐŽĆČŠ]))"
       result: "DŽ"
 
   characters:

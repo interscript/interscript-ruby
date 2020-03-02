@@ -1,0 +1,114 @@
+---
+authority_id: alalc
+id: 1997
+language: srp
+source_script: Cyrl
+destination_script: Latn
+name: Serbian and Makedonian Romanization, 1997
+url: http://catdir.loc.gov/catdir/cpso/romanization/serbian.pdf
+creation_date: 1997
+description: ALA-LC Romanization table for Serbian and Makedonian.
+
+notes:
+  - Special characters in romanization
+    Đ - D with crossbar (upper case). USMARC hexadecimal code A3.
+    đ - d with crossbar (upper case). USMARC hexadecimal code B3.
+
+  - Character modifiers in romanization
+    ´ - acute. USMARC hexadecimal code E2.
+    ˇ - hachek. USMARC hexadecimal code E9.
+
+tests:
+  - source: Општина Ердут
+    expected: Opština Erdut
+  - source: Општина Двор
+    expected: Opština Dvor
+  - source: ЛУЃЕ луѓе
+    expected: LUǴE luǵe
+  - source: SВЕЗДА ѕвезда Sвезда
+    expected: DZVEZDA dzvezda Dzvezda
+  - source: ЌАРУВАЊЕ ќарување
+    expected: ḰARUVANJE ḱaruvanje
+
+map:
+  postrules:
+    # DZ
+    - pattern: "((?<=[A-ZǴĐŽḰĆČŠ])Dz(?=[A-ZǴĐŽḰĆČŠ])?|(?<=[A-ZǴĐŽḰĆČŠ])?Dz(?=[A-ZǴĐŽḰĆČŠ]))"
+      result: "DZ"
+    #LJ
+    - pattern: "((?<=[A-ZǴĐŽḰĆČŠ])Lj(?=[A-ZǴĐŽḰĆČŠ])?|(?<=[A-ZǴĐŽḰĆČŠ])?Lj(?=[A-ZǴĐŽḰĆČŠ]))"
+      result: "LJ"
+    #NJ
+    - pattern: "((?<=[A-ZǴĐŽḰĆČŠ])Nj(?=[A-ZǴĐŽḰĆČŠ])?|(?<=[A-ZǴĐŽḰĆČŠ])?Nj(?=[A-ZǴĐŽḰĆČŠ]))"
+      result: "NJ"
+    #DŽ
+    - pattern: "((?<=[A-ZǴĐŽḰĆČŠ])Dž(?=[A-ZǴĐŽḰĆČŠ])?|(?<=[A-ZǴĐŽḰĆČŠ])?Dž(?=[A-ZǴĐŽḰĆČŠ]))"
+      result: "DŽ"
+
+  characters:
+    "\u0410": "A"
+    "\u0411": "B"
+    "\u0412": "V"
+    "\u0413": "G"
+    "\u0403": "\u01F4" # Ǵ
+    "\u0414": "D"
+    "\u0402": "\u0110" # Đ
+    "\u0415": "E"
+    "\u0416": "\u005a\u030c" # Ž
+    "\u0417": "Z"
+    "\u0053": "Dz"
+    "\u0418": "I"
+    "\u0408": "J"
+    "\u041A": "K"
+    "\u040C": "\u1E30" # Ḱ
+    "\u041B": "L"
+    "\u0409": "Lj"
+    "\u041C": "M"
+    "\u041D": "N"
+    "\u040A": "Nj"
+    "\u041E": "O"
+    "\u041F": "P"
+    "\u0420": "R"
+    "\u0421": "S"
+    "\u0422": "T"
+    "\u040B": "\u0043\u0301" # Ć
+    "\u0423": "U"
+    "\u0424": "F"
+    "\u0425": "H"
+    "\u0426": "C"
+    "\u0427": "\u0043\u030c" # Č
+    "\u040F": "D\u007a\u030c" # Dž
+    "\u0428": "\u0053\u030c" # Š
+    "\u0430": "a"
+    "\u0431": "b"
+    "\u0432": "v"
+    "\u0433": "g"
+    "\u0453": "\u01F5" # ǵ
+    "\u0434": "d"
+    "\u0452": "\u0111" # đ
+    "\u0435": "e"
+    "\u0436": "\u007a\u030c" # ž
+    "\u0437": "z"
+    "\u0455": "dz"
+    "\u0438": "i"
+    "\u0458": "j"
+    "\u043A": "k"
+    "\u045C": "\u1E31" # ḱ
+    "\u043B": "l"
+    "\u0459": "lj"
+    "\u043C": "m"
+    "\u043D": "n"
+    "\u045A": "nj"
+    "\u043E": "o"
+    "\u043F": "p"
+    "\u0440": "r"
+    "\u0441": "s"
+    "\u0442": "t"
+    "\u045B": "\u0063\u0301" # ć́
+    "\u0443": "u"
+    "\u0444": "f"
+    "\u0445": "h"
+    "\u0446": "c"
+    "\u0447": "\u0063\u030c" # č
+    "\u045F": "d\u007a\u030c" # dž
+    "\u0448": "\u0073\u030c" # š

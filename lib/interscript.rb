@@ -106,7 +106,10 @@ module Interscript
       i += 1 while i < string.size - 1 && string[i] !~ /[[:alpha:]]/
       after = i > pos ? string[i].to_s.strip : ''
 
-      !before.empty? && before == before.upcase || !after.empty? && after == after.upcase
+      before_uc = !before.empty? && before == before.upcase
+      after_uc = !after.empty? && after == after.upcase
+      # before_uc && (after.empty? || after_uc) || after_uc && (before.empty? || before_uc)
+      before_uc || after_uc
     end
   end
 end
