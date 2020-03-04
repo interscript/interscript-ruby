@@ -239,10 +239,10 @@ map:
   postrules:
 
     #YE
-    - pattern: "((?<=[A-ZË])Ye(?=[A-ZË])?|(?<=[A-ZË])?Ye(?=[A-ZË]))"
+    - pattern: "((?<=[[:upper:]])Ye(?=[[:upper:]])?|(?<=[[:upper:]])?Ye(?=[[:upper:]]))"
       result: "YE"
     #YË
-    - pattern: "((?<=[A-ZË])Yë(?=[A-ZË])?|(?<=[A-ZË])?Yë(?=[A-ZË]))"
+    - pattern: "((?<=[[:upper:]])Yë(?=[[:upper:]])?|(?<=[[:upper:]])?Yë(?=[[:upper:]]))"
       result: "YË"
 
   characters:

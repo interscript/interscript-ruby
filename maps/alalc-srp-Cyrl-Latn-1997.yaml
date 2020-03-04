@@ -25,7 +25,7 @@ tests:
     expected: Opština Dvor
   - source: ЛУЃЕ луѓе
     expected: LUǴE luǵe
-  - source: SВЕЗДА ѕвезда Sвезда
+  - source: ЅВЕЗДА ѕвезда Ѕвезда
     expected: DZVEZDA dzvezda Dzvezda
   - source: ЌАРУВАЊЕ ќарување
     expected: ḰARUVANJE ḱaruvanje
@@ -33,16 +33,16 @@ tests:
 map:
   postrules:
     # DZ
-    - pattern: "((?<=[A-ZǴĐŽḰĆČŠ])Dz(?=[A-ZǴĐŽḰĆČŠ])?|(?<=[A-ZǴĐŽḰĆČŠ])?Dz(?=[A-ZǴĐŽḰĆČŠ]))"
+    - pattern: "((?<=[[:upper:]])Dz(?=[[:upper:]])?|(?<=[[:upper:]])?Dz(?=[[:upper:]]))"
       result: "DZ"
     #LJ
-    - pattern: "((?<=[A-ZǴĐŽḰĆČŠ])Lj(?=[A-ZǴĐŽḰĆČŠ])?|(?<=[A-ZǴĐŽḰĆČŠ])?Lj(?=[A-ZǴĐŽḰĆČŠ]))"
+    - pattern: "((?<=[[:upper:]])Lj(?=[[:upper:]])?|(?<=[[:upper:]])?Lj(?=[[:upper:]]))"
       result: "LJ"
     #NJ
-    - pattern: "((?<=[A-ZǴĐŽḰĆČŠ])Nj(?=[A-ZǴĐŽḰĆČŠ])?|(?<=[A-ZǴĐŽḰĆČŠ])?Nj(?=[A-ZǴĐŽḰĆČŠ]))"
+    - pattern: "((?<=[[:upper:]])Nj(?=[[:upper:]])?|(?<=[[:upper:]])?Nj(?=[[:upper:]]))"
       result: "NJ"
     #DŽ
-    - pattern: "((?<=[A-ZǴĐŽḰĆČŠ])Dž(?=[A-ZǴĐŽḰĆČŠ])?|(?<=[A-ZǴĐŽḰĆČŠ])?Dž(?=[A-ZǴĐŽḰĆČŠ]))"
+    - pattern: "((?<=[[:upper:]])Dž(?=[[:upper:]])?|(?<=[[:upper:]])?Dž(?=[[:upper:]]))"
       result: "DŽ"
 
   characters:
@@ -56,7 +56,7 @@ map:
     "\u0415": "E"
     "\u0416": "\u005a\u030c" # Ž
     "\u0417": "Z"
-    "\u0053": "Dz"
+    "\u0405": "Dz"
     "\u0418": "I"
     "\u0408": "J"
     "\u041A": "K"
