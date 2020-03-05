@@ -13,11 +13,12 @@ jobs:
       fail-fast: false
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
+        ruby: ['2.6', '2.5', '2.4']
     steps:
       - name: Use Ruby
         uses: actions/setup-ruby@v1
         with:
-          ruby-version: '2.6'
+          ruby-version: ${{ matrix.ruby }}
           architecture: 'x64'
       - uses: actions/checkout@master
       - name: Update gems
