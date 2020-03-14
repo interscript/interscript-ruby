@@ -25,6 +25,8 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "debase"
   spec.add_development_dependency "pry"
+  spec.add_development_dependency "pycall"
+  spec.add_development_dependency "rambling-trie"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "ruby-debug-ide"

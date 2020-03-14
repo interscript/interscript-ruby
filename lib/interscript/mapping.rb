@@ -1,3 +1,5 @@
+require 'rambling-trie'
+
 module Interscript
   class InvalidSystemError < StandardError; end
 
@@ -23,7 +25,10 @@ module Interscript
       :downcase,
       :dictionary,
       :characters_hash,
-      :dictionary_hash
+      :dictionary_hash,
+      :segmentation,
+      :transcription,
+      :dictionary_trie
     )
 
     def initialize(system_code, options = {})
@@ -83,9 +88,12 @@ module Interscript
       @postrules = mappings["map"]["postrules"] || []
       @characters = mappings["map"]["characters"] || {}
       @dictionary = mappings["map"]["dictionary"] || {}
+      @segmentation = mappings["map"]["segementation"] || nil
+      @transcription = mappings["map"]["transcription"] || nil
 
       include_inherited_mappings(mappings)
       build_hashes
+      build_trie
     end
 
     def include_inherited_mappings(mappings)
@@ -105,6 +113,11 @@ module Interscript
     def build_hashes()
       @characters_hash = characters&.sort_by { |k, _v| k.size }&.reverse&.to_h
       @dictionary_hash = dictionary&.sort_by { |k, _v| k.size }&.reverse&.to_h
+    end
+
+    def build_trie()
+      @dictionary_trie = Rambling::Trie.create
+      dictionary_trie.concat dictionary.keys
     end
   end
 end
