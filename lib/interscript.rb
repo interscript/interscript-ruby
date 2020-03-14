@@ -36,15 +36,26 @@ module Interscript
       # dictmap = mapping.dictionary&.sort_by { |k, _v| k.size }&.reverse&.to_h
       charmap = mapping.characters_hash
       dictmap = mapping.dictionary_hash
+      trie = mapping.dictionary_trie
 
       pos = 0
       while pos < string.to_s.size
         m = 0
-        while (pos + m < string.to_s.size) && (dictmap.has_key?string[pos..pos+m]) 
-          m += 1 
+        wordmatch = ""
+
+        # Using Trie, find the longest matching substring
+        while (pos + m < string.to_s.size) && (trie.partial_word?string[pos..pos+m]) 
+          wordmatch = string[pos..pos+m] if trie.word?string[pos..pos+m]
+          m += 1
         end
-        string[pos..pos+m-1] = dictmap[string[pos..pos+m-1]] if (m > 0)
-        pos += [m, 1].max
+        m = wordmatch.length
+        if m > 0
+          repl = dictmap[string[pos..pos+m-1]]
+          string[pos..pos+m-1] = repl
+          pos += repl.length
+        else
+          pos += 1
+        end
       end
 
       output = string.clone
