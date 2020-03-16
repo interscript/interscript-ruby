@@ -12,10 +12,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # os: [macos-latest, ubuntu-latest, windows-latest]
-        os: [macos-latest]
-        # ruby: ['2.6', '2.5', '2.4']
-        ruby: ['2.6']
+        os: [macos-latest, ubuntu-latest, windows-latest]
+        ruby: ['2.6', '2.5', '2.4']
         python: ['3.x']
     steps:
       - name: Use Ruby
@@ -35,8 +33,7 @@ jobs:
           architecture: x64
       - name: Update Sequitur
         run: |
-          pip install numpy
-          pip install git+https://github.com/sequitur-g2p/sequitur-g2p@master
+          pip3 install git+https://github.com/sequitur-g2p/sequitur-g2p@master
       - name: Run RSpecs
         run: |
           bundle exec rspec
