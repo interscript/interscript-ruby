@@ -31,9 +31,15 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
           architecture: x64
+      - name: Install windows dependencies
+        if: matrix.os == 'windows-latest'
+        run: choco install --no-progress swig
+      - name: Install ubuntu dependencies
+        if: matrix.os == 'ubuntu-latest'
+        run: sudo apt-get install swig python3-setuptools
       - name: Update Sequitur
         run: |
-          pip3 install numpy
+          pip3 install setuptools numpy
           pip3 install git+https://github.com/sequitur-g2p/sequitur-g2p@master
       - name: Run RSpecs
         run: |
