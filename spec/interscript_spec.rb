@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require "timeout"
+require 'pycall/import'
+include PyCall::Import
 
 RSpec.describe Interscript do
   mask = ENV["TRANSLIT_SYSTEM"] || "*"
