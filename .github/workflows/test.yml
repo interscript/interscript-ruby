@@ -33,6 +33,7 @@ jobs:
           architecture: x64
       - name: Update Sequitur
         run: |
+          pip3 install numpy
           pip3 install git+https://github.com/sequitur-g2p/sequitur-g2p@master
       - name: Run RSpecs
         run: |
