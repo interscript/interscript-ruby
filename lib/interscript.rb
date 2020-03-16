@@ -21,6 +21,18 @@ module Interscript
       puts "Output written to: #{output_file}"
     end
 
+    def external_process(process_name, string)
+      case process_name
+        when 'sequitur.pythainlp_lexicon'
+          pyimport :sys
+          sys.path.append(root_path.to_s+"/lib/")
+          pyimport :g2pwrapper
+          return g2pwrapper.transliterate(string)
+      else
+        puts "Invalid Process"
+      end
+    end
+
     def transliterate(system_code, string, maps={})
       if (!maps.has_key?system_code)
         maps[system_code] = Interscript::Mapping.for(system_code)
@@ -37,6 +49,12 @@ module Interscript
       charmap = mapping.characters_hash
       dictmap = mapping.dictionary_hash
       trie = mapping.dictionary_trie
+
+      # Segmentation
+      string = external_process(mapping.segmentation, string) if mapping.segmentation
+
+      # Transliteration/Transcription
+      string = external_process(mapping.transcription, string) if mapping.transcription
 
       pos = 0
       while pos < string.to_s.size

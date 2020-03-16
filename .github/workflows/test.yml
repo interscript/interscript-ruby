@@ -14,6 +14,7 @@ jobs:
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
         ruby: ['2.6', '2.5', '2.4']
+        python: ['3.x']
     steps:
       - name: Use Ruby
         uses: actions/setup-ruby@v1
@@ -25,6 +26,15 @@ jobs:
         run: |
           gem install bundler -v "~> 2"
           bundle install --jobs 4 --retry 3
+      - name: Setup python
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+          architecture: x64
+      - name: Update Sequitur
+        run: |
+          pip install numpy
+          pip install git+https://github.com/sequitur-g2p/sequitur-g2p@master
       - name: Run RSpecs
         run: |
           bundle exec rspec
