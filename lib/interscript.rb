@@ -24,10 +24,13 @@ module Interscript
     def external_process(process_name, string)
       case process_name
         when 'sequitur.pythainlp_lexicon'
-          pyimport :sys
-          sys.path.append(root_path.to_s+"/lib/")
-          puts sys.path
-          pyimport :g2pwrapper
+          begin
+            pyimport :g2pwrapper
+          rescue
+            pyimport :sys
+            sys.path.append(root_path.to_s+"/lib/")
+            pyimport :g2pwrapper
+          end
           return g2pwrapper.transliterate(string)
       else
         puts "Invalid Process"
