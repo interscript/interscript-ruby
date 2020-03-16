@@ -26,6 +26,7 @@ module Interscript
         when 'sequitur.pythainlp_lexicon'
           pyimport :sys
           sys.path.append(root_path.to_s+"/lib/")
+          puts sys.path
           pyimport :g2pwrapper
           return g2pwrapper.transliterate(string)
       else
