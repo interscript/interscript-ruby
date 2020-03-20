@@ -41,6 +41,10 @@ tests:
     expected: "mai"
   - source: "สถานีปางต้นผึ้ง"
     expected: "sathanipangtonphueng"
+  - source: "ไพศาลี"
+    expected: "phaisali"
+  - source: "โรงเรียนไม้เรียงประชาสรรค์"
+    expected: "rongrianmairiangprachasan"
 
 map:
   title-case: false
