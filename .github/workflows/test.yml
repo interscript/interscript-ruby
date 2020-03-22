@@ -40,7 +40,7 @@ jobs:
       - name: Update Sequitur
         run: |
           pip3 install setuptools numpy
-          pip3 install git+https://github.com/sequitur-g2p/sequitur-g2p@master
+          pip3 install git+https://github.com/sequitur-g2p/sequitur-g2p@806273f
       - name: Run RSpecs
         run: |
           bundle exec rspec
