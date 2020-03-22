@@ -47,13 +47,13 @@ Windows:
 choco install --no-progress swig
 ----
 
-Interscript depends on Python and https://github.com/sequitur-g2p/sequitur-g2p[`sequitur-g2p`] module
+Interscript depends on Python and the https://github.com/sequitur-g2p/sequitur-g2p[`sequitur-g2p`] module
 
 [source,sh]
 ----
 pip3 install setuptools numpy
-wget https://github.com/sequitur-g2p/sequitur-g2p/archive/806273f.zip
-pip3 install 806273f.zip
+curl -sSL -o sequitur-g2p.zip https://github.com/sequitur-g2p/sequitur-g2p/archive/806273f.zip
+pip3 install sequitur-g2p.zip
 ----
 
 Interscript depends on Ruby. Once you manage to install Ruby, it's easy.
@@ -277,7 +277,7 @@ Currently the schemes cover Cyrillic, Armenian, Greek, Arabic and Hebrew.
 == References
 
 Reference documents are located at the
-https://github.com/riboseinc/interscript-references[interscript-references repository].
+https://github.com/interscript/interscript-references[interscript-references repository].
 Some specifications that have distribution limitations may not be reproduced there.
 
 
@@ -291,7 +291,7 @@ Some specifications that have distribution limitations may not be reproduced the
 * http://www.eki.ee/wgrs/[UN Romanization systems]
 * http://www.eki.ee/knab/kblatyl2.htm[EKI KNAB systems]
 
-== License
+== Copyright and license
 
-Copyright Ribose.
+This is a Ribose project. Copyright Ribose.
 
