@@ -31,13 +31,37 @@ image:demo/20191118-interscript-demo-cast.gif["interscript screencast"]
 
 == Installation
 
+=== Prerequisites
+
+Linux:
+
+[source,sh]
+----
+apt-get install swig python3-setuptools
+----
+
+Windows:
+
+[source,sh]
+----
+choco install --no-progress swig
+----
+
+Interscript depends on Python and https://github.com/sequitur-g2p/sequitur-g2p[`sequitur-g2p`] module
+
+[source,sh]
+----
+pip3 install setuptools numpy
+wget https://github.com/sequitur-g2p/sequitur-g2p/archive/806273f.zip
+pip3 install 806273f.zip
+----
+
 Interscript depends on Ruby. Once you manage to install Ruby, it's easy.
 
 [source,sh]
 ----
 gem install interscript
 ----
-
 
 == Usage
 
