@@ -19,6 +19,7 @@ module Interscript
       :creation_date,
       :source_script,
       :destination_script,
+      :chain,
       :character_separator,
       :word_separator,
       :title_case,
@@ -80,6 +81,7 @@ module Interscript
       @creation_date = mappings.fetch("creation_date", nil)
       @source_script = mappings.fetch("source_script", nil)
       @destination_script = mappings.fetch("destination_script", nil)
+      @chain = mappings.fetch("chain", [])
       @character_separator = mappings["map"]["character_separator"] || nil
       @word_separator = mappings["map"]["word_separator"] || nil
       @title_case = mappings["map"]["title_case"] || false

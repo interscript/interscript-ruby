@@ -21,17 +21,23 @@ module Interscript
       puts "Output written to: #{output_file}"
     end
 
+    def import_python_modules
+      begin
+        pyimport :g2pwrapper
+      rescue
+        pyimport :sys
+        sys.path.append(root_path.to_s+"/lib/")
+        pyimport :g2pwrapper
+      end
+    end
+
     def external_process(process_name, string)
+      import_python_modules
       case process_name
         when 'sequitur.pythainlp_lexicon'
-          begin
-            pyimport :g2pwrapper
-          rescue
-            pyimport :sys
-            sys.path.append(root_path.to_s+"/lib/")
-            pyimport :g2pwrapper
-          end
-          return g2pwrapper.transliterate(string)
+          return g2pwrapper.transliterate('pythainlp_lexicon', string)
+        when 'sequitur.wiktionary_phonemic'
+          return g2pwrapper.transliterate('wiktionary_phonemic', string)
       else
         puts "Invalid Process"
       end
@@ -43,6 +49,15 @@ module Interscript
       end
       # mapping = Interscript::Mapping.for(system_code)
       mapping = maps[system_code]
+
+
+      # First, apply chained transliteration as specified in the list `chain`
+      chain = mapping.chain.dup
+      while chain.length > 0
+        string = transliterate(chain.shift, string, maps)
+      end
+
+      # Then, apply the rest of the map
       separator = mapping.character_separator || ""
       word_separator = mapping.word_separator || ""
       title_case = mapping.title_case
