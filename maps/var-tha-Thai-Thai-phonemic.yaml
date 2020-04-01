@@ -9,7 +9,9 @@ url:
 creation_date: 
 adoption_date: 
 description:
-  This map performs two tasks. First the text is segmented using a dictionary.
+  This map performs two tasks. 
+
+  First the text is segmented using a dictionary.
   Then Thai texts will be sent to an external module to get converted into
   Phonemic Thai.
 
@@ -19,12 +21,34 @@ description:
 notes: |
 
 tests:
+  - source: "ที่เปิดขวด"
+    expected: "ที่-เปิด-ขวด"
+  - source: "พื้นหลัง"
+    expected: "พื้น-หฺลัง"
+  - source: "สมชาย"
+    expected: "สม-ชาย"
+  - source: "อ่อนข้อ"
+    expected: "อ็่อน-ค่อ"
+  - source: "โครยอ"
+    expected: "โค-ระ-ยอ"
+  - source: "ไล่ออก"
+    expected: "ไล่-ออก"
+  - source: "ไส้เลื่อน"
+    expected: "ไส้-เลื่อน"
+  - source: "ความวาว"
+    expected: "คฺวาม-วาว"
+  - source: "ไอกรน"
+    expected: "ไอ-กฺรน"
+  - source: "ไอซียู"
+    expected: "ไอ-ซี-ยู"
+  - source: "ไอซ์แลนด์"
+    expected: "ไอ๊ส-แลน"
 
 map:
   title-case: false
   word_separator: " "  
-  segmentation: ""
-  transcription: "sequitur.pythainlp_lexicon"
+  segmentation: "" # Not yet implemented
+  transcription: "sequitur.wiktionary_phonemic"
 
   rules:
 
