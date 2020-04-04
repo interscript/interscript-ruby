@@ -1,0 +1,90 @@
+---
+authority_id: royin
+id: 1939-generic
+language: tha
+source_script: Thai
+destination_script: Latn
+name: Royal Thai General System of Transcription (1939) Generic
+url: http://www.siamese-heritage.org/jsspdf/1941/JSS_033_1d_RoyalInstituteTranscriptionOfThaiIntoRomanCharacters.pdf
+creation_date: 1939
+adoption_date: 
+description: |
+  This map loads two external maps to convert Thai text first into phonemic Thai,
+  and then into IPA transcription.
+  
+  The IPA transcription will then be handled by this map, and converted into
+  Royal Thai General System of Transcription (1939)
+
+  The first two parts are done via two external maps.
+
+
+notes: |
+  This is a draft for the map.
+  The conversion from Thai to Phonemic Thai is still work-in-progress.
+
+tests:
+  - source: "กษัตริย์"
+    expected: "kasat"
+  - source: "ประกาศ"
+    expected: "prakat"
+  # - source: "ราชบุรี่"
+  #   expected: "ratburi"
+  # - source: "ปากลัด"
+  #   expected: "pak-lat"
+
+
+chain: ["var-tha-Thai-Thai-phonemic" ,"var-tha-Thai-Zsym-ipa"]
+
+map:
+  title-case: false
+  word_separator: " "  
+
+  rules:
+    - pattern: '[˩˨˧˦˥]'
+      result : ''
+
+  postrules:
+    - pattern: '\.'
+      result:  ''
+
+  characters:
+
+  dictionary:
+
+    '̯': ''
+    '̚': ''
+
+    'ʔ': ''
+    'ː': ''
+
+    't͡ɕʰ': 'ch'
+    't͡ɕ': 'čh'
+    'ŋ': 'ng'
+    'j': 'y'
+    'ɔ': 'o̦'
+    'ɤ': 'œ' 
+    'ɛ': 'æ'
+    'ɯ': 'ư'
+    'ʰ': 'h'
+
+    'aːw': 'ao'
+    'aw': 'ao'
+    'a̯w': 'ao'
+    'eːw': 'eo'
+    'ew': 'eo'
+    'ɛːw': 'aeo'
+    'ɛw': 'æo'
+    'iːw': 'iu'
+    'iw': 'iu'
+
+    'aːj': 'ai'
+    'aj': 'ai'
+    'a̯j': 'ai'
+    'ɔːj': 'o̦i'
+    'ɔj': 'o̦i'
+    'oːj': 'oi'
+    'oj': 'oi'
+    'ɤːj': 'œi'
+    'ɤj': 'œi'
+    'uːj': 'ui'
+    'uj': 'ui'

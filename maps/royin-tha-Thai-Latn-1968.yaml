@@ -1,19 +1,19 @@
 ---
 authority_id: royin
-id: 1999-chained
+id: 1968-chained
 language: tha
 source_script: Thai
 destination_script: Latn
-name: Royal Thai General System of Transcription (1999)
+name: Royal Thai General System of Transcription (1968)
 url: http://www.royin.go.th/wp-content/uploads/royin-ebook/276/FileUpload/758_6484.pdf
-creation_date: 1999
+creation_date: 1968
 adoption_date: 
 description: |
   This map loads two external maps to convert Thai text first into phonemic Thai,
   and then into IPA transcription.
   
   The IPA transcription will then be handled by this map, and converted into
-  Royal Thai General System of Transcription (1999)
+  Royal Thai General System of Transcription (1968).
 
   The first two parts are done via two external maps.
 
@@ -36,11 +36,11 @@ tests:
   - source: "บุรี"
     expected: "buri"
   - source: "สตึก"
-    expected: "satuek"
+    expected: "satuk"
   - source: "พืช"
-    expected: "phuet"
+    expected: "phut"
   - source: "บรบือ"
-    expected: "borabue"
+    expected: "borabu"
   - source: "ภู"
     expected: "phu"
   - source: "ปะนาเระ"
@@ -74,9 +74,9 @@ tests:
   - source: "เทียน"
     expected: "thian"
   # - source: "เกือะ"
-  #   expected: "kuea"
+  #   expected: "kua"
   - source: "เมือง"
-    expected: "mueang"
+    expected: "muang"
   # - source: "ผัวะ"
   #   expected: "phua"
   - source: "บัว"
@@ -104,7 +104,7 @@ tests:
   # - source: "ดอย"
   #   expected: "doi"
   # - source: "งิ้ว"
-  #   expected: "ngio"
+  #   expected: "ngiu"
   - source: "เร็ว"
     expected: "reo"
   # - source: "เลว"
@@ -112,14 +112,13 @@ tests:
   # - source: "เลย"
   #   expected: "loei"
   # - source: "เดือย"
-  #   expected: "dueai"
+  #   expected: "duai"
   # - source: "ห้วย"
   #   expected: "huai"
   - source: "แมว"
     expected: "maeo"
   - source: "เขียว"
-    expected: "khiao"
-
+    expected: "khieu"
 
 chain: ["var-tha-Thai-Thai-phonemic" ,"var-tha-Thai-Zsym-ipa"]
 
@@ -154,18 +153,18 @@ map:
     'ɔ': 'o'
     'ɤ': 'oe' 
     'ɛ': 'ae'
-    'ɯ': 'ue' # New spelling, was u in 1968
+    'ɯ': 'u'
     'ʰ': 'h'
 
     'aːw': 'ao'
     'aw': 'ao'
-    'a̯w': 'ao' # New spelling, was eu in 1968
+    'a̯w': 'eu'
     'eːw': 'eo'
     'ew': 'eo'
     'ɛːw': 'aeo'
     'ɛw': 'aeo'
-    'iːw': 'io' # New spelling, was iu in 1968
-    'iw': 'io' # New spelling, was iu in 1968
+    'iːw': 'iu'
+    'iw': 'iu'
 
     'aːj': 'ai'
     'aj': 'ai'
