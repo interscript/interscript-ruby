@@ -1,0 +1,322 @@
+---
+authority_id: bgnpcgn
+id: 1966
+language: lao
+source_script: Laoo
+destination_script: Latn
+name: BGN/PCGN 1966 System
+url: 
+creation_date: 1966
+confirmation date: 2017
+description: |
+  This map assumes that the text has been segmented by syllable, 
+  which should be handled by an external processs.
+  
+notes:
+
+tests:
+  - source: "ຫ້ວຍ-ຊາຍ"
+    expected: "Houayxay"
+  - source: "ຈຳ-ປາ-ສັກ"
+    expected: "Champasak"
+  - source: "ໄກສອນ ພົມ-ວິ-ຫານ"
+    expected: "Kaison Phômvihan"
+  - source: "ມ. ຫລວງ ນໍ້າ-ທາ"
+    expected: "M. Louang Namtha"
+  - source: "ປາກ-ຊັນ"
+    expected: "Pakxan"
+  - source: "ນໍ້າ"
+    expected: "Nam"
+  - source: "ສະ-ໄຫວ"
+    expected: "Savai"
+  - source: "ປ້າ ດີ ມີ ໝູ ມີ ໝາ ແລະ ມີ ຫຼາ"
+    expected: "Pa Di Mi Mou Mi Ma Lè Mi La"
+  - source: "ນາ"
+    expected: "Na" # na
+  - source: "ນ່າ"
+    expected: "Na" # na
+  - source: "ນ້າ"
+    expected: "Na" # na
+  - source: "ນ໊າ"
+    expected: "Na" # na
+  - source: "ນ໋າ"
+    expected: "Na" # na
+  - source: "ອີກ"
+    expected: "Ik" # ik
+  - source: "ຊະ-ເອມ"
+    expected: "Xa-Ém" # xa-ém
+  - source: "ບ້ານ-ແກ້ງ-ອີ"
+    expected: "Bankèng-I" # ban-kèng-i
+  - source: "ຫລວງ-ພະ-ບາງ"
+    expected: "Louangphabang" # louang-pha-bang
+  - source: "ຫຍ້າ"
+    expected: "Gna" # gna
+  - source: "ແຫນ"
+    expected: "Hèn" # hèn
+  - source: "ແໜ"
+    expected: "Nè" # nè
+  - source: "ວັດ"
+    expected: "Vat" # vat
+  - source: "ທັນ-ວາ"
+    expected: "Thanva" # than-va
+  - source: "ບ້ານ-ວັດ-ພຣະ-ໄຊ"
+    expected: "Banvatphraxai" # ban-vat-phra-xai
+  - source: "ສວາຽ"
+    expected: "Soay" # soay
+  - source: "ແຂວງ"
+    expected: "Khoèng" # khoèng
+  - source: "ສະ-ຫວັນ-ນະ-ເຂດ"
+    expected: "Savannakhét" # sa-van-na-khét
+  - source: "ຊວາ"
+    expected: "Xoa" # xoa
+  - source: "ຂວານ"
+    expected: "Khoan" # khoan
+  - source: "ສະ-ວານ"
+    expected: "Savan" # sa-van
+  - source: "ຄິວ"
+    expected: "Khiou" # khiou
+  - source: "ຕີວ"
+    expected: "Tiou" # tiou
+  - source: "ຈົວ"
+    expected: "Choua" # choua
+  - source: "ນາວ"
+    expected: "Nao" # nao
+  - source: "ແກວ"
+    expected: "Kèo" # kèo
+  - source: "ດຽວ"
+    expected: "Diao" # diao
+  - source: "ເບີຣ໌"
+    expected: "Beur" # beur
+  - source: "ເບຍ"
+    expected: "Bia" # bia
+  - source: "໐໑໒໓໔໕໖໗໘໙"
+    expected: "0123456789" # 0123456789
+  - source: "ໃຈ"
+    expected: "Chai" # chai
+  - source: "ເວ-ລາ"
+    expected: "Véla" # vé-la
+  - source: "ສະ-ຫນັບ"
+    expected: "Sanap" # sa-nap
+  - source: "ສະ-ຫນູນ"
+    expected: "Sanoun" # sa-noun
+  - source: "ໃຫ້-ແນ່-ໃຈ-ວ່າ"
+    expected: "Hainèchaiva" # hai-nè-chai-va
+
+map:
+  title_case: True
+  word_separator: " "
+  segmentation: ""
+
+  rules:
+    # Letters
+    # C (Consonants): All Consonant inventory
+    # G (Glides): 
+    # L (Liquids): LR
+    # H (Tone-marking H)
+    # V1 (Pre-Vowel)
+    # V2 (Ligature Abugida Vowel)
+    # V3 (Post-Vowel)
+    # V4 (Short-A: Must end a sequence)
+    # F (Syllable-final Consonants)
+    # T (Tone markers)
+
+    #  V1 H C G|L V2 T (V3 F?|V4)
+    # Prepare a complete rhyme list?
+    # 
+
+    # Strat.
+    # Boundary is handled.
+
+    # Here, it is assumed that all hm, hn, and hl are be written with
+    # the combined ligature: ຫມ -> ໝ, ຫນ -> ໜ, ຫລ -> ຫຼ. 
+    # All consecutive h+m, h+n will be considered separate here.
+    # 
+    # The letter ຫ in ຫລ (hl), ຫຍ (hgn), ຫຣ (hr) and ຫວ (hv) is
+    # not a consonant. Its only function is to change the tone-class
+    # of the same word. This marker does not affect transcription
+    # and will be removed.
+
+    # Note that ຫວ can theoretically be h + oua, as in ຫ້ວຍ Houay
+    # There is a tone diacritic (MAI THO) on ຫ, and diacritic 
+    # bearing ຫ cannot be a tone-marking h.
+    # This is why the h-dropping rule needs to go before the removal
+    # of tone diacritices (\u0ec8-\u0ecb).
+
+    # Remove tone-marking ຫ
+    - pattern: "ຫ([ລຍຣວ])"
+      result: "\\1"
+
+    # Remove tone diacritics
+    - pattern: "[\u0ec8-\u0ecb]"
+      result: ""
+
+    # Cancel all sounds with the cancellation mark, except for R
+    - pattern: "ຣ\u0ecc"
+      result: "r"
+    - pattern: ".\u0ecc"
+      result: ""
+
+    # Normalize -am  ກໍາ -> ກຳ 
+    - pattern: "\u0ecd[\u0ec8-\u0ecb]?\u0eb2" # ກໍາ 
+                              # U+0xecd LAO NIGGAHITA
+                              # U+0xeb2 LAO VOWEL SIGN AA
+      result: "\u0eb3" #  ກຳ U+0xeb3 LAO VOWEL SIGN AM
+
+    # Swap fronted vowel symbols with the consonant
+    - pattern: "([ເແໂໄໃ])([ກ-ຮໜໝ])"
+      result: "\\2\\1"
+
+    - pattern: "([ເແໂໄໃ])([ວ|ຮ])([ບດກມນງ])"
+      result: "\\2\\1\\3"
+
+    # - pattern: "-ອ"
+    #   result: "- ອ"
+
+  postrules:
+    - pattern: "-h(?=n|m|l)"
+      result: "-"
+    - pattern: "-(?=[^ ])"
+      result: ""
+    - pattern: "- a"
+      result: "-A"
+    - pattern: "- a"
+      result: "-A"
+    - pattern: "- i"
+      result: "-I"
+    - pattern: "- u"
+      result: "-U"
+    - pattern: "- o"
+      result: "-O"
+    - pattern: "- ô"
+      result: "-Ô"
+    - pattern: "- é"
+      result: "-É"
+    - pattern: "- è"
+      result: "-È"
+
+    # ໆ repeats the previous syllable once 
+    # TODO
+
+  characters:
+    "\u0eb0": "a" # ກະ U+0xeb0 LAO VOWEL SIGN A
+    "\u0eb1": "a" # ກັ  U+0xeb1 LAO VOWEL SIGN MAI KAN
+    "\u0eb2": "a" # ກາ U+0xeb2 LAO VOWEL SIGN AA
+
+    "\u0eb4": "i" # ກິ  U+0xeb4 LAO VOWEL SIGN I
+    "\u0eb5": "i" # ກີ  U+0xeb5 LAO VOWEL SIGN II
+
+    "\u0eb6": "u" # ກຶ  U+0xeb6 LAO VOWEL SIGN Y
+    "\u0eb7": "u" # ກື  U+0xeb7 LAO VOWEL SIGN YY
+
+    "\u0eb8": "ou" # ກຸ U+0xeb8 LAO VOWEL SIGN U
+    "\u0eb9": "ou" # ກູ U+0xeb9 LAO VOWEL SIGN UU
+
+    "\u0ec0\u0eb0": "é" # ເກະ
+    "\u0ec0\u0eb1": "é" # ເກັ
+    "\u0ec0": "é" # ເກ U+0xec0 LAO VOWEL SIGN E
+
+    "\u0ec1\u0eb0": "è" # ແກະ
+    "\u0ec1\u0eb1": "è" # ແກັ
+    "\u0ec1": "è" # ແກ U+0xec1 LAO VOWEL SIGN EI
+
+    "\u0ec2\u0eb0": "ô" # ໂກະ
+    "\u0ebb": "ô" # ກົ  U+0xebb LAO VOWEL SIGN MAI KON
+    "\u0ec2": "ô" # ໂກ U+0xec2 LAO VOWEL SIGN O
+
+    "\u0ec0\u0eb2\u0eb0": "o" #ເກາະ
+    "\u0eb1\u0ead": "o" # ກັອ
+    "\u0ecd": "o" # ກໍ U+0xecd LAO NIGGAHITA
+    "\u0ead": "o" # ກອ
+
+    "\u0ebb\u0ea7\u0eb0": "oua" # ກົວະ
+    "\u0ebb\u0ea7": "oua" # ກົວ
+    "\u0eb4\u0ea7" : "iou" # ກິວ
+    "\u0eb5\u0ea7" : "iou" # ກີວ
+
+    "\u0ec0\u0ea7": "eo" # ເກວ
+    "\u0ec1\u0ea7": "èo" # ແກວ
+    "\u0eb2\u0ea7": "ao" # ກາວ
+
+    "\u0ea7\u0eb2": "oa"
+    "\u0ea7\u0eb2\u0ebd": "oay" # ກວາຽ
+    "\u0ea7": "oua" # ກວ-
+    "\u0ea7\u0ec0": "oe" # ເກວ-
+    "\u0ea7\u0ec1": "oè" # ແກວ-
+    
+    "\u0ec0\u0eb1\u0ebd\u0eb0": "ia" # ເກັຍະ
+    "\u0ec0\u0ebd": "ia" # ເກຽ
+    "\u0ec0\u0ebd": "ia" # ກັຽ
+    "\u0ebd": "ia" #  ກຽ U+0xebd LAO SEMIVOWEL SIGN NYO
+    "\u0ebd\u0ea7": "iao" # ກຽວ
+
+    "\u0ec0\u0eb6\u0ead\u0eb0": "ua" # ເກຶອະ
+    "\u0ec0\u0eb6\u0ead": "ua" # ເກຶອ
+    "\u0ec0\u0eb7\u0ead": "ua" # ເກືອ
+
+    "\u0ec0\u0eb4\u0eb0": "eu" # ເກິະ 
+    "\u0ec0\u0eb4": "eu" # ເກິ
+    "\u0ec0\u0eb5": "eu" # ເກີ
+
+    "\u0ec4": "ai" #  ໄກ U+0xec4 LAO VOWEL SIGN AI
+    "\u0ec3": "ai" #  ໃກ U+0xec3 LAO VOWEL SIGN AY
+    "\u0eb1\u0e8d": "ai" #ກັຍ
+    "\u0eb2\u0e8d": "ai" #ກາຍ
+
+    "\u0ec0\u0ebb\u0eb2": "ao" # ເກົາ
+    "\u0eb3": "am" #  ກຳ U+0xeb3 LAO VOWEL SIGN AM
+
+    "\u0ec0\u0eb1\u0e8d": "ia" # ເກັຍ
+    "\u0ec0\u0e8d()": "ia" # ເກຍ
+    "\u0e8d-": "y" # ຍ
+    "\u0e8d$": "y" # ຍ
+
+    "ບ-": "p" # U+0xe9a LAO LETTER BO (ending)
+    "ບ$": "p" # U+0xe9a LAO LETTER BO (ending)
+
+    "ດ-": "t" # U+0xe94 LAO LETTER DO (ending)
+    "ດ$": "t" # U+0xe94 LAO LETTER DO (ending)
+
+    "ກ": "k" # U+0xe81 LAO LETTER KO
+    "ຂ": "kh" # U+0xe82 LAO LETTER KHO SUNG
+    "ຄ": "kh" # U+0xe84 LAO LETTER KHO TAM
+    "ງ": "ng" # U+0xe87 LAO LETTER NGO
+    "ຈ": "ch" # U+0xe88 LAO LETTER CO
+    "ສ": "s" # U+0xeaa LAO LETTER SO SUNG
+    "ຊ": "x" # U+0xe8a LAO LETTER SO TAM
+    "ຍ": "gn" # U+0xe8d LAO LETTER NYO
+    "ດ": "d" # U+0xe94 LAO LETTER DO
+    "ຕ": "t" # U+0xe95 LAO LETTER TO
+    "ຖ": "th" # U+0xe96 LAO LETTER THO SUNG
+    "ທ": "th" # U+0xe97 LAO LETTER THO TAM
+    "ນ": "n" # U+0xe99 LAO LETTER NO
+    "ບ": "b" # U+0xe9a LAO LETTER BO
+    "ປ": "p" # U+0xe9b LAO LETTER PO
+    "ຜ": "ph" # U+0xe9c LAO LETTER PHO SUNG
+    "ຝ": "f" # U+0xe9d LAO LETTER FO TAM
+    "ພ": "ph" # U+0xe9e LAO LETTER PHO TAM
+    "ຟ": "f" # U+0xe9f LAO LETTER FO SUNG
+    "ມ": "m" # U+0xea1 LAO LETTER MO
+    "ຢ": "y" # U+0xea2 LAO LETTER YO
+    "ຣ": "r" # U+0xea3 LAO LETTER LO LING (Note: RO ROT)
+    "ລ": "l" # U+0xea5 LAO LETTER LO LOOT (Note: LO LING)
+    "-ວ": "-v" # U+0xea7 LAO LETTER WO
+    "^ວ": "v" # U+0xea7 LAO LETTER WO
+    "ຫ": "h" # U+0xeab LAO LETTER HO SUNG
+    "-ອ": "- " # U+0xead LAO LETTER O
+    "^ອ": "" # U+0xead LAO LETTER O
+    "ຮ": "h" # U+0xeae LAO LETTER HO TAM
+
+    "ໜ": "n" # U+0xedc LAO HO NO
+    "ໝ": "m" # U+0xedd LAO HO MO
+    "ຫຼ": "l" # ຫ wiht U+0xebc LAO SEMIVOWEL SIGN LO
+
+    "໐": "0" # U+0xed0 LAO DIGIT ZERO
+    "໑": "1" # U+0xed1 LAO DIGIT ONE
+    "໒": "2" # U+0xed2 LAO DIGIT TWO
+    "໓": "3" # U+0xed3 LAO DIGIT THREE
+    "໔": "4" # U+0xed4 LAO DIGIT FOUR
+    "໕": "5" # U+0xed5 LAO DIGIT FIVE
+    "໖": "6" # U+0xed6 LAO DIGIT SIX
+    "໗": "7" # U+0xed7 LAO DIGIT SEVEN
+    "໘": "8" # U+0xed8 LAO DIGIT EIGHT
+    "໙": "9" # U+0xed9 LAO DIGIT NINE
