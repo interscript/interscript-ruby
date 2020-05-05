@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-ubuntu:
-    name: Run specs
+    name: Run specs on Ubuntu
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -41,7 +41,7 @@ jobs:
           bundle exec rspec
 
   build-macos:
-    name: Run specs
+    name: Run specs on MacOS
     runs-on: macos-latest
     strategy:
       fail-fast: false
@@ -75,7 +75,7 @@ jobs:
           bundle exec rspec
 
   build-windows:
-    name: Run specs
+    name: Run specs on Windows
     runs-on: windows-latest
     strategy:
       fail-fast: false
