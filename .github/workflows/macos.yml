@@ -1,0 +1,41 @@
+name: test
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+
+jobs:
+  build:
+    name: Run specs
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby: ['2.6', '2.5', '2.4']
+        python: ['3.x']
+    steps:
+      - name: Use Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          architecture: 'x64'
+      - uses: actions/checkout@master
+      - name: Update gems
+        run: |
+          gem install bundler -v "~> 2"
+          bundle install --jobs 4 --retry 3
+      - name: Setup python
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+          architecture: x64
+      - name: Install macos dependencies
+        run: brew install swig
+      - name: Update Sequitur
+        run: |
+          pip3 install setuptools numpy
+          pip3 install git+https://github.com/sequitur-g2p/sequitur-g2p@806273f
+      - name: Run RSpecs
+        run: |
+          bundle exec rspec
