@@ -39,7 +39,7 @@ jobs:
         run: sudo apt-get install swig python3-setuptools
       - name: Install macos dependencies
         if: matrix.os == 'macos-latest'
-        run: brew install swig python3-setuptools
+        run: brew install swig
       - name: Update Sequitur
         run: |
           pip3 install setuptools numpy
