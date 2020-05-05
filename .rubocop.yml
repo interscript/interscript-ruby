@@ -91,9 +91,9 @@ Metrics/CyclomaticComplexity:
     cases needed to validate a method.
   Enabled: true
   Max: 6
-Rails/Delegate:
-  Description: Prefer delegate method for delegations.
-  Enabled: false
+# Rails/Delegate:
+#   Description: Prefer delegate method for delegations.
+#   Enabled: false
 Style/PreferredHashMethods:
   Description: Checks use of `has_key?` and `has_value?` Hash methods.
   StyleGuide: "#hash-key"
@@ -240,7 +240,7 @@ Style/PerlBackrefs:
 Naming/PredicateName:
   Description: Check the names of predicate methods.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#bool-methods-qmark
-  NamePrefixBlacklist:
+  ForbiddenPrefixes:
   - is_
   Exclude:
   - spec/**/*
@@ -330,7 +330,7 @@ Style/WordArray:
   Description: Use %w or %W for arrays of words.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#percent-w
   Enabled: false
-Layout/AlignParameters:
+Layout/ParameterAlignment:
   Description: Here we check if the parameters on a multi-line method call or definition
     are aligned.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#no-double-indent
@@ -379,7 +379,7 @@ Lint/CircularArgumentReference:
 Lint/DeprecatedClassMethods:
   Description: Check for deprecated class method calls.
   Enabled: false
-Lint/DuplicatedKey:
+Lint/DuplicateHashKey:
   Description: Check for duplicate keys in hash literals.
   Enabled: false
 Lint/EachWithObjectArgument:
@@ -391,7 +391,7 @@ Lint/ElseLayout:
 Lint/FormatParameterMismatch:
   Description: The number of parameters to format/sprint must match the fields.
   Enabled: false
-Lint/HandleExceptions:
+Lint/SuppressedException:
   Description: Don't suppress exception.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#dont-hide-exceptions
   Enabled: false
@@ -423,84 +423,84 @@ Lint/RequireParentheses:
 Lint/UnderscorePrefixedVariableName:
   Description: Do not use prefix `_` for a variable that is used.
   Enabled: false
-Lint/UnneededCopDisableDirective:
+Lint/RedundantCopDisableDirective:
   Description: 'Checks for rubocop:disable comments that can be removed. Note: this
     cop is not disabled when disabling all cops. It must be explicitly disabled.'
   Enabled: false
 Lint/Void:
   Description: Possible use of operator/literal/variable in void context.
   Enabled: false
-Performance/CaseWhenSplat:
-  Description: Place `when` conditions that use splat at the end of the list of `when`
-    branches.
-  Enabled: false
-Performance/Count:
-  Description: Use `count` instead of `select...size`, `reject...size`, `select...count`,
-    `reject...count`, `select...length`, and `reject...length`.
-  Enabled: false
-Performance/Detect:
-  Description: Use `detect` instead of `select.first`, `find_all.first`, `select.last`,
-    and `find_all.last`.
-  Reference: https://github.com/JuanitoFatas/fast-ruby#enumerabledetect-vs-enumerableselectfirst-code
-  Enabled: false
-Performance/FlatMap:
-  Description: Use `Enumerable#flat_map` instead of `Enumerable#map...Array#flatten(1)`
-    or `Enumberable#collect..Array#flatten(1)`
-  Reference: https://github.com/JuanitoFatas/fast-ruby#enumerablemaparrayflatten-vs-enumerableflat_map-code
-  Enabled: false
-Performance/ReverseEach:
-  Description: Use `reverse_each` instead of `reverse.each`.
-  Reference: https://github.com/JuanitoFatas/fast-ruby#enumerablereverseeach-vs-enumerablereverse_each-code
-  Enabled: false
+# Performance/CaseWhenSplat:
+#   Description: Place `when` conditions that use splat at the end of the list of `when`
+#     branches.
+#   Enabled: false
+# Performance/Count:
+#   Description: Use `count` instead of `select...size`, `reject...size`, `select...count`,
+#     `reject...count`, `select...length`, and `reject...length`.
+#   Enabled: false
+# Performance/Detect:
+#   Description: Use `detect` instead of `select.first`, `find_all.first`, `select.last`,
+#     and `find_all.last`.
+#   Reference: https://github.com/JuanitoFatas/fast-ruby#enumerabledetect-vs-enumerableselectfirst-code
+#   Enabled: false
+# Performance/FlatMap:
+#   Description: Use `Enumerable#flat_map` instead of `Enumerable#map...Array#flatten(1)`
+#     or `Enumberable#collect..Array#flatten(1)`
+#   Reference: https://github.com/JuanitoFatas/fast-ruby#enumerablemaparrayflatten-vs-enumerableflat_map-code
+#   Enabled: false
+# Performance/ReverseEach:
+#   Description: Use `reverse_each` instead of `reverse.each`.
+#   Reference: https://github.com/JuanitoFatas/fast-ruby#enumerablereverseeach-vs-enumerablereverse_each-code
+#   Enabled: false
 Performance/Sample:
   Description: Use `sample` instead of `shuffle.first`, `shuffle.last`, and `shuffle[Fixnum]`.
   Reference: https://github.com/JuanitoFatas/fast-ruby#arrayshufflefirst-vs-arraysample-code
   Enabled: false
-Performance/Size:
-  Description: Use `size` instead of `count` for counting the number of elements in
-    `Array` and `Hash`.
-  Reference: https://github.com/JuanitoFatas/fast-ruby#arraycount-vs-arraysize-code
-  Enabled: false
-Performance/StringReplacement:
-  Description: Use `tr` instead of `gsub` when you are replacing the same number of
-    characters. Use `delete` instead of `gsub` when you are deleting characters.
-  Reference: https://github.com/JuanitoFatas/fast-ruby#stringgsub-vs-stringtr-code
-  Enabled: false
-Rails/ActionFilter:
-  Description: Enforces consistent use of action filter methods.
-  Enabled: false
-Rails/Date:
-  Description: Checks the correct usage of date aware methods, such as Date.today,
-    Date.current etc.
-  Enabled: false
-Rails/FindBy:
-  Description: Prefer find_by over where.first.
-  Enabled: false
-Rails/FindEach:
-  Description: Prefer all.find_each over all.find.
-  Enabled: false
-Rails/HasAndBelongsToMany:
-  Description: Prefer has_many :through to has_and_belongs_to_many.
-  Enabled: false
-Rails/Output:
-  Description: Checks for calls to puts, print, etc.
-  Enabled: false
-Rails/ReadWriteAttribute:
-  Description: Checks for read_attribute(:attr) and write_attribute(:attr, val).
-  Enabled: false
-Rails/ScopeArgs:
-  Description: Checks the arguments of ActiveRecord scopes.
-  Enabled: false
-Rails/TimeZone:
-  Description: Checks the correct usage of time zone aware methods.
-  StyleGuide: https://github.com/bbatsov/rails-style-guide#time
-  Reference: http://danilenko.org/2012/7/6/rails_timezones
-  Enabled: false
-Rails/Validation:
-  Description: Use validates :attribute, hash of validations.
-  Enabled: false
-Rails:
-  Enabled: true
+# Performance/Size:
+#   Description: Use `size` instead of `count` for counting the number of elements in
+#     `Array` and `Hash`.
+#   Reference: https://github.com/JuanitoFatas/fast-ruby#arraycount-vs-arraysize-code
+#   Enabled: false
+# Performance/StringReplacement:
+#   Description: Use `tr` instead of `gsub` when you are replacing the same number of
+#     characters. Use `delete` instead of `gsub` when you are deleting characters.
+#   Reference: https://github.com/JuanitoFatas/fast-ruby#stringgsub-vs-stringtr-code
+#   Enabled: false
+# Rails/ActionFilter:
+#   Description: Enforces consistent use of action filter methods.
+#   Enabled: false
+# Rails/Date:
+#   Description: Checks the correct usage of date aware methods, such as Date.today,
+#     Date.current etc.
+#   Enabled: false
+# Rails/FindBy:
+#   Description: Prefer find_by over where.first.
+#   Enabled: false
+# Rails/FindEach:
+#   Description: Prefer all.find_each over all.find.
+#   Enabled: false
+# Rails/HasAndBelongsToMany:
+#   Description: Prefer has_many :through to has_and_belongs_to_many.
+#   Enabled: false
+# Rails/Output:
+#   Description: Checks for calls to puts, print, etc.
+#   Enabled: false
+# Rails/ReadWriteAttribute:
+#   Description: Checks for read_attribute(:attr) and write_attribute(:attr, val).
+#   Enabled: false
+# Rails/ScopeArgs:
+#   Description: Checks the arguments of ActiveRecord scopes.
+#   Enabled: false
+# Rails/TimeZone:
+#   Description: Checks the correct usage of time zone aware methods.
+#   StyleGuide: https://github.com/bbatsov/rails-style-guide#time
+#   Reference: http://danilenko.org/2012/7/6/rails_timezones
+#   Enabled: false
+# Rails/Validation:
+#   Description: Use validates :attribute, hash of validations.
+#   Enabled: false
+# Rails:
+#   Enabled: true
 Metrics/PerceivedComplexity:
   Description: A complexity metric geared towards measuring complexity for a human
     reader.
