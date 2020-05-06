@@ -121,7 +121,7 @@ map:
       result: Ya
     - pattern: (?<!\u2019)\b\u044f # я in initial position -> ya
       result: ya
-    - pattern: (?<!\s)\u2019(?!\s) # ’ -> ”
+    - pattern: (?<!\s)\u2019(?!\s) # ’ in the middle of a word -> ”
       result: "\u201d"
 
   characters:
