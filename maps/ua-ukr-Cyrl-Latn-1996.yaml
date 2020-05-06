@@ -121,6 +121,7 @@ map:
       result: Ya
     - pattern: (?<!\u2019)\b\u044f # я in initial position -> ya
       result: ya
+
   characters:
     "\u0410": "A"       # А
     "\u0411": "B"       # Б
@@ -155,7 +156,6 @@ map:
     "\u042e": "Iu"      # Ю
     "\u042f": "Ia"      # Я
     "\u042c": "\u2019"  # Ь -> ’
-    "\u2019": "\u201d"  # ’ -> ”
     "\u0430": "a"       # а
     "\u0431": "b"       # б
     "\u0432": "v"       # в
