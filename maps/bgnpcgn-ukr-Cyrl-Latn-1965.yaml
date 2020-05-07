@@ -18,7 +18,80 @@ notes:
   - The character sequences з г, к г, с г, т с and ц г and may be romanized z∙h, k∙h, s∙h, t∙s and ts∙h in order to differentiate those romanizations from the digraphs zh, kh, sh, ts, and the letter sequence tsh, which are used to render the characters ж, x, ц, ш, and the character sequence тш.
   - All apostrophes appearing in romanization are Unicode encoding 2019.
   - The Roman‐script columns show only lowercase forms but, when applying the table, uppercase and lowercase Roman letters as appropriate should be used.
+
+tests:
+  - source: Авдіївська Міськрада
+    expected: Avdiyivs’ka Mis’krada
+  - source: Бабаї
+    expected: Babayi
+  - source: Віленька
+    expected: Vilen’ka
+  - source: Гагарінський Район
+    expected: Haharins’kyy Rayon
+  - source: Довбушева Криниця
+    expected: Dovbusheva Krynytsya
+  - source: Дідівщина
+    expected: Didivshchyna
+  - source: Економічна
+    expected: Ekonomichna
+  - source: Єфросинівка
+    expected: Yefrosynivka
+  - source: Жигуліна Роща
+    expected: Zhyhulina Roshcha
+  - source: Загір’я
+    expected: Zahir”ya
+  - source: З’єднувальний Канал
+    expected: Z”yednuval’nyy Kanal
+  - source: Ивахи
+    expected: Yvakhy
+  - source: Івано-Франківська Міськрада
+    expected: Ivano-Frankivs’ka Mis’krada
+  - source: Їжаківка
+    expected: Yizhakivka
+  - source: Йосиповичі
+    expected: Yosypovychi
+  - source: Кабичівка
+    expected: Kabychivka
+  - source: Лазуровий Провулок
+    expected: Lazurovyy Provulok
+  - source: Мала Сейдеминуха
+    expected: Mala Seydemynukha
+  - source: Нагірний
+    expected: Nahirnyy
+  - source: Овер’янівське Озеро
+    expected: Over”yanivs’ke Ozero
+  - source: Павлопільське Водосховище
+    expected: Pavlopil’s’ke Vodoskhovyshche
+  - source: Приґородний
+    expected: Prygorodnyy
+  - source: Радгосп Правда
+    expected: Radhosp Pravda
+  - source: Садово-Хрустальненський
+    expected: Sadovo-Khrustal’nens’kyy
+  - source: Таратутине
+    expected: Taratutyne
+  - source: Улу-Узень
+    expected: Ulu-Uzen’
+  - source: Христофорівка
+    expected: Khrystoforivka
+  - source: Центральна Вулиця
+    expected: Tsentral’na Vulytsya
+  - source: Чайковичі
+    expected: Chaykovychi
+  - source: Шалаші
+    expected: Shalashi
+  - source: Щербинівка
+    expected: Shcherbynivka
+  - source: Южноукраїнська Міськрада
+    expected: Yuzhnoukrayins’ka Mis’krada
+  - source: Ясениця
+    expected: Yasenytsya
+
 map:
+  rules:
+    - pattern: (?<!\s)\u2019(?!\s) # ’ in the middle of a word -> ”
+      result: "\u201d"
+
   characters:
     "\u0430": 'a'
     "\u0431": 'b'
@@ -46,7 +119,7 @@ map:
     "\u0447": 'ch'
     "\u0448": 'sh'
     "\u0449": 'shch'
-    "\u044c": '\u2019'
+    "\u044c": "\u2019"
     "\u044e": 'yu'
     "\u044f": 'ya'
     "\u0454": 'ye'
@@ -83,7 +156,7 @@ map:
     "\u0427": 'Ch'
     "\u0428": 'Sh'
     "\u0429": 'Shch'
-    "\u042c": '\u2019'
+    "\u042c": "\u2019"
     "\u042e": 'Yu'
     "\u042f": 'Ya'
     "\u0490": 'G'
