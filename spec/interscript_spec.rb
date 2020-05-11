@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "timeout"
-require 'pycall/import'
+require "pycall/import"
 include PyCall::Import
 
 RSpec.describe Interscript do
