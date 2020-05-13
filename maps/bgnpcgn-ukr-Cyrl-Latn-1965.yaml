@@ -89,7 +89,7 @@ tests:
 
 map:
   rules:
-    - pattern: (?<!\s)\u2019(?!\s) # ’ in the middle of a word -> ”
+    - pattern: \b\u2019\b # ’ in the middle of a word -> ”
       result: "\u201d"
 
   characters:

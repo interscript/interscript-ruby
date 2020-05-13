@@ -101,27 +101,27 @@ map:
       result: Gh
     - pattern: (?<=[Зз])\u0433 # г after З or з
       result: gh
-    - pattern: (?<!\u2019)\b\u0404 # Є in initial position -> Ye
+    - pattern: (?<!\b\u2019)\b\u0404 # Є in initial position -> Ye
       result: Ye
-    - pattern: (?<!\u2019)\b\u0454 # є in initial position -> ye
+    - pattern: (?<!\b\u2019)\b\u0454 # є in initial position -> ye
       result: ye
-    - pattern: (?<!\u2019)\b\u0407 # Ї in initial position -> Yi
+    - pattern: (?<!\b\u2019)\b\u0407 # Ї in initial position -> Yi
       result: Yi
-    - pattern: (?<!\u2019)\b\u0457 # ї in initial position -> yi
+    - pattern: (?<!\b\u2019)\b\u0457 # ї in initial position -> yi
       result: yi
-    - pattern: (?<!\u2019)\b\u0419 # Й in initial position -> Y
+    - pattern: (?<!\b\u2019)\b\u0419 # Й in initial position -> Y
       result: "Y"
-    - pattern: (?<!\u2019)\b\u0419 # й in initial position -> y
+    - pattern: (?<!\b\u2019)\b\u0419 # й in initial position -> y
       result: "y"
-    - pattern: (?<!\u2019)\b\u042e # Ю in initial position -> Yu
+    - pattern: (?<!\b\u2019)\b\u042e # Ю in initial position -> Yu
       result: Yu
-    - pattern: (?<!\u2019)\b\u044e # ю in initial position -> yu
+    - pattern: (?<!\b\u2019)\b\u044e # ю in initial position -> yu
       result: yu
-    - pattern: (?<!\u2019)\b\u042f # Я in initial position -> Ya
+    - pattern: (?<!\b\u2019)\b\u042f # Я in initial position -> Ya
       result: Ya
-    - pattern: (?<!\u2019)\b\u044f # я in initial position -> ya
+    - pattern: (?<!\b\u2019)\b\u044f # я in initial position -> ya
       result: ya
-    - pattern: (?<!\s)\u2019(?!\s) # ’ in the middle of a word -> ”
+    - pattern: \b\u2019\b # ’ in the middle of a word -> ”
       result: "\u201d"
 
   characters:
