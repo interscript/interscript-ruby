@@ -1,0 +1,148 @@
+---
+authority_id: odni
+id: 2005
+language: ukr
+source_script: Cyrl
+destination_script: Latn
+name: Office of the Director Of National Intelligence Ukrainian Personal Names 2004 System
+# url: 
+creation_date: 2005
+confirmation_date: 2005
+# description: |
+
+tests:
+  - source: Андрій
+    expected: Andriy
+  - source: Борисенко
+    expected: Borysenko
+  - source: Володимир
+    expected: Volodymyr
+  - source: Богдан
+    expected: Bohdan
+  - source: Згурський
+    expected: Zhurskyy
+  - source: Дмитро
+    expected: Dmytro
+  - source: Олег
+    expected: Oleh
+  - source: Гаєвич
+    expected: Hayevych
+  - source: Жанна
+    expected: Zhanna
+  - source: Казимирчук
+    expected: Kazymyrchuk
+  - source: Михайленко
+    expected: Mykhaylenko
+  - source: Іващенко
+    expected: Ivashchenko
+  - source: Олексій
+    expected: Oleksiy
+  - source: Коваленко
+    expected: Kovalenko
+  - source: Леонід
+    expected: Leonid
+  - source: Маринич
+    expected: Marynych
+  - source: Наталія
+    expected: Nataliya
+  - source: Онищенко
+    expected: Onyshchenko
+  - source: Петро
+    expected: Petro
+  - source: Рибчинський
+    expected: Rybchynskyy
+  - source: Соломія
+    expected: Solomiya
+  - source: Троць
+    expected: Trots
+  - source: Уляна
+    expected: Ulyana
+  - source: Філіпчук
+    expected: Filipchuk
+  - source: Христина
+    expected: Khrystyna
+  - source: Стеценко
+    expected: Stetsenko
+  - source: Шевченко
+    expected: Shevchenko
+  - source: Гаращенко
+    expected: Harashchenko
+  - source: Юрій
+    expected: Yuriy
+  - source: Ярошенко
+    expected: Yaroshenko
+  - source: Костянтин
+    expected: Kostyantyn
+
+map:
+  rules:
+    - pattern: \b\u2019\b # remove ’
+      result: ""
+
+  characters:
+    "\u0410": "A"        # А
+    "\u0411": "B"        # Б
+    "\u0412": "V"        # В
+    "\u0413": "H"        # Г
+    "\u0490": "G"        # Ґ
+    "\u0414": "D"        # Д
+    "\u0415": "E"        # Е
+    "\u0404": "Ye"       # Є
+    "\u0416": "Zh"       # Ж
+    "\u0417": "Z"        # З
+    "\u0418": "Y"        # И
+    "\u0406": "I"        # І
+    "\u0407": "Yi"       # Ї
+    "\u0419": "Y"        # Й
+    "\u041a": "K"        # К
+    "\u041b": "L"        # Л
+    "\u041c": "M"        # М
+    "\u041d": "N"        # Н
+    "\u041e": "O"        # О
+    "\u041f": "P"        # П
+    "\u0420": "R"        # Р
+    "\u0421": "S"        # С
+    "\u0422": "T"        # Т
+    "\u0423": "U"        # У
+    "\u0424": "F"        # Ф
+    "\u0425": "Kh"       # Х
+    "\u0426": "Ts"       # Ц
+    "\u0427": "Ch"       # Ч
+    "\u0428": "Sh"       # Ш
+    "\u0429": "Shch"     # Щ
+    "\u042e": "Yu"       # Ю
+    "\u042f": "Ya"       # Я
+    "\u042c": ""         # Ь
+    "\u0430": "a"        # а
+    "\u0431": "b"        # б
+    "\u0432": "v"        # в
+    "\u0433": "h"        # г
+    "\u0491": "g"        # ґ
+    "\u0434": "d"        # д
+    "\u0435": "e"        # е
+    "\u0454": "ye"       # є
+    "\u0436": "zh"       # ж
+    "\u0437": "z"        # з
+    "\u0438": "y"        # и
+    "\u0456": "i"        # і
+    "\u0457": "yi"       # ї
+    "\u0439": "y"        # й
+    "\u043a": "k"        # к
+    "\u043b": "l"        # л
+    "\u043c": "m"        # м
+    "\u043d": "n"        # н
+    "\u043e": "o"        # о
+    "\u043f": "p"        # п
+    "\u0440": "r"        # р
+    "\u0441": "s"        # с
+    "\u0442": "t"        # т
+    "\u0443": "u"        # у
+    "\u0444": "f"        # ф
+    "\u0445": "kh"       # х
+    "\u0446": "ts"       # ц
+    "\u0447": "ch"       # ч
+    "\u0448": "sh"       # ш
+    "\u0449": "shch"     # щ
+    "\u044e": "yu"       # ю
+    "\u044f": "ya"       # я
+    "\u044c": ""         # Ь

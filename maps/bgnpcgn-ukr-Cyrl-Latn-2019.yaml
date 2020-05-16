@@ -136,7 +136,7 @@ map:
       result: Ya
     - pattern: (?<!\b\u2019)\b\u044f # я in initial position -> ya
       result: ya
-    - pattern: \b\u2019\b
+    - pattern: \b\u2019\b # remove ’
       result: ""
 
   characters:
@@ -186,7 +186,7 @@ map:
     "\u0438": "y"        # и
     "\u0456": "i"        # і
     "\u0457": "i"        # ї
-    "\u0439": "i"        # й
+    "\u0439": "i"        # й
     "\u043a": "k"        # к
     "\u043b": "l"        # л
     "\u043c": "m"        # м
