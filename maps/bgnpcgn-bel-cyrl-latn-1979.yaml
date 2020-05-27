@@ -179,11 +179,10 @@ tests:
     expected: Dzyam”yanawtsy
   - source: Задвор’е
     expected: Zadvor”ye
-  # For optional rules
-  # - source: Гезгалы
-  #   expected: Hyez·haly
-  # - source: Вадасховішча Гезгальскае
-  #   expected: Vadaskhovishcha Hez·hal’skaye
+  - source: Гезгалы
+    expected: Hyez·haly
+  - source: Вадасховішча Гезгальскае
+    expected: Vadaskhovishcha Hyez·hal’skaye
 
 map:
   postrules:
@@ -192,27 +191,27 @@ map:
     - pattern: '\u044C' # ь
       result: "\u2019"
   # Per documentation those rules are optional
-  # rules:
-  #   - pattern: \u0417\u0413 # ЗГ
-  #     result: "Z\u00B7H"    # Z·H
-  #   - pattern: \u0437\u0433 # зг
-  #     result: "z\u00B7h"    # z·h
-  #   - pattern: \u041A\u0413 # КГ
-  #     result: "K\u00B7H"    # K·H
-  #   - pattern: \u043A\u0433 # кг
-  #     result: "k\u00B7h"    # k·h
-  #   - pattern: \u0421\u0413 # СГ
-  #     result: "S\u00B7H"    # S·H
-  #   - pattern: \u0441\u0433 # сг
-  #     result: "s\u00B7h"    # s·h
-  #   - pattern: \u0422\u0421 # ТС
-  #     result: "T\u00B7S"    # T·S
-  #   - pattern: \u0442\u0441 # тс
-  #     result: "t\u00B7s"    # t·s
-  #   - pattern: \u0426\u0413 # ЦГ
-  #     result: "TS\u00B7H"   # TS·H
-  #   - pattern: \u0446\u0433 # цг
-  #     result: "ts\u00B7h"   # ts·h
+  rules:
+    - pattern: \u0417\u0413 # ЗГ
+      result: "Z\u00B7H"    # Z·H
+    - pattern: \u0437\u0433 # зг
+      result: "z\u00B7h"    # z·h
+    - pattern: \u041A\u0413 # КГ
+      result: "K\u00B7H"    # K·H
+    - pattern: \u043A\u0433 # кг
+      result: "k\u00B7h"    # k·h
+    - pattern: \u0421\u0413 # СГ
+      result: "S\u00B7H"    # S·H
+    - pattern: \u0441\u0433 # сг
+      result: "s\u00B7h"    # s·h
+    - pattern: \u0422\u0421 # ТС
+      result: "T\u00B7S"    # T·S
+    - pattern: \u0442\u0441 # тс
+      result: "t\u00B7s"    # t·s
+    - pattern: \u0426\u0413 # ЦГ
+      result: "TS\u00B7H"   # TS·H
+    - pattern: \u0446\u0433 # цг
+      result: "ts\u00B7h"   # ts·h
 
   characters:
     '\u00B4' : "\u201D" # apostrophe according to spec
