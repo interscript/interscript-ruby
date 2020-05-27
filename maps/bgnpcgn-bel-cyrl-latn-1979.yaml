@@ -186,6 +186,11 @@ tests:
   #   expected: Vadaskhovishcha Hez·hal’skaye
 
 map:
+  postrules:
+    - pattern: '\u042C' # Ь
+      result: "\u2019"
+    - pattern: '\u044C' # ь
+      result: "\u2019"
   # Per documentation those rules are optional
   # rules:
   #   - pattern: \u0417\u0413 # ЗГ
@@ -208,7 +213,9 @@ map:
   #     result: "TS\u00B7H"   # TS·H
   #   - pattern: \u0446\u0433 # цг
   #     result: "ts\u00B7h"   # ts·h
+
   characters:
+    '\u00B4' : "\u201D" # apostrophe according to spec
     '\u02BC' : "\u201D" # apostrophe according to spec
     '\u2019' : "\u201D" # apostrophe in actual examples
 
@@ -240,7 +247,6 @@ map:
     '\u0427' : 'Ch' # Ч
     '\u0428' : 'Sh' # Ш
     '\u042B' : 'Y'  # Ы
-    '\u042C' : "\u2019" # Ь : ’
     '\u042D' : 'E'  # Э
     '\u042E' : 'Yu' # Ю
     '\u042F' : 'Ya' # Я
@@ -274,7 +280,6 @@ map:
     '\u0447' : 'ch' # ч
     '\u0448' : 'sh' # ш
     '\u044B' : 'y'  # ы
-    '\u044C' : "\u2019"  # ь : ’
     '\u044D' : 'e'  # э
     '\u044E' : 'yu' # ю
     '\u044F' : 'ya' # я
