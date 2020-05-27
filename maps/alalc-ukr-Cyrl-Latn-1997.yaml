@@ -21,9 +21,9 @@ tests:
   - source: Автономна Республіка Крим
     expected: Avtonomna Respublika Krym
   - source: Висунь
-    expected: Vysun’
+    expected: Vysunʹ
   - source: Долинське
-    expected: Dolyns’ke
+    expected: Dolynsʹke
   - source: Дубище
     expected: Dubyshche
   - source: Єнакієве
@@ -41,7 +41,7 @@ tests:
   - source: Краснівка
     expected: Krasnivka
   - source: Мале Микільське
-    expected: Male Mykil’s’ke
+    expected: Male Mykilʹsʹke
   - source: Маломиколаївка
     expected: Malomykolaïvka
   - source: Нове Село
@@ -53,9 +53,9 @@ tests:
   - source: Новоєфремівка
     expected: Novoi͡efremivka
   - source: Одеська Область
-    expected: Odes’ka Oblast’
+    expected: Odesʹka Oblastʹ
   - source: Орлівське
-    expected: Orlivs’ke
+    expected: Orlivsʹke
   - source: Раневичі
     expected: Ranevychi
   - source: Рокувата
@@ -69,7 +69,7 @@ tests:
   - source: Турбівка
     expected: Turbivka
   - source: Херсонська Область
-    expected: Khersons’ka Oblast’
+    expected: Khersonsʹka Oblastʹ
 
 map:
   characters:
@@ -105,7 +105,7 @@ map:
     "\u0429": "Shch"     # Щ
     "\u042e": "I\u0361u" # Ю -> I͡u
     "\u042f": "I\u0361a" # Я -> I͡a
-    "\u042c": "\u2019"   # Ь -> ’
+    "\u042c": "\u02B9"   # Ь -> ʹ
     "\u0430": "a"        # а
     "\u0431": "b"        # б
     "\u0432": "v"        # в
@@ -138,4 +138,4 @@ map:
     "\u0449": "shch"     # щ
     "\u044e": "i\u0361u" # ю -> i͡u
     "\u044f": "i\u0361a" # я -> i͡a
-    "\u044c": "\u2019"   # Ь -> ’
+    "\u044c": "\u02B9"   # Ь -> ʹ
