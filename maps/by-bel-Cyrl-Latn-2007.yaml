@@ -18,6 +18,7 @@ description: |
   Based on the Regulation on the State Property Committee of the Republic of Belarus,
   approved by the Decree of the Council of Ministers of the Republic of Belarusdated July 29, 2006
   No. 958 "Issues of the State Committee on Property of the Republic of Belarus"
+
 tests:
   - source: Аршанскi
     expected: Aršanski
@@ -111,108 +112,4 @@ tests:
     expected: Viazynka
 
 map:
-  rules:
-    - pattern: (?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\u0415 # Е after consonants
-      result: IE
-    - pattern: (?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\u0435 # е after consonants
-      result: ie
-    - pattern: (?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\u0401 # Ё after consonants
-      result: IO
-    - pattern: (?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\u0451 # ё after consonants
-      result: io
-    - pattern: (?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\u042E # Ю after consonants
-      result: IU
-    - pattern: (?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\u044E # ю after consonants
-      result: iu
-    - pattern: (?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\u042F # Я after consonants
-      result: IA
-    - pattern: (?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\u044F # я after consonants
-      result: ia
-    - pattern: \u0417\u042C # ЗЬ
-      result: "\u0179"
-    - pattern: \u0437\u044C # зь
-      result: "\u017A"
-    - pattern: \u041B\u042C # ЛЬ
-      result: "\u0139"
-    - pattern: \u043B\u044C # ль
-      result: "\u013A"
-    - pattern: \u0421\u042C # СЬ
-      result: "\u015A"
-    - pattern: \u0441\u044C # сь
-      result: "\u015B"
-    - pattern: \u0426\u042C # ЦЬ
-      result: "\u0106"
-    - pattern: \u0446\u044C # ць
-      result: "\u0107"
-    - pattern: \u041D\u042C # НЬ
-      result: "\u0143"
-    - pattern: \u043D\u044C # нь
-      result: "\u0144"
-  characters:
-    '\u0410' : 'A'  # A
-    '\u0411' : 'B'  # Б
-    '\u0412' : 'V'  # B
-    '\u0413' : 'H'  # Г
-    '\u0414' : 'D'  # Д
-    '\u0415' : 'Je' # Е
-    '\u0401' : 'Jo' # Ё
-    '\u0416' : 'Ž'  # Ж
-    '\u0417' : 'Z'  # З
-    '\u0406' : 'I'  # І
-    '\u0419' : 'J'  # Й
-    '\u041A' : 'K'  # К
-    '\u041B' : 'L'  # Л
-    '\u041C' : 'M'  # М
-    '\u041D' : 'N'  # Н
-    '\u041E' : 'O'  # О
-    '\u041F' : 'P'  # П
-    '\u0420' : 'R'  # Р
-    '\u0421' : 'S'  # С
-    '\u0422' : 'T'  # Т
-    '\u0423' : 'U'  # У
-    '\U040E' : 'Ŭ'  # Ў
-    '\u0424' : 'F'  # Ф
-    '\u0425' : 'Ch' # Х
-    '\u0426' : 'C'  # Ц
-    '\u0427' : 'Č'  # Ч
-    '\u0428' : 'Š'  # Ш
-    '\u042B' : 'Y'  # Ы
-    '\u042C' : ''   # Ь
-    '\u042D' : 'E'  # Э
-    '\u042E' : 'Ju' # Ю
-    '\u042F' : 'Ja' # Я
-
-    '\u0430' : 'a'  # а
-    '\u0431' : 'b'  # б
-    '\u0432' : 'v'  # в
-    '\u0433' : 'h'  # г
-    '\u0434' : 'd'  # д
-    '\u0435' : 'je' # е
-    '\u0451' : 'jo' # ё
-    '\u0436' : 'ž'  # ж
-    '\u0437' : 'z'  # з
-    '\u0456' : 'i'  # і
-    '\u0439' : 'j'  # й
-    '\u043A' : 'k'  # к
-    '\u043B' : 'l'  # л
-    '\u043C' : 'm'  # м
-    '\u043D' : 'n'  # н
-    '\u043E' : 'o'  # о
-    '\u043F' : 'p'  # п
-    '\u0440' : 'r'  # р
-    '\u0441' : 's'  # с
-    '\u0442' : 't'  # т
-    '\u0443' : 'u'  # у
-    '\u045E' : 'ŭ'  # ў
-    '\u0444' : 'f'  # ф
-    '\u0445' : 'ch' # х
-    '\u0446' : 'c'  # ц
-    '\u0447' : 'č'  # ч
-    '\u0448' : 'š'  # ш
-    '\u044B' : 'y'  # ы
-    '\u044C' : ''   # ь
-    '\u044D' : 'e'  # э
-    '\u044E' : 'ju' # ю
-    '\u044F' : 'ja' # я
-
-    '\u0027' : ''   # '
+  inherit: by-bel-Cyrl-Latn-1998
