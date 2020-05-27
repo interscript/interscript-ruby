@@ -12,6 +12,10 @@ description: |
   romanizing names written in the Belarusian Cyrillic alphabet. The Belarusian alphabet contains three
   characters not present in the Russian alphabet: і, ў, and ’.
 
+notes:
+ - The character sequences зг, кг, сг, тс and цг and may be romanized z·h, k·h, s·h, t·s and ts·h in order to differentiate those romanizations from the digraphs zh, kh, sh, ts, and the letter sequence tsh, which are used to render the characters ж, x, ш, ц, and the character sequence тш
+ - All apostrophes appearing in romanization are Unicode encoding 2019.
+
 tests:
   - source: Антон
     expected: Anton
