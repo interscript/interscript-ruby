@@ -9,11 +9,17 @@ jobs:
   build:
     name: Run specs
     runs-on: windows-latest
+    continue-on-error: ${{ matrix.experimental }}
     strategy:
       fail-fast: false
       matrix:
         ruby: ['2.6', '2.5', '2.4']
         python: ['3.x']
+        experimental: [false]
+        include:
+          - ruby: '2.7'
+            python: '3.x'
+            experimental: true
     steps:
       - name: Use Ruby
         uses: actions/setup-ruby@v1
