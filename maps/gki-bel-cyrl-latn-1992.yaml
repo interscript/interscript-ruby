@@ -1,0 +1,30 @@
+---
+authority_id: gki
+id: 1992
+language: bel
+source_script: Cyrl
+destination_script: Latn
+name: Byelorussian National Cartographic Authority 1992-3 System (based on GOST 1983)
+url: https://unstats.un.org/unsd/geoinfo/UNGEGN/docs/7th-uncsgn-docs/econf/7th_UNCSGN_econf.91_3_Add1.pdf
+creation_date: 1992
+
+tests:
+  - source: 'Сямашкі'
+    expected: 'Syamashki'
+  - source: 'Старадворцы'
+    expected: 'Staradvortsy'
+  - source: 'Канюхі'
+    expected: 'Kanyukhi'
+
+map:
+  inherit: gost-rus-cyrl-latn-16876-71-1983
+
+  characters:
+    '\u0406' : 'I'  # І
+    '\u0456' : 'i'  # і
+
+    '\u0413' : 'G'  # Г
+    '\u0433' : 'g'  # г
+
+    '\U040E' : 'Ŭ'  # Ў
+    '\u045E' : 'ŭ'  # ў

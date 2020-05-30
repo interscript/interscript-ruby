@@ -1,0 +1,30 @@
+---
+authority_id: un
+id: 1998
+language: ukr
+source_script: Cyrl
+destination_script: Latn
+name: ROMANIZATION SYSTEM FOR BELARUSIAN, RUSSIAN AND UKRAINIAN CYRILLIC
+url: https://unstats.un.org/unsd/geoinfo/UNGEGN/docs/7th-uncsgn-docs/econf/7th_UNCSGN_econf.91_3_Add1.pdf
+creation_date: 1998
+
+tests:
+
+map:
+  inherit: gost-rus-cyrl-latn-16876-71-1983
+
+  characters:
+    '\u0490' : '?'  # Ґ
+    '\u0491' : '?'  # ґ
+
+    '\u0404' : "Je" # Є
+    '\u0454' : "je" # є
+
+    '\u0406' : 'I'  # І
+    '\u0456' : 'i'  # і
+
+    '\u0407' : 'I'  # Ї
+    '\u0457' : 'i'  # ї
+
+    '\u2019' : '?'
+    "'" : '?'

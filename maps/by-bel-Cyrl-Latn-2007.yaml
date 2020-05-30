@@ -98,7 +98,7 @@ tests:
     expected: Juchnaŭka
   - source: Гаюціна
     expected: Hajucina
-  - source: Цюрлi
+  - source: Цюрлі
     expected: Ciurli
   - source: Любонічы
     expected: Liuboničy
