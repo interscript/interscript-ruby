@@ -39,10 +39,10 @@ jobs:
 
       - uses: actions/checkout@master
       
-      - name: Update gems
+      - name: Install gems
         run: |
           gem install bundler -v "~> 2"
-          bundle install --jobs 4 --retry 3
+          bundle install --jobs 4 --retry 5
       
       - name: Setup python
         uses: actions/setup-python@v1
@@ -60,7 +60,12 @@ jobs:
       
       - name: Install windows dependencies
         if: matrix.os == 'windows-latest'
-        run: choco install --no-progress swig
+        uses: nick-invision/retry@v1
+        with:
+          polling_interval_seconds: 5
+          timeout_minutes: 5
+          max_attempts: 3
+          command: choco install --no-progress swig
       
       - name: Update Sequitur
         run: |
