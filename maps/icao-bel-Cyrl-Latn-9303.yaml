@@ -20,7 +20,24 @@ description: |
 
   This document defines the transliteration mappings used to produce
   this transcription or transliteration.
+
 tests:
+  - source: Бабрыковіч Аляксандр
+    expected: Babrykovich Aliaksandr
+  - source: Міховіч Марыя
+    expected: Mikhovich Maryia
+  - source: Максім
+    expected: Maksim
+  - source: Іван
+    expected: Ivan
+  - source: СВЯТЛАНА
+    expected: SVIATLANA
+  - source: Ігар
+    expected: Ihar
+  - source: Палто Алена
+    expected: Palto Alena
+  - source: Мікалай
+    expected: Mikalai
 
 map:
   # https://www.icao.int/publications/Documents/9303_p3_cons_en.pdf
