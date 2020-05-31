@@ -17,6 +17,7 @@ notes:
   - When in final position, “ия” is romanized as “ia” (e.g., София = Sofia; София-Град= Sofia-Grad).
   - An exception to the romanization system is allowed for the name of the state. Thus, България is romanized as Bulgaria.
   - The Romanization column shows only lowercase forms but, when romanizing, uppercase and lowercase Roman letters as appropriate should be used.
+
 tests:
   - source: София
     expected: Sofia
@@ -26,6 +27,8 @@ tests:
     expected: Bulgaria
 
 map:
+  inherit: bgnpcgn-bul-Cyrl-Latn-1952
+
   rules:
     - pattern: България
       result: Bulgaria
@@ -33,66 +36,3 @@ map:
       result: A
     - pattern: (?<=\u0438)\u044f(?=\b) # final position, “ия” is romanized as “ia”
       result: a
-
-  characters:
-    '\u0410': 'A'
-    '\u0411': 'B'
-    '\u0412': 'V'
-    '\u0413': 'G'
-    '\u0414': 'D'
-    '\u0415': 'E'
-    '\u0416': 'ZH'
-    '\u0417': 'Z'
-    '\u0418': 'I'
-    '\u0419': 'Y'
-    '\u041a': 'K'
-    '\u041b': 'L'
-    '\u041c': 'M'
-    '\u041d': 'N'
-    '\u041e': 'O'
-    '\u041f': 'P'
-    '\u0420': 'R'
-    '\u0421': 'S'
-    '\u0422': 'T'
-    '\u0423': 'U'
-    '\u0424': 'F'
-    '\u0425': 'KH'
-    '\u0426': 'TS'
-    '\u0427': 'CH'
-    '\u0428': 'SH'
-    '\u0429': 'SHT'
-    '\u042a': '\u016c'
-    '\u042c': "\\'"
-    '\u042e': 'YU'
-    '\u042f': 'YA'
-    '\u0430': 'a'
-    '\u0431': 'b'
-    '\u0432': 'v'
-    '\u0433': 'g'
-    '\u0434': 'd'
-    '\u0435': 'e'
-    '\u0436': 'zh'
-    '\u0437': 'z'
-    '\u0438': 'i'
-    '\u0439': 'y'
-    '\u043a': 'k'
-    '\u043b': 'l'
-    '\u043c': 'm'
-    '\u043d': 'n'
-    '\u043e': 'o'
-    '\u043f': 'p'
-    '\u0440': 'r'
-    '\u0441': 's'
-    '\u0442': 't'
-    '\u0443': 'u'
-    '\u0444': 'f'
-    '\u0445': 'kh'
-    '\u0446': 'ts'
-    '\u0447': 'ch'
-    '\u0448': 'sh'
-    '\u0449': 'sht'
-    '\u044a': '\u016d'
-    '\u044c': "\\'"
-    '\u044e': 'yu'
-    '\u044f': 'ya'
-
