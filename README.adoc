@@ -1,6 +1,6 @@
 = Interscript: Interoperable Script Conversion Systems, with a Ruby implementation
 
-image:https://github.com/riboseinc/interscript/workflows/test/badge.svg["Build Status", link="https://github.com/riboseinc/interscript/actions?workflow=test"]
+image:https://github.com/interscript/interscript/workflows/test/badge.svg["Build Status", link="https://github.com/interscript/interscript/actions?workflow=test"]
 
 == Introduction
 
