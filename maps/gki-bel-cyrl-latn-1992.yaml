@@ -10,11 +10,14 @@ creation_date: 1992
 
 tests:
   - source: 'Сямашкі'
-    expected: 'Syamashki'
+    expected: 'Sjamaški'
+    # "Syamashki" in GNDB `bel_Cyrl2Latn_GBO_1992`, but that is clearly bgnpcgn-ukr-Cyrl-Latn-1965
   - source: 'Старадворцы'
-    expected: 'Staradvortsy'
+    expected: 'Staradvorcy'
+    # "Staradvortsy" in GNDB `bel_Cyrl2Latn_GBO_1992`, but that is clearly bgnpcgn-ukr-Cyrl-Latn-1965
   - source: 'Канюхі'
-    expected: 'Kanyukhi'
+    expected: 'Kanjuhi'
+    # "Kanyukhi" in GNDB `bel_Cyrl2Latn_GBO_1992`, but that is clearly bgnpcgn-ukr-Cyrl-Latn-1965
 
 map:
   inherit: gost-rus-cyrl-latn-16876-71-1983
