@@ -23,7 +23,7 @@ tests:
     expected: baqaqi
 
   - source: ძროხა
-    expected: dzroxa
+    expected: dzrokha
 
   - source: ჰაერი
     expected: haeri
