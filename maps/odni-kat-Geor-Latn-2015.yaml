@@ -1,0 +1,87 @@
+---
+authority_id: odni
+id: 2015
+language: kat
+source_script: Geor
+destination_script: Latn
+name: Office of the Director Of National Intelligence Georgian Personal Names 2015
+url: 
+creation_date: 2015
+confirmation_date: 2015
+description: |
+  This system is the Intelligence Community standard for the transliteration of Georgian names that
+  will be applied to all final written reports and products for IC consumers. It is not intended to
+  eliminate variations of a name that can contribute forensic information. Rather, it is to provide an
+  IC standard Romanized (English) transliteration from Georgian that can then be linked to forensic
+  information in ways that will help identify the referent of the name.
+
+notes:
+
+tests:
+
+  - source: ბაყაყი
+    expected: baqaqi
+
+  - source: ძროხა
+    expected: dzroxa
+
+  - source: ჰაერი
+    expected: haeri
+
+  - source: ჟოლო
+    expected: zholo
+
+  - source: ჯართი
+    expected: jarti
+
+  - source: ღრმაღელე
+    expected: ghrmaghele
+
+  - source: ზვიად გამსახურდია
+    expected: zviad gamsakhurdia
+
+  - source: ედუარდ შევარდნაძე
+    expected: eduard shevardnadze
+
+  - source: მიხეილ სააკაშვილი
+    expected: mikheil saakashvili
+
+  - source: გიორგი მარგველაშვილი
+    expected: giorgi margvelashvili
+
+map:
+  characters:
+    '\u10d0' : 'a' # ა
+    '\u10d1' : 'b' # ბ
+    '\u10d2' : 'g' # გ
+    '\u10d3' : 'd' # დ
+    '\u10d4' : 'e' # ე
+    '\u10d5' : 'v' # ვ
+    '\u10d6' : 'z' # ზ
+    '\u10d7' : 't' # თ
+    '\u10d8' : 'i' # ი
+    '\u10d9' : 'k' # კ
+    '\u10da' : 'l' # ლ
+    '\u10db' : 'm' # მ
+    '\u10dc' : 'n' # ნ
+    '\u10dd' : 'o' # ო
+    '\u10de' : 'p' # პ
+    '\u10df' : 'zh' # ჟ
+    '\u10e0' : 'r' # რ
+    '\u10e1' : 's' # ს
+    '\u10e2' : 't' # ტ
+    '\u10e3' : 'u' # უ
+    '\u10e4' : 'p' # ფ
+    '\u10e5' : 'k' # ქ
+    '\u10e6' : 'gh' # ღ
+    '\u10e7' : 'q' # ყ
+    '\u10e8' : 'sh' # შ
+    '\u10e9' : 'ch' # ჩ
+    '\u10ea' : 'ts' # ც
+    '\u10eb' : 'dz' # ძ
+    '\u10ec' : 'ts' # წ
+    '\u10ed' : 'ch' # ჭ
+    '\u10ee' : 'kh' # ხ
+    '\u10ef' : 'j' # ჯ
+    '\u10f0' : 'h' # ჰ
+
