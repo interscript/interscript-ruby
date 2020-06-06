@@ -38,6 +38,14 @@ tests:
     expected: Palto Alena
   - source: Мікалай
     expected: Mikalai
+  - source: МИХАІЛ
+    expected: MIKHAIL
+  - source: Піліпенка Дзмітрый
+    expected: Pilipenka Dzmitry
+  - source: Сяргей Лазаковіч
+    expected: Siarhei Lazakovich
+  - source:  Kurhanau Yauheni
+    expected: Курганау Яугений
 
 map:
   # https://www.icao.int/publications/Documents/9303_p3_cons_en.pdf
