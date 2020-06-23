@@ -1,0 +1,332 @@
+---
+authority_id: odni
+id: 2015
+language: kor
+source_script: Hang
+destination_script: Latn
+name: Office of the Director Of National Intelligence Korean 2015 System, ICS-630-01 Annex W
+url: 
+creation_date: 2015
+adoption_date:
+description:
+
+notes: |
+  1.  Name order shall be Family Name Given name, with the family name separated
+      from the given name by one space, and the first and second syllable of a two-
+      syllable given name connected by a hyphen. The initial letter of the family name
+      and the initial letter of the first syllable of the given name are capitalized; the
+      second syllable of the given name is in lower case: Kim Yo’ng-su.
+
+  2.  In the case of a full name with only two syllables, the initial letters of both
+      syllables are capitalized and the two names are separated by a space: Ho’ Tam.
+
+      In the case of family names consisting of a combination of two syllables, the
+      syllables are written together (i.e., without a space): So’nu Hak-wo’n.
+
+  3.  The family surname 이 will be rendered "Yi" in the IC Standard spelling, but in
+      accordance with personal preference or official usage in the Factbook and Chiefs
+      of State directory.
+
+  4.  In order to facilitate the use of the IC Standard, a reference guide containing a list
+      of syllables used in Korean personal names along with their IC Standard
+      equivalents follows.
+
+tests:
+  - source: "김 영수"
+    expected: "Kim Yo’ng-su"
+  - source: "허 담"
+    expected: "Ho’ Tam"
+  - source: "선우 학원"
+    expected: "So’nu Hak-wo’n"
+
+map:
+  character_separator: ""
+  word_separator: " "
+  title_case: True
+  inherit: nil-kor-Hang-Hang-jamo
+
+  rules:
+
+  postrules:
+
+    # HANGUL JONGSEONG SSANGKIYEOK
+    - pattern: "ᆩ"
+      result: "k"
+
+    # HANGUL JONGSEONG SSANGKIYEOK
+    - pattern: "ᆪ"
+      result: "k"
+
+    # HANGUL JONGSEONG NIEUN-CIEUC
+    - pattern: "ᆬ"
+      result: "n"
+
+    # HANGUL JONGSEONG NIEUN-CIEUC
+    - pattern: "ᆭ"
+      result: "n"
+
+    # HANGUL JONGSEONG TIEUT
+    - pattern: "ᆮ"
+      result: "t"
+
+    # HANGUL JONGSEONG RIEUL-SIOS
+    - pattern: "ᆳ"
+      result: "l"
+
+    # HANGUL JONGSEONG RIEUL-THIEUTH
+    - pattern: "ᆴ"
+      result: "l"
+
+    # HANGUL JONGSEONG RIEUL-PHIEUPH
+    - pattern: "ᆵ"
+      result: "p"
+
+    # HANGUL JONGSEONG RIEUL-HIEUH
+    - pattern: "ᆶ"
+      result: "l"
+
+    # HANGUL JONGSEONG PIEUP-SIOS
+    - pattern: "ᆹ"
+      result: "p"
+
+    # HANGUL JONGSEONG SSANG-SIOS
+    - pattern: "ᆻ"
+      result: "t"
+
+    # HANGUL JONGSEONG CIEUC
+    - pattern: "ᆽ"
+      result: "t"
+
+    # HANGUL JONGSEONG CHIEUCH
+    - pattern: "ᆾ"
+      result: "t"
+
+    # HANGUL JONGSEONG KHIEUKH
+    - pattern: "ᆿ"
+      result: "k"
+
+    # HANGUL JONGSEONG THIEUTH
+    - pattern: "ᇀ"
+      result: "t"
+
+    # HANGUL JONGSEONG PHIEUPH
+    - pattern: "ᇁ"
+      result: "p"
+
+    # HANGUL JONGSEONG HIEUH
+    - pattern: "ᇂ"
+      result: ""
+
+    # HANGUL JONGSEONG KIYEOK 
+    - pattern: "ᆨ"
+      result: "k"
+
+    # HANGUL JONGSEONG NIEUN
+    - pattern: "ᆫ"
+      result: "n"
+
+    # HANGUL JONGSEONG RIEUL
+    - pattern: "ᆯ"
+      result: "l"
+
+    # HANGUL JONGSEONG MIEUM
+    - pattern: "ᆷ"
+      result: "m"
+
+    # HANGUL JONGSEONG PIEUP
+    - pattern: "ᆸ"
+      result: "p"
+
+    # HANGUL JONGSEONG SIOS
+    - pattern: "ᆺ"
+      result: "t"
+
+    # HANGUL JONGSEONG IEUNG
+    - pattern: "ᆼ"
+      result: "ng"
+
+    # HANGUL JONGSEONG RIEUL-KIYEOK
+    - pattern: "ᆰ"
+      result: "k" 
+
+    # HANGUL JONGSEONG RIEUL-PIEUP
+    - pattern: "ᆲ"
+      result: "p" 
+
+    # HANGUL CHOSEONG KIYEOK
+    - pattern: "ᄀ"
+      result: "-k"
+
+    # HANGUL CHOSEONG NIEUN
+    - pattern: "ᄂ"
+      result: "-n" 
+
+    # HANGUL CHOSEONG TIEUT
+    - pattern: "ᄃ"
+      result: "-t"
+
+    # HANGUL CHOSEONG RIEUL
+    - pattern: "ᄅ"
+      result: "-r"
+
+    # HANGUL CHOSEONG MIEUM
+    - pattern: "ᄆ"
+      result: "-m"
+
+    # HANGUL CHOSEONG PIEUP
+    - pattern: "ᄇ"
+      result: "-p"
+
+    # HANGUL CHOSEONG SIOS
+    - pattern: "ᄉ"
+      result: "-s" 
+
+    # HANGUL CHOSEONG IEUNG
+    - pattern: "ᄋ"
+      result: "-" 
+
+    # HANGUL CHOSEONG CIEUC
+    - pattern: "ᄌ"
+      result: "-ch"
+
+    # HANGUL CHOSEONG CHIEUCH
+    - pattern: "ᄎ"
+      result: "-ch’" 
+
+    # HANGUL CHOSEONG KHIEUKH
+    - pattern: "ᄏ"
+      result: "-k’"
+
+    # HANGUL CHOSEONG THIEUTH
+    - pattern: "ᄐ"
+      result: "-t’"
+
+    # HANGUL CHOSEONG PHIEUPH
+    - pattern: "ᄑ"
+      result: "-p’" 
+
+    # HANGUL CHOSEONG HIEUH
+    - pattern: "ᄒ"
+      result: "-h"
+
+    ## Choseong Jamos below are missing from the specification
+
+    # HANGUL CHOSEONG SSANGKIYEOK
+    - pattern: "ᄁ"
+      result: "kk"
+
+    # HANGUL CHOSEONG SIOS-KIYEOK
+    - pattern: "ᄭ"
+      result: "kk"
+
+    # HANGUL CHOSEONG SSANGTIEUT
+    - pattern: "ᄄ"
+      result: "tt" 
+
+    # HANGUL CHOSEONG SIOS-TIEUT
+    - pattern: "ᄯ"
+      result: "tt"
+
+    # HANGUL CHOSEONG SSANGPIEUP
+    - pattern: "ᄈ"
+      result: "pp"
+
+    # HANGUL CHOSEONG SIOS-PIEUP
+    - pattern: "ᄲ"
+      result: "pp"
+
+    # HANGUL CHOSEONG SSANGSIOS
+    - pattern: "ᄊ"
+      result: "ss"
+
+    # HANGUL CHOSEONG SSANGCIEUC
+    - pattern: "ᄍ"
+      result: "tch"
+
+    # HANGUL CHOSEONG SIOS-CIEUC
+    - pattern: "ᄶ"
+      result: "tch"
+
+    ## End of Choseong Jamos
+
+    # HANGUL JUNGSEONG A
+    - pattern: "ᅡ"
+      result: "a" 
+    # HANGUL JUNGSEONG YA
+    - pattern: "ᅣ"
+      result: "ya" 
+    # HANGUL JUNGSEONG EO
+    - pattern: "ᅥ"
+      result: "o’" 
+    # HANGUL JUNGSEONG YEO
+    - pattern: "ᅧ"
+      result: "yo’" 
+    # HANGUL JUNGSEONG O
+    - pattern: "ᅩ"
+      result: "o"
+    # HANGUL JUNGSEONG YO
+    - pattern: "ᅭ"
+      result: "yo"
+    # HANGUL JUNGSEONG U
+    - pattern: "ᅮ"
+      result: "u"
+    # HANGUL JUNGSEONG YU
+    - pattern: "ᅲ"
+      result: "yu"
+    # HANGUL JUNGSEONG EU
+    - pattern: "ᅳ"
+      result: "u’"
+    # HANGUL JUNGSEONG I
+    - pattern: "ᅵ"
+      result: "i"
+    # HANGUL JUNGSEONG AE
+    - pattern: "ᅢ"
+      result: "ae"
+    # HANGUL JUNGSEONG YAE
+    - pattern: "ᅤ"
+      result: "yae"
+    # HANGUL JUNGSEONG E
+    - pattern: "ᅦ"
+      result: "e"
+    # HANGUL JUNGSEONG YE  # Not found in specification
+    - pattern: "ᅨ"
+      result: "ye" 
+    # HANGUL JUNGSEONG WA
+    - pattern: "ᅪ"
+      result: "wa"
+    # HANGUL JUNGSEONG WAE
+    - pattern: "ᅫ"
+      result: "wae" 
+    # HANGUL JUNGSEONG OE
+    - pattern: "ᅬ"
+      result: "oe"
+    # HANGUL JUNGSEONG WE
+    - pattern: "ᅰ"
+      result: "we"
+    # HANGUL JUNGSEONG WEO
+    - pattern: "ᅯ"
+      result: "wo’"
+    # HANGUL JUNGSEONG WI
+    - pattern: "ᅱ"
+      result: "wi"  
+    # HANGUL JUNGSEONG YI
+    - pattern: "ᅴ"
+      result: "ui" 
+
+    # Remove before the first syllable dash
+    - pattern: "(?<=^| )-"
+      result: ""
+
+    # Remove dash in surname
+    - pattern: "(^[^ ]*)-"
+      result: "\\1"
+
+    # Change the surname I to Yi
+    - pattern: "^i"
+      result: "yi"
+
+  characters:
+  # This is based on Jamo
+
+  dictionary:
+  # 
