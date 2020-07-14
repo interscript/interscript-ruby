@@ -1,0 +1,37 @@
+---
+authority_id: mvd
+id: 22721
+language: bel
+source_script: Cyrl
+destination_script: Latn
+name: |
+  8/22721 On approval of the Instructions on the organization of work of units of citizenship 
+  and migration of internal affairs bodies on the issuance, registration, exchange, 
+  invalidation, seizure, storage and destruction of a passport of a citizen of the Republic of Belarus
+url: https://pravo.by/document/?guid=3871&p0=W21022721
+creation_date: 2010
+
+description: |
+  RESOLUTION OF THE MINISTRY OF INTERNAL AFFAIRS OF THE REPUBLIC OF BELARUS
+  June 28, 2010 No. 200
+  On approval of the Instructions on the organization of work of units of citizenship 
+  and migration of internal affairs bodies on the issuance, registration, exchange, 
+  invalidation, seizure, storage and destruction of a passport of a citizen of the Republic of Belarus
+
+notes:
+  - check notes from mvd-rus-Cyrl-Latn-2008
+
+tests:
+  - source: Ева
+    expected: Eva
+  - source: Васiльева
+    expected: Vasileva
+  - source: Адъютантов
+    expected: Adjutantov
+
+map:
+  inherit: "mvd-rus-Cyrl-Latn-2008"
+
+  postrules:
+    - pattern: \u0301 # remove diacritics
+      result: ""
