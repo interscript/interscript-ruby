@@ -47,6 +47,8 @@ description: |
 notes:
 
 tests:
+  - source: Горња Ваганица
+    expected: Gornja Vaganica
 
 map:
   characters:
