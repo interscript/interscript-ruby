@@ -51,9 +51,18 @@ notes:
   - The Cyrillic ъ and ь are not transliterated, but instead are left out of the transliteration.
 
 tests:
-
   - source: Фарход Тожиев
     expected: Farkhod Tojiev
+  - source: Барча одамлар эркин, қадр-қиммат в ҳуқуқлард тенг бўлиб туғиладилар. Улар ақл в виждон соҳибидирлар в бир-бирлари ила биродарларча муомал қилишларь зарур.
+    expected: Barcha odamlar erkin, qadr-qimat v huquqlard teng bolib tughiladilar. Ular aql v vijdon sohibidirlar v bir-birlari ila birodarlarcha muomal qilishlar zarur.
+  - source: Тутук белгись
+    expected: Tutuk belgis
+  - source: Янги юл
+    expected: Yangi iul
+  - source: Ўзбек ёзуви
+    expected: Ozbek yozuvi
+  - source: Чиғатай гурунги
+    expected: Chighatay gurungi
   - source: ъ
     expected: ''
   - source: шш
@@ -72,10 +81,10 @@ map:
     '\u0411': 'B'    # Б
     '\u0412': 'V'    # В
     '\u0413': 'G'    # Г
-    '\u0492': 'GH'   # Ғ
+    '\u0492': 'Gh'   # Ғ
     '\u0414': 'D'    # Д
     '\u0415': 'E'    # Е
-    '\u0401': 'YO'   # Ё
+    '\u0401': 'Yo'   # Ё
     '\u0416': 'J'    # Ж
     '\u0417': 'Z'    # З
     '\u0418': 'I'    # И
@@ -93,14 +102,14 @@ map:
     '\u0423': 'U'    # У
     '\u040E': 'O'    # Ў
     '\u0424': 'F'    # Ф
-    '\u0425': 'KH'   # Х
+    '\u0425': 'Kh'   # Х
     '\u04B2': 'H'    # Ҳ
-    '\u0426': 'TS'   # Ц
-    '\u0427': 'CH'   # Ч
-    '\u0428': 'SH'   # Ш
+    '\u0426': 'Ts'   # Ц
+    '\u0427': 'Ch'   # Ч
+    '\u0428': 'Sh'   # Ш
     '\u042D': 'E'    # Э
-    '\u042E': 'YU'   # Ю
-    '\u042F': 'YA'   # Я
+    '\u042E': 'Yu'   # Ю
+    '\u042F': 'Ya'   # Я
 
     '\u0430': 'a'    # а
     '\u0431': 'b'    # б

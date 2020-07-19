@@ -46,9 +46,34 @@ description: |
 notes:
 
 tests:
-
- - source: Міхаіл
-   expected: Mikhail
+  - source: Міхаіл
+    expected: Mikhail
+  - source: Беларусь
+    expected: Byelarus
+  - source: Кастусь Каліноўскі
+    expected: Kastus Kalinowski
+  - source: Васіль Быкау
+    expected: Vasil Bykau
+  - source: Янка Купала
+    expected: Yanka Kupala
+  - source: Маланка
+    expected: Malanka
+  - source: Пакаранне
+    expected: Pakarannye
+  - source: Бэз
+    expected: Bez
+  - source: Чабор
+    expected: Chabor
+  - source: |
+      Дзяўчына, дзяўчыначка пасярод гісторыі
+      З прастадушнай шчырасьцю глядзіць на тэрыторыю.
+      У вакне заўсёды звыклая выява:
+      Шэры двор, шэры слуп, на слупе аб'явы.
+    expected: |
+      Dzyawchyna, dzyawchynachka pasyarod historyi
+      Z prastadushnay shchyrastsyu hlyadzits na terytoryyu.
+      U vaknye zawsyody zvyklaya vyyava:
+      Shery dvor, shery slup, na slupye abyavy.
 
 map:
   characters:
