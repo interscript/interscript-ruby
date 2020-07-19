@@ -46,11 +46,24 @@ description: |
 notes:
 
 tests:
-
- - source: Ирина Ивановна Никитина
-   expected: Irina Ivanovna Nikitina
-   source: Николай Римский-Корсаков
-   expected: Nikolay Rimskiy-Korsakov
+  - source: Ирина Ивановна Никитина
+    expected: Irina Ivanovna Nikitina
+  - source: Николай Римский-Корсаков
+    expected: Nikolay Rimskiy-Korsakov
+  - source: Михаил Тимофеевич Калашников
+    expected: Mikhail Timofeyevich Kalashnikov
+  - source: Корж Василий Захарович
+    expected: Korzh Vasiliy Zakharovich
+  - source: Циолковский Константин Эдуардович
+    expected: Tsiolkovskiy Konstantin Eduardovich
+  - source: Лобачевский Николай Иванович
+    expected: Lobachevskiy Nikolay Ivanovich
+  - source: Пушкин Александр Сергеевич
+    expected: Pushkin Aleksandr Sergeyevich
+  - source: Гоголь Николай Васильевич
+    expected: Gogol Nikolay Vasilyevich
+  - source: Ломоносов Михаил Васильевич
+    expected: Lomonosov Mikhail Vasilyevich
 
 map:
   inherit: bgnpcgn-rus-Cyrl-Latn-1947

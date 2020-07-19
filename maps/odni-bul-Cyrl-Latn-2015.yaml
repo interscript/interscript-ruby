@@ -55,6 +55,20 @@ tests:
 
   - source: Добри Христов
     expected: Dobri Khristov
+  - source: болгарица
+    expected: bolgaritsa
+  - source: български език
+    expected: balgarski ezik
+  - source: българска азбука
+    expected: balgarska azbuka
+  - source: градъ
+    expected: grad
+  - source: аз държа
+    expected: az darzha
+  - source: Ядеш хляба с чубрица
+    expected: Yadesh khlyaba s chubritsa
+
+    
   # note[1]
   - source: шш
     expected: sh
@@ -69,9 +83,14 @@ map:
     - pattern: "(.)\\1{1,}"
       result: "\\1"
 
-  characters:
-    '\u042C': 'Y' # Ь
-    '\u042A': 'a' # Ъ
+    - pattern: \u042C# # Ь
+      result: "Y"
+      
+    - pattern: \u042A # Ъ
+      result: "A"
+      
+    - pattern: \u044C # ь
+      result: "y"
 
-    '\u044C': 'y' # ь
-    '\u044A': 'a' # ъ
+    - pattern: \u044A # ъ
+      result: "a"

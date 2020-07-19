@@ -47,8 +47,22 @@ description: |
 notes:
 
 tests:
+  - source: Гојко Митић
+    expected: Gojko Mitic
   - source: Горња Ваганица
     expected: Gornja Vaganica
+  - source: Довиђења
+    expected: Dovidjenja
+  - source: Ћао! Здраво!
+    expected: Cao! Zdravo!
+  - source: Кључ
+    expected: Kljuc
+  - source: Цигарете
+    expected: Cigarete
+  - source: Пролеће
+    expected: Prolece
+  - source: Понедељак
+    expected: Ponedeljak
 
 map:
   characters:
