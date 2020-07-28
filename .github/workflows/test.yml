@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: Run specs on ${{ matrix.os }} ruby ${{ matrix.ruby }} 
+    name: Run specs on ${{ matrix.os }} ruby ${{ matrix.ruby }}
     runs-on: ${{ matrix.os }}
     continue-on-error: ${{ matrix.experimental }}
     strategy:
@@ -38,26 +38,26 @@ jobs:
           ruby-version: ${{ matrix.ruby }}
 
       - uses: actions/checkout@master
-      
+
       - name: Install gems
         run: |
           gem install bundler -v "~> 2"
           bundle install --jobs 4 --retry 5
-      
+
       - name: Setup python
         uses: actions/setup-python@v1
         with:
           python-version: ${{ matrix.python }}
           architecture: x64
-      
+
       - name: Install ubuntu dependencies
         if: matrix.os == 'ubuntu-latest'
         run: sudo apt-get install swig python3-setuptools
-      
+
       - name: Install macos dependencies
         if: matrix.os == 'macos-latest'
         run: brew install swig
-      
+
       - name: Install windows dependencies
         if: matrix.os == 'windows-latest'
         uses: nick-invision/retry@v1
@@ -66,12 +66,12 @@ jobs:
           timeout_minutes: 5
           max_attempts: 3
           command: choco install --no-progress swig
-      
+
       - name: Update Sequitur
         run: |
           pip3 install setuptools numpy
-          pip3 install git+https://github.com/sequitur-g2p/sequitur-g2p@806273f
-      
+          pip3 install git+https://github.com/sequitur-g2p/sequitur-g2p@9b7c505
+
       - name: Run RSpecs
         run: |
           bundle exec rspec
