@@ -51,6 +51,12 @@ tests:
     expected: Dushko
 
 map:
+  rules:
+    - pattern: \u0053
+      result: Dz
+    - pattern: \u0073
+      result: dz
+
   characters:
     '\u0410': 'A'     # А
     '\u0411': 'B'     # Б
