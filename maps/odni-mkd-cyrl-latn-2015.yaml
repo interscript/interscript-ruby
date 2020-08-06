@@ -52,9 +52,9 @@ tests:
 
 map:
   rules:
-    - pattern: \u0053
+    - pattern: \u0053 # S => Dz
       result: Dz
-    - pattern: \u0073
+    - pattern: \u0073 # s => dz
       result: dz
 
   characters:
@@ -67,7 +67,6 @@ map:
     '\u0415': 'E'     # Е
     '\u0416': 'Zh'    # Ж
     '\u0417': 'Z'     # З
-    '\u0053': 'Dz'    # S
     '\u0418': 'I'     # И
     '\u0408': 'J'     # Ј
     '\u041A': 'K'     # К
@@ -100,7 +99,6 @@ map:
     '\u0435': 'e'     # e
     '\u0436': 'zh'    # ж
     '\u0437': 'z'     # з
-    '\u0073': 'dz'    # s
     '\u0438': 'i'     # и
     '\u0458': 'j'     # ј
     '\u043A': 'k'     # к
