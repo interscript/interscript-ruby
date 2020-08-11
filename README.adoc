@@ -149,7 +149,7 @@ tests:
 
 map:
   rules:
-    - pattern: (?<=[АаЕеЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\u0415 # Е after a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь
+    - pattern: (?<=[АаЕеЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\u0415 # Е after a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь
       result: Ye
     - pattern: \b\u0415 # Е initially
       result: Ye
@@ -167,7 +167,7 @@ The subsection `rules` is placed under the `map` key. All rules are applied in o
 
 Each rule has `pattern` and `result` elements.
 
-Pattern is a regex expression. It should be representing as a string without `//` or `%r{}` parentheses. For example `\b\u0415`. In case a rule is depend on previous or next content, lookahead or lookbehind could be used. For example a rule with the pattern `(?<=[АаЕеЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\u0415` find every Е after upper or lower case symbols a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь.
+Pattern is a regex expression. It should be representing as a string without `//` or `%r{}` parentheses. For example `\b\u0415`. In case a rule is depend on previous or next content, lookahead or lookbehind could be used. For example a rule with the pattern `(?<=[АаЕеЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\u0415` find every Е after upper or lower case symbols a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь.
 
 Result is a replacement a for pattern's match. It can contain a string, an Unicode characters specified by a hexadecimal number, a captured group reference. String with hexadecimal number or captured group reference should be double quoted. For example `"Y\u00eb"` or `"\\1\u00b7\\2"`. Captured group are referred by double backslash and group's number.
 
@@ -256,7 +256,7 @@ the system code identifying a script conversion system has the following compone
 e.g. `bgnpcgn-rus-Cyrl-Latn-1947`:
 
 `bgnpcgn`:: the authority identifier
-`rus`:: an ISO 639-2 3-letter language code that this system applies to
+`rus`:: an ISO 639-{1,2,3,5} language code that this system applies to (For 639-2, use (T) code)
 `Cyrl`:: an ISO 15924 script code, identifying the source script
 `Latn`:: an ISO 15924 script code, identifying the target script
 `1947`:: an identifier unit within the authority to identify this system
