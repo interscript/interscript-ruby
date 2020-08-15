@@ -22,9 +22,9 @@ The goal is to achieve interoperable transliteration schemes allowing quality co
 These transliteration systems are used in the demo:
 
 `bgnpcgn-rus-Cyrl-Latn-1947`:: BGN/PCGN Romanization of Russian
-`iso-rus-Cyrl-Latn-iso9`::     ISO 9 Romanization of Russian
+`iso-rus-Cyrl-Latn-9-1995`::     ISO 9 Romanization of Russian
 `icao-rus-Cyrl-Latn-9303`::    ICAO MRZ Romanization of Russian
-`bas-rus-Cyrl-Latn-bss`::      Bulgaria Academy of Science Streamlined System for Russian
+`bas-rus-Cyrl-Latn-2017-bss`::      Bulgaria Academy of Science Streamlined System for Russian
 
 image:demo/20191118-interscript-demo-cast.gif["interscript screencast"]
 
@@ -95,7 +95,7 @@ interscript rus-Cyrl.txt \
   --output=bgnpcgn-rus-Latn.txt
 
 interscript rus-Cyrl.txt \
-  --system=iso-rus-Cyrl-Latn-iso9 \
+  --system=iso-rus-Cyrl-Latn-9-1995 \
   --output=iso-rus-Latn.txt
 
 interscript rus-Cyrl.txt \
@@ -103,7 +103,7 @@ interscript rus-Cyrl.txt \
   --output=icao-rus-Latn.txt
 
 interscript rus-Cyrl.txt \
-  --system=bas-rus-Cyrl-Latn-bss \
+  --system=bas-rus-Cyrl-Latn-2017-bss \
   --output=bas-rus-Latn.txt
 ----
 
