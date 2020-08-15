@@ -11,7 +11,7 @@ module Interscript
       @root_path ||= Pathname.new(File.dirname(__dir__))
     end
 
-    def transliterate_file(system_code, input_file, output_file, maps)
+    def transliterate_file(system_code, input_file, output_file, maps={})
       input = File.read(input_file)
       output = transliterate(system_code, input, maps)
 
