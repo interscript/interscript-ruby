@@ -1,16 +1,17 @@
 require 'thor'
 require 'interscript'
-
+require 'json'
 module Interscript
   # Command line interface
   class Command < Thor
     desc '<file>', 'Transliterate text'
     option :system, aliases: '-s', required: true, desc: 'Transliteration system'
     option :output, aliases: '-o', required: false, desc: 'Output file'
+    option :map, aliases: '-m', required: false, default: "{}", desc: 'Transliteration mapping json'
 
     def translit(input)
       if options[:output]
-        Interscript.transliterate_file(options[:system], input, options[:output])
+        Interscript.transliterate_file(options[:system], input, options[:output], JSON.parse(options[:map]))
       else
         puts Interscript.transliterate(options[:system], IO.read(input))
       end
