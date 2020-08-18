@@ -75,7 +75,7 @@ tests:
     # Examples taken from:
     # https://unstats.un.org/unsd/geoinfo/geonames/
 
-  - source: العراق
+  - source: العِراق
     expected: Al ‘Irāq
 
   - source: الجُمهُورِية العِراقِية
@@ -135,7 +135,7 @@ map:
     '\u0627\u0644\u062f': 'Ad D' # الد
     '\u0627\u0644\u0630' : 'Adh Dh'  # الذ
     '\u0627\u0644\u0631': 'Ar R' # الر
-    '\u0627\u0644\u0632' : 'z'  # الز
+    '\u0627\u0644\u0632' : 'Az z'  # الز
     '\u0627\u0644\u0633': 'As S' # الس
     '\u0627\u0644\u0634': 'Ash Sh' # الش
 
