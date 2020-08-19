@@ -89,16 +89,21 @@ tests:
 
   - source: بَغداد
     expected: baghdād
-  
-  - source: السُعودِية
+
+  - source: تُونِس
+    expected: tūnis
+
+  - source: السُعُودِية
     expected: as su‘ūdīyah
 
   - source: اليَمَن
     expected: al yaman
 
-  - source: السودان
+  - source: السُودان
     expected: as sūdān
 
+  - source: الجَزائِر
+    expected: al jazā'ir	
 
 map:
   characters:
@@ -146,6 +151,8 @@ map:
     '\u0627\u0644\u0644' : 'al l'  # الل
     '\u0627\u0644\u0646' : 'an n'  # الن
 
+
+    '\u0626' : "'" # ئ
 
 
     '\u0621' : # ء
