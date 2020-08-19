@@ -89,6 +89,15 @@ tests:
 
   - source: بَغداد
     expected: baghdād
+  
+  - source: السُعودِية
+    expected: as su‘ūdīyah
+
+  - source: اليَمَن
+    expected: al yaman
+
+  - source: السودان
+    expected: as sūdān
 
 
 map:
@@ -120,6 +129,24 @@ map:
 
     # (A) Marks absence of the vowel.
     # (B) Marks doubling of the consonant.
+
+    # Sun letters
+    '\u0627\u0644\u062a' : 'at t'  # الت
+    '\u0627\u0644\u062b' : 'ath th'  # الث
+    '\u0627\u0644\u062f' : 'ad d' # الد
+    '\u0627\u0644\u0630' : 'adh dh'  # الذ
+    '\u0627\u0644\u0631' : 'ar r' # الر
+    '\u0627\u0644\u0632' : 'az z'  # الز
+    '\u0627\u0644\u0633' : 'as s' # الس
+    '\u0627\u0644\u0634' : 'ash sh' # الش
+    '\u0627\u0644\u0635' : 'aş ş'  # الص
+    '\u0627\u0644\u0636' : 'aḏ ḏ'  # الض
+    '\u0627\u0644\u0637' : 'aţ ţ'  # الط
+    '\u0627\u0644\u0638' : 'ad͟h d͟h' # الظ
+    '\u0627\u0644\u0644' : 'al l'  # الل
+    '\u0627\u0644\u0646' : 'an n'  # الن
+
+
 
     '\u0621' : # ء
        - '’'
