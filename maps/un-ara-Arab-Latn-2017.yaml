@@ -76,19 +76,19 @@ tests:
   # https://unstats.un.org/unsd/geoinfo/geonames/
 
   - source: مِصر
-    expected: Mişr
+    expected: mişr
 
   - source: قَطَر
-    expected: Qaţar
+    expected: qaţar
 
   - source: المَغرِب
-    expected: Al maghrib
+    expected: al maghrib
 
   - source: الجُمهُورِية العِراقِية
-    expected: Al Jumhūrīyah al ‘Irāqīyah
+    expected: al jumhūrīyah al ‘irāqīyah
 
   - source: بَغداد
-    expected: Baghdād
+    expected: baghdād
 
 
 map:
