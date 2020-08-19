@@ -103,7 +103,10 @@ tests:
     expected: as sūdān
 
   - source: الجَزائِر
-    expected: al jazā'ir	
+    expected: al jazā'ir
+
+  - source: الجُمهُورِية اللُبنانِية
+    expected: al jumhūrīyah al lubnānīyah
 
 map:
   characters:
@@ -118,7 +121,7 @@ map:
     '\u0651' : ''  # ْ sokoon, see note B below
     '\u0652' : ''  # ّ shadda, see note A below
 
-    
+
     # special pointed letters
     '\u0639\u064e' : '‘a'  # عَ
     '\u0639\u0650' : '‘i'  # عِ
@@ -158,7 +161,7 @@ map:
     '\u0621' : # ء
        - '’'
        - '' # see note A
-    
+
     '\u0627' : 'ā'  # ا
 
     # See note B
@@ -294,7 +297,7 @@ map:
 
     '\u0629' : 'ah' # ة as the last letter in the sentence
     # '\u0629' : 'at' # ة in the middle of the sentence
-    
+
     # (A) Not romanized word-initially.
 
     # (B) Not romanized, but see romanizations accompanying alif (ا) in the table for vowels.
