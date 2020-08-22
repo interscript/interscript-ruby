@@ -126,6 +126,8 @@ map:
     '\u0639\u064e' : '‘a'  # عَ
     '\u0639\u0650' : '‘i'  # عِ
     '\u0639\u064f' : '‘ū'  # عُ
+    # handle MacOS regex difference
+    '\u0639\u064f\u0648' : '‘ū'  # عُو damma followed by و
 
     '\u0650\u064a' : 'īy' # ـِي kasra followed by ي
     '\u064f\u0648' : 'ū'  # ـُو damma followed by و
