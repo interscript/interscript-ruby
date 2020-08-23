@@ -139,10 +139,10 @@ map:
 
     # pointing
     '\u064e' : 'a' # َ fatha
+    '\u064e(?=\u0629)' : '' # َ fatha followed by ta' marboota
     '\u0650' : 'i' # ِ kasra
     '\u064f' : 'u' # ُ damma
-    '\u0651' : ''  # ْ sokoon, see note B below
-    '\u0652' : ''  # ّ shadda, see note A below
+    '\u0652' : ''  # ْ sokoon, see note A below
 
 
     # special pointed letters
