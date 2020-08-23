@@ -70,6 +70,14 @@ notes:
     In order to disambiguate certain character sequences a
     middle dot (·) may be used: سهيلة S·haylah (cf. شيلة Shaylah), دهيب
     D·hayb (cf. ذيب Dhayb), أدهم Ad·ham (cf. أذم Adham).
+  - |
+    to handle words starting with AL and ending with ta' marboota
+    which is pronounced as "ah" not "at" divided into multiple
+    regex because lookbehind in ruby doesn't support variable length
+  - |
+    مَكّة should be transliterated to makkah, shadda above ك
+    is to double the consonant, same applies to all arabic letters
+
 tests:
 
   # Examples taken from:
@@ -116,6 +124,12 @@ tests:
 
   - source: أسمَرة
     expected: asmarah
+
+  - source: جِدَّة
+    expected: jiddah
+
+  - source: مَكَّة
+    expected: makkah
 
 map:
   characters:
@@ -183,6 +197,35 @@ map:
     '(?<=\b\u0627\u0644[\u0600-\u06ff]{11})\u0629' : 'ah'
     '(?<=\b\u0627\u0644[\u0600-\u06ff]{12})\u0629' : 'ah'
     '(?<=\b\u0627\u0644[\u0600-\u06ff]{13})\u0629' : 'ah'
+
+    # shadda
+
+    '\u0628\u0651' : 'bb'  # ب
+    '\u062a\u0651' : 'tt'  # ت
+    '\u062b\u0651' : 'thth'  # ث
+    '\u062c\u0651' : 'jj'  # ج
+    '\u062d\u0651' : 'ẖẖ' # ح
+    '\u062e\u0651' : 'kẖkẖ'  # خ
+    '\u062f\u0651' : 'dd'  # د
+    '\u0630\u0651' : 'dhdh'  # ذ
+    '\u0631\u0651' : 'rr'  # ر
+    '\u0632\u0651' : 'zz'  # ز
+    '\u0633\u0651' : 'ss'  # س
+    '\u0634\u0651' : 'sh'  # ش
+    '\u0635\u0651' : 'şş'  # ص
+    '\u0636\u0651' : 'ḏḏ'  # ض
+    '\u0637\u0651' : 'ţţ'  # ط
+    '\u0638\u0651' : 'z̧z̧'  # ظ
+    '\u063a\u0651' : 'ghgh'  # غ
+    '\u0641\u0651' : 'ff'  # ف
+    '\u0642\u0651' : 'qq'  # ق
+    '\u0643\u0651' : 'kk'  # ك
+    '\u0644\u0651' : 'll'  # ل
+    '\u0645\u0651' : 'mm'  # م
+    '\u0646\u0651' : 'nn'  # ن
+    '\u0647\u0651' : 'hh'  # ه
+    '\u0648\u0651' : 'ww'  # و
+    '\u064a\u0651' : 'yy'  # ي
 
     '\u0626' : "'" # ئ
 
