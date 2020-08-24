@@ -1,0 +1,5 @@
+window.yaml_files = {
+  <% Dir['./*.yaml'].each do |yaml_file| %>
+    "<%= File.basename(yaml_file, ".yaml") %>": <%= JSON.dump(YAML.load(File.read(yaml_file))) %>,
+  <% end %>
+}
