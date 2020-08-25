@@ -13,32 +13,27 @@ end
 
 desc "Build javascript version of interscript gem"
 task :javascript do
+    puts "creating javascript version..."
     require 'opal/builder'
     require 'opal/builder_processors'
     require "erb"
     require "json"
     require "yaml"    
+    require_relative "opal/regexp_translate"
 
     builder = Opal::Builder.new
 
-    builder.append_paths 'opal'
+    builder.preload << "opal"
+    builder.append_paths "opal"
 
     ['rambling-trie-opal'].each {|gem| builder.use_gem gem}
-    builder.build('interscript.rb')
+    builder.build('interscript-opal.rb')
     
     File.open("vendor/assets/javascripts/interscript.js", "w+") do |out|
         out << builder.to_s
     end
 end
 
-desc "Compress javascript file"
-task :compress do
-    require 'closure-compiler'
-    File.open("vendor/assets/javascripts/interscript.min.js", "w+") do |out|
-        out << Closure::Compiler.new(language_in: "ECMASCRIPT_2015", language_out: "ECMASCRIPT_2015")
-        .compile(File.open('vendor/assets/javascripts/interscript.js', 'r'))
-    end    
-end
 
 desc "All in one"
 task :all => [:clean] do

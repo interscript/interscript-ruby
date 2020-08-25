@@ -1,9 +1,6 @@
 # frozen_string_literal: true
-if RUBY_ENGINE == "opal"
-  require "opal"
-end
+require "maps" 
 require "interscript/mapping"
-require "maps.js" 
 
 # Transliteration
 module Interscript
