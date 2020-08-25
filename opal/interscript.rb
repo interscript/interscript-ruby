@@ -1,47 +1,14 @@
 # frozen_string_literal: true
-require "opal"
-require "yaml"
-require "interscript/mapping_js"
+if RUBY_ENGINE == "opal"
+  require "opal"
+end
+require "interscript/mapping"
+require "maps.js" 
 
 # Transliteration
 module Interscript
 
   class << self
-    # def root_path
-    #   @root_path ||= Pathname.new(File.dirname(__dir__))
-    # end
-
-    # def transliterate_file(system_code, input_file, output_file, maps={})
-    #   input = File.read(input_file)
-    #   output = transliterate(system_code, input, maps)
-
-    #   File.open(output_file, 'w') do |f|
-    #     f.puts(output)
-    #   end
-    #   puts "Output written to: #{output_file}"
-    # end
-
-    # def import_python_modules
-    #   begin
-    #     pyimport :g2pwrapper
-    #   rescue
-    #     pyimport :sys
-    #     sys.path.append(root_path.to_s+"/lib/")
-    #     pyimport :g2pwrapper
-    #   end
-    # end
-
-    # def external_process(process_name, string)
-    #   import_python_modules
-    #   case process_name
-    #     when 'sequitur.pythainlp_lexicon'
-    #       return g2pwrapper.transliterate('pythainlp_lexicon', string)
-    #     when 'sequitur.wiktionary_phonemic'
-    #       return g2pwrapper.transliterate('wiktionary_phonemic', string)
-    #   else
-    #     puts "Invalid Process"
-    #   end
-    # end
 
     def transliterate(system_code, string, maps={})
       if (!maps.has_key?system_code)
@@ -98,17 +65,6 @@ module Interscript
       output = string.clone
       offsets = Array.new string.to_s.size, 1
 
-      # mapping.rules.each do |r|
-      #   string.to_s.scan(/#{r['pattern']}/) do |matches|
-      #     match = Regexp.last_match
-      #     pos = match.offset(0).first
-      #     result = r['result'].clone
-      #     matches.each.with_index { |v, i| result.sub!(/\\#{i + 1}/, v) } if matches.is_a? Array
-      #     result.upcase! if up_case_around?(string, pos)
-      #     output[offsets[0...pos].sum, match[0].size] = result
-      #     offsets[pos] += result.size - match[0].size
-      #   end
-      # end
       mapping.rules.each do |r|
         output = output.gsub(/#{r['pattern']}/u, r['result'])
       end
@@ -118,7 +74,6 @@ module Interscript
           pos = match.offset(0).first
           result = !downcase && up_case_around?(output, pos) ? v.upcase : v
           result = result[0] if result.is_a?(Array) # if more than one, choose the first one
-          # output[pos, match[0].size] = add_separator(separator, pos, result)
           output = output[0, pos] + add_separator(separator, pos, result) + output[(pos+match[0].size)..-1]
         end
       end      
