@@ -31,6 +31,15 @@ task :javascript do
     end
 end
 
+desc "Compress javascript file"
+task :compress do
+    require 'closure-compiler'
+    File.open("vendor/assets/javascripts/interscript.min.js", "w+") do |out|
+        out << Closure::Compiler.new(language_in: "ECMASCRIPT_2015", language_out: "ECMASCRIPT_2015")
+        .compile(File.open('vendor/assets/javascripts/interscript.js', 'r'))
+    end    
+end
+
 desc "All in one"
 task :all => [:clean] do
     Rake::Task["javascript"].execute

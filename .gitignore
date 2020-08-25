@@ -2,3 +2,5 @@
 *.swp
 .vscode/
 pkg/
+.idea
+.idea/*
