@@ -57,16 +57,7 @@ module Interscript
 
     attr_reader :depth, :system_code
 
-    # def system_code_file
-    #   [system_code, "yaml"].join(".")
-    # end
-
-    # def default_path
-    #   @default_path ||= Interscript.root_path.join("maps")
-    # end
-
     def load_system_mappings
-      # Hash.new(`window.yaml_files[#{system_code}]`) # Hash.new not working with json string
       JSON.parse(`JSON.stringify(window.yaml_files[#{system_code}])`) 
     rescue Errno::ENOENT
       raise Interscript::InvalidSystemError.new("No system mappings found")
