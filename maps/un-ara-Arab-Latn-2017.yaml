@@ -84,10 +84,10 @@ tests:
   # https://unstats.un.org/unsd/geoinfo/geonames/
 
   - source: مِصر
-    expected: mişr
+    expected: mis̱r
 
   - source: قَطَر
-    expected: qaţar
+    expected: qaṯar
 
   - source: المَغرِب
     expected: al maghrib
@@ -99,7 +99,7 @@ tests:
     expected: jumhūrīyat al ‘irāq
 
   - source: جُمهُورِية مِصر العَرَبِية
-    expected: jumhūrīyat mişr al ‘arabīyah
+    expected: jumhūrīyat mis̱r al ‘arabīyah
 
   - source: بَغداد
     expected: baghdād
@@ -172,9 +172,9 @@ map:
     '\b\u0627\u0644\u0632' : 'az z'  # الز
     '\b\u0627\u0644\u0633' : 'as s' # الس
     '\b\u0627\u0644\u0634' : 'ash sh' # الش
-    '\b\u0627\u0644\u0635' : 'aş ş'  # الص
+    '\b\u0627\u0644\u0635' : 'as̱ s̱'  # الص
     '\b\u0627\u0644\u0636' : 'aḏ ḏ'  # الض
-    '\b\u0627\u0644\u0637' : 'aţ ţ'  # الط
+    '\b\u0627\u0644\u0637' : 'aṯ ṯ'  # الط
     '\b\u0627\u0644\u0638' : 'ad͟h d͟h' # الظ
     '\b\u0627\u0644\u0644' : 'al l'  # الل
     '\b\u0627\u0644\u0646' : 'an n'  # الن
@@ -209,10 +209,10 @@ map:
     '\u0632\u0651' : 'zz'  # ز
     '\u0633\u0651' : 'ss'  # س
     '\u0634\u0651' : 'sh'  # ش
-    '\u0635\u0651' : 'şş'  # ص
+    '\u0635\u0651' : 's̱s̱'  # ص
     '\u0636\u0651' : 'ḏḏ'  # ض
-    '\u0637\u0651' : 'ţţ'  # ط
-    '\u0638\u0651' : 'z̧z̧'  # ظ
+    '\u0637\u0651' : 'ṯṯ'  # ط
+    '\u0638\u0651' : 'd͟hd͟h'  # ظ
     '\u063a\u0651' : 'ghgh'  # غ
     '\u0641\u0651' : 'ff'  # ف
     '\u0642\u0651' : 'qq'  # ق
@@ -291,25 +291,25 @@ map:
     '\ufeb8' : 'sh'  # ﺸ
     '\ufeb6' : 'sh'  # ﺶ
 
-    '\u0635' : 'ş'  # ص
-    '\ufebb' : 'ş'  # ﺻ
-    '\ufebc' : 'ş'  # ﺼ
-    '\ufeba' : 'ş'  # ﺺ
+    '\u0635' : 's̱'  # ص
+    '\ufebb' : 's̱'  # ﺻ
+    '\ufebc' : 's̱'  # ﺼ
+    '\ufeba' : 's̱'  # ﺺ
 
     '\u0636' : 'ḏ'  # ض
     '\ufebf' : 'ḏ'  # ﺿ
     '\ufec0' : 'ḏ'  # ﻀ
     '\ufebe' : 'ḏ'  # ﺾ
 
-    '\u0637' : 'ţ'  # ط
-    '\ufec3' : 'ţ'  # ﻃ
-    '\ufec4' : 'ţ'  # ﻄ
-    '\ufec2' : 'ţ'  # ﻂ
+    '\u0637' : 'ṯ'  # ط
+    '\ufec3' : 'ṯ'  # ﻃ
+    '\ufec4' : 'ṯ'  # ﻄ
+    '\ufec2' : 'ṯ'  # ﻂ
 
-    '\u0638' : 'z̧'  # ظ
-    '\ufec7' : 'z̧'  # ﻇ
-    '\ufec8' : 'z̧'  # ﻈ
-    '\ufec6' : 'z̧'  # ﻆ
+    '\u0638' : 'd͟h'  # ظ
+    '\ufec7' : 'd͟h'  # ﻇ
+    '\ufec8' : 'd͟h'  # ﻈ
+    '\ufec6' : 'd͟h'  # ﻆ
 
     '\u0639' : '‘'  # ع
     '\ufecb' : '‘'  # ﻋ
