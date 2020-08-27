@@ -30,4 +30,11 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "ruby-debug-ide"
+
+  spec.add_development_dependency 'rambling-trie-opal'
+  spec.add_development_dependency 'opal', '~> 1.0.3'
+  spec.add_development_dependency 'guard'
+  spec.add_development_dependency 'guard-rake'
+  spec.add_development_dependency "closure-compiler" #, github: "hmdne/closure-compiler"
+
 end
