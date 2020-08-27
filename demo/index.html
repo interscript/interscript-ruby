@@ -6,29 +6,29 @@
     <script src="../vendor/assets/javascripts/interscript.js"></script>
   </head>
   <body>
-    <h1 style="text-align: center;">A Javascript Version of Interscript Gem</h1>
-    <div class="pannel">
-      <div class="pannel-input">
-        <label>system code: </label>
-        <select id="sc">          
+    <h1 style="text-align: center;">Interscript in JavaScript</h1>
+    <div class="panel">
+      <div class="panel-input">
+        <label>System code: </label>
+        <select id="sc">
           <script>
-         Object.keys(window.yaml_files).forEach(sc => {
-           if(sc === "bgnpcgn-rus-Cyrl-Latn-1947") {
-            document.write(`<option value="${sc}" selected>${sc}</option>`);
-           } else {
-            document.write(`<option value="${sc}">${sc}</option>`);
-           }
-         })                
+           Object.keys(window.yaml_files).forEach(sc => {
+             if (sc === "bgnpcgn-rus-Cyrl-Latn-1947") {
+              document.write(`<option value="${sc}" selected>${sc}</option>`);
+             } else {
+              document.write(`<option value="${sc}">${sc}</option>`);
+             }
+           })
           </script>
         </select>
       </div>
-      <div class="pannel-input">
+      <div class="panel-input">
         <div class="src">
-          <label>source</label>    
+          <label>Source</label>
           <textarea id="src"></textarea>
         </div>
         <div class="tar">
-          <label>target</label>    
+          <label>Target</label>
           <textarea id="tar"></textarea>
         </div>
       </div>
@@ -39,13 +39,15 @@
   </body>
   <script>
     function convert(){
-      var input = document.getElementById("src"),       
+      var input = document.getElementById("src"),
           output = document.getElementById("tar"),
           sel = document.getElementById("sc");
-      if(!input.value) {
+
+      if (!input.value) {
         input.focus();
         return;
-      };      
+      };
+
       const system_code = sel.options[sel.selectedIndex].text;
       var result = Opal.Interscript.$transliterate(system_code, input.value);
       output.value = result;

@@ -1,4 +1,6 @@
 require 'rambling-trie'
+require 'yaml'
+require 'json'
 
 module Interscript
   class InvalidSystemError < StandardError; end
@@ -35,7 +37,10 @@ module Interscript
     def initialize(system_code, options = {})
       @system_code = system_code
       @depth = options.fetch(:depth, 0).to_i
-      @system_path = options.fetch(:system_code, default_path)
+
+      unless RUBY_ENGINE == 'opal'
+        @system_path = options.fetch(:system_code, default_path)
+      end
 
       load_and_serialize_system_mappings
     end
@@ -64,7 +69,12 @@ module Interscript
     end
 
     def load_system_mappings
-      YAML.load_file(system_path.join(system_code_file))
+      if RUBY_ENGINE != 'opal'
+        YAML.load_file(system_path.join(system_code_file))
+      else
+        JSON.parse(`window.yaml_files[#{system_code}]`)
+      end
+
     rescue Errno::ENOENT
       raise Interscript::InvalidSystemError.new("No system mappings found")
     end
@@ -100,24 +110,25 @@ module Interscript
 
     def include_inherited_mappings(mappings)
       inherit_systems = [].push(mappings["map"]["inherit"]).flatten
-      for inherit_system in inherit_systems do
-        if (inherit_system)
-          inherited_mapping = Mapping.for(inherit_system, depth: depth + 1)
 
-          @rules = [inherited_mapping.rules, rules].flatten
-          @postrules = [inherited_mapping.postrules, postrules].flatten
-          @characters = (inherited_mapping.characters|| {}).merge(characters)
-          @dictionary = (inherited_mapping.dictionary|| {}).merge(dictionary)
-        end
+      inherit_systems.each do |inherit_system|
+        next unless inherit_system
+
+        inherited_mapping = Mapping.for(inherit_system, depth: depth + 1)
+
+        @rules = [inherited_mapping.rules, rules].flatten
+        @postrules = [inherited_mapping.postrules, postrules].flatten
+        @characters = (inherited_mapping.characters|| {}).merge(characters)
+        @dictionary = (inherited_mapping.dictionary|| {}).merge(dictionary)
       end
     end
 
-    def build_hashes()
+    def build_hashes
       @characters_hash = characters&.sort_by { |k, _v| k.size }&.reverse&.to_h
       @dictionary_hash = dictionary&.sort_by { |k, _v| k.size }&.reverse&.to_h
     end
 
-    def build_trie()
+    def build_trie
       @dictionary_trie = Rambling::Trie.create
       dictionary_trie.concat dictionary.keys
     end

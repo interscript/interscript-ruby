@@ -1,4 +1,4 @@
-.pannel{
+.panel{
     display: flex;
     margin: 150px auto;
     width: 50%;
@@ -6,7 +6,7 @@
     flex-direction: column;
 }
 
-.pannel-input{
+.panel-input{
     display: flex;
     justify-content: center;
 }
