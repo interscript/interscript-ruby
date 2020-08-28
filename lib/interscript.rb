@@ -153,11 +153,7 @@ module Interscript
       pos == 0 ? result : separator + result
     end
 
-    ALPHA_REGEXP = if RUBY_ENGINE == 'opal'
-      '\p{L}'
-    else
-      '[[:alpha:]]'
-    end
+    ALPHA_REGEXP = RUBY_ENGINE == 'opal' ? '\p{L}': '[[:alpha:]]'
 
     def up_case_around?(string, pos)
       return false if string[pos] == string[pos].downcase
