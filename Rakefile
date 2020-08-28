@@ -26,7 +26,10 @@ task :javascript do
   # builder.preload << "lib"
   builder.append_paths "lib"
 
-  ['rambling-trie-opal'].each {|gem| builder.use_gem gem}
+  %w(rambling-trie-opal).each do |gem|
+    builder.use_gem gem
+  end
+
   builder.build('interscript-opal.rb')
 
   File.open("vendor/assets/javascripts/interscript.js", "w+") do |out|
@@ -35,6 +38,6 @@ task :javascript do
 end
 
 desc "All in one"
-task :all => [:clean] do
+task all: [:clean] do
   Rake::Task["javascript"].execute
 end

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "maps" if RUBY_ENGINE == 'opal'
 require "interscript/mapping"
 
@@ -117,6 +118,7 @@ module Interscript
       #     offsets[pos] += result.size - match[0].size
       #   end
       # end
+
       mapping.rules.each do |r|
         if output
           output = output.gsub(/#{r['pattern']}/u, r['result'])
@@ -127,8 +129,13 @@ module Interscript
         while (match = output&.match(/#{k}/))
           pos = match.offset(0).first
           result = !downcase && up_case_around?(output, pos) ? v.upcase : v
-          result = result[0] if result.is_a?(Array) # if more than one, choose the first one
-          output = output[0, pos] + add_separator(separator, pos, result) + output[(pos+match[0].size)..-1]
+
+          # if more than one, choose the first one
+          result = result[0] if result.is_a?(Array)
+
+          output = output[0, pos] +
+            add_separator(separator, pos, result) +
+            output[(pos + match[0].size)..-1]
         end
       end
 
@@ -140,7 +147,10 @@ module Interscript
         output = output.sub(/^(.)/, &:upcase) if title_case
         if word_separator != ''
           output = output.gsub(/#{word_separator}#{separator}/u,word_separator)
-          output = output.gsub(/#{word_separator}(.)/u, &:upcase) if title_case
+
+          if title_case
+            output = output.gsub(/#{word_separator}(.)/u, &:upcase)
+          end
         end
       end
 
@@ -153,7 +163,7 @@ module Interscript
       pos == 0 ? result : separator + result
     end
 
-    ALPHA_REGEXP = RUBY_ENGINE == 'opal' ? '\p{L}': '[[:alpha:]]'
+    ALPHA_REGEXP = RUBY_ENGINE == 'opal' ? '\p{L}' : '[[:alpha:]]'
 
     def up_case_around?(string, pos)
       return false if string[pos] == string[pos].downcase
