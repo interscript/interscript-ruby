@@ -72,7 +72,7 @@ module Interscript
       if RUBY_ENGINE != 'opal'
         YAML.load_file(system_path.join(system_code_file))
       else
-        JSON.parse(`window.yaml_files[#{system_code}]`)
+        JSON.parse(`ISMap[#{system_code}]`)
       end
 
     rescue Errno::ENOENT
