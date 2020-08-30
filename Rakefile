@@ -12,7 +12,7 @@ task :clean do
 end
 
 desc "Build Interscript JavaScript"
-task :javascript do
+task :js do
   puts "creating javascript version..."
   require 'opal/builder'
   require 'opal/builder_processors'
