@@ -1,12 +1,15 @@
 # frozen_string_literal: true
 
-require "yaml"
+require "maps" if RUBY_ENGINE == 'opal'
 require "interscript/mapping"
 
 # Transliteration
 module Interscript
 
-  class << self
+  module Opal
+  end
+
+  module Fs
     def root_path
       @root_path ||= Pathname.new(File.dirname(__dir__))
     end
@@ -34,14 +37,19 @@ module Interscript
     def external_process(process_name, string)
       import_python_modules
       case process_name
-        when 'sequitur.pythainlp_lexicon'
-          return g2pwrapper.transliterate('pythainlp_lexicon', string)
-        when 'sequitur.wiktionary_phonemic'
-          return g2pwrapper.transliterate('wiktionary_phonemic', string)
+      when 'sequitur.pythainlp_lexicon'
+        return g2pwrapper.transliterate('pythainlp_lexicon', string)
+      when 'sequitur.wiktionary_phonemic'
+        return g2pwrapper.transliterate('wiktionary_phonemic', string)
       else
         puts "Invalid Process"
       end
     end
+  end
+
+  self.extend Fs if RUBY_ENGINE != 'opal'
+
+  class << self
 
     def transliterate(system_code, string, maps={})
       if (!maps.has_key?system_code)
@@ -49,7 +57,6 @@ module Interscript
       end
       # mapping = Interscript::Mapping.for(system_code)
       mapping = maps[system_code]
-
 
       # First, apply chained transliteration as specified in the list `chain`
       chain = mapping.chain.dup
@@ -69,11 +76,13 @@ module Interscript
       dictmap = mapping.dictionary_hash
       trie = mapping.dictionary_trie
 
-      # Segmentation
-      string = external_process(mapping.segmentation, string) if mapping.segmentation
+      if RUBY_ENGINE != 'opal'
+        # Segmentation
+        string = external_process(mapping.segmentation, string) if mapping.segmentation
 
-      # Transliteration/Transcription
-      string = external_process(mapping.transcription, string) if mapping.transcription
+        # Transliteration/Transcription
+        string = external_process(mapping.transcription, string) if mapping.transcription
+      end
 
       pos = 0
       while pos < string.to_s.size
@@ -81,7 +90,7 @@ module Interscript
         wordmatch = ""
 
         # Using Trie, find the longest matching substring
-        while (pos + m < string.to_s.size) && (trie.partial_word?string[pos..pos+m]) 
+        while (pos + m < string.to_s.size) && (trie.partial_word?string[pos..pos+m])
           wordmatch = string[pos..pos+m] if trie.word?string[pos..pos+m]
           m += 1
         end
@@ -109,28 +118,39 @@ module Interscript
       #     offsets[pos] += result.size - match[0].size
       #   end
       # end
+
       mapping.rules.each do |r|
-        output.gsub!(/#{r['pattern']}/, r['result'])
+        if output
+          output = output.gsub(/#{r['pattern']}/u, r['result'])
+        end
       end
 
       charmap.each do |k, v|
         while (match = output&.match(/#{k}/))
           pos = match.offset(0).first
           result = !downcase && up_case_around?(output, pos) ? v.upcase : v
-          result = result[0] if result.is_a?(Array) # if more than one, choose the first one
-          output[pos, match[0].size] = add_separator(separator, pos, result)
+
+          # if more than one, choose the first one
+          result = result[0] if result.is_a?(Array)
+
+          output = output[0, pos] +
+            add_separator(separator, pos, result) +
+            output[(pos + match[0].size)..-1]
         end
       end
 
       mapping.postrules.each do |r|
-        output.gsub!(/#{r['pattern']}/, r['result'])
+        output = output.gsub(/#{r['pattern']}/u, r['result'])
       end
 
       if output
-        output.sub!(/^(.)/,  &:upcase) if title_case
+        output = output.sub(/^(.)/, &:upcase) if title_case
         if word_separator != ''
-          output.gsub!(/#{word_separator}#{separator}/,word_separator)
-          output.gsub!(/#{word_separator}(.)/, &:upcase) if title_case
+          output = output.gsub(/#{word_separator}#{separator}/u,word_separator)
+
+          if title_case
+            output = output.gsub(/#{word_separator}(.)/u, &:upcase)
+          end
         end
       end
 
@@ -143,15 +163,17 @@ module Interscript
       pos == 0 ? result : separator + result
     end
 
+    ALPHA_REGEXP = RUBY_ENGINE == 'opal' ? '\p{L}' : '[[:alpha:]]'
+
     def up_case_around?(string, pos)
       return false if string[pos] == string[pos].downcase
 
       i = pos - 1
-      i -= 1 while i.positive? && string[i] !~ /[[:alpha:]]/
+      i -= 1 while i.positive? && string[i] !~ Regexp.new(ALPHA_REGEXP)
       before = i >= 0 && i < pos ? string[i].to_s.strip : ''
 
       i = pos + 1
-      i += 1 while i < string.size - 1 && string[i] !~ /[[:alpha:]]/
+      i += 1 while i < string.size - 1 && string[i] !~ Regexp.new(ALPHA_REGEXP)
       after = i > pos ? string[i].to_s.strip : ''
 
       before_uc = !before.empty? && before == before.upcase
