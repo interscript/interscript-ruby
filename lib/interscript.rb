@@ -3,6 +3,17 @@
 require "maps" if RUBY_ENGINE == 'opal'
 require "interscript/mapping"
 
+class String
+  def sub_replace(pos, m, repl)
+    if RUBY_ENGINE == 'opal'
+      (pos>0 ? self[0,pos-1] : "") + repl + self[pos+m..-1]
+    else
+      self[pos..pos+m-1] = repl
+      self
+    end
+  end
+end
+
 # Transliteration
 module Interscript
 
@@ -97,7 +108,7 @@ module Interscript
         m = wordmatch.length
         if m > 0
           repl = dictmap[string[pos..pos+m-1]]
-          string[pos..pos+m-1] = repl
+          string = string.sub_replace(pos, m, repl)
           pos += repl.length
         else
           pos += 1
@@ -121,7 +132,12 @@ module Interscript
 
       mapping.rules.each do |r|
         if output
-          output = output.gsub(/#{r['pattern']}/u, r['result'])
+          if RUBY_ENGINE != 'opal'
+            output = output.gsub(/#{r['pattern']}/u, r['result'])
+          else
+            re = mkregexp(r['pattern'])
+            output = output.gsub(/#{re}/u, r['result'])
+          end
         end
       end
 
@@ -133,9 +149,7 @@ module Interscript
           # if more than one, choose the first one
           result = result[0] if result.is_a?(Array)
 
-          output = output[0, pos] +
-            add_separator(separator, pos, result) +
-            output[(pos + match[0].size)..-1]
+          output = output.sub_replace(pos, match[0].size, add_separator(separator, pos, result))
         end
       end
 
@@ -180,6 +194,15 @@ module Interscript
       after_uc = !after.empty? && after == after.upcase
       # before_uc && (after.empty? || after_uc) || after_uc && (before.empty? || before_uc)
       before_uc || after_uc
+    end
+
+    def mkregexp(regexpstring)
+      flags = 'u'
+      if regexpstring.include? "(?i)"
+        regexpstring = regexpstring.gsub("(?i)", '').gsub("(?-i)", '')
+        flags += 'i'
+      end
+      regexp = Regexp.new(regexpstring, flags)
     end
   end
 end
