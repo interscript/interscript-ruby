@@ -23,7 +23,7 @@ module Interscript
     end
 
     def sub_replace(string, pos, size, repl)
-      (pos.positive? ? string[0, pos - 1] : "") + repl + string[pos + size..-1]
+      string[0, pos] + repl + string[pos + size..-1]
     end
 
     def external_processing(mapping, string)
