@@ -39,5 +39,5 @@ end
 
 desc "All in one"
 task all: [:clean] do
-  Rake::Task["javascript"].execute
+  Rake::Task["js"].execute
 end
