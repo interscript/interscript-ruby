@@ -55,43 +55,69 @@ description: |
   respective single characters.
 notes:
   - |
-    The previous UN 1972 System had the following differences:
-    the character (ظ) was romanized as z̧ instead of d͟h;
-    the cedilla (¸) was used instead of sub-macron (_) in all characters with sub-macrons.  - |
-
+    The Survey of Egypt System (SES) of romanization has the following correspondences with
+    the UN system:
+    á = a #  ـَى fatha followed by ى which is ا not ي
+    ā = â (a) # ـَا fatha followed by alef // آ
+    -ah (ة- = (a # ة ta' marboota at the end of a sentence
+    aw = ô (au) # ـَوْ
+    ay = ei (ai) # ـَيْ
+    ḏ = ḍ # ض
+    dh = dh (z) # ذ
+    d͟h = ẓ (d) # ظ
+    ẖ = ḥ # ح
+    ī = î
+    j = g (j)
+    q = q (k)
+    s = s (c)
+    s̱ = ṣ
+    ṯ = ṭ
+    th = th (t)
+    ū = û
+    ‘ = ‛
+  - |
+    The variants in parentheses are used depending on pronunciation and tradition. Not all the
+    variations have been given above. The article is always written el- (El-Kafr el-Qadîm, Sharm
+    el-Sheikh).
 tests:
 
   # Examples taken from:
   # https://unstats.un.org/unsd/geoinfo/geonames/
 
-  - source: مِصر
-    expected: mişr
+  - source: شَرم الشَيْخ
+    expected: sharm el-sheikh
 
-  - source: قَطَر
-    expected: qaţar
-
-  - source: الجُمهُورِية العِراقِية
-    expected: al jumhūrîyah al ‘irāqîyah
-
-  - source: جُمهُورِية مِصر العَرَبِية
-    expected: jumhūrîyat mişr al ‘arabîyah
-
-  - source: الرِياض
-    expected: ar riyāḑ
-
+  - source: الكَفر القَدِيم
+    expected: el-kafr el-qadîm
 map:
   inherit: "un-ara-Arab-Latn-2017"
   characters:
 
 
-    '\u0650\u064a' : 'îy' # ـِي kasra followed by ي
-    '\u064f\u0648' : 'ū'  # ـُو damma followed by و
-    '\u064e\u0627' : 'â'  # ـَا fatha followed by ا
+    # special pointed letters
+    '\u0639\u064e' : '‛a'  # عَ
+    '\u0639\u0650' : '‛i'  # عِ
+    '\u0639\u064f' : '‛û'  # عُ
+    # handle MacOS regex difference
+    '\u0639\u064f\u0648' : '‛û'  # عُو damma followed by و
+    '\u0650\u064a' : 'î' # ـِي kasra followed by ي
+    '\u0650\u064a(?=\u064e)' : 'îy' # ـِي kasra followed by ي with fatha
+    '\u064f\u0648' : 'û'  # ـُو damma followed by و
+    '\u064e\u0627' :   # ـَا fatha followed by ا
+      - 'â'
+      - 'a'
     '\u064e\u0649' : 'a'  # ـَى fatha followed by ى which is ا not ي
-    '\u064e\u0648\u0652' : 'ô'  # ـَوْ
-    '\u064e\u064a\u0652' : 'ei'  # ـَيْ
-    '\u0622' : 'â'  # آ
+    '\u064e\u0648\u0652' :  # ـَوْ
+      - 'ô'
+      - 'au'
+    '\u064e\u064a\u0652' :   # ـَيْ
+      - 'ei'
+      - 'ai'
+    '\u0622' :   # آ
+      - 'â'
+      - 'a'
 
+    # ta' marboota
     '\u0629$' : 'a'
     '(?<=\b\u0627\u0644[\u0600-\u06ff]{2})\u0629' : 'a'
     '(?<=\b\u0627\u0644[\u0600-\u06ff]{3})\u0629' : 'a'
@@ -107,38 +133,143 @@ map:
     '(?<=\b\u0627\u0644[\u0600-\u06ff]{13})\u0629' : 'a'
 
 
-    '\b\u0627\u0644\u0635' : 'aş ş'  # الص
-    '\b\u0627\u0644\u0636' : 'aḑ ḑ'  # الض
-    '\b\u0627\u0644\u0637' : 'aţ ţ'  # الط
+    # Sun letters
+    '\b\u0627\u0644\u062a' : 'el-t'  # الت
+    '\b\u0627\u0644\u062b' :  # الث
+      - 'el-th'
+      - 'el-t'
+    '\b\u0627\u0644\u062f' : 'el-d' # الد
+    '\b\u0627\u0644\u0630' :  # الذ
+      - 'el-dh'
+      - 'el-z'
+    '\b\u0627\u0644\u0631' : 'el-r' # الر
+    '\b\u0627\u0644\u0632' : 'el-z'  # الز
+    '\b\u0627\u0644\u0633' : # الس
+      - 'el-s'
+      - 'el-c'
+    '\b\u0627\u0644\u0634' : 'el-sh' # الش
+    '\b\u0627\u0644\u0635' : 'el-ṣ'  # الص
+    '\b\u0627\u0644\u0636' : 'el-ḍ'  # الض
+    '\b\u0627\u0644\u0637' : 'el-ṭ'  # الط
+    '\b\u0627\u0644\u0638' :  # الظ
+      - 'el-ẓ'
+      - 'el-d'
+    '\b\u0627\u0644\u0644' : 'el-l'  # الل
+    '\b\u0627\u0644\u0646' : 'el-n'  # الن
 
-    '\u062d\u0651' : 'ḩḩ'  # ح
-    '\u0635\u0651' : 'şş'  # ص
-    '\u0636\u0651' : 'ḑḑ'  # ض
-    '\u0637\u0651' : 'ţţ'  # ط
-    '\u0638\u0651' : 'z̧z̧'  # ظ
 
-    '\u062d' : 'ḩ' # ح
-    '\ufea3' : 'ḩ' # ﺣ
-    '\ufea4' : 'ḩ' # ﺤ
-    '\ufea2' : 'ḩ' # ﺢ
+    # shadda
+    '\u062b\u0651' :  # ث
+      - 'thth'
+      - 'tt'
+    '\u062c\u0651' :  # ج
+      - 'gg'
+      - 'jj'
+    '\u062d\u0651' : 'ḥḥ'  # ح
+    '\u062e\u0651' : 'khkh'  # خ
 
-    '\u0635' : 'ş'  # ص
-    '\ufebb' : 'ş'  # ﺻ
-    '\ufebc' : 'ş'  # ﺼ
-    '\ufeba' : 'ş'  # ﺺ
+    '\u0633\u0651' :  # س
+      - 'ss'
+      - 'cc'
+    '\u0635\u0651' : 'ṣṣ'  # ص
+    '\u0636\u0651' : 'ḍḍ'  # ض
+    '\u0637\u0651' : 'ṭṭ'  # ط
+    '\u0638\u0651' :  # ظ
+      - 'ẓẓ'
+      - 'dd'
+    '\u0642\u0651' :  # ق
+      - 'qq'
+      - 'kk'
 
-    '\u0636' : 'ḑ'  # ض
-    '\ufebf' : 'ḑ'  # ﺿ
-    '\ufec0' : 'ḑ'  # ﻀ
-    '\ufebe' : 'ḑ'  # ﺾ
+    '\b\u0627\u0644' : 'el-'  # ال
 
-    '\u0637' : 'ţ'  # ط
-    '\ufec3' : 'ţ'  # ﻃ
-    '\ufec4' : 'ţ'  # ﻄ
-    '\ufec2' : 'ţ'  # ﻂ
+    # normal letters
+    '\u062c' : # ج
+      - 'g'
+      - 'j'
+    '\ufe9f' :  # ﺟ
+      - 'g'
+      - 'j'
+    '\ufea0' :  # ﺠ
+      - 'g'
+      - 'j'
+    '\ufe9e' :  # ﺞ
+      - 'g'
+      - 'j'
 
-    '\u0638' : 'z̧'  # ظ
-    '\ufec7' : 'z̧'  # ﻇ
-    '\ufec8' : 'z̧'  # ﻈ
-    '\ufec6' : 'z̧'  # ﻆ
+    '\u062d' : 'ḥ' # ح
+    '\ufea3' : 'ḥ' # ﺣ
+    '\ufea4' : 'ḥ' # ﺤ
+    '\ufea2' : 'ḥ' # ﺢ
 
+    '\u062e' : 'kh'  # خ
+    '\ufea7' : 'kh'  # ﺧ
+    '\ufea8' : 'kh'  # ﺨ
+    '\ufea6' : 'kh'  # ﺦ
+
+    '\u0630' : # ذ
+      - 'dh'
+      - 'z'
+    '\ufeac' :  # ﺬ
+      - 'dh'
+      - 'z'
+
+
+    '\u0633' :  # س
+      - 's'
+      - 'c'
+    '\ufeb3' :  # ﺳ
+      - 's'
+      - 'c'
+    '\ufeb4' :  # ﺴ
+      - 's'
+      - 'c'
+    '\ufeb2' :  # ﺲ
+      - 's'
+      - 'c'
+
+    '\u0635' : 'ṣ'  # ص
+    '\ufebb' : 'ṣ'  # ﺻ
+    '\ufebc' : 'ṣ'  # ﺼ
+    '\ufeba' : 'ṣ'  # ﺺ
+
+    '\u0636' : 'ḍ'  # ض
+    '\ufebf' : 'ḍ'  # ﺿ
+    '\ufec0' : 'ḍ'  # ﻀ
+    '\ufebe' : 'ḍ'  # ﺾ
+
+    '\u0637' : 'ṭ'  # ط
+    '\ufec3' : 'ṭ'  # ﻃ
+    '\ufec4' : 'ṭ'  # ﻄ
+    '\ufec2' : 'ṭ'  # ﻂ
+
+    '\u0639' : '‛'  # ع
+    '\ufecb' : '‛'  # ﻋ
+    '\ufecc' : '‛'  # ﻌ
+    '\ufeca' : '‛'  # ﻊ
+
+    '\u0638' :  # ظ
+      - 'ẓ'
+      - 'd'
+    '\ufec7' :  # ظ
+      - 'ẓ'
+      - 'd'
+    '\ufec8' :  # ظ
+      - 'ẓ'
+      - 'd'
+    '\ufec6' :  # ظ
+      - 'ẓ'
+      - 'd'
+
+    '\u0642' :  # ق
+      - 'q'
+      - 'k'
+    '\ufed7' :  # ﻗ
+      - 'q'
+      - 'k'
+    '\ufed8' :  # ﻘ
+      - 'q'
+      - 'k'
+    '\ufed6' :  # ﻖ
+      - 'q'
+      - 'k'
