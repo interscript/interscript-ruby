@@ -132,11 +132,11 @@ module Interscript
 
       mapping.rules.each do |r|
         if output
-          if RUBY_ENGINE != 'opal'
-            output = output.gsub(/#{r['pattern']}/u, r['result'])
+          if RUBY_ENGINE != "opal"
+            output = output.gsub(/#{r["pattern"]}/u, r["result"])
           else
-            re = mkregexp(r['pattern'])
-            output = output.gsub(/#{re}/u, r['result'])
+            re = mkregexp(r["pattern"])
+            output = output.gsub(/#{re}/u, r["result"])
           end
         end
       end
@@ -149,7 +149,8 @@ module Interscript
           # if more than one, choose the first one
           result = result[0] if result.is_a?(Array)
 
-          output = output.sub_replace(pos, match[0].size, add_separator(separator, pos, result))
+          output = output.sub_replace(pos, match[0].size,
+            add_separator(separator, pos, result))
         end
       end
 
@@ -197,10 +198,10 @@ module Interscript
     end
 
     def mkregexp(regexpstring)
-      flags = 'u'
+      flags = "u"
       if regexpstring.include? "(?i)"
-        regexpstring = regexpstring.gsub("(?i)", '').gsub("(?-i)", '')
-        flags += 'i'
+        regexpstring = regexpstring.gsub("(?i)", "").gsub("(?-i)", "")
+        flags += "i"
       end
       regexp = Regexp.new(regexpstring, flags)
     end
