@@ -3,7 +3,6 @@ require 'yaml'
 require 'json'
 
 module Interscript
-  class InvalidSystemError < StandardError; end
 
   class Mapping
     attr_reader(
