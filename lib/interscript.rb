@@ -131,13 +131,12 @@ module Interscript
       # end
 
       mapping.rules.each do |r|
-        if output
-          if RUBY_ENGINE != "opal"
-            output = output.gsub(/#{r["pattern"]}/u, r["result"])
-          else
-            re = mkregexp(r["pattern"])
-            output = output.gsub(/#{re}/u, r["result"])
-          end
+        next unless output
+        if RUBY_ENGINE != "opal"
+          output = output.gsub(/#{r["pattern"]}/u, r["result"])
+        else
+          re = mkregexp(r["pattern"])
+          output = output.gsub(/#{re}/u, r["result"])
         end
       end
 
