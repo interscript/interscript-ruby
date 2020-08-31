@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-require "maps" if RUBY_ENGINE == 'opal'
+require "maps" if RUBY_ENGINE == "opal"
 require "interscript/mapping"
 
 class String
-  def sub_replace(pos, m, repl)
-    if RUBY_ENGINE == 'opal'
-      (pos>0 ? self[0,pos-1] : "") + repl + self[pos+m..-1]
+  def sub_replace(pos, size, repl)
+    if RUBY_ENGINE == "opal"
+      (pos.positive? ? self[0, pos - 1] : "") + repl + self[pos + size..-1]
     else
-      self[pos..pos+m-1] = repl
+      self[pos..pos + size - 1] = repl
       self
     end
   end
@@ -58,7 +58,7 @@ module Interscript
     end
   end
 
-  self.extend Fs if RUBY_ENGINE != 'opal'
+  self.extend Fs if RUBY_ENGINE != "opal"
 
   class << self
 
@@ -87,7 +87,7 @@ module Interscript
       dictmap = mapping.dictionary_hash
       trie = mapping.dictionary_trie
 
-      if RUBY_ENGINE != 'opal'
+      if RUBY_ENGINE != "opal"
         # Segmentation
         string = external_process(mapping.segmentation, string) if mapping.segmentation
 
@@ -150,7 +150,7 @@ module Interscript
           result = result[0] if result.is_a?(Array)
 
           output = output.sub_replace(pos, match[0].size,
-            add_separator(separator, pos, result))
+                                      add_separator(separator, pos, result))
         end
       end
 
@@ -178,7 +178,7 @@ module Interscript
       pos == 0 ? result : separator + result
     end
 
-    ALPHA_REGEXP = RUBY_ENGINE == 'opal' ? '\p{L}' : '[[:alpha:]]'
+    ALPHA_REGEXP = RUBY_ENGINE == "opal" ? '\p{L}' : '[[:alpha:]]'
 
     def up_case_around?(string, pos)
       return false if string[pos] == string[pos].downcase
@@ -203,7 +203,7 @@ module Interscript
         regexpstring = regexpstring.gsub("(?i)", "").gsub("(?-i)", "")
         flags += "i"
       end
-      regexp = Regexp.new(regexpstring, flags)
+      Regexp.new(regexpstring, flags)
     end
   end
 end
