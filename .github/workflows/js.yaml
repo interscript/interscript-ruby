@@ -22,13 +22,13 @@ jobs:
       with:
         ruby-version: 2.6
     - name: Install dependencies
-      run: bundle install
+      run: bundle install --jobs 4 --retry 5
     - name: Build Javascript
       run: bundle exec rake js
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm install
+    - run: npm install --jobs 4 --retry 5
     - run: npm test
 
