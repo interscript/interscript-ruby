@@ -6,7 +6,7 @@ require "interscript/mapping"
 class String
   def sub_replace(pos, size, repl)
     if RUBY_ENGINE == "opal"
-      (pos.positive? ? self[0, pos - 1] : "") + repl + self[pos + size..-1]
+      self[0, pos] + repl + self[pos + size..-1]
     else
       self[pos..pos + size - 1] = repl
       self
