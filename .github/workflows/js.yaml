@@ -2,9 +2,8 @@ name: js
 
 on:
   push:
-    branches: [ master, opal ]
+    branches: [ master ]
   pull_request:
-    branches: [ master, opal ]
 
 jobs:
   test:
@@ -31,4 +30,3 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm install
     - run: npm test
-

@@ -3,24 +3,43 @@
 require "maps" if RUBY_ENGINE == "opal"
 require "interscript/mapping"
 
-class String
-  def sub_replace(pos, size, repl)
-    if RUBY_ENGINE == "opal"
-      self[0, pos] + repl + self[pos + size..-1]
-    else
-      self[pos..pos + size - 1] = repl
-      self
-    end
-  end
-end
-
 # Transliteration
 module Interscript
 
+  class InvalidSystemError < StandardError; end
+  class ExternalProcessNotRecognizedError < StandardError; end
+  class ExternalProcessUnavailableError < StandardError; end
+
   module Opal
+    ALPHA_REGEXP = '\p{L}'
+
+    def mkregexp(regexpstring)
+      flags = 'u'
+      if regexpstring.include? "(?i)"
+        regexpstring = regexpstring.gsub("(?i)", "").gsub("(?-i)", "")
+        flags = 'ui'
+      end
+      Regexp.new("/#{regexpstring}/#{flags}")
+    end
+
+    def sub_replace(string, pos, size, repl)
+      self[0, pos] + repl + self[pos + size..-1]
+    end
+
+    def external_processing(mapping, string)
+      string
+    end
+
   end
 
   module Fs
+    ALPHA_REGEXP = '[[:alpha:]]'
+
+    def sub_replace(string, pos, size, repl)
+      string[pos..pos + size - 1] = repl
+      string
+    end
+
     def root_path
       @root_path ||= Pathname.new(File.dirname(__dir__))
     end
@@ -32,7 +51,9 @@ module Interscript
       File.open(output_file, 'w') do |f|
         f.puts(output)
       end
+
       puts "Output written to: #{output_file}"
+      output_file
     end
 
     def import_python_modules
@@ -40,30 +61,55 @@ module Interscript
         pyimport :g2pwrapper
       rescue
         pyimport :sys
-        sys.path.append(root_path.to_s+"/lib/")
+        sys.path.append(root_path.to_s + "/lib/")
         pyimport :g2pwrapper
       end
     end
 
     def external_process(process_name, string)
       import_python_modules
+
       case process_name
       when 'sequitur.pythainlp_lexicon'
         return g2pwrapper.transliterate('pythainlp_lexicon', string)
       when 'sequitur.wiktionary_phonemic'
         return g2pwrapper.transliterate('wiktionary_phonemic', string)
       else
-        puts "Invalid Process"
+        raise ExternalProcessNotRecognizedError.new
       end
+
+    rescue
+      raise ExternalProcessUnavailableError.new
     end
+
+    def external_processing(mapping, string)
+      # Segmentation
+      string = external_process(mapping.segmentation, string) if mapping.segmentation
+
+      # Transliteration/Transcription
+      string = external_process(mapping.transcription, string) if mapping.transcription
+
+      string
+    end
+
+    private
+
+    def mkregexp(regexpstring)
+      /#{regexpstring}/u
+    end
+
   end
 
-  self.extend Fs if RUBY_ENGINE != "opal"
+  if RUBY_ENGINE == 'opal'
+    extend Opal
+  else
+    extend Fs
+  end
 
   class << self
 
     def transliterate(system_code, string, maps={})
-      if (!maps.has_key?system_code)
+      unless maps.has_key? system_code
         maps[system_code] = Interscript::Mapping.for(system_code)
       end
       # mapping = Interscript::Mapping.for(system_code)
@@ -87,13 +133,7 @@ module Interscript
       dictmap = mapping.dictionary_hash
       trie = mapping.dictionary_trie
 
-      if RUBY_ENGINE != "opal"
-        # Segmentation
-        string = external_process(mapping.segmentation, string) if mapping.segmentation
-
-        # Transliteration/Transcription
-        string = external_process(mapping.transcription, string) if mapping.transcription
-      end
+      string = external_processing(mapping, string)
 
       pos = 0
       while pos < string.to_s.size
@@ -105,10 +145,11 @@ module Interscript
           wordmatch = string[pos..pos+m] if trie.word?string[pos..pos+m]
           m += 1
         end
+
         m = wordmatch.length
         if m > 0
           repl = dictmap[string[pos..pos+m-1]]
-          string = string.sub_replace(pos, m, repl)
+          string = sub_replace(string, pos, m, repl)
           pos += repl.length
         else
           pos += 1
@@ -132,12 +173,8 @@ module Interscript
 
       mapping.rules.each do |r|
         next unless output
-        if RUBY_ENGINE != "opal"
-          output = output.gsub(/#{r["pattern"]}/u, r["result"])
-        else
-          re = mkregexp(r["pattern"])
-          output = output.gsub(/#{re}/u, r["result"])
-        end
+        re = mkregexp(r["pattern"])
+        output = output.gsub(re, r["result"])
       end
 
       charmap.each do |k, v|
@@ -148,27 +185,33 @@ module Interscript
           # if more than one, choose the first one
           result = result[0] if result.is_a?(Array)
 
-          output = output.sub_replace(pos, match[0].size,
-                                      add_separator(separator, pos, result))
+          output = sub_replace(
+            output,
+            pos,
+            match[0].size,
+            add_separator(separator, pos, result)
+          )
         end
       end
 
       mapping.postrules.each do |r|
-        output = output.gsub(/#{r['pattern']}/u, r['result'])
+        next unless output
+        re = mkregexp(r["pattern"])
+        output = output.gsub(re, r["result"])
       end
 
-      if output
-        output = output.sub(/^(.)/, &:upcase) if title_case
-        if word_separator != ''
-          output = output.gsub(/#{word_separator}#{separator}/u,word_separator)
+      return unless output
 
-          if title_case
-            output = output.gsub(/#{word_separator}(.)/u, &:upcase)
-          end
+      output = output.sub(/^(.)/, &:upcase) if title_case
+      if word_separator != ''
+        output = output.gsub(/#{word_separator}#{separator}/u, word_separator)
+
+        if title_case
+          output = output.gsub(/#{word_separator}(.)/u, &:upcase)
         end
       end
 
-      output ? output.unicode_normalize : output
+      output.unicode_normalize
     end
 
     private
@@ -176,8 +219,6 @@ module Interscript
     def add_separator(separator, pos, result)
       pos == 0 ? result : separator + result
     end
-
-    ALPHA_REGEXP = RUBY_ENGINE == "opal" ? '\p{L}' : '[[:alpha:]]'
 
     def up_case_around?(string, pos)
       return false if string[pos] == string[pos].downcase
@@ -196,13 +237,5 @@ module Interscript
       before_uc || after_uc
     end
 
-    def mkregexp(regexpstring)
-      flags = "u"
-      if regexpstring.include? "(?i)"
-        regexpstring = regexpstring.gsub("(?i)", "").gsub("(?-i)", "")
-        flags += "i"
-      end
-      Regexp.new(regexpstring, flags)
-    end
   end
 end
