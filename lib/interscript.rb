@@ -100,10 +100,10 @@ module Interscript
 
   end
 
-  unless RUBY_ENGINE == 'opal'
-    extend Fs
-  else
+  if RUBY_ENGINE == 'opal'
     extend Opal
+  else
+    extend Fs
   end
 
   class << self

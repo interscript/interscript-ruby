@@ -68,10 +68,10 @@ module Interscript
     end
 
     def load_system_mappings
-      if RUBY_ENGINE != 'opal'
-        YAML.load_file(system_path.join(system_code_file))
-      else
+      if RUBY_ENGINE == 'opal'
         JSON.parse(`ISMap[#{system_code}]`)
+      else
+        YAML.load_file(system_path.join(system_code_file))
       end
 
     rescue Errno::ENOENT
