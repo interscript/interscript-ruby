@@ -1,0 +1,275 @@
+---
+authority_id: ungegn
+id: 1930
+language: ara
+source_script: Arab
+destination_script: Latn
+name: ROMANIZATION OF ARABIC -- UNGEGN 2017 System
+url: http://www.eki.ee/wgrs/rom1_ar.pdf
+creation_date: 1930
+confirmation date: 2018-06
+description: |
+  The current United Nations recommended romanization
+  system was approved in 2017 (resolution XI/3), based on
+  the system adopted by Arabic experts at the conference
+  held in Beirut in 2007, the Unified Arabic
+  Transliteration System, taking into account the
+  practical amendments and corrections carried out and
+  agreed upon by the representatives of the Arabic-
+  speaking countries at the Fourth Arab Conference on
+  Geographical Names, held in Beirut in 2008, and some
+  clarifications and amendments agreed in Riyadh in 20171.
+  Previously, the United Nations had approved a
+  romanization system in 1972 (resolution II/8), based on the
+  system adopted by Arabic experts at the conference
+  held at Beirut in 1971 with the practical amendments carried out
+  and agreed upon by the representatives of the Arabic-speaking
+  countries at their conference. The table was published in volume
+  II of the conference report.
+  In UN resolution XI/3 it is specifically stated that the
+  system was recommended for the “romanization of the
+  geographical names within those Arabic-speaking countries
+  where this system is officially adopted”. There is
+  evidence of its partial implementation in Jordan, Oman and
+  Saudi Arabia. The UNGEGN Working Group on Romanization
+  Systems intends to continue monitoring the UN system’s
+  implementation across Arabic-speaking countries.
+  In some countries there exist local romanization schemes
+  or practices. The geographical names of Algeria, Djibouti,
+  Mauritania, Morocco and Tunisia are generally rendered in
+  the traditional manner which conforms to the principles of
+  the French orthography.
+  The previous UN-approved system is still found in
+  considerable international usage.
+  Arabic is written from right to left. The Arabic script
+  usually omits vowel points and diacritical marks from
+  writing which makes it difficult to obtain uniform results
+  in the romanization of Arabic. It is essential to identify
+  correctly the words which appear in any particular name
+  and to know the standard Arabic-script spelling including
+  the relevant vowels. One must also take into account
+  dialectal and idiosyncratic deviations. The romanization
+  is generally reversible though there may be some ambiguous
+  letter sequences (dh, kh, sh, th) which may also point to
+  combinations of Arabic characters in addition to the
+  respective single characters.
+notes:
+  - |
+    The Survey of Egypt System (SES) of romanization has the following correspondences with
+    the UN system:
+    á = a #  ـَى fatha followed by ى which is ا not ي
+    ā = â (a) # ـَا fatha followed by alef // آ
+    -ah (ة- = (a # ة ta' marboota at the end of a sentence
+    aw = ô (au) # ـَوْ
+    ay = ei (ai) # ـَيْ
+    ḏ = ḍ # ض
+    dh = dh (z) # ذ
+    d͟h = ẓ (d) # ظ
+    ẖ = ḥ # ح
+    ī = î
+    j = g (j)
+    q = q (k)
+    s = s (c)
+    s̱ = ṣ
+    ṯ = ṭ
+    th = th (t)
+    ū = û
+    ‘ = ‛
+  - |
+    The variants in parentheses are used depending on pronunciation and tradition. Not all the
+    variations have been given above. The article is always written el- (El-Kafr el-Qadîm, Sharm
+    el-Sheikh).
+tests:
+
+  # Examples taken from:
+  # https://unstats.un.org/unsd/geoinfo/geonames/
+
+  - source: شَرم الشَيْخ
+    expected: sharm el-sheikh
+
+  - source: الكَفر القَدِيم
+    expected: el-kafr el-qadîm
+map:
+  inherit: "un-ara-Arab-Latn-2017"
+  characters:
+
+
+    # special pointed letters
+    '\u0639\u064e' : '‛a'  # عَ
+    '\u0639\u0650' : '‛i'  # عِ
+    '\u0639\u064f' : '‛û'  # عُ
+    # handle MacOS regex difference
+    '\u0639\u064f\u0648' : '‛û'  # عُو damma followed by و
+    '\u0650\u064a' : 'î' # ـِي kasra followed by ي
+    '\u0650\u064a(?=\u064e)' : 'îy' # ـِي kasra followed by ي with fatha
+    '\u064f\u0648' : 'û'  # ـُو damma followed by و
+    '\u064e\u0627' :   # ـَا fatha followed by ا
+      - 'â'
+      - 'a'
+    '\u064e\u0649' : 'a'  # ـَى fatha followed by ى which is ا not ي
+    '\u064e\u0648\u0652' :  # ـَوْ
+      - 'ô'
+      - 'au'
+    '\u064e\u064a\u0652' :   # ـَيْ
+      - 'ei'
+      - 'ai'
+    '\u0622' :   # آ
+      - 'â'
+      - 'a'
+
+    # ta' marboota
+    '\u0629$' : 'a'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{2})\u0629' : 'a'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{3})\u0629' : 'a'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{4})\u0629' : 'a'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{5})\u0629' : 'a'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{6})\u0629' : 'a'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{7})\u0629' : 'a'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{8})\u0629' : 'a'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{9})\u0629' : 'a'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{10})\u0629' : 'a'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{11})\u0629' : 'a'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{12})\u0629' : 'a'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{13})\u0629' : 'a'
+
+
+    # Sun letters
+    '\b\u0627\u0644\u062a' : 'el-t'  # الت
+    '\b\u0627\u0644\u062b' :  # الث
+      - 'el-th'
+      - 'el-t'
+    '\b\u0627\u0644\u062f' : 'el-d' # الد
+    '\b\u0627\u0644\u0630' :  # الذ
+      - 'el-dh'
+      - 'el-z'
+    '\b\u0627\u0644\u0631' : 'el-r' # الر
+    '\b\u0627\u0644\u0632' : 'el-z'  # الز
+    '\b\u0627\u0644\u0633' : # الس
+      - 'el-s'
+      - 'el-c'
+    '\b\u0627\u0644\u0634' : 'el-sh' # الش
+    '\b\u0627\u0644\u0635' : 'el-ṣ'  # الص
+    '\b\u0627\u0644\u0636' : 'el-ḍ'  # الض
+    '\b\u0627\u0644\u0637' : 'el-ṭ'  # الط
+    '\b\u0627\u0644\u0638' :  # الظ
+      - 'el-ẓ'
+      - 'el-d'
+    '\b\u0627\u0644\u0644' : 'el-l'  # الل
+    '\b\u0627\u0644\u0646' : 'el-n'  # الن
+
+
+    # shadda
+    '\u062b\u0651' :  # ث
+      - 'thth'
+      - 'tt'
+    '\u062c\u0651' :  # ج
+      - 'gg'
+      - 'jj'
+    '\u062d\u0651' : 'ḥḥ'  # ح
+    '\u062e\u0651' : 'khkh'  # خ
+
+    '\u0633\u0651' :  # س
+      - 'ss'
+      - 'cc'
+    '\u0635\u0651' : 'ṣṣ'  # ص
+    '\u0636\u0651' : 'ḍḍ'  # ض
+    '\u0637\u0651' : 'ṭṭ'  # ط
+    '\u0638\u0651' :  # ظ
+      - 'ẓẓ'
+      - 'dd'
+    '\u0642\u0651' :  # ق
+      - 'qq'
+      - 'kk'
+
+    '\b\u0627\u0644' : 'el-'  # ال
+
+    # normal letters
+    '\u062c' : # ج
+      - 'g'
+      - 'j'
+    '\ufe9f' :  # ﺟ
+      - 'g'
+      - 'j'
+    '\ufea0' :  # ﺠ
+      - 'g'
+      - 'j'
+    '\ufe9e' :  # ﺞ
+      - 'g'
+      - 'j'
+
+    '\u062d' : 'ḥ' # ح
+    '\ufea3' : 'ḥ' # ﺣ
+    '\ufea4' : 'ḥ' # ﺤ
+    '\ufea2' : 'ḥ' # ﺢ
+
+    '\u062e' : 'kh'  # خ
+    '\ufea7' : 'kh'  # ﺧ
+    '\ufea8' : 'kh'  # ﺨ
+    '\ufea6' : 'kh'  # ﺦ
+
+    '\u0630' : # ذ
+      - 'dh'
+      - 'z'
+    '\ufeac' :  # ﺬ
+      - 'dh'
+      - 'z'
+
+
+    '\u0633' :  # س
+      - 's'
+      - 'c'
+    '\ufeb3' :  # ﺳ
+      - 's'
+      - 'c'
+    '\ufeb4' :  # ﺴ
+      - 's'
+      - 'c'
+    '\ufeb2' :  # ﺲ
+      - 's'
+      - 'c'
+
+    '\u0635' : 'ṣ'  # ص
+    '\ufebb' : 'ṣ'  # ﺻ
+    '\ufebc' : 'ṣ'  # ﺼ
+    '\ufeba' : 'ṣ'  # ﺺ
+
+    '\u0636' : 'ḍ'  # ض
+    '\ufebf' : 'ḍ'  # ﺿ
+    '\ufec0' : 'ḍ'  # ﻀ
+    '\ufebe' : 'ḍ'  # ﺾ
+
+    '\u0637' : 'ṭ'  # ط
+    '\ufec3' : 'ṭ'  # ﻃ
+    '\ufec4' : 'ṭ'  # ﻄ
+    '\ufec2' : 'ṭ'  # ﻂ
+
+    '\u0639' : '‛'  # ع
+    '\ufecb' : '‛'  # ﻋ
+    '\ufecc' : '‛'  # ﻌ
+    '\ufeca' : '‛'  # ﻊ
+
+    '\u0638' :  # ظ
+      - 'ẓ'
+      - 'd'
+    '\ufec7' :  # ظ
+      - 'ẓ'
+      - 'd'
+    '\ufec8' :  # ظ
+      - 'ẓ'
+      - 'd'
+    '\ufec6' :  # ظ
+      - 'ẓ'
+      - 'd'
+
+    '\u0642' :  # ق
+      - 'q'
+      - 'k'
+    '\ufed7' :  # ﻗ
+      - 'q'
+      - 'k'
+    '\ufed8' :  # ﻘ
+      - 'q'
+      - 'k'
+    '\ufed6' :  # ﻖ
+      - 'q'
+      - 'k'
