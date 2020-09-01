@@ -92,13 +92,13 @@ tests:
   - source: المَغرِب
     expected: al maghrib
 
-  - source: الجُمهُورِية العِراقِية
+  - source: الجُمهُورِيَّة العِراقِيَّة
     expected: al jumhūrīyah al ‘irāqīyah
 
-  - source: جُمهُورِية العِراق
+  - source: جُمهُورِيَّة العِراق
     expected: jumhūrīyat al ‘irāq
 
-  - source: جُمهُورِية مِصر العَرَبِية
+  - source: جُمهُورِيَّة مِصر العَرَبِيَّة
     expected: jumhūrīyat mis̱r al ‘arabīyah
 
   - source: بَغداد
@@ -107,7 +107,7 @@ tests:
   - source: تُونِس
     expected: tūnis
 
-  - source: السُعُودِية
+  - source: السُعُودِيَّة
     expected: as su‘ūdīyah
 
   - source: اليَمَن
@@ -119,7 +119,7 @@ tests:
   - source: الجَزائِر
     expected: al jazā'ir
 
-  - source: الجُمهُورِية اللُبنانِية
+  - source: الجُمهُورِيَّة اللُبنانِيَّة
     expected: al jumhūrīyah al lubnānīyah
 
   - source: أسمَرة
@@ -132,7 +132,7 @@ tests:
     expected: makkah
 
   - source: الرِيَاض
-    expected: ar riyāḑ
+    expected: ar riyāḏ
 
 map:
   characters:
@@ -156,7 +156,8 @@ map:
     '\u0639\u064f\u0648' : '‘ū'  # عُو damma followed by و
 
     '\u0650\u064a' : 'ī' # ـِي kasra followed by ي
-    '\u0650\u064a(?=\u064e|u064f)' : 'īy' # ـِي kasra followed by ي
+    '\u0650\u064a\u0651\u064e' : 'īy' # ـِيَّ
+    '\u0650\u064a(?=\u064e|u064f)' : 'iy' # ـِي kasra followed by ي
     '\u064f\u0648' : 'ū'  # ـُو damma followed by و
     '\u064e\u0627' : 'ā'  # ـَا fatha followed by ا
     '\u064e\u0649' : 'á'  # ـَى fatha followed by ى which is ا not ي
