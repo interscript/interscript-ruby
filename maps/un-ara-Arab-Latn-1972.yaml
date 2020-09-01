@@ -4,7 +4,7 @@ id: 1972
 language: ara
 source_script: Arab
 destination_script: Latn
-name: ROMANIZATION OF ARABIC -- UNGEGN 2017 System
+name: ROMANIZATION OF ARABIC -- UNGEGN 1972 System
 url: http://www.eki.ee/wgrs/rom1_ar.pdf
 creation_date: 1972
 confirmation date: 2018-06
@@ -70,11 +70,14 @@ tests:
   - source: قَطَر
     expected: qaţar
 
-  - source: الجُمهُورِية العِراقِية
+  - source: الجُمهُورِيَّة العِراقِيَّة
     expected: al jumhūrīyah al ‘irāqīyah
 
-  - source: جُمهُورِية مِصر العَرَبِية
+  - source: جُمهُورِيَّة مِصر العَرَبِيَّة
     expected: jumhūrīyat mişr al ‘arabīyah
+
+  - source: الرِيَاض
+    expected: ar riyāḑ
 
 map:
   inherit: "un-ara-Arab-Latn-2017"

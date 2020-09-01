@@ -101,7 +101,7 @@ map:
     # handle MacOS regex difference
     '\u0639\u064f\u0648' : '‛û'  # عُو damma followed by و
     '\u0650\u064a' : 'î' # ـِي kasra followed by ي
-    '\u0650\u064a(?=\u064e)' : 'îy' # ـِي kasra followed by ي with fatha
+    '\u0650\u064a\u0651\u064e' : 'îy' # ـِيَّ
     '\u064f\u0648' : 'û'  # ـُو damma followed by و
     '\u064e\u0627' :   # ـَا fatha followed by ا
       - 'â'
