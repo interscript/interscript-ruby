@@ -131,6 +131,9 @@ tests:
   - source: مَكَّة
     expected: makkah
 
+  - source: الرِيَاض
+    expected: ar riyāḑ
+
 map:
   characters:
 
@@ -152,7 +155,8 @@ map:
     # handle MacOS regex difference
     '\u0639\u064f\u0648' : '‘ū'  # عُو damma followed by و
 
-    '\u0650\u064a' : 'īy' # ـِي kasra followed by ي
+    '\u0650\u064a' : 'ī' # ـِي kasra followed by ي
+    '\u0650\u064a(?=\u064e|u064f)' : 'īy' # ـِي kasra followed by ي
     '\u064f\u0648' : 'ū'  # ـُو damma followed by و
     '\u064e\u0627' : 'ā'  # ـَا fatha followed by ا
     '\u064e\u0649' : 'á'  # ـَى fatha followed by ى which is ا not ي
