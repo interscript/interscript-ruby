@@ -12,7 +12,7 @@
         <label>System code: </label>
         <select id="sc">
           <script>
-           Object.keys(ISMap).forEach(sc => {
+           Object.keys(InterscriptMaps).forEach(sc => {
              if (sc == "bgnpcgn-rus-Cyrl-Latn-1947") {
               document.write(`<option value="${sc}" selected>${sc}</option>`);
              } else {

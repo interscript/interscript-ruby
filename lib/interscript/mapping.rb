@@ -49,10 +49,10 @@ module Interscript
     end
 
     def load_and_serialize_system_mappings
-      if depth < 5
-        mappings = load_system_mappings
-        serialize_system_mappings(mappings)
-      end
+      return if depth >= 5
+
+      mappings = load_system_mappings
+      serialize_system_mappings(mappings)
     end
 
     private
@@ -69,11 +69,18 @@ module Interscript
 
     def load_system_mappings
       if RUBY_ENGINE == 'opal'
-        JSON.parse(`ISMap[#{system_code}]`)
+        load_opal_mappings
       else
-        YAML.load_file(system_path.join(system_code_file))
+        load_fs_mappings
       end
+    end
 
+    def load_opal_mappings
+      JSON.parse(`InterscriptMaps[#{system_code}]`)
+    end
+
+    def load_fs_mappings
+      YAML.load_file(system_path.join(system_code_file))
     rescue Errno::ENOENT
       raise Interscript::InvalidSystemError.new("No system mappings found")
     end

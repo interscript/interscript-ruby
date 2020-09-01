@@ -19,7 +19,7 @@ task :js do
   require "erb"
   require "json"
   require "yaml"
-  require_relative "lib/interscript/opal/regexp_translate"
+  require_relative "lib/interscript/opal_map_translate"
 
   builder = Opal::Builder.new
 

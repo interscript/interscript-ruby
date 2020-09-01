@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "maps" if RUBY_ENGINE == "opal"
+require "interscript/opal/maps" if RUBY_ENGINE == "opal"
 require "interscript/mapping"
 
 # Transliteration
@@ -10,99 +10,11 @@ module Interscript
   class ExternalProcessNotRecognizedError < StandardError; end
   class ExternalProcessUnavailableError < StandardError; end
 
-  module Opal
-    ALPHA_REGEXP = '\p{L}'
-
-    def mkregexp(regexpstring)
-      flags = 'u'
-      if regexpstring.include? "(?i)"
-        regexpstring = regexpstring.gsub("(?i)", "").gsub("(?-i)", "")
-        flags = 'ui'
-      end
-      Regexp.new("/#{regexpstring}/#{flags}")
-    end
-
-    def sub_replace(string, pos, size, repl)
-      string[0, pos] + repl + string[pos + size..-1]
-    end
-
-    def external_processing(mapping, string)
-      string
-    end
-
-  end
-
-  module Fs
-    ALPHA_REGEXP = '[[:alpha:]]'
-
-    def sub_replace(string, pos, size, repl)
-      string[pos..pos + size - 1] = repl
-      string
-    end
-
-    def root_path
-      @root_path ||= Pathname.new(File.dirname(__dir__))
-    end
-
-    def transliterate_file(system_code, input_file, output_file, maps={})
-      input = File.read(input_file)
-      output = transliterate(system_code, input, maps)
-
-      File.open(output_file, 'w') do |f|
-        f.puts(output)
-      end
-
-      puts "Output written to: #{output_file}"
-      output_file
-    end
-
-    def import_python_modules
-      begin
-        pyimport :g2pwrapper
-      rescue
-        pyimport :sys
-        sys.path.append(root_path.to_s + "/lib/")
-        pyimport :g2pwrapper
-      end
-    end
-
-    def external_process(process_name, string)
-      import_python_modules
-
-      case process_name
-      when 'sequitur.pythainlp_lexicon'
-        return g2pwrapper.transliterate('pythainlp_lexicon', string)
-      when 'sequitur.wiktionary_phonemic'
-        return g2pwrapper.transliterate('wiktionary_phonemic', string)
-      else
-        raise ExternalProcessNotRecognizedError.new
-      end
-
-    rescue
-      raise ExternalProcessUnavailableError.new
-    end
-
-    def external_processing(mapping, string)
-      # Segmentation
-      string = external_process(mapping.segmentation, string) if mapping.segmentation
-
-      # Transliteration/Transcription
-      string = external_process(mapping.transcription, string) if mapping.transcription
-
-      string
-    end
-
-    private
-
-    def mkregexp(regexpstring)
-      /#{regexpstring}/u
-    end
-
-  end
-
   if RUBY_ENGINE == 'opal'
+    require "interscript/opal"
     extend Opal
   else
+    require "interscript/fs"
     extend Fs
   end
 
