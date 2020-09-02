@@ -1,0 +1,116 @@
+---
+authority_id: ungegn
+id: 1971
+language: ara
+source_script: Arab
+destination_script: Latn
+name: 1971 "Beirut system"
+url: https://unstats.un.org/unsd/geoinfo/UNGEGN/docs/2nd-uncsgn-docs/E_Conf61_4_Add1_e.pdf
+creation_date: 1971
+confirmation date: 2018-06
+description: |
+  The current United Nations recommended romanization
+  system was approved in 2017 (resolution XI/3), based on
+  the system adopted by Arabic experts at the conference
+  held in Beirut in 2007, the Unified Arabic
+  Transliteration System, taking into account the
+  practical amendments and corrections carried out and
+  agreed upon by the representatives of the Arabic-
+  speaking countries at the Fourth Arab Conference on
+  Geographical Names, held in Beirut in 2008, and some
+  clarifications and amendments agreed in Riyadh in 20171.
+  Previously, the United Nations had approved a
+  romanization system in 1972 (resolution II/8), based on the
+  system adopted by Arabic experts at the conference
+  held at Beirut in 1971 with the practical amendments carried out
+  and agreed upon by the representatives of the Arabic-speaking
+  countries at their conference. The table was published in volume
+  II of the conference report.
+  In UN resolution XI/3 it is specifically stated that the
+  system was recommended for the “romanization of the
+  geographical names within those Arabic-speaking countries
+  where this system is officially adopted”. There is
+  evidence of its partial implementation in Jordan, Oman and
+  Saudi Arabia. The UNGEGN Working Group on Romanization
+  Systems intends to continue monitoring the UN system’s
+  implementation across Arabic-speaking countries.
+  In some countries there exist local romanization schemes
+  or practices. The geographical names of Algeria, Djibouti,
+  Mauritania, Morocco and Tunisia are generally rendered in
+  the traditional manner which conforms to the principles of
+  the French orthography.
+  The previous UN-approved system is still found in
+  considerable international usage.
+  Arabic is written from right to left. The Arabic script
+  usually omits vowel points and diacritical marks from
+  writing which makes it difficult to obtain uniform results
+  in the romanization of Arabic. It is essential to identify
+  correctly the words which appear in any particular name
+  and to know the standard Arabic-script spelling including
+  the relevant vowels. One must also take into account
+  dialectal and idiosyncratic deviations. The romanization
+  is generally reversible though there may be some ambiguous
+  letter sequences (dh, kh, sh, th) which may also point to
+  combinations of Arabic characters in addition to the
+  respective single characters.
+notes:
+  - |
+    ث is t͟h (th with sub marcon)
+    خ is k͟h (kh with sub marcon)
+    ذ is d͟h (dh with sub marcon)
+    ش is s͟h (sh with sub marcon)
+    ظ is z͟h (zh with sub marcon)
+    غ is g͟h (gh witg sub marcon)
+    The previous UN 1972 System had the following differences:
+    the character (ظ) was romanized as z̧ instead of d͟h;
+    the cedilla (¸) was used instead of sub-macron (_) in all characters with sub-macrons.  - |
+
+tests:
+
+  # Examples taken from:
+  # https://unstats.un.org/unsd/geoinfo/UNGEGN/docs/2nd-uncsgn-docs/E_Conf61_4_Add1_e.pdf
+  # page 31 (38 digital)
+
+  - source: خَيبَر
+    expected: k͟haybar
+
+  - source: ظَهران
+    expected: z͟hahrān
+
+  - source: القُدس
+    expected: al quds
+
+map:
+  inherit: "un-ara-Arab-Latn-2017"
+  characters:
+
+    # sun letters
+    '\b\u0627\u0644\u062b' : 'at͟h t͟h'  # الث
+    '\b\u0627\u0644\u0630' : 'ad͟h d͟h'  # الذ
+    '\b\u0627\u0644\u0634' : 'as͟h s͟h' # الش
+    '\b\u0627\u0644\u0638' : 'az͟h z͟h' # الظ
+
+    # shadda
+    '\u0630\u0651' : 'd͟hd͟h'  # ذ
+    '\u0634\u0651' : 's͟h'  # ش
+    '\u0638\u0651' : 'z͟hz͟h'  # ظ
+    '\u063a\u0651' : 'g͟hg͟h'  # غ
+
+    '\u062b' : 't͟h'  # ث
+    '\ufe9b' : 't͟h'  # ﺛ
+    '\ufe9c' : 't͟h'  # ﺜ
+    '\ufe9a' : 't͟h'  # ﺚ
+
+    '\u0630' : 'd͟h'  # ذ
+    '\ufeac' : 'd͟h'  # ﺬ
+
+    '\u0634' : 's͟h'  # ش
+    '\ufeb7' : 's͟h'  # ﺷ
+    '\ufeb8' : 's͟h'  # ﺸ
+    '\ufeb6' : 's͟h'  # ﺶ
+
+    '\u0638' : 'z͟h'  # ظ
+    '\ufec7' : 'z͟h'  # ﻇ
+    '\ufec8' : 'z͟h'  # ﻈ
+    '\ufec6' : 'z͟h'  # ﻆ
+
