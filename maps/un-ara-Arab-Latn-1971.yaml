@@ -107,6 +107,11 @@ map:
     '\ufea8' : 'k͟h'  # ﺨ
     '\ufea6' : 'k͟h'  # ﺦ
 
+    '\u063a' : 'g͟h'  # غ
+    '\ufecf' : 'g͟h'  # ﻏ
+    '\ufed0' : 'g͟h'  # ﻐ
+    '\ufece' : 'g͟h'  # ﻎ
+
     '\u0630' : 'd͟h'  # ذ
     '\ufeac' : 'd͟h'  # ﺬ
 
