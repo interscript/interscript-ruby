@@ -1,0 +1,171 @@
+---
+authority_id: ISO
+id: 1984
+language: ara
+source_script: Arab
+destination_script: Latn
+name: ROMANIZATION OF ARABIC -- ISO 1984 System
+url:
+  - http://transliteration.eki.ee/pdf/Arabic_2.2.pdf
+  - http://www.eki.ee/wgrs/rom1_ar.pdf
+creation_date: 1984
+confirmation date: 2018-06
+description: |
+  no description provided
+notes:
+  - |
+    The transliteration ISO 233:1984 gives every character and diacritical mark a unique
+    equivalent and e.g. long vowels in Arabic ā, ī and ū are consequently written a’, iy and uw
+    respectively in the ISO transliteration. Other main correspondences
+    ث is ṯ instead of th
+    ج is ǧ instead of j
+    ح is ḥ instead of ẖ
+    خ is ẖ instead of kh
+    ذ is ḏ instead of dh
+    ش is š instead of sh
+    ص is ṣ instead of s̱
+    ض is ḍ instead of ḏ
+    ط is ṭ instead of ṯ
+    ظ is ẓ instead of d͟h
+    غ is ġ instead of gh
+    ة is ẗ instead of h/t
+    ى is ỳ
+    ـِي is iy instead of iy
+    ـُو is uw instead of ū
+    ـَا is a’ instead of ā
+    ـَى is aỳ instead of á
+
+tests:
+
+  - source: مِصر
+    expected: miṣr
+
+  - source: قَطَر
+    expected: qaṭar
+
+  - source: الجُمهُورِيَّة العِرَاقِيَّة
+    expected: al ǧumhuwriyaẗ al ‘ira’qiyaẗ
+
+  - source: جُمهُورِيَّة مِصر العَرَبِيَّة
+    expected: ǧumhuwriyaẗ miṣr al ‘arabiyaẗ
+
+  - source: الرِيَاض
+    expected: ar riya’ḍ
+
+  - source: الشارِقة
+    expected: aš šâriqaẗ
+
+map:
+  inherit: "un-ara-Arab-Latn-2017"
+  characters:
+
+    # special pointed letters
+
+    '\u0650\u064a' : 'iy' # ـِي kasra followed by ي
+    '\u064f\u0648' : 'uw'  # ـُو damma followed by و
+    '\u064e\u0627' : 'a’'  # ـَا fatha followed by ا
+
+    '\u0650\u064a\u0651\u064e' : 'iy' # ـِيَّ
+    '\u064e\u0649' : 'aỳ'  # ـَى fatha followed by ى which is ا not ي
+
+
+    # ta' marboota
+    '\u0629' : 'aẗ' # ة in the middle of the sentence
+    '\u0629$' : 'aẗ'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{2})\u0629' : 'aẗ'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{3})\u0629' : 'aẗ'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{4})\u0629' : 'aẗ'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{5})\u0629' : 'aẗ'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{6})\u0629' : 'aẗ'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{7})\u0629' : 'aẗ'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{8})\u0629' : 'aẗ'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{9})\u0629' : 'aẗ'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{10})\u0629' : 'aẗ'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{11})\u0629' : 'aẗ'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{12})\u0629' : 'aẗ'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{13})\u0629' : 'aẗ'
+
+    '\u0622' : 'â'  # آ
+
+    '\u0627' : 'â'  # ا
+
+    '\u0649' : 'ỳ'  # ى
+
+    # Shadda
+
+    '\u062b\u0651' : 'ṯṯ'  # ث
+    '\u062c\u0651' : 'ǧǧ'  # ج
+    '\u062d\u0651' : 'ḥḥ' # ح
+    '\u062e\u0651' : 'ẖẖ'  # خ
+    '\u0630\u0651' : 'ḏḏ'  # ذ
+    '\u0634\u0651' : 'šš'  # ش
+    '\u0635\u0651' : 'ṣṣ'  # ص
+    '\u0636\u0651' : 'ḍḍ'  # ض
+    '\u0637\u0651' : 'ṭṭ'  # ط
+    '\u0638\u0651' : 'ẓẓ'  # ظ
+    '\u063a\u0651' : 'ġġ'  # غ
+
+    # Sun letters
+
+    '\b\u0627\u0644\u062b' : 'aṯ ṯ'  # الث
+    '\b\u0627\u0644\u0630' : 'aḏ ḏ'  # الذ
+    '\b\u0627\u0644\u0634' : 'aš š' # الش
+    '\b\u0627\u0644\u0635' : 'aṣ ṣ'  # الص
+    '\b\u0627\u0644\u0636' : 'aḍ ḍ'  # الض
+    '\b\u0627\u0644\u0637' : 'aṭ ṭ'  # الط
+    '\b\u0627\u0644\u0638' : 'aẓ ẓ' # الظ
+
+
+
+    '\u062b' : 'ṯ'  # ث
+    '\ufe9b' : 'ṯ'  # ﺛ
+    '\ufe9c' : 'ṯ'  # ﺜ
+    '\ufe9a' : 'ṯ'  # ﺚ
+
+    '\u062c' : 'ǧ'  # ج
+    '\ufe9f' : 'ǧ'  # ﺟ
+    '\ufea0' : 'ǧ'  # ﺠ
+    '\ufe9e' : 'ǧ'  # ﺞ
+
+    '\u062d' : 'ḥ' # ح
+    '\ufea3' : 'ḥ' # ﺣ
+    '\ufea4' : 'ḥ' # ﺤ
+    '\ufea2' : 'ḥ' # ﺢ
+
+    '\u062e' : 'ẖ'  # خ
+    '\ufea7' : 'ẖ'  # ﺧ
+    '\ufea8' : 'ẖ'  # ﺨ
+    '\ufea6' : 'ẖ'  # ﺦ
+
+    '\u0630' : 'ḏ'  # ذ
+    '\ufeac' : 'ḏ'  # ﺬ
+
+    '\u0634' : 'š'  # ش
+    '\ufeb7' : 'š'  # ﺷ
+    '\ufeb8' : 'š'  # ﺸ
+    '\ufeb6' : 'š'  # ﺶ
+
+    '\u0635' : 'ṣ'  # ص
+    '\ufebb' : 'ṣ'  # ﺻ
+    '\ufebc' : 'ṣ'  # ﺼ
+    '\ufeba' : 'ṣ'  # ﺺ
+
+    '\u0636' : 'ḍ'  # ض
+    '\ufebf' : 'ḍ'  # ﺿ
+    '\ufec0' : 'ḍ'  # ﻀ
+    '\ufebe' : 'ḍ'  # ﺾ
+
+    '\u0637' : 'ṭ'  # ط
+    '\ufec3' : 'ṭ'  # ﻃ
+    '\ufec4' : 'ṭ'  # ﻄ
+    '\ufec2' : 'ṭ'  # ﻂ
+
+    '\u0638' : 'ẓ'  # ظ
+    '\ufec7' : 'ẓ'  # ﻇ
+    '\ufec8' : 'ẓ'  # ﻈ
+    '\ufec6' : 'ẓ'  # ﻆ
+
+    '\u063a' : 'ġ'  # غ
+    '\ufecf' : 'ġ'  # ﻏ
+    '\ufed0' : 'ġ'  # ﻐ
+    '\ufece' : 'ġ'  # ﻎ
