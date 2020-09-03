@@ -4,14 +4,22 @@ id: 233-1984
 language: ara
 source_script: Arab
 destination_script: Latn
-name: ROMANIZATION OF ARABIC -- iso 233 1984 System
+name: ISO 233:1984 Documentation — Transliteration of Arabic characters into Latin characters
 url:
+  - https://www.iso.org/standard/4117.html
   - http://transliteration.eki.ee/pdf/Arabic_2.2.pdf
   - http://www.eki.ee/wgrs/rom1_ar.pdf
 creation_date: 1984
 confirmation date: 2018-06
 description: |
-  no description provided
+  Is one of a series of International Standards dealing with
+  the conversion of systems of writing, following the
+  principles of stringent conversion in order to permit
+  international information exchange. Its aim is to provide a
+  means for international communication of written messages
+  in a form which permits the automatic transmission and
+  reconstitution of these by men or machines. Cancels and
+  replaces ISO Recommendation R 233-1961
 notes:
   - |
     The transliteration ISO 233:1984 gives every character and diacritical mark a unique
