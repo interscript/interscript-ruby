@@ -39,15 +39,14 @@ notes:
   - When doubled, avagraha is transliterated by two apostrophes ( ’’ ).
 
 tests:
-  - source: "कर्"
-    expected: "rka"
-  - source: "गृ"
-    expected: "gr"
-  - source: "त्त्य"
-    expected: "tya"
+  - source: "हम"
+    expected: "hama"
+  - source: "मीन"
+    expected: "maīna"
+  - source: "औसत"
+    expected: "ăusata"
 
 map:
-  inherit: "un-hin-Deva-Latn-2020"
 
   characters:
 
@@ -125,13 +124,27 @@ map:
     'ह': 'ha'
 
     # Anusvāra
-    '◌ं': 'ṃ'
+    'ं': 'ṃ'
 
     # Bisarga
-    '◌ः ': 'ḥ'
+    'ः ': 'ḥ'
 
     # Anunāsika
-    '◌ँ': 'n̐' # ঁ : n̐, m̐
+    'ँ': 'n̐' # ঁ : n̐, m̐
 
     # Abagraha
     'ऽ': '’' # (apostrophe)
+
+    # Medials # Needed for connecting constants
+    'ा': "ā"
+    'ि': "i"
+    'ी': "ī"
+    'ु': "u"
+    'ू': "ū"
+    'ृ': "ṛi"
+    'ॄ': "rī"
+    'े': "e"
+    'ॊ': "o"
+    'ौ': "au"
+
+
