@@ -45,8 +45,19 @@ tests:
     expected: "maīna"
   - source: "औसत"
     expected: "ăusata"
+  - source: "माँऽऽऽ!"
+    expected: "maān̐’’’!"
+  - source: "माँ"
+    expected: "maām̐"
+
+
 
 map:
+
+  rules:
+    # note[4]
+    - pattern: (?<=)\u0901(?=\b)
+      result: "m̐"
 
   characters:
 
