@@ -1,0 +1,137 @@
+---
+authority_id: alalc
+id: 2020
+language: hin
+source_script: Deva
+destination_script: Latn
+name: Hindi Romanization, 2020
+url: https://www.loc.gov/catdir/cpso/romanization/hindi.pdf
+creation_date: 2020
+description: |
+  ALA-LC Romanization table for Hindi
+
+notes:
+
+  - Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for
+    vowels following a consonant can be found in grammars; no distinction between the two is
+    made in transliteration.
+
+  - |
+    The vowel a is implicit after all consonants and consonant clusters and is supplied in
+    transliteration, with the following exceptions:
+
+    a) when another vowel is indicated by its appropriate sign; and
+    b) when the absence of any vowel is indicated by the subscript sign ( ◌् ) called halanta or
+       virāma.
+
+  - |
+    Exception: Anusvāra is transliterated by:
+
+    a) ṅ before gutturals,
+    b) ñ before palatals,
+    c) ṇ before cerebrals,
+    d) n before dentals, and
+    e) m before labials.
+
+  - Anunāsika before guttural, palatal, cerebral, and dental occlusives is transliterated n̐. Before
+    labials, sibilants, semivowels, aspirates, vowels, and in final position it is transliterated m̐.
+
+  - When doubled, avagraha is transliterated by two apostrophes ( ’’ ).
+
+tests:
+  - source: "कर्"
+    expected: "rka"
+  - source: "गृ"
+    expected: "gr"
+  - source: "त्त्य"
+    expected: "tya"
+
+map:
+  inherit: "un-hin-Deva-Latn-2020"
+
+  characters:
+
+    # I. Vowels and Diphthongs (see Note 1)
+
+    'अ': 'a'
+    'आ': 'ā'
+    'इ': 'i'
+    'ई': 'ī'
+    'उ': 'u'
+    'ऊ': 'ū'
+    'ऋ': 'ṛ'
+    'ॠ': 'ṝ'
+    'ऌ': 'ḹ'
+    'ॳ': 'ĕ'
+    'ए': 'e'
+    'ॲ': 'ê'
+    'अै': 'ai'
+    'ऐ': 'ai'
+    'ऒ': 'ŏ'
+    'ओ': 'o'
+    'ऑ': 'ô'
+    'औ': 'ău'
+
+    # II. Consonants (see Note 2)
+    # Gutturals
+    'क': 'ka'
+    'ख': 'kha'
+    'ग': 'ga'
+    'घ': 'gha'
+    'ङ': 'ṅa'
+
+    # Palatals
+    'च': 'ca'
+    'छ': 'cha'
+    'ज': 'ja'
+    'झ': 'jha'
+    'ञ': 'ña'
+
+    # Cerebrals
+    'ट': 'ṭa'
+    'ठ': 'ṭha'
+    'ड': 'ḍa'
+    'ड़': 'ṛa'
+    'ढ': 'ḍha'
+    'ढ़': 'ṛha'
+    'ण': 'ṇa'
+
+    # Dentals
+    'त': 'ta'
+    'थ': 'tha'
+    'द': 'da'
+    'ध': 'dha'
+    'न': 'na'
+
+    # Labials
+    'प': 'pa'
+    'फ': 'pha'
+    'ब': 'ba'
+    'भ': 'bha'
+    'म': 'ma'
+
+    # Semivowels
+    'य': 'ya'
+    'र': 'ra'
+    'ल': 'la'
+    'व': 'ba'
+
+    # Sibilants
+    'श': 'śa'
+    'ष': 'sha'
+    'स': 'sa'
+
+    # Aspirate
+    'ह': 'ha'
+
+    # Anusvāra
+    '◌ं': 'ṃ'
+
+    # Bisarga
+    '◌ः ': 'ḥ'
+
+    # Anunāsika
+    '◌ँ': 'n̐' # ঁ : n̐, m̐
+
+    # Abagraha
+    'ऽ': '’' # (apostrophe)
