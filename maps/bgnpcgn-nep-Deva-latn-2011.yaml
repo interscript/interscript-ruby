@@ -1,0 +1,176 @@
+---
+authority_id: bgnpcgn
+id: 2020
+language: nep
+source_script: Deva
+destination_script: Latn
+name: Nepali Romanization, 2020
+url: https://geonames.nga.mil/gns/html/Romanization/ROMANIZATION%20OF%20NEPALI.pdf
+creation_date: 2011
+description: |
+  BGN/PCGN 2011 Agreement Romanization of Nepali
+  The BGN and the PCGN have adopted the Nepal Survey Department (NSD) system for the
+  romanization of Nepali names.  This system, below, should be applied to Nepali names for which Roman‐
+  script spellings in materials produced by the government of Nepal are not available.
+
+notes:
+
+  - Only the isolated forms of the characters are given in the consonant table.  See any grammar of Nepali
+    (or other language using the Devanagari alphabet) for variant forms used in conjunct characters.
+  - These two consonant characters appear sometimes to represent ṛ (cerebral r), e.g., पहाड  →  pahāṛ
+    instead of pahāḍ.  At one time they were written with dots below, i.e., as ड़ and ढ़, though this is no
+    longer normal practice in Nepali.    The romanizations ṛ and ṛh, respectively, are optional for
+    documentary purposes if such dots appear in Nepali writing.
+  -  व , can be romanized as either v or w.    This character is primarily
+    romanized as v in consonant initial, medial, and final position; however, initial, medial, and final w
+    romanizations can occur. The w romanization is a special case which is believed to be dependent on
+    dialect, pronunciation, or stress.
+  - |
+    An inventory of letter‐diacritic combinations, with their Unicode encoding, in addition to the unmodified letters of the basic Roman script is:
+      Ṅ(U+1E44)  ṅ (U+1E45)
+      Ñ (U+00D1) ñ (U+00F1)
+      Ṭ (1E6C)   ṭ (1E6D)
+      Ḍ (1E0C)   ḍ (1E0D)
+      Ṇ (1E46)   ṇ (1E47)
+      Ṣ (1E62)   ṣ (1E63)
+      Ā (U+0100) ā (U+0101)
+      Ī (U+012A) ī (U+012B)
+      Ū (U+016A) ū (U+016B)
+      Ṛ (1E5A)   ṛ (1E5B)
+
+  - The Romanization column shows only lowercase forms but, when romanizing, uppercase and lowercase
+    Roman letters as appropriate should be used.
+
+  - |
+    ं (anusvara) is rendered by
+    ṅ before क, ख, ग, and घ
+    ñ before च, छ, ज, and झ
+    ṇ before ट, ठ, ड, and ढ
+    n before त, थ, द, and ध
+    ṁ before य, र, ल, व, श, ष, स and ह
+
+tests:
+  - source: "लेखन"
+    expected: "laekhana"
+  - source: "मुद्रा"
+    expected: "maudaaraā"
+  - source: "प्रशंसा"
+    expected: "paarashaṃsaā" # note 5 rule checking
+  - source: "अंक"
+    expected: "aṅka" # note 5 rule checking
+
+map:
+
+  rules:
+    # note[5]
+    - pattern: \u0902(?=[कखगघ])    # ं  before क, ख, ग, and घ
+      result: ṅ
+    - pattern: \u0902(?=[चछजझ])    # ं  before च, छ, ज, and झ
+      result: ñ
+    - pattern: \u0902(?=[टठडढ])    # ं  before ट, ठ, ड, and ढ
+      result: ṇ
+    - pattern: \u0902(?=[तथदध])    # ं  before त, थ, द, and ध
+      result: n
+
+  characters:
+
+    # Vowels and Diphthongs
+
+    'अ': 'a'
+    'आ': 'ā'
+    'इ': 'i'
+    'ई': 'ī'
+    'उ': 'u'
+    'ऊ': 'ū'
+    'ऋ': 'ṛi'
+    'ॠ': 'rī'
+    'ए': 'e'
+    'ऐ': 'ai'
+    'ओ': 'o'
+    'औ': 'au'
+
+    # Medials # Needed for connecting constants
+
+    'ा': "ā"
+    'ि': "i"
+    'ी': "ī"
+    'ु': "u"
+    'ू': "ū"
+    'ृ': "ṛi"
+    'ॄ': "rī"
+    'े': "e"
+    'ै': "ai"
+    'ॊ': "o"
+    'ौ': "au"
+
+
+    # Consonants (see Note 1)
+
+    # Gutturals
+    'क': 'ka'
+    'ख': 'kha'
+    'ग': 'ga'
+    'घ': 'gha'
+    'ङ': 'ṅa'
+
+    # Palatals
+    'च': 'cha'
+    'छ': 'chha'
+    'ज': 'ja'
+    'झ': 'jha'
+    'ञ': 'ña'
+
+    # Cerebrals
+    'ट': 'ṭa'
+    'ठ': 'ṭha'
+    'ड': 'ḍa'
+    'ढ': 'ḍha'
+    'ण': 'ṇa'
+
+    # Dentals
+    'त': 'ta'
+    'थ': 'tha'
+    'द': 'da'
+    'ध': 'dha'
+    'न': 'na'
+
+    # Labials
+    'प': 'pa'
+    'फ': 'pha'
+    'ब': 'ba'
+    'भ': 'bha'
+    'म': 'ma'
+
+    # Semivowels
+    'य': 'ya'
+    'र': 'ra'
+    'ल': 'la'
+    'व': 'va' # or wa [Note#3]
+
+    # Sibilants
+    'श': 'sha'
+    'ष': 'ṣa'
+    'स': 'sa'
+    'क्ष': 'kṣa'
+    'त्र': 'tra'
+    'ज्ञ' : 'jña'
+
+    # Aspirate
+    'ह': 'ha'
+
+    # Anusvāra
+    'ं': 'ṃ'
+
+    # Bisarga
+    'ः ': 'ḥ'
+
+    # Anunāsika
+    'ँ': '~'
+
+    'ॅ': 'r'
+
+    # halanta
+    '्': 'a'
+
+    # Abagraha
+    'ऽ': '’' # (apostrophe)
