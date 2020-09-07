@@ -115,11 +115,11 @@ tests:
   - source: الكُوت
     expected: al kūt
 
-  # - source: الث
-  #   expected: Ath Thulaythuwāt
+  - source: الثُّلَيْثُوَات
+    expected: ath thulaythuwāt
 
-  # - source: الجَزِيرة
-  #   expected: al jazīrah
+  - source: الجَزِيرَة
+    expected: al jazīrah
 
   - source: المَحْمُودِيَّة
     expected: al maḩmūdīyah
@@ -133,17 +133,17 @@ tests:
   - source: ذَهَب
     expected: dhahab
 
-  # - source: ألرَّوْضة
-  #   expected: Ar Rawḑah
+  - source: الرَّوْضة
+    expected: ar rawḑah
 
   - source: زُوَارَة
     expected: zuwārah
 
-  # - source: ألسُّ ليْ مانِيَّة
-  #   expected: As Sulaymānīyah
+  - source: السُّلَيْمانِيَّة
+    expected: as sulaymānīyah
 
-  # - source: ألشَّام
-  #   expected: Ash Shām
+  - source: الشَّام
+    expected: ash shām
 
   - source: قَيْصُومَة
     expected: qayşūmah
@@ -151,8 +151,8 @@ tests:
   - source: ضَوْر
     expected: ḑawr
 
-  # - source: القَُنَيْطِرة
-  #   expected: Al Qunayţirah
+  - source: القُنَيْطِرَة
+    expected: al qunayţirah
 
   - source: ظُفَار
     expected: z̧ufār
@@ -175,105 +175,99 @@ tests:
   - source: حَلَب
     expected: ḩalab
 
-  - source: مَكََّة
+  - source: مَكَّة
     expected: makkah
 
   - source: نَخْل
     expected: nakhl
 
-  # - source: ج بل هارُون
-  #   expected: Jabal Hārūn
+  - source: جَبَل هارُون
+    expected: jabal hārūn
 
-  # - source: وأدِي غ ضا
-  #   expected: Wādī Ghaḑā
+  - source: وادِي غَضَا
+    expected: wādī ghaḑā
 
-  # - source: أل ي من
-  #   expected: Al Yaman
+  - source: اليَمَن
+    expected: al yaman
 
-  # - source: أل ق اهِ رة
-  #   expected: Al Qāhirah
+  - source: القاهِرَة
+    expected: al qāhirah
 
-  # - source: أل مدِي نة ألمُ نوَّ رة
-  #   expected: Al Madīnah al Munawwarah
+  - source: المَدِينَة المُنَوَّرَة
+    expected: al madīnah al munawwarah
 
-  # - source: مُ ح اف ظة دِ مشْق
-  #   expected: Muḩāfaz̧at Dimashq
+  - source: مُحَافَظَة دِمَشْق
+    expected: muḩāfaz̧at dimashq
 
-  # - source: أل بصْ رة
-  #   expected: Al Başrah
+  - source: البَصْرَة
+    expected: al başrah
 
-  # - source: ألرِّ ياض
-  #   expected: Ar Riyāḑ
+  - source: الرِّيَاض
+    expected: ar riyāḑ
 
-  # - source: ألقُدْس
-  #   expected: Al Quds
+  - source: القُدْس
+    expected: al quds
 
-  # - source: باب أل منْ دب
-  #   expected: Bāb al Mandab
+  - source: بَاب المَنْدَب
+    expected: bāb al mandab
 
-  # - source: أل مدِي نة
-  #   expected: Al Madīnah
+  - source: المَدِينة
+    expected: al madīnah
 
-  # - source: صُور
-  #   expected: Şūr
+  - source: صُور
+    expected: şūr
 
-  # - source: مرْ سى مطْرُو ح
-  #   expected: Marsá Maţrūḩ
+  - source: مَرْسَىٰ مَطْرُوح
+    expected: marsá maţrūḩ
 
-  # - source: صيْ دأ
-  #   expected: Şaydā
+  - source: صَيْدَا
+    expected: şaydā
 
-  # - source: ألدَّوْ حة
-  #   expected: Ad Dawḩah
+  - source: الدَّوحَة
+    expected: ad dawḩah
 
-  # - source: مُ حمَّد
-  #   expected: Muḩammad
+  - source: مُحَمَّد
+    expected: muḩammad
 
-  # - source: أُوزُونْ لار
-  #   expected: Ūzūnlār
+  - source: أُوزُونْلَار
+    expected: ūzūnlār
 
-  # - source: أ وْ سط
-  #   expected: Awsaţ
+  - source: أَوْسَط
+    expected: awsaţ
 
-  # - source: س ناو
-  #   expected: Sanāw
+  - source: سَنَاو
+    expected: sanāw
 
-  # - source: أِي رأن
-  #   expected: Īrān
+  - source: اِيرَان
+    expected: īrān
 
-  # - source: تلّ ألسَّ رأي
-  #   expected: Tall as Sarāy
+  - source: تَلّ السَّرَاي
+    expected: tall as sarāy
 
-  # - source: أ لْبُو مُ عيْط
-  #   expected: Ālbū Mu‘ayţ
+  - source: آلْبُو مُعَيْط
+    expected: ālbū mu‘ayţ
 
-  # - source: قُرأ ن
-  #   expected: Qur’ān
+  - source: سَلْمان پَاك
+    expected: salmān pāk
 
-  # - source: سلْمان پاك
-  #   expected: Salmān Pāk
+  - source: تَلّ كُوچِك الصَّغِير
+    expected: tall kūchik aş şaghīr
 
-  # - source: ألصَّغِ ير تلّ كوچِ ك
-  #   expected: Tall Kūchik aş Şaghīr
-
-  # - source: مزَّة ڤِيلَّ ات غ ر بِ ية
+  # - source: مَزََّة ڤِيلَّات غَرْبِيَّة
   #   expected: Mazzah Vīllāt Gharbīyah
 
-  # - source: ڨفْ صة
-  #   expected: Gafşah
+  - source: ڨَفْصَة
+    expected: gafşah
 
-  # - source: تلّ گمْر
-  #   expected: Tall Gamr
+  - source: تَلّ گَمْر
+    expected: tall gamr
 
-  # - source: زأڭ و رة
-  #   expected: Zāgūrah
+  - source: زَاڴُورَة
+    expected: zāgūrah
 
 
 map:
   characters:
-
-
-
 
     # Modified/Non-Standard Arabic Script Characters
 
@@ -285,8 +279,8 @@ map:
     # Used principally in Iraq, but also sometimes used in other Arabic speaking countries to represent the ‘g’ sound.
     '\u06AF': 'g'
     # Used in Moroccan Arabic Script.
-    '\u06B4': 'g'
-
+    '\u06B4': 'g' # ڭ
+    '\u06AD': 'g'
 
 
 
@@ -296,7 +290,7 @@ map:
     # Note 11
     '\b\u0627\u0648': 'ū' #او
     '\b\u0627\u0648\u0652' : 'aw'  # اوْ
-    '\u0627\u0648': '\u0101\u0077' #او in word medial or final position
+    '\u0627\u0648': 'āw' #او in word medial or final position
 
     '\b\u0627\u064A': 'ī' # اي in word initial position (see Note 11)
     '\u0627\u064A' : 'āy' # اي in word medial or final position
@@ -304,17 +298,16 @@ map:
 
     '\u064e' : 'a' # َ fatha
     '\u064e(?=\u0629)' : '' # َ fatha followed by ta' marboota
+    '\u064e(?=a[h|t])' : '' # َ fatha followed by ta' marboota, handling different order of conversion
     '\u0650' : 'i' # ِ kasra
     '\u064f' : 'u' # ُ damma
-
-    '\u0649': '\u012B'
-    '\u0649': '\u00E1' # See Note 5
 
     '\u064e\u0627' : 'ā'  # ـَا fatha followed by ا
     '\u0650\u064a' : 'ī' # ـِي kasra followed by ي
     '\u064f\u0648' : 'ū'  # ـُو damma followed by و
     '\u064f\u0648(?=\u064e|u064f)' : 'uw' # ـِي kasra followed by ي
     '\u064e\u0649' : 'á'  # ـَى fatha followed by ى which is ا not ي Note 5
+    '\u064e\u0649\u0670' : 'á'  # Note 5
     '\u0649\u0670': 'á' # See Note 5
     '\u0652' : ''  # ْ sokoon, not romanized, Indicates absence of short vowel
     '\u064e\u064a\u0652' : 'ay'  # ـَيْ
@@ -332,9 +325,11 @@ map:
     '\u0639\u064f' : '‘ū'  # عُ
 
     # Note 2
-    '\u0623\u064e' : 'a'  # أَ
-    '\u0625\u0650' : 'i'  # إِ
-    '\u0623\u064f' : 'u'  # أُ
+    '\u0623' : ''
+    # '\u0623\u064e' : 'a'  # أَ
+    # '\u0625\u0650' : 'i'  # إِ
+    # '\u0623\u064f' : 'u'  # أُ
+    # '\u0623\u064f\u0648' : 'ū'  # أُ
 
     # handle MacOS regex difference
     '\u0639\u064f\u0648' : '‘ū'  # عُو damma followed by و
@@ -351,7 +346,26 @@ map:
     '\u0626' : "’" # ئ
     '\u0627': 'ā' # See Notes 3 and 10
 
+    '\b\u0627\u0648' : 'ū'  # اُ
+    '\b\u0627\u0650\u064a' : 'ī'  # اي
     '\b\u0627\u0644' : 'al '  # ال
+
+    # Sun letters
+
+    '\b\u0627\u0644\u062a\u0651?' : 'at t'  # الت
+    '\b\u0627\u0644\u062b\u0651?' : 'ath th'  # الث
+    '\b\u0627\u0644\u062f\u0651?' : 'ad d' # الد
+    '\b\u0627\u0644\u0630\u0651?' : 'adh dh'  # الذ
+    '\b\u0627\u0644\u0631\u0651?' : 'ar r' # الر
+    '\b\u0627\u0644\u0632\u0651?' : 'az z'  # الز
+    '\b\u0627\u0644\u0633\u0651?' : 'as s' # الس
+    '\b\u0627\u0644\u0634\u0651?' : 'ash sh' # الش
+    '\b\u0627\u0644\u0635\u0651?' : 'aş ş'  # الص
+    '\b\u0627\u0644\u0636\u0651?' : 'aḑ ḑ'  # الض
+    '\b\u0627\u0644\u0637\u0651?' : 'aţ ţ'  # الط
+    '\b\u0627\u0644\u0638\u0651?' : 'az̧ z̧' # الظ
+    '\b\u0627\u0644\u0644\u0651?' : 'al l'  # الل
+    '\b\u0627\u0644\u0646\u0651?' : 'an n'  # الن
 
     # shadda Note 7
 
@@ -381,6 +395,24 @@ map:
     '\u0647\u0651' : 'hh'  # ه
     '\u0648\u0651' : 'ww'  # و
     '\u064a\u0651' : 'yy'  # ي
+
+    # ta' marboota See Note 4
+
+    '\u0629' : 'at' # ة in the middle of the sentence
+    '\u0629$' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{2})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{3})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{4})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{5})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{6})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{7})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{8})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{9})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{10})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{11})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{12})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{13})\u0629' : 'ah'
+
 
     # standard consonant characters
 
@@ -508,23 +540,6 @@ map:
     '\ufef3' : 'y'  # ﻳ
     '\ufef4' : 'y'  # ﻴ
     '\ufef1' : 'y'  # ﻱ
-
-    # ta' marboota See Note 4
-
-    '\u0629' : 'at' # ة in the middle of the sentence
-    '\u0629$' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{2})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{3})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{4})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{5})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{6})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{7})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{8})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{9})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{10})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{11})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{12})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{13})\u0629' : 'ah'
 
 
     # NUMERALS
