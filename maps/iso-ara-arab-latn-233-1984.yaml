@@ -46,24 +46,28 @@ notes:
 tests:
 
   - source: مِصر
-    expected: miṣr
+    expected: Miṣr
 
   - source: قَطَر
-    expected: qaṭar
+    expected: Qaṭar
 
   - source: الجُمهُورِيَّة العِرَاقِيَّة
-    expected: al ǧumhuwriyaẗ al ‘ira’qiyaẗ
+    expected: Al Ǧumhuwriyaẗ Al ‘Ira’qiyaẗ
 
   - source: جُمهُورِيَّة مِصر العَرَبِيَّة
-    expected: ǧumhuwriyaẗ miṣr al ‘arabiyaẗ
+    expected: Ǧumhuwriyaẗ Miṣr Al ‘Arabiyaẗ
 
   - source: الرِيَاض
-    expected: ar riya’ḍ
+    expected: Ar Riya’ḍ
 
   - source: الشارِقة
-    expected: aš šâriqaẗ
+    expected: Aš Šâriqaẗ
 
 map:
+  postrules:
+    - pattern: (?<=\b)(?<!\b[‘|’|'])[\u0061-\uFFFF]
+      result: "upcase"
+
   characters:
 
     # pointing
