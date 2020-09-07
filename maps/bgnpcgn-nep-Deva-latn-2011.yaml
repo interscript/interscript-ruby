@@ -51,13 +51,35 @@ notes:
 
 tests:
   - source: "लेखन"
-    expected: "laekhana"
+    expected: "lekhn"
   - source: "मुद्रा"
-    expected: "maudaaraā"
+    expected: "mudarā"
   - source: "प्रशंसा"
-    expected: "paarashaṃsaā" # note 5 rule checking
+    expected: "parshṃsā" # note 5 rule checking
   - source: "अंक"
-    expected: "aṅka" # note 5 rule checking
+    expected: "aṅk" # note 5 rule checking
+  - source: "नेकपाले स्थगित स्थायी कमिटीको बैठक भदौ गते बोलाउने भएको"
+    expected: "nekpāle sathgit sathāyī kmiṭīko baiṭhk bhdau gte bolāune bheko"
+  - source: "न घर रह्यो, न परिवार"
+    expected: "n ghr rhayo, n privār"
+  - source: "ढोरपाटनमा भुजीखोला बाढीपहिरोले अभिभावक गुमाएका बालबालिकाको बिचल्ली"
+    expected: "ḍhorpāṭnmā bhujīkholā bāḍhīphirole abhibhāvk gumāekā bālbālikāko bichlalī"
+  - source: "सुस्मिताका काका हेमबहादुर र काकीलाई पनि पहिरोले बगायो"
+    expected: "susamitākā kākā hembhādur r kākīlāī pni phirole bgāyo"
+  - source: "संविधान जारी भएसँगै सार्वजनिक प्रशासनमा नयाँ उत्साह आउने अपेक्षा थियो"
+    expected: "sṃvidhān jārī bhes~gai sāravjnik parshāsnmā nyā~ utasāh āune apekṣā thiyo"
+  - source: "देशमा कोरोना संक्रमित र मृतकको संख्या हरेक दिन बढ्दो छ"
+    expected: "deshmā koronā sṅkarmit r mṛitkko sṅkhayā hrek din bḍhado chh"
+  - source: "गाउँपालिकाका अध्यक्ष टिका गुरुङका अनुसार विष्णुदासलाई राजुले सुत्नका लागि बेलुका साथी लगेका थिए"
+    expected: "gāu~pālikākā adhaykṣ ṭikā guruṅkā anusār viṣaṇudāslāī rājule sutankā lāgi belukā sāthī lgekā thie"
+  - source: "यो आयोजना गाउँपालिकाको केन्द्र तेल्लोकमा पर्छ"
+    expected: "yo āyojnā gāu~pālikāko kenadar telalokmā prachh"
+  - source: "सुस्मिताका काका हेमबहादुर र काकीलाई पनि पहिरोले बगायो"
+    expected: "susamitākā kākā hembhādur r kākīlāī pni phirole bgāyo"
+  - source: "चैत पहिलो साता घर आएका उनी लकडाउन भएपछि यतै रोकिए"
+    expected: "chait philo sātā ghr āekā unī lkḍāun bhepchhi ytai rokie"
+  - source: "काम गर्न जानेको हकमा रोजगारदाता कम्पनीको पत्रसँगै वडा र जिल्ला प्रशासनको सिफारिस अनिवार्य गरिएको छ"
+    expected: "kām gran jāneko hkmā rojgārdātā kmapnīko ptrs~gai vḍā r jilalā parshāsnko siphāris anivāray grieko chh"
 
 map:
 
@@ -100,63 +122,63 @@ map:
     'ॄ': "rī"
     'े': "e"
     'ै': "ai"
-    'ॊ': "o"
+    'ो': "o"
     'ौ': "au"
 
 
     # Consonants (see Note 1)
 
     # Gutturals
-    'क': 'ka'
-    'ख': 'kha'
-    'ग': 'ga'
-    'घ': 'gha'
-    'ङ': 'ṅa'
+    'क': 'k'
+    'ख': 'kh'
+    'ग': 'g'
+    'घ': 'gh'
+    'ङ': 'ṅ'
 
     # Palatals
-    'च': 'cha'
-    'छ': 'chha'
-    'ज': 'ja'
-    'झ': 'jha'
-    'ञ': 'ña'
+    'च': 'ch'
+    'छ': 'chh'
+    'ज': 'j'
+    'झ': 'jh'
+    'ञ': 'ñ'
 
     # Cerebrals
-    'ट': 'ṭa'
-    'ठ': 'ṭha'
-    'ड': 'ḍa'
-    'ढ': 'ḍha'
-    'ण': 'ṇa'
+    'ट': 'ṭ'
+    'ठ': 'ṭh'
+    'ड': 'ḍ'
+    'ढ': 'ḍh'
+    'ण': 'ṇ'
 
     # Dentals
-    'त': 'ta'
-    'थ': 'tha'
-    'द': 'da'
-    'ध': 'dha'
-    'न': 'na'
+    'त': 't'
+    'थ': 'th'
+    'द': 'd'
+    'ध': 'dh'
+    'न': 'n'
 
     # Labials
-    'प': 'pa'
-    'फ': 'pha'
-    'ब': 'ba'
-    'भ': 'bha'
-    'म': 'ma'
+    'प': 'p'
+    'फ': 'ph'
+    'ब': 'b'
+    'भ': 'bh'
+    'म': 'm'
 
     # Semivowels
-    'य': 'ya'
-    'र': 'ra'
-    'ल': 'la'
-    'व': 'va' # or wa [Note#3]
+    'य': 'y'
+    'र': 'r'
+    'ल': 'l'
+    'व': 'v' # or wa [Note#3]
 
     # Sibilants
-    'श': 'sha'
-    'ष': 'ṣa'
-    'स': 'sa'
-    'क्ष': 'kṣa'
-    'त्र': 'tra'
-    'ज्ञ' : 'jña'
+    'श': 'sh'
+    'ष': 'ṣ'
+    'स': 's'
+    'क्ष': 'kṣ'
+    'त्र': 'tr'
+    'ज्ञ' : 'jñ'
 
     # Aspirate
-    'ह': 'ha'
+    'ह': 'h'
 
     # Anusvāra
     'ं': 'ṃ'
