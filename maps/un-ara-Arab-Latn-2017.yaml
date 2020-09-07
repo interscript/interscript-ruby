@@ -84,57 +84,61 @@ tests:
   # https://unstats.un.org/unsd/geoinfo/geonames/
 
   - source: مِصر
-    expected: mis̱r
+    expected: Mis̱r
 
   - source: قَطَر
-    expected: qaṯar
+    expected: Qaṯar
 
   - source: المَغرِب
-    expected: al maghrib
+    expected: Al Maghrib
 
   - source: الجُمهُورِيَّة العِراقِيَّة
-    expected: al jumhūrīyah al ‘irāqīyah
+    expected: Al Jumhūrīyah Al ‘Irāqīyah
 
   - source: جُمهُورِيَّة العِراق
-    expected: jumhūrīyat al ‘irāq
+    expected: Jumhūrīyat Al ‘Irāq
 
   - source: جُمهُورِيَّة مِصر العَرَبِيَّة
-    expected: jumhūrīyat mis̱r al ‘arabīyah
+    expected: Jumhūrīyat Mis̱r Al ‘Arabīyah
 
   - source: بَغداد
-    expected: baghdād
+    expected: Baghdād
 
   - source: تُونِس
-    expected: tūnis
+    expected: Tūnis
 
   - source: السُعُودِيَّة
-    expected: as su‘ūdīyah
+    expected: As Su‘ūdīyah
 
   - source: اليَمَن
-    expected: al yaman
+    expected: Al Yaman
 
   - source: السُودان
-    expected: as sūdān
+    expected: As Sūdān
 
   - source: الجَزائِر
-    expected: al jazā'ir
+    expected: Al Jazā'ir
 
   - source: الجُمهُورِيَّة اللُبنانِيَّة
-    expected: al jumhūrīyah al lubnānīyah
+    expected: Al Jumhūrīyah Al Lubnānīyah
 
   - source: أسمَرة
-    expected: asmarah
+    expected: Asmarah
 
   - source: جِدَّة
-    expected: jiddah
+    expected: Jiddah
 
   - source: مَكَّة
-    expected: makkah
+    expected: Makkah
 
   - source: الرِيَاض
-    expected: ar riyāḏ
+    expected: Ar Riyāḏ
 
 map:
+  postrules:
+    - pattern: (?<=\b)(?<!\b[‘|’|'])[\u0061-\uFFFF]
+      result: "upcase"
+
   characters:
 
     # Tool used for Unicode finding:
