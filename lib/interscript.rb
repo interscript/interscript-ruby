@@ -109,7 +109,7 @@ module Interscript
       mapping.postrules.each do |r|
         next unless output
         re = mkregexp(r["pattern"])
-        output = output.gsub(re, r["result"])
+        output = r["result"] == "upcase" ? output.gsub(re, &:upcase) : output.gsub(re, r["result"])
       end
 
       return unless output

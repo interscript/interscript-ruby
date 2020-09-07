@@ -267,6 +267,10 @@ tests:
 
 
 map:
+  postrules:
+    - pattern: "\b[\u0061-\u024F]"
+      result: "upcase"
+
   characters:
 
     # Modified/Non-Standard Arabic Script Characters
