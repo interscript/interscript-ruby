@@ -72,13 +72,13 @@ tests:
   # page 31 (38 digital)
 
   - source: خَيبَر
-    expected: k͟haybar
+    expected: K͟haybar
 
   - source: ظَهران
-    expected: z͟hahrān
+    expected: Z͟hahrān
 
   - source: القُدس
-    expected: al quds
+    expected: Al Quds
 
 map:
   inherit: "un-ara-Arab-Latn-2017"
