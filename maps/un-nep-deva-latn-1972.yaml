@@ -1,0 +1,164 @@
+---
+authority_id: bgnpcgn
+id: 1972
+language: nep
+source_script: Deva
+destination_script: Latn
+name: Nepali Romanization, 1972
+url: https://www.eki.ee/wgrs/v3_0/rom1_ne.pdf
+creation_date: 1972
+description: |
+  The United Nations recommended system was approved in 1972 (II/11), based on a report
+  prepared by D. N. Sharma. The note on the system was published in volume II of the
+  conference report.
+
+  There is no evidence of the use of the system either in Nepal or in international cartographic
+  products. The resolution IV/17 (1982) recommended association, inter alia, with Nepal in
+  carrying out further studies on the system. In Nepal a system of romanization is employed by
+  the Nepal Survey Department (NSD). This system has been applied to names appearing on
+  national mapping, and it is also used in the Geographic Information Infrastructure Programme
+  (NGIIP).
+
+  Nepali (Nepālī) uses the alphasyllabic script Devanāgarī.
+
+notes:
+
+  - In normal spelling ṙ and ṙh are not marked, instead dotless ड ḍa, ढ ḍha are used to denote these sounds.
+  - |
+    Ligatures may be formed with r as the first component: ~ह rha.
+
+tests:
+  - source: "लेखन"
+    expected: "laekhana"
+  - source: "मुद्रा"
+    expected: "maudaaraā"
+  - source: "प्रशंसा"
+    expected: "paarashaṁsaā"
+  - source: "अंक"
+    expected: "aṁka"
+  - source: "नेकपाले स्थगित स्थायी कमिटीको बैठक भदौ गते बोलाउने भएको"
+    expected: "naekapaālae saathagaita saathaāyaī kamaiṭaīkao baaiṭhaka bhadaau gatae baolaāunae bhaekao"
+  - source: "न घर रह्यो, न परिवार"
+    expected: "na ghara rahayao, na paraivaāra"
+  - source: "ढोरपाटनमा भुजीखोला बाढीपहिरोले अभिभावक गुमाएका बालबालिकाको बिचल्ली"
+    expected: "ḍhaorapaāṭanamaā bhaujaīkhaolaā baāḍhaīpahiraolae abhaibhaāvaka gaumaāekaā baālabaālaikaākao baichalaalaī"
+  - source: "सुस्मिताका काका हेमबहादुर र काकीलाई पनि पहिरोले बगायो"
+    expected: "sausaamaitaākaā kaākaā hemabahādaura ra kaākaīlaāī panai pahiraolae bagaāyao"
+  - source: "संविधान जारी भएसँगै सार्वजनिक प्रशासनमा नयाँ उत्साह आउने अपेक्षा थियो"
+    expected: "saṁvaidhaāna jaāraī bhaesam̐gaai saāraavajanaika paarashaāsanamaā nayaām̐ utaasaāh āunae apaekaaṣhaā thaiyao"
+  - source: "देशमा कोरोना संक्रमित र मृतकको संख्या हरेक दिन बढ्दो छ"
+    expected: "daeshamaā kaoraonaā saṁkaaramaita ra maṛtakakao saṁkhaayaā hraeka daina baḍhaadao chha"
+  - source: "गाउँपालिकाका अध्यक्ष टिका गुरुङका अनुसार विष्णुदासलाई राजुले सुत्नका लागि बेलुका साथी लगेका थिए"
+    expected: "gaāum̐paālaikaākaā adhaayakaaṣha ṭaikaā gaurauṅakaā anausaāra vaiṣhaaṇaudaāsalaāī raājaulae sautaanakaā laāgai baelaukaā saāthaī lagaekaā thaie"
+  - source: "यो आयोजना गाउँपालिकाको केन्द्र तेल्लोकमा पर्छ"
+    expected: "yao āyaojanaā gaāum̐paālaikaākao kaenaadaara taelaalaokamaā paraachha"
+  - source: "सुस्मिताका काका हेमबहादुर र काकीलाई पनि पहिरोले बगायो"
+    expected: "sausaamaitaākaā kaākaā hemabahādaura ra kaākaīlaāī panai pahiraolae bagaāyao"
+  - source: "चैत पहिलो साता घर आएका उनी लकडाउन भएपछि यतै रोकिए"
+    expected: "chaaita pahilao saātaā ghara āekaā unaī lakaḍaāuna bhaepachhai yataai raokaie"
+  - source: "काम गर्न जानेको हकमा रोजगारदाता कम्पनीको पत्रसँगै वडा र जिल्ला प्रशासनको सिफारिस अनिवार्य गरिएको छ"
+    expected: "kaāma garaana jaānaekao hkamaā raojagaāradaātaā kamaapanaīkao pataarasam̐gaai vaḍaā ra jailaalaā paarashaāsanakao saiphaāraisa anaivaāraaya garaiekao chha"
+
+map:
+
+  characters:
+
+    # Vowels and Diphthongs
+    'अ': 'a'
+    'आ': 'ā'
+    'इ': 'i'
+    'ई': 'ī'
+    'उ': 'u'
+    'ऊ': 'ū'
+    'ऋ': 'ṛ'
+    'ॠ': 'ṝ'
+    'ऌ': 'l̤'
+    'ए': 'e'
+    'ऐ': 'ai'
+    'ओ': 'o'
+    'औ': 'au'
+
+    # Medials # Needed for connecting constants
+
+    'ा': "ā"
+    'ि': "i"
+    'ी': "ī"
+    'ु': "u"
+    'ू': "ū"
+    'ृ': "ṛ"
+    'े': "e"
+    'ै': "ai"
+    'ो': "o"
+    'ौ': "au"
+
+    # Consonants (see Note 1)
+
+    # Gutturals
+    'क': 'ka'
+    'ख': 'kha'
+    'ग': 'ga'
+    'घ': 'gha'
+    'ङ': 'ṅa'
+
+    # Palatals
+    'च': 'cha'
+    'छ': 'chha'
+    'ज': 'ja'
+    'झ': 'jha'
+    'ञ': 'ña'
+
+    # Cerebrals
+    'ट': 'ṭa'
+    'ठ': 'ṭha'
+    'ड': 'ḍa'
+    'ढ': 'ḍha'
+    'ण': 'ṇa'
+
+    # Dentals
+    'त': 'ta'
+    'थ': 'tha'
+    'द': 'da'
+    'ध': 'dha'
+    'न': 'na'
+
+    # Labials
+    'प': 'pa'
+    'फ': 'pha'
+    'ब': 'ba'
+    'भ': 'bha'
+    'म': 'ma'
+
+    # Semivowels
+    'य': 'ya'
+    'र': 'ra'
+    'ल': 'la'
+    'व': 'va' # or wa [Note#3]
+
+    # Sibilants
+    'श': 'sha'
+    'ष': 'ṣha'
+    'स': 'sa'
+
+    # Dotted variants
+    'क़': qa
+    'ख़': ḳha
+    'ग़': ga
+    'ज़': za
+    'ड़': ṙa
+    'ढ़': ṙha
+    'फ़': fa
+
+
+    # Aspirate
+    'ह': 'h'
+
+    # Anusvāra
+    'ं': 'ṁ'
+
+    # Anunāsika
+    'ँ': 'm̐'
+
+    # halanta
+    '्': 'a'
+
+
