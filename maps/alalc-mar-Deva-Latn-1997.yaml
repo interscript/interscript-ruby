@@ -1,0 +1,174 @@
+---
+authority_id: alalc
+id: 1997
+language: hin
+source_script: Deva
+destination_script: Latn
+name: Marathi Romanization, 1997
+url: https://www.loc.gov/catdir/cpso/romanization/marathi.pdf
+creation_date: 1997
+description: |
+  ALA-LC Romanization table for Marathi
+
+notes:
+
+  - Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for
+    vowels following a consonant can be found in grammars; no distinction between the two is
+    made in transliteration.
+
+  - |
+    The vowel a is implicit after all consonants and consonant clusters and is supplied in
+    transliteration, with the following exceptions:
+
+    a) when another vowel is indicated by its appropriate sign; and
+    b) when the absence of any vowel is indicated by the subscript sign ( ् ) called halanta or
+       virāma.
+
+  - |
+    Exception: Anusvāra is transliterated by:
+
+    a) ṅ before gutturals,
+    b) ñ before palatals,
+    c) ṇ before cerebrals,
+    d) n before dentals, and
+    e) m before labials.
+    In other circumstances it is transliterated by a tilde (~) over the vowel.
+
+  - When doubled, avagraha is transliterated by two apostrophes ( ’’ ).
+
+tests:
+  - source: "ठाणे - जिल्ह्यात बुधवारी एक हजार रुग्णांची वाढ, तर जणांच्या मृत्यूची नोंद"
+    expected: "ṭhaāṇae - jailahayaāta baudhavaāraī eka hajaāra raugaṇaāñcaī vaāḍha, tara jaṇaāñcayaā maṛitayaūcaī naonda"
+  - source: "एकता कपूर पुन्हा अडकली वादात, वेबसीरिजमधल्या 'त्या' सीनमुळे जमावाची घरावर दगडफेक"
+    expected: "ekataā kapaūra paunahaā aḍakalaī vaādaāta, vaebasaīraijamadhalayaā 'tayaā' saīnamaulae jamaāvaācaī gharaāvara dagaḍaphaeka"
+  - source: "जाणून घ्या, बीएमसीच्या अधिकाऱ्यांनी कंगना राणौतच्या ऑफिसमधले नक्की काय- काय तोडलं"
+    expected: "jaāṇaūna ghayaā, baīemasaīcayaā adhaikaāऱyaānnaī kaṅganaā raāṇaautacayaā ôphaisamadhalae nakakaī kaāya- kaāya taoḍalam"
+  - source: "कंगना मुंबईत दाखल होण्यापूर्वी 'मातोश्री'वरून फर्मान सुटले; प्रवक्त्यांना सक्त आदेश"
+    expected: "kaṅganaā maumbaīta daākhala haoṇayaāpaūravaī 'maātaośaraī'varaūna pharamaāna sauṭalae; paravakatayaānnaā sakata ādaeśa"
+  - source: "मराठा आरक्षणास तात्पुरती स्थगिती; सर्वोच्च न्यायालयाचा निर्णय"
+    expected: "maraāṭhaā ārakashaṇaāsa taātapaurataī sathagaitaī; saravaocaca nayaāyaālayaācaā nairaṇaya"
+  - source: "भारताच्या तिन्ही लशींचा पहिला टप्पा यशस्वी, वाचा कधी येणार बाजारात"
+    expected: "bhaārataācayaā tainahaī laśaīñcaā pahailaā ṭapapaā yaśasavaī, vaācaā kadhaī yaeṇaāra baājaāraāta"
+  - source: "रुग्णवाढीमुळे खाटांची चणचण"
+    expected: "raugaṇavaāḍhaīmaulae khaāṭaāñcaī caṇacaṇa"
+  - source: "पीएम स्वनिधी कर्ज योजनेला मुंबईतून अल्प प्रतिसाद"
+    expected: "paīema savanaidhaī karaja yaojanaelaā maumbaītaūna alapa parataisaāda"
+  - source: "सांताक्रूझ-चेंबूर लिंक रोडवरील उन्नत मार्गाला स्थगिती"
+    expected: "saāntaākaraūjha-caembaūra laiṅka raoḍavaraīla unanata maāragaālaā sathagaitaī"
+  - source: "संपादक अर्णब गोस्वामी यांच्याविरूद्ध खडक पोलिस ठाण्यात तक्रार"
+    expected: "sampaādaka araṇaba gaosavaāmaī yaāñcayaāvairaūdadha khaḍaka paolaisa ṭhaāṇayaāta takaraāra"
+
+
+map:
+
+  rules:
+    # note[3]
+    - pattern: \u0902(?=[कखगघङ])
+      result: ṅ
+    - pattern: \u0902(?=[चछजझञ])
+      result: ñ
+    - pattern: \u0902(?=[टठडढण])
+      result: ṇ
+    - pattern: \u0902(?=[तथदधन])
+      result: n
+
+
+  characters:
+
+    # I. Vowels and Diphthongs (see Note 1)
+
+    'अ': 'a'
+    'आ': 'ā'
+    'इ': 'i'
+    'ई': 'ī'
+    'उ': 'u'
+    'ऊ': 'ū'
+    'ऋ': 'ṛ'
+    'ॠ': 'ṝ'
+    'ऌ': 'ḹ'
+    #'ॳ': 'ĕ'
+    'ए': 'e'
+    'ॲ': 'ê'
+    #'अै': 'ai'
+    'ऐ': 'ai'
+    #'ऒ': 'ŏ'
+    'ओ': 'o'
+    'ऑ': 'ô'
+    'औ': 'ău'
+
+    # II. Consonants
+    # Gutturals
+    'क': 'ka'
+    'ख': 'kha'
+    'ग': 'ga'
+    'घ': 'gha'
+    'ङ': 'ṅa'
+
+    # Palatals
+    'च': 'ca'
+    'छ': 'cha'
+    'ज': 'ja'
+    'झ': 'jha'
+    'ञ': 'ña'
+
+    # Cerebrals
+    'ट': 'ṭa'
+    'ठ': 'ṭha'
+    'ड': 'ḍa'
+    #'ड़': 'ṛa'
+    'ढ': 'ḍha'
+    #'ढ़': 'ṛha'
+    'ण': 'ṇa'
+
+    # Dentals
+    'त': 'ta'
+    'थ': 'tha'
+    'द': 'da'
+    'ध': 'dha'
+    'न': 'na'
+
+    # Labials
+    'प': 'pa'
+    'फ': 'pha'
+    'ब': 'ba'
+    'भ': 'bha'
+    'म': 'ma'
+
+    # Semivowels
+    'य': 'ya'
+    'र': 'ra'
+    'ल': 'la'
+    'ळ': 'la'
+    'व': 'va'
+
+    # Sibilants
+    'श': 'śa'
+    'ष': 'sha'
+    'स': 'sa'
+
+    # Aspirate
+    'ह': 'ha'
+
+    # Anusvāra
+    'ं': 'm'
+
+    # Bisarga
+    'ः ': 'ḥ'
+
+    # Abagraha
+    'ऽ': '’' # (apostrophe)
+
+    # Medials # Needed for connecting constants
+    'ा': "ā"
+    'ि': "i"
+    'ी': "ī"
+    'ु': "u"
+    'ू': "ū"
+    'ृ': "ṛi"
+    'ॄ': "rī"
+    'े': "e"
+    'ो': "o"
+    'ौ': "au"
+    '्': ''
+
+
