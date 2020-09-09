@@ -58,7 +58,6 @@ tests:
   - source: "संपादक अर्णब गोस्वामी यांच्याविरूद्ध खडक पोलिस ठाण्यात तक्रार"
     expected: "sampaādaka araṇaba gaosavaāmaī yaāñcayaāvairaūdadha khaḍaka paolaisa ṭhaāṇayaāta takaraāra"
 
-
 map:
 
   rules:
@@ -71,7 +70,6 @@ map:
       result: ṇ
     - pattern: \u0902(?=[तथदधन])
       result: n
-
 
   characters:
 
