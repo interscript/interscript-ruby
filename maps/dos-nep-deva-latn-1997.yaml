@@ -1,0 +1,34 @@
+---
+authority_id: bgnpcgn
+id: 1997
+language: nep
+source_script: Deva
+destination_script: Latn
+name: Nepali Romanization, 1997
+url: http://nationalgeoportal.gov.np/old/pdf/translation2.pdf
+creation_date: 1997
+description: |
+  Survey Department, Ministry of Land Management, Cooperatives and Poverty Alleviation, Government of Nepal.
+
+notes:
+  - |
+    ं (anusvara) is rendered by
+    ṅ before क, ख, ग, and घ
+    ñ before च, छ, ज, and झ
+    ṇ before ट, ठ, ड, and ढ
+    n before त, थ, द, and ध
+    ṁ before य, र, ल, व, श, ष, स
+
+tests:
+  - source: "दुःख"
+    expected: "duhkh"
+
+map:
+
+  inherit: "bgnpcgn-nep-Deva-latn-2011"
+
+  characters:
+
+    # Bisarga
+    'ः': 'h'
+
