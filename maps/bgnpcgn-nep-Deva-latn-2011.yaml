@@ -80,6 +80,8 @@ tests:
     expected: "chait philo sātā ghr āekā unī lkḍāun bhepchhi ytai rokie"
   - source: "काम गर्न जानेको हकमा रोजगारदाता कम्पनीको पत्रसँगै वडा र जिल्ला प्रशासनको सिफारिस अनिवार्य गरिएको छ"
     expected: "kām gran jāneko hkmā rojgārdātā kmapnīko ptrs~gai vḍā r jilalā parshāsnko siphāris anivāray grieko chh"
+  - source: "दुःख"
+    expected: "duḥkh"
 
 map:
 
@@ -184,7 +186,7 @@ map:
     'ं': 'ṃ'
 
     # Bisarga
-    'ः ': 'ḥ'
+    'ः': 'ḥ'
 
     # Anunāsika
     'ँ': '~'
