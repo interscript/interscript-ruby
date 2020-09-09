@@ -121,7 +121,7 @@ map:
       - 'â'
       - 'a'
 
-    # ta' marboota
+    # ta' marboota  in iso-233-1984 is all the same `a`
     '\u0629$' : 'a'
     '(?<=\b\u0627\u0644[\u0600-\u06ff]{2})\u0629' : 'a'
     '(?<=\b\u0627\u0644[\u0600-\u06ff]{3})\u0629' : 'a'

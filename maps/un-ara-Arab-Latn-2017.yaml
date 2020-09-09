@@ -71,6 +71,9 @@ notes:
     middle dot (·) may be used: سهيلة S·haylah (cf. شيلة Shaylah), دهيب
     D·hayb (cf. ذيب Dhayb), أدهم Ad·ham (cf. أذم Adham).
   - |
+    ta' marboota should be transliterated to 'ah' if it's in
+    a definite article, or at the end of the sentence
+    otherwise it should be transliterated to 'at'
     to handle words starting with AL and ending with ta' marboota
     which is pronounced as "ah" not "at" divided into multiple
     regex because lookbehind in ruby doesn't support variable length
@@ -178,6 +181,7 @@ map:
     # pointing
     '\u064e' : 'a' # َ fatha
     '\u064e(?=\u0629)' : '' # َ fatha followed by ta' marboota
+    '\u064e(?=a[h|t])' : '' # َ fatha followed by ta' marboota, handling different order of conversion
     '\u0650' : 'i' # ِ kasra
     '\u064f' : 'u' # ُ damma
     '\u0652' : ''  # ْ sokoon, see note A below
