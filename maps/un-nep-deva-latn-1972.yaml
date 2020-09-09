@@ -1,12 +1,13 @@
 ---
-authority_id: bgnpcgn
+authority_id: ungegn
 id: 1972
 language: nep
 source_script: Deva
 destination_script: Latn
-name: Nepali Romanization, 1972
+name: REPORT ON THE CURRENT STATUS OF UNITED NATIONS ROMANIZATION SYSTEMS FOR GEOGRAPHICAL NAMES -- Nepali Romanization, 1972
 url: https://www.eki.ee/wgrs/v3_0/rom1_ne.pdf
 creation_date: 1972
+confirmation_date: 2010
 description: |
   The United Nations recommended system was approved in 1972 (II/11), based on a report
   prepared by D. N. Sharma. The note on the system was published in volume II of the
