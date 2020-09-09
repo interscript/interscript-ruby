@@ -40,25 +40,25 @@ tests:
   - source: "नेकपाले स्थगित स्थायी कमिटीको बैठक भदौ गते बोलाउने भएको"
     expected: "naekapaālae saathagaita saathaāyaī kamaiṭaīkao baaiṭhaka bhadaau gatae baolaāunae bhaekao"
   - source: "न घर रह्यो, न परिवार"
-    expected: "na ghara rahayao, na paraivaāra"
+    expected: "na ghara rahaayao, na paraivaāra"
   - source: "ढोरपाटनमा भुजीखोला बाढीपहिरोले अभिभावक गुमाएका बालबालिकाको बिचल्ली"
-    expected: "ḍhaorapaāṭanamaā bhaujaīkhaolaā baāḍhaīpahiraolae abhaibhaāvaka gaumaāekaā baālabaālaikaākao baichalaalaī"
+    expected: "ḍhaorapaāṭanamaā bhaujaīkhaolaā baāḍhaīpahairaolae abhaibhaāvaka gaumaāekaā baālabaālaikaākao baichalaalaī"
   - source: "सुस्मिताका काका हेमबहादुर र काकीलाई पनि पहिरोले बगायो"
-    expected: "sausaamaitaākaā kaākaā hemabahādaura ra kaākaīlaāī panai pahiraolae bagaāyao"
+    expected: "sausaamaitaākaā kaākaā haemabahaādaura ra kaākaīlaāī panai pahairaolae bagaāyao"
   - source: "संविधान जारी भएसँगै सार्वजनिक प्रशासनमा नयाँ उत्साह आउने अपेक्षा थियो"
-    expected: "saṁvaidhaāna jaāraī bhaesam̐gaai saāraavajanaika paarashaāsanamaā nayaām̐ utaasaāh āunae apaekaaṣhaā thaiyao"
+    expected: "saṁvaidhaāna jaāraī bhaesam̐gaai saāraavajanaika paarashaāsanamaā nayaām̐ utaasaāha āunae apaekaaṣhaā thaiyao"
   - source: "देशमा कोरोना संक्रमित र मृतकको संख्या हरेक दिन बढ्दो छ"
-    expected: "daeshamaā kaoraonaā saṁkaaramaita ra maṛtakakao saṁkhaayaā hraeka daina baḍhaadao chha"
+    expected: "daeshamaā kaoraonaā saṁkaaramaita ra maṛtakakao saṁkhaayaā haraeka daina baḍhaadao chha"
   - source: "गाउँपालिकाका अध्यक्ष टिका गुरुङका अनुसार विष्णुदासलाई राजुले सुत्नका लागि बेलुका साथी लगेका थिए"
     expected: "gaāum̐paālaikaākaā adhaayakaaṣha ṭaikaā gaurauṅakaā anausaāra vaiṣhaaṇaudaāsalaāī raājaulae sautaanakaā laāgai baelaukaā saāthaī lagaekaā thaie"
   - source: "यो आयोजना गाउँपालिकाको केन्द्र तेल्लोकमा पर्छ"
     expected: "yao āyaojanaā gaāum̐paālaikaākao kaenaadaara taelaalaokamaā paraachha"
   - source: "सुस्मिताका काका हेमबहादुर र काकीलाई पनि पहिरोले बगायो"
-    expected: "sausaamaitaākaā kaākaā hemabahādaura ra kaākaīlaāī panai pahiraolae bagaāyao"
+    expected: "sausaamaitaākaā kaākaā haemabahaādaura ra kaākaīlaāī panai pahairaolae bagaāyao"
   - source: "चैत पहिलो साता घर आएका उनी लकडाउन भएपछि यतै रोकिए"
-    expected: "chaaita pahilao saātaā ghara āekaā unaī lakaḍaāuna bhaepachhai yataai raokaie"
+    expected: "chaaita pahailao saātaā ghara āekaā unaī lakaḍaāuna bhaepachhai yataai raokaie"
   - source: "काम गर्न जानेको हकमा रोजगारदाता कम्पनीको पत्रसँगै वडा र जिल्ला प्रशासनको सिफारिस अनिवार्य गरिएको छ"
-    expected: "kaāma garaana jaānaekao hkamaā raojagaāradaātaā kamaapanaīkao pataarasam̐gaai vaḍaā ra jailaalaā paarashaāsanakao saiphaāraisa anaivaāraaya garaiekao chha"
+    expected: "kaāma garaana jaānaekao hakamaā raojagaāradaātaā kamaapanaīkao pataarasam̐gaai vaḍaā ra jailaalaā paarashaāsanakao saiphaāraisa anaivaāraaya garaiekao chha"
 
 map:
 
@@ -151,7 +151,7 @@ map:
 
 
     # Aspirate
-    'ह': 'h'
+    'ह': 'ha'
 
     # Anusvāra
     'ं': 'ṁ'
