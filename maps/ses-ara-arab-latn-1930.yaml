@@ -85,12 +85,16 @@ tests:
   # https://unstats.un.org/unsd/geoinfo/geonames/
 
   - source: شَرم الشَيْخ
-    expected: Sharm El-Sheikh
+    expected: Sharm el-Sheikh
 
   - source: الكَفر القَدِيم
-    expected: El-Kafr El-Qadîm
+    expected: El-Kafr el-Qadîm
 map:
   inherit: "un-ara-Arab-Latn-2017"
+  postrules:
+    - pattern : ' El-'  # الص
+      result: ' el-'
+
   characters:
 
 

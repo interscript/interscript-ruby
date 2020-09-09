@@ -80,8 +80,21 @@ tests:
   - source: القُدس
     expected: Al Quds
 
+  - source: شَرم الشَيْخ
+    expected: S͟harm as͟h S͟hayk͟h
+
 map:
   inherit: "un-ara-Arab-Latn-2017"
+  map:
+  postrules:
+    - pattern : ' At͟h T͟h'  # الث
+      result: ' at͟h T͟h'
+    - pattern : ' Ad͟h D͟h'  # الذ
+      result: ' ad͟h D͟h'
+    - pattern : ' As͟h S͟h' # الش
+      result: ' as͟h S͟h'
+    - pattern : ' Az͟h Z͟h' # الظ
+      result: ' az͟h Z͟h'
   characters:
 
     # sun letters

@@ -93,13 +93,13 @@ tests:
     expected: Al Maghrib
 
   - source: الجُمهُورِيَّة العِراقِيَّة
-    expected: Al Jumhūrīyah Al ‘Irāqīyah
+    expected: Al Jumhūrīyah al ‘Irāqīyah
 
   - source: جُمهُورِيَّة العِراق
-    expected: Jumhūrīyat Al ‘Irāq
+    expected: Jumhūrīyat al ‘Irāq
 
   - source: جُمهُورِيَّة مِصر العَرَبِيَّة
-    expected: Jumhūrīyat Mis̱r Al ‘Arabīyah
+    expected: Jumhūrīyat Mis̱r al ‘Arabīyah
 
   - source: بَغداد
     expected: Baghdād
@@ -120,7 +120,7 @@ tests:
     expected: Al Jazā'ir
 
   - source: الجُمهُورِيَّة اللُبنانِيَّة
-    expected: Al Jumhūrīyah Al Lubnānīyah
+    expected: Al Jumhūrīyah al Lubnānīyah
 
   - source: أسمَرة
     expected: Asmarah
@@ -138,6 +138,37 @@ map:
   postrules:
     - pattern: (?<=\b)(?<!\b[‘|’|'])[\u0061-\uFFFF]
       result: "upcase"
+    # don't capitalize defined article in the middle of a sentence
+    - pattern : ' At T'  # الت
+      result: ' at T'
+    - pattern : ' Ath Th'  # الث
+      result: ' ath th'
+    - pattern : ' Ad D' # الد
+      result: ' ad D'
+    - pattern : ' Adh Dh'  # الذ
+      result: ' adh Dh'
+    - pattern : ' Ar R' # الر
+      result: ' ar R'
+    - pattern : ' Az Z'  # الز
+      result: ' az Z'
+    - pattern : ' As S' # الس
+      result: ' as S'
+    - pattern : ' Ash Sh' # الش
+      result: ' ash Sh'
+    - pattern : ' As̱ S̱'  # الص
+      result: ' as̱ S̱'
+    - pattern : ' Aḏ Ḏ'  # الض
+      result: ' aḏ Ḏ'
+    - pattern : ' Aṯ Ṯ'  # الط
+      result: ' aṯ Ṯ'
+    - pattern : ' Ad͟h D͟h' # الظ
+      result: ' ad͟h D͟h'
+    - pattern : ' Al L'  # الل
+      result: ' al L'
+    - pattern : ' an n'  # الن
+      result: ' an N'
+    - pattern: " Al " # ال
+      result: " al "
 
   characters:
 

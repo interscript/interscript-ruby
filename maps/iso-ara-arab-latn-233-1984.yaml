@@ -52,10 +52,10 @@ tests:
     expected: Qaṭar
 
   - source: الجُمهُورِيَّة العِرَاقِيَّة
-    expected: Al Ǧumhuwriyaẗ Al ‘Ira’qiyaẗ
+    expected: Al Ǧumhuwriyaẗ al ‘Ira’qiyaẗ
 
   - source: جُمهُورِيَّة مِصر العَرَبِيَّة
-    expected: Ǧumhuwriyaẗ Miṣr Al ‘Arabiyaẗ
+    expected: Ǧumhuwriyaẗ Miṣr al ‘Arabiyaẗ
 
   - source: الرِيَاض
     expected: Ar Riya’ḍ
@@ -67,6 +67,37 @@ map:
   postrules:
     - pattern: (?<=\b)(?<!\b[‘|’|'])[\u0061-\uFFFF]
       result: "upcase"
+    # don't capitalize defined article in the middle of a sentence
+    - pattern : ' At T'  # الت
+      result: ' at T'
+    - pattern : ' Aṯ Ṯ'  # الث
+      result: ' aṯ Ṯ'
+    - pattern : ' Ad D' # الد
+      result: ' ad D'
+    - pattern : ' Aḏ Ḏ'  # الذ
+      result: ' aḏ Ḏ'
+    - pattern : ' Ar R' # الر
+      result: ' ar R'
+    - pattern : ' Az Z'  # الز
+      result: ' az Z'
+    - pattern : ' As S' # الس
+      result: ' as S'
+    - pattern : ' Aš Š' # الش
+      result: ' aš Š'
+    - pattern : ' Aṣ Ṣ'  # الص
+      result: ' aṣ Ṣ'
+    - pattern : ' Aḍ Ḍ'  # الض
+      result: ' aḍ Ḍ'
+    - pattern : ' Aṭ Ṭ'  # الط
+      result: ' aṭ Ṭ'
+    - pattern : ' Aẓ Ẓ' # الظ
+      result: ' aẓ Ẓ'
+    - pattern : ' Al L'  # الل
+      result: ' al L'
+    - pattern : ' an n'  # الن
+      result: ' an N'
+    - pattern: " Al " # ال
+      result: " al "
 
   characters:
 

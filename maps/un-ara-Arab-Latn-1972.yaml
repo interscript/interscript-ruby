@@ -100,10 +100,10 @@ tests:
     expected: Qaţar
 
   - source: الجُمهُورِيَّة العِراقِيَّة
-    expected: Al Jumhūrīyah Al ‘Irāqīyah
+    expected: Al Jumhūrīyah al ‘Irāqīyah
 
   - source: جُمهُورِيَّة مِصر العَرَبِيَّة
-    expected: Jumhūrīyat Mişr Al ‘Arabīyah
+    expected: Jumhūrīyat Mişr al ‘Arabīyah
 
   - source: الرِيَاض
     expected: Ar Riyāḑ
@@ -113,6 +113,14 @@ tests:
 
 map:
   inherit: "un-ara-Arab-Latn-2017"
+  postrules:
+    - pattern : ' Aş Ş'  # الص
+      result: ' aş Ş'
+    - pattern : ' Aḑ Ḑ'  # الض
+      result: ' aḑ Ḑ'
+    - pattern : ' Aţ Ţ'  # الط
+      result: ' aţ Ţ'
+
   characters:
 
     '\b\u0627\u0644\u0635' : 'aş ş'  # الص

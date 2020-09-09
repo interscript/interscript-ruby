@@ -107,7 +107,7 @@ tests:
     expected: Bi’r Zayt
 
   - source: أُمّ العَمَد
-    expected: Umm Al ‘Amad
+    expected: Umm al ‘Amad
 
   - source: البَحرَيْن
     expected: Al Baḩrayn
@@ -194,7 +194,7 @@ tests:
     expected: Al Qāhirah
 
   - source: المَدِينَة المُنَوَّرَة
-    expected: Al Madīnah Al Munawwarah
+    expected: Al Madīnah al Munawwarah
 
   - source: مُحَافَظَة دِمَشْق
     expected: Muḩāfaz̧at Dimashq
@@ -209,7 +209,7 @@ tests:
     expected: Al Quds
 
   - source: بَاب المَنْدَب
-    expected: Bāb Al Mandab
+    expected: Bāb al Mandab
 
   - source: المَدِينة
     expected: Al Madīnah
@@ -242,7 +242,7 @@ tests:
     expected: Īrān
 
   - source: تَلّ السَّرَاي
-    expected: Tall As Sarāy
+    expected: Tall as Sarāy
 
   - source: آلْبُو مُعَيْط
     expected: Ālbū Mu‘ayţ
@@ -251,7 +251,7 @@ tests:
     expected: Salmān Pāk
 
   - source: تَلّ كُوچِك الصَّغِير
-    expected: Tall Kūchik Aş Şaghīr
+    expected: Tall Kūchik aş Şaghīr
 
   # - source: مَزََّة ڤِيلَّات غَرْبِيَّة
   #   expected: Mazzah Vīllāt Gharbīyah
@@ -270,6 +270,37 @@ map:
   postrules:
     - pattern: '(?<=\b)(?<!\b[‘|’])[\u0061-\uFFFF]'
       result: "upcase"
+    # don't capitalize defined article in the middle of a sentence
+    - pattern : ' At T'  # الت
+      result: ' at T'
+    - pattern : ' Ath Th'  # الث
+      result: ' ath th'
+    - pattern : ' Ad D' # الد
+      result: ' ad D'
+    - pattern : ' Adh Dh'  # الذ
+      result: ' adh Dh'
+    - pattern : ' Ar R' # الر
+      result: ' ar R'
+    - pattern : ' Az Z'  # الز
+      result: ' az Z'
+    - pattern : ' As S' # الس
+      result: ' as S'
+    - pattern : ' Ash Sh' # الش
+      result: ' ash Sh'
+    - pattern : ' Aş Ş'  # الص
+      result: ' aş Ş'
+    - pattern : ' Aḑ Ḑ'  # الض
+      result: ' aḑ Ḑ'
+    - pattern : ' Aţ Ţ'  # الط
+      result: ' aţ Ţ'
+    - pattern : ' Az̧ Z̧' # الظ
+      result: ' az̧ Z̧'
+    - pattern : ' Al L'  # الل
+      result: ' al L'
+    - pattern : ' an n'  # الن
+      result: ' an N'
+    - pattern: " Al " # ال
+      result: " al "
 
   characters:
 
