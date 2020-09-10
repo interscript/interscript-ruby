@@ -1,0 +1,260 @@
+---
+authority_id: odni
+id: 2015
+language: hin
+source_script: Deva
+destination_script: Latn
+name: Office of the Director Of National Intelligence Hindi Urdu Personal Names 2015 System, ICS-630-01 Annex F
+#url:
+creation_date: 2015
+confirmation_date: 2015
+description: |
+  This system is the Intelligence Community (IC) standard for the transliteration of names
+  from Hindi and Urdu that will be applied to all final written reports and products for IC
+  consumers. It is not intended to eliminate variations of a name that can contribute
+  forensic information. Rather, it is to provide an IC standard Romanized (English)
+  transliteration from standard Hindi and Urdu that can then be linked to forensic
+  information in ways that will help identify the referent of the name.
+
+  There are typically a number of ways that names can be Romanized from either
+  Devanagari (Hindi) or modified Arabic (Urdu) scripts. Ambiguities can result from the
+  Romanization of Hindi and Urdu names for several reasons, including the fact that some
+  sounds in South Asian languages (e.g., retroflex consonants, voiced aspirates) have no
+  equivalent in English or other European languages. In the case of Urdu, as in the original
+  Arabic source of many Islamic names, short vowel markings, double consonant marks
+  and other diacritics that would clearly distinguish the name are almost always omitted
+  from standard written texts. And many Islamic names of Arabic or Persian origin reflect
+  spelling distinctions from those languages that are lost in modern Urdu pronunciation
+  (e.g., three distinct Arabic letters all represent the identical sound [s] for Urdu speakers);
+  transliterations might either maintain those spelling distinctions or ignore them entirely.
+  And, as in the Arabic source, names containing the Arabic definite article ‘al’ (‘ul’) show
+  anticipatory assimilation in pronunciation (e.g., Shams al Din > Shamsuddin);
+  transliterations may either reflect spelling or pronunciation in such cases.
+
+  Because Hindi and Urdu overlap so extensively, it is desirable to correlate Hindi and
+  Urdu transliterations as much as possible. In the area of names, this can become
+  problematic when the Urdu spelling accurately reflects original Arabic spelling while the
+  Hindi spelling was phonetically-based, in essence, already a transliteration. This would
+  argue for ignoring Arabic/Urdu spelling distinctions not reflected in pronunciation in
+  either Urdu or Hindi (e.g., letter sin versus letter sad) while maintaining Arabic/Urdu
+  spelling distinctions like Hindi also maintains (e.g., qaf as in Qutubbin versus kaf)).
+  However, this is not always possible (see Hindi va versus Urdu wau).
+
+  In cases where an individual’s name has already been transliterated, that is to be indicated
+  – as found – in parentheses immediately following its rendition in the transliteration
+  standard (e.g., Muhammad Khulud (Mohamed Khulood)). In addition, if the original
+  Devanagari or Arabic-script spelling is known, that spelling should also appear in
+  parentheses following the name, if possible, following best practices of the issuing
+  organization and taking into consideration information system capabilities. This
+  convention is designed to ensure that vital forensic information is not lost.
+
+  For names of persons who are known to not be part of the Hindi- or Urdu-speaking
+  community, use the relevant IC transliteration standard for names from that language
+  (e.g., Mikhail, Yitzhak). A translator’s note may be used to clarify the known origin of
+  the person. Spell names of individuals from languages that are written in Roman letters as
+  they are spelled in those languages (e.g., George Clooney, Jorge Garcia, Georges
+  Pompidou).
+
+  In the case of active senior government officials in the on-line CIA World Factbook and
+  the on-line directory of Chiefs of State and Cabinet Members of Foreign Governments,
+  the spellings given in these on-line reference works should be used in place of the IC
+  Standard. For any individual who has at one time been listed in the Factbook or Chiefs of
+  State directory but who no longer appears in those resources (i.e. is no longer a
+  government official), the IC Standard spelling should appear first, with the spelling, if
+  known, as it previously appeared in those resources listed within parentheses at the first
+  usage.
+
+  The primary goal of this system is to produce a consistent Romanized transcription of the
+  name that is readable to the non-specialist. The system uses the 26 letters of the standard
+  (English) Roman alphabet. Some ambiguities in the Romanized form will occur without
+  the use of diacritics. However, within the context of a report, where additional
+  information about the individual is provided, the referent will be clearly identified.
+  Additionally, this system will be used in conjunction with on-line tools, name dictionaries
+  and lists containing conventional spellings of names of well-known individuals
+
+notes:
+
+  - |
+    Long/Short Vowels: Long and short vowels are not distinguished in the system:
+    The borrowed Arabic name Samir could represent two distinct names, one with a
+    long /a/ (Saamir) and one with a long /i/ (Samiir). One solution would be to use
+    /ee/ to stand for the long /i/, as is often done (Sameer). The IC Standard will not
+    distinguish between these.
+
+  - |
+    No distinction is made between: retroflex and non-retroflex consonants; and
+    nasalized vowels and vowels followed by /n/.
+  - |
+    No distinction is made between the several Arabic letters with the same phonetic
+    value in Urdu: e.g., letters sin/svad, zal/ze/zoe.
+  - |
+    A distinction is drawn between Urdu letters qaf and kaf (and correspondingly,
+    Hindi qa and ka).
+  - |
+    A distinction is drawn between aspirated (e.g., /d/) and nonaspirated consonants
+    (e.g., /dh/), with the exception of ch/chh, both represented by /ch/.
+  - |
+    Double consonants: Double consonants represented by the tashdid (shaddah) are
+    shown in most cases (e.g., Hassan, Muhammad). Exceptions: consonants
+    represented by digraphs are not doubled (e.g., Mubashir [not Mubashshir]).
+  - |
+    Hamzah (glottal stop) and ayn: Unlike in the Arabic IC Standard, these are not
+    represented in the IC standard.
+  - |
+    Digraphs: No distinction is made between digraphs such as /sh/ and single
+    contiguous letters such as /s/ followed by /h/.
+  - |
+    Arabic definite article “al” (‘the’): Shows sun letter assimilation in the
+    Romanized form (e.g., Abdur Rahman rather than Abdal Rahman, rather than
+    Arabic IC standard 'Abd al-Rahman).
+  - |
+    Special Rules
+    - |
+      Hyphens: Hyphens (-) are NOT used to connect name elements within a name:
+      Abdur Rahman. The single exception to this is the izafat (i.e., linking vowel in
+      noun-link-modifier construction of Persian origin), which does show a hyphen
+      before the /e/ and a following space: Koh-e Nur (‘mountain of light’), “Jaish-e
+      xx” (‘Army of xx’ construction).
+    - |
+      Names incorporating “din” are written as one unit: Azermuddin, Badruddin,
+    Faizuddin, Salahuddin.
+    - |
+      Names that incorporate Allah as part of the name show the Arabic grammatical
+      marker /u/ rather than the /a/ of Allah: Abdullah (not Abdallah).
+    - |
+      Inherent short vowel /a/ in Devanagari is represented with an /a/ in Roman. Final
+      consonants are assumed not to have a short /a/ (e.g., masc. name Ram Lal, not
+      Rama Lala).
+    - |
+      As a general rule, Devanagari va is transcribed as a /v/: Vijay, Vishal, etc.
+      Exception: /sw/ combination: Saraswati, Krishnaswami. Urdu wau, however, is
+      transcribed as /w/: Wasim, Walid.
+
+tests:
+  - source: "हसन मोहम्मद"
+    expected: "hsn mohmmd"
+  - source: "विशाल ठाकुर"
+    expected: "vishal thakur"
+  - source: "अमिताभ जैन"
+    expected: "amitabh jain"
+  - source: "आकाङ्क्षा बच्चन"
+    expected: "akankshaa bchchn"
+  - source: "अनुष्का शर्मा"
+    expected: "anushka shrma"
+  - source: "शाहरुख खान"
+    expected: "shahrukh khan"
+  - source: "इंजमाम उल हक"
+    expected: "injmam ul hk"
+  - source: "शाहिद अफरीदी"
+    expected: "shahid aphridi"
+  - source: "सचिन तेंडुलकर"
+    expected: "schin tendulkr"
+  - source: "वसीम अकरम"
+    expected: "vsim akrm"
+  - source: "हसन अब्दुल्ला"
+    expected: "hsn abdulla"
+
+map:
+
+  characters:
+
+    # I. Vowels and Diphthongs (see Note 1)
+
+    'अ': 'a'
+    'आ': 'a'
+    'इ': 'i'
+    'ई': 'i'
+    'उ': 'u'
+    'ऊ': 'u'
+    'ऋ': 'ri'
+    'ए': 'e'
+    'ऐ': 'ai'
+    'ऑ': 'o'
+    'ओ': 'au'
+
+    # II. Consonants (see Note 2)
+    # Gutturals
+    'क': 'k'
+    'क्ष': 'ksha'
+    'क़': 'q'
+    'ख': 'kh'
+    'ख़': 'kh'
+    'ग': 'g'
+    'घ': 'gh'
+    'ग़': 'gh'
+    'ङ': 'n'
+
+    # Palatals
+    'च': 'ch'
+    'छ': 'ch'
+    'ज': 'j'
+    'झ': 'jh'
+    'ज़': 'z'
+    'ञ': 'n'
+
+    # Cerebrals
+    'ट': 't'
+    'ठ': 'th'
+    'ड': 'd'
+    'ड़': 'r'
+    'ढ': 'dh'
+    'ढ़': 'rh'
+    'ण': 'n'
+
+    # Dentals
+    'त': 't'
+    'थ': 'th'
+    'द': 'd'
+    'ध': 'dh'
+    'न': 'n'
+
+    # Labials
+    'प': 'p'
+    'फ': 'ph'
+    'फ़': 'f'
+    'ब': 'b'
+    'भ': 'bh'
+    'म': 'm'
+
+    # Semivowels
+    'य': 'y'
+    'र': 'r'
+    'ल': 'l'
+    'व': 'v'
+
+    # Sibilants
+    'श': 'sh'
+    'ष': 'sh'
+    'स': 's'
+
+    # Aspirate
+    'ह': 'h'
+
+    # Anusvāra
+    'ं': 'n'
+
+    # Bisarga
+    'ः ': 'h'
+
+    # Anunāsika
+    'ँ': 'n'
+
+    '़': ''
+    '्': ''
+
+    # Medials # Needed for connecting constants
+    'ा': "a"
+    'ि': "i"
+    'ी': "i"
+    'ु': "u"
+    'ू': "u"
+    'ृ': "ri"
+    'े': "e"
+    'ै': "ai"
+    'ॅ': "ai"
+    'ॊ': "o"
+    'ो': "o"
+    'ौ': "au"
+    'ॉ': "au"
+
+
