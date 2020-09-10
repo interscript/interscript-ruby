@@ -61,7 +61,7 @@ map:
 
   characters:
 
-    # I. Vowels and Diphthongs (see Note 1)
+    #Vowels and Diphthongs (see Note 1)
 
     'অ': 'a'
     'আ': 'ā'
@@ -157,4 +157,3 @@ map:
     '\u09cb': 'o'
     '\u09cc': 'au'
     '\u09CD': '' # Used for joining
-
