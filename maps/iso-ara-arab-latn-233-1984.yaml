@@ -46,24 +46,59 @@ notes:
 tests:
 
   - source: مِصر
-    expected: miṣr
+    expected: Miṣr
 
   - source: قَطَر
-    expected: qaṭar
+    expected: Qaṭar
 
   - source: الجُمهُورِيَّة العِرَاقِيَّة
-    expected: al ǧumhuwriyaẗ al ‘ira’qiyaẗ
+    expected: Al Ǧumhuwriyaẗ al ‘Ira’qiyaẗ
 
   - source: جُمهُورِيَّة مِصر العَرَبِيَّة
-    expected: ǧumhuwriyaẗ miṣr al ‘arabiyaẗ
+    expected: Ǧumhuwriyaẗ Miṣr al ‘Arabiyaẗ
 
   - source: الرِيَاض
-    expected: ar riya’ḍ
+    expected: Ar Riya’ḍ
 
   - source: الشارِقة
-    expected: aš šâriqaẗ
+    expected: Aš Šâriqaẗ
 
 map:
+  postrules:
+    - pattern: (?<=\b)(?<!\b[‘|’|'])[\u0061-\uFFFF]
+      result: "upcase"
+    # don't capitalize defined article in the middle of a sentence
+    - pattern : ' At T'  # الت
+      result: ' at T'
+    - pattern : ' Aṯ Ṯ'  # الث
+      result: ' aṯ Ṯ'
+    - pattern : ' Ad D' # الد
+      result: ' ad D'
+    - pattern : ' Aḏ Ḏ'  # الذ
+      result: ' aḏ Ḏ'
+    - pattern : ' Ar R' # الر
+      result: ' ar R'
+    - pattern : ' Az Z'  # الز
+      result: ' az Z'
+    - pattern : ' As S' # الس
+      result: ' as S'
+    - pattern : ' Aš Š' # الش
+      result: ' aš Š'
+    - pattern : ' Aṣ Ṣ'  # الص
+      result: ' aṣ Ṣ'
+    - pattern : ' Aḍ Ḍ'  # الض
+      result: ' aḍ Ḍ'
+    - pattern : ' Aṭ Ṭ'  # الط
+      result: ' aṭ Ṭ'
+    - pattern : ' Aẓ Ẓ' # الظ
+      result: ' aẓ Ẓ'
+    - pattern : ' Al L'  # الل
+      result: ' al L'
+    - pattern : ' an n'  # الن
+      result: ' an N'
+    - pattern: " Al " # ال
+      result: " al "
+
   characters:
 
     # pointing
@@ -107,21 +142,8 @@ map:
     '\b\u0627\u0644\u0644' : 'al l'  # الل
     '\b\u0627\u0644\u0646' : 'an n'  # الن
 
-    # ta' marboota
+    # ta' marboota in iso-233-1984 is all the same `aẗ`
     '\u0629' : 'aẗ' # ة in the middle of the sentence
-    '\u0629$' : 'aẗ'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{2})\u0629' : 'aẗ'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{3})\u0629' : 'aẗ'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{4})\u0629' : 'aẗ'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{5})\u0629' : 'aẗ'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{6})\u0629' : 'aẗ'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{7})\u0629' : 'aẗ'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{8})\u0629' : 'aẗ'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{9})\u0629' : 'aẗ'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{10})\u0629' : 'aẗ'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{11})\u0629' : 'aẗ'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{12})\u0629' : 'aẗ'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{13})\u0629' : 'aẗ'
 
     # Shadda
 

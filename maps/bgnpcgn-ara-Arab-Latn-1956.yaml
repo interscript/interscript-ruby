@@ -98,175 +98,210 @@ notes: |
 tests:
 
   - source: قُرآن
-    expected: qur’ān
+    expected: Qur’ān
 
   - source: أَبُو ظَبْي
-    expected: abū z̧aby
+    expected: Abū Z̧aby
 
   - source: بِئْر زَيْت
-    expected: bi’r zayt
+    expected: Bi’r Zayt
 
   - source: أُمّ العَمَد
-    expected: umm al ‘amad
+    expected: Umm al ‘Amad
 
   - source: البَحرَيْن
-    expected: al baḩrayn
+    expected: Al Baḩrayn
 
   - source: الكُوت
-    expected: al kūt
+    expected: Al Kūt
 
   - source: الثُّلَيْثُوَات
-    expected: ath thulaythuwāt
+    expected: Ath Thulaythuwāt
 
   - source: الجَزِيرَة
-    expected: al jazīrah
+    expected: Al Jazīrah
 
   - source: المَحْمُودِيَّة
-    expected: al maḩmūdīyah
+    expected: Al Maḩmūdīyah
 
   - source: خَيْبَر
-    expected: khaybar
+    expected: Khaybar
 
   - source: دَمَنْهُور
-    expected: damanhūr
+    expected: Damanhūr
 
   - source: ذَهَب
-    expected: dhahab
+    expected: Dhahab
 
   - source: الرَّوْضة
-    expected: ar rawḑah
+    expected: Ar Rawḑah
 
   - source: زُوَارَة
-    expected: zuwārah
+    expected: Zuwārah
 
   - source: السُّلَيْمانِيَّة
-    expected: as sulaymānīyah
+    expected: As Sulaymānīyah
 
   - source: الشَّام
-    expected: ash shām
+    expected: Ash Shām
 
   - source: قَيْصُومَة
-    expected: qayşūmah
+    expected: Qayşūmah
 
   - source: ضَوْر
-    expected: ḑawr
+    expected: Ḑawr
 
   - source: القُنَيْطِرَة
-    expected: al qunayţirah
+    expected: Al Qunayţirah
 
   - source: ظُفَار
-    expected: z̧ufār
+    expected: Z̧ufār
 
   - source: أَبُو عَرِيش
-    expected: abū ‘arīsh
+    expected: Abū ‘Arīsh
 
   - source: بَغْداد
-    expected: baghdād
+    expected: Baghdād
 
   - source: الفُرات
-    expected: al furāt
+    expected: Al Furāt
 
   - source: قَطَر
-    expected: qaţar
+    expected: Qaţar
 
   - source: الكُوَيْت
-    expected: al kuwayt
+    expected: Al Kuwayt
 
   - source: حَلَب
-    expected: ḩalab
+    expected: Ḩalab
 
   - source: مَكَّة
-    expected: makkah
+    expected: Makkah
 
   - source: نَخْل
-    expected: nakhl
+    expected: Nakhl
 
   - source: جَبَل هارُون
-    expected: jabal hārūn
+    expected: Jabal Hārūn
 
   - source: وادِي غَضَا
-    expected: wādī ghaḑā
+    expected: Wādī Ghaḑā
 
   - source: اليَمَن
-    expected: al yaman
+    expected: Al Yaman
 
   - source: القاهِرَة
-    expected: al qāhirah
+    expected: Al Qāhirah
 
   - source: المَدِينَة المُنَوَّرَة
-    expected: al madīnah al munawwarah
+    expected: Al Madīnah al Munawwarah
 
   - source: مُحَافَظَة دِمَشْق
-    expected: muḩāfaz̧at dimashq
+    expected: Muḩāfaz̧at Dimashq
 
   - source: البَصْرَة
-    expected: al başrah
+    expected: Al Başrah
 
   - source: الرِّيَاض
-    expected: ar riyāḑ
+    expected: Ar Riyāḑ
 
   - source: القُدْس
-    expected: al quds
+    expected: Al Quds
 
   - source: بَاب المَنْدَب
-    expected: bāb al mandab
+    expected: Bāb al Mandab
 
   - source: المَدِينة
-    expected: al madīnah
+    expected: Al Madīnah
 
   - source: صُور
-    expected: şūr
+    expected: Şūr
 
   - source: مَرْسَىٰ مَطْرُوح
-    expected: marsá maţrūḩ
+    expected: Marsá Maţrūḩ
 
   - source: صَيْدَا
-    expected: şaydā
+    expected: Şaydā
 
   - source: الدَّوحَة
-    expected: ad dawḩah
+    expected: Ad Dawḩah
 
   - source: مُحَمَّد
-    expected: muḩammad
+    expected: Muḩammad
 
   - source: أُوزُونْلَار
-    expected: ūzūnlār
+    expected: Ūzūnlār
 
   - source: أَوْسَط
-    expected: awsaţ
+    expected: Awsaţ
 
   - source: سَنَاو
-    expected: sanāw
+    expected: Sanāw
 
   - source: اِيرَان
-    expected: īrān
+    expected: Īrān
 
   - source: تَلّ السَّرَاي
-    expected: tall as sarāy
+    expected: Tall as Sarāy
 
   - source: آلْبُو مُعَيْط
-    expected: ālbū mu‘ayţ
+    expected: Ālbū Mu‘ayţ
 
   - source: سَلْمان پَاك
-    expected: salmān pāk
+    expected: Salmān Pāk
 
   - source: تَلّ كُوچِك الصَّغِير
-    expected: tall kūchik aş şaghīr
+    expected: Tall Kūchik aş Şaghīr
 
-  # - source: مَزََّة ڤِيلَّات غَرْبِيَّة
+  # - source: مَزََّة ڤِيلَّات غَرْبِيَّة
   #   expected: Mazzah Vīllāt Gharbīyah
 
   - source: ڨَفْصَة
-    expected: gafşah
+    expected: Gafşah
 
   - source: تَلّ گَمْر
-    expected: tall gamr
+    expected: Tall Gamr
 
   - source: زَاڴُورَة
-    expected: zāgūrah
+    expected: Zāgūrah
 
 
 map:
+  postrules:
+    - pattern: '(?<=\b)(?<!\b[‘|’])[\u0061-\uFFFF]'
+      result: "upcase"
+    # don't capitalize defined article in the middle of a sentence
+    - pattern : ' At T'  # الت
+      result: ' at T'
+    - pattern : ' Ath Th'  # الث
+      result: ' ath th'
+    - pattern : ' Ad D' # الد
+      result: ' ad D'
+    - pattern : ' Adh Dh'  # الذ
+      result: ' adh Dh'
+    - pattern : ' Ar R' # الر
+      result: ' ar R'
+    - pattern : ' Az Z'  # الز
+      result: ' az Z'
+    - pattern : ' As S' # الس
+      result: ' as S'
+    - pattern : ' Ash Sh' # الش
+      result: ' ash Sh'
+    - pattern : ' Aş Ş'  # الص
+      result: ' aş Ş'
+    - pattern : ' Aḑ Ḑ'  # الض
+      result: ' aḑ Ḑ'
+    - pattern : ' Aţ Ţ'  # الط
+      result: ' aţ Ţ'
+    - pattern : ' Az̧ Z̧' # الظ
+      result: ' az̧ Z̧'
+    - pattern : ' Al L'  # الل
+      result: ' al L'
+    - pattern : ' an n'  # الن
+      result: ' an N'
+    - pattern: " Al " # ال
+      result: " al "
+
   characters:
 
     # Modified/Non-Standard Arabic Script Characters

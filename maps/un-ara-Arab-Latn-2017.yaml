@@ -71,6 +71,9 @@ notes:
     middle dot (·) may be used: سهيلة S·haylah (cf. شيلة Shaylah), دهيب
     D·hayb (cf. ذيب Dhayb), أدهم Ad·ham (cf. أذم Adham).
   - |
+    ta' marboota should be transliterated to 'ah' if it's in
+    a definite article, or at the end of the sentence
+    otherwise it should be transliterated to 'at'
     to handle words starting with AL and ending with ta' marboota
     which is pronounced as "ah" not "at" divided into multiple
     regex because lookbehind in ruby doesn't support variable length
@@ -84,57 +87,92 @@ tests:
   # https://unstats.un.org/unsd/geoinfo/geonames/
 
   - source: مِصر
-    expected: mis̱r
+    expected: Mis̱r
 
   - source: قَطَر
-    expected: qaṯar
+    expected: Qaṯar
 
   - source: المَغرِب
-    expected: al maghrib
+    expected: Al Maghrib
 
   - source: الجُمهُورِيَّة العِراقِيَّة
-    expected: al jumhūrīyah al ‘irāqīyah
+    expected: Al Jumhūrīyah al ‘Irāqīyah
 
   - source: جُمهُورِيَّة العِراق
-    expected: jumhūrīyat al ‘irāq
+    expected: Jumhūrīyat al ‘Irāq
 
   - source: جُمهُورِيَّة مِصر العَرَبِيَّة
-    expected: jumhūrīyat mis̱r al ‘arabīyah
+    expected: Jumhūrīyat Mis̱r al ‘Arabīyah
 
   - source: بَغداد
-    expected: baghdād
+    expected: Baghdād
 
   - source: تُونِس
-    expected: tūnis
+    expected: Tūnis
 
   - source: السُعُودِيَّة
-    expected: as su‘ūdīyah
+    expected: As Su‘ūdīyah
 
   - source: اليَمَن
-    expected: al yaman
+    expected: Al Yaman
 
   - source: السُودان
-    expected: as sūdān
+    expected: As Sūdān
 
   - source: الجَزائِر
-    expected: al jazā'ir
+    expected: Al Jazā'ir
 
   - source: الجُمهُورِيَّة اللُبنانِيَّة
-    expected: al jumhūrīyah al lubnānīyah
+    expected: Al Jumhūrīyah al Lubnānīyah
 
   - source: أسمَرة
-    expected: asmarah
+    expected: Asmarah
 
   - source: جِدَّة
-    expected: jiddah
+    expected: Jiddah
 
   - source: مَكَّة
-    expected: makkah
+    expected: Makkah
 
   - source: الرِيَاض
-    expected: ar riyāḏ
+    expected: Ar Riyāḏ
 
 map:
+  postrules:
+    - pattern: (?<=\b)(?<!\b[‘|’|'])[\u0061-\uFFFF]
+      result: "upcase"
+    # don't capitalize defined article in the middle of a sentence
+    - pattern : ' At T'  # الت
+      result: ' at T'
+    - pattern : ' Ath Th'  # الث
+      result: ' ath th'
+    - pattern : ' Ad D' # الد
+      result: ' ad D'
+    - pattern : ' Adh Dh'  # الذ
+      result: ' adh Dh'
+    - pattern : ' Ar R' # الر
+      result: ' ar R'
+    - pattern : ' Az Z'  # الز
+      result: ' az Z'
+    - pattern : ' As S' # الس
+      result: ' as S'
+    - pattern : ' Ash Sh' # الش
+      result: ' ash Sh'
+    - pattern : ' As̱ S̱'  # الص
+      result: ' as̱ S̱'
+    - pattern : ' Aḏ Ḏ'  # الض
+      result: ' aḏ Ḏ'
+    - pattern : ' Aṯ Ṯ'  # الط
+      result: ' aṯ Ṯ'
+    - pattern : ' Ad͟h D͟h' # الظ
+      result: ' ad͟h D͟h'
+    - pattern : ' Al L'  # الل
+      result: ' al L'
+    - pattern : ' an n'  # الن
+      result: ' an N'
+    - pattern: " Al " # ال
+      result: " al "
+
   characters:
 
     # Tool used for Unicode finding:
@@ -143,6 +181,7 @@ map:
     # pointing
     '\u064e' : 'a' # َ fatha
     '\u064e(?=\u0629)' : '' # َ fatha followed by ta' marboota
+    '\u064e(?=a[h|t])' : '' # َ fatha followed by ta' marboota, handling different order of conversion
     '\u0650' : 'i' # ِ kasra
     '\u064f' : 'u' # ُ damma
     '\u0652' : ''  # ْ sokoon, see note A below

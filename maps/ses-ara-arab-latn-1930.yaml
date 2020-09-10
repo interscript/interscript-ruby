@@ -85,12 +85,16 @@ tests:
   # https://unstats.un.org/unsd/geoinfo/geonames/
 
   - source: شَرم الشَيْخ
-    expected: sharm el-sheikh
+    expected: Sharm el-Sheikh
 
   - source: الكَفر القَدِيم
-    expected: el-kafr el-qadîm
+    expected: El-Kafr el-Qadîm
 map:
   inherit: "un-ara-Arab-Latn-2017"
+  postrules:
+    - pattern : ' El-'  # الص
+      result: ' el-'
+
   characters:
 
 
@@ -117,7 +121,7 @@ map:
       - 'â'
       - 'a'
 
-    # ta' marboota
+    # ta' marboota  in iso-233-1984 is all the same `a`
     '\u0629$' : 'a'
     '(?<=\b\u0627\u0644[\u0600-\u06ff]{2})\u0629' : 'a'
     '(?<=\b\u0627\u0644[\u0600-\u06ff]{3})\u0629' : 'a'

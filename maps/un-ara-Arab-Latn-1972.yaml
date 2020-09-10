@@ -94,25 +94,33 @@ tests:
   # https://unstats.un.org/unsd/geoinfo/geonames/
 
   - source: مِصر
-    expected: mişr
+    expected: Mişr
 
   - source: قَطَر
-    expected: qaţar
+    expected: Qaţar
 
   - source: الجُمهُورِيَّة العِراقِيَّة
-    expected: al jumhūrīyah al ‘irāqīyah
+    expected: Al Jumhūrīyah al ‘Irāqīyah
 
   - source: جُمهُورِيَّة مِصر العَرَبِيَّة
-    expected: jumhūrīyat mişr al ‘arabīyah
+    expected: Jumhūrīyat Mişr al ‘Arabīyah
 
   - source: الرِيَاض
-    expected: ar riyāḑ
+    expected: Ar Riyāḑ
 
   - source: الشارِقة
-    expected: ash shāriqah
+    expected: Ash Shāriqah
 
 map:
   inherit: "un-ara-Arab-Latn-2017"
+  postrules:
+    - pattern : ' Aş Ş'  # الص
+      result: ' aş Ş'
+    - pattern : ' Aḑ Ḑ'  # الض
+      result: ' aḑ Ḑ'
+    - pattern : ' Aţ Ţ'  # الط
+      result: ' aţ Ţ'
+
   characters:
 
     '\b\u0627\u0644\u0635' : 'aş ş'  # الص
