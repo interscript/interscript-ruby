@@ -1,0 +1,160 @@
+---
+authority_id: alalc
+id: 1997
+language: asm
+source_script: Deva
+destination_script: Latn
+name: Assamese Romanization, 1997
+url: https://www.loc.gov/catdir/cpso/romanization/assamese.pdf
+creation_date: 1997
+description: |
+  ALA-LC Romanization table for Assamese
+
+notes:
+
+  - Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for
+    vowels following a consonant can be found in grammars; no distinction between the two is
+    made in transliteration.
+
+  - |
+    The vowel a is implicit after all consonants and consonant clusters and is supplied in
+    transliteration, with the following exceptions:
+
+    a) when another vowel is indicated by its appropriate sign; and
+    b) when the absence of any vowel is indicated by the subscript sign ( ◌् ) called halanta or
+       birāma.
+
+  - Candrabindu before guttural, palatal, cerebral, and dental occlusives is transliterated n̐. Before
+    labials, sibilants, semivowels, aspirates, vowels, and in final position it is transliterated m̐.
+
+  - When doubled, avagraha is transliterated by two apostrophes ( ’’ ).
+
+tests:
+  - source: "অসমীয়া কবিতা"
+    expected: "asamaīẏaā kabaitaā"
+  - source: "কবিৰ আজি জন্মদিন"
+    expected: "kabaira ājai janamadaina"
+  - source: "বেৰুটত এমাহৰ পাছতে পুনৰ ভয়ংকৰ অগ্নিকাণ্ড"
+    expected: "baerauṭata emaāhara paāchatae paunara bhayaṃkara aganaikaāṇaḍa"
+  - source: "ভঙাৰ বিৰুদ্ধে আৱেদন দাখিল কংগনাৰ"
+    expected: "bhaṅaāra bairaudadhae āwaedana daākhaila kaṃganaāra"
+  - source: "আপুনি পঢ়ি ভাল পাব পৰা বাতৰি"
+    expected: "āpaunai paṛhai bhaāla paāba paraā baātarai"
+  - source: "শ্ৰীৰামপুৰত গৰুভৰ্তি ট্ৰাক জব্দ, দুজনক আটক"
+    expected: "śaraīraāmapaurata garaubharatai ṭaraāka jabada, daujanaka āṭaka"
+  - source: "কেনে আছে প্ৰাক্তন"
+    expected: "kaenae āchae paraākatana"
+  - source: "কমুম্বাইৰ মেয়ৰৰ দেহত কোভিড পজিটিভ"
+    expected: "kamaumabaāira maeẏarara daehata kaobhaiḍa pajaiṭaibha"
+  - source: "টুইটাৰযোগে খোদ সদৰী কৰে এই কথা"
+    expected: "ṭauiṭaāraযogae khaoda sadaraī karae ei kathaā"
+  - source: "লখিমপুৰ জিলাৰ নাৰায়ণপুৰৰ বৰপথাৰত আজি প্ৰশান্তি ধাম নামেৰে এখন বৃদ্ধাশ্ৰমৰ শুভাৰম্ভ কৰা হয়"
+    expected: "lakhaimapaura jailaāra naāraāẏaṇapaurara barapathaārata ājai paraśaānatai dhaāma naāmaerae ekhana baṛdadhaāśaramara śaubhaāramabha karaā haẏa"
+
+
+map:
+
+  rules:
+    # note[3]
+    - pattern: \u0981(?=[কখগঘঙচছজঝঞটঠডড়ঢঢ়ণতৎথদধন])    # ঁ before guttural, palatal, cerebral, and dental
+      result: ṅ
+
+  characters:
+
+    # I. Vowels and Diphthongs (see Note 1)
+
+    'অ': 'a'
+    'আ': 'ā'
+    'ই': 'i'
+    'ঈ': 'ī'
+    'উ': 'u'
+    'ঊ': 'ū'
+    'ঋ': 'ṛ'
+    'ৠ': 'ṝ'
+    'ঌ': 'ḹ'
+    'এ': 'e'
+    'ঐ': 'ai'
+    'ও': 'o'
+    'ঔ': 'au'
+
+   # Consonant characters
+
+    #Gutturals
+    'ক': 'ka'
+    'খ': 'kha'
+    'গ': 'ga'
+    'ঘ': 'gha'
+    'ঙ': 'ṅa'
+
+    #Palatals
+    'চ': 'ca'
+    'ছ': 'cha'
+    'জ': 'ja'
+    'ঝ': 'jha'
+    'ঞ': 'ña'
+
+    #Cerebrals
+    'ট': 'ṭa'
+    'ঠ': 'ṭha'
+    'ড': 'ḍa'
+    'ড়': 'ṛa'
+    'ঢ': 'ḍha'
+    'ঢ়': 'ṛha'
+    'ণ': 'ṇa'
+
+    #Dentals
+    'ত': 'ta'
+    'ৎ': 'ṭ'
+    'থ': 'tha'
+    'দ': 'da'
+    'ধ': 'dha'
+    'ন': 'na'
+
+    #Labials
+    'প': 'pa'
+    'ফ': 'pha'
+    'ব': 'ba'
+    'ভ': 'bha'
+    'ম': 'ma'
+
+    #Semivowels
+    'য়': 'ya'
+    'য়': 'ẏa'
+    'ৰ': 'ra'
+    'ল': 'la'
+    'ৱ': 'wa'
+
+    #Sibilants
+    'শ': 'śa'
+    'ষ': 'sha'
+    'স': 'sa'
+
+    #Aspirate
+    'হ': 'ha'
+
+
+    # Anusvāra
+    'ং': 'ṃ'
+
+    # Bisarga
+    'ঃ': 'ḥ'
+
+    # Candrabindu (see Note 3)
+    'ঁ': 'm̐'
+
+    # Abagraha  (see Note 4)
+    'ऽ': '’' # (apostrophe)
+
+    # Medials # Needed for connecting constants
+    '\u09be': 'ā'
+    '\u09bf': 'i'
+    '\u09c0': 'ī'
+    '\u09c1': 'u'
+    '\u09c2': 'ū'
+    '\u09c3': 'ṛ'
+    '\u09c7': 'e'
+    '\u09c8': 'ai'
+    '\u09cb': 'o'
+    '\u09cc': 'au'
+    '\u09CD': '' # Used for joining
+
