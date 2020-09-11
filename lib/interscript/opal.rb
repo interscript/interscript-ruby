@@ -19,5 +19,9 @@ module Interscript
       string
     end
 
+    def load_map_json(name, json)
+      `Opal.global.InterscriptMaps[#{name}] = #{json}`
+    end
+
   end
 end

@@ -1,7 +1,10 @@
 var assert = require('assert');
 var Opal = require('../vendor/assets/javascripts/interscript.js');
+var fs = require('fs');
 
 Object.keys(InterscriptMaps).forEach(function(key) {
+	var json = fs.readFileSync("vendor/assets/maps/" + key + ".json");
+	Opal.Opal.Interscript.$load_map_json(key, json);
 	var map = JSON.parse(InterscriptMaps[key]);
 	describe(key+' system', function () {
 		this.timeout(10000);

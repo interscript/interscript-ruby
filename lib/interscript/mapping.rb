@@ -1,5 +1,5 @@
 require 'rambling-trie'
-require 'yaml'
+require 'yaml' unless RUBY_ENGINE == 'opal'
 require 'json'
 
 module Interscript
