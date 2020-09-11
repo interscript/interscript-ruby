@@ -23,7 +23,7 @@ jobs:
     - name: Install dependencies
       run: bundle install --jobs 4 --retry 5
     - name: Build Javascript
-      run: bundle exec rake js
+      run: bundle exec rake all
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
