@@ -1,7 +1,10 @@
+<%# A placeholder for the maps to be loaded %>
 Opal.global.InterscriptMaps = {
   <% Dir['maps/*.yaml'].each do |yaml_file| %>
-    "<%= File.basename(yaml_file, ".yaml") %>": <%= 
-      JSON.dump(Interscript::OpalMapTranslate.translate_regexp(JSON.dump(YAML.load(File.read(yaml_file)))))
-    %>,
+    "<%= File.basename(yaml_file, ".yaml") %>": null,
   <% end %>
 }
+
+<%#=
+  JSON.dump(Interscript::OpalMapTranslate.translate_regexp(JSON.dump(YAML.load(File.read(yaml_file)))))
+%>

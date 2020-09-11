@@ -1,3 +1,5 @@
+require 'pathname'
+
 module Interscript
   module Fs
     ALPHA_REGEXP = '[[:alpha:]]'
