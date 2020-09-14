@@ -716,9 +716,9 @@ tests:
   # - source: غرسيا خين
   #   expected: Gharsiyā Khayin # not García Jaén
 
-  #   # From Rule 23
-  # - source: الله
-  #   expected: Allāh
+    # From Rule 23
+  - source: اللَّه
+    expected: Allāh
   # - source: بسم الله
   #   expected: bismillāh
 
@@ -865,7 +865,8 @@ map:
 
     '\u060c': ',' # ،
 
-    # See note B
+    '\u0627\u0644\u0644\u0651\u064e\u0647': "Allāh"
+
     '\b\u0627\u0644' : 'al-'  # ال
     # '\uFE8E' : ''  # ﺎ
 
@@ -874,7 +875,6 @@ map:
     '\uFE92' : 'b'  # ﺒ
     '\uFE90' : 'b'  # ﺐ
 
-    # See note C
     '\u062a' : 't'  # ت
     '\ufe97' : 't'  # ﺗ
     '\ufe98' : 't'  # ﺘ
