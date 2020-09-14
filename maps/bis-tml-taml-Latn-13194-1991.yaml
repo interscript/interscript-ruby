@@ -2,8 +2,8 @@
 authority_id: bis
 id: 1991
 language: tml
-source_script: Deva
-destination_script: Tami
+source_script: Taml
+destination_script: Latn
 name: Indian script code for information interchange - ISCII - Tamil Romanization
 #url:
 creation_date: 1991

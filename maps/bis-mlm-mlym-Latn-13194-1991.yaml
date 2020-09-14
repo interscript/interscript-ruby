@@ -2,7 +2,7 @@
 authority_id: bis
 id: 1991
 language: mlm
-source_script: Mala
+source_script: Mlym
 destination_script: Latn
 name: Indian script code for information interchange - ISCII - Malayalam Romanization
 #url:

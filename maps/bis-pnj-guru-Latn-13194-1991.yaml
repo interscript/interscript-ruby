@@ -2,7 +2,7 @@
 authority_id: bis
 id: 1991
 language: pnj
-source_script: Gurm
+source_script: Guru
 destination_script: Latn
 name: Indian script code for information interchange - ISCII - Panjabi(Gurmukhi) Romanization
 #url:
