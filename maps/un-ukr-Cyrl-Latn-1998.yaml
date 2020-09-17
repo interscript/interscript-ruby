@@ -11,7 +11,7 @@ creation_date: 1998
 tests:
 
 map:
-  inherit: gost-rus-cyrl-latn-16876-71-1983
+  inherit: gost-rus-Cyrl-Latn-16876-71-1983
 
   characters:
     '\u0490' : '?'  # Ґ

@@ -107,7 +107,7 @@ tests: # the same as in by-bel-Cyrl-Latn-2007
     expected: Viazynka
 
 map:
-  inherit: gost-rus-cyrl-latn-16876-71-1983
+  inherit: gost-rus-Cyrl-Latn-16876-71-1983
 
   rules:
     - pattern: (?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\u0415 # Е after consonants
