@@ -52,8 +52,29 @@ task :js_maps do
   end
 end
 
+desc "Correct file names in 'maps' directory to ensure to be uppercase for 3rd and 4rd"
+task :rename do
+  root_path = File.expand_path File.dirname(__FILE__)
+  changed = []
+  Dir['maps/*.yaml'].each do |yaml_file|
+    org_name = File.basename(yaml_file, ".yaml")
+    terms = org_name.split("-")
+    terms[2].capitalize!
+    terms[3].capitalize!
+    new_name = terms.join("-")
+    if org_name != new_name
+      File.rename(yaml_file, root_path + '/maps/' + new_name + ".yaml")
+      changed << new_name unless org_name == new_name
+    end
+  end
+
+  puts "Total Scanned: #{Dir['maps/*.yaml'].size} files"
+  puts "Fixed Count: #{changed.size} "
+  changed.each { |new_name| puts new_name }
+end
+
 desc "All in one"
-task all: [:clean] do
+task all: [:clean, :rename] do
   Rake::Task["js"].execute
   Rake::Task["js_maps"].execute
 end
