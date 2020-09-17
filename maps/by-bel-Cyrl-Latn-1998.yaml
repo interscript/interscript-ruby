@@ -9,10 +9,10 @@ url: https://unstats.un.org/unsd/geoinfo/UNGEGN/docs/20th-gegn-docs/20th_gegn_WP
 creation_date: 1998
 description: |
   The national system of romanization for Belarusian was approved by the State Committee and Land Resources,
-  Geodesy and Cartography, Republic of Belarus, on 20 March, 1998. This scheme was also supported by 
+  Geodesy and Cartography, Republic of Belarus, on 20 March, 1998. This scheme was also supported by
   the Y. Kolas Institute of Linguistics and the Republic Committee on Toponymy at the Belarusian Academy of Sciences.
-  While the system is still based on GOST 1983, it takes more precisely into account the peculiarities of 
-  the Belarusian orthography. The system is reversible though there may exist some ambiguous consonant combinations. 
+  While the system is still based on GOST 1983, it takes more precisely into account the peculiarities of
+  the Belarusian orthography. The system is reversible though there may exist some ambiguous consonant combinations.
 
 tests: # the same as in by-bel-Cyrl-Latn-2007
   - source: Аршанскi

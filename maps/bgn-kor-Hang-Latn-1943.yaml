@@ -5,7 +5,7 @@ language: kor
 source_script: Hang
 destination_script: Latn
 name: BGN Agreement -- Korean McCune-Reischauer System (1943)
-url: 
+url:
 creation_date: 1943
 adoption_date:
 description:

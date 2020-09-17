@@ -15,8 +15,8 @@ description: |
   correspondences given below
 
 notes:
-  - The letter w is used word initially and before a vowel. # 'and' or 'or' ? 
-  - The letter sequence ye is used word initially and before a vowel. # 'and' or 'or' ? 
+  - The letter w is used word initially and before a vowel. # 'and' or 'or' ?
+  - The letter sequence ye is used word initially and before a vowel. # 'and' or 'or' ?
   - The letter w is used between or after vowels.
   - The letter w is used after e, u, ö and ə.
   - |
@@ -55,7 +55,7 @@ tests:
   - source: Ҡыҙылъяр
     expected: Qıźılyar
   # adopted https://en.wikipedia.org/wiki/Bashkir_language#Grammar
-  - source: кемдең 
+  - source: кемдең
     expected: kemdeñ
   - source: кем
     expected: kem
@@ -65,7 +65,7 @@ tests:
     expected: oşo
   - source: быларҙың
     expected: bılarźıñ
-  - source: һеҙҙән 
+  - source: һеҙҙән
     expected: heźźən
   - source: һин
     expected: hin
@@ -136,7 +136,7 @@ map:
     '\u042B': 'I'      # Ы
     '\u042C': ''       # Ь
     '\u042D': 'E'      # Э
-    '\u04D8': "\u018F" # Ә 
+    '\u04D8': "\u018F" # Ә
     '\u042E': 'Yu'     # Ю
     '\u042F': 'Ya'     # Я
 

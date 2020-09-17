@@ -5,7 +5,7 @@ language: ell
 source_script: Grek
 destination_script: Latn
 name: ISO 843:1997
-url: 
+url:
 creation_date: 1997
 description: |
   ISO Transliteration table for Greek
@@ -25,7 +25,7 @@ tests:
 
     expected: |
         Éna práma mónon me parakínīse ki eména na grápsō óti toútīn tīn patrída tīn échomen óloi mazí, kai sofoí ki amatheís kai ploúsioi kai ftōchoí kai politikoí kai stratiōtikoí kai oi pléon mikróteroi ánthrōpoi; ósoi agōnistī́kamen, analógōs o katheís, échomen na zī́somen edṓ. To loipón doulépsamen óloi mazí, na tīn fylámen ki óloi mazí kai na mīn légei oúte o dynatós «egṓ» oúte o adýnatos. Xérete póte na légei o katheís «egṓ»? Ótan agōnisteí mónos tou kai fkiásei ī́ chalásei, na légei «egṓ»; ótan ómōs agōnízontai polloí kai fkiánoun, tóte na léne «emeís». Eímaste eis to «emeís» ki óchi eis to «egṓ». Kai eis to exī́s na máthomen gnṓsī, an thélomen na fkiásomen chōrión, na zī́somen óloi mazí.
-       
+
         Giánnīs Makrygiánnīs.
 
 
@@ -73,7 +73,7 @@ tests:
     expected: Taÿ́getos
   - source: σπρέυ
     expected: spréy
-    
+
   - source: Αθήνα
     expected: Athī́na
   - source: Άγιον Όρος
@@ -521,7 +521,7 @@ map:
     - pattern: (?<=[ΑαΕεΟο])\u03C5    # υ (after Α, Ε, Η)
       result: u
     - pattern: (?<=[ΑαΕεΟο])\u03CD    # ύ (after Ο)
-      result: ú      
+      result: ú
     - pattern: \u037E   # ;
       result: "?"
     - pattern: \u003B   # ;
@@ -607,4 +607,3 @@ map:
 
     "\u0387": ";"   # ·
     "\u00B7": ";"   # ·
-

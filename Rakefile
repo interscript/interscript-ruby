@@ -62,6 +62,7 @@ task :rename do
   Dir['maps/*.yaml'].each do |yaml_file|
     org_name = File.basename(yaml_file, ".yaml")
 
+    # capitalize file name
     capitalize_filename = proc do |org_name|
       terms = org_name.split("-")
       terms[2].capitalize!
@@ -77,8 +78,11 @@ task :rename do
       changed << new_name
     end
 
+    # capitalize inherit
     org_file = File.read(new_name_full)
+    new_file = org_file
     yaml = YAML.load(org_file)
+    dump = Proc.new { |h| YAML.dump(h)[4..-2] }   # [4..-2] removes the initial magic signature from YAML and a new line from the end
     if org_inherit = yaml.dig("map", "inherit")
       new_inherit = case org_inherit
       when Array
@@ -89,17 +93,18 @@ task :rename do
         raise "#{org_inherit} has a type different from String/Array"
       end
 
-      if new_inherit != org_inherit
-        # [4..-2] removes the initial magic signature from YAML and a new line from the end
-        new_file = org_file.gsub(YAML.dump(org_inherit)[4..-2], YAML.dump(new_inherit)[4..-2])
+      new_file = org_file.gsub(dump.(org_inherit), dump.(org_inherit)) if new_inherit != org_inherit
+    end
 
-        if org_file != new_file
-          File.write(new_name_full, new_file)
-          edited << new_name
-        else
-          raise "Couldn't fix #{new_name}"
-        end
-      end
+    # capitalize source_script, destination_script
+    h = Proc.new { |x| {x => yaml[x]} }
+    ["source_script", "destination_script"].each do |pp|
+      new_file = new_file.gsub(dump.(h.(pp)), dump.(h.(pp).tap{|a| a[pp] = yaml[pp].capitalize})) unless yaml[pp] == yaml[pp].capitalize
+    end
+
+    if new_file != org_file
+      File.write(new_name_full, new_file)
+      edited << new_name
     end
   end
 

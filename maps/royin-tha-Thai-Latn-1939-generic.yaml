@@ -7,11 +7,11 @@ destination_script: Latn
 name: Royal Thai General System of Transcription (1939) Generic
 url: http://www.siamese-heritage.org/jsspdf/1941/JSS_033_1d_RoyalInstituteTranscriptionOfThaiIntoRomanCharacters.pdf
 creation_date: 1939
-adoption_date: 
+adoption_date:
 description: |
   This map loads two external maps to convert Thai text first into phonemic Thai,
   and then into IPA transcription.
-  
+
   The IPA transcription will then be handled by this map, and converted into
   Royal Thai General System of Transcription (1939)
 
@@ -37,7 +37,7 @@ chain: ["var-tha-Thai-Thai-phonemic" ,"var-tha-Thai-Zsym-ipa"]
 
 map:
   title-case: false
-  word_separator: " "  
+  word_separator: " "
 
   rules:
     - pattern: '[˩˨˧˦˥]'
@@ -62,7 +62,7 @@ map:
     'ŋ': 'ng'
     'j': 'y'
     'ɔ': 'o̦'
-    'ɤ': 'œ' 
+    'ɤ': 'œ'
     'ɛ': 'æ'
     'ɯ': 'ư'
     'ʰ': 'h'

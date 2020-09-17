@@ -29,4 +29,3 @@ map:
   character_separator: ""
   word_separator: " "
   inherit: "iso-ell-Grek-Latn-843-1997-t2"
-

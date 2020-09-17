@@ -5,7 +5,7 @@ language: kor
 source_script: Hang
 destination_script: Latn
 name: McCune-Reischauer System
-url: 
+url:
 creation_date: 1939
 adoption_date:
 description:
@@ -1051,4 +1051,4 @@ map:
   # This is based on Jamo
 
   dictionary:
-  # 
+  #

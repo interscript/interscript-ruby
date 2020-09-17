@@ -12,7 +12,7 @@ description:
 
 notes:
 
-  - Here is a list of features that are listed in the guideline but 
+  - Here is a list of features that are listed in the guideline but
     not unimplemented in this map.
 
   - Note 3.2
@@ -30,15 +30,15 @@ notes:
     Except for the n-g combination, this has not been implemented.
 
   - Note 4.4
-    Geographical names "may be transliterated or translated". In this map, 
-    all names will be transliterated, not translated. Numerals will not be 
+    Geographical names "may be transliterated or translated". In this map,
+    all names will be transliterated, not translated. Numerals will not be
     transliterated.
 
   - Note 4.5
     Spacing rule for personal names has not been implemented.
 
   - Note 4.7
-    Optional omission of diacritics and optional simplification of 
+    Optional omission of diacritics and optional simplification of
     KK, TT, PP, SS, JJ to single letter have not been implemented.
 
 tests:

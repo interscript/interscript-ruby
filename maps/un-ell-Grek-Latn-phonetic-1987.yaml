@@ -11,7 +11,7 @@ description: |
   UNGEGN Romanization table for Greek: Phonetic transcription
 
 
-note: 
+note:
   - Also included in ISO 843:1997, Annex B, Column 5, and ELOT 743:1982, column 5.
   - Corrected obvious errors, which occur every time the table has reappeared: χ > x, x > ks, oï > oi.
   - The vowels are taken from the specification, but some are controversial: /ɑ ɛ/ but /o/.
@@ -23,37 +23,37 @@ note:
 tests:
 
   - source: |
-        Ένα πράμα μόνον με παρακίνησε κι εμένα να γράψω ότι τούτην την πατρίδα την έχομεν όλοι μαζί, 
-        
-        και σοφοί κι αμαθείς και πλούσιοι και φτωχοί και πολιτικοί και στρατιωτικοί και οι πλέον μικρότεροι άνθρωποι· 
-        
-        όσοι αγωνιστήκαμεν, αναλόγως ο καθείς, έχομεν να ζήσομεν εδώ. 
-        
-        Το λοιπόν δουλέψαμεν όλοι μαζί, να την φυλάμεν κι όλοι μαζί και να μην λέγει ούτε ο δυνατός «εγώ» ούτε ο αδύνατος. 
-        
-        Ξέρετε πότε να λέγει ο καθείς «εγώ»; Όταν αγωνιστεί μόνος του και φκιάσει ή χαλάσει, να λέγει «εγώ»· 
-        
-        όταν όμως αγωνίζονται πολλοί και φκιάνουν, τότε να λένε «εμείς». Είμαστε εις το «εμείς» κι όχι εις το «εγώ». 
-        
+        Ένα πράμα μόνον με παρακίνησε κι εμένα να γράψω ότι τούτην την πατρίδα την έχομεν όλοι μαζί,
+
+        και σοφοί κι αμαθείς και πλούσιοι και φτωχοί και πολιτικοί και στρατιωτικοί και οι πλέον μικρότεροι άνθρωποι·
+
+        όσοι αγωνιστήκαμεν, αναλόγως ο καθείς, έχομεν να ζήσομεν εδώ.
+
+        Το λοιπόν δουλέψαμεν όλοι μαζί, να την φυλάμεν κι όλοι μαζί και να μην λέγει ούτε ο δυνατός «εγώ» ούτε ο αδύνατος.
+
+        Ξέρετε πότε να λέγει ο καθείς «εγώ»; Όταν αγωνιστεί μόνος του και φκιάσει ή χαλάσει, να λέγει «εγώ»·
+
+        όταν όμως αγωνίζονται πολλοί και φκιάνουν, τότε να λένε «εμείς». Είμαστε εις το «εμείς» κι όχι εις το «εγώ».
+
         Και εις το εξής να μάθομεν γνώση, αν θέλομεν να φκιάσομεν χωριόν, να ζήσομεν όλοι μαζί.
 
         Γιάννης Μακρυγιάννης.
 
     expected: |
-        ɛnɑ prɑmɑ monon mɛ pɑrɑkinisɛ ki ɛmɛnɑ nɑ ɣrɑpso oti tutin tin pɑtriðɑ tin ɛxomɛn oli mɑzi, 
-        
-        kɛ sofi ki ɑmɑθis kɛ plusii kɛ ftoxi kɛ politiki kɛ strɑtiotiki kɛ i plɛon mikrotɛri ɑnθropi; 
-        
-        osi ɑɣonistikɑmɛn, ɑnɑloɣos o kɑθis, ɛxomɛn nɑ zisomɛn ɛðo. 
-        
-        to lipon ðulɛpsɑmɛn oli mɑzi, nɑ tin filɑmɛn ki oli mɑzi kɛ nɑ min lɛɣi utɛ o ðinɑtos «ɛɣo» utɛ o ɑðinɑtos. 
-        
-        ksɛrɛtɛ potɛ nɑ lɛɣi o kɑθis «ɛɣo»? otɑn ɑɣonisti monos tu kɛ fkiɑsi i xɑlɑsi, nɑ lɛɣi «ɛɣo»; 
-        
-        otɑn omos ɑɣonizondɛ poli kɛ fkiɑnun, totɛ nɑ lɛnɛ «ɛmis». imɑstɛ is to «ɛmis» ki oxi is to «ɛɣo». 
-        
+        ɛnɑ prɑmɑ monon mɛ pɑrɑkinisɛ ki ɛmɛnɑ nɑ ɣrɑpso oti tutin tin pɑtriðɑ tin ɛxomɛn oli mɑzi,
+
+        kɛ sofi ki ɑmɑθis kɛ plusii kɛ ftoxi kɛ politiki kɛ strɑtiotiki kɛ i plɛon mikrotɛri ɑnθropi;
+
+        osi ɑɣonistikɑmɛn, ɑnɑloɣos o kɑθis, ɛxomɛn nɑ zisomɛn ɛðo.
+
+        to lipon ðulɛpsɑmɛn oli mɑzi, nɑ tin filɑmɛn ki oli mɑzi kɛ nɑ min lɛɣi utɛ o ðinɑtos «ɛɣo» utɛ o ɑðinɑtos.
+
+        ksɛrɛtɛ potɛ nɑ lɛɣi o kɑθis «ɛɣo»? otɑn ɑɣonisti monos tu kɛ fkiɑsi i xɑlɑsi, nɑ lɛɣi «ɛɣo»;
+
+        otɑn omos ɑɣonizondɛ poli kɛ fkiɑnun, totɛ nɑ lɛnɛ «ɛmis». imɑstɛ is to «ɛmis» ki oxi is to «ɛɣo».
+
         kɛ is to ɛksis nɑ mɑθomɛn ɣnosi, ɑn θɛlomɛn nɑ fkiɑsomɛn xorion, nɑ zisomɛn oli mɑzi.
-       
+
         ɣiɑnis mɑkriɣiɑnis.
 
 
@@ -101,7 +101,7 @@ tests:
     expected: tɑiɣɛtos
   - source: σπρέυ
     expected: sprɛi
-    
+
   - source: Αθήνα
     expected: ɑθinɑ
   - source: Άγιον Όρος
@@ -748,33 +748,33 @@ map:
 
     "\u0387": ";"   # ·
     "\u00B7": ";"   # ·
- 
+
   postrules:
     - pattern: vv
-      result: "v"  
+      result: "v"
     - pattern: ðð
-      result: "ð"  
+      result: "ð"
     - pattern: zz
-      result: "z"  
+      result: "z"
     - pattern: θθ
-      result: "θ"  
+      result: "θ"
     - pattern: kk
-      result: "k"  
+      result: "k"
     - pattern: ll
-      result: "l"  
+      result: "l"
     - pattern: mm
-      result: "m"  
+      result: "m"
     - pattern: nn
-      result: "n"  
+      result: "n"
     - pattern: pp
-      result: "p"  
+      result: "p"
     - pattern: rr
-      result: "r"  
+      result: "r"
     - pattern: ss
-      result: "s"  
+      result: "s"
     - pattern: tt
-      result: "t"  
+      result: "t"
     - pattern: ff
-      result: "f"  
+      result: "f"
     - pattern: xx
-      result: "x"  
+      result: "x"

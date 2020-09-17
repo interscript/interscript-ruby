@@ -17,7 +17,7 @@ description: |
 
 notes:
   # Original notes
-  # - | 
+  # - |
   #   Инструкция по транслитерации фамилий и собственных имен граждан Республики Беларусь при включении
   #   их персональных данных в регистр населения устанавливает правила передачи с белорусской либо русской формы
   #   написания на латиницу при включении фамилий и собственных имен граждан Республики Беларусь в регистр населения.
@@ -37,8 +37,8 @@ notes:
   # - Сложные и составные фамилии и собственные имена, пишущиеся слитно, раздельно или через дефис,
   #   сохраняют слитное, раздельное или дефисное написание и в латинице.
   - | # 1
-    Instructions for transliterating the names and first names of citizens of the Republic of Belarus 
-    when including their personal data in the population register sets the rules for transferring 
+    Instructions for transliterating the names and first names of citizens of the Republic of Belarus
+    when including their personal data in the population register sets the rules for transferring
     from the Belarusian or Russian form of writing in Latin when including the names and first names
     of citizens of the Republic of Belarus in the population register.
   - | # 2
@@ -165,7 +165,7 @@ map:
     '\u0414' : 'D'  # Д
     '\u0415' : 'Ie' # Е or JE TODO add rule
     '\u0401' : 'Io' # Ё or JO TODO add rule
-    '\u0416' : 'Zh' # Ж 
+    '\u0416' : 'Zh' # Ж
     '\u0417' : 'Z'  # З
     '\u0406' : 'I'  # І
     '\u0419' : "J"  # Й

@@ -5,7 +5,7 @@ language: kor
 source_script: Hang
 destination_script: Latn
 name: McCune-Reischauer System
-url: 
+url:
 creation_date: 1939
 adoption_date:
 description:
@@ -34,4 +34,3 @@ map:
   word_separator: " "
   title_case: True
   inherit: [var-kor-Kore-Hang-2013, var-kor-Hang-Latn-mr-1939]
-

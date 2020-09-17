@@ -26,7 +26,7 @@ tests:
 
     expected: |
         Éna práma mónon me parakínise ki eména na grápso óti toútin tin patrídha tin ékhomen óloi mazí, kai sofoí ki amathís kai ploúsioi kai ftokhoí kai politikoí kai stratiotikoí kai oi pléon mikróteroi ánthropoi; ósoi agonistíkamen, analógos o kathís, ékhomen na zísomen edhó. To loipón dhoulépsamen óloi mazí, na tin filámen ki óloi mazí kai na min léyi oúte o dhinatós «egó» oúte o adhínatos. Xérete póte na léyi o kathís «egó»? Ótan agonistí mónos tou kai fkiási í khalási, na léyi «egó»; ótan ómos agonízondai polloí kai fkiánoun, tóte na léne «emís». Ímaste is to «emís» ki ókhi is to «egó». Kai is to exís na máthomen gnósi, an thélomen na fkiásomen khorión, na zísomen óloi mazí.
-       
+
         Yiánnis Makriyiánnis.
 
 
@@ -74,7 +74,7 @@ tests:
     expected: Taḯyetos
   - source: σπρέυ
     expected: spréi
-    
+
   - source: Αθήνα
     expected: Athína
   - source: Άγιον Όρος
@@ -526,7 +526,7 @@ map:
     - pattern: (?<=[Οο])\u03C5    # υ (after Ο)
       result: u
     - pattern: (?<=[Οο])\u03CD    # ύ (after Ο)
-      result: ú      
+      result: ú
     - pattern: \u03A5[Ιιί]        # ΥΙ
       result: I
     - pattern: \u03C5[Ιιί]        # υι
@@ -699,4 +699,3 @@ map:
 
     "\u0387": ";"   # ·
     "\u00B7": ";"   # ·
-

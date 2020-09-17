@@ -46,7 +46,7 @@ tests:
     expected: Cheboksary
   - source: Ёлкин
     expected: Ëlkin
-  - source: Озёрный 
+  - source: Озёрный
     expected: Ozërnyǐ
   - source: Жуков
     expected: Zhukov
@@ -219,4 +219,3 @@ map:
     "\u044D": "e\u0307"  # э
     "\u044E": "i\u0361u" # ю
     "\u044F": "i\u0361a" # я
-
