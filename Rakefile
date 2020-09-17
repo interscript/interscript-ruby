@@ -54,7 +54,7 @@ end
 
 desc "Correct file names in 'maps' directory to ensure to be uppercase for 3rd and 4rd"
 task :rename do
-  map_path = File.expand_path File.dirname(__FILE__) + "/maps/"
+  root_path = File.expand_path File.dirname(__FILE__)
   changed = []
   Dir['maps/*.yaml'].each do |yaml_file|
     org_name = File.basename(yaml_file, ".yaml")
@@ -63,7 +63,7 @@ task :rename do
     terms[3].capitalize!
     new_name = terms.join("-")
     if org_name != new_name
-      File.rename(yaml_file, map_path + new_name + ".yaml")
+      File.rename(yaml_file, root_path + '/maps/' + new_name + ".yaml")
       changed << new_name unless org_name == new_name
     end
   end
