@@ -5,7 +5,7 @@ language: ell
 source_script: Grek
 destination_script: Latn
 name: ELOT 743:1982
-url: 
+url:
 creation_date: 1982
 description: |
   ELOT 743:1982 transcription table for Greek.
@@ -20,7 +20,7 @@ tests:
 
     expected: |
         Éna práma mónon me parakínise ki eména na grápso óti toútin tin patrída tin échomen óloi mazí, kai sofoí ki amatheís kai ploúsioi kai ftochoí kai politikoí kai stratiotikoí kai oi pléon mikróteroi ánthropoi; ósoi agonistíkamen, analógos o katheís, échomen na zísomen edó. To loipón doulépsamen óloi mazí, na tin fylámen ki óloi mazí kai na min légei oúte o dynatós «egó» oúte o adýnatos. Xérete póte na légei o katheís «egó»? Ótan agonisteí mónos tou kai fkiásei í chalásei, na légei «egó»; ótan ómos agonízontai polloí kai fkiánoun, tóte na léne «emeís». Eímaste eis to «emeís» ki óchi eis to «egó». Kai eis to exís na máthomen gnósi, an thélomen na fkiásomen chorión, na zísomen óloi mazí.
-       
+
         Giánnis Makrygiánnis.
 
   - source: ΑΘΗΝΑ
@@ -67,7 +67,7 @@ tests:
     expected: Taÿ́getos
   - source: σπρέυ
     expected: spréy
-    
+
   - source: Αθήνα
     expected: Athína
   - source: Άγιον Όρος
@@ -563,7 +563,7 @@ map:
     - pattern: (?<=[Οο])\u03C5    # υ (after Ο)
       result: u
     - pattern: (?<=[Οο])\u03CD    # ύ (after Ο)
-      result: ú      
+      result: ú
     - pattern: (?<=[ΆάΈέΉήΌό])\u03A5    # Άυ, Έυ, Ήυ, Όυ
       result: Υ
     - pattern: (?<=[ΆάΈέΉήΌό])\u03C5    # Άυ, Έυ, Ήυ, Όυ
@@ -678,4 +678,3 @@ map:
 
     "\u0387": ";"   # ·
     "\u00B7": ";"   # ·
-

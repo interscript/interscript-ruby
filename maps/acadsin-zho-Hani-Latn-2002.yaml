@@ -5,7 +5,7 @@ language: zho
 source_script: Hani
 destination_script: Latn
 name: Chinese Tongyong Pinyin Academica Sinica 2002 System
-url: 
+url:
 description: Chinese Tongyong Pinyin Academica Sinica 2002 System
 
 tests:

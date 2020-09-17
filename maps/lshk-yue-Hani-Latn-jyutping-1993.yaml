@@ -4,7 +4,7 @@ id: jyutping
 language: yue
 source_script: Hani
 destination_script: Latn
-name: LSHK Jyutping 
+name: LSHK Jyutping
 url: https://lshk.org/jyutping
 creation_date: 1993-12
 description:
@@ -39,7 +39,7 @@ map:
   #  - pattern: \u044c(?=[ЕеЁёИиОоЭэ]) # ь (before Е, Ё, И, O, Э)
   #    result: y
 
-  # Although the map is called "characters", phrases are added before individual characters 
+  # Although the map is called "characters", phrases are added before individual characters
   # in order to improve transliteration accuracy
 
   characters:

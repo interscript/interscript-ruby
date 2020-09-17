@@ -5,9 +5,9 @@ language: kor
 source_script: Hang
 destination_script: Hang
 name: Hangul to Jamo decomposition
-url: 
-creation_date: 
-adoption_date: 
+url:
+creation_date:
+adoption_date:
 description:
 
 notes:

@@ -6,7 +6,7 @@ source_script: Kore
 destination_script: Hang
 name: Hanja Hangul Converter 0.0.7
 url: http://blog.daum.net/masoris20/69
-creation_date: 
+creation_date:
 adoption_date:
 description:
   This is a Hanja-Hangul map available in the public domain.

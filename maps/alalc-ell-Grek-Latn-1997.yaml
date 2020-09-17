@@ -15,7 +15,7 @@ note:
   - This table presupposes monotonic accentuation; rough breathings are accordingly not addressed.
   - The diphthong definition for upsilon is taken from the 2010 version
   - Generalised gramma digraph rule to capitals
-    
+
 tests:
 
   - source: |
@@ -25,7 +25,7 @@ tests:
 
     expected: |
         Ena prama monon me parakinēse ki emena na grapsō oti toutēn tēn patrida tēn echomen oloi mazi, kai sophoi ki amatheis kai plousioi kai phtōchoi kai politikoi kai stratiōtikoi kai oi pleon mikroteroi anthrōpoi; osoi agōnistēkamen, analogōs o katheis, echomen na zēsomen edō. To loipon doulepsamen oloi mazi, na tēn phylamen ki oloi mazi kai na mēn legei oute o dynatos «egō» oute o adynatos. Xerete pote na legei o katheis «egō»? Otan agōnistei monos tou kai phkiasei ē chalasei, na legei «egō»; otan omōs agōnizontai polloi kai phkianoun, tote na lene «emeis». Eimaste eis to «emeis» ki ochi eis to «egō». Kai eis to exēs na mathomen gnōsē, an thelomen na phkiasomen chōrion, na zēsomen oloi mazi.
-       
+
         Giannēs Makrygiannēs.
 
 
@@ -622,4 +622,3 @@ map:
 
     "\u0387": ";"   # ·
     "\u00B7": ";"   # ·
-

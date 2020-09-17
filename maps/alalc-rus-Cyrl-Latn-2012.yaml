@@ -13,7 +13,7 @@ description: |
   The latest version was published by the American Library Association and the Library of Congress in 2012.
 
 notes:
-  - The letters І, Ѣ, Ѳ and Ѵ were eliminated in the orthographic reform of 1918. For other obsolete letters appearing in Russian texts, consult the Church Slavic table. 
+  - The letters І, Ѣ, Ѳ and Ѵ were eliminated in the orthographic reform of 1918. For other obsolete letters appearing in Russian texts, consult the Church Slavic table.
 
 tests:
   - source: Азов
@@ -42,7 +42,7 @@ tests:
     expected: Cheboksary
   - source: Ёлкин
     expected: Ëlkin
-  - source: Озёрный 
+  - source: Озёрный
     expected: Ozërnyǐ
   - source: Жуков
     expected: Zhukov

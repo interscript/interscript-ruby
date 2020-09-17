@@ -22,11 +22,10 @@ tests:
 
     expected: |
         Éna práma mónon me parakíni̱se ki eména na grápso̱ óti toúti̱n ti̱n patrída ti̱n échomen óloi mazí, kai sofoí ki amatheís kai ploúsioi kai fto̱choí kai politikoí kai stratio̱tikoí kai oi pléon mikróteroi ánthro̱poi; ósoi ago̱nistí̱kamen, analógo̱s o katheís, échomen na zí̱somen edó̱. To loipón doulépsamen óloi mazí, na ti̱n fylámen ki óloi mazí kai na mi̱n légei oúte o dynatós «egó̱» oúte o adýnatos. Xérete póte na légei o katheís «egó̱»? Ótan ago̱nisteí mónos tou kai fkiásei í̱ chalásei, na légei «egó̱»; ótan ómo̱s ago̱nízontai polloí kai fkiánoun, tóte na léne «emeís». Eímaste eis to «emeís» ki óchi eis to «egó̱». Kai eis to exí̱s na máthomen gnó̱si̱, an thélomen na fkiásomen cho̱rión, na zí̱somen óloi mazí.
-       
+
         Giánni̱s Makrygiánni̱s.
 
 map:
   character_separator: ""
   word_separator: " "
   inherit: "elot-ell-Grek-Latn-743-1982-tl"
-

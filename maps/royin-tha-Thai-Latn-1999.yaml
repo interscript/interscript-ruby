@@ -7,7 +7,7 @@ destination_script: Latn
 name: Royal Thai General System of Transcription (1999)
 url: http://www.royin.go.th/wp-content/uploads/royin-ebook/276/FileUpload/758_6484.pdf
 creation_date: 1999
-adoption_date: 
+adoption_date:
 description:
 
 notes: |
@@ -48,7 +48,7 @@ tests:
 
 map:
   title-case: false
-  word_separator: " "  
+  word_separator: " "
   transcription: "sequitur.pythainlp_lexicon"
 
   rules:
@@ -68,7 +68,7 @@ map:
     'j': 'i'
     'w': 'o'
     'ɔ': 'o'
-    'ɤ': 'oe' 
+    'ɤ': 'oe'
     'ɛ': 'ae'
     'ɯ': 'ue'
     'ʔ' : ''

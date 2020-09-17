@@ -5,7 +5,7 @@ language: ell
 source_script: Grek
 destination_script: Latn
 name: ISO 843:1997
-url: 
+url:
 creation_date: 1997
 description: |
   ISO Transcription table for Greek
@@ -38,4 +38,3 @@ map:
     "\u03F9": "S"   # Ϲ
     "\u03F3": "j"
     "\u037F": "j"
-

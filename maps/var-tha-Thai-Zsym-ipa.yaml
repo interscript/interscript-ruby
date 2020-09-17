@@ -5,9 +5,9 @@ language: tha
 source_script: Thai
 destination_script: Zsym
 name: Phonemic Thai to IPA
-url: 
-creation_date: 
-adoption_date: 
+url:
+creation_date:
+adoption_date:
 description:
   This maps phonemic Thai to IPA.
 
@@ -39,13 +39,13 @@ tests:
 
 map:
   title-case: false
-  word_separator: " "  
+  word_separator: " "
 
   rules:
     # Cluster Onsets:   กขคดตทบปผพฟสห
-    # Cluster Onsets in groups: 
+    # Cluster Onsets in groups:
     # CO - High  ขผสห
-    # CO - Mid   กดตบป 
+    # CO - Mid   กดตบป
     # CO - Low   คทพฟ
     # All Onsets:       กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษสหฬอฮ
     # High Consonants:  ขฃฉฐถผฝศษสห
@@ -130,7 +130,7 @@ map:
     - pattern: "([\u0e30\u0e36\u0e38])_L"
       result: "\\1˦˥"
 
-    # Syllables with stop finals 
+    # Syllables with stop finals
     - pattern: "([ะคกขฃพฟภบปชฌฑฒทธจฎฏดตฐถศษส]ส?)_[HM]"
       result: "\\1˨˩"
     - pattern: "([^เ]–\u0e34[คฅฆกขฃพฟภบปชฌฑฒทธจฎฏดตฐถศษส]ส?)_L"
@@ -149,22 +149,22 @@ map:
       result: '˩˩˦'
 
     # Remove tone-marking unpronounced ห
-    - pattern: "ห?\u0e3a"  
+    - pattern: "ห?\u0e3a"
       result: ''
 
   postrules:
     # If a syllable ends with a short vowel, the vowel is sometimes
-    # followed by glottal constriction. On Wiktionary, this is 
+    # followed by glottal constriction. On Wiktionary, this is
     # sometimes transcribed as ʔ, but usage has been inconsistent.
     # This glottal stop is not phonemic and is not written in most
-    # existing transcription systems. Therefore all syllable-final 
-    # ʔ will be removed from Wiktionary data. 
+    # existing transcription systems. Therefore all syllable-final
+    # ʔ will be removed from Wiktionary data.
     #
     # - pattern: "([aieuoɯɔɛɤ])(?=[˩˨˧˦˥]*( |$))"
     #   result: "\\1ʔ"
 
     # Remove unprocessed short vowel marks
-    - pattern: "็" 
+    - pattern: "็"
       result: ""
 
     # Using . instead of - as syllable delimiter in IPA

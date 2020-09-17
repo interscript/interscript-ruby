@@ -5,11 +5,11 @@ language: tha
 source_script: Thai
 destination_script: Thai
 name: Phonemic Thai (Royal Thai General Dictionary)
-url: 
-creation_date: 
-adoption_date: 
+url:
+creation_date:
+adoption_date:
 description:
-  This map performs two tasks. 
+  This map performs two tasks.
 
   First the text is segmented using a dictionary.
   Then Thai texts will be sent to an external module to get converted into
@@ -46,7 +46,7 @@ tests:
 
 map:
   title-case: false
-  word_separator: " "  
+  word_separator: " "
   segmentation: "" # Not yet implemented
   transcription: "sequitur.wiktionary_phonemic"
 
