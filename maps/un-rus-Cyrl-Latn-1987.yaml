@@ -157,7 +157,7 @@ tests:
 
 
 map:
-  inherit: gost-rus-cyrl-latn-16876-71-1983
+  inherit: gost-rus-Cyrl-Latn-16876-71-1983
 
   characters:
     '\u042A' : '”'  # Ъ
