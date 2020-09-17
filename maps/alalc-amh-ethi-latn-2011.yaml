@@ -1,0 +1,138 @@
+---
+authority_id: alalc
+id: 2011
+language: amh
+source_script: ethi
+destination_script: Latn
+name: ALA-LC Romanization Table -- Amharic (2011)
+url: https://www.loc.gov/catdir/cpso/romanization/amharic.pdf
+creation_date: 2011
+description: ''
+notes: |
+  The Ethiopic script used for Amharic is also used for other languages, including Ge’ez, Argobba, Gurage, and Tigre. Ge’ez, which is chiefly a liturgical language, uses only 26 basic letter forms from this table.
+
+tests:
+  - source: የዜግነት ክብር በ ኢትዮጵያችን ጸንቶ
+    expected: yazégenate kebere ba ʼiteyop̣eyāčene ṣaneto
+  - source: ታየ ሕዝባዊነት ዳር እስከዳር በርቶ
+    expected: tāya ḥezebāwinate dāre ʼesekadāre bareto
+  - source: ለሰላም ለፍትህ ለሕዝቦች ነጻነት
+    expected: lasalāme lafetehe laḥezeboče naṣānate
+  - source: በእኩልነት በፍቅር ቆመናል ባንድነት
+    expected: baʼekulenate bafeqere qomanāle bānedenate
+  - source: መሠረተ ፅኑ ሰብዕናን ያልሻርን
+    expected: maśarata ṡenu sabeʻenāne yālešārene
+  - source: ሕዝቦች ነን ለሥራ በሥራ የኖርን
+    expected: ḥezeboče nane laśerā baśerā yanorene
+  - source: ድንቅ የባህል መድረክ ያኩሪ ቅርስ ባለቤት
+    expected: deneqe yabāhele maderake yākuri qerese bālabéte
+  - source: የተፈጥሮ ጸጋ የጀግና ሕዝብ እናት
+    expected: yatafaṭero ṣagā yaǧagenā ḥezebe ʼenāte
+  - source: እንጠብቅሻለን አለብን አደራ
+    expected: ʼeneṭabeqešālane ʼalabene ʼadarā
+  - source: ኢትዮጵያችን ኑሪ እኛም ባንቺ እንኩራ
+    expected: ʼiteyop̣eyāčene nuri ʼeñāme bāneči ʼenekurā
+  - source: ቋንቋ የድምጽ፣ የምልክት ወይም የምስል ቅንብር ሆኖ
+    expected: qwāneqwā yademeṣe፣ yamelekete wayeme yamesele qenebere hono
+  - source: ለማሰብ ወይም የታሰበን ሃሳብ ለሌላ ለማስተላለፍ የሚረዳ መሳሪያ ነው
+    expected: lamāsabe wayeme yatāsabane hāsābe lalélā lamāsetalālafe yamiradā masāriyā nawe
+  - source: በአጭሩ ቋንቋ የምልክቶች ስርዓትና እኒህን ምልክቶች ለማቀናበር
+    expected: baʼaċeru qwāneqwā yameleketoče sereʻātenā ʼenihene meleketoče lamāqanābare
+  - source: የሚያስፈልጉ ህጎች ጥንቅር ነው። ቋንቋወችን ለመፈረጅ እንዲሁም
+    expected: yamiyāsefalegu hegoče ṭeneqere nawe። qwāneqwāwačene lamafaraǧe ʼenedihume
+  - source: ለምክፈል የሚያስችሉ መስፈርቶችን ለማስቀመጥ ባለው ችግር
+    expected: lamekefale yamiyāsečelu masefaretočene lamāseqamaṭe bālawe čegere
+  - source: ምክንያት በአሁኑ ሰዓት በርግጠኝነት ስንት ቋንቋ በዓለም ላይ
+    expected: mekeneyāte baʼahunu saʻāte baregeṭañenate senete qwāneqwā baʻālame lāye
+  - source: እንዳለ ማወቅ አስቸጋሪ ነው
+    expected: ʼenedāla māwaqe ʼasečagāri nawe
+  - source: አሰላ
+    expected: ʼasalā
+  - source: አሶሳ
+    expected: ʼasosā
+  - source: አንኮበር
+    expected: ʼanekobare
+  - source: አክሱም
+    expected: ʼakesume
+  - source: አዋሳ
+    expected: ʼawāsā
+  - source: አዲስ ዘመን (ከተማ)
+    expected: ʼadise zamane (katamā)
+  - source: አዲግራት
+    expected: ʼadigerāte
+  - source: አዳማ
+    expected: ʼadāmā
+  - source: ደምበጫ
+    expected: damebaċā
+  - source: ደርባ
+    expected: darebā
+  - source: ደብረ ማርቆስ
+    expected: dabera māreqose
+  - source: ደብረ ብርሃን
+    expected: dabera berehāne
+  - source: ደብረ ታቦር (ከተማ)
+    expected: dabera tābore (katamā)
+  - source: ደብረ ዘይት
+    expected: dabera zayete
+  - source: ደገሃቡር
+    expected: dagahābure
+  - source: ወልቂጤ
+    expected: waleqiṭé
+  - source: ወልወል
+    expected: walewale
+  - source: ወልደያ
+    expected: waledayā
+  - source: ናይሎ ሳህራን
+    expected: nāyelo sāherāne
+  - source: አኙዋክኛ
+    expected: ʼañuwākeñā
+  - source: ኡዱክኛ
+    expected: ʼudukeñā
+  - source: ኦፓኛ
+    expected: ʼopāñā
+  - source: ጉምዝኛ
+    expected: gumezeñā
+  - source: አፋርኛ
+    expected: ʼafāreñā
+  - source: አላባኛ
+    expected: ʼalābāñā
+  - source: አርቦርኛ
+    expected: ʼareboreñā
+  - source: ባይሶኛ
+    expected: bāyesoñā
+  - source: ቡሳኛ
+    expected: busāñā
+  - source: ራስ ዓሊ (ትልቁ) ፬
+    expected: rāse ʻāli (telequ) 4
+  - source: ራስ ዓሊጋዝ ፭
+    expected: rāse ʻāligāze 5
+  - source: ራስ ዐሥራትና ፮
+    expected: rāse ʻaśerātenā 6
+  - source: ራስ ጉግሣ ፳፮
+    expected: rāse gugeśā 206
+  - source: ራስ ይማም ፪
+    expected: rāse yemāme 2
+  - source: ራስ ማርዬ ፫
+    expected: rāse māreyé 3
+  - source: ራስ ዶሪ ፫ ወር
+    expected: rāse dori 3 ware
+  - source: ራስ ዓሊ (ትንሹ) ፳
+    expected: rāse ʻāli (tenešu) 20
+  - source: ዓፄ ቴዎድሮስ ፲፭
+    expected: ʻāṡé téwoderose 105
+  - source: ዳግማዊ ዓጼ ተክለ ጊዮርጊስ ፫
+    expected: dāgemāwi ʻāṣé takela giyoregise 3
+  - source: ዓፄ ዮሐንስ ፲፰
+    expected: ʻāṡé yoḥanese 108
+  - source: ዳግማዊ ዓጼ ምኒልክ ፳፬
+    expected: dāgemāwi ʻāṣé menileke 204
+  - source: ልጅ ኢያሱ ፫
+    expected: leǧe ʼiyāsu 3
+  - source: ንግሥት ዘውዲቱ ፲፫
+    expected: negeśete zaweditu 103
+  - source: ቀዳማዊ ኃይለ ሥላሴ
+    expected: qadāmāwi hāyela śelāsé
+
+
+map:
+  inherit: alalc-amh-Ethi-Latn-1997
