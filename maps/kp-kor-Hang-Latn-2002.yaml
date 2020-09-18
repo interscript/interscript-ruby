@@ -134,6 +134,10 @@ tests:
   # Note4.6
   - source: "평양"
     expected: "Pyongyang"
+   
+  # Fix a problem with a trailing comma 
+  - source: "구현, 글꼴, 문자 배열, 다국어 컴퓨팅."
+    expected: "Kuhyŏn, Külkkol, Munja Paeyŏl, Tagugŏ Khŏmphyuthing."
 
 map:
   character_separator: ""
@@ -860,35 +864,35 @@ map:
       result: "wae" # HANGUL JUNGSEONG WAE
     - pattern: "ᅰ"
       result: "we" # HANGUL JUNGSEONG WE
-    - pattern: "ᆨ(?=[ A-Za-z0-9-])"
+    - pattern: "ᆨ(?!\\p{Hangul})"
       result: "k" # HANGUL JONGSEONG KIYEOK
-    - pattern: "ᆫ(?=[ A-Za-z0-9-])"
+    - pattern: "ᆫ(?!\\p{Hangul})"
       result: "n" # HANGUL JONGSEONG NIEUN
-    - pattern: "ᆮ(?=[ A-Za-z0-9-])"
+    - pattern: "ᆮ(?!\\p{Hangul})"
       result: "t" # HANGUL JONGSEONG TIEUT
-    - pattern: "ᆯ(?=[ A-Za-z0-9-])"
+    - pattern: "ᆯ(?!\\p{Hangul})"
       result: "l" # HANGUL JONGSEONG RIEUL
-    - pattern: "ᆷ(?=[ A-Za-z0-9-])"
+    - pattern: "ᆷ(?!\\p{Hangul})"
       result: "m" # HANGUL JONGSEONG MIEUM
-    - pattern: "ᆸ(?=[ A-Za-z0-9-])"
+    - pattern: "ᆸ(?!\\p{Hangul})"
       result: "p" # HANGUL JONGSEONG PIEUP
-    - pattern: "ᆺ(?=[ A-Za-z0-9-])"
+    - pattern: "ᆺ(?!\\p{Hangul})"
       result: "t" # HANGUL JONGSEONG SIOS
-    - pattern: "ᆼ(?=[ A-Za-z0-9-])"
+    - pattern: "ᆼ(?!\\p{Hangul})"
       result: "ng" # HANGUL JONGSEONG IEUNG
-    - pattern: "ᆽ(?=[ A-Za-z0-9-])"
+    - pattern: "ᆽ(?!\\p{Hangul})"
       result: "t" # HANGUL JONGSEONG CIEUC
-    - pattern: "ᆾ(?=[ A-Za-z0-9-])"
+    - pattern: "ᆾ(?!\\p{Hangul})"
       result: "t" # HANGUL JONGSEONG CHIEUCH
-    - pattern: "ᆿ(?=[ A-Za-z0-9-])"
+    - pattern: "ᆿ(?!\\p{Hangul})"
       result: "k" # HANGUL JONGSEONG KHIEUKH
-    - pattern: "ᇀ(?=[ A-Za-z0-9-])"
+    - pattern: "ᇀ(?!\\p{Hangul})"
       result: "t" # HANGUL JONGSEONG THIEUTH
-    - pattern: "ᇁ(?=[ A-Za-z0-9-])"
+    - pattern: "ᇁ(?!\\p{Hangul})"
       result: "p" # HANGUL JONGSEONG PHIEUPH
-    - pattern: "ᆰ(?=[ A-Za-z0-9-])"
+    - pattern: "ᆰ(?!\\p{Hangul})"
       result: "k" # HANGUL JONGSEONG RIEUL-KIYEOK
-    - pattern: "ᆲ(?=[ A-Za-z0-9-])"
+    - pattern: "ᆲ(?!\\p{Hangul})"
       result: "p" # HANGUL JONGSEONG RIEUL-PIEUP
 
     # Remove space added
