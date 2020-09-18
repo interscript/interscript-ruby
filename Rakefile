@@ -115,7 +115,7 @@ task :rename do
 end
 
 desc "All in one"
-task all: [:clean, :rename] do
+task all: [:clean] do
   Rake::Task["js"].execute
   Rake::Task["js_maps"].execute
 end
