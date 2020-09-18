@@ -1,0 +1,91 @@
+---
+authority_id: ungegn
+id: 2016
+language: hin
+source_script: Deva
+destination_script: Latn
+name: REPORT ON THE CURRENT STATUS OF UNITED NATIONS ROMANIZATION SYSTEMS FOR GEOGRAPHICAL NAMES -- Marathi Romanization, 1972
+url: https://www.eki.ee/wgrs/rom1_mr.pdf
+creation_date: 1972
+confirmation_date: 2016
+description: |
+  The United Nations recommended system was approved in 1972 (II/11) and amended in 1977
+  (III/12), based on a report prepared by D. N. Sharma. The tables and their corrections were
+  published in volume II of the conference reports
+
+  There is no evidence of the use of the system either in India or in international cartographic
+  products.
+
+  Marathi (Marāṭhī) uses the alphasyllabic script Devanāgarī.
+
+notes:
+  - |
+     Additional characters (absent in Hindi):
+     ळ ḷa
+     ऍ ă (abbreviated: कॅ kă)
+
+  - |
+    Ligatures may be formed with r as the first component: 'ऱ्य': 'rya' 'ऱ्ह': 'rha'
+  - |
+    Typical are ligatures ending in h: न्ह nh, म्ह mh, ल्ह lh, व्ह vh.
+  - |
+    The following independent characters are sometimes used: अि i, अी ī, अु u, अू ū, अे e, अै ai.
+
+tests:
+  - source: "परिपक्क"
+    expected: "paraipakka"
+  - source: "ठाणे - जिल्ह्यात बुधवारी एक हजार रुग्णांची वाढ, तर जणांच्या मृत्यूची नोंद"
+    expected: "ṭhaāṇae - jailhayaāta baudhavaāraī eka hajaāra raugṇaāṁchaī vaāḍha, tara jaṇaāṁchyaā maṛtyaūchaī naoṁda"
+  - source: "एकता कपूर पुन्हा अडकली वादात, वेबसीरिजमधल्या 'त्या' सीनमुळे जमावाची घरावर दगडफेक"
+    expected: "ekataā kapaūra paunhaā aḍakalaī vaādaāta, vaebasaīraijamadhalyaā 'tyaā' saīnamauḷae jamaāvaāchaī gharaāvara dagaḍaphaeka"
+  - source: "जाणून घ्या, बीएमसीच्या अधिकाऱ्यांनी कंगना राणौतच्या ऑफिसमधले नक्की काय- काय तोडलं"
+    expected: "jaāṇaūna ghyaā, baīemasaīchyaā adhaikaāryaāṁnaī kaṁganaā raāṇaautachyaā ôphaisamadhalae nakkaī kaāya- kaāya taoḍalaṁ"
+  - source: "कंगना मुंबईत दाखल होण्यापूर्वी 'मातोश्री'वरून फर्मान सुटले; प्रवक्त्यांना सक्त आदेश"
+    expected: "kaṁganaā mauṁbaīta daākhala haoṇyaāpaūrvaī 'maātaoshraī'varaūna pharmaāna sauṭalae; pravaktyaāṁnaā sakta ādaesha"
+  - source: "मराठा आरक्षणास तात्पुरती स्थगिती; सर्वोच्च न्यायालयाचा निर्णय"
+    expected: "maraāṭhaā ārakṣhaṇaāsa taātpaurataī sthagaitaī; sarvaochcha nyaāyaālayaāchaā nairṇaya"
+  - source: "भारताच्या तिन्ही लशींचा पहिला टप्पा यशस्वी, वाचा कधी येणार बाजारात"
+    expected: "bhaārataāchyaā tainhaī lashaīṁchaā pahailaā ṭappaā yashasvaī, vaāchaā kadhaī yaeṇaāra baājaāraāta"
+  - source: "रुग्णवाढीमुळे खाटांची चणचण"
+    expected: "raugṇavaāḍhaīmauḷae khaāṭaāṁchaī chaṇachaṇa"
+  - source: "पीएम स्वनिधी कर्ज योजनेला मुंबईतून अल्प प्रतिसाद"
+    expected: "paīema svanaidhaī karja yaojanaelaā mauṁbaītaūna alpa prataisaāda"
+  - source: "सांताक्रूझ-चेंबूर लिंक रोडवरील उन्नत मार्गाला स्थगिती"
+    expected: "saāṁtaākraūjha-chaeṁbaūra laiṁka raoḍavaraīla unnata maārgaālaā sthagaitaī"
+  - source: "संपादक अर्णब गोस्वामी यांच्याविरूद्ध खडक पोलिस ठाण्यात तक्रार"
+    expected: "saṁpaādaka arṇaba gaosvaāmaī yaāṁchyaāvairaūddha khaḍaka paolaisa ṭhaāṇyaāta takraāra"
+  - source: "करणाऱ्या मुलांना अनुक्रमे प्ले ग्रूप"
+    expected: "karaṇaāryaā maulaāṁnaā anaukramae plae graūpa"
+  - source: "राज्यातील शाळा दिवाळीपर्यंत बंद, मंत्र्यांच्या बैठकीत निर्णय, शिक्षकांची जबाबदारी वाढली"
+    expected: "raājyaātaīla shaāḷaā daivaāḷaīparyaṁta baṁda, maṁtryaāṁchyaā baaiṭhakaīta nairṇaya, shaikṣhakaāṁchaī jabaābadaāraī vaāḍhalaī"
+
+map:
+  inherit: "un-hin-deva-latn-2016"
+
+  rules:
+    # note[3]
+    - pattern: (?<=)\U+0939(?=\b)
+      result: "h"
+
+  characters:
+
+    # Note 1
+    'ळ': 'ḷa'
+    'ऍ': 'ă'
+
+    # Note 2
+    'ऱ': 'r' # used for making Ligatures  'ऱ्य': 'rya'  'ऱ्ह': 'rha'
+
+    # Note 4
+    'अि': 'i'
+    'अी': 'ī'
+    'अु': 'u'
+    'अू': 'ū'
+    'अे': 'e'
+    'अै': 'ai'
+
+    'ॲ': 'ê'
+    'ऑ': 'ô'
+
+
+
