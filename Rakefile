@@ -119,3 +119,5 @@ task all: [:clean] do
   Rake::Task["js"].execute
   Rake::Task["js_maps"].execute
 end
+
+task default: [:spec]
