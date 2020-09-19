@@ -53,7 +53,7 @@ notes:
 
     a. Initially, it indicates that the word begins with a vowel or
       diphthong; the alif itself is not romanized, but rather the short vowel
-      it “carr es” is romanized; e.g., ميړ أَسَلم ژرَندَه → Mī Aslam Zhrandah
+      it “carries” is romanized; e.g., ميړ أَسَلم ژرَندَه → Mī Aslam Zhrandah
     b. When it carries a maddah (آ) (see vowel table, row 6), it represents ā; e.g., آب بَند → Āb Band.
     c. Medially and finally it represents ā (see vowel table, row 5); e.g., ماڼۍ → Māṉêy
     d. Medially and finally in words of Arabic origin, alif may serve as the bearer of hamzah, e.g. رأس → ra’s.
@@ -222,8 +222,8 @@ tests:
   - source: ځَدْرَاڼ
     expected: dzadrāṉ
 
-  # - source: څوْآۍ
-  #   expected: tsowkêy
+  - source: څَوکۍ
+    expected: tsowkêy
 
   - source: حَضْرَتِ إِمَام
     expected: ḩaẕrat-e imām
@@ -237,7 +237,7 @@ tests:
   - source: ډَنْډ وَ پَتَان
     expected: ḏanḏ wa patān
 
-  # - source: گُذَرْگَاهٔ نُور
+  # - source: گُذَرْگَاهٔ نور
   #   expected: guz̄argāh-e nūr
 
   - source: كَنْدَهَار
@@ -261,14 +261,14 @@ tests:
   # - source: مَزَارِ شَريف
   #   expected: mazār-e sharīf
 
-  # - source: كښتَه كَلا
-  #   expected: ks͟hêtah kalā
+  - source: كښٙتَه كَلا
+    expected: ks͟hêtah kalā
 
   - source: قَيْصَار
     expected: qayşār
 
-  # - source: فَيض آبَاد
-  #   expected: Faīẕābād
+  - source: فَيض آبَاد
+    expected: faīẕābād
 
   - source: حَضْرَتِ سُلْطَان
     expected: ḩaẕrat-e sulţān
@@ -297,8 +297,8 @@ tests:
   - source: کَابُل
     expected: kābul
 
-  # - source: مَيمَنَه
-  #   expected: maīmanah
+  - source: مَيمَنَه
+    expected: maīmanah
 
   - source: خَان آبَاد
     expected: khānābād
@@ -318,11 +318,11 @@ tests:
   - source: جَلال آبَاد
     expected: jalālābād
 
-  # - source: پُلِ حِصَار هِرات
-  #   expected: Herāt, Pul-e Ḩişār
+  # - source: هِرات پُلِ حِصَار
+  #   expected: Herāt Pul-e Ḩişār
 
-  # - source: کَابُل مُرْغَاب
-  #   expected: Murghāb, Kābul
+  - source: مُرْغَاب کَابُل
+    expected: murghāb kābul
 
   - source: گٙردُون
     expected: gêrdōn
@@ -330,8 +330,8 @@ tests:
   - source: آب بَنْد
     expected: āb band
 
-  # - source: بُوْلْدَک سْپِين
-  #   expected: Spīn Bōldak
+  - source: سْپِين بُوْلْدَک
+    expected: spīn bōldak
 
   # - source: بَالا بُلُوک
   #   expected: Bālā Bulūk
@@ -339,22 +339,22 @@ tests:
   - source: جَوزجَان
     expected: jowzjān
 
-  # - source: ، سْپِين غَزْنِى
-  #   expected: Ghaznī, Spīn
+  # - source:  غَزْنِى سْپِين
+  #   expected: ghaznī spīn
 
-  # - source: ، ريگ مَيوَنْد
+  # - source: ريگ مَيوَنْد
   #   expected: Maywand, Rēg
 
   - source: گَرْدېز
     expected: gardēz
 
-  # - source: مَیدان شَهْر
-  #   expected: maīdān shahr
+  - source: مَیدان شَهْر
+    expected: maīdān shahr
 
   # - source: ډَنْډِ سُفْلىٰ
   #   expected: ḏanḏ-e suflá
 
-  # - source: څَوْآۍ
+  # - source: څَوْکۍ
   #   expected: Tsowkêy
 
   # - source: هَوائِى ډَگَر
@@ -454,9 +454,10 @@ map:
     # # in a medial or final position is written . . .
     # '\u0622': 'ā'
 
+# not yet
     # '\u0648': 'ō'
     # '\u0648': 'ū'
-    # '\u0648': '\u006F\u0077'
+    # '\u0648': 'ow'
     # '\u06CC': 'ī'
 
     # # Or 'ē'. The character ی should be romanized ay or ē according to
@@ -494,17 +495,32 @@ map:
     # special rules
 
     '\s(?=\u0622\u0628\u064E\u0627\u062F)': '' # space followed by abad is removed
+    '\ufdf2': 'Allāh' # See note 5
 
     # pointing
     '\u064e' : 'a' # َ fatha
     '\u064e(?=\u0629)' : '' # َ fatha followed by ta' marboota
     '\u064e(?=a[h|t])' : '' # َ fatha followed by ta' marboota, handling different order of conversion
-    '\u0650' : 'i' # ِ kasra
-    '\u0650\b' : '-e' # ِ kasra
-    '\u064f' : 'u' # ُ damma
-    '\u0652' : ''  # ْ sokoon, see note A below
-    '\u0659': 'ê'
 
+    # Both e and i are available to romanize this short vowel,
+    # depending on local usage and/or root language. In cases where the sound
+    # is uncertain, i is the default romanization in BGN/PCGN standardization
+    # procedures.
+    '\u0650':
+      - 'i'
+      - 'e'
+    '\u0650\b' : '-e' # ِ kasra
+
+    # Both o and u are available to romanize this short vowel,
+    # depending on local usage and/or root language. In cases where the sound
+    # is uncertain, u is the default romanization in BGN/PCGN standardization
+    # procedures.
+    '\u064f':  # ُ damma
+      - 'u'
+      - 'o'
+
+    '\u0652' : ''  # ْ sokoon
+    '\u0659': 'ê'
 
     # special pointed letters
     '\u0639\u064e' : '‘a'  # عَ
@@ -520,8 +536,18 @@ map:
     '\u064e\u0627' : 'ā'  # ـَا fatha followed by ا
     '\u064e\u0649' : 'ay'  # ـَى fatha followed by ى which is ا not ي
     '\u064e\u0648\u0652' : 'aw'  # ـَوْ
-    '\u064e\u0648' : 'ow'  # ـَوْ
+    '\u064e\u0648' : 'ow'  # ـَو
     '\u064e\u064a\u0652' : 'ay'  # ـَيْ
+    '\u064e\u064a' : 'aī'  # ـَي
+    '\u064e\u06cc' : 'aī'  # ـَي
+    '\u0674': '-e' # ٴ
+    '\u0654': '-e' #  ٔ
+      # - '-ye'
+
+    # An alif with mad ( آ ) is written only in the initial position by
+    # BGN/PCGN standardization procedures, in keeping with Persian language
+    # family standards of use of the Arabic alphabet. The same letter written
+    # in a medial or final position is written . . .
     '\u0622' : 'ā'  # آ
 
     # (A) Marks absence of the vowel.
@@ -531,7 +557,7 @@ map:
     '\b\u0627\u0644\u062a' : 'at t'  # الت
     '\b\u0627\u0644\u062b' : 'ath th'  # الث
     '\b\u0627\u0644\u062f' : 'ad d' # الد
-    '\b\u0627\u0644\u0630' : 'adh dh'  # الذ
+    '\b\u0627\u0644\u0630' : 'az̄ z̄'  # الذ
     '\b\u0627\u0644\u0631' : 'ar r' # الر
     '\b\u0627\u0644\u0632' : 'az z'  # الز
     '\b\u0627\u0644\u0633' : 'as s' # الس
@@ -568,7 +594,7 @@ map:
     '\u062d\u0651' : 'ẖẖ' # ح
     '\u062e\u0651' : 'khkh'  # خ
     '\u062f\u0651' : 'dd'  # د
-    '\u0630\u0651' : 'dhdh'  # ذ
+    '\u0630\u0651' : 'z̄z̄'  # ذ
     '\u0631\u0651' : 'rr'  # ر
     '\u0632\u0651' : 'zz'  # ز
     '\u0633\u0651' : 'ss'  # س
@@ -588,12 +614,9 @@ map:
     '\u0648\u0651' : 'ww'  # و
     '\u064a\u0651' : 'yy'  # ي
 
-    '\u0626' : "'" # ئ
 
-
-    '\u0621' : # ء
-       - '’'
-       - '' # see note A
+    '\u0621': '’' # ء
+    '\u0626': '’' # ئ
 
     '\u0623' : ''  # أ
     '\u0625': ''    # إ
@@ -617,7 +640,7 @@ map:
 
     '\u062c' : 'j'  # ج
 
-    '\u0686': 'ch'
+    '\u0686': 'ch'  # ‫چ‬
 
     # # The variant form ج is seen infrequently and does not have a
     # # single Unicode encoding.
@@ -633,7 +656,7 @@ map:
 
     '\u0689': 'ḏ' # ‫ډ‬
 
-    '\u0630' : 'dh'  # ذ
+    '\u0630' : 'z̄'  # ذ
 
     '\u0631' : 'r'  # ر
 
@@ -647,7 +670,7 @@ map:
 
     '\u0633' : 's'  # س
 
-    '\u069A': 's͟h'
+    '\u069A': 's͟h'  # ښ
 
     '\u0634' : 'sh'  # ش
 
@@ -686,6 +709,8 @@ map:
     '\u0648' : 'w'  # و
 
     '\u064a' : 'y'  # ي
+
+    '\u0649': 'y'
 
     '\u06D0': 'ē'   # ې
 
