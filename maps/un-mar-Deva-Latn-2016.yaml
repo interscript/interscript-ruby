@@ -60,7 +60,7 @@ tests:
     expected: "raājyaātaīla shaāḷaā daivaāḷaīparyaṁta baṁda, maṁtryaāṁchyaā baaiṭhakaīta nairṇaya, shaikṣhakaāṁchaī jabaābadaāraī vaāḍhalaī"
 
 map:
-  inherit: "un-hin-deva-latn-2016"
+  inherit: "un-hin-Deva-Latn-2016"
 
   rules:
     # note[3]
