@@ -5,7 +5,7 @@ language: asm
 source_script: Deva
 destination_script: Latn
 name: Assamese Romanization, 1997
-url: https://www.loc.gov/catdir/cpso/romanization/assamese.pdf
+url: http://catdir.loc.gov/catdir/cpso/romanization/assamese.pdf
 creation_date: 1997
 description: |
   ALA-LC Romanization table for Assamese
@@ -47,7 +47,7 @@ tests:
   - source: "কমুম্বাইৰ মেয়ৰৰ দেহত কোভিড পজিটিভ"
     expected: "kamaumabaāira maeẏarara daehata kaobhaiḍa pajaiṭaibha"
   - source: "টুইটাৰযোগে খোদ সদৰী কৰে এই কথা"
-    expected: "ṭauiṭaāraযogae khaoda sadaraī karae ei kathaā"
+    expected: "ṭauiṭaāraẏaogae khaoda sadaraī karae ei kathaā"
   - source: "লখিমপুৰ জিলাৰ নাৰায়ণপুৰৰ বৰপথাৰত আজি প্ৰশান্তি ধাম নামেৰে এখন বৃদ্ধাশ্ৰমৰ শুভাৰম্ভ কৰা হয়"
     expected: "lakhaimapaura jailaāra naāraāẏaṇapaurara barapathaārata ājai paraśaānatai dhaāma naāmaerae ekhana baṛdadhaāśaramara śaubhaāramabha karaā haẏa"
 
@@ -119,6 +119,7 @@ map:
 
     #Semivowels
     'য়': 'ya'
+    'য': 'ẏa'
     'য়': 'ẏa'
     'ৰ': 'ra'
     'ল': 'la'
@@ -156,4 +157,5 @@ map:
     '\u09c8': 'ai'
     '\u09cb': 'o'
     '\u09cc': 'au'
+    '।': '.'
     '\u09CD': '' # Used for joining

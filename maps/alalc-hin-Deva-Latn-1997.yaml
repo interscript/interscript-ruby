@@ -1,12 +1,12 @@
 ---
 authority_id: alalc
-id: 2020
+id: 1997
 language: hin
 source_script: Deva
 destination_script: Latn
-name: Hindi Romanization, 2020
-url: https://www.loc.gov/catdir/cpso/romanization/hindi.pdf
-creation_date: 2020
+name: Hindi Romanization, 1997
+url: http://catdir.loc.gov/catdir/cpso/romanization/hindi.pdf
+creation_date: 1997
 description: |
   ALA-LC Romanization table for Hindi
 
@@ -49,12 +49,33 @@ tests:
     expected: "maān̐’’’!"
   - source: "माँ"
     expected: "maām̐"
-
-
+  - source: "गंभीर मरीजों के मामले में भारत दूसरे नंबर पर"
+    expected: "gaṃbhaīra maraījaoṃ kae maāmalae maeṃ bhaārata daūsarae naṃbara para"
+  - source: "कोरोना अपडेट्स"
+    expected: "kaoraonaā apaḍaeṭasa"
+  - source: "सीडीसी चीफ का बयान अहम"
+    expected: "saīḍaīsaī caīpha kaā bayaāna ahama"
+  - source: "गूगल प्ले स्टोर पर पेटीएम की वापसी"
+    expected: "gaūgala palae saṭaora para paeṭaīema kaī vaāpasaī"
+  - source: "भारत में गैंबलिंग की इजाजत नहीं"
+    expected: "bhaārata maeṃ gaaiṃbalaiṅga kaī ijaājata nahaīṃ"
+  - source: "कोरोना वैक्सीन मुद्दे पर घिरे राष्ट्रपति; जो बाइडेन बोले- मुझे और देश को वैज्ञानिकों पर भरोसा है, डोनाल्ड ट्रम्प पर नहीं"
+    expected: "kaoraonaā vaaikasaīna maudadae para ghairae raāshaṭarapatai; jao baāiḍaena baolae- maujhae ăura daeśa kao vaaijañaānaikaoṃ para bharaosaā haai, ḍaonaālaḍa ṭaramapa para nahaīṃ"
+  - source: "गूगल की कार्रवाई पर पेटीएम ने कहा था कि ऐप को अस्थायी तौर पर प्ले-स्टोर से हटाया गया है, आपके पैसे सुरक्षित हैं"
+    expected: "gaūgala kaī kaāraravaāī para paeṭaīema nae kahaā thaā kai aipa kao asathaāyaī taăura para palae-saṭaora sae haṭaāyaā gayaā haai, āpakae paaisae saurakashaita haaiṃ"
 
 map:
 
   rules:
+    # note[3]
+    - pattern: \u0902(?=[कक़खख़गग़घङ])
+      result: ṅ
+    - pattern: \u0902(?=[चछजज़झञ])
+      result: ñ
+    - pattern: \u0902(?=[टट़ठडड़ढढ़ण])
+      result: ṇ
+    - pattern: \u0902(?=[तथदधन])
+      result: n
     # note[4]
     - pattern: (?<=)\u0901(?=\b)
       result: "m̐"
@@ -71,11 +92,11 @@ map:
     'ऊ': 'ū'
     'ऋ': 'ṛ'
     'ॠ': 'ṝ'
-    'ऌ': 'ḹ'
+    'ऌ': 'ḷ'
     'ॳ': 'ĕ'
     'ए': 'e'
     'ॲ': 'ê'
-    'अै': 'ai'
+    'अै': 'ăi'
     'ऐ': 'ai'
     'ऒ': 'ŏ'
     'ओ': 'o'
@@ -85,8 +106,11 @@ map:
     # II. Consonants (see Note 2)
     # Gutturals
     'क': 'ka'
+    'क़': 'qa'
     'ख': 'kha'
+    'ख़': 'kha'
     'ग': 'ga'
+    'ग़': 'gha'
     'घ': 'gha'
     'ङ': 'ṅa'
 
@@ -94,11 +118,13 @@ map:
     'च': 'ca'
     'छ': 'cha'
     'ज': 'ja'
+    'ज़': 'ja'
     'झ': 'jha'
     'ञ': 'ña'
 
     # Cerebrals
     'ट': 'ṭa'
+    'ट़': 't̤a'
     'ठ': 'ṭha'
     'ड': 'ḍa'
     'ड़': 'ṛa'
@@ -116,6 +142,7 @@ map:
     # Labials
     'प': 'pa'
     'फ': 'pha'
+    'फ़': 'pha'
     'ब': 'ba'
     'भ': 'bha'
     'म': 'ma'
@@ -124,15 +151,17 @@ map:
     'य': 'ya'
     'र': 'ra'
     'ल': 'la'
-    'व': 'ba'
+    'व': 'va'
 
     # Sibilants
     'श': 'śa'
     'ष': 'sha'
     'स': 'sa'
+    'स़': 's̤a'
 
     # Aspirate
     'ह': 'ha'
+    'ह़': 'ha'
 
     # Anusvāra
     'ं': 'ṃ'
@@ -148,12 +177,16 @@ map:
 
     # Medials # Needed for connecting constants
     'ा': "ā"
+    'ॉ': "ô"
     'ि': "i"
     'ी': "ī"
     'ु': "u"
     'ू': "ū"
-    'ृ': "ṛi"
-    'ॄ': "rī"
+    'ृ': "ṛ"
+    'ॄ': "ṝ"
     'े': "e"
-    'ॊ': "o"
-    'ौ': "au"
+    'ॊ': "ŏ"
+    'ौ': "ău"
+    'ै': "ai"
+    'ो': "o"
+    '्': ""

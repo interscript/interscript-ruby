@@ -1,0 +1,40 @@
+---
+authority_id: alalc
+id: 2012
+language: asm
+source_script: Deva
+destination_script: Latn
+name: Assamese Romanization, 2012
+url: https://www.loc.gov/catdir/cpso/romanization/assamese.pdf
+creation_date: 1997
+description: |
+  ALA-LC Romanization table for Assamese
+
+notes:
+
+  - Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for
+    vowels following a consonant can be found in grammars; no distinction between the two is
+    made in transliteration.
+
+  - |
+    The vowel a is implicit after all consonants and consonant clusters and is supplied in
+    transliteration, with the following exceptions:
+
+    a) when another vowel is indicated by its appropriate sign; and
+    b) when the absence of any vowel is indicated by the subscript sign ( ◌् ) called halanta or
+       birāma.
+
+  - Candrabindu before guttural, palatal, cerebral, and dental occlusives is transliterated n̐. Before
+    labials, sibilants, semivowels, aspirates, vowels, and in final position it is transliterated m̐.
+
+  - When doubled, avagraha is transliterated by two apostrophes ( ’’ ).
+
+tests:
+  - source: "ৰাজ্যিক স্বাস্থ্য মন্ত্ৰী পীয়ুষ হাজৰিকাৰ বিৰুদ্ধে দাখিল কৰা হৈছে এজাহাৰ।"
+    expected: "raājaẏaika sabaāsathaẏa manataraī paīyausha haājaraikaāra bairaudadhae daākhaila karaā haaichae ejaāhaāra."
+  - source: "কোৰোনা মহামাৰীৰ এই সময়ত সভাখনত হাজাৰ হাজাৰ লোকে মাস্ক পৰিধান নকৰাৰ লগতে সামাজিক দূৰত্ব নমনাৰ অভিযোগ উত্থাপন কৰা হৈছে"
+    expected: "kaoraonaā mahaāmaāraīra ei samayata sabhaākhanata haājaāra haājaāra laokae maāsaka paraidhaāna nakaraāra lagatae saāmaājaika daūrataba namanaāra abhaiẏaoga utathaāpana karaā haaichae"
+
+map:
+
+  inherit: "alalc-asm-Deva-Latn-1997"
