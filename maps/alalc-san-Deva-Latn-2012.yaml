@@ -1,0 +1,172 @@
+---
+authority_id: alalc
+id: 2012
+language: san
+source_script: Deva
+destination_script: Latn
+name: Sanskrit Romanization, 2012
+url: https://www.loc.gov/catdir/cpso/romanization/sanskrit.pdf
+creation_date: 2012
+description: |
+  ALA-LC Romanization table for Sanskrit
+
+notes:
+
+  - Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for
+    vowels following a consonant can be found in grammars; no distinction between the two is
+    made in transliteration.
+
+  - |
+    The vowel a is implicit after all consonants and consonant clusters and is supplied in
+    transliteration, with the following exceptions:
+
+    a) when another vowel is indicated by its appropriate sign; and
+    b) when the absence of any vowel is indicated by the subscript sign ( ् ) called halanta or
+       virāma.
+
+  - |
+    Exception: Anusvāra is transliterated by:
+
+    a) ṅ before gutturals,
+    b) ñ before palatals,
+    c) ṇ before cerebrals,
+    d) n before dentals, and
+    e) m before labials.
+    In other circumstances it is transliterated by a tilde (~) over the vowel.
+
+  - When doubled, avagraha is transliterated by two apostrophes ( ’’ ).
+
+tests:
+  - source: "पूर्णमदः पूर्णमिदं पूर्णात् पूर्ण्मुदच्यते"
+    expected: "paūraṇamadaḥ paūraṇamaidaṃ paūraṇaāta paūraṇamaudacayatae"
+  - source: "पूर्णस्य पूर्णमादाय पूर्णमेवावशिष्यते"
+    expected: "paūraṇasaya paūraṇamaādaāya paūraṇamaevaāvaśaiṣayatae"
+  - source: "यथा चतुर्भिः कनकं परीक्ष्यते निर्घषणच्छेदन तापताडनैः"
+    expected: "yathaā cataurabhaiḥ kanakaṃ paraīkaṣayatae nairaghaṣaṇacachaedana taāpataāḍanaaiḥ"
+  - source: "तथा चतुर्भिः पुरुषः परीक्ष्यते त्यागेन शीलेन गुणेन कर्मणा"
+    expected: "tathaā cataurabhaiḥ paurauṣaḥ paraīkaṣayatae tayaāgaena śaīlaena gauṇaena karamaṇaā"
+  - source: "यो न हृष्यति न द्वेष्टि न शोचति न काङ्‍क्षति"
+    expected: "yao na haṛṣayatai na davaeṣaṭai na śaocatai na kaāṅakaṣatai"
+  - source: "शुभाशुभपरित्यागी भक्तिमान्यः स मे प्रियः"
+    expected: "śaubhaāśaubhaparaitayaāgaī bhakataimaānayaḥ sa mae paraiyaḥ"
+  - source: "सत्य -सत्यमेवेश्वरो लोके सत्ये धर्मः सदाश्रितः"
+    expected: "sataya -satayamaevaeśavarao laokae satayae dharamaḥ sadaāśaraitaḥ"
+  - source: "सत्यमूलनि सर्वाणि सत्यान्नास्ति परं पदम्"
+    expected: "satayamaūlanai saravaāṇai satayaānanaāsatai paraṃ padama"
+  - source: "पिता माताग्निरात्मा च गुरुश्च भरतर्षभ"
+    expected: "paitaā maātaāganairaātamaā ca gaurauśaca bharataraṣabha"
+
+map:
+
+  rules:
+    # note[3]
+    - pattern: \u0902(?=[कखगघङ])
+      result: ṅ
+    - pattern: \u0902(?=[चछजझञ])
+      result: ñ
+    - pattern: \u0902(?=[टठडढण])
+      result: ṇ
+    - pattern: \u0902(?=[तथदधन])
+      result: n
+
+  characters:
+
+    # I. Vowels and Diphthongs (see Note 1)
+
+    'अ': 'a'
+    'आ': 'ā'
+    'इ': 'i'
+    'ई': 'ī'
+    'उ': 'u'
+    'ऊ': 'ū'
+    'ऋ': 'ṛ'
+    'ॠ': 'ṝ'
+    'ऌ': 'ḷ'
+    'ए': 'e'
+    'ऐ': 'ai'
+    'ओ': 'o'
+    'औ': 'au'
+
+    # II. Consonants (see Note 2)
+    # Gutturals
+    'क': 'ka'
+    'ख': 'kha'
+    'ग': 'ga'
+    'घ': 'gha'
+    'ङ': 'ṅa'
+
+    # Palatals
+    'च': 'ca'
+    'छ': 'cha'
+    'ज': 'ja'
+    'झ': 'jha'
+    'ञ': 'ña'
+
+    # Cerebrals
+    'ट': 'ṭa'
+    'ठ': 'ṭha'
+    'ड': 'ḍa'
+    'ढ': 'ḍha'
+    'ण': 'ṇa'
+
+    # Dentals
+    'त': 'ta'
+    'थ': 'tha'
+    'द': 'da'
+    'ध': 'dha'
+    'न': 'na'
+
+    # Labials
+    'प': 'pa'
+    'फ': 'pha'
+    'ब': 'ba'
+    'भ': 'bha'
+    'म': 'ma'
+
+    # Semivowels
+    'य': 'ya'
+    'र': 'ra'
+    'ल': 'la'
+    'ळ': 'ḻa'
+    'व': 'va'
+
+    # Sibilants
+    'श': 'śa'
+    'ष': 'ṣa'
+    'स': 'sa'
+
+    # Aspirate
+    'ह': 'ha'
+
+    # Anusvāra
+    'ं': 'ṃ'
+
+    # Bisarga
+    'ः': 'ḥ'
+
+    # Anunāsika
+    'ँ': 'm̐'
+
+    # Abagraha
+    'ऽ': '’' # (apostrophe)
+
+    #Jihvāmūlīya
+    '\u0CF1': 'ẖ'
+
+    #Upadhmānīya
+    '\u0CF2': 'ḫ'
+
+    # Medials # Needed for connecting constants
+    'ा': "ā"
+    'ि': "i"
+    'ी': "ī"
+    'ु': "u"
+    'ू': "ū"
+    'ृ': "ṛ"
+    'ॄ': "ṝ"
+    'े': "e"
+    'ै': "ai"
+    'ो': "o"
+    'ौ': "au"
+    '्': ""
+    '‍': ''# Used for joining
