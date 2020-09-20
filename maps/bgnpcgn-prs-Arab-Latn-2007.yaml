@@ -375,6 +375,9 @@ tests:
   # - source: ميا
   #   expected: Myā
 
+  - source: جَبَل السَرَاج
+    expected: jabal as sarāj
+
 map:
   characters:
 
@@ -572,6 +575,22 @@ map:
     '\u062B': 's̄'   # ث
     '\u062c' : 'j'  # ج
     '\u0686': 'ch'  # ‫چ‬
+
+    # Sun letters
+    '\b\u0627\u0644\u062a' : 'at t'  # الت
+    '\b\u0627\u0644\u062b' : 'as̄ s̄'  # الث
+    '\b\u0627\u0644\u062f' : 'ad d' # الد
+    '\b\u0627\u0644\u0630' : 'az̄ z̄'  # الذ
+    '\b\u0627\u0644\u0631' : 'ar r' # الر
+    '\b\u0627\u0644\u0632' : 'az z'  # الز
+    '\b\u0627\u0644\u0633' : 'as s' # الس
+    '\b\u0627\u0644\u0634' : 'ash sh' # الش
+    '\b\u0627\u0644\u0635' : 'aş ş'  # الص
+    '\b\u0627\u0644\u0636' : 'aẕ ẕ'  # الض
+    '\b\u0627\u0644\u0637' : 'aţ ţ'  # الط
+    '\b\u0627\u0644\u0638' : 'az̧ z̧' # الظ
+    '\b\u0627\u0644\u0644' : 'al l'  # الل
+    '\b\u0627\u0644\u0646' : 'an n'  # الن
 
     # # The variant form ج is seen infrequently and does not have a
     # # single Unicode encoding.
