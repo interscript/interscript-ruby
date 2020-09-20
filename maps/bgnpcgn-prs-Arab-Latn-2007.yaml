@@ -351,8 +351,8 @@ tests:
   - source: مَیدان شَهْر
     expected: maīdān shahr
 
-  # - source: ډَنْډِ سُفْلىٰ
-  #   expected: ḏanḏ-e suflá
+  - source: ډَنْډِ سُفْلىٰ
+    expected: ḏanḏ-e suflá
 
   # - source: څَوْکۍ
   #   expected: Tsowkêy
@@ -378,54 +378,8 @@ tests:
 map:
   characters:
 
-    # These characters are not available with a single Unicode
-    # codepoint, so cannot be displayed here. When typing, the independent
-    # character’s codepoint will automatically display the the appropriate
     # word-medial or word-final form where so appearing in a word.
     # '\u0627': '-'
-
-    # '\u0628': 'b'
-    # '\u067E': 'p'
-    # '\u062A': 't'
-    # '\u062B': '\u0073\u0304'
-    # '\u062C': 'j'
-    # '\u0686': 'ch'
-
-    # # The variant form ج is seen infrequently and does not have a
-    # # single Unicode encoding.
-    # '\u0681': 'dz' # Note 2
-    # '\u0685': 'ts' # Note 2
-
-    # '\u062D': 'ḩ'
-    # '\u062E': 'kh'
-    # '\u062F': 'd'
-    # '\u0689': 'ḏ'
-    # '\u0630': '\u007A\u0304'
-    # '\u0631': 'r'
-    # '\u0693': '\u1E5F'
-    # '\u0632': 'z'
-    # '\u0698': 'zh'
-    # '\u0696': 'z͟h'
-    # '\u0633': 's'
-    # '\u0634': 'sh'
-    # '\u069A': '\u0073\u0332\u0068\u0332'
-    # '\u0635': 'ş'
-    # '\u0636': 'ẕ'
-    # '\u0637': 'ţ'
-    # '\u0638': 'z̧'
-    # '\u0639': '‘'
-    # '\u063A': 'gh'
-    # '\u0641': 'f'
-    # '\u0642': 'q'
-    # '\u06A9': 'k'
-    # '\u06AF': 'g'
-    # '\u0644': 'l'
-    # '\u0645': 'm'
-    # '\u0646': 'n'
-    # '\u06BC': 'ṉ'
-    # '\u0648': 'w'
-    # '\u0647': 'h'
-    # # '\u0649': 'y'
 
     # # Vowel, Diphthong and Diacritical Characters
 
@@ -454,7 +408,7 @@ map:
     # # in a medial or final position is written . . .
     # '\u0622': 'ā'
 
-# not yet
+    # pending issue #442
     # '\u0648': 'ō'
     # '\u0648': 'ū'
     # '\u0648': 'ow'
@@ -489,7 +443,6 @@ map:
     # '\u0626': '’'
     # '\u06C0': ''
     # '\u0651': ''
-    # '\uFDF2': 'Allāh' # See note 5
 
 
     # special rules
@@ -542,6 +495,7 @@ map:
     '\u0650\u06cc\u0651\u064e' : 'īy' # ـِيَّ
     '\u064e\u064a' : 'aī'  # ـَي
     '\u064e\u06cc' : 'aī'  # ـَي
+    '\u0649\u0670': 'á' # ىٰ
     '\u0674': '-e' # ٴ
     '\u0654': '-e' #  ٔ
       # - '-ye'
