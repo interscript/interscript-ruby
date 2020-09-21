@@ -39,9 +39,20 @@ jobs:
 
       - uses: actions/checkout@master
 
+      - name: cache ruby gems
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-ruby-modules
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-ruby-${{ matrix.ruby }}-gems-${{ hashFiles('**/interscript.gemspec') }}
+          restore-keys: |
+            ${{ runner.os }}-ruby-${{ matrix.ruby }}-gems-
+
       - name: Install gems
         run: |
           gem install bundler -v "~> 2"
+          bundle config path vendor/bundle
           bundle install --jobs 4 --retry 5
 
       - name: Setup python
@@ -66,6 +77,30 @@ jobs:
           timeout_minutes: 5
           max_attempts: 3
           command: choco install --no-progress swig --version 4.0.1
+
+      - uses: actions/cache@v2
+        if: matrix.os == 'ubuntu-latest'
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip
+          restore-keys: |
+            ${{ runner.os }}-pip
+
+      - uses: actions/cache@v2
+        if: matrix.os == 'macos-latest'
+        with:
+          path: ~/Library/Caches/pip
+          key: ${{ runner.os }}-pip
+          restore-keys: |
+            ${{ runner.os }}-pip
+
+      - uses: actions/cache@v2
+        if: runner.os == 'windows-latest'
+        with:
+          path: ~\AppData\Local\pip\Cache
+          key: ${{ runner.os }}-pip
+          restore-keys: |
+            ${{ runner.os }}-pip
 
       - name: Update Sequitur
         run: |
