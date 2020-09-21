@@ -1,0 +1,221 @@
+---
+authority_id: var
+id: 1872
+language: hin
+source_script: Deva
+destination_script: Latn
+name: Hindi Hunterian system
+url: https://transliteration.eki.ee/pdf/Hindi-Marathi-Nepali.pdf
+creation_date: 1872
+description:
+  The Hunterian system is the national system of romanization in India.
+
+notes:
+
+  -  a, i and u are used in word-final position. The a in gaon and the u in pur are not accented.
+  -  ज्ञ is transliterated gy.
+  -  v is used before i.
+
+tests:
+  - source: "परिपक्क"
+    expected: "paraipakka"
+  - source: "जगत्"
+    expected: "jagat"
+  - source: "संख्या"
+    expected: "sankhyaā"
+  - source: "गंभीर मरीजों के मामले में भारत दूसरे नंबर पर"
+    expected: "ganbhaīra maraījaon kae maāmalae maen bhaārata daūsarae nanbara para"
+  - source: "कोरोना अपडेट्स"
+    expected: "kaoraonaā apadaetsa"
+  - source: "सीडीसी चीफ का बयान अहम"
+    expected: "saīdaīsaī chaīpha kaā bayaāna ahama"
+  - source: "गूगल प्ले स्टोर पर पेटीएम की वापसी"
+    expected: "gaūgala plae staora para paetaīema kaī waāpasaī"
+  - source: "भारत में गैंबलिंग की इजाजत नहीं"
+    expected: "bhaārata maen gaainbalainga kaī ijaājata nahaīn"
+  - source: "कोरोना वैक्सीन मुद्दे पर घिरे राष्ट्रपति; जो बाइडेन बोले- मुझे और देश को वैज्ञानिकों पर भरोसा है, डोनाल्ड ट्रम्प पर नहीं"
+    expected: "kaoraonaā waaiksaīna mauddae para ghairae raāshtrapatai; jao baāidaena baolae- maujhae aura daesa kao waaigyānaikaon para bharaosaā haai, daonaālda trampa para nahaīn"
+  - source: "गूगल की कार्रवाई पर पेटीएम ने कहा था कि ऐप को अस्थायी तौर पर प्ले-स्टोर से हटाया गया है, आपके पैसे सुरक्षित हैं"
+    expected: "gaūgala kaī kaārrawaāi para paetaīema nae kahaā thaā kai aipa kao asthaāyaī taaura para plae-staora sae hataāyaā gayaā haai, āpakae paaisae saurakshaita haain"
+
+map:
+
+  rules:
+    # note[1]
+    - pattern: (?<=)\u0906(?=\b)
+      result: "a"
+    - pattern: (?<=)\u0908(?=\b)
+      result: "i"
+    - pattern: (?<=)\u090A(?=\b)
+      result: "u"
+
+    # note[3]
+    - pattern: \u0935(?=[इई])
+      result: "v"
+
+
+
+  characters:
+
+    # I. Vowels and Diphthongs (see Note 1)
+
+    'अ': 'a'
+    'आ': 'ā'
+    'इ': 'i'
+    'ई': 'ī'
+    'उ': 'u'
+    'ऊ': 'ū'
+    'ऋ': 'ri'
+    'ए': 'e'
+    'ऐ': 'ai'
+    'ओ': 'o'
+    'औ': 'au'
+
+    # II. Consonants (see Note 2)
+    # Gutturals
+    'क': 'ka'
+    'ख': 'kha'
+    'ग': 'ga'
+    'घ': 'gha'
+    'ङ': 'nga'
+
+    # Palatals
+    'च': 'cha'
+    'छ': 'chha'
+    'ज': 'ja'
+    'झ': 'jha'
+    'ञ': 'nya'
+
+    # Cerebrals
+    'ट': 'ta'
+    'ठ': 'tha'
+    'ड': 'da'
+    'ढ': 'dha'
+    'ण': 'na'
+
+    # Dentals
+    'त': 'ta'
+    'थ': 'tha'
+    'द': 'da'
+    'ध': 'dha'
+    'न': 'na'
+
+    # Labials
+    'प': 'pa'
+    'फ': 'pha'
+    'ब': 'ba'
+    'भ': 'bha'
+    'म': 'ma'
+
+    # Semivowels
+    'य': 'ya'
+    'र': 'ra'
+    'ल': 'la'
+    'व': 'wa'
+
+    # Sibilants
+    'श': 'sa'
+    'ष': 'sha'
+    'स': 'sa'
+
+    # Aspirate
+    'ह': 'ha'
+
+
+    # Additional consonants
+    'क़': 'qa'
+    'ख़': 'kha'
+    'ग़': 'ġa'
+    'ज़': 'za'
+    'ड़': 'ṙa'
+    'ढ़': 'ṙha'
+    'फ़': 'fa'
+    'ळ': 'la'
+
+    # Anusvāra
+    'ं': 'n'
+
+    # Bisarga
+    'ः': 'h'
+
+    # Anunāsika
+    'ँ': 'm'
+
+    # Note 2
+    'ज्ञ': 'gy'
+
+
+    # Medials # Needed for connecting constants
+    'ा': "ā"
+    'ि': "i"
+    'ी': "ī"
+    'ु': "u"
+    'ू': "ū"
+    'ृ': "ri"
+    'े': "e"
+    'ै': "ai"
+    'ो': "o"
+    'ौ': "au"
+    '‍': ''# Used for joining
+
+
+    #V. Vowelless with halanta (्)
+
+    # Gutturals
+    'क्': 'k'
+    'ख्': 'kh'
+    'ग्': 'g'
+    'घ्': 'gh'
+    'ङ्': 'ng'
+
+    # Palatals
+    'च्': 'ch'
+    'छ्': 'chh'
+    'ज्': 'j'
+    'झ्': 'jh'
+    'ञ्': 'ny'
+
+    # Cerebrals
+    'ट्': 't'
+    'ठ्': 'th'
+    'ड्': 'd'
+    'ढ्': 'dh'
+    'ण्': 'n'
+
+    # Dentals
+    'त्': 't'
+    'थ्': 'th'
+    'द्': 'd'
+    'ध्': 'dh'
+    'न्': 'n'
+
+    # Labials
+    'प्': 'p'
+    'फ्': 'ph'
+    'ब्': 'b'
+    'भ्': 'bh'
+    'म्': 'm'
+
+    # Semivowels
+    'य्': 'y'
+    'र्': 'r'
+    'ल्': 'l'
+    'व्': 'w'
+
+    # Sibilants
+    'श्': 's'
+    'ष्': 'sh'
+    'स्': 's'
+
+    # Aspirate
+    'ह्': 'h'
+
+    # Additional consonants
+    'क़्': 'q'
+    'ख़्': 'kh'
+    'ग़्': 'ġ'
+    'ज़्': 'z'
+    'ड़्': 'ṙ'
+    'ढ़्': 'ṙh'
+    'फ़्': 'f'
+    'ळ्': 'l'
