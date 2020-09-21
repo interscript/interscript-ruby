@@ -3,7 +3,6 @@
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'interscript/version'
-require 'rake'
 
 Gem::Specification.new do |spec|
   spec.name          = "interscript"
@@ -15,7 +14,8 @@ Gem::Specification.new do |spec|
   spec.date = %q{2019-11-17}
   spec.homepage      = ""
   spec.license       = "MIT"
-  spec.files = FileList['{bin,lib,spec,maps}/**/*', 'README.adoc'].to_a
+  spec.files = Dir.glob("{lib,exe,spec,maps}/**/*", File::FNM_DOTMATCH)
+  spec.files += ['README.adoc']
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
