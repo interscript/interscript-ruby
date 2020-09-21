@@ -32,6 +32,17 @@ jobs:
             experimental: true
 
     steps:
+      - name: cache ruby modulese
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-ruby-modules
+        with:
+          path: vendor/bundle
+          key: ${{ matrix.os }}-${{ matrix.ruby }}-gems
+          restore-keys: |
+            ${{ matrix.os }}-${{ matrix.ruby }}-gems
+            ${{ matrix.os }}-${{ matrix.ruby }}-
+
       - name: Use Ruby
         uses: actions/setup-ruby@v1
         with:
@@ -42,6 +53,7 @@ jobs:
       - name: Install gems
         run: |
           gem install bundler -v "~> 2"
+          bundle config path vendor/bundle
           bundle install --jobs 4 --retry 5
 
       - name: Setup python
@@ -71,6 +83,30 @@ jobs:
         run: |
           pip3 install setuptools numpy
           pip3 install git+https://github.com/sequitur-g2p/sequitur-g2p@9b7c505
+
+      - uses: actions/cache@v2
+        if: matrix.os == 'ubuntu-latest'
+        with:
+          path: ~/.cache/pip
+          key: ${{ matrix.os }}-pip
+          restore-keys: |
+            ${{ matrix.os }}-pip
+
+      - uses: actions/cache@v2
+        if: matrix.os == 'macos-latest'
+        with:
+          path: ~/Library/Caches/pip
+          key: ${{ matrix.os }}-pip
+          restore-keys: |
+            ${{ matrix.os }}-pip
+
+      - uses: actions/cache@v2
+        if: matrix.os == 'windows-latest'
+        with:
+          path: ~\AppData\Local\pip\Cache
+          key: ${{ matrix.os }}-pip
+          restore-keys: |
+            ${{ matrix.os }}-pip
 
       - name: Run RSpecs
         run: |
