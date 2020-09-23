@@ -1,0 +1,115 @@
+---
+authority_id: din
+id: 2018
+language: nep
+source_script: Deva
+destination_script: Latn
+name: Nepali Romanization, 2018
+creation_date: 2018
+description: |
+  This standard specifies the transliteration of all languages of the Devanāgarī characters into Latin letters firmly.
+  It is suitable for any application.
+
+notes:
+  - |
+    Vowels:
+    The Ardhacandra ॅ is often used to denote English vowels:
+    EXAMPLE
+    बॅट     bêṭa       (bat)
+    डॉक्टर  ḍôkṭara (doctor)
+  - |
+    Consonants:
+
+    Since the Devanāgarī script is a syllabic script, it becomes -a inherent in the consonant.
+    Always written during transliteration, also in the final part
+    EXAMPLE 1
+    पुस्तक   pustaka
+
+    A line under the consonant, the so-called Virāma, means in the Devanāgarī script that that inherent -a not applicable.
+    EXAMPLE 2
+    वाक्   vāk
+
+    The anusvāra is always represented with -ṃ-.
+    EXAMPLE 3
+    संसकरण saṃskaraṇa
+
+    Before k, kh, g, gh, c, ch, j, jh, ṭ, ṭh, ḍ, ḍh, t, th, d, dh, p, ph, b, bh, the anusvāra becomes the class nasal transformed.
+    EXAMPLE 4
+    तंघी   kaṃghī becomes kaṅghī
+    पंजाबी  paṃjābī becomes pañjābī
+    पंडित  paṃḍita becomes paṇḍita
+    संधी   saṃdhī becomes sandhī
+    दिसंबर  disaṃbara becomes disambara
+
+    Anunāsika or Candrabindu signals the nasalization of vowels
+
+    EXAMPLE 5
+    माँ māṁ
+
+tests:
+  - source: "लेखन"
+    expected: "lekhana"
+  - source: "मुद्रा"
+    expected: "mudrā"
+  - source: "प्रशंसा"
+    expected: "praśaṃsā"
+  - source: "अंक"
+    expected: "aṅka"
+  - source: "नेकपाले स्थगित स्थायी कमिटीको बैठक भदौ गते बोलाउने भएको"
+    expected: "nekapāle sthagita sthāyī kamiṭīko baiṭhaka bhadau gate bolāune bhaeko"
+  - source: "न घर रह्यो, न परिवार"
+    expected: "na ghara rahyo, na parivāra"
+  - source: "ढोरपाटनमा भुजीखोला बाढीपहिरोले अभिभावक गुमाएका बालबालिकाको बिचल्ली"
+    expected: "ḍhorapāṭanamā bhujīkholā bāḍhīpahirole abhibhāvaka gumāekā bālabālikāko bicallī"
+  - source: "सुस्मिताका काका हेमबहादुर र काकीलाई पनि पहिरोले बगायो"
+    expected: "susmitākā kākā hemabahādura ra kākīlāī pani pahirole bagāyo"
+  - source: "संविधान जारी भएसँगै सार्वजनिक प्रशासनमा नयाँ उत्साह आउने अपेक्षा थियो"
+    expected: "saṃvidhāna jārī bhaesaṁgai sārvajanika praśāsanamā nayāṁ utsāha āune apekṣā thiyo"
+  - source: "देशमा कोरोना संक्रमित र मृतकको संख्या हरेक दिन बढ्दो छ"
+    expected: "deśamā koronā saṅkramita ra mṛtakako saṅkhyā hareka dina baḍhdo cha"
+  - source: "गाउँपालिकाका अध्यक्ष टिका गुरुङका अनुसार विष्णुदासलाई राजुले सुत्नका लागि बेलुका साथी लगेका थिए"
+    expected: "gāuṁpālikākā adhyakṣa ṭikā guruṅakā anusāra viṣṇudāsalāī rājule sutnakā lāgi belukā sāthī lagekā thie"
+  - source: "यो आयोजना गाउँपालिकाको केन्द्र तेल्लोकमा पर्छ"
+    expected: "yo āyojanā gāuṁpālikāko kendra tellokamā parcha"
+  - source: "सुस्मिताका काका हेमबहादुर र काकीलाई पनि पहिरोले बगायो"
+    expected: "susmitākā kākā hemabahādura ra kākīlāī pani pahirole bagāyo"
+  - source: "चैत पहिलो साता घर आएका उनी लकडाउन भएपछि यतै रोकिए"
+    expected: "caita pahilo sātā ghara āekā unī lakaḍāuna bhaepachi yatai rokie"
+  - source: "काम गर्न जानेको हकमा रोजगारदाता कम्पनीको पत्रसँगै वडा र जिल्ला प्रशासनको सिफारिस अनिवार्य गरिएको छ"
+    expected: "kāma garna jāneko hakamā rojagāradātā kampanīko patrasaṁgai vaḍā ra jillā praśāsanako siphārisa anivārya garieko cha"
+  - source: "दुःख"
+    expected: "duḥkha"
+
+
+map:
+
+  inherit: 'din-san-Deva-Latn-33904-2018'
+
+  characters:
+
+    'ॲ': 'ê'
+    'ऑ': 'ô'
+
+    # Dotted variants
+    'क़': 'ḵa'
+    'ख़': 'ḵha'
+    'ग़': 'g̲a' # \u0067 + \u0332
+    'ज़': 'j̲a' # \u006a + \u0332
+    'ड़': 'ṙa'
+    'ढ़': 'ṙha'
+    'फ़': 'p̲ha' # \u0070 + \u0332
+    'स़': 's̲a' # \u0073 + \u0332
+    'ह़': 'h̲a' # \u0068 + \u0332
+    'व़': 'v̲a' # \u0076 + \u0332
+
+    # Dotted variants Virāma
+    'क़्': 'ḵ'
+    'ख़्': 'ḵh'
+    'ग़्': 'g̲' # \u0067 + \u0332
+    'ज़्': 'j̲' # \u006a + \u0332
+    'ड़्': 'ṙ'
+    'ढ़्': 'ṙh'
+    'फ़्': 'p̲h' # \u0070 + \u0332
+    'स़्': 's̲' # \u0073 + \u0332
+    'ह़्': 'h̲' # \u0068 + \u0332
+
