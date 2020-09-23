@@ -1,0 +1,319 @@
+---
+authority_id: din
+id: 2018
+language: san
+source_script: Deva
+destination_script: Latn
+name: Sanskrit Romanization, 2018
+creation_date: 2018
+description: |
+  This standard specifies the transliteration of all languages of the Devanāgarī characters into Latin letters firmly.
+  It is suitable for any application.
+
+notes:
+  - |
+    Vowels:
+    The Ardhacandra ॅ is often used to denote English vowels:
+    EXAMPLE
+    बॅट     bêṭa       (bat)
+    डॉक्टर  ḍôkṭara (doctor)
+  - |
+    Consonants:
+
+    Since the Devanāgarī script is a syllabic script, it becomes -a inherent in the consonant.
+    Always written during transliteration, also in the final part
+    EXAMPLE 1
+    पुस्तक   pustaka
+
+    A line under the consonant, the so-called Virāma, means in the Devanāgarī script that that inherent -a not applicable.
+    EXAMPLE 2
+    वाक्   vāk
+
+    The anusvāra is always represented with -ṃ-.
+    EXAMPLE 3
+    संसकरण saṃskaraṇa
+
+    Before k, kh, g, gh, c, ch, j, jh, ṭ, ṭh, ḍ, ḍh, t, th, d, dh, p, ph, b, bh, the anusvāra becomes the class nasal transformed.
+    EXAMPLE 4
+    तंघी   kaṃghī becomes kaṅghī
+    पंजाबी  paṃjābī becomes pañjābī
+    पंडित  paṃḍita becomes paṇḍita
+    संधी   saṃdhī becomes sandhī
+    दिसंबर  disaṃbara becomes disambara
+
+    Anunāsika or Candrabindu signals the nasalization of vowels
+
+    EXAMPLE 5
+    माँ māṁ
+
+tests:
+  - source: "पुस्तक"
+    expected: "pustaka"
+  - source: "बॅट"
+    expected: "bêṭa"
+  - source: "वाक्"
+    expected: "vāk"
+  - source: "पंजाबी"
+    expected: "pañjābī"
+  - source: "डॉक्टर"
+    expected: "ḍôkṭara"
+  - source: "पंडित"
+    expected: "paṇḍita"
+  - source: "संधी"
+    expected: "sandhī"
+  - source: "दिसंबर"
+    expected: "disambara"
+  - source: "संसकरण"
+    expected: "saṃsakaraṇa"
+  - source: "माँ"
+    expected: "māṁ"
+  - source: "शुभाशुभपरित्यागी भक्तिमान्यः स मे प्रियः"
+    expected: "śubhāśubhaparityāgī bhaktimānyaḥ sa me priyaḥ"
+  - source: "सत्य -सत्यमेवेश्वरो लोके सत्ये धर्मः सदाश्रितः"
+    expected: "satya -satyameveśvaro loke satye dharmaḥ sadāśritaḥ"
+  - source: "सत्यमूलनि सर्वाणि सत्यान्नास्ति परं पदम्"
+    expected: "satyamūlani sarvāṇi satyānnāsti paraṃ padam"
+  - source: "पिता माताग्निरात्मा च गुरुश्च भरतर्षभ"
+    expected: "pitā mātāgnirātmā ca guruśca bharatarṣabha"
+
+map:
+
+  rules:
+    - pattern: \u0902(?=[कक़खख़गग़घङ])
+      result: ṅ
+    - pattern: \u0902(?=[चछजज़झञ])
+      result: ñ
+    - pattern: \u0902(?=[टट़ठडड़ढढ़ण])
+      result: ṇ
+    - pattern: \u0902(?=[तथदधन])
+      result: n
+    - pattern: \u0902(?=[पफबभम])
+      result: m
+
+    - pattern: \u0902(?=[कखगघचछजझतथदधपफबभटठडढ])
+      result: "ñ"
+      
+    - pattern: ([क]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
+      result: 'k'
+    - pattern: ([ख]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
+      result: 'kh'
+    - pattern: ([ग]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
+      result: 'g'
+    - pattern: ([घ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
+      result: 'gh'
+    - pattern: ([ङ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
+      result: 'ṅ'
+    - pattern: ([च]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
+      result: 'c'
+    - pattern: ([छ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
+      result: 'ch'
+    - pattern: ([ज]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
+      result: 'j'
+    - pattern: ([झ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
+      result: 'jh'
+    - pattern: ([ञ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
+      result: 'ñ'
+    - pattern: ([ट]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
+      result: 'ṭ'
+    - pattern: ([ठ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
+      result: 'ṭh'
+    - pattern: ([ड]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
+      result: 'ḍ'
+    - pattern: ([ढ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
+      result: 'ḍh'
+    - pattern: ([ण]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
+      result: 'ṇ'
+    - pattern: ([त]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
+      result: 't'
+    - pattern: ([थ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
+      result: 'th'
+    - pattern: ([द]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
+      result: 'd'
+    - pattern: ([ध]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
+      result: 'dh'
+    - pattern: ([न]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
+      result: 'n'
+    - pattern: ([प]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
+      result: 'p'
+    - pattern: ([फ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
+      result: 'ph'
+    - pattern: ([ब]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
+      result: 'b'
+    - pattern: ([भ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
+      result: 'bh'
+    - pattern: ([म]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
+      result: 'm'
+    - pattern: ([य]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
+      result: 'y'
+    - pattern: ([र]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
+      result: 'r'
+    - pattern: ([ल]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
+      result: 'l'  
+    - pattern: ([ळ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
+      result: 'ḷ'
+    - pattern: ([व]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
+      result: 'v'
+    - pattern: ([श]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
+      result: 'ś'
+    - pattern: ([ष]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
+      result: 'ṣ'
+    - pattern: ([स]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
+      result: 's'
+    - pattern: ([ह]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
+      result: 'h'  
+
+  characters:
+
+    # I. Vowels and Diphthongs (see Note 1)
+
+    'अ': 'a'
+    'आ': 'ā'
+    'इ': 'i'
+    'ई': 'ī'
+    'उ': 'u'
+    'ऊ': 'ū'
+    'ऋ': 'ṛ'
+    'ॠ': 'ṝ'
+    'ऌ': 'ḷ'
+    'ए': 'e'
+    'ऎ': 'ĕ'
+    'ऐ': 'ai'
+    'ओ': 'o'
+    'ऒ': 'ŏ'
+    'औ': 'au'
+
+
+    # II. Consonants (see Note 2)
+    # Gutturals
+    'क': 'ka'
+    'ख': 'kha'
+    'ग': 'ga'
+    'घ': 'gha'
+    'ङ': 'ṅa'
+
+    # Palatals
+    'च': 'ca'
+    'छ': 'cha'
+    'ज': 'ja'
+    'झ': 'jha'
+    'ञ': 'ña'
+
+    # Cerebrals
+    'ट': 'ṭa'
+    'ठ': 'ṭha'
+    'ड': 'ḍa'
+    'ढ': 'ḍha'
+    'ण': 'ṇa'
+
+    # Dentals
+    'त': 'ta'
+    'थ': 'tha'
+    'द': 'da'
+    'ध': 'dha'
+    'न': 'na'
+
+    # Labials
+    'प': 'pa'
+    'फ': 'pha'
+    'ब': 'ba'
+    'भ': 'bha'
+    'म': 'ma'
+
+    # Semivowels
+    'य': 'ya'
+    'र': 'ra'
+    'ल': 'la'
+    'ळ': 'ḷa'
+    'व': 'va'
+
+    # Sibilants
+    'श': 'śa'
+    'ष': 'ṣa'
+    'स': 'sa'
+
+    # Aspirate
+    'ह': 'ha'
+
+    # Anusvāra
+    'ं': 'ṃ'
+
+    # Bisarga
+    'ः': 'ḥ'
+
+    # Anunāsika
+    'ँ': 'ṁ'
+
+    # Abagraha
+    'ऽ': '’' # (apostrophe)
+
+    # Medials # Needed for connecting constants
+    'ा': "ā"
+    'ि': "i"
+    'ी': "ī"
+    'ु': "u"
+    'ू': "ū"
+    'ृ': "ṛ"
+    'ॄ': "ṝ"
+    '◌': "ṝ"
+    'ॢ': "ḷ"
+    'ॣ': "ḹ"
+    'े': "e"
+    'ै': "ai"
+    'ो': "o"
+    'ौ': "au"
+    'ॉ': "ô"
+    'ॅ': "ê"
+    '‍': ''# Used for joining
+
+
+
+    # For consonant Virāma
+    # Gutturals
+    'क्': 'k'
+    'ख्': 'kh'
+    'ग्': 'g'
+    'घ्': 'gh'
+    'ङ्': 'ṅ'
+
+    # Palatals
+    'च्': 'c'
+    'छ्': 'ch'
+    'ज्': 'j'
+    'झ्': 'jh'
+    'ञ्': 'ñ'
+
+    # Cerebrals
+    'ट्': 'ṭ'
+    'ठ्': 'ṭh'
+    'ड्': 'ḍ'
+    'ढ्': 'ḍh'
+    'ण्': 'ṇ'
+
+    # Dentals
+    'त्': 't'
+    'थ्': 'th'
+    'द्': 'd'
+    'ध्': 'dh'
+    'न्': 'n'
+
+    # Labials
+    'प्': 'p'
+    'फ्': 'ph'
+    'ब्': 'b'
+    'भ्': 'bh'
+    'म्': 'm'
+
+    # Semivowels
+    'य्': 'y'
+    'र्': 'r'
+    'ल्': 'l'
+    'ळ्': 'ḷ'
+    'व्': 'v'
+
+    # Sibilants
+    'श्': 'ś'
+    'ष्': 'ṣ'
+    'स्': 's'
+
+    # Aspirate
+    'ह्': 'h'

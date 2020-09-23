@@ -1,0 +1,79 @@
+---
+authority_id: din
+id: 2018
+language: mar
+source_script: Deva
+destination_script: Latn
+name: Marathi Romanization, 2018
+creation_date: 2018
+description: |
+  This standard specifies the transliteration of all languages of the Devanāgarī characters into Latin letters firmly.
+  It is suitable for any application.
+
+notes:
+  - |
+    Vowels:
+    The Ardhacandra ॅ is often used to denote English vowels:
+    EXAMPLE
+    बॅट     bêṭa       (bat)
+    डॉक्टर  ḍôkṭara (doctor)
+  - |
+    Consonants:
+
+    Since the Devanāgarī script is a syllabic script, it becomes -a inherent in the consonant.
+    Always written during transliteration, also in the final part
+    EXAMPLE 1
+    पुस्तक   pustaka
+
+    A line under the consonant, the so-called Virāma, means in the Devanāgarī script that that inherent -a not applicable.
+    EXAMPLE 2
+    वाक्   vāk
+
+    The anusvāra is always represented with -ṃ-.
+    EXAMPLE 3
+    संसकरण saṃskaraṇa
+
+    Before k, kh, g, gh, c, ch, j, jh, ṭ, ṭh, ḍ, ḍh, t, th, d, dh, p, ph, b, bh, the anusvāra becomes the class nasal transformed.
+    EXAMPLE 4
+    तंघी   kaṃghī becomes kaṅghī
+    पंजाबी  paṃjābī becomes pañjābī
+    पंडित  paṃḍita becomes paṇḍita
+    संधी   saṃdhī becomes sandhī
+    दिसंबर  disaṃbara becomes disambara
+
+    Anunāsika or Candrabindu signals the nasalization of vowels
+
+    EXAMPLE 5
+    माँ māṁ
+
+tests:
+  - source: "ठाणे - जिल्ह्यात बुधवारी एक हजार रुग्णांची वाढ, तर जणांच्या मृत्यूची नोंद"
+    expected: "ṭhāṇe - jilhyāta budhavārī eka hajāra rugṇāñcī vāḍha, tara jaṇāñcyā mṛtyūcī nonda"
+  - source: "एकता कपूर पुन्हा अडकली वादात, वेबसीरिजमधल्या 'त्या' सीनमुळे जमावाची घरावर दगडफेक"
+    expected: "ekatā kapūra punhā aḍakalī vādāta, vebasīrijamadhalyā 'tyā' sīnamuḷe jamāvācī gharāvara dagaḍapheka"
+  - source: "जाणून घ्या, बीएमसीच्या अधिकाऱ्यांनी कंगना राणौतच्या ऑफिसमधले नक्की काय- काय तोडलं"
+    expected: "jāṇūna ghyā, bīemasīcyā adhikāऱ्yānnī kaṅganā rāṇautacyā ôphisamadhale nakkī kāya- kāya toḍalaṃ"
+  - source: "कंगना मुंबईत दाखल होण्यापूर्वी 'मातोश्री'वरून फर्मान सुटले; प्रवक्त्यांना सक्त आदेश"
+    expected: "kaṅganā mumbaīta dākhala hoṇyāpūrvī 'mātośrī'varūna pharmāna suṭale; pravaktyānnā sakta ādeśa"
+  - source: "मराठा आरक्षणास तात्पुरती स्थगिती; सर्वोच्च न्यायालयाचा निर्णय"
+    expected: "marāṭhā ārakṣaṇāsa tātpuratī sthagitī; sarvocca nyāyālayācā nirṇaya"
+  - source: "भारताच्या तिन्ही लशींचा पहिला टप्पा यशस्वी, वाचा कधी येणार बाजारात"
+    expected: "bhāratācyā tinhī laśīñcā pahilā ṭappā yaśasvī, vācā kadhī yeṇāra bājārāta"
+  - source: "रुग्णवाढीमुळे खाटांची चणचण"
+    expected: "rugṇavāḍhīmuḷe khāṭāñcī caṇacaṇa"
+  - source: "पीएम स्वनिधी कर्ज योजनेला मुंबईतून अल्प प्रतिसाद"
+    expected: "pīema svanidhī karja yojanelā mumbaītūna alpa pratisāda"
+  - source: "सांताक्रूझ-चेंबूर लिंक रोडवरील उन्नत मार्गाला स्थगिती"
+    expected: "sāntākrūjha-cembūra liṅka roḍavarīla unnata mārgālā sthagitī"
+  - source: "संपादक अर्णब गोस्वामी यांच्याविरूद्ध खडक पोलिस ठाण्यात तक्रार"
+    expected: "sampādaka arṇaba gosvāmī yāñcyāvirūddha khaḍaka polisa ṭhāṇyāta takrāra"
+
+
+map:
+
+  inherit: 'din-san-Deva-Latn-33904-2018'
+
+  characters:
+
+    'ॲ': 'ê'
+    'ऑ': 'ô'
