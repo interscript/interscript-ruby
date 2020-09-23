@@ -1,0 +1,201 @@
+---
+authority_id: iso
+id: 1996-method1
+language: kor
+source_script: Hang
+destination_script: Latn
+name: "ISO TR 11941: 1996"
+url: https://www.eki.ee/wgrs/rom2_ko.pdf
+creation_date: 1996
+adoption_date:
+description: Establishes a system for the transliteration of the characters of Korean script into Latin characters. Intended to provide a means for international communication of written documents.
+
+notes: ""
+
+tests:
+  # Tests from https://www.eki.ee/wgrs/rom2_ko.pdf
+  - source: "꽃이"
+    expected: "kkoch'i" # Bad OCR
+  - source: "강에"
+    expected: "kang'e"
+  - source: "앉아라"
+    expected: "anc'ara"
+  - source: "아까"
+    expected: "a'kka"
+  - source: "흰떡"
+    expected: "hyin'tteok"
+  - source: "유쾌하다"
+    expected: "yu'khwaehata"
+
+  # Tests from https://github.com/interscript/interscript/files/5249245/ISO-TR-11941-1996.pdf
+  # OCR is unusable
+
+map:
+  character_separator: ""
+  word_separator: " "
+  title_case: False
+  inherit: nil-kor-Hang-Hang-jamo
+
+  rules:
+
+  postrules:
+    # Add space to the two ends of the string for easier word boundary handling
+    - pattern: "^"
+      result: " "
+    - pattern: "$"
+      result: " "
+
+    # Marks A, B, C
+    - pattern: "(?<!\\p{Hangul})ᄋ" # Word initially
+      result: ""
+    - pattern: "ᄋ" # See notes 2, 3 and 4.
+      result: "'"
+    - pattern: "ᆼ" # At the end of a syllable.
+      result: "ng"
+
+    # Note 4: add apostrophe before 5 double consonants at initial position
+    #         unless start of the word
+    - pattern: "(?<=\\p{Hangul})([ᄁᄄᄈᄍᄊ])"
+      result: "'\\1"
+    # Note 4: (only method 1) same but with 4 aspirated
+    - pattern: "(?<=\\p{Hangul})([ᄏᄐᄑᄎ])"
+      result: "'\\1"
+
+    # Consonants differing between method1 and method2
+    - pattern: "[ᄀᆨ]"
+      result: "k"
+    - pattern: "[ᄏᆿ]"
+      result: "kh"
+    - pattern: "[ᄁᆩ]"
+      result: "kk"
+    - pattern: "[ᄃᆮ]"
+      result: "t"
+    - pattern: "[ᄐᇀ]"
+      result: "th"
+    - pattern: "[ᄄퟍ]"
+      result: "tt"
+    - pattern: "[ᄇᆸ]"
+      result: "p"
+    - pattern: "[ᄑᇁ]"
+      result: "ph"
+    - pattern: "[ᄈퟦ]"
+      result: "pp"
+    - pattern: "[ᄌᆽ]"
+      result: "c"
+    - pattern: "[ᄎᆾ]"
+      result: "ch"
+    - pattern: "[ᄍퟹ]"
+      result: "cc"
+    # End
+
+    # Composite differing consonants (cons. https://en.wikipedia.org/wiki/ISO/TR_11941 )
+    - pattern: "[ᆪ]"
+      result: "ks"
+    - pattern: "[ꥤ]" # D. R at the beginning of a syllable
+      result: "rk"
+    - pattern: "[ᆰ]"
+      result: "lk"
+    - pattern: "[ᆴ]"
+      result: "lth"
+    - pattern: "[ꥩ]" # D. R at the beginning of a syllable
+      result: "rp"
+    - pattern: "[ᆲ]"
+      result: "lp"
+    - pattern: "[ᆵ]"
+      result: "lph"
+    - pattern: "[ᅜᆬ]"
+      result: "nc"
+    - pattern: "[ᄡᆹ]"
+      result: "ps"
+    # End
+
+    # Other consonants
+    - pattern: "[ᄉᆺ]"
+      result: "s"
+    - pattern: "[ᄊᆻ]"
+      result: "ss"
+    - pattern: "[ᄒᇂ]"
+      result: "h"
+    - pattern: "[ᄂᆫ]"
+      result: "n"
+    - pattern: "[ᄅ]" # D. R at the beginning of a syllable.
+      result: "r"
+    - pattern: "[ᆯ]"
+      result: "l"
+    - pattern: "[ᄆᆷ]"
+      result: "m"
+    # End
+
+    # Other composite consonants (cons. https://en.wikipedia.org/wiki/ISO/TR_11941 )
+    - pattern: "[ꥬ]" # D. R at the beginning of a syllable
+      result: "rs"
+    - pattern: "[ᆳ]"
+      result: "ls"
+    - pattern: "[ꥨ]" # D. R at the beginning of a syllable
+      result: "rm"
+    - pattern: "[ᆱ]"
+      result: "lm"
+    - pattern: "[ᄚ]" # D. R at the beginning of a syllable
+      result: "rh"
+    - pattern: "[ᆶ]"
+      result: "lh"
+    - pattern: "[ᅝᆭ]"
+      result: "nh"
+    # End
+
+    # Vowels
+    - pattern: "ᅡ"
+      result: "a"
+    - pattern: "ᅥ"
+      result: "eo"
+    - pattern: "ᅩ"
+      result: "o"
+    - pattern: "ᅮ"
+      result: "u"
+    - pattern: "ᅳ"
+      result: "eu"
+    - pattern: "ᅵ"
+      result: "i"
+    - pattern: "ᅢ"
+      result: "ae"
+    - pattern: "ᅦ"
+      result: "e"
+    - pattern: "ᅬ"
+      result: "oe"
+    - pattern: "ᅣ"
+      result: "ya"
+    - pattern: "ᅧ"
+      result: "yeo"
+    - pattern: "ᅭ"
+      result: "yo"
+    - pattern: "ᅲ"
+      result: "yu"
+    - pattern: "ᅤ"
+      result: "yae"
+    - pattern: "ᅨ"
+      result: "ye"
+    - pattern: "ᅪ"
+      result: "wa"
+    - pattern: "ᅯ"
+      result: "weo"
+    - pattern: "ᅱ"
+      result: "wi"
+    - pattern: "ᅫ"
+      result: "wae"
+    - pattern: "ᅰ"
+      result: "we"
+    - pattern: "ᅴ"
+      result: "yi"
+    # End
+
+    # Remove space added
+    - pattern: "^ "
+      result: ""
+    - pattern: " $"
+      result: ""
+
+  characters:
+  # This is based on Jamo
+
+  dictionary:
+  #
