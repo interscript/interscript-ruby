@@ -75,6 +75,8 @@ tests:
     expected: "satyamūlani sarvāṇi satyānnāsti paraṃ padam"
   - source: "पिता माताग्निरात्मा च गुरुश्च भरतर्षभ"
     expected: "pitā mātāgnirātmā ca guruśca bharatarṣabha"
+  - source: "०१२३४५६७८९"
+    expected: "0123456789"
 
 map:
 
@@ -317,3 +319,17 @@ map:
 
     # Aspirate
     'ह्': 'h'
+
+    # digits
+
+    '०': '0'
+    '१': '1'
+    '२': '2'
+    '३': '3'
+    '४': '4'
+    '५': '5'
+    '६': '6'
+    '७': '7'
+    '८': '8'
+    '९': '9'
+
