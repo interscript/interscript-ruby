@@ -28,7 +28,32 @@ tests:
   #  expected: "yu'khwaehata"
 
   # Tests from https://github.com/interscript/interscript/files/5249245/ISO-TR-11941-1996.pdf
-  # OCR is unusable
+  - source: "애기"
+    expected: "aegi"
+  - source: "방"
+    expected: "bang"
+  - source: "아이"
+    expected: "a'i"
+  - source: "고양이"
+    expected: "go'yang'i"
+  - source: "굽이"
+    expected: "gub'i"
+  - source: "밖에"
+    expected: "bagg'e"
+  - source: "박게"
+    expected: "bagge"
+  - source: "바께"
+    expected: "ba'gge"
+  - source: "간게"
+    expected: "gange"
+  - source: "안자라"
+    expected: "anjara"
+  - source: "오빠"
+    expected: "o'bba"
+  - source: "어찌"
+    expected: "eo'jji"
+  - source: "아씨"
+    expected: "a'ssi"
 
 map:
   character_separator: ""
