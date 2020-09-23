@@ -61,6 +61,8 @@ tests:
     expected: "koronā vaiksīna mudde para ghire rāṣṭrapati; jo bāiḍena bole- mujhe aura deśa ko vaijñānikoṃ para bharosā hai, ḍonālḍa ṭrampa para nahīṃ"
   - source: "गूगल की कार्रवाई पर पेटीएम ने कहा था कि ऐप को अस्थायी तौर पर प्ले-स्टोर से हटाया गया है, आपके पैसे सुरक्षित हैं"
     expected: "gūgala kī kārravāī para peṭīema ne kahā thā ki aipa ko asthāyī taura para ple-sṭora se haṭāyā gayā hai, āpake paise surakṣita haiṃ"
+  - source: "०१९८"
+    expected: "0198"
 
 
 map:
