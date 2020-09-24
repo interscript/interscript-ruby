@@ -4,11 +4,15 @@ id: 1997
 language: ell
 source_script: Grek
 destination_script: Latn
-name: ISO 843:1997
-url:
+name: "ISO 843:1997 Information and documentation — Conversion of Greek characters into Latin characters"
+url: https://www.iso.org/standard/5215.html
 creation_date: 1997
 description: |
-  ISO Transliteration table for Greek
+  Establishes a system for the transliteration and/or transcription 
+  of Greek characters into Latin characters. This system applies to
+  the characters of the Greek script, independent of the period in
+  which it is or was used, i.e. scripts from all periods of Classic
+  or Modern Greek. Replaces ISO/R 843.
 
 note:
   - Transliteration of Greek into Latin: Type 1, Clause 3 Table 1

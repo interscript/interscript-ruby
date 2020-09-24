@@ -4,7 +4,7 @@ id: 9-1995
 language: rus
 source_script: Cyrl
 destination_script: Latn
-name: ISO 9
+name: "ISO 9:1995 Information and documentation — Transliteration of Cyrillic characters into Latin characters — Slavic and non-Slavic languages"
 url: https://www.iso.org/standard/3589.html
 creation_date: 1995
 description: |
@@ -13,8 +13,8 @@ description: |
   languages. Table 3 includes in a single sequence, listed in the
   Cyrillic alphabetic order, the 118 single or diacritic-carrying
   characters that appear in one or another of the considered alphabets.
-tests:
 
+tests:
 
 map:
   characters:
