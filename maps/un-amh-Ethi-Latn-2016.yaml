@@ -1,5 +1,5 @@
 ---
-authority_id: ungegn
+authority_id: un
 id: 2016
 language: amh
 source_script: Ethi
@@ -9,42 +9,68 @@ url: http://www.eki.ee/wgrs/rom1_am.pdf
 creation_date: 1967
 confirmation date: 2016-03
 description: |
-    The United Nations recommended romanization system was approved in 1967 (resolution I/17), based on the Amharic to English Transliteration System (2nd revised edition, August 1962) by the Imperial Ethiopian Mapping and Geography Institute. The table has been published in volume II of the conference report (see Ref. in Notes section).
+  The United Nations recommended romanization system was approved in 1967
+  (resolution I/17), based on the Amharic to English Transliteration System
+  (2nd revised edition, August 1962) by the Imperial Ethiopian Mapping and
+  Geography Institute. The table has been published in volume II of the
+  conference report (see Ref. in Notes section).
 
-    The UN-approved system is not being used in Ethiopia, instead a simple version without diacritical marks is used. In international cartographic products mostly the BGN/PCGN 1967 system is used which differs from the former mainly by using diacritical marks differently. Often the same spellings are used without any diacritical marks.
+  The UN-approved system is not being used in Ethiopia, instead a simple
+  version without diacritical marks is used. In international cartographic
+  products mostly the BGN/PCGN 1967 system is used which differs from the
+  former mainly by using diacritical marks differently. Often the same
+  spellings are used without any diacritical marks.
 
-    Amharic uses the Ethiopic syllabic script whereby each syllable denotes a combination of a consonant and a vowel. It has 34 basic characters, each character having several different forms, usually called orders, according to the vowel with which the basic character is combined. The system is mainly reversible with the exception of some syllables of the 1st order which are pronounced in the same manner as the syllables of the 4th order, and some consonants.
+  Amharic uses the Ethiopic syllabic script whereby each syllable denotes a
+  combination of a consonant and a vowel. It has 34 basic characters, each
+  character having several different forms, usually called orders, according to
+  the vowel with which the basic character is combined. The system is mainly
+  reversible with the exception of some syllables of the 1st order which are
+  pronounced in the same manner as the syllables of the 4th order, and some
+  consonants.
 
 notes:
-  - (A) The vowel of the sixth order (i̠) is eliminated in spelling except when the actual pronunciation requires it (e.g. not Me̠ni̠gi̠si̠ti̠ but Me̠ngi̠st).
+  - (A) The vowel of the sixth order (i̠) is eliminated in spelling except when
+    the actual pronunciation requires it (e.g. not Me̠ni̠gi̠si̠ti̠ but Me̠ngi̠st).
 
   - (B) Sounds identical to fourth-order form.
 
-  - (C) Row 34 and most combinations with W and Y are not present in the original table. These Amharic syllable characters have been taken from the BGN/PCGN 1967 table, preserving however the indication of vowels as it is done elsewhere in the table.
+  - (C) Row 34 and most combinations with W and Y are not present in the
+    original table. These Amharic syllable characters have been taken from the
+    BGN/PCGN 1967 table, preserving however the indication of vowels as it is
+    done elsewhere in the table.
 
   - |
-      Other systems of romanization.
-      The BGN/PCGN 1967 System is practically very close to the system above, except for the diacritical marks used with vowels:
+    Other systems of romanization.
+    The BGN/PCGN 1967 System is practically very close to the system above,
+    except for the diacritical marks used with vowels:
 
-                  UN  BGN/PCGN
-      1st order	e̠	 e
-      1st order	a	ā (ሀ hā, ሐ hā, ኀ hā, አ ā, ’ā, ዐ ‘ā)
-      3rd order	i	ī
-      5th order	e   ē
-      6th order	i̠	 i
+    UN  BGN/PCGN
+    1st order	e̠	 e
+    1st order	a	ā (ሀ hā, ሐ hā, ኀ hā, አ ā, ’ā, ዐ ‘ā)
+    3rd order	i	ī
+    5th order	e   ē
+    6th order	i̠	 i
 
-      Other differences:
+    Other differences:
 
-      1. The vowel characters in row 16 should be romanized in the BGN/PCGN System ā, u, ī, a, ē, i, and o initially and ’ā, ’u, ’ī, ’a, ’ē, ’i, and ’o in all other positions.
+    1. The vowel characters in row 16 should be romanized in the BGN/PCGN
+    System ā, u, ī, a, ē, i, and o initially and ’ā, ’u, ’ī, ’a, ’ē, ’i, and ’o
+    in all other positions.
 
-      2. The characters in row 20 should be romanized in the BGN/PCGN System ‘ā, ‘u, ‘ī, ‘a, ‘ē, ‘ or ‘i, and ‘o.
+    2. The characters in row 20 should be romanized in the BGN/PCGN System ‘ā,
+    ‘u, ‘ī, ‘a, ‘ē, ‘ or ‘i, and ‘o.
 
-      3. The syllables gwe̠, hwe̠, kwe̠, k’we̠ of the UN system are treated as variations of the syllables go, ho, ko, k’o in the BGN/PCGN system.
+    3. The syllables gwe̠, hwe̠, kwe̠, k’we̠ of the UN system are treated as
+    variations of the syllables go, ho, ko, k’o in the BGN/PCGN system.
 
-      4. For documentation purposes the following consonants may be romanized with diacritical marks in the BGN/PCGN system: ḥ (row 3), š (row 5), ḫ (row 13), ẖ (row 18), t͟s’ (row 31).
+    4. For documentation purposes the following consonants may be romanized
+    with diacritical marks in the BGN/PCGN system: ḥ (row 3), š (row 5), ḫ (row
+    13), ẖ (row 18), t͟s’ (row 31).
 
-
-  - (Ref.) Second United Nations Conference on the Standardization of Geographical Names. London, 10–31 May 1972. Vol. II. Technical papers, pp. 165–168 (Table 2).
+  - (Ref.) Second United Nations Conference on the Standardization of
+    Geographical Names. London, 10–31 May 1972. Vol. II. Technical papers, pp.
+    165–168 (Table 2).
 
 tests:
   - source: የዜግነት ክብር በ ኢትዮጵያችን ጸንቶ
@@ -573,3 +599,4 @@ map:
       - 'vi̠'
       - 'v'
     '\u126E' : 'vo'  # ቮ
+
