@@ -73,7 +73,7 @@ map:
   character_separator: ""
   word_separator: " "
   title_case: False
-  inherit: nil-kor-Hang-Hang-jamo
+  inherit: var-kor-Hang-Hang-jamo
 
   rules:
 
