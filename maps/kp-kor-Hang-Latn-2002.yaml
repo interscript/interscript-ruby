@@ -134,8 +134,8 @@ tests:
   # Note4.6
   - source: "평양"
     expected: "Pyongyang"
-   
-  # Fix a problem with a trailing comma 
+
+  # Fix a problem with a trailing comma
   - source: "구현, 글꼴, 문자 배열, 다국어 컴퓨팅."
     expected: "Kuhyŏn, Külkkol, Munja Paeyŏl, Tagugŏ Khŏmphyuthing."
 
@@ -143,7 +143,7 @@ map:
   character_separator: ""
   word_separator: " "
   title_case: True
-  inherit: "nil-kor-Hang-Hang-jamo"
+  inherit: "var-kor-Hang-Hang-jamo"
 
   rules:
 
