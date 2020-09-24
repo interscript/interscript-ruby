@@ -1,14 +1,20 @@
 ---
 authority_id: din
-id: 33904-2018
+id: 33903-2016
 language: tam
 source_script: Taml
 destination_script: Latn
-name: "Information und Dokumentation - Umschrift Tamil : Information and documentation – Romanization of Tamil"
+name: "DIN 33903:2016-02: Information und Dokumentation - Umschrift Tamil"
+url: https://www.beuth.de/de/norm/din-33903/247150527
 creation_date: 2018
 description: |
-  This standard specifies the transliteration of all languages of the Devanāgarī characters into Latin letters firmly.
-  It is suitable for any application.
+  This standard specifies the transcription of the letters of the
+  Tamil alphabet in Latin letters. It is based on international
+  standards as well as on the preprint of the alphabetical tables,
+  which were published in 1976 with the introduction of the rules for
+  alphabetical cataloging. It can be used in all areas, but in
+  particular the aim is to standardize the library and publication
+  area.
 
 notes:
   - |

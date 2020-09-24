@@ -4,13 +4,12 @@ id: 32707-2010
 language: kat
 source_script: Geor
 destination_script: Latn
-name: DIN 32707:2010-01
-url: https://github.com/interscript/interscript-private-references/blob/master/din/din-32707.pdf
+name: "DIN 32707:2010-01 Information und Dokumentation - Umschrift des georgischen Alphabets"
+url: https://www.beuth.de/de/norm/din-32707/122821999
 creation_date: 2010
 confirmation_date: 2010
 description: |
-  Information and documentation –
-  Romanization of the Georgian alphabet.
+  Information and documentation - Romanization of the Georgian alphabet.
 
 notes:
 

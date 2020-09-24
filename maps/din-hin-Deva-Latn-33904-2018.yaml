@@ -1,12 +1,15 @@
 ---
 authority_id: din
-id: 2018
+id: 33904-2018
 language: hin
 source_script: Deva
 destination_script: Latn
-name: Hindi Romanization, 2018
+name: "DIN 33904:2018-10 Information and documentation - Romanization Devanagari, Hindi"
+url: https://www.beuth.de/en/standard/din-33904/293049024
 creation_date: 2018
 description: |
+  Hindi system.
+
   This standard specifies the transliteration of all languages of the Devanāgarī characters into Latin letters firmly.
   It is suitable for any application.
 
