@@ -1,0 +1,201 @@
+---
+authority_id: bgnpcgn
+id: 1964
+language: mon
+source_script: Cyrl
+destination_script: Latn
+name: BGN/PCGN 1964 System
+url: https://github.com/interscript/interscript/files/5180767/BGN_Romanization_Guide_1964_mongolian_1964.pdf
+creation_date:
+confirmation_date:
+description: |
+  This system was originated by the PCGN in 1957 and adopted as a
+  BGN/PCGN System in 1964. It is intended for use in the romanization of
+  geographic names in the "Mongolian People's Republic" but not to romanize
+  Mongolian names in adjacent parts of China and the U.S.S.R.
+
+notes: |
+  - b occurs initially and after л, м, and б.
+  - v occurs medially in Mongolian words and initially in foreign words.
+  - y occurs only as the second element of diphthongs.
+  - k, p, f, and shch occurs foreign words only.
+  - "\u2019" occurs only in Russion words.
+  - ï occurs only in suffixes to words containing back vowels (a, o, and u).
+  - In monosyllables yu or yü depending on pronunciation; in polysyllables yu when followed by a, o, or u, but yü when followed by i, e, ö, or ü.
+
+tests:
+  - source: Эрдэнэт Сум
+    expected: Erdenet Sum
+  - source: Эрдэнэт
+    expected: Erdenet
+  - source: Эрдэнэ
+    expected: Erdene
+  - source: Шивээговь Сум
+    expected: Shiveegovĭ Sum
+  - source: Шивээговь
+    expected: Shiveegovĭ
+  - source: Шарынгол Сум
+    expected: Sharïngol Sum
+  - source: Шарынгол
+    expected: Sharïngol
+  - source: Цагааннуур
+    expected: Tsagaannuur
+  - source: Хонгор Сум
+    expected: Hongor Sum
+  - source: Хонгор
+    expected: Hongor
+  - source: Хайлаастай
+    expected: Haylaastay
+  - source: Түнэл Сум
+    expected: Tünel Sum
+  - source: Түнэл
+    expected: Tünel
+  - source: Сүхбаатар
+    expected: Sühbaatar
+  - source: Сүмбэр Сум
+    expected: Sümber Sum
+  - source: Сүмбэр
+    expected: Sümber
+  - source: Сайншанд Сум
+    expected: Saynshand Sum
+  - source: Сайншанд
+    expected: Saynshand
+  - source: Орхон Сум
+    expected: Orhon Sum
+  - source: Орхон
+    expected: Orhon
+  - source: Нарст
+    expected: Narst
+  - source: Мөрөн Сум
+    expected: Mörön Sum
+  - source: Мөрөн
+    expected: Mörön
+  - source: Зүүнхөвөө
+    expected: Züünhövöö
+  - source: Жаргалант Сум
+    expected: Jargalant Sum
+  - source: Жаргалант
+    expected: Jargalant
+  - source: Дархан Сум
+    expected: Darhan Sum
+  - source: Даланзадгад Сум
+    expected: Dalanzadgad Sum
+  - source: Даланзадгад
+    expected: Dalanzadgad
+  - source: Давст Сум
+    expected: Davst Sum
+  - source: Давст
+    expected: Davst
+  - source: Говьсүмбэр Сум
+    expected: Govĭsümber Sum
+  - source: Говь
+    expected: Govĭ
+  - source: Буга
+    expected: Buga
+  - source: Бор-Өндөр Сум
+    expected: Bor-Öndör Sum
+  - source: Бор-Өндөр
+    expected: Bor-Öndör
+  - source: Баянхонгор
+    expected: Bayanhongor
+  - source: Баянтал
+    expected: Bayantal
+  - source: Баяндэлгэр Сум
+    expected: Bayandelger Sum
+  - source: Баяндэлгэр
+    expected: Bayandelger
+  - source: Баян-Өндөр Сум
+    expected: Bayan-Öndör Sum
+  - source: Баруун-Урт Сум
+    expected: Baruun-Urt Sum
+  - source: Баруун-Урт
+    expected: Baruun-Urt
+  - source: Архуст
+    expected: Arhust
+  - source: Арвайхээр Сум
+    expected: Arvayheer Sum
+  - source: Арвайхээр
+    expected: Arvayheer
+
+map:
+  rules:
+    - pattern: \u042e(?=[АаОоУу]) # Ю before а, о, or у
+      result: "Yu"
+    - pattern: \u044e(?=[АаОоУу]) # ю before а, о, or у
+      result: "yu"
+    - pattern: \u042e(?=[ИиЭэӨөҮү]) # Ю before и, э, ө, or ү
+      result: "Yü"
+    - pattern: \u044e(?=[ИиЭэӨөҮү]) # ю before и, э, ө, or ү
+      result: "yü"
+
+  characters:
+    "\u0410": "A"      # А
+    "\u0411": "B"      # Б
+    "\u0412": "V"      # В
+    "\u0413": "G"      # Г
+    "\u0414": "D"      # Д
+    "\u0415": "Yö"     # Е
+    "\u0401": "Yo"     # Ё
+    "\u0416": "J"      # Ж
+    "\u0417": "Z"      # З
+    "\u0418": "I"      # И
+    "\u0419": "Y"      # Й
+    "\u041a": "K"      # К
+    "\u041b": "L"      # Л
+    "\u041c": "M"      # М
+    "\u041d": "N"      # Н
+    "\u041e": "O"      # О
+    "\u04e8": "Ö"      # Ө
+    "\u041f": "P"      # П
+    "\u0420": "R"      # Р
+    "\u0421": "S"      # С
+    "\u0422": "T"      # Т
+    "\u0423": "U"      # У
+    "\u04ae": "Ü"      # Ү
+    "\u0424": "F"      # Ф
+    "\u0425": "H"      # Х
+    "\u0426": "Ts"     # Ц
+    "\u0427": "Ch"     # Ч
+    "\u0428": "Sh"     # Ш
+    "\u0429": "Shch"   # Щ
+    "\u042a": "\u2019" # Ъ
+    "\u042b": "Ï"      # Ы
+    "\u042c": "Ĭ"      # Ь
+    "\u042d": "E"      # Э
+    "\u042e": "Yu"     # Ю
+    "\u042f": "Ya"     # Я
+    "\u0430": "a"      # а
+    "\u0431": "b"      # б
+    "\u0432": "v"      # в
+    "\u0433": "g"      # г
+    "\u0434": "d"      # д
+    "\u0435": "yö"     # е
+    "\u0451": "yo"     # ё
+    "\u0436": "j"      # ж
+    "\u0437": "z"      # з
+    "\u0438": "i"      # и
+    "\u0439": "y"      # й
+    "\u043a": "k"      # к
+    "\u043b": "l"      # л
+    "\u043c": "m"      # м
+    "\u043d": "n"      # н
+    "\u043e": "o"      # о
+    "\u04e9": "ö"      # ө
+    "\u043f": "p"      # п
+    "\u0440": "r"      # р
+    "\u0441": "s"      # с
+    "\u0442": "t"      # т
+    "\u0443": "u"      # у
+    "\u04af": "ü"      # ү
+    "\u0444": "f"      # ф
+    "\u0445": "h"      # х
+    "\u0446": "ts"     # ц
+    "\u0447": "ch"     # ч
+    "\u0448": "sh"     # ш
+    "\u0449": "shch"   # щ
+    "\u044a": "\u2019" # ъ
+    "\u044b": "ï"      # ы
+    "\u044c": "ĭ"      # ь
+    "\u044d": "e"      # э
+    "\u044e": "yu"     # ю
+    "\u044f": "ya"     # я
