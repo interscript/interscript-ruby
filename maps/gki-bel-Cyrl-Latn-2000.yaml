@@ -1,7 +1,7 @@
 ---
 authority_id: gki
 id: 2000
-language: bel
+language: iso-639-2:bel
 source_script: Cyrl
 destination_script: Latn
 name: On approval of the Instructions for the transliteration of geographical names of the Republic of Belarus with letters of the Latin alphabet

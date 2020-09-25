@@ -1,7 +1,7 @@
 ---
 authority_id: iso
 id: 9-1995
-language: rus
+language: iso-639-2:rus
 source_script: Cyrl
 destination_script: Latn
 name: "ISO 9:1995 Information and documentation — Transliteration of Cyrillic characters into Latin characters — Slavic and non-Slavic languages"

@@ -1,7 +1,7 @@
 ---
 authority_id: var
 id: phonemic
-language: tha
+language: iso-639-2:tha
 source_script: Thai
 destination_script: Zsym
 name: Phonemic Thai to IPA

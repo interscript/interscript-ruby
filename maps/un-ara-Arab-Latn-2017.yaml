@@ -1,7 +1,7 @@
 ---
 authority_id: ungegn
 id: 2017
-language: ara
+language: iso-639-2:ara
 source_script: Arab
 destination_script: Latn
 name: ROMANIZATION OF ARABIC -- UNGEGN 2017 System

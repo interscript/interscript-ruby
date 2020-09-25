@@ -1,7 +1,7 @@
 ---
 authority_id: alalc
 id: 2012
-language: rus
+language: iso-639-2:rus
 source_script: Cyrl
 destination_script: Latn
 name: ALA-LC Romanization System 2012

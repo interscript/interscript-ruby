@@ -1,7 +1,7 @@
 ---
 authority_id: bgnpcgn
 id: 1947
-language: rus
+language: iso-639-2:rus
 source_script: Cyrl
 destination_script: Latn
 name: ROMANIZATION OF RUSSIAN, BGN/PCGN 1947 System

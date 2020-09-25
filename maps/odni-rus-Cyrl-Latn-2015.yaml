@@ -1,7 +1,7 @@
 ---
 authority_id: odni
 id: 2015
-language: rus
+language: iso-639-2:rus
 source_script: Cyrl
 destination_script: Latn
 name: Office of the Director Of National Intelligence Russian Personal Names 2015, ICS-630-01 Annex K

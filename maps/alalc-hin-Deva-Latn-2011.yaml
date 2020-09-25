@@ -1,7 +1,7 @@
 ---
 authority_id: alalc
 id: 2011
-language: hin
+language: iso-639-2:hin
 source_script: Deva
 destination_script: Latn
 name: Hindi Romanization, 2011

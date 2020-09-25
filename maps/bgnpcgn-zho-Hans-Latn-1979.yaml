@@ -1,7 +1,7 @@
 ---
 authority_id: bgnpcgn
 id: pinyin
-language: zho
+language: iso-639-2:zho
 source_script: Hans
 destination_script: Latn
 name: ROMANIZATION OF CHINESE -- BGN/PCGN 1979 AGREEMENT

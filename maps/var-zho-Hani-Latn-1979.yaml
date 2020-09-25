@@ -1,7 +1,7 @@
 ---
 authority_id: var
 id: 1979
-language: zho
+language: iso-639-2:zho
 source_script: Hani
 destination_script: Latn
 name: Wade-Giles

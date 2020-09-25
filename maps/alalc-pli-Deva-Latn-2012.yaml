@@ -1,7 +1,7 @@
 ---
 authority_id: alalc
 id: 2012
-language: pli
+language: iso-639-2:pli
 source_script: Deva
 destination_script: Latn
 name: Pali Romanization, 2012

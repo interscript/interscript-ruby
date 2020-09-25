@@ -1,7 +1,7 @@
 ---
 authority_id: bis
 id: 1991
-language: tel
+language: iso-639-2:tel
 source_script: Telu
 destination_script: Latn
 name: Indian script code for information interchange - ISCII - Telegu Romanization

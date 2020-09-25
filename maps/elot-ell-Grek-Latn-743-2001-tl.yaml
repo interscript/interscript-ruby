@@ -1,7 +1,7 @@
 ---
 authority_id: elot
 id: 2001-tl
-language: ell
+language: iso-639-2:ell
 source_script: Grek
 destination_script: Latn
 name: ELOT 743:2001

@@ -1,7 +1,7 @@
 ---
 authority_id: var
 id: 2013
-language: kor
+language: iso-639-2:kor
 source_script: Kore
 destination_script: Hang
 name: Hanja Hangul Converter 0.0.7

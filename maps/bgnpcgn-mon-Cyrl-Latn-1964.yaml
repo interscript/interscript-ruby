@@ -1,7 +1,7 @@
 ---
 authority_id: bgnpcgn
 id: 1964
-language: mon
+language: iso-639-2:mon
 source_script: Cyrl
 destination_script: Latn
 name: BGN/PCGN 1964 System

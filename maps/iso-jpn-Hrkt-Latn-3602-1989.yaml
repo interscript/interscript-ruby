@@ -1,7 +1,7 @@
 ---
 authority_id: iso
 id: 3602-1989
-language: jpn
+language: iso-639-2:jpn
 source_script: Hrkt
 destination_script: Latn
 name: "ISO 3602:1989 Documentation — Romanization of Japanese (kana script)"

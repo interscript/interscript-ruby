@@ -1,7 +1,7 @@
 ---
 authority_id: iso
 id: 1996-method1
-language: kor
+language: iso-639-2:kor
 source_script: Hang
 destination_script: Latn
 name: "ISO/TR 11941:1996 Information and documentation — Transliteration of Korean script into Latin characters"

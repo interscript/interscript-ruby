@@ -1,7 +1,7 @@
 ---
 authority_id: iso
 id: 1997
-language: ell
+language: iso-639-2:ell
 source_script: Grek
 destination_script: Latn
 name: "ISO 843:1997 Information and documentation — Conversion of Greek characters into Latin characters"

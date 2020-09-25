@@ -1,7 +1,7 @@
 ---
 authority_id: alalc
 id: 1997
-language: aze
+language: iso-639-2:aze
 source_script: Cyrl
 destination_script: Latn
 name: ALA-LC Romanization Table -- Azerbaijani (1997)

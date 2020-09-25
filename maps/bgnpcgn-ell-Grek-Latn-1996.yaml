@@ -1,7 +1,7 @@
 ---
 authority_id: bgnpcgn
 id: 1996
-language: ell
+language: iso-639-2:ell
 source_script: Grek
 destination_script: Latn
 name: BGN/PCGN 1996 System

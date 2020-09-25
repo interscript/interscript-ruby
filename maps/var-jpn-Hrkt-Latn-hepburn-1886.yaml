@@ -1,7 +1,7 @@
 ---
 authority_id: var
 id: hepburn-1886
-language: jpn
+language: iso-639-2:jpn
 source_script: Hrkt
 destination_script: Latn
 name: Traditional Hepburn

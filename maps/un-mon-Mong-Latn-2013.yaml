@@ -1,7 +1,7 @@
 ---
 authority_id: un
 id: 2013
-language: mon
+language: iso-639-2:mon
 source_script: Mong
 destination_script: Latn
 name: Mongolian Romanization in China, Version 4.0

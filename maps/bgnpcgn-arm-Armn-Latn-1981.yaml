@@ -1,7 +1,7 @@
 ---
 authority_id: bgnpcgn
 id: 1981
-language: arm
+language: iso-639-2:arm
 source_script: Armn
 destination_script: Latn
 name: BGN/PCGN 1981 System

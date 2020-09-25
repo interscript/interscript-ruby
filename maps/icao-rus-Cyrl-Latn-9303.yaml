@@ -1,7 +1,7 @@
 ---
 authority_id: icao
 id: 9303
-language: rus
+language: iso-639-2:rus
 source_script: Cyrl
 destination_script: Latn
 name: ICAO Doc 9303 Machine Readable Travel Documents Part 3 -- Russian Cyrillic to Latin

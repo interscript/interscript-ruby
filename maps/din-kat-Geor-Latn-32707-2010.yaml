@@ -1,7 +1,7 @@
 ---
 authority_id: din
 id: 32707-2010
-language: kat
+language: iso-639-2:kat
 source_script: Geor
 destination_script: Latn
 name: "DIN 32707:2010-01 Information und Dokumentation - Umschrift des georgischen Alphabets"

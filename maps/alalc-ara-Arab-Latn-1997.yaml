@@ -1,7 +1,7 @@
 ---
 authority_id: alalc
 id: 1997
-language: ara
+language: iso-639-2:ara
 source_script: Arab
 destination_script: Latn
 name: ALA-LC Romanization Table -- Arabic (1997)

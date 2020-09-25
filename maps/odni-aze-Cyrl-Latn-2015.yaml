@@ -1,7 +1,7 @@
 ---
 authority_id: odni
 id: 2015
-language: aze
+language: iso-639-2:aze
 source_script: Cyrl
 destination_script: Latn
 name: Standards for the transliteration of azeri personal names in written reports and products

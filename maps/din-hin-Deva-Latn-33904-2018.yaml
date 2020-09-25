@@ -1,7 +1,7 @@
 ---
 authority_id: din
 id: 33904-2018
-language: hin
+language: iso-639-2:hin
 source_script: Deva
 destination_script: Latn
 name: "DIN 33904:2018-10 Information and documentation - Romanization Devanagari, Hindi"

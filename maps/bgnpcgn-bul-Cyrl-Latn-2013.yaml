@@ -1,7 +1,7 @@
 ---
 authority_id: bgnpcgn
 id: 2013
-language: bul
+language: iso-639-2:bul
 source_script: Cyrl
 destination_script: Latn
 name: BGN/PCGN 2013 Agreement

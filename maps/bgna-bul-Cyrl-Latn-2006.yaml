@@ -1,7 +1,7 @@
 ---
 authority_id: bgna
 id: 2006
-language: bul
+language: iso-639-2:bul
 source_script: Cyrl
 destination_script: Latn
 name: Republic of Bulgaria system for transliteration of Bulgarian geographical names with Roman letters

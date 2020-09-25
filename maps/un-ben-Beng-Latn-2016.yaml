@@ -1,7 +1,7 @@
 ---
 authority_id: un
 id: 2016
-language: ben
+language: iso-639-2:ben
 source_script: Beng
 destination_script: Latn
 name: Bengali Romanization, Version 4.0

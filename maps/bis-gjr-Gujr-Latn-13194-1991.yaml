@@ -1,7 +1,7 @@
 ---
 authority_id: bis
 id: 1991
-language: gjr
+language: iso-639-2:gjr
 source_script: Gujr
 destination_script: Latn
 name: Indian script code for information interchange - ISCII - Gujrati Romanization

@@ -1,7 +1,7 @@
 ---
 authority_id: acadsin
 id: 2002
-language: zho
+language: iso-639-2:zho
 source_script: Hani
 destination_script: Latn
 name: Chinese Tongyong Pinyin Academica Sinica 2002 System

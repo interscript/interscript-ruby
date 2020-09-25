@@ -1,7 +1,7 @@
 ---
 authority_id: alalc
 id: 2017
-language: ben
+language: iso-639-2:ben
 source_script: Beng
 destination_script: Latn
 name: Bengali Romanization, 2017

@@ -1,7 +1,7 @@
 ---
 authority_id: bis
 id: 1991
-language: ori
+language: iso-639-2:ori
 source_script: Orya
 destination_script: Latn
 name: Indian script code for information interchange - ISCII - Oriya Romanization

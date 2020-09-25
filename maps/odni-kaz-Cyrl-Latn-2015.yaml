@@ -1,7 +1,7 @@
 ---
 authority_id: odni
 id: 2015
-language: kaz
+language: iso-639-2:kaz
 source_script: Cyrl
 destination_script: Latn
 name: Standards for the transliteration of kazakh personal names in written reports and products

@@ -1,7 +1,7 @@
 ---
 authority_id: alalc
 id: 1997
-language: mkd
+language: iso-639-2:mkd
 source_script: Cyrl
 destination_script: Latn
 name: Serbian and Makedonian Romanization, ALA-LC 1997 System

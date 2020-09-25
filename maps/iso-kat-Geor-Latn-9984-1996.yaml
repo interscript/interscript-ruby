@@ -1,7 +1,7 @@
 ---
 authority_id: iso
 id: 9984-1996
-language: kat
+language: iso-639-2:kat
 source_script: Geor
 destination_script: Latn
 name: "ISO 9984:1996 Information and documentation — Transliteration of Georgian characters into Latin characters"
