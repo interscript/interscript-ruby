@@ -5,7 +5,7 @@ language: kor
 source_script: Hang
 destination_script: Latn
 name: Office of the Director Of National Intelligence Korean 2015 System, ICS-630-01 Annex W
-url: 
+url:
 creation_date: 2015
 adoption_date:
 description:
@@ -32,38 +32,83 @@ notes: |
       equivalents follows.
 
 tests:
-  - source: "김 영수"
+  - source: "김영수"
     expected: "Kim Yo’ng-su"
-  - source: "허 담"
+  - source: "허담"
     expected: "Ho’ Tam"
-  - source: "선우 학원"
+  - source: "선우학원"
     expected: "So’nu Hak-wo’n"
+  - source: "이담"
+    expected: "Yi Tam"
+
+  # examples testing space handling
+  - source: "동방국"
+    expected: "Tongpang Kuk"
+  - source: "동 방국"
+    expected: "Tong Pang-kuk"
+  - source: "동방 국"
+    expected: "Tongpang Kuk"
+  - source: "화방국"
+    expected: "Hwa Pang-kuk"
+  - source: "황목국"
+    expected: "Hwangmok Kuk"
+
 
 map:
   character_separator: ""
   word_separator: " "
   title_case: True
-  inherit: nil-kor-Hang-Hang-jamo
+  inherit: var-kor-Hang-Hang-jamo
 
   rules:
+    - pattern: "^ | $"
+      result: ""
+
+    - pattern: " +"
+      result: " "
+
+    # 2 character inputs will have a space between them
+    - pattern: "^(\\p{Hangul})(\\p{Hangul})$"
+      result: "\\1 \\2"
+
+    # 4 character inputs will have a space as in XXXX -> XX XX
+    - pattern: "^(\\p{Hangul}{2})(\\p{Hangul}{2})$"
+      result: "\\1 \\2"
+
+    # 3 character inputs are more complicated. We enumerate all possible 2
+    # letter surnames according to: https://en.wikipedia.org/wiki/List_of_Korean_surnames
+    - pattern: "^(독고|동방|등정|망절|무본|부여|사공|서문|선우|어금|제갈|황목|황보)(\\p{Hangul})$"
+      result: "\\1 \\2"
+
+    # Otherwise the first character is probably a surname
+    - pattern: "^(\\p{Hangul})(\\p{Hangul}{2})$"
+      result: "\\1 \\2"
+
+    # In case of uncertainity, user needs to add a space himself.
+
+    - pattern: " +"
+      result: " "
+
+    - pattern: "^ | $"
+      result: ""
 
   postrules:
 
     # HANGUL JONGSEONG SSANGKIYEOK
     - pattern: "ᆩ"
-      result: "k"
+      result: "kk"
 
     # HANGUL JONGSEONG SSANGKIYEOK
     - pattern: "ᆪ"
-      result: "k"
+      result: "ks"
 
     # HANGUL JONGSEONG NIEUN-CIEUC
     - pattern: "ᆬ"
-      result: "n"
+      result: "nch"
 
     # HANGUL JONGSEONG NIEUN-CIEUC
     - pattern: "ᆭ"
-      result: "n"
+      result: "nh"
 
     # HANGUL JONGSEONG TIEUT
     - pattern: "ᆮ"
@@ -75,49 +120,49 @@ map:
 
     # HANGUL JONGSEONG RIEUL-THIEUTH
     - pattern: "ᆴ"
-      result: "l"
+      result: "lt’"
 
     # HANGUL JONGSEONG RIEUL-PHIEUPH
     - pattern: "ᆵ"
-      result: "p"
+      result: "lp’"
 
     # HANGUL JONGSEONG RIEUL-HIEUH
     - pattern: "ᆶ"
-      result: "l"
+      result: "lh"
 
     # HANGUL JONGSEONG PIEUP-SIOS
     - pattern: "ᆹ"
-      result: "p"
+      result: "ps"
 
     # HANGUL JONGSEONG SSANG-SIOS
     - pattern: "ᆻ"
-      result: "t"
+      result: "ss"
 
     # HANGUL JONGSEONG CIEUC
     - pattern: "ᆽ"
-      result: "t"
+      result: "ch"
 
     # HANGUL JONGSEONG CHIEUCH
     - pattern: "ᆾ"
-      result: "t"
+      result: "ch’"
 
     # HANGUL JONGSEONG KHIEUKH
     - pattern: "ᆿ"
-      result: "k"
+      result: "k’"
 
     # HANGUL JONGSEONG THIEUTH
     - pattern: "ᇀ"
-      result: "t"
+      result: "t’"
 
     # HANGUL JONGSEONG PHIEUPH
     - pattern: "ᇁ"
-      result: "p"
+      result: "p’"
 
     # HANGUL JONGSEONG HIEUH
     - pattern: "ᇂ"
-      result: ""
+      result: "h"
 
-    # HANGUL JONGSEONG KIYEOK 
+    # HANGUL JONGSEONG KIYEOK
     - pattern: "ᆨ"
       result: "k"
 
@@ -139,7 +184,7 @@ map:
 
     # HANGUL JONGSEONG SIOS
     - pattern: "ᆺ"
-      result: "t"
+      result: "s"
 
     # HANGUL JONGSEONG IEUNG
     - pattern: "ᆼ"
@@ -147,11 +192,11 @@ map:
 
     # HANGUL JONGSEONG RIEUL-KIYEOK
     - pattern: "ᆰ"
-      result: "k" 
+      result: "lk"
 
     # HANGUL JONGSEONG RIEUL-PIEUP
     - pattern: "ᆲ"
-      result: "p" 
+      result: "lp"
 
     # HANGUL CHOSEONG KIYEOK
     - pattern: "ᄀ"
@@ -159,7 +204,7 @@ map:
 
     # HANGUL CHOSEONG NIEUN
     - pattern: "ᄂ"
-      result: "-n" 
+      result: "-n"
 
     # HANGUL CHOSEONG TIEUT
     - pattern: "ᄃ"
@@ -179,11 +224,11 @@ map:
 
     # HANGUL CHOSEONG SIOS
     - pattern: "ᄉ"
-      result: "-s" 
+      result: "-s"
 
     # HANGUL CHOSEONG IEUNG
     - pattern: "ᄋ"
-      result: "-" 
+      result: "-"
 
     # HANGUL CHOSEONG CIEUC
     - pattern: "ᄌ"
@@ -191,7 +236,7 @@ map:
 
     # HANGUL CHOSEONG CHIEUCH
     - pattern: "ᄎ"
-      result: "-ch’" 
+      result: "-ch’"
 
     # HANGUL CHOSEONG KHIEUKH
     - pattern: "ᄏ"
@@ -203,64 +248,62 @@ map:
 
     # HANGUL CHOSEONG PHIEUPH
     - pattern: "ᄑ"
-      result: "-p’" 
+      result: "-p’"
 
     # HANGUL CHOSEONG HIEUH
     - pattern: "ᄒ"
       result: "-h"
 
-    ## Choseong Jamos below are missing from the specification
-
     # HANGUL CHOSEONG SSANGKIYEOK
     - pattern: "ᄁ"
-      result: "kk"
+      result: "-kk"
 
     # HANGUL CHOSEONG SIOS-KIYEOK
     - pattern: "ᄭ"
-      result: "kk"
+      result: "-sk"
 
     # HANGUL CHOSEONG SSANGTIEUT
     - pattern: "ᄄ"
-      result: "tt" 
+      result: "-tt"
 
     # HANGUL CHOSEONG SIOS-TIEUT
     - pattern: "ᄯ"
-      result: "tt"
+      result: "-st"
 
     # HANGUL CHOSEONG SSANGPIEUP
     - pattern: "ᄈ"
-      result: "pp"
+      result: "-pp"
 
     # HANGUL CHOSEONG SIOS-PIEUP
     - pattern: "ᄲ"
-      result: "pp"
+      result: "-sp"
 
     # HANGUL CHOSEONG SSANGSIOS
     - pattern: "ᄊ"
-      result: "ss"
+      result: "-ss"
 
     # HANGUL CHOSEONG SSANGCIEUC
     - pattern: "ᄍ"
-      result: "tch"
+      result: "-chch"
 
     # HANGUL CHOSEONG SIOS-CIEUC
     - pattern: "ᄶ"
-      result: "tch"
+      result: "-sch"
 
     ## End of Choseong Jamos
 
     # HANGUL JUNGSEONG A
     - pattern: "ᅡ"
-      result: "a" 
+      result: "a"
     # HANGUL JUNGSEONG YA
     - pattern: "ᅣ"
-      result: "ya" 
+      result: "ya"
     # HANGUL JUNGSEONG EO
     - pattern: "ᅥ"
-      result: "o’" 
+      result: "o’"
     # HANGUL JUNGSEONG YEO
     - pattern: "ᅧ"
-      result: "yo’" 
+      result: "yo’"
     # HANGUL JUNGSEONG O
     - pattern: "ᅩ"
       result: "o"
@@ -289,14 +332,14 @@ map:
     - pattern: "ᅦ"
       result: "e"
     # HANGUL JUNGSEONG YE  # Not found in specification
-    - pattern: "ᅨ"
-      result: "ye" 
+    - pattern: "ᅨ"        # actually found in Reference Guide
+      result: "ye"
     # HANGUL JUNGSEONG WA
     - pattern: "ᅪ"
       result: "wa"
     # HANGUL JUNGSEONG WAE
     - pattern: "ᅫ"
-      result: "wae" 
+      result: "wae"
     # HANGUL JUNGSEONG OE
     - pattern: "ᅬ"
       result: "oe"
@@ -308,10 +351,10 @@ map:
       result: "wo’"
     # HANGUL JUNGSEONG WI
     - pattern: "ᅱ"
-      result: "wi"  
+      result: "wi"
     # HANGUL JUNGSEONG YI
     - pattern: "ᅴ"
-      result: "ui" 
+      result: "ui"
 
     # Remove before the first syllable dash
     - pattern: "(?<=^| )-"
@@ -329,4 +372,4 @@ map:
   # This is based on Jamo
 
   dictionary:
-  # 
+  #
