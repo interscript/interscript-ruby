@@ -1,7 +1,7 @@
 ---
 authority_id: hk
 id: 1888
-language: yue
+language: iso-639-3:yue
 source_script: Hani
 destination_script: Latn
 name: Hong Kong Government Cantonese Romanisation

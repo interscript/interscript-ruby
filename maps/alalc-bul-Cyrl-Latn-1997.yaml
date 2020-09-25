@@ -1,7 +1,7 @@
 ---
 authority_id: alalc
 id: 1997
-language: bul
+language: iso-639-2:bul
 source_script: Cyrl
 destination_script: Latn
 name: ALA-LC Romanization Table -- Bulgarian (1997)

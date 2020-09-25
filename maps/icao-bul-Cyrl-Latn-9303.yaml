@@ -1,7 +1,7 @@
 ---
 authority_id: icao
 id: 9303
-language: bul
+language: iso-639-2:bul
 source_script: Cyrl
 destination_script: Latn
 name: ICAO Doc 9303 Machine Readable Travel Documents Part 3 -- Bulgarian Cyrillic to Latin

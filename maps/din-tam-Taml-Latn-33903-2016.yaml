@@ -1,7 +1,7 @@
 ---
 authority_id: din
 id: 33903-2016
-language: tam
+language: iso-639-2:tam
 source_script: Taml
 destination_script: Latn
 name: "DIN 33903:2016-02: Information und Dokumentation - Umschrift Tamil"

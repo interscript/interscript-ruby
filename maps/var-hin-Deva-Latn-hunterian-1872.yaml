@@ -1,7 +1,7 @@
 ---
 authority_id: var
 id: 1872
-language: hin
+language: iso-639-2:hin
 source_script: Deva
 destination_script: Latn
 name: Hindi Hunterian system

@@ -1,7 +1,7 @@
 ---
 authority_id: iso
 id: 233-1984
-language: ara
+language: iso-639-2:ara
 source_script: Arab
 destination_script: Latn
 name: ISO 233:1984 Documentation — Transliteration of Arabic characters into Latin characters

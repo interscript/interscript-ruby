@@ -1,7 +1,7 @@
 ---
 authority_id: alalc
 id: 2013
-language: srp
+language: iso-639-2:srp
 source_script: Cyrl
 destination_script: Latn
 name: ROMANIZATION OF SERBIAN, ALA-LC 2013 System

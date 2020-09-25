@@ -1,7 +1,7 @@
 ---
 authority_id: lshk
 id: jyutping
-language: yue
+language: iso-639-3:yue
 source_script: Hani
 destination_script: Latn
 name: LSHK Jyutping

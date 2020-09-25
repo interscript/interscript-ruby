@@ -1,7 +1,7 @@
 ---
 authority_id: alalc
 id: 2012
-language: asm
+language: iso-639-2:asm
 source_script: Deva
 destination_script: Latn
 name: Assamese Romanization, 2012

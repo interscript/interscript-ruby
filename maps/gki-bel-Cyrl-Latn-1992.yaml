@@ -1,7 +1,7 @@
 ---
 authority_id: gki
 id: 1992
-language: bel
+language: iso-639-2:bel
 source_script: Cyrl
 destination_script: Latn
 name: Byelorussian National Cartographic Authority 1992-3 System (based on GOST 1983)

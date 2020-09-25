@@ -1,7 +1,7 @@
 ---
 authority_id: bgnpcgn
 id: 1993
-language: aze
+language: iso-639-2:aze
 source_script: Cyrl
 destination_script: Latn
 name: AZERBAIJANI TABLE OF CORRESPONDENCES CYRILLIC-ROMAN -- BGN/PCGN 1993 Agreement

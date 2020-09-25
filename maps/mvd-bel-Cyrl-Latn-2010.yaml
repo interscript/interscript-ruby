@@ -1,7 +1,7 @@
 ---
 authority_id: mvd
 id: 2010
-language: bel
+language: iso-639-2:bel
 source_script: Cyrl
 destination_script: Latn
 name: |

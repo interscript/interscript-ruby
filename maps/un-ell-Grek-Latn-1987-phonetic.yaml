@@ -1,7 +1,7 @@
 ---
 authority_id: un
 id: 1987-phonetic
-language: ell
+language: iso-639-2:ell
 source_script: Grek
 destination_script: Latn
 name: UNGEGN Greek v1.0, Fifth United Nations Conference on the Standardization of Geographical Names. Writing Systems and Guides to Pronunciation Romanization > Conversion of the Greek alphabet into Latin characters. Paper submitted by Greece and Cyprus.

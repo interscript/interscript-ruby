@@ -1,7 +1,7 @@
 ---
 authority_id: alalc
 id: 1997
-language: bel
+language: iso-639-2:bel
 source_script: Cyrl
 destination_script: Latn
 name: ALA-LC Romanization Table -- Byelorussian (1997)

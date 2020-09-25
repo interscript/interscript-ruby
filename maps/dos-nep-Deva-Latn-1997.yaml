@@ -1,7 +1,7 @@
 ---
 authority_id: bgnpcgn
 id: 1997
-language: nep
+language: iso-639-2:nep
 source_script: Deva
 destination_script: Latn
 name: Nepali Romanization, 1997

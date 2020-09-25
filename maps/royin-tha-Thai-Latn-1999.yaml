@@ -1,7 +1,7 @@
 ---
 authority_id: royin
 id: 1999
-language: tha
+language: iso-639-2:tha
 source_script: Thai
 destination_script: Latn
 name: Royal Thai General System of Transcription (1999)

@@ -1,7 +1,7 @@
 ---
 authority_id: odni
 id: 2015
-language: kir
+language: iso-639-2:kir
 source_script: Cyrl
 destination_script: Latn
 name: Standards for the transliteration of kyrgyz personal names in written reports and products

@@ -1,7 +1,7 @@
 ---
 authority_id: ua
 id: 1996
-language: ukr
+language: iso-639-2:ukr
 source_script: Cyrl
 destination_script: Latn
 name: Government of Ukraine Ukrainian System (1996)

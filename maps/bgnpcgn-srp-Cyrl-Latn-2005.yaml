@@ -1,7 +1,7 @@
 ---
 authority_id: bgnpcgn
 id: 2005
-language: srp
+language: iso-639-2:srp
 source_script: Cyrl
 destination_script: Latn
 name: ROMANIZATION OF SERBIAN, BGN/PCGN 2005 System

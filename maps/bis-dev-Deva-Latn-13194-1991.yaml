@@ -1,7 +1,7 @@
 ---
 authority_id: bis
 id: 1991
-language: dev
+language: iso-639-2:dev
 source_script: Deva
 destination_script: Latn
 name: Indian script code for information interchange - ISCII - Devanagri Romanization

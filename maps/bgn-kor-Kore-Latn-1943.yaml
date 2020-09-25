@@ -1,7 +1,7 @@
 ---
 authority_id: bgn
 id: 1943
-language: kor
+language: iso-639-2:kor
 source_script: Kore
 destination_script: Latn
 name: BGN Agreement -- Korean McCune-Reischauer System (1943)

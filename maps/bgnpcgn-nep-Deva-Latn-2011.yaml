@@ -1,7 +1,7 @@
 ---
 authority_id: bgnpcgn
 id: 2020
-language: nep
+language: iso-639-2:nep
 source_script: Deva
 destination_script: Latn
 name: Nepali Romanization, 2020

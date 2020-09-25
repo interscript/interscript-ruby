@@ -1,7 +1,7 @@
 ---
 authority_id: ggg
 id: 2002
-language: kat
+language: iso-639-2:kat
 source_script: Geor
 destination_script: Latn
 name: Georgian State Department of Geodesy and Cartography 2002 System
