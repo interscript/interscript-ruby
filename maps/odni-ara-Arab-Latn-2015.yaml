@@ -130,9 +130,6 @@ notes: |
 
 tests:
 
-  # Examples taken from:
-  # https://unstats.un.org/unsd/geoinfo/geonames/
-
   - source: مِصر
     expected: Misr
 
@@ -143,46 +140,49 @@ tests:
     expected: Al Maghrib
 
   - source: الجُمهُورِيَّة العِراقِيَّة
-    expected: Al Jumhuriyah al ‘Iraqiyah
+    expected: Al Jumhuriyah al ’Iraqiyah
 
-  # - source: جُمهُورِيَّة العِراق
-  #   expected: Jumhūrīyat al ‘Irāq
+  - source: جُمهُورِيَّة العِراق
+    expected: Jumhuriyat al ’Iraq
 
-  # - source: جُمهُورِيَّة مِصر العَرَبِيَّة
-  #   expected: Jumhūrīyat Mis̱r al ‘Arabīyah
+  - source: جُمهُورِيَّة مِصر العَرَبِيَّة
+    expected: Jumhuriyat Misr al ’Arabiyah
 
-  # - source: بَغداد
-  #   expected: Baghdād
+  - source: بَغداد
+    expected: Baghdad
 
-  # - source: تُونِس
-  #   expected: Tūnis
+  - source: تُونِس
+    expected: Tunis
 
-  # - source: السُعُودِيَّة
-  #   expected: As Su‘ūdīyah
+  - source: حَسّان
+    expected: Hassan
 
-  # - source: اليَمَن
-  #   expected: Al Yaman
+  - source: مُحَمَّد
+    expected: Muhammad
 
-  # - source: السُودان
-  #   expected: As Sūdān
+  - source: القَذَّافِي
+    expected: Al Qadhafi
 
-  # - source: الجَزائِر
-  #   expected: Al Jazā'ir
+  - source: مُبَشِّر
+    expected: Mubashir
 
-  # - source: الجُمهُورِيَّة اللُبنانِيَّة
-  #   expected: Al Jumhūrīyah al Lubnānīyah
+  - source: الجَزائِر
+    expected: Al Jaza’ir
 
-  # - source: أسمَرة
-  #   expected: Asmarah
+  - source: عَبدالرَحمَن
+    expected: ’Abd-al-Rahman
 
-  # - source: جِدَّة
-  #   expected: Jiddah
+  - source: هَيْثَم
+    expected: Haytham
 
-  # - source: مَكَّة
-  #   expected: Makkah
+  - source: فَيْصَل
+    expected: Faysal
 
-  # - source: الرِيَاض
-  #   expected: Ar Riyāḏ
+  - source: تَوْفِيق
+    expected: Tawfiq
+
+  - source: رَوْضَة
+    expected: Rawdah
 
 map:
   postrules:
@@ -190,6 +190,8 @@ map:
       result: "upcase"
     - pattern: " Al " # ال
       result: " al "
+    - pattern: "-Al-" # ال
+      result: "-al-"
 
     # don't capitalize defined article in the middle of a sentence
 
@@ -207,18 +209,11 @@ map:
     '\u0652' : ''  # ْ sokoon, see note A below
 
 
-    # special pointed letters
-    '\u0639\u064e' : '‘a'  # عَ
-    '\u0639\u0650' : '‘i'  # عِ
-    '\u0639\u064f' : '‘u'  # عُ
-    # handle MacOS regex difference
-    '\u0639\u064f\u0648' : '‘u'  # عُو damma followed by و
-
     '\u0650\u064a' : 'i' # ـِي kasra followed by ي
     '\u0650\u064a\u0651\u064e' : 'iy' # ـِيَّ
     '\u0650\u064a(?=\u064e|u064f)' : 'iy' # ـِي kasra followed by ي
     '\u064f\u0648' : 'u'  # ـُو damma followed by و
-    '\u064e\u0627' : 'ā'  # ـَا fatha followed by ا
+    '\u064e\u0627' : 'a'  # ـَا fatha followed by ا
     '\u064e\u0649' : 'á'  # ـَى fatha followed by ى which is ا not ي
     '\u064e\u0648\u0652' : 'aw'  # ـَوْ
     '\u064e\u064a\u0652' : 'ay'  # ـَيْ
@@ -280,6 +275,7 @@ map:
        - ''
 
     '\b\u0627\u0644' : 'al '  # ال
+    '\u0627\u0644' : '-al-'  # ال in middle of composite name
     # '\uFE8E' : ''  # ﺎ
 
 
