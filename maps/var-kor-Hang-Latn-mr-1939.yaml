@@ -1,7 +1,7 @@
 ---
 authority_id: bgn
 id: mr-1939
-language: kor
+language: iso-639-2:kor
 source_script: Hang
 destination_script: Latn
 name: McCune-Reischauer System
@@ -310,7 +310,7 @@ map:
   character_separator: ""
   word_separator: " "
   title_case: False
-  inherit: nil-kor-Hang-Hang-jamo
+  inherit: var-kor-Hang-Hang-jamo
 
   rules:
 

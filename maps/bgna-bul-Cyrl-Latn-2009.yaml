@@ -1,7 +1,7 @@
 ---
 authority_id: bgna
 id: 2009
-language: bul
+language: iso-639-2:bul
 source_script: Cyrl
 destination_script: Latn
 name: Streamlined System for Romanization of Bulgarian

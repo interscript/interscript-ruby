@@ -1,7 +1,7 @@
 ---
 authority_id: un
 id: 1998
-language: bel
+language: iso-639-2:bel
 source_script: Cyrl
 destination_script: Latn
 name: National System of Geographic Names Transmission into Roman Alphabet in Belarus

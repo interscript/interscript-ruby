@@ -1,7 +1,7 @@
 ---
 authority_id: alalc
 id: 1997
-language: kat
+language: iso-639-2:kat
 source_script: Geok
 destination_script: Latn
 name: ALA-LC Georgian System (1997)

@@ -1,59 +1,58 @@
 ---
-authority_id: alalc
-id: 1997
+authority_id: din
+id: 32707-2010
 language: iso-639-2:kat
 source_script: Geor
 destination_script: Latn
-name: ALA-LC Georgian System (1997)
-url: https://www.loc.gov/catdir/cpso/romanization/georgian.pdf
-creation_date: 1997
-confirmation_date: 1997
+name: "DIN 32707:2010-01 Information und Dokumentation - Umschrift des georgischen Alphabets"
+url: https://www.beuth.de/de/norm/din-32707/122821999
+creation_date: 2010
+confirmation_date: 2010
 description: |
-  Values are shown for the older Khutsuri and the modern Mkhedruli alphabets.
-  There are no upper case letters in Mkhedruli.
+  Information and documentation - Romanization of the Georgian alphabet.
 
 notes:
 
 tests:
 
   - source: ხაოფსე
-    expected: xaopʻse
+    expected: xaop̕se
 
   - source: ჭლოუ
     expected: člou
 
   - source: ჩოხულდი
-    expected: čʻoxuldi
+    expected: č̕oxuldi
 
   - source: ქვემო ლინდა
-    expected: kʻvemo linda
+    expected: k̕vemo linda
 
   - source: ტამკვაჩ იგვავერა
-    expected: tamkvačʻ igvavera
+    expected: tamkvač̕ igvavera
 
   - source: სვანეთი
-    expected: svanetʻi
+    expected: svanet̕i
 
   - source: საცხვარისი
-    expected: sacʻxvarisi
+    expected: sac̕xvarisi
 
   - source: მუხრან-თელეთი
-    expected: muxran-tʻeletʻi
+    expected: muxran-t̕elet̕i
 
   - source: მუცდი
-    expected: mucʻdi
+    expected: muc̕di
 
   - source: ლეჩხუმი
-    expected: lečʻxumi
+    expected: leč̕xumi
 
   - source: ვერხნაია მწარა
     expected: verxnaia mcara
 
   - source: ეგრისის ქედი
-    expected: egrisis kʻedi
+    expected: egrisis k̕edi
 
   - source: დოჩარიფშა
-    expected: dočʻaripʻša
+    expected: doč̕arip̕ša
 
   - source: ბოლოკო
     expected: boloko
@@ -62,7 +61,7 @@ tests:
     expected: ačandara
 
   - source: აუალიცა
-    expected: aualicʻa
+    expected: aualic̕a
 
   - source: აკალამრა
     expected: akalamra
@@ -77,7 +76,7 @@ tests:
     expected: baqaqi
 
   - source: ძროხა
-    expected: żroxa
+    expected: jroxa
 
   - source: ჰაერი
     expected: haeri
@@ -86,10 +85,10 @@ tests:
     expected: žolo
 
   - source: ჯართი
-    expected: jartʻi
+    expected: ǰart̕i
 
   - source: ღრმაღელე
-    expected: ġrmaġele
+    expected: ġrmaġele
 
 map:
   characters:
@@ -101,9 +100,9 @@ map:
     '\u10d5' : 'v' # ვ
     '\u10d6' : 'z' # ზ
 
-    '\u10f1' : 'ē' # ჱ
+    '\u10f1' : 'ê' # ჱ
 
-    '\u10d7' : 'tʻ' # თ
+    '\u10d7' : 't̕' # თ
     '\u10d8' : 'i' # ი
     '\u10d9' : 'k' # კ
     '\u10da' : 'l' # ლ
@@ -122,25 +121,25 @@ map:
     '\u10f3' : 'w' # ჳ
 
     '\u10e3' : 'u' # უ
-    '\u10e4' : 'pʻ' # ფ
-    '\u10e5' : 'kʻ' # ქ
-    '\u10e6' : 'ġ' # ღ
+    '\u10e4' : 'p̕' # ფ
+    '\u10e5' : 'k̕' # ქ
+    '\u10e6' : 'ġ' # ღ
     '\u10e7' : 'q' # ყ
     '\u10e8' : 'š' # შ
-    '\u10e9' : 'čʻ' # ჩ
-    '\u10ea' : 'cʻ' # ც
-    '\u10eb' : 'ż' # ძ
+    '\u10e9' : 'č̕' # ჩ
+    '\u10ea' : 'c̕' # ც
+    '\u10eb' : 'j' # ძ
     '\u10ec' : 'c' # წ
     '\u10ed' : 'č' # ჭ
     '\u10ee' : 'x' # ხ
 
-    '\u10f4' : 'x̣' # ჴ
+    '\u10f4' : 'q̕' # ჴ
 
-    '\u10ef' : 'j' # ჯ
+    '\u10ef' : 'ǰ' # ჯ
     '\u10f0' : 'h' # ჰ
 
-    '\u10f5' : 'ō' # ჵ
+    '\u10f5' : 'ô' # ჵ
 
     '\u10f6' : 'f' # ჶ
-    '\u10f7' : 'ĕ' # ჷ
-    '\u10f8' : 'ʻ' # ჸ
+    '\u10f7' : 'ẹ' # ჷ
+    '\u10f8' : 'ʼ' # ჸ

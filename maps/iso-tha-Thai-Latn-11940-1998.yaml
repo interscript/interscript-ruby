@@ -1,7 +1,7 @@
 ---
 authority_id: iso
 id: 11940-1998
-language: tha
+language: iso-639-2:tha
 source_script: Thai
 destination_script: Latn
 name: ISO 11940:1998 Information and documentation -- Transliteration of Thai

@@ -1,12 +1,17 @@
 ---
 authority_id: din
-id: 2018
-language: mar
+id: 33904-2018
+language: iso-639-2:mar
 source_script: Deva
 destination_script: Latn
-name: Marathi Romanization, 2018
+name: "DIN 33904:2018-10 Information and documentation - Romanization Devanagari, Marathi"
+url: https://www.beuth.de/en/standard/din-33904/293049024
 creation_date: 2018
 description: |
+  Marathi system.
+
+  Information und Dokumentation - Transliteration Devanagari
+
   This standard specifies the transliteration of all languages of the Devanāgarī characters into Latin letters firmly.
   It is suitable for any application.
 

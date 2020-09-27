@@ -1,7 +1,7 @@
 ---
 authority_id: bgnpcgn
 id: 2019
-language: ukr
+language: iso-639-2:ukr
 source_script: Cyrl
 destination_script: Latn
 name: BGN/PCGN 2019 Agreement

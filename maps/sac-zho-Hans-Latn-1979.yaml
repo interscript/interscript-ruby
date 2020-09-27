@@ -1,7 +1,7 @@
 ---
 authority_id: sac
 id: 1979
-language: chn
+language: iso-639-2:chn
 source_script: Hans
 destination_script: Latn
 name: Pinyin

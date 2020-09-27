@@ -1,7 +1,7 @@
 ---
 authority_id: alalc
 id: 2010
-language: ell
+language: iso-639-2:ell
 source_script: Grek
 destination_script: Latn
 name: Greek Romanization, 2010

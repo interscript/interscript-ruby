@@ -1,7 +1,7 @@
 ---
 authority_id: mofa
 id: 1989
-language: jpn
+language: iso-639-2:jpn
 source_script: Hrkt
 destination_script: Latn
 name: Hepburn Romanization, Ministry of Foreign Affairs of Japan

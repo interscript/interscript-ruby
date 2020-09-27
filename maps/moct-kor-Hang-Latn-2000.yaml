@@ -1,7 +1,7 @@
 ---
 authority_id: moct
 id: 2000-viajamo
-language: kor
+language: iso-639-2:kor
 source_script: Hang
 destination_script: Latn
 name: Korean Ministry of Culture and Tourism 2000 System
@@ -91,7 +91,7 @@ map:
   character_separator: ""
   word_separator: " "
   title_case: True
-  inherit: "nil-kor-Hang-Hang-jamo"
+  inherit: "var-kor-Hang-Hang-jamo"
 
   rules:
     # convert numbers to space + Hangul

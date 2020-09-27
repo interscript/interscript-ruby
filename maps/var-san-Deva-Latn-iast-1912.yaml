@@ -1,7 +1,7 @@
 ---
 authority_id: var
 id: 1912
-language: san
+language: iso-639-2:san
 source_script: Deva
 destination_script: Latn
 name: IAST Sanskrit Devanagari System

@@ -1,7 +1,7 @@
 ---
 authority_id: bis
 id: 1991
-language: mlm
+language: iso-639-2:mlm
 source_script: Mlym
 destination_script: Latn
 name: Indian script code for information interchange - ISCII - Malayalam Romanization

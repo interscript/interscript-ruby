@@ -1,7 +1,7 @@
 ---
 authority_id: mext
 id: 1954
-language: jpn
+language: iso-639-2:jpn
 source_script: Hrkt
 destination_script: Latn
 name: 内閣告示第一号 -- ローマ字のつづり方

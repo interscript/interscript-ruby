@@ -1,7 +1,7 @@
 ---
 authority_id: ungegn
 id: 1987
-language: rus
+language: iso-639-2:rus
 source_script: Cyrl
 destination_script: Latn
 name: REPORT ON THE CURRENT STATUS OF UNITED NATIONS ROMANIZATION SYSTEMS FOR GEOGRAPHICAL NAMES -- Russian Romanization system

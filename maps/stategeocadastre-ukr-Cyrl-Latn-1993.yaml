@@ -1,7 +1,7 @@
 ---
 authority_id: stategeocadastre
 id: 1993
-language: ukr
+language: iso-639-2:ukr
 source_script: Cyrl
 destination_script: Latn
 name: PROVISIONAL RULES OF REPRODUCING LETTERS OF THE UKRAINIAN ALPHABET WITH LATIN (ENGLISH) CHARACTERS

@@ -1,7 +1,7 @@
 ---
 authority_id: alalc
 id: 2013
-language: mkd
+language: iso-639-2:mkd
 source_script: Cyrl
 destination_script: Latn
 name: Makedonian Romanization, ALA-LC 2013 System

@@ -1,18 +1,17 @@
 ---
 authority_id: iso
 id: 9984-1996
-language: kat
+language: iso-639-2:kat
 source_script: Geor
 destination_script: Latn
-name: ISO 9984:1996
+name: "ISO 9984:1996 Information and documentation — Transliteration of Georgian characters into Latin characters"
 url: https://www.iso.org/standard/17892.html
 creation_date: 1996
 confirmation_date: 1996
 description: |
-  Information and documentation — Transliteration of Georgian characters
-  into Latin characters. Establishes a system for the transliteration of
-  Georgian characters into Latin characters to permit international
-  information exchange, particularly by electronic means.
+  Establishes a system for the transliteration of Georgian characters
+  into Latin characters to permit international information exchange,
+  particularly by electronic means.
 
 notes:
 

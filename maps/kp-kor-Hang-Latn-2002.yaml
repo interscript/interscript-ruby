@@ -1,7 +1,7 @@
 ---
 authority_id: kp
 id: 2002
-language: kor
+language: iso-639-2:kor
 source_script: Hang
 destination_script: Latn
 name: Korean Democratic People's Republic of Korea Korean System (2002)
@@ -134,8 +134,8 @@ tests:
   # Note4.6
   - source: "평양"
     expected: "Pyongyang"
-   
-  # Fix a problem with a trailing comma 
+
+  # Fix a problem with a trailing comma
   - source: "구현, 글꼴, 문자 배열, 다국어 컴퓨팅."
     expected: "Kuhyŏn, Külkkol, Munja Paeyŏl, Tagugŏ Khŏmphyuthing."
 
@@ -143,7 +143,7 @@ map:
   character_separator: ""
   word_separator: " "
   title_case: True
-  inherit: "nil-kor-Hang-Hang-jamo"
+  inherit: "var-kor-Hang-Hang-jamo"
 
   rules:
 

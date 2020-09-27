@@ -1,12 +1,15 @@
 ---
 authority_id: din
-id: 2018
-language: san
+id: 33904-2018
+language: iso-639-2:san
 source_script: Deva
 destination_script: Latn
-name: Sanskrit Romanization, 2018
+name: "DIN 33904:2018-10 Information and documentation - Romanization Devanagari, Sanskrit"
+url: https://www.beuth.de/en/standard/din-33904/293049024
 creation_date: 2018
 description: |
+  Sanskrit system.
+
   This standard specifies the transliteration of all languages of the Devanāgarī characters into Latin letters firmly.
   It is suitable for any application.
 
@@ -94,7 +97,7 @@ map:
 
     - pattern: \u0902(?=[कखगघचछजझतथदधपफबभटठडढ])
       result: "ñ"
-      
+
     - pattern: ([क]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
       result: 'k'
     - pattern: ([ख]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
@@ -150,7 +153,7 @@ map:
     - pattern: ([र]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
       result: 'r'
     - pattern: ([ल]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
-      result: 'l'  
+      result: 'l'
     - pattern: ([ळ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
       result: 'ḷ'
     - pattern: ([व]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
@@ -162,7 +165,7 @@ map:
     - pattern: ([स]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
       result: 's'
     - pattern: ([ह]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C])
-      result: 'h'  
+      result: 'h'
 
   characters:
 

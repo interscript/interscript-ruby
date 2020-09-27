@@ -1,7 +1,7 @@
 ---
 authority_id: alalc
 id: 1997
-language: ukr
+language: iso-639-2:ukr
 source_script: Cyrl
 destination_script: Latn
 name: ALA-LC Romanization System 1997

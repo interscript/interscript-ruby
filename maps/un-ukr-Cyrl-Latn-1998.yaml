@@ -1,7 +1,7 @@
 ---
 authority_id: un
 id: 1998
-language: ukr
+language: iso-639-2:ukr
 source_script: Cyrl
 destination_script: Latn
 name: ROMANIZATION SYSTEM FOR BELARUSIAN, RUSSIAN AND UKRAINIAN CYRILLIC

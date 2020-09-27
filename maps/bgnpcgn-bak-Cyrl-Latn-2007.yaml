@@ -1,7 +1,7 @@
 ---
 authority_id: bgnpcgn
 id: 2007
-language: rus
+language: iso-639-2:rus
 source_script: Cyrl
 destination_script: Latn
 name: BASHKIR TABLE OF CORRESPONDENCES CYRILLIC-ROMAN BGN/PCGN 2007 Agreement

@@ -1,11 +1,11 @@
 ---
 authority_id: iso
 id: 1996-method1
-language: kor
+language: iso-639-2:kor
 source_script: Hang
 destination_script: Latn
-name: "ISO TR 11941: 1996"
-url: https://www.eki.ee/wgrs/rom2_ko.pdf
+name: "ISO/TR 11941:1996 Information and documentation — Transliteration of Korean script into Latin characters"
+url: https://www.iso.org/standard/20564.html
 creation_date: 1996
 adoption_date:
 description: Establishes a system for the transliteration of the characters of Korean script into Latin characters. Intended to provide a means for international communication of written documents.
@@ -73,7 +73,7 @@ map:
   character_separator: ""
   word_separator: " "
   title_case: False
-  inherit: nil-kor-Hang-Hang-jamo
+  inherit: var-kor-Hang-Hang-jamo
 
   rules:
 

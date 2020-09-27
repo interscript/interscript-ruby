@@ -3,7 +3,7 @@
 # TODO: Add tests from PDF
 authority_id: bgnpcgn
 id: 1956
-language: per
+language: iso-639-2:fas
 source_script: Arab
 destination_script: Latn
 name: BGN/PCGN 1956 System

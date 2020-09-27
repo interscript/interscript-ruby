@@ -1,12 +1,12 @@
 ---
 authority_id: un
-id: 2016
-language: ell
+id: 1987-tl
+language: iso-639-2:ell
 source_script: Grek
 destination_script: Latn
 name: UNGEGN Greek v4.0
 url: http://www.eki.ee/wgrs/rom1_el.htm
-creation_date: 2016
+creation_date: 1987
 description: |
   UNGEGN Romanization table for Greek
 

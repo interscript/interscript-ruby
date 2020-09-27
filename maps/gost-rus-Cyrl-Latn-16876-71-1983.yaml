@@ -1,7 +1,7 @@
 ---
 authority_id: gost
 id: 1983
-language: rus
+language: iso-639-2:rus
 source_script: Cyrl
 destination_script: Latn
 name: LETTERS TRANSLATION RULES OF KIRILLOVSKY ALPHABET WITH LETTERS OF LATIN ALPHABET GOST 16876-71

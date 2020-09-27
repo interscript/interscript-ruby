@@ -1,7 +1,7 @@
 ---
 authority_id: alalc
 id: 1997
-language: kor
+language: iso-639-2:kor
 source_script: Hang
 destination_script: Latn
 name: ALA-LC Romanization Table -- Korean (1997)

@@ -1,7 +1,7 @@
 ---
 authority_id: alalc
 id: 2011
-language: amh
+language: iso-639-2:amh
 source_script: Ethi
 destination_script: Latn
 name: ALA-LC Romanization Table -- Amharic (2011)
