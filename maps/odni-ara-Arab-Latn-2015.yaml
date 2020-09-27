@@ -277,7 +277,7 @@ map:
        - '' # see note A
 
     # See note B
-    '\b\u0627\u0644' : 'al'  # ال
+    '\b\u0627\u0644' : 'al '  # ال
     # '\uFE8E' : ''  # ﺎ
 
 
