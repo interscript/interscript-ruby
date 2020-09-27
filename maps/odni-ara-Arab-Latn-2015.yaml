@@ -1,0 +1,422 @@
+---
+authority_id: ungegn
+id: 2017
+language: ics-630-01:ara
+source_script: Arab
+destination_script: Latn
+name: ROMANIZATION OF ARABIC -- UNGEGN 2017 System
+url: https://github.com/interscript/ics-630-01/blob/master/reference-docs/ANNEX%20A%20-%20Arabic_Personal_Names_FLTS%20(U).pdf
+creation_date: 2017
+confirmation date: 2018-06
+description: |
+  This system, adapted from the Board on Geographic Names, is
+  the Intelligence Community (IC) standard for the
+  transliteration of Arabic names that will be applied to all
+  final written reports and products for IC consumers. It is
+  not intended to eliminate variations of a name that can
+  contribute forensic information. Rather, it is to provide
+  an IC standard Romanized (English) transliteration from
+  modern standard Arabic that can then be linked to forensic
+  information in ways that will help identify the referent of
+  the name. Ambiguities can result from the Romanization of
+  Arabic names because the Arabic source generally omits
+  short vowel markings, double consonant marks, and other
+  diacritics that would clearly distinguish the name.
+  Linguists use their experience with the language and aids
+  such as on-line tools and name dictionaries to determine
+  the exact Arabic and the appropriate transliteration into
+  the Roman alphabet. In cases where an individual's name has
+  already been transliterated, that is to be indicated -- as
+  found -- in parentheses immediately following its rendition
+  in the transliteration standard (e.g., Muhammad Khulud (
+  Mohamed Khulood)). In addition, if the original Arabic-
+  script spelling is known, that spelling should also appear
+  in parentheses following the name, if possible, following
+  best practices of the issuing organization and taking into
+  consideration information system capabilities. This
+  convention is designed to ensure that vital forensic
+  information is not lost. For names of persons who are known
+  to not be part of the Arabic-speaking community, use the
+  relevant IC transliteration standard for names from that
+  language (e.g., Mikhail, Yitzhak). A translator’s note may
+  be used to clarify the known origin of the person. Spell
+  names of individuals from languages that are written in
+  Roman letters as they are spelled in those languages (e.g.,
+  George Clooney, Jorge Garcia, Georges Pompidou). In the
+  case of active senior government officials in the on-line
+  CIA World Factbook and the online directory of Chiefs of
+  State and Cabinet Members of Foreign Governments, the
+  spellings given in these on-line reference works should be
+  used in place of the IC Standard. For any individual who
+  has at one time been listed in the Factbook or Chiefs of
+  State directory but who no longer appears in those
+  resources (i.e. is no longer a government official), the IC
+  Standard spelling should appear first, with the spelling,
+  if known, as it previously appeared in those resources
+  listed within parentheses at the first usage. The primary
+  goal of this system is to produce a consistent Romanized
+  transcription of the name that is readable to the non-
+  specialist. The system uses the 26 letters of the standard (
+  English) Roman alphabet plus the apostrophe. Some
+  ambiguities in the Romanized form will occur without the
+  use of diacritics. However, within the context of a report,
+  where additional information about the individual is
+  provided, the referent will be clearly identified. This
+  system will be used in conjunction with on-line tools, name
+  dictionaries, and lists containing conventional spellings
+  of names of well-known individuals.
+notes: |
+  - Long/Short Vowels: Long and short vowels are not
+  distinguished in this system Samir (could be Saamir or
+  Samiir in Arabic).
+
+  - Double consonants: Double consonants represented by the
+  Arabic shaddah are shown in most cases (e.g., Hassan,
+  Muhammad). Exceptions: ’ayn and consonants represented by
+  digraphs are not doubled (e.g., al-Qadhafi [not
+  alQadhdhafi], Mubashir [not Mubashshir]).
+
+  - Hamzah (glottal stop): The hamzah is represented by an
+  apostrophe (’). Note that this is the same symbol used to
+  represent another consonant, the ’ayn.
+
+  - Ta’ marbutah (feminine ending marker): On the construct
+  form or when pronounced “t”, it is represented with a roman
+  t. In all other cases, it is represented with an h.
+
+  - Digraphs: No distinction is made between digraphs such as
+  sh and single contiguous letters (e.g., s followed by h).
+
+  - Definite article “al” (‘the’): Follows Arabic spelling
+  rather than pronunciation. That is, sun letter assimilation
+  is not shown in the Romanized form (e.g., ’Abd-alRahman,
+  not ’Abd-ar-Rahman).
+
+  - Diphthongs: the second element of the diphthong is
+    represented by a y or a w (rather than an i or a u):
+    Haytham, Faysal, Tawfiq, Rawdah.
+
+  - Hyphens: Hyphens (-) are used to connect name elements
+    within a name: ’Abd- al Rahman, Abu-al-Bashar, Bin-Ladin.
+    Exceptions: Names that incorporate “Allah” as part of the
+    name (e.g., ’Abdallah, Nasrallah), names marked by the
+    lineage/family marker “Al” (e.g., Al Thani) are not
+    hyphenated.
+
+  - The definite article, “al”, within name phrases, is
+    Romanized as al and not as ul: Nur-al-Din (not Nur-ul-Din).
+    It is not capitalized when name-initial.
+
+  - Names that incorporate Allah as part of the name retain the
+    a of Allah rather than a grammatical marker u: ’Abdallah (
+    not ’Abdullah).
+
+  - Foreign names borrowed or appearing in Arabic are spelled
+    according to the standard Western tradition: Georges,
+    Michel. However, names of non-Arabic origin no longer
+    considered foreign by Arabic speakers follow the IC
+    conventions: Butrus (not Peter).
+
+  - Prefix ‫بن‬ (bin ‘son of’) is Romanized Bin unless written
+    with an alif, in which case it is Romanized as Ibn. The
+    colloquial form Bu (‘father’) should not be standardized as
+    Abu. These prefixes are capitalized.
+
+  - In general, Romanization follows the Modern Standard
+    Arabic (MSA) form rather than local pronunciation
+    standards. For example, the letter ‫ج‬ (jim) is represented
+    as a j even when pronounced as a “g” (e.g., Egyptian Gamal
+    is Romanized as Jamal).
+
+tests:
+
+  # Examples taken from:
+  # https://unstats.un.org/unsd/geoinfo/geonames/
+
+  - source: مِصر
+    expected: Misr
+
+  - source: قَطَر
+    expected: Qatar
+
+  - source: المَغرِب
+    expected: Al Maghrib
+
+  - source: الجُمهُورِيَّة العِراقِيَّة
+    expected: Al Jumhuriyah al ‘Iraqiyah
+
+  # - source: جُمهُورِيَّة العِراق
+  #   expected: Jumhūrīyat al ‘Irāq
+
+  # - source: جُمهُورِيَّة مِصر العَرَبِيَّة
+  #   expected: Jumhūrīyat Mis̱r al ‘Arabīyah
+
+  # - source: بَغداد
+  #   expected: Baghdād
+
+  # - source: تُونِس
+  #   expected: Tūnis
+
+  # - source: السُعُودِيَّة
+  #   expected: As Su‘ūdīyah
+
+  # - source: اليَمَن
+  #   expected: Al Yaman
+
+  # - source: السُودان
+  #   expected: As Sūdān
+
+  # - source: الجَزائِر
+  #   expected: Al Jazā'ir
+
+  # - source: الجُمهُورِيَّة اللُبنانِيَّة
+  #   expected: Al Jumhūrīyah al Lubnānīyah
+
+  # - source: أسمَرة
+  #   expected: Asmarah
+
+  # - source: جِدَّة
+  #   expected: Jiddah
+
+  # - source: مَكَّة
+  #   expected: Makkah
+
+  # - source: الرِيَاض
+  #   expected: Ar Riyāḏ
+
+map:
+  postrules:
+    - pattern: (?<=\b)(?<!\b[‘|’|'])[\u0061-\uFFFF]
+      result: "upcase"
+    - pattern: " Al " # ال
+      result: " al "
+
+    # don't capitalize defined article in the middle of a sentence
+
+  characters:
+
+    # Tool used for Unicode finding:
+    # https://www.branah.com/unicode-converter
+
+    # pointing
+    '\u064e' : 'a' # َ fatha
+    '\u064e(?=\u0629)' : '' # َ fatha followed by ta' marboota
+    '\u064e(?=a[h|t])' : '' # َ fatha followed by ta' marboota, handling different order of conversion
+    '\u0650' : 'i' # ِ kasra
+    '\u064f' : 'u' # ُ damma
+    '\u0652' : ''  # ْ sokoon, see note A below
+
+
+    # special pointed letters
+    '\u0639\u064e' : '‘a'  # عَ
+    '\u0639\u0650' : '‘i'  # عِ
+    '\u0639\u064f' : '‘u'  # عُ
+    # handle MacOS regex difference
+    '\u0639\u064f\u0648' : '‘u'  # عُو damma followed by و
+
+    '\u0650\u064a' : 'i' # ـِي kasra followed by ي
+    '\u0650\u064a\u0651\u064e' : 'iy' # ـِيَّ
+    '\u0650\u064a(?=\u064e|u064f)' : 'iy' # ـِي kasra followed by ي
+    '\u064f\u0648' : 'u'  # ـُو damma followed by و
+    '\u064e\u0627' : 'ā'  # ـَا fatha followed by ا
+    '\u064e\u0649' : 'á'  # ـَى fatha followed by ى which is ا not ي
+    '\u064e\u0648\u0652' : 'aw'  # ـَوْ
+    '\u064e\u064a\u0652' : 'ay'  # ـَيْ
+    '\u0622' : 'a'  # آ
+
+    # ta' marboota
+    '\u0629' : 'at' # ة in the middle of the sentence
+    '\u0629$' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{2})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{3})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{4})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{5})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{6})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{7})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{8})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{9})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{10})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{11})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{12})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{13})\u0629' : 'ah'
+
+    # shadda
+
+    '\u0628\u0651' : 'bb'  # ب
+    '\u062a\u0651' : 'tt'  # ت
+    '\u062b\u0651' : 'th'  # ث
+    '\u062c\u0651' : 'jj'  # ج
+    '\u062d\u0651' : 'hh' # ح
+    '\u062e\u0651' : 'kh'  # خ
+    '\u062f\u0651' : 'dd'  # د
+    '\u0630\u0651' : 'dh'  # ذ
+    '\u0631\u0651' : 'rr'  # ر
+    '\u0632\u0651' : 'zz'  # ز
+    '\u0633\u0651' : 'ss'  # س
+    '\u0634\u0651' : 'sh'  # ش
+    '\u0635\u0651' : 'ss'  # ص
+    '\u0636\u0651' : 'dd'  # ض
+    '\u0637\u0651' : 'tt'  # ط
+    '\u0638\u0651' : 'zz'  # ظ
+    '\u063a\u0651' : 'gh'  # غ
+    '\u0641\u0651' : 'ff'  # ف
+    '\u0642\u0651' : 'qq'  # ق
+    '\u0643\u0651' : 'kk'  # ك
+    '\u0644\u0651' : 'll'  # ل
+    '\u0645\u0651' : 'mm'  # م
+    '\u0646\u0651' : 'nn'  # ن
+    '\u0647\u0651' : 'hh'  # ه
+    '\u0648\u0651' : 'ww'  # و
+    '\u064a\u0651' : 'yy'  # ي
+
+    '\u0626' : "’" # ئ
+
+
+    '\u0621' : # ء
+       - '’'
+       - '' # see note A
+
+    # See note B
+    '\b\u0627\u0644' : 'al'  # ال
+    # '\uFE8E' : ''  # ﺎ
+
+
+    '\u0623' : ''  # أ
+    '\b\u0627' : ''  # ا
+    '\u0627' : 'a'  # ا
+
+    '\u0628' : 'b'  # ب
+    '\uFE91' : 'b'  # ﺑ
+    '\uFE92' : 'b'  # ﺒ
+    '\uFE90' : 'b'  # ﺐ
+
+    '\u062a' : 't'  # ت
+    '\ufe97' : 't'  # ﺗ
+    '\ufe98' : 't'  # ﺘ
+    '\ufe96' : 't'  # ﺖ
+
+    '\u062b' : 'th'  # ث
+    '\ufe9b' : 'th'  # ﺛ
+    '\ufe9c' : 'th'  # ﺜ
+    '\ufe9a' : 'th'  # ﺚ
+
+    '\u062c' : 'j'  # ج
+    '\ufe9f' : 'j'  # ﺟ
+    '\ufea0' : 'j'  # ﺠ
+    '\ufe9e' : 'j'  # ﺞ
+
+    '\u062d' : 'h' # ح
+    '\ufea3' : 'h' # ﺣ
+    '\ufea4' : 'h' # ﺤ
+    '\ufea2' : 'h' # ﺢ
+
+    '\u062e' : 'kh'  # خ
+    '\ufea7' : 'kh'  # ﺧ
+    '\ufea8' : 'kh'  # ﺨ
+    '\ufea6' : 'kh'  # ﺦ
+
+    '\u062f' : 'd'  # د
+    '\ufeaa' : 'd'  # ﺪ
+
+    '\u0630' : 'dh'  # ذ
+    '\ufeac' : 'dh'  # ﺬ
+
+    '\u0631' : 'r'  # ر
+    '\ufeae' : 'r'  # ﺮ
+
+    '\u0632' : 'z'  # ز
+    '\ufeb0' : 'z'  # ﺰ
+
+    '\u0633' : 's'  # س
+    '\ufeb3' : 's'  # ﺳ
+    '\ufeb4' : 's'  # ﺴ
+    '\ufeb2' : 's'  # ﺲ
+
+    '\u0634' : 'sh'  # ش
+    '\ufeb7' : 'sh'  # ﺷ
+    '\ufeb8' : 'sh'  # ﺸ
+    '\ufeb6' : 'sh'  # ﺶ
+
+    '\u0635' : 's'  # ص
+    '\ufebb' : 's'  # ﺻ
+    '\ufebc' : 's'  # ﺼ
+    '\ufeba' : 's'  # ﺺ
+
+    '\u0636' : 'd'  # ض
+    '\ufebf' : 'd'  # ﺿ
+    '\ufec0' : 'd'  # ﻀ
+    '\ufebe' : 'd'  # ﺾ
+
+    '\u0637' : 't'  # ط
+    '\ufec3' : 't'  # ﻃ
+    '\ufec4' : 't'  # ﻄ
+    '\ufec2' : 't'  # ﻂ
+
+    '\u0638' : 'z'  # ظ
+    '\ufec7' : 'z'  # ﻇ
+    '\ufec8' : 'z'  # ﻈ
+    '\ufec6' : 'z'  # ﻆ
+
+    '\u0639' : '’'  # ع
+    '\ufecb' : '’'  # ﻋ
+    '\ufecc' : '’'  # ﻌ
+    '\ufeca' : '’'  # ﻊ
+
+    '\u063a' : 'gh'  # غ
+    '\ufecf' : 'gh'  # ﻏ
+    '\ufed0' : 'gh'  # ﻐ
+    '\ufece' : 'gh'  # ﻎ
+
+    '\u0641' : 'f'  # ف
+    '\ufed3' : 'f'  # ﻓ
+    '\ufed4' : 'f'  # ﻔ
+    '\ufed2' : 'f'  # ﻒ
+
+    '\u0642' : 'q'  # ق
+    '\ufed7' : 'q'  # ﻗ
+    '\ufed8' : 'q'  # ﻘ
+    '\ufed6' : 'q'  # ﻖ
+
+    '\u0643' : 'k'  # ك
+    '\ufedb' : 'k'  # ﻛ
+    '\ufedc' : 'k'  # ﻜ
+    '\ufeda' : 'k'  # ﻚ
+
+    '\u0644' : 'l'  # ل
+    '\ufedf' : 'l'  # ﻟ
+    '\ufee0' : 'l'  # ﻠ
+    '\ufede' : 'l'  # ﻞ
+
+    '\u0645' : 'm'  # م
+    '\ufee3' : 'm'  # ﻣ
+    '\ufee4' : 'm'  # ﻤ
+    '\ufee2' : 'm'  # ﻢ
+
+    '\u0646' : 'n'  # ن
+    '\ufee7' : 'n'  # ﻧ
+    '\ufee8' : 'n'  # ﻨ
+    '\ufee6' : 'n'  # ﻦ
+
+    # See note C
+    '\u0647' : 'h'  # ه
+    '\ufeeb' : 'h'  # ﻫ
+    '\ufeec' : 'h'  # ﻬ
+    '\ufeea' : 'h'  # ﻪ
+
+    '\u0648' : 'w'  # و
+    '\ufeee' : 'w'  # ﻮ
+
+    '\u064a' : 'y'  # ي
+    '\ufef3' : 'y'  # ﻳ
+    '\ufef4' : 'y'  # ﻴ
+    '\ufef1' : 'y'  # ﻱ
+
+    # (A) Not romanized word-initially.
+
+    # (B) Not romanized, but see romanizations accompanying alif (ا) in the table for vowels.
+
+    # (C) In certain endings, an original tā’ (ت) is written ة, i.e., like hā’ (ه) with two dots, and is known as tā’ marbūṯah. It is romanized h, except in the construct form of feminine nouns, where it is romanized t, instead.
+
+
+    # Vowels, diphthongs and diacritical marks
+    # (ـ stands for any consonant)
