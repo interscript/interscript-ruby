@@ -1,0 +1,159 @@
+---
+authority_id: iso
+id: 15919-2001
+language: iso-639-2:tam
+source_script: Taml
+destination_script: Latn
+name: "Information and documentation — Transliteration of Devanagari and related Indic scripts into Latin characters"
+url: https://www.chatranjali.fr/Scripts/Standards/ISO15919.pdf
+creation_date: 2001
+adoption_date: 2001
+description: |
+  Script conversion is often required for documents such as historical and literary texts, geographical texts (including
+  maps and atlases), bibliographies, catalogues, lists and passports (and other identification documents).
+
+  Text in Devanagari script or other Indic scripts sometimes needs to be shown in Latin script, where users, or
+  equipment that they are using, cannot read or write the text
+
+  This International Standard applies to transliteration of Devanagari, and to Indic scripts related to Devanagari,
+  independent of the period in which it is or was used.
+
+notes:
+
+  - All transliterations made using this International Standard shall be case-insensitive.
+  - Inherent a with a consonant shall always be transliterated.
+  - anusvara (including Vedic anusvara) shall be transliterated as ṁ
+  - candrabindu shall be transliterated as m̐
+  - When m̐, ṃ or ṁ are associated with a vowel, they shall be placed after the vowel. When m̐ is associated
+    with a semivowel, it shall be placed before the semivowel.
+  - Latin punctuation signs and Hindu-Arabic numerals shall remain unchanged in transliteration.
+    Indic punctuation is outside the scope of this International Standard.
+  - The Vedic accent Udatta shall be transliterated as an acute accent over the transliterated vowel, and the
+    independent Svarita as a grave accent over the transliterated vowel. In the case of the digraphs ai, au, the accent
+    shall be attached to the second vowel.
+  - |
+    A colon: before a Latin character shall be used to resolve ambiguity. Some normative cases are as
+    follows.
+     -  :’ for avagraha in modern text. (The apostrophe in modern text remains unchanged in accordance with previous rule.
+     - Removal of ambiguity in the limited character set option. Tamil perii:i:iya, “really big”, separating the vowels.
+  - If a character in an Indic script is defined in such a way as to be equivalent to another character in any
+    script, where the second character has a transliteration in this International Standard, then the first character shall
+    be transliterated in the same way as the second character.
+  - Numerals in Tamil scripts shall be converted into decimal notation on transliteration, where
+    necessary.
+  - Where it is desired to show the Vedic accent Anudatta, it should be transliterated as an underscore. In the case of
+    the digraphs ai, au, both Latin vowels should be underscored.
+    Where word boundaries are not shown in the original text (as happens commonly in Sanskrit) and a word ends in a
+    consonant, the transliteration should show word division by a space; but when phonological processes result in two
+    words sharing a common vowel, no attempt should be made to separate them. This will require a good knowledge
+    of the language in question.
+
+
+tests:
+  - source: "கார்த்திகேயன்"
+    expected: "kaāratataikaēyaṉa"
+  - source: "௲"
+    expected: "1000"
+  - source: "இளைஞர்களின் உறுதியான மனநிலையை பிரதிபலிக்கிறது: நீட் தேர்வில் ௮௫-௯௦ சதவீத மாணவர்கள் பங்கேற்பு - ரமேஷ் பொக்ரியால்"
+    expected: "iḷaaiñarakaḷaiṉa uṟautaiyaāṉa maṉanailaaiyaai pairataipalaikakaiṟatau: naīṭa taēravaila 85-9௦ catavaīta maāṇavarakaḷa paṅakaēṟapau - ramaēṣa paokaraiyaāla"
+  - source: "நாடாளுமன்றத்தில் 4 மசோதாக்களை எதிர்க்க காங்கிரஸ் முடிவு - ஜெயராம் ரமேஷ்"
+    expected: "naāṭaāḷaumaṉaṟatataila 4 macaōtaākakaḷaai etairakaka kaāṅakairasa mauṭaivau - jaeyaraāma ramaēṣa"
+  - source: "கர்நாடகாவில் மேலும் 9,894 பேருக்கு கொரோனா தொற்று உறுதி"
+    expected: "karanaāṭakaāvaila maēlauma 9,894 paēraukakau kaoraōṉaā taoṟaṟau uṟautai"
+  - source: "ஐதராபாத்துக்கு கைகொடுக்குமா அதிரடி?"
+    expected: "aitaraāpaātataukakau kaaikaoṭaukakaumaā atairaṭai?"
+  - source: "அமெரிக்க ஓபன் டென்னிஸ்: இறுதிப்போட்டியில் டொமினிக்-ஸ்வெரேவ்"
+    expected: "amaeraikaka ōpaṉa ṭaeṉaṉaisa: iṟautaipapaōṭaṭaiyaila ṭaomaiṉaika-savaeraēva"
+  - source: "ஐ.பி.எல். கிரிக்கெட்டில் களம் இறங்கும் அமெரிக்க வீரர்"
+    expected: "ai.pai.ela. kairaikakaeṭaṭaila kaḷama iṟaṅakauma amaeraikaka vaīrara"
+  - source: "அமெரிக்க ஓபன் டென்னிஸ்; நவோமி ஒசாகா சாம்பியன் பட்டம் வென்றார்"
+    expected: "amaeraikaka ōpaṉa ṭaeṉaṉaisa; navaōmai ocaākaā caāmapaiyaṉa paṭaṭama vaeṉaṟaāra"
+  - source: "புதிய கல்விக்கொள்கைக்கு எதிர்ப்பு: முன்னாள் துணைவேந்தர்கள் 20 பேர் பிரதமருக்கு கடிதம்"
+    expected: "pautaiya kalavaikakaoḷakaaikakau etairapapau: mauṉaṉaāḷa tauṇaaivaēnatarakaḷa 20 paēra pairatamaraukakau kaṭaitama"
+  - source: "இந்த ஆண்டு ஐ.பி.எல். கோப்பையை எந்த அணி வெல்லும்? - கெவின் பீட்டர்சன் கணிப்பு"
+    expected: "inata āṇaṭau ai.pai.ela. kaōpapaaiyaai enata aṇai vaelalauma? - kaevaiṉa paīṭaṭaracaṉa kaṇaipapau"
+  - source: "இந்திய எண்ணெய் கப்பலில் தீ: விபத்து குறித்த எச்சரிக்கையை கப்பல் அதிகாரிகள் புறக்கணித்தனர் - இலங்கை கோர்ட்டு தகவல்"
+    expected: "inataiya eṇaṇaeya kapapalaila taī: vaipatatau kauṟaitata ecacaraikakaaiyaai kapapala ataikaāraikaḷa pauṟakakaṇaitataṉara - ilaṅakaai kaōraṭaṭau takavala"
+
+map:
+
+  characters:
+    'அ': 'a'
+    'ஆ': 'ā'
+    'ா': 'ā'
+
+    'இ': 'i'
+    'ி': 'i'
+
+    'ஈ': 'ī'
+    'ீ': 'ī'
+
+    'உ': 'u'
+    'ு': 'u'
+
+    'ஊ': 'ū'
+    'ூ': 'ū'
+
+    'ெ': "e"
+    'எ': 'e'
+
+    'ே': "ē"
+    'ஏ': 'ē'
+
+    'ஐ': 'ai'
+    'ை': "ai"
+
+    'ஒ': 'o'
+    'ொ': 'o'
+
+    'ோ': 'ō'
+    'ஓ': 'ō'
+
+    'ஔ': 'au'
+    'ௌ': 'au'
+
+
+    'க': 'ka'
+    'ங': 'ṅa'
+    'ஃ': 'ḵ'
+    'ச': 'ca'
+    'ஞ': 'ña'
+    'ட': 'ṭa'
+    'ண': 'ṇa'
+    'த': 'ta'
+    'ந': 'na'
+    'ப': 'pa'
+    'ம': 'ma'
+    'ய': 'ya'
+    'ர': 'ra'
+    'ல': 'la'
+    'ள': 'ḷa'
+    'ழ': 'ḻa'
+    'வ': 'va'
+    'ற': 'ṟa'
+    'ன': 'ṉa'
+    'ஜ': 'ja'
+    'ஶ': 'śa'
+    'ஷ': 'ṣa'
+    'ஸ': 'sa'
+    'ஹ': 'ha'
+
+    # Digits
+    '௧': '1'
+    '௨': '2'
+    '௩': '3'
+    '௪': '4'
+    '௫': '5'
+    '௬': '6'
+    '௭': '7'
+    '௮': '8'
+    '௯': '9'
+    '௰': '10'
+    '௱': '100'
+    '௲': '1000'
+
+
+
+    '்' : ''
+    "‍": '' # no need for zero with joiner
+    "‌": '' # no need for zero with non joiner
