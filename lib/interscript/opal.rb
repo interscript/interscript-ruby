@@ -23,8 +23,11 @@ module Interscript
       string
     end
 
+    # name is unused
     def load_map_json(name, json)
-      `Opal.global.InterscriptMaps[#{name}] = #{json}`
+      JSON.load(json).each do |k,v|
+        `Opal.global.InterscriptMaps[#{k}] = #{JSON.dump(v)}`
+      end
     end
 
   end

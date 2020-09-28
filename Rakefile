@@ -45,9 +45,21 @@ task :js_maps do
   FileUtils.mkdir_p "vendor/assets/maps"
 
   Dir['maps/*.yaml'].each do |yaml_file|
-    f = File.read(yaml_file)
-    f = YAML.load(f)
-    f = JSON.dump(f)
+    stack = [File.basename(yaml_file, ".yaml")]
+    loaded = []
+    contents = {}
+
+    while cur = stack.pop
+      loaded << cur      
+      file = File.read("maps/#{cur}.yaml")
+      yaml = YAML.load(file)
+      if yaml["map"]["inherit"]
+        inh = Array(yaml["map"]["inherit"])
+        stack += (inh - loaded)
+      end
+      contents[cur] = yaml
+    end
+    f = JSON.dump(contents)
     f = Interscript::OpalMapTranslate.translate_regexp(f)
     File.write("vendor/assets/maps/#{File.basename yaml_file, ".yaml"}.json", f)
   end
