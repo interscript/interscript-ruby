@@ -1,0 +1,55 @@
+---
+authority_id: un
+id: 2010
+language: iso-639-2:ukr
+source_script: Cyrl
+destination_script: Latn
+name: ROMANIZATION SYSTEM FOR BELARUSIAN, RUSSIAN AND UKRAINIAN CYRILLIC
+url: http://www.eki.ee/wgrs/rom1_uk.htm
+creation_date: 2010
+
+tests:
+
+map:
+  inherit: un-urk-Cyrl-Latn-1998
+
+  rules:
+    - pattern: \u0417(?=[г]) # З (before Г)
+      result: GH
+    - pattern: \u0417(?=[г]) # З (before г)
+      result: gh
+    - pattern: \u0437(?=[г]) # з (before г)
+      result: gh
+    - pattern: \b(?=[Є]) # Є begining of the word
+      result: YE
+    - pattern: \b(?=[є]) # є begining of the word
+      result: ye
+    - pattern: \b(?=[Ї]) # Ї begining of the word
+      result: Yi
+    - pattern: \b(?=[ї]) # ї begining of the word
+      result: yi
+    - pattern: \b(?=[Й]) # Й begining of the word
+      result: Y
+    - pattern: \b(?=[й]) # й begining of the word
+      result: y
+    - pattern: \b(?=[Ю]) # Ю begining of the word
+      result: Yu
+    - pattern: \b(?=[ю]) # ю begining of the word
+      result: yu
+    - pattern: \b(?=[Я]) # Я begining of the word
+      result: Yu
+    - pattern: \b(?=[я]) # я begining of the word
+      result: yu
+
+  characters:
+    '\u0404' : "Ie" # Є
+    '\u0407' : 'I'  # Ї
+    '\u042E' : 'Iu' # Ю
+    '\u042F' : 'Ia' # Я
+
+    '\u0454' : "ie" # є
+    '\u0457' : 'i'  # ї
+    '\u044E' : 'iu' # ю
+    '\u044F' : 'ia' # я
+
+    '\u0027' : ''   # '
