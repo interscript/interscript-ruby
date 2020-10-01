@@ -88,6 +88,20 @@ tests:
   - source: پِدَر
     expected: pedar
 
+  - source: مَثَلاً
+    expected: mas̱alâ´´
+
+  - source: جزء
+    expected: jz’
+
+  - source: رأس
+    expected: râ’s
+
+  - source: سؤال
+    expected: sv’âl
+
+  - source: مسئلة
+    expected: msy’lh
 
 
 map:
@@ -262,12 +276,16 @@ map:
     '\u06D0' : 'ēē'   # ې
     '\u06CD' : 'êy'  # ‫ۍ
 
+    # Tanvin
+    '\u064b': '´´' #  ً
+    '\u064c': '' #  ٌ
+    '\u064d': '' #  ٍ
 
+    '\u0621' : '’' # ء
+    '\u0623' : 'â’'  # أ
+    '\u0624' : 'v’'  # ؤ
+    '\u0626' : 'y’' # ئ
 
-    '\u0621': '’' # ء
-    '\u0626': '’' # ئ
-
-    '\u0623' : ''  # أ
     '\u0625': ''    # إ
     '\u0627' : 'â'  # ا
 
