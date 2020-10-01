@@ -281,12 +281,19 @@ map:
     '\u064c': '' #  ٌ
     '\u064d': '' #  ٍ
 
+    # hamzeh
     '\u0621' : '’' # ء
     '\u0623' : 'â’'  # أ
     '\u0624' : 'v’'  # ؤ
     '\u0626' : 'y’' # ئ
 
-    '\u0625': ''    # إ
+    # punctuation
+
+    '\u060c' : ',' # vavak comma
+    '\u061b' : ';' # nogteh vavak semi column
+    '\u061f' : '?' # neshane-ye porsesh question mark
+
+    '\u0625' : ''    # إ
     '\u0627' : 'â'  # ا
 
     # See note B
