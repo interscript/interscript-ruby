@@ -76,185 +76,19 @@ notes: |
   TODO
 
 tests:
-  - source: بَغْلان
-    expected: baghlān
+  - source: آذَر
+    expected: âẕar
 
-  - source: پُوټَكَى
-    expected: pōṯakay
+  - source: سَم
+    expected: sam
 
-  - source: شِيرِين تَگَاب
-    expected: shīrīn tagāb
+  - source: پُر
+    expected: por
 
-  - source: کُوْټ
-    expected: kōṯ
+  - source: پِدَر
+    expected: pedar
 
-  - source: ثَابِر
-    expected: s̄ābir
 
-  - source: جَلال آبَاد
-    expected: jalālābād
-
-  - source: چَارِيكَار
-    expected: chārīkār
-
-  - source: ځَدْرَاڼ
-    expected: dzadrāṉ
-
-  - source: څَوکۍ
-    expected: tsowkêy
-
-  - source: حَضْرَتِ إِمَام
-    expected: ḩaẕrat-e imām
-
-  - source: خُوْسْت
-    expected: khōst
-
-  - source: سْپِين بُوْلْدَک
-    expected: spīn bōldak
-
-  - source: ډَنْډ وَ پَتَان
-    expected: ḏanḏ wa patān
-
-  # - source: گُذَرْگَاهٔ نور
-  #   expected: guz̄argāh-e nūr
-
-  - source: كَنْدَهَار
-    expected: kandahār
-
-  - source: أَنْدَړ
-    expected: andaṟ
-
-  - source: كُنْدُز
-    expected: kunduz
-
-  - source: مِير أَسْلَم ژْرَنْدَه
-    expected: mīr aslam zhrandah
-
-  - source: ږِيرَه
-    expected: z͟hīrah
-
-  - source: سَمَنْگَان
-    expected: samangān
-
-  # - source: مَزَارِ شَريف
-  #   expected: mazār-e sharīf
-
-  - source: كښٙتَه كَلا
-    expected: ks͟hêtah kalā
-
-  - source: قَيْصَار
-    expected: qayşār
-
-  - source: فَيض آبَاد
-    expected: faīẕābād
-
-  - source: حَضْرَتِ سُلْطَان
-    expected: ḩaẕrat-e sulţān
-
-  - source: ظَاهِر كَلا
-    expected: z̧āhir kalā
-
-  - source: پُلِ عَلَم
-    expected: pul-e ‘alam
-
-  - source: غَزْنِي
-    expected: ghaznī
-
-  - source: مَزَارِ شَرِيف
-    expected: mazār-e sharīf
-
-  - source: قَيْصَار
-    expected: qayşār
-
-  - source: كَنْدَهَار
-    expected: kandahār
-
-  - source: گَرْدېز
-    expected: gardēz
-
-  - source: کَابُل
-    expected: kābul
-
-  - source: مَيمَنَه
-    expected: maīmanah
-
-  - source: خَان آبَاد
-    expected: khānābād
-
-  - source: مَاڼۍ
-    expected: māṉêy
-
-  - source: وَاخَان
-    expected: wākhān
-
-  # - source: هِرَات
-  #   expected: herāt
-
-  - source: يَنْگِي قَلعَه
-    expected: yangī qal‘ah
-
-  - source: جَلال آبَاد
-    expected: jalālābād
-
-  # - source: هِرات پُلِ حِصَار
-  #   expected: Herāt Pul-e Ḩişār
-
-  - source: مُرْغَاب کَابُل
-    expected: murghāb kābul
-
-  - source: گٙردُون
-    expected: gêrdōn
-
-  - source: آب بَنْد
-    expected: āb band
-
-  - source: سْپِين بُوْلْدَک
-    expected: spīn bōldak
-
-  # - source: بَالا بُلُوک
-  #   expected: Bālā Bulūk
-
-  - source: جَوزجَان
-    expected: jowzjān
-
-  # - source:  غَزْنِى سْپِين
-  #   expected: ghaznī spīn
-
-  # - source: ريگ مَيوَنْد
-  #   expected: Maywand, Rēg
-
-  - source: گَرْدېز
-    expected: gardēz
-
-  - source: مَیدان شَهْر
-    expected: maīdān shahr
-
-  - source: ډَنْډِ سُفْلىٰ
-    expected: ḏanḏ-e suflá
-
-  # - source: څَوْکۍ
-  #   expected: Tsowkêy
-
-  # - source: هَوائِي ډَگَر
-  #   expected: hawā’ī ḏagar
-
-  # - source: مَزارِ شَريف
-  #   expected: mazār-e sharīf
-
-  # - source: دايکندی
-  #   expected: dāykundī
-
-  # - source: زيارت
-  #   expected: Zīārat
-
-  # - source: غوريان
-  #   expected: Ghōriyān
-
-  # - source: ميا
-  #   expected: Myā
-
-  - source: جَبَل السَرَاج
-    expected: jabal as sarāj
 
 map:
   characters:
@@ -336,22 +170,14 @@ map:
     '\u064e(?=\u0629)' : '' # َ fatha followed by ta' marboota
     '\u064e(?=a[h|t])' : '' # َ fatha followed by ta' marboota, handling different order of conversion
 
-    # Both e and i are available to romanize this short vowel,
-    # depending on local usage and/or root language. In cases where the sound
-    # is uncertain, i is the default romanization in BGN/PCGN standardization
-    # procedures.
     '\u0650':
-      - 'i'
       - 'e'
+      - 'i'
     '\u0650\b' : '-e' # ِ kasra
 
-    # Both o and u are available to romanize this short vowel,
-    # depending on local usage and/or root language. In cases where the sound
-    # is uncertain, u is the default romanization in BGN/PCGN standardization
-    # procedures.
     '\u064f':  # ُ damma
-      - 'u'
       - 'o'
+      - 'u'
 
     '\u0652' : ''  # ْ sokoon
     '\u0659': 'ê'
@@ -381,11 +207,7 @@ map:
     '\u0654': '-e' #  ٔ
       # - '-ye'
 
-    # An alif with mad ( آ ) is written only in the initial position by
-    # BGN/PCGN standardization procedures, in keeping with Persian language
-    # family standards of use of the Arabic alphabet. The same letter written
-    # in a medial or final position is written . . .
-    '\u0622' : 'ā'  # آ
+    '\u0622' : 'â'  # آ
 
     # ta' marboota
     '\u0629' : 'at' # ة in the middle of the sentence
@@ -404,33 +226,42 @@ map:
     '(?<=\b\u0627\u0644[\u0600-\u06ff]{13})\u0629' : 'ah'
 
     # shadda
+    '\u0628' : 'bb'  # ب
+    '\u067E' : 'pp' # پ
+    '\u062a' : 'tt'  # ت
+    '\u062B' : 's̱s̱'   # ث
+    '\u062c' : 'jj'  # ج
+    '\u0686' : 'č̱č̱'  # ‫چ‬‬
+    '\u062d' : 'ḥḥ' # ح
+    '\u062e' : 'ḵḵ'  # خ
+    '\u062f' : 'dd'  # د
+    '\u0689' : 'ḏḏ' # ‫ډ‬
+    '\u0630' : 'ẕẕ'  # ذ
+    '\u0631' : 'rr'  # ر
+    '\u0632' : 'zz'  # ز
+    '\u0698' : 'zz'  # ‫ژ‬
+    '\u0633' : 'ss'  # س
+    '\u0634' : 'šš'  # ش
+    '\u0635' : 'ṣṣ'  # ص
+    '\u0636' : 'żż'  # ض
+    '\u0637' : 'ṭṭ'  # ط
+    '\u0638' : 'zz'  # ظ
+    '\u0639' : '‘'  # ع
+    '\u063a' : 'gh'  # غ
+    '\u0641' : 'ff'  # ف
+    '\u0642' : 'qq'  # ق
+    '\u06A9' : 'kk' # ک
+    '\u06AF' : 'gg' # ‫گ‬
+    '\u0644' : 'll'  # ل
+    '\u0645' : 'mm'  # م
+    '\u0646' : 'nn'  # ن
+    '\u0648' : 'vv'  # و
+    '\u0647' : 'hh'  # ه
+    '\u064a' : 'yy'  # ي
+    '\u0649' : 'yy'  # ي
+    '\u06D0' : 'ēē'   # ې
+    '\u06CD' : 'êy'  # ‫ۍ
 
-    '\u0628\u0651' : 'bb'  # ب
-    '\u062a\u0651' : 'tt'  # ت
-    '\u062b\u0651' : 'thth'  # ث
-    '\u062c\u0651' : 'jj'  # ج
-    '\u062d\u0651' : 'ẖẖ' # ح
-    '\u062e\u0651' : 'khkh'  # خ
-    '\u062f\u0651' : 'dd'  # د
-    '\u0630\u0651' : 'z̄z̄'  # ذ
-    '\u0631\u0651' : 'rr'  # ر
-    '\u0632\u0651' : 'zz'  # ز
-    '\u0633\u0651' : 'ss'  # س
-    '\u0634\u0651' : 'sh'  # ش
-    '\u0635\u0651' : 'şş'  # ص
-    '\u0636\u0651' : 'ḏḏ'  # ض
-    '\u0637\u0651' : 'ţţ'  # ط
-    '\u0638\u0651' : 'z̧z̧'  # ظ
-    '\u063a\u0651' : 'ghgh'  # غ
-    '\u0641\u0651' : 'ff'  # ف
-    '\u0642\u0651' : 'qq'  # ق
-    '\u0643\u0651' : 'kk'  # ك
-    '\u0644\u0651' : 'll'  # ل
-    '\u0645\u0651' : 'mm'  # م
-    '\u0646\u0651' : 'nn'  # ن
-    '\u0647\u0651' : 'hh'  # ه
-    '\u0648\u0651' : 'ww'  # و
-    '\u064a\u0651' : 'yy'  # ي
 
 
     '\u0621': '’' # ء
