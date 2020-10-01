@@ -22,6 +22,20 @@ notes:
 tests:
   - source: "दुःख"
     expected: "duhkh"
+  - source: "पूरा भइसकेका विषयलाई माग बनाएर दबाब नदिनुस्"
+    expected: "pūrā bhiskekā viṣylāī māg bnāer dbāb ndinusa"
+  - source: "जाँदै छ कता नेपाली संगीत"
+    expected: "jā~dai chh ktā nepālī sṅgīt"
+  - source: "३५ मिनेटको यो डकुमेन्ट्री फिल्मले प्रथम पुरस्कारस्वरूप ग्रान्ड पिक्स अवार्ड पाएको हो"
+    expected: "35 mineṭko yo ḍkumenaṭarī philamle parthm pursakārsavrūp garānaḍ pikas avāraḍ pāeko ho"
+  - source: "विक्षनरी"
+    expected: "vikṣnrī"
+  - source: "रुसमा उत्कृष्ट"
+    expected: "rusmā utakṛiṣaṭ"
+  - source: "वाणिज्य"
+    expected: "vāṇijay"
+  - source: "अंक विद्या"
+    expected: "aṅk vidayā"
 
 map:
 
@@ -31,3 +45,4 @@ map:
 
     # Bisarga
     'ः': 'h'
+    'ह': 'h'
