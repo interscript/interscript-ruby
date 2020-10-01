@@ -32,3 +32,16 @@ jobs:
           chmod 0600 ~/.gem/credentials
           git status
           gem release
+      - name: Update interscript-js repo
+        env:
+          INTERSCRIPT_CLI_REF: ${{ github.ref }}
+        run: |
+          bundle exec rake all
+          git config --global user.name "interscript-ci"
+          git config --global user.email "interscript-ci@users.noreply.github.com"
+          git clone https://interscript-ci:${{ secrets.INTERSCRIPT_CI_PAT }}@github.com/interscript/interscript-js
+          cp vendor/assets/javascripts/interscript.js interscript-js/interscript.js
+          cp vendor/assets/maps/*.json interscript-js/maps/
+          git -C interscript-js add interscript.js
+          git -C interscript-js commit -m "Update interscript.js ${INTERSCRIPT_CLI_REF#*/v}"
+          echo "git -C interscript-js push"
