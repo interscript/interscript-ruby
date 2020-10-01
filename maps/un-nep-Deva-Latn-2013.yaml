@@ -59,6 +59,16 @@ tests:
     expected: "chaaita pahailao saātaā ghara āekaā unaī lakaḍaāuna bhaepachhai yataai raokaie"
   - source: "काम गर्न जानेको हकमा रोजगारदाता कम्पनीको पत्रसँगै वडा र जिल्ला प्रशासनको सिफारिस अनिवार्य गरिएको छ"
     expected: "kaāma garaana jaānaekao hakamaā raojagaāradaātaā kamaapanaīkao pataarasam̐gaai vaḍaā ra jailaalaā paarashaāsanakao saiphaāraisa anaivaāraaya garaiekao chha"
+  - source: "कालोबजारी गर्नेलाई कारबाही गर्न महानगरको सिफारिस"
+    expected: "kaālaobajaāraī garaanaelaāī kaārabaāhaī garaana mahaānagarakao saiphaāraisa"
+  - source: "आधारभूत स्वास्थ्य अवस्था पनि ठीक नभएको बच्चालाई चिकित्सकले अनेक औषधि प्रयोग गरेर बचाउन खोजे जस्तै भएको छ कोरोना बिमा योजना"
+    expected: "ādhaārabhaūta saavaāsaathaaya avasaathaā panai ṭhaīka nabhaekao bachaachaālaāī chaikaitaasakalae anaeka auṣhadhai paarayaoga garaera bachaāuna khaojae jasaataai bhaekao chha kaoraonaā baimaā yaojanaā"
+  - source: "म त पहाडको एउटा गाउँबाट उडेर तल झरेको सिमल भुवा हुँ"
+    expected: "ma ta pahaāḍakao euṭaā gaāum̐baāṭa uḍaera tala jharaekao saimala bhauvaā haum̐"
+  - source: "अचम्म, धेरैले चिन्ने र सहजै बुझ्ने खालको चलेकै कवि पो भएँ"
+    expected: "achamaama, dhaeraailae chainaanae ra sahajaai baujhaanae khaālakao chalaekaai kavai pao bhaem̐"
+  - source: "कतिपय सन्दर्भ र राजनीतिक रूपमा फाइदा हुने कुरामा कवि घिमिरेले गर्ने गरेको टिप्पणी पनि नेपाली लेखकमाझ आलोचित हुन्थ्यो"
+    expected: "kataipaya sanaadaraabha ra raājanaītaika raūpamaā phaāidaā haunae kauraāmaā kavai ghaimairaelae garaanae garaekao ṭaipaapaṇaī panai naepaālaī laekhakamaājha ālaochaita haunaathaayao"
 
 map:
   inherit: un-nep-Deva-Latn-1972
