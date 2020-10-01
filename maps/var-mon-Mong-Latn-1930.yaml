@@ -1,7 +1,7 @@
 ---
 authority_id: var
 id: 1930
-language:
+language: iso-639-2:mon
 source_script: Mong
 destination_script: Latn
 name: Mongolian Latin alphabet
@@ -47,7 +47,6 @@ notes:
     as in ᠭᠠᠵᠠᠷ ᠠ γaǰar‑a 'to the country' and ᠡᠳᠦᠷ ᠡ edür‑e 'on the day', or ᠤᠯᠤᠰ ᠢ ulus‑i
     'the state' etc. Multi-letter suffixes most often start with an initial- (consonants),
     medial- (vowels), or variant-shaped form.
-
 
   # Note: Provedid sample of "Latin 1931-1939" in https://en.m.wikipedia.org/wiki/Mongolian_Latin_alphabet is not actual transliteration.
   # It's kind of buggy transliteration that mixes Cyrillic and Traditional Mongolian script into Latin based on phonetic sound.
