@@ -11,7 +11,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "mocha"
+    "test": "mocha -p -j 5"
   },
   "repository": {
     "type": "git",

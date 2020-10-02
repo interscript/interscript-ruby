@@ -28,7 +28,7 @@ task :js do
     builder.use_gem gem
   end
 
-  builder.build('interscript-opal.rb')
+  builder.build('interscript/opal/entrypoint.rb')
 
   File.open("vendor/assets/javascripts/interscript.js", "w+") do |out|
     out << builder.to_s
@@ -39,7 +39,7 @@ desc "Build Interscript maps for use with Opal"
 task :js_maps do
   require "yaml"
   require "fileutils"
-  require_relative "lib/interscript/opal_map_translate"
+  require_relative "lib/interscript/opal/map_translate"
 
   FileUtils.mkdir_p "vendor/assets/maps"
 
