@@ -17,7 +17,8 @@ description: |
 
 note:
   - Have not included transliteration of Greek numerals (e.g. ͵ΑϠΜΔʹ = 1944)
-  - Have not introduced rules to infer the presence of diaeresis (e.g.
+  - |
+    Have not introduced rules to infer the presence of diaeresis (e.g.
     ἄυλος is rendered as aylos, but not aÿlos; Ἀιβαλί as Aibali not Aïbali)
 
 tests:
