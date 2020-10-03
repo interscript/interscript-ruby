@@ -377,7 +377,6 @@ map:
     '\ufdf2': 'Allāh' # See note 5
 
     # pointing
-    '\u064e' : 'a' # َ fatha
     '\u064e(?=\u0629)' : '' # َ fatha followed by ta' marboota
     '\u064e(?=a[h|t])' : '' # َ fatha followed by ta' marboota, handling different order of conversion
 
@@ -407,30 +406,13 @@ map:
     '\u0639\u064f' : '‘ū'  # عُ
     # handle MacOS regex difference
     '\u0639\u064f\u0648' : '‘ū'  # عُو damma followed by و
-
-    '\u0650\u064a' : 'ī' # ـِي kasra followed by ي
-    '\u0650\u06cc' : 'ī' # ـِي kasra followed by ي
-    '\u0650\u064a\u0651\u064e' : 'īy' # ـِيَّ
-    '\u0650\u064a(?=\u064e|u064f)' : 'iy' # ـِي kasra followed by ي
-    '\u064f\u0648' : 'ō'  # ـُو damma followed by و
-    '\u064e\u0627' : 'ā'  # ـَا fatha followed by ا
-    '\u064e\u0649' : 'ay'  # ـَى fatha followed by ى which is ا not ي
-    '\u064e\u0648\u0652' : 'aw'  # ـَوْ
-    '\u064e\u0648' : 'ow'  # ـَو
     '\u064e\u064a\u0652' : 'ay'  # ـَيْ
-    '\u0650\u06cc\u0651\u064e' : 'īy' # ـِيَّ
-    '\u064e\u064a' : 'aī'  # ـَي
-    '\u064e\u06cc' : 'aī'  # ـَي
+    '\u064e\u0627' : 'ā'  # ـَا fatha followed by ا
     '\u0649\u0670': 'á' # ىٰ
     '\u0674': '-e' # ٴ
     '\u0654': '-e' #  ٔ
       # - '-ye'
 
-    # An alif with mad ( آ ) is written only in the initial position by
-    # BGN/PCGN standardization procedures, in keeping with Persian language
-    # family standards of use of the Arabic alphabet. The same letter written
-    # in a medial or final position is written . . .
-    '\u0622' : 'ā'  # آ
 
     # ta' marboota
     '\u0629' : 'at' # ة in the middle of the sentence
@@ -447,6 +429,59 @@ map:
     '(?<=\b\u0627\u0644[\u0600-\u06ff]{11})\u0629' : 'eh'
     '(?<=\b\u0627\u0644[\u0600-\u06ff]{12})\u0629' : 'eh'
     '(?<=\b\u0627\u0644[\u0600-\u06ff]{13})\u0629' : 'eh'
+
+
+
+    '\u0621': '’' # ء
+    '\u0626': '’' # ئ
+
+    '\u0623' : ''  # أ
+    '\u0625': ''    # إ
+
+    # See note B
+    '\b\u0627\u0644' : 'al '  # ال
+    # '\uFE8E' : ''  # ﺎ
+
+    # Sun letters
+    '\b\u0627\u0644\u062a' : 'at t'  # الت
+    '\b\u0627\u0644\u062b' : 'as̄ s̄'  # الث
+    '\b\u0627\u0644\u062f' : 'ad d' # الد
+    '\b\u0627\u0644\u0630' : 'az̄ z̄'  # الذ
+    '\b\u0627\u0644\u0631' : 'ar r' # الر
+    '\b\u0627\u0644\u0632' : 'az z'  # الز
+    '\b\u0627\u0644\u0633' : 'as s' # الس
+    '\b\u0627\u0644\u0634' : 'ash sh' # الش
+    '\b\u0627\u0644\u0635' : 'aş ş'  # الص
+    '\b\u0627\u0644\u0636' : 'aẕ ẕ'  # الض
+    '\b\u0627\u0644\u0637' : 'aţ ţ'  # الط
+    '\b\u0627\u0644\u0638' : 'az̧ z̧' # الظ
+    '\b\u0627\u0644\u0644' : 'al l'  # الل
+    '\b\u0627\u0644\u0646' : 'an n'  # الن
+
+    # Farsi Vowel (Pointing)
+    '\u0622' : 'a'  # آ alef maddeh
+    '\u064e' : 'a' # َ fatha
+    '(?<!\b)\u0627' : 'a'  # ا
+    '\b\u0627\u064e' : 'a' # ا initial followed by fatha
+    '\b\u0627\u064f' : 'o' # ا initial followed by damma
+    '\b\u0627\u0650' : 'e' # ِ ا initial followed by kasra
+
+    '\u064f' : 'o' # damma
+    '\u064f\u0648' : 'u'  # ـُو damma followed by و
+    # '\u064e\u0648' : 'ow'  # ـَو
+    # '\u064e\u0648\u0652' : 'aw'  # ـَوْ
+
+
+    '\u0650' : 'e' # kasra
+    '\u0650\u064a' : 'i' # ـِي kasra followed by ي
+    '\u0650\u06cc' : 'i' # ـِي kasra followed by ي
+    '\u0650\u064a\u0651\u064e' : 'iy' # ـِيَّ
+    '\u0650\u06cc\u0651\u064e' : 'iy' # ـِيَّ
+    '\u0650\u064a(?=\u064e|u064f)' : 'iy' # ـِي kasra followed by ي
+    # '\u064e\u064a' : 'aī'  # ـَي
+    # '\u064e\u06cc' : 'aī'  # ـَي
+    # '\u064e\u0649' : 'ay'  # ـَى fatha followed by ى which is ا not ي
+
 
     # shadda
 
@@ -477,36 +512,7 @@ map:
     '\u0648\u0651' : 'vv'  # و
     '\u064a\u0651' : 'yy'  # ي
 
-
-    '\u0621': '’' # ء
-    '\u0626': '’' # ئ
-
-    '\u0623' : ''  # أ
-    '\u0625': ''    # إ
-    '\u0627' : 'ā'  # ا
-
-    # See note B
-    '\b\u0627\u0644' : 'al '  # ال
-    # '\uFE8E' : ''  # ﺎ
-
-    # Sun letters
-    '\b\u0627\u0644\u062a' : 'at t'  # الت
-    '\b\u0627\u0644\u062b' : 'as̄ s̄'  # الث
-    '\b\u0627\u0644\u062f' : 'ad d' # الد
-    '\b\u0627\u0644\u0630' : 'az̄ z̄'  # الذ
-    '\b\u0627\u0644\u0631' : 'ar r' # الر
-    '\b\u0627\u0644\u0632' : 'az z'  # الز
-    '\b\u0627\u0644\u0633' : 'as s' # الس
-    '\b\u0627\u0644\u0634' : 'ash sh' # الش
-    '\b\u0627\u0644\u0635' : 'aş ş'  # الص
-    '\b\u0627\u0644\u0636' : 'aẕ ẕ'  # الض
-    '\b\u0627\u0644\u0637' : 'aţ ţ'  # الط
-    '\b\u0627\u0644\u0638' : 'az̧ z̧' # الظ
-    '\b\u0627\u0644\u0644' : 'al l'  # الل
-    '\b\u0627\u0644\u0646' : 'an n'  # الن
-
-
-    # consonant characters
+    # Farsi consonant characters
 
     '\u0628' : 'b'  # ب
     '\u067E': 'p' # پ
