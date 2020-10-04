@@ -82,6 +82,24 @@ tests:
     expected: "kām gran jāneko hkmā rojgārdātā kmapnīko ptrs~gai vḍā r jilalā parshāsnko siphāris anivāray grieko chh"
   - source: "दुःख"
     expected: "duḥkh"
+  - source: "निकुञ्जको स्थानीय पोस्टका कर्मचारी पनि त्यहीँ थिए"
+    expected: "nikuñajko sathānīy posaṭkā kramchārī pni tayhī~ thie"
+  - source: "युद्धकालको मनोविज्ञान"
+    expected: "yudadhkālko mnovijñān"
+  - source: "जर्मन वायुसेवाको आक्रमणमा दुई लाख पचास हजार मानिसको ज्यान जानसक्ने र करिब ३० देखि ४० लाख मान्छे विस्थापित हुने अनुमान बेलायत सरकारको थियो"
+    expected: "jramn vāyusevāko ākarmṇmā duī lākh pchās hjār mānisko jayān jānskane r krib 30 dekhi 40 lākh mānachhe visathāpit hune anumān belāyt srkārko thiyo"
+  - source: "युद्ध"
+    expected: "yudadh"
+  - source: "कोरोनासँग जम्काभेट"
+    expected: "koronās~g jmakābheṭ"
+  - source: "संक्रमित"
+    expected: "sṅkarmit"
+  - source: "स्वयम्"
+    expected: "savyma"
+  - source: "संख्या"
+    expected: "sṅkhayā"
+  - source: "गौरीटारस्थित रंगशाला"
+    expected: "gaurīṭārsathit rṅgshālā"
 
 map:
 
@@ -198,3 +216,15 @@ map:
 
     # Abagraha
     'ऽ': '’' # (apostrophe)
+
+    # Numerals / सङ्ख्या
+    '०': '0'
+    '१': '1'
+    '२': '2'
+    '३': '3'
+    '४': '4'
+    '५': '5'
+    '६': '6'
+    '७': '7'
+    '८': '8'
+    '९': '9'

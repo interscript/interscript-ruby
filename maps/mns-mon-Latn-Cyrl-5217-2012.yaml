@@ -1,0 +1,200 @@
+---
+authority_id: mns
+id: 2012
+language: iso-639-2:mon
+source_script: Latn
+destination_script: Cyrl
+name: Transliteration of Latin characters into Mongolian Cyrillic
+url: https://fr.wikipedia.org/wiki/MNS_5217:2012
+creation_date:
+confirmation_date:
+description: |
+  Latin characters into Mongolian Cyrillic is the opposite transliteration of based on MNS 5217:2012.
+  The standard MNS 5217:2012 is a standard of the Mongolian Agency for Standardization and Metrology
+  for transliteration from Cyrillic Mongolian in Latin alphabet.
+
+  The grammer of Khalkha Mongolian is required in order to make accurate translation of Latin characters
+  into Mongolian Cyrillic because of no distinguish between /и, й, ъ, ь/ for "i" and /ш, щ/ for "sh" in
+  the standard.
+
+  In Mongolia, the Khalkha dialect, currently written in both Cyrillic and traditional Mongolian script
+  (and at times in Latin for social networking), is predominant, while in Inner Mongolia, the language
+  is dialectally more diverse and is written in the traditional Mongolian script.
+
+notes: |
+  - Khalkha also has four diphthongs: /ui, ʊi, ɔi, ai/. Vowels can also combine to form a further
+    three diphthongs, and so seven in total: ia (иа), ʊa (уа) ei (эй). For example: ай in далай (eyes),
+    иа in амиараа (individually), ой in нохой (dog), уа in хуаран (barracks), уй in уйлах (to cry),
+    үй in үйлдвэр (factory), эй in хэрэгтэй (necessary).
+  - Custom mapping sort orders made as following by: /й, ъ, ь, и/ for "i" and /щ, ш/ for "sh".
+
+tests:
+  - source: Avarga, khalbaga, aav
+    expected: Аварга, халбага, аав
+  - source: Baga, sambar
+    expected: Бага, самбар
+  - source: Avarga, vagon, sav
+    expected: Аварга, вагон, сав
+  - source: Gazar, geree, khereg
+    expected: Газар, гэрээ, хэрэг
+  - source: Dadlaga, akhmad
+    expected: Дадлага, ахмад
+  - source: Yeeven, yerööl
+    expected: Еэвэн, ерөөл
+  - source: Yorool, oyodol
+    expected: Ёроол, оёдол
+  - source: Juulchin, ajil, Jon
+    expected: Жуулчин, ажил, Жон
+  - source: Zam, azarga, baaz
+    expected: Зам, азарга, бааз
+  - source: Kino, kilomyetr, akadyemi
+    expected: Кино, километр, академи
+  - source: Ishig, bichig, khani
+    expected: Ишиг, бичиг, хани # Correct expectation: Ишиг, бичиг, хань - Hard transliteration required for ь
+  - source: Iim, eejiin
+    expected: Ийм, ээжийн
+  - source: Lam, alag, mal
+    expected: Лам, алаг, мал
+  - source: Mal, khamar, nam
+    expected: Мал, хамар, нам
+  - source: Nar, khana, ünen
+    expected: Нар, хана, үнэн
+  - source: Oron, bolovsrol, toono
+    expected: Орон, боловсрол, тооно
+  - source: Ödör, önöödör, ööröösöö
+    expected: Өдөр, өнөөдөр, өөрөөсөө
+  - source: Puujin, aparat
+    expected: Пуужин, апарат
+  - source: Rashaan, radio, sar
+    expected: Рашаан, радио, сар
+  - source: Sar, asar, etses
+    expected: Сар, асар, эцэс
+  - source: Tamga, tatlaga
+    expected: Тамга, татлага
+  - source: Uran, nuruu
+    expected: Уран, нуруу
+  - source: Ünen, türgen, tergüün
+    expected: Үнэн, түргэн, тэргүүн
+  - source: Foto, fond
+    expected: Фото, фонд
+  - source: Khavar, nökhör, ekh
+    expected: Хавар, нөхөр, эх
+  - source: Tsatsag, tsetseg
+    expected: Цацаг, цэцэг
+  - source: Chimeg, chadal, ach
+    expected: Чимэг, чадал, ач
+  - source: Shashin, aash
+    expected: Шашин, ааш
+  - source: Shyedrin, shors
+    expected: Шедрин, шорс # Correct expectation: Щедрин, щорс - Hard transliteration required for щ usage
+  - source: Oriyo, suriya, gariya
+    expected: Ориё, сурия, гария # Correct expectation: Оръё, суръя, гаръя - Hard transliteration required for ъ
+  - source: Khaany, akhyn
+    expected: Хааны, ахын
+  - source: Khari, bari
+    expected: Хари, бари # Correct expectation: Харь, барь - Hard transliteration required for ь
+  - source: Ezen, ene, emeel
+    expected: Эзэн, энэ, эмээл
+  - source: Yum, yuüden
+    expected: Юм, юүдэн
+  - source: Yamar, yaduu, aya
+    expected: Ямар, ядуу, ая
+  - source: ii, ia, ua, ai, ei, oi, üi, Ii, Ai, Ei, Oi, Üi
+    expected: ий, иа, уа, ай, эй, ой, үй, Ий, Ай, Эй, Ой, Үй
+  - source: uu, üü, yuu, yuü
+    expected: уу, үү, юу, юү
+
+map:
+  rules:
+    - pattern: "ii"
+      result: "\u0438\u0439"
+    - pattern: "Ii"
+      result: "\u0418\u0439"
+    - pattern: "ai"
+      result: "\u0430\u0439"
+    - pattern: "Ai"
+      result: "\u0410\u0439"
+    - pattern: "ei"
+      result: "\u044d\u0439"
+    - pattern: "Ei"
+      result: "\u042d\u0439"
+    - pattern: "oi"
+      result: "\u043e\u0439"
+    - pattern: "Oi"
+      result: "\u041e\u0439"
+    - pattern: "üi"
+      result: "\u04af\u0439"
+    - pattern: "Üi"
+      result: "\u04ae\u0439"
+
+  characters:
+    "A": "А"     # \u0410
+    "B": "Б"     # \u0411
+    "V": "В"     # \u0412
+    "G": "Г"     # \u0413
+    "D": "Д"     # \u0414
+    "Ye": "Е"    # \u0415
+    "Yo": "Ё"    # \u0401
+    "J": "Ж"     # \u0416
+    "Z": "З"     # \u0417
+    "I": "Й"     # \u0419
+    "K": "К"     # \u041a
+    "L": "Л"     # \u041b
+    "M": "М"     # \u041c
+    "N": "Н"     # \u041d
+    "O": "О"     # \u041e
+    "Ö": "Ө"     # \u04e8
+    "P": "П"     # \u041f
+    "R": "Р"     # \u0420
+    "S": "С"     # \u0421
+    "T": "Т"     # \u0422
+    "U": "У"     # \u0423
+    "Ü": "Ү"     # \u04ae
+    "F": "Ф"     # \u0424
+    "Kh": "Х"    # \u0425
+    "Ts": "Ц"    # \u0426
+    "Ch": "Ч"    # \u0427
+    "Sh": "Щ"    # \u0429
+    "Sh": "Ш"    # \u0428
+    "I": "Ъ"     # \u042a
+    "Y": "Ы"     # \u042b
+    "I": "Ь"     # \u042c
+    "I": "И"     # \u0418
+    "E": "Э"     # \u042d
+    "Yu": "Ю"    # \u042e
+    "Ya": "Я"    # \u042f
+    "a": "а"     # \u0430
+    "b": "б"     # \u0431
+    "v": "в"     # \u0432
+    "g": "г"     # \u0433
+    "d": "д"     # \u0434
+    "ye": "е"    # \u0435
+    "yo": "ё"    # \u0451
+    "j": "ж"     # \u0436
+    "z": "з"     # \u0437
+    "i": "й"     # \u0439
+    "k": "к"     # \u043a
+    "l": "л"     # \u043b
+    "m": "м"     # \u043c
+    "n": "н"     # \u043d
+    "o": "о"     # \u043e
+    "ö": "ө"     # \u04e9
+    "p": "п"     # \u043f
+    "r": "р"     # \u0440
+    "s": "с"     # \u0441
+    "t": "т"     # \u0442
+    "u": "у"     # \u0443
+    "ü": "ү"     # \u04af
+    "f": "ф"     # \u0444
+    "kh": "х"    # \u0445
+    "ts": "ц"    # \u0446
+    "ch": "ч"    # \u0447
+    "sh": "щ"    # \u0449
+    "sh": "ш"    # \u0448
+    "i": "ъ"     # \u044a
+    "y": "ы"     # \u044b
+    "i": "ь"     # \u044c
+    "i": "и"     # \u0438
+    "e": "э"     # \u044d
+    "yu": "ю"    # \u044e
+    "ya": "я"    # \u044f

@@ -5,5 +5,12 @@ pkg/
 .idea
 .idea/*
 
+/lib/__pycache__
+/spec/ch.txt
+/spec/ch.cache.rbs
+/Gemfile.lock
+/vendor/assets/javascripts/interscript.js
+/vendor/assets/maps/*.json
+
 # Dependency directories
 node_modules/

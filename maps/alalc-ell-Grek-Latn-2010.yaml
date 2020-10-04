@@ -27,7 +27,6 @@ tests:
 
         Giannēs Makrygiannēs.
 
-
   - source: ΑΘΗΝΑ
     expected: ATHĒNA
   - source: μπαμπάκι

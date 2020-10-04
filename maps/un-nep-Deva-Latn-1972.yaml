@@ -59,6 +59,16 @@ tests:
     expected: "chaaita pahailao saātaā ghara āekaā unaī lakaḍaāuna bhaepachhai yataai raokaie"
   - source: "काम गर्न जानेको हकमा रोजगारदाता कम्पनीको पत्रसँगै वडा र जिल्ला प्रशासनको सिफारिस अनिवार्य गरिएको छ"
     expected: "kaāma garaana jaānaekao hakamaā raojagaāradaātaā kamaapanaīkao pataarasam̐gaai vaḍaā ra jailaalaā paarashaāsanakao saiphaāraisa anaivaāraaya garaiekao chha"
+  - source: "ऋण"
+    expected: "ṛṇa"
+  - source: "अर्पित"
+    expected: "araapaita"
+  - source: "अरार्यते"
+    expected: "araāraayatae"
+  - source: "श्रीमान्"
+    expected: "shaaraīmaānaa"
+  - source: "खाँचो बिरुवा बैंकको"
+    expected: "khaām̐chao bairauvaā baaiṁkakao"
 
 map:
 
