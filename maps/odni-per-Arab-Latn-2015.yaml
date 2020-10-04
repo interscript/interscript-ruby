@@ -1,0 +1,217 @@
+---
+authority_id: odni
+id: 2015
+language: ics-630-01:prs
+source_script: Afghan (Dari)
+destination_script: Latn
+name: ODNI Persian Farsi Dari Personal Names 2015 System, ICS-630-01 Annex J
+url: https://github.com/interscript/ics-630-01/blob/master/reference-docs/ANNEX%20J%20-%20Persian-Farsi_Dari_Personal_Names_FLTS_2018_Revision%20(U).pdf
+creation_date: 2015
+confirmation_date: 2015-11
+description: |
+  This system is the Intelligence Community (IC) standard for
+  the transliteration of Persian (Farsi)
+  and Dari names that is applied to all final written reports
+  and products for IC consumers. It is not
+  intended to eliminate variations of a name that can
+  contribute forensic information. Rather, it is
+  to provide an IC standard Romanized (English)
+  transliteration from Persian (Farsi) and Dari that
+  can then be linked to forensic information in ways that
+  will help identify the referent of the
+  name.
+
+  In cases where an individual’s name has already been
+  transliterated in a variant spelling, the IC
+  Standard spelling should appear first, followed by the
+  variant spelling(s) in parentheses at the
+  first usage. In addition, if the original Perso-Arabic
+  script spelling is known, that spelling should
+  also appear in parentheses following the name, if possible,
+  following best practices of the issuing
+  organization and taking into consideration information
+  system capabilities. This convention is
+  designed to ensure that vital forensic information is not
+  lost while maintaining consistency.
+
+  For names of individuals who are not part of the Persian-(
+  Farsi) or Dari-speaking community,
+  but whose names are encountered in Farsi or Dari, use the
+  relevant IC transliteration standard for
+  names from that language (e.g., Mikhail, Yitzhak, Abu-
+  Murtada). Spell names of individuals
+  from languages that are written in Roman letters as they
+  are spelled in those languages (e.g.,
+  George Clooney, Jorge Garcia, Georges Pompidou).
+  In the case of active senior government officials in the
+  online CIA World Factbook and the
+  online directory of Chiefs of State and Cabinet Members of
+  Foreign Governments, the spellings
+  given in these online reference works should be used in
+  place of the IC Standard, with the IC
+  Standard included as a variant in parentheses at the first
+  usage. For any individual who has at one
+  time been listed in the Factbook or Chiefs of State
+  directory but who no longer appears in those
+  resources (i.e., is no longer a government official), the
+  IC Standard spelling should appear first,
+  with the spelling, if known, as it previously appeared in
+  those resources listed within parentheses
+  at the first usage (e.g., former president Mahmud
+  Ahmadinezhad (Ahmadi-Nejad).
+
+  The primary goal is to produce a consistent Romanized
+  transcription of names that is specifically
+  readable to the English-speaking non-specialist. The system
+  uses the 26 letters of the standard
+  (English) Roman alphabet plus the apostrophe and hyphen.
+  Some ambiguities in the Romanized
+  form will occur without the use of diacritics. However,
+  within the context of a report, where
+  additional information about the individual is provided,
+  the referent will be clearly identified.
+  This system will be used in conjunction with online tools,
+  name dictionaries, and lists containing
+  conventional spellings of names of well-known individuals.
+
+notes:
+  - |
+    - This standard is intended only for those Afghan names that
+    have a common bond or similarity with Iranian names. It
+    should not, for example, be used for names of Pashtuns, for
+    which the Pashto IC Standard should be used.
+
+    - Alef maqsura (final yeh pronounced as “a”): should be written “a” as in
+    “Musa”.
+
+    - Digraphs: No distinction is drawn between digraphs
+    such as sh and single contiguous letters (e.g., s followed
+    by h).
+
+    - Long/short vowels: There is no distinction made in
+    Roman between long and short a: E.g., Farhad (first a is
+    short, second is long).
+
+    - Diphthongs: Diphthongs are written ei and ow respectively:
+      Hosein; Khosrow.
+
+    - Double consonants: Double consonants represented by the
+    tashdid are shown by doubling the
+    Roman letter: Mo'azzami, Tavakkoli, Sajjad. Exceptions: Ein
+    and consonants represented by
+    Roman digraphs (e.g., sh, ch) are not doubled (Mobasher,
+    not Mobashsher). Double letters
+    are only used for tashdid (Hosein, not Hossein) or to
+    reflect “sun-letter” assimilation (see
+    below). Special care should be taken when possible to
+    discriminate between doubled and
+    non-doubled letters in names that are otherwise
+    indistinguishable in their transliterated forms:
+    Hasan (حسن (vs. Hassan (حسان(
+
+    - Compound first names will be written as distinct words:
+    Ali Reza (not Alireza or Ali-Reza);
+    Mohammad Hosein (not Mohammadhosein or Mohammad-Hosein),
+    with the exception of cases identified below.
+
+    - Arabic-origin names that incorporate the word “Allah” are
+    transliterated as one word, with the letter ‘o’ replacing the
+    alef in Allah (Azizollah, Rahimollah).
+
+    - Name-internal Arabic definite article "al" (‫)ال‬: Common
+    in many names borrowed
+    from Arabic, the transliteration should follow the Arabic
+    rules for “sun letter” assimilation in spoken form and
+    reflect the nominative case. That is: Abdorrahman, not Abd-
+    al-Rahman. (The Arabic sun letters are: ‫ت‬،‫ث‬،‫د‬،‫ذ‬،
+    ‫ر‬، ‫ز‬،‫س‬،‫ش‬،‫ص‬،‫ض‬،‫ط‬،‫ظ‬،‫ل‬،‫ن‬ . These correspond with
+    d, l, n, r, s, sh, t, and z.) Note that the moon letters (
+    i.e., all other Arabic letters) are not assimilated (e.g.,
+    Abdolhasan, Abolfazl). Note also that the “Abdollah” and
+    “Abdol + attribute of Allah” names are written as a single
+    word, as are other names that contain the definite article:
+    Shamsoddin (not Shams-al-Din), Nezamoddin, etc.
+
+    - Name-initial Arabic definite article "al" (‫)ال‬: For
+    Arabic-origin names starting with the definite article “al” (‫)
+    ال‬, follow the Arabic standard of al-Sisi (‫)الصیصی‬ (not
+    Alsisi or Assisi) and forego sun-letter assimilation.
+
+    - Arabic "family marker" of Al (‫)آل‬: For Arabic-origin
+    names starting with the "family marker" of Al (‫)آل‬,
+    follow the Arabic standard of Al Davud (‫داود‬ ‫)آل‬ (not
+    Aldavud or Aledavud).
+
+    - Kunyas: In the rather rare case where
+    a Persian uses a kunya (a name for an adult normally
+    derived from his or her eldest child, and sometimes
+    employed as a nom de guerre), this name will be rendered
+    with a space separating the two elements (Abu Hosein, Abu
+    Ghasem). Note that this does not apply when the person's
+    given or family name was derived from a predecessor's
+    kunya. In these cases, the leading element should be
+    treated as a prefix as indicated below (Abuhosein[i],
+    Abughasem[i]).
+
+tests:
+  - source: مُوسَى
+    expected: musa
+
+  - source: مُؤمِن
+    expected: momen
+
+  - source: رِضايي
+    expected: rezai
+
+  - source: مُبَشِّر
+    expected: mobasher
+
+  - source: حَسَّان
+    expected: hassan
+
+  - source: حَسَن
+    expected: hasan
+
+  - source: صَفَّار
+    expected: saffar
+
+  - source: صَفَر
+    expected: safar
+
+map:
+  inherit: odni-fas-Arab-Latn-2015
+  characters:
+
+    # ta' marboota
+    '\u0629' : 'ah'
+
+    '\u0626' : '' # ئ
+    '\u0624' : '' # ؤ
+
+    # Farsi Vowel (Pointing)
+
+    # '\u064e\u0648' : 'ow'  # ـَو
+    # '\u064e\u0648\u0652' : 'aw'  # ـَوْ
+
+    # additional symbols
+
+    # shadda
+
+    '\u0642\u0651' : 'qq'  # ق
+    '\u0648\u0651' : 'ww'  # و
+
+    '\u0621': '' # ء
+
+    # FROM NOTES
+
+    '\u064a\u064a' : 'i' # NOTE 4 (2)
+    '\u06cc\u06cc' : 'i'
+
+    '\u0627\u064a\b' : 'i' # NOTE 4 (3)
+    '\u0627\u06cc\b' : 'i'
+
+    # Farsi consonant characters
+
+    '\u0639' : ''  # ع # new
+    '\u0642' : 'q'  # ق
+    '\u0648' : 'w'  # و
