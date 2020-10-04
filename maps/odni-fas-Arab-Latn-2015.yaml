@@ -221,71 +221,6 @@ tests:
 map:
   characters:
 
-    # word-medial or word-final form where so appearing in a word.
-    # '\u0627': '-'
-
-    # # Vowel, Diphthong and Diacritical Characters
-
-    # '\u064E': 'a'
-
-    # # Both e and i are available to romanize this short vowel,
-    # # depending on local usage and/or root language. In cases where the sound
-    # # is uncertain, i is the default romanization in BGN/PCGN standardization
-    # # procedures.
-    # '\u0650':
-    #   - 'e'
-    #   - 'i'
-
-    # # Both o and u are available to romanize this short vowel,
-    # # depending on local usage and/or root language. In cases where the sound
-    # # is uncertain, u is the default romanization in BGN/PCGN standardization
-    # # procedures.
-    # '\u064F':
-    #   - 'o'
-    #   - 'u'
-    # '\u0659': 'ê'
-
-    # # An alif with mad ( آ ) is written only in the initial position by
-    # # BGN/PCGN standardization procedures, in keeping with Persian language
-    # # family standards of use of the Arabic alphabet. The same letter written
-    # # in a medial or final position is written . . .
-    # '\u0622': 'ā'
-
-    # pending issue #442
-    # '\u0648': 'ō'
-    # '\u0648': 'ū'
-    # '\u0648': 'ow'
-    # '\u06CC': 'ī'
-
-    # # Or 'ē'. The character ی should be romanized ay or ē according to
-    # # its root language or local pronunciation. In case of uncertainty a
-    # # reference source (such as the Fairchild Aerial Surveys map series, or a
-    # # BGN/PCGN approved policy document/list of recommended spellings) should
-    # # be consulted.
-    # '\u06CC': 'ay'
-    # '\u06D0': 'ē'
-
-    # # Or 'aī'. Both the combination ay and aī are available to romanize
-    # # this character according to its root language or local pronunciation.
-    # # In cases where the sound is uncertain ay is the default romanization in
-    # # BGN/PCGN standardization procedures
-    # '\u06CC':
-    #   - 'ay'
-    #   - 'á'
-    # '\u06CD': 'êy'
-    # '\u0621': '’'
-    # '\u0674':
-    #   - '-e'
-    #   - '-ye'
-
-    # # Other Diacritical Marks and Language Conventions
-
-    # '\u0627': 'āy'
-
-    # '\u0648': 'w'
-    # '\u0626': '’'
-    # '\u06C0': ''
-    # '\u0651': ''
 
 
     # special rules
@@ -293,24 +228,6 @@ map:
     '\s(?=\u0622\u0628\u064E\u0627\u062F)': '' # space followed by abad is removed
     '\ufdf2': 'Allah' # See note 5
     '\s\u0627\u0644\u0644\u0651\u064e\u0647': 'ollah' # NOTE 9
-
-
-    # Both e and i are available to romanize this short vowel,
-    # depending on local usage and/or root language. In cases where the sound
-    # is uncertain, i is the default romanization in BGN/PCGN standardization
-    # procedures.
-    '\u0650':
-      - 'i'
-      - 'e'
-    '\u0650\b' : '-e' # ِ kasra
-
-    # Both o and u are available to romanize this short vowel,
-    # depending on local usage and/or root language. In cases where the sound
-    # is uncertain, u is the default romanization in BGN/PCGN standardization
-    # procedures.
-    '\u064f':  # ُ damma
-      - 'u'
-      - 'o'
 
     '\u0652' : ''  # ْ sokoon
     '\u0659': 'ê'
