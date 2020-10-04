@@ -142,10 +142,10 @@ notes:
     Ali Reza (not Alireza or Ali-Reza);
     Mohammad Hosein (not Mohammadhosein or Mohammad-Hosein),
     with the exception of cases identified below.
-    Arabic-origin names that incorporate the word “Allah” are
-    transliterated
-    as one word, with the letter ‘o’ replacing the alef in
-    Allah (Azizollah, Rahimollah).
+
+    - Arabic-origin names that incorporate the word “Allah” are
+    transliterated as one word, with the letter ‘o’ replacing the
+    alef in Allah (Azizollah, Rahimollah).
 
     - Name-internal Arabic definite article "al" (‫)ال‬: Common
     in many names borrowed
@@ -291,7 +291,8 @@ map:
     # special rules
 
     '\s(?=\u0622\u0628\u064E\u0627\u062F)': '' # space followed by abad is removed
-    '\ufdf2': 'Allāh' # See note 5
+    '\ufdf2': 'Allah' # See note 5
+    '\s\u0627\u0644\u0644\u0651\u064e\u0647': 'ollah' # NOTE 9
 
 
     # Both e and i are available to romanize this short vowel,
@@ -346,21 +347,22 @@ map:
 
     # See note B
     '\b\u0627\u0644' : 'al '  # ال
+    '\b\u0622\\u0644' : 'Al ' # ‫آل‬
     # '\uFE8E' : ''  # ﺎ
 
     # Sun letters
     '\b\u0627\u0644\u062a' : 'at t'  # الت
-    '\b\u0627\u0644\u062b' : 'as̄ s̄'  # الث
+    '\b\u0627\u0644\u062b' : 'as s'  # الث
     '\b\u0627\u0644\u062f' : 'ad d' # الد
-    '\b\u0627\u0644\u0630' : 'az̄ z̄'  # الذ
+    '\b\u0627\u0644\u0630' : 'az z'  # الذ
     '\b\u0627\u0644\u0631' : 'ar r' # الر
     '\b\u0627\u0644\u0632' : 'az z'  # الز
     '\b\u0627\u0644\u0633' : 'as s' # الس
     '\b\u0627\u0644\u0634' : 'ash sh' # الش
-    '\b\u0627\u0644\u0635' : 'aş ş'  # الص
-    '\b\u0627\u0644\u0636' : 'aẕ ẕ'  # الض
-    '\b\u0627\u0644\u0637' : 'aţ ţ'  # الط
-    '\b\u0627\u0644\u0638' : 'az̧ z̧' # الظ
+    '\b\u0627\u0644\u0635' : 'as s'  # الص
+    '\b\u0627\u0644\u0636' : 'az z'  # الض
+    '\b\u0627\u0644\u0637' : 'at t'  # الط
+    '\b\u0627\u0644\u0638' : 'az z' # الظ
     '\b\u0627\u0644\u0644' : 'al l'  # الل
     '\b\u0627\u0644\u0646' : 'an n'  # الن
 
