@@ -11,7 +11,7 @@ creation_date: 2010
 tests:
 
 map:
-  inherit: un-urk-Cyrl-Latn-1998
+  inherit: un-ukr-Cyrl-Latn-1998
 
   rules:
     - pattern: \u0417(?=[г]) # З (before Г)
