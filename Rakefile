@@ -16,6 +16,7 @@ task :js do
   puts "creating javascript version..."
   require 'opal/builder'
   require 'opal/builder_processors'
+  require 'opal/onigmo'
   require "erb"
   require "json"
 

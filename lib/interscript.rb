@@ -90,7 +90,8 @@ module Interscript
       end
 
       charmap.each do |k, v|
-        while (match = output&.match(/#{k}/))
+        re = mkregexp(k)
+        while (match = output&.match(re))
           pos = match.offset(0).first
           result = !downcase && up_case_around?(output, pos) ? v.upcase : v
 
@@ -118,12 +119,15 @@ module Interscript
 
       return unless output
 
-      output = output.sub(/^(.)/, &:upcase) if title_case
+      re = mkregexp('^(.)')
+      output = output.sub(re, &:upcase) if title_case
       if word_separator != ''
-        output = output.gsub(/#{word_separator}#{separator}/u, word_separator)
+        re = mkregexp("#{word_separator}#{separator}")
+        output = output.gsub(re, word_separator)
 
         if title_case
-          output = output.gsub(/#{word_separator}(.)/u, &:upcase)
+          re = mkregexp("#{word_separator}(.)")
+          output = output.gsub(re, &:upcase)
         end
       end
 
@@ -140,11 +144,11 @@ module Interscript
       return false if string[pos] == string[pos].downcase
 
       i = pos - 1
-      i -= 1 while i.positive? && string[i] !~ Regexp.new(ALPHA_REGEXP)
+      i -= 1 while i.positive? && string[i] !~ mkregexp('[[:alpha:]]')
       before = i >= 0 && i < pos ? string[i].to_s.strip : ''
 
       i = pos + 1
-      i += 1 while i < string.size - 1 && string[i] !~ Regexp.new(ALPHA_REGEXP)
+      i += 1 while i < string.size - 1 && string[i] !~ mkregexp('[[:alpha:]]')
       after = i > pos ? string[i].to_s.strip : ''
 
       before_uc = !before.empty? && before == before.upcase

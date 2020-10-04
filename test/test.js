@@ -9,15 +9,16 @@ Object.keys(InterscriptMaps).forEach(function(key) {
 	describe(key+' system', function () {
 		this.timeout(10000);
 		map.tests && map.tests.forEach(function(test) {
-			
-      if (test['source'] === null || test['expected'] === null) 
+
+      if (test['source'] === null || test['expected'] === null)
         return;
-      
+
 			it('test for ' + JSON.stringify(test), function () {
 				var result = Opal.Opal.Interscript.$transliterate(key, test['source']);
 				var expected = test['expected'] && test['expected'].normalize();
-				// assert.strictEqual(result, expected);
-				assert.equal(!!result || result === "", true);
+				if (result !== expected) console.log(result);
+				assert.strictEqual(result, expected);
+				//assert.equal(!!result || result === "", true);
 			});
 		});
 	});

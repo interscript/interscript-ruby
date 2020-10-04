@@ -2,8 +2,6 @@ require 'pathname'
 
 module Interscript
   module Fs
-    ALPHA_REGEXP = '[[:alpha:]]'
-
     def sub_replace(string, pos, size, repl)
       string[pos..pos + size - 1] = repl
       string
