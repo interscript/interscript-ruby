@@ -61,7 +61,7 @@ tests:
     expected: balgarski ezik
   - source: българска азбука
     expected: balgarska azbuka
-  - source: градъ
+  - source: град
     expected: grad
   - source: аз държа
     expected: az darzha
