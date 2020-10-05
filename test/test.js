@@ -2,6 +2,9 @@ var assert = require('assert');
 var Opal = require('../vendor/assets/javascripts/interscript.js');
 var fs = require('fs');
 
+// Let's cache the work that is done by Interscript::Mapping.
+var mapcache = Opal.Opal.hash({});
+
 Object.keys(InterscriptMaps).forEach(function(key) {
 	var json = fs.readFileSync("vendor/assets/maps/" + key + ".json");
 	Opal.Opal.Interscript.$load_map_json(key, json);
@@ -27,7 +30,7 @@ Object.keys(InterscriptMaps).forEach(function(key) {
         return;
 
 			it('test for ' + JSON.stringify(test), function () {
-				var result = Opal.Opal.Interscript.$transliterate(key, test['source']);
+				var result = Opal.Opal.Interscript.$transliterate(key, test['source'], mapcache);
 				var expected = test['expected'] && test['expected'].normalize();
 				if (result !== expected) console.log(result);
 				assert.strictEqual(result, expected);

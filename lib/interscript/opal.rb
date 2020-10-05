@@ -1,22 +1,39 @@
 require "onigmo"
 require "onigmo/core_ext"
 
-Onigmo::FFI.library.memory.grow(4096)
+# Increase this if there are out-of-memory errors. This setting is
+# tested to be big enough to handle all the maps provided.
+Onigmo::FFI.library.memory.grow(128)
 
 module Interscript
   module Opal
     def mkregexp(regexpstring)
-      # Is it a regexp?
-      if regexpstring.match?(/[\\\[\]{}$^()*+?.|]/)
-        # Ruby caches its regexps internally. We can't GC. We could think about
-        # freeing them, but we really can't, because they may be in use.
-        @cache ||= {}
-        @cache[regexpstring] ||= Onigmo::Regexp.new(regexpstring)
-        # Let's try at least removing the JS pointer that may hamper compatibility.
-        # Before: 793 fails, after: 708 fails
-        @cache[regexpstring].reset
+      @cache ||= {}
+      if s = @cache[regexpstring]
+        if s.class == Onigmo::Regexp
+          # Opal-Onigmo stores a variable "lastIndex" mimicking the JS
+          # global regexp. If we want to reuse it, we need to reset it.
+          s.reset
+        else
+          s
+        end
       else
-        regexpstring
+        # JS regexp is more performant than Onigmo. Let's use the JS
+        # regexp wherever possible, but use Onigmo where we must.
+        # Let's allow those characters to happen for the regexp to be
+        # considered compatible: ()|.*+?{} ** BUT NOT (? **.
+        if /[\\$^\[\]]|\(\?/.match?(regexpstring)
+          # Ruby caches its regexps internally. We can't GC. We could
+          # think about freeing them, but we really can't, because they
+          # may be in use.
+
+          # Uncomment those to keep track of Onigmo/JS regexp compilation.
+          # print '#'
+          @cache[regexpstring] = Onigmo::Regexp.new(regexpstring)
+        else
+          # print '.'
+          @cache[regexpstring] = Regexp.new(regexpstring)
+        end
       end
     end
 
