@@ -122,7 +122,7 @@ module Interscript
 
         inherited_mapping = Mapping.for(inherit_system, depth: depth + 1)
 
-        @rules = [inherited_mapping.rules, rules].flatten
+        @rules = [rules, inherited_mapping.rules].flatten
         @postrules = [inherited_mapping.postrules, postrules].flatten
         @characters = (inherited_mapping.characters|| {}).merge(characters)
         @dictionary = (inherited_mapping.dictionary|| {}).merge(dictionary)
