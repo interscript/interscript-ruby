@@ -1,7 +1,7 @@
 ---
-authority_id: un
+authority_id: var
 id: VPMC
-language:
+language: iso-639-2:mon
 source_script: Mong
 destination_script: Latn
 name: Transliteration Systems for Uyghur-Mongolian or Vertical or Old Script
