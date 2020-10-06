@@ -1,8 +1,8 @@
 ---
 authority_id: odni
 id: 2015
-language: ics-630-01:prs
-source_script: Persian (Farsi)
+language: iso-639-2:fas
+source_script: Arab
 destination_script: Latn
 name: ODNI Persian Farsi Dari Personal Names 2015 System, ICS-630-01 Annex J
 url: https://github.com/interscript/ics-630-01/blob/master/reference-docs/ANNEX%20J%20-%20Persian-Farsi_Dari_Personal_Names_FLTS_2018_Revision%20(U).pdf
@@ -76,24 +76,28 @@ description: |
 
 notes:
   - |
-    - Alef maqsura (final yeh pronounced as a long “a”) should
+    Alef maqsura (final yeh pronounced as a long “a”) should
     be written “a” as in “Musa.”
 
-    - Digraphs: No distinction is drawn between digraphs such
+  - |
+    Digraphs: No distinction is drawn between digraphs such
     as sh and single contiguous letters
     (e.g., s followed by h).
 
-    - Long/short vowels: There is no distinction made between
+  - |
+    Long/short vowels: There is no distinction made between
     long and short a. E.g., Farzad (the
     first a is short, the second long).
 
-    - Diphthongs: The diphthong such as in the name Hosein is
+  - |
+    Diphthongs: The diphthong such as in the name Hosein is
     written ei. Following the
     predominant lack of pronunciation of the ow diphthong in
     Farsi, this diphthong will not be
     represented (Khosro, not Khosrow).
 
-    - Apostrophe: The apostrophe is used in three cases: 1) to
+  - |
+    Apostrophe: The apostrophe is used in three cases: 1) to
     represent a name-internal or terminal
     hamzeh or ein (Mo’men, Ghane’), 2) to represent the first
     yeh (ی (in a double yeh (یی (
@@ -105,7 +109,8 @@ notes:
     hamzeh nor ein are indicated in
     transliteration (Abdorrahman, not 'Abdorrahman).
 
-    - Double consonants: Double consonants represented by the
+  - |
+    Double consonants: Double consonants represented by the
     tashdid are shown by doubling the
     Roman letter: Mo'azzami, Tavakkoli, Sajjad. Exceptions: Ein
     and consonants represented by
@@ -119,7 +124,8 @@ notes:
     indistinguishable in their transliterated forms:
     Hasan (حسن (vs. Hassan (حسان(
 
-    - Hyphens: A hyphen will be used for compound
+  - |
+    Hyphens: A hyphen will be used for compound
     last names to connect major name elements (e.g., Raja’i-
     Khorasani, Tabataba’i-Shirazi, Soleimani-Meimandi). No
     spaces are to be used for last names to reduce ambiguity (
@@ -138,16 +144,19 @@ notes:
     known otherwise). E.g., “Mohammad Mahmudi-Tehrani (
     hereafter Mahmudi).”
 
-    - Compound first names will be written as distinct words:
+  - |
+    Compound first names will be written as distinct words:
     Ali Reza (not Alireza or Ali-Reza);
     Mohammad Hosein (not Mohammadhosein or Mohammad-Hosein),
     with the exception of cases identified below.
 
-    - Arabic-origin names that incorporate the word “Allah” are
+  - |
+    Arabic-origin names that incorporate the word “Allah” are
     transliterated as one word, with the letter ‘o’ replacing the
     alef in Allah (Azizollah, Rahimollah).
 
-    - Name-internal Arabic definite article "al" (‫)ال‬: Common
+  - |
+    Name-internal Arabic definite article "al" (‫)ال‬: Common
     in many names borrowed
     from Arabic, the transliteration should follow the Arabic
     rules for “sun letter” assimilation in spoken form and
@@ -161,17 +170,20 @@ notes:
     word, as are other names that contain the definite article:
     Shamsoddin (not Shams-al-Din), Nezamoddin, etc.
 
-    - Name-initial Arabic definite article "al" (‫)ال‬: For
+  - |
+    Name-initial Arabic definite article "al" (‫)ال‬: For
     Arabic-origin names starting with the definite article “al” (‫)
     ال‬, follow the Arabic standard of al-Sisi (‫)الصیصی‬ (not
     Alsisi or Assisi) and forego sun-letter assimilation.
 
-    - Arabic "family marker" of Al (‫)آل‬: For Arabic-origin
+  - |
+    Arabic "family marker" of Al (‫)آل‬: For Arabic-origin
     names starting with the "family marker" of Al (‫)آل‬,
     follow the Arabic standard of Al Davud (‫داود‬ ‫)آل‬ (not
     Aldavud or Aledavud).
 
-    - Kunyas: In the rather rare case where
+  - |
+    Kunyas: In the rather rare case where
     a Persian uses a kunya (a name for an adult normally
     derived from his or her eldest child, and sometimes
     employed as a nom de guerre), this name will be rendered
@@ -182,7 +194,8 @@ notes:
     treated as a prefix as indicated below (Abuhosein[i],
     Abughasem[i]).
 
-    - Persian names of non-Persian origin that are
+  - |
+    Persian names of non-Persian origin that are
     no longer considered foreign by Farsi speakers (commonly of
     Arabic or Hebrew origin) follow this IC transliteration
     standard for Persian. E.g., Yusef (not Joseph), Davud (not
