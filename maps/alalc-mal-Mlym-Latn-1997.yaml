@@ -293,3 +293,7 @@ map:
     'ൾ': 'ḷ'
     'ർ': 'r'
     'ഉ്': 'ū'
+
+    # extended and ancient forms
+
+    'ഺ': 'ṯa'

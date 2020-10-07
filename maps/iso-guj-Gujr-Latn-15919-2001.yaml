@@ -67,6 +67,10 @@ tests:
     expected: "saradaāra patạelae nakakaī karayauṁ hatauṁ kae kaāśamaīra bhaāratanao haisasao banaśae; 91 varaṣa pahaelaāṁ laāhaora jaelamaāṁ bhaūkhahaḍataāḷa daramaiyaāna śahaīda thayaā hataā jataīna daāsa"
   - source: "કોરોના પ્રોટોકોલ વચ્ચે આજે મેડિકલ પ્રવેશ પરીક્ષા લેવાશેઃ એન્ટ્રી ટચ ફ્રી રહેશે, એડમિટ કાર્ડ બાર કોડથી ચેક થશે"
     expected: "kaoraonaā paraotạokaola vacacae ājae maeḍaikala paravaeśa paraīkaṣaā laevaāśaeḥ enatạraī tạca pharaī rahaeśae, eḍamaitạ kaāraḍa baāra kaoḍathaī caeka thaśae"
+  - source: "અલ્ ક઼`ઇદ્ માં હવામાન"
+    expected: "ala qa`ida maāṁ havaāmaāna"
+  - source: "મંત્રાલય તથા ખ઼.ય ના વિ૨ષ્ઠ અધિકા૨ીઓ ઉપસ્થિત ૨હ્યા હતા"
+    expected: "maṁtaraālaya tathaā ḵẖa.ya naā vai2ṣaṭha adhaikaā2īo upasathaita 2hayaā hataā"
 
 map:
 
@@ -180,9 +184,11 @@ map:
     'વઁ': 'm̐va'
 
 
+    # Perso-Arabic Characters
+
     'ક઼': 'qa'
-    'ખ઼': 'qa'
-    'ગ઼': 'qa'
+    'ખ઼': 'ḵẖa'
+    'ગ઼': 'ġa'
     'જ઼': 'za'
     'ફ઼': 'fa'
 

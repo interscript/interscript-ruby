@@ -73,6 +73,8 @@ tests:
     expected: "102 haora kaoraonaā paāzaīṭaiva maraīzaāṃ daī pauśaṭaī, ika daī maauta"
   - source: "ਸੜਕ ਹਾਦਸੇ ਦੌਰਾਨ ਇਕ ਦੀ ਮੌਤ"
     expected: "saṛaka haādasae daauraāna ika daī maauta"
+  - source: "ਅਸੀਂ ਲੁੱਕ ਛੁੱਪ ਕ਼ ਆਪਣੀ ਜਾਨ"
+    expected: "asaīṃ lauka chaupa qa āpaṇaī jaāna"
 
 map:
 
@@ -94,18 +96,14 @@ map:
     # Consonants
     # Gutturals
     'ਕ': 'ka'
-    'ਕ਼': 'qa'
     'ਖ': 'kha'
-    'ਖ਼': 'ḵẖa'
     'ਗ': 'ga'
-    'ਗ਼': 'ġa'
     'ਘ': 'gha'
     'ਙ': 'ṅa'
 
     # Palatals
     'ਚ': 'ca'
     'ਛ': 'cha'
-    'ਜ਼': 'za'
     'ਜ': 'ja'
     'ਝ': 'jha'
     'ਞ': 'ña'
@@ -127,7 +125,6 @@ map:
     # Labials
     'ਪ': 'pa'
     'ਫ': 'pha'
-    'ਫ਼': 'fa'
     'ਬ': 'ba'
     'ਭ': 'bha'
     'ਮ': 'ma'
@@ -142,7 +139,6 @@ map:
 
     # Sibilants
     'ਸ': 'sa'
-    'ਸ਼': 'śa'
 
     # Aspirate
     'ਹ': 'ha'
@@ -214,3 +210,13 @@ map:
     '੭': '7'
     '੮': '8'
     '੯': '9'
+
+
+    # Perso-Arabic Characters
+
+    'ਖ਼': 'ḵẖa'
+    'ਕ਼': 'qa'
+    'ਗ਼': 'ġa'
+    'ਫ਼': 'fa'
+    'ਸ਼': 'śa'
+    'ਜ਼': 'za'
