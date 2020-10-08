@@ -1,7 +1,7 @@
 require "bundler/gem_tasks"
 
 begin
-  require 'rspec/core/rake_task'
+  require "rspec/core/rake_task"
   RSpec::Core::RakeTask.new(:spec)
 rescue LoadError
 end
@@ -14,9 +14,9 @@ end
 desc "Build Interscript JavaScript"
 task :js do
   puts "creating javascript version..."
-  require 'opal/builder'
-  require 'opal/builder_processors'
-  require 'opal/onigmo'
+  require "opal/builder"
+  require "opal/builder_processors"
+  require "opal/onigmo"
   require "erb"
   require "json"
 
@@ -38,10 +38,10 @@ end
 
 desc "Build Interscript maps for use with Opal"
 task :js_maps do
-  require 'yaml'
-  require 'fileutils'
-  require 'json'
-  require_relative 'lib/interscript/opal/map_translate'
+  require "yaml"
+  require "fileutils"
+  require "json"
+  require_relative "lib/interscript/opal/map_translate"
 
   FileUtils.mkdir_p "vendor/assets/maps"
 
@@ -51,7 +51,7 @@ task :js_maps do
     contents = {}
 
     while cur = stack.pop
-      loaded << cur      
+      loaded << cur
       file = File.read("maps/#{cur}.yaml")
       yaml = YAML.load(file)
       if yaml["map"]["inherit"]
@@ -68,7 +68,7 @@ end
 
 desc "Correct file names in 'maps' directory to ensure to be uppercase for 3rd and 4rd"
 task :rename do
-  require 'yaml'
+  require "yaml"
 
   root_path = File.expand_path File.dirname(__FILE__)
   changed = []
