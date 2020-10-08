@@ -1,7 +1,7 @@
 ---
 authority_id: alalc
 id: 1997
-language: iso-639-2:hin
+language: iso-639-2:mar
 source_script: Deva
 destination_script: Latn
 name: Marathi Romanization, 1997
@@ -57,6 +57,8 @@ tests:
     expected: "saāntaākaraūjha-caembaūra laiṅka raoḍavaraīla unanata maāragaālaā sathagaitaī"
   - source: "संपादक अर्णब गोस्वामी यांच्याविरूद्ध खडक पोलिस ठाण्यात तक्रार"
     expected: "sampaādaka araṇaba gaosavaāmaī yaāñcayaāvairaūdadha khaḍaka paolaisa ṭhaāṇayaāta takaraāra"
+  - source: "२५६८७५४४६४४६१६११"
+    expected: "2568754464461611"
 
 map:
 
@@ -168,3 +170,16 @@ map:
     'ो': "o"
     'ौ': "au"
     '्': ''
+
+    # digits
+
+    '०': '0'
+    '१': '1'
+    '२': '2'
+    '३': '3'
+    '४': '4'
+    '५': '5'
+    '६': '6'
+    '७': '7'
+    '८': '8'
+    '९': '9'
