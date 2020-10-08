@@ -63,6 +63,8 @@ tests:
     expected: "kaoraonaā vaaikasaīna maudadae para ghairae raāshaṭarapatai; jao baāiḍaena baolae- maujhae ăura daeśa kao vaaijañaānaikaoṃ para bharaosaā haai, ḍaonaālaḍa ṭaramapa para nahaīṃ"
   - source: "गूगल की कार्रवाई पर पेटीएम ने कहा था कि ऐप को अस्थायी तौर पर प्ले-स्टोर से हटाया गया है, आपके पैसे सुरक्षित हैं"
     expected: "gaūgala kaī kaāraravaāī para paeṭaīema nae kahaā thaā kai aipa kao asathaāyaī taăura para palae-saṭaora sae haṭaāyaā gayaā haai, āpakae paaisae saurakashaita haaiṃ"
+  - source: "२५६८७५४४६४४६१६११"
+    expected: "2568754464461611"
 
 map:
 
@@ -190,3 +192,16 @@ map:
     'ै': "ai"
     'ो': "o"
     '्': ""
+
+    # digits
+
+    '०': '0'
+    '१': '1'
+    '२': '2'
+    '३': '3'
+    '४': '4'
+    '५': '5'
+    '६': '6'
+    '७': '7'
+    '८': '8'
+    '९': '9'

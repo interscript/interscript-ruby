@@ -64,7 +64,7 @@ tests:
     expected: "saākharataā dae maāmalae 'ca daesha 'ca 7waeṃ nam̆̐bara 'tae pañjaāba"
   - source: "ਦਿੱਲੀ ਕਮੇਟੀ ਦੇ ਮੈਂਬਰ ਸ਼ੰਟੀ ਨੇ ਅਕਾਲੀ ਦਲ ਤੋਂ ਦਿੱਤਾ ਅਸਤੀਫ਼ਾ"
     expected: "daillaī kamaeṭaī dae maaiṃbara shaṇṭaī nae akaālaī dala taoṃ daittaā asataīfaā"
-  - source: "102 ਹੋਰ ਕੋਰੋਨਾ ਪਾਜ਼ੀਟਿਵ ਮਰੀਜ਼ਾਂ ਦੀ ਪੁਸ਼ਟੀ, ਇਕ ਦੀ ਮੌਤ"
+  - source: "੧੦੨ ਹੋਰ ਕੋਰੋਨਾ ਪਾਜ਼ੀਟਿਵ ਮਰੀਜ਼ਾਂ ਦੀ ਪੁਸ਼ਟੀ, ਇਕ ਦੀ ਮੌਤ"
     expected: "102 haora kaoraonaā paāzaīṭaiwa maraīzaāṃ daī paushaṭaī, ika daī maauta"
   - source: "ਸੜਕ ਹਾਦਸੇ ਦੌਰਾਨ ਇਕ ਦੀ ਮੌਤ"
     expected: "saṛaka haādasae daauraāna ika daī maauta"
@@ -235,3 +235,18 @@ map:
 
     # Aspirate
     'ੱਹ': 'hha'
+
+
+    # digits
+
+    '੦': '0'
+    '੧': '1'
+    '੨': '2'
+    '੩': '3'
+    '੪': '4'
+    '੫': '5'
+    '੬': '6'
+    '੭': '7'
+    '੮': '8'
+    '੯': '9'
+

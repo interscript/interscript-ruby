@@ -1,7 +1,7 @@
 ---
 authority_id: bis
 id: 1991
-language: iso-639-2:gjr
+language: iso-639-2:guj
 source_script: Gujr
 destination_script: Latn
 name: Indian script code for information interchange - ISCII - Gujrati Romanization
@@ -43,6 +43,8 @@ tests:
     expected: "srdār pṭēlē nkkī kryuṃ htuṃ kē kāśmīr bhārtnŏ hissŏ bnśē; 91 vrṣ phēlāṃ lāhŏr jēlmāṃ bhūkhhḍtāḷ drmiyān śhīd thyā htā jtīn dās"
   - source: "કોરોના પ્રોટોકોલ વચ્ચે આજે મેડિકલ પ્રવેશ પરીક્ષા લેવાશેઃ એન્ટ્રી ટચ ફ્રી રહેશે, એડમિટ કાર્ડ બાર કોડથી ચેક થશે"
     expected: "kŏrŏnā prŏṭŏkŏl vccē ājē mēḍikl prvēś prīkṣā lēvāśēḥ ēnṭrī ṭc phrī rhēśē, ēḍmiṭ kārḍ bār kŏḍthī cēk thśē"
+  - source: "૮૪૬૬૫૪૧૬૪૬૫૧"
+    expected: "846654164651"
 
 
 
@@ -164,3 +166,16 @@ map:
     '઼': ''
     '।': '.'
     "‍": ''# Used for joining
+
+    # digits
+
+    '૦': '0'
+    '૧': '1'
+    '૨': '2'
+    '૩': '3'
+    '૪': '4'
+    '૫': '5'
+    '૬': '6'
+    '૭': '7'
+    '૮': '8'
+    '૯': '9'
