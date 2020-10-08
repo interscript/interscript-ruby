@@ -1,10 +1,10 @@
 ---
 authority_id: un
-id: 2013
+id: phonetic-2013
 language: iso-639-2:mon
 source_script: Mong
 destination_script: Latn
-name: Mongolian Romanization in China, Version 4.0
+name: Mongolian Romanization in China, Version 4.0 (phonetic)
 url: http://www.eki.ee/wgrs/rom1_mnc.htm
 creation_date: 2013-09
 description: |
@@ -58,246 +58,207 @@ implementation_notes:
 
 tests:
   - source: ᠣᠷᠳᠣᠰ ᠬᠣᠲᠠ # Ордос хот
-    expected: ordos hota
+    expected: ôrdôs hôta
   - source: ᠪᠠᠶᠠᠨᠨᠠᠭᠤᠷ ᠬᠣᠲᠠ # Баяннуур хот
-    expected: bayannagur hota
+    expected: bayannagûr hôta
   - source: ᠤᠯᠠᠭᠠᠨᠬᠣᠲᠠ # Улаан хот
-    expected: ulaganhota
+    expected: ûlaganhôta
   - source: ᠬᠣᠣᠯᠢᠠ ᠭᠣᠤᠯ ᠬᠣᠲᠠ # Хоолингол хот
-    expected: hoolia goul hota
+    expected: hôôlia gôûl hôta
   - source: ᠡᠷᠢᠶᠡᠨ ᠬᠣᠲᠠ #  Эрээн хот
-    expected: eriyen hota
+    expected: eriyen hôta
   - source: ᠷᠠᠰᠢᠶᠠᠨ ᠬᠣᠲᠠ # Рашаан хот
-    expected: rasiyan hota
+    expected: rasiyan hôta
   - source: ᠪᠠᠭᠠᠷᠢᠨ ᠪᠠᠷᠠᠭᠤᠨ ᠬᠣᠰᠢᠭᠤ # Баарин баруун хошуу
-    expected: bagarin baragun hosigu
+    expected: bagarin baragûn hôsigû
   - source: ᠪᠠᠭᠠᠷᠢᠨ ᠵᠡᠭᠦᠨ ᠬᠣᠰᠢᠭᠤ # Баарин зүүн хошуу
-    expected: bagarin jegun hosigu
+    expected: bagarin jegun hôsigû
   - source: ᠲᠦᠩᠯᠢᠶᠣᠤ ᠬᠣᠲᠠ # Байшинт хот
-    expected: tungliyou hota
+    expected: tungliyôû hôta
   - source: ᠰᠢᠯᠢ ᠶᠢᠨ ᠬᠣᠲᠠ # Шилийн хот
-    expected: sili-yin hota
+    expected: sili-yin hôta
   - source: ᠬᠣᠷᠢᠨ ᠭᠡᠷ ᠰᠢᠶᠠᠨ # Horinger County
-    expected: horin ger siyan
+    expected: hôrin ger siyan
   - source: ᠤᠳᠠ ᠲᠣᠭᠣᠷᠢᠭ # Уда тойрог
-    expected: uda togorig
+    expected: ûda tôgôrig
   - source: ᠦᠬᠠᠢ ᠬᠣᠲᠠ # Үхай хот
-    expected: uhai hota
+    expected: uhai hôta
   - source: ᠬᠠᠶᠢᠨᠠᠨ ᠲᠣᠭᠣᠷᠢᠭ # Hainan District
-    expected: hayinan togorig
+    expected: hayinan tôgôrig
   - source: ᠬᠠᠶᠢᠷᠤᠪ ᠤᠨ ᠲᠣᠬᠣᠢ ᠲᠣᠭᠣᠷᠢᠭ # Haibowan District
-    expected: hayirub-un tohoi togorig
+    expected: hayirûb-ûn tôhôi tôgôrig
   - source: ᠤᠯᠠᠭᠠᠨᠴᠠᠪ ᠬᠣᠲᠠ # Улаанцав хот
-    expected: ulaganqab hota
+    expected: ûlaganqab hôta
   - source: ᠵᠢᠨᠢᠩ ᠲᠣᠭᠣᠷᠢᠭ # Жинин тойрог
-    expected: jining togorig
+    expected: jining tôgôrig
   - source: ᠹᠸᠩᠵᠸᠡ ᠬᠣᠲᠠ # Фенжень хот
-    expected: fwngjwe hota
+    expected: fwngjwe hôta
   - source: ᠵᠦᠸᠧᠽᠢ ᠰᠢᠶᠠᠨ # Zhuozi County
     expected: juwezi siyan
   - source: ᠬᠤᠸᠠᠳᠧ ᠰᠢᠶᠠᠨ # Huade County
-    expected: huwade siyan
+    expected: hûwade siyan
   - source: ᠱᠠᠩᠳᠤ ᠰᠢᠶᠠᠨ # Шанду шянь
-    expected: xangdu siyan
+    expected: xangdû siyan
   - source: ᠰᠢᠩᠾᠧ ᠰᠢᠶᠠᠨ # Шинхэ шянь
     expected: singhe siyan
   - source: ᠯᠢᠶᠠᠩᠴᠠᠩ ᠰᠢᠶᠠᠨ # Liangcheng County
     expected: liyangqang siyan
   - source: ᠴᠠᠬᠠᠷ ᠪᠠᠷᠠᠭᠤᠨ ᠭᠠᠷᠤᠨ ᠡᠮᠦᠨᠡᠳᠦ ᠬᠣᠰᠢᠭᠤ # Цахар баруун гарын өмнөд хошуу
-    expected: qahar baragun garun emunedu hosigu
+    expected: qahar baragûn garûn emunedu hôsigû
   - source: ᠴᠠᠬᠠᠷ ᠪᠠᠷᠠᠭᠤᠨ ᠭᠠᠷᠤᠨ ᠳᠤᠮᠳᠠᠳᠤ ᠬᠣᠰᠢᠭᠤ # Цахар баруун гарын дундад хошуу
-    expected: qahar baragun garun dumdadu hosigu
+    expected: qahar baragûn garûn dûmdadû hôsigû
   - source: ᠴᠠᠬᠠᠷ ᠪᠠᠷᠠᠭᠤᠨ ᠭᠠᠷᠤᠨ ᠬᠣᠶᠢᠲᠤ ᠬᠣᠰᠢᠭᠤ # Цахар баруун гарын хойд хошуу
-    expected: qahar baragun garun hoyitu hosigu
+    expected: qahar baragûn garûn hôyitû hôsigû
   - source: ᠳᠥᠷᠪᠡᠳ ᠬᠣᠰᠢᠭᠤ # Дөрвөд хошуу
-    expected: dorbed hosigu
+    expected: dorbed hôsigû
   - source: ᠪᠤᠭᠤᠲᠤ ᠬᠣᠲᠠ # Бугaт хот
-    expected: bugutu hota
+    expected: bûgûtû hôta
   - source: ᠬᠥᠨᠳᠡᠯᠡᠨ ᠲᠣᠭᠣᠷᠢᠭ # Hondlon District
-    expected: hondelen togorig
+    expected: hondelen tôgôrig
   - source: ᠳᠦᠩᠾᠧ ᠲᠣᠭᠣᠷᠢᠭ # Donghe District
-    expected: dunghe togorig
+    expected: dunghe tôgôrig
   - source: ᠴᠢᠩᠱᠠᠨ ᠲᠣᠭᠣᠷᠢᠭ # Qingshan District
-    expected: qingxan togorig
+    expected: qingxan tôgôrig
   - source: ᠰᠢᠭᠤᠶᠢᠲᠤ ᠲᠣᠭᠣᠷᠢᠭ # Шигуай тойрог
-    expected: siguyitu togorig
+    expected: sigûyitû tôgôrig
   - source: ᠵᠢᠦ ᠶᠤᠸᠠᠨ ᠲᠣᠭᠣᠷᠢᠭ # Jiuyuan District
-    expected: jiu yuwan togorig
+    expected: jiu yûwan tôgôrig
   - source: ᠭᠦᠶᠠᠩ ᠰᠢᠶᠠᠨ # Guyang County
     expected: guyang siyan
   - source: ᠲᠦᠮᠡᠳ ᠵᠡᠭᠦᠨ ᠬᠣᠰᠢᠭᠤ # Түмэд Зүүн хошуу
-    expected: tumed jegun hosigu
+    expected: tumed jegun hôsigû
   - source: ᠲᠦᠮᠡᠳ ᠪᠠᠷᠠᠭᠤᠨ ᠬᠣᠰᠢᠭᠤ # Түмэд Баруун хошуу
-    expected: tumed baragun hosigu
+    expected: tumed baragûn hôsigû
   - source: ᠳᠠᠷᠬᠠᠨ ᠮᠤᠤᠮᠢᠩᠭ᠋ᠠᠨ ᠬᠣᠯᠪᠣᠭᠠᠲᠤ ᠬᠣᠰᠢᠭᠤ # Darhan Muminggan United Banner
-    expected: darhan muumingg᠋an holbogatu hosigu
+    expected: darhan mûûmingg᠋an hôlbôgatû hôsigû
   - source: ᠬᠡᠰᠢᠭᠲᠡᠨ ᠬᠣᠰᠢᠭᠤ # Hexigten Banner
-    expected: hesigten hosigu
+    expected: hesigten hôsigû
   - source: ᠰᠢᠨ᠎ᠡ ᠪᠠᠷᠭᠤ ᠵᠡᠭᠦᠨ ᠬᠣᠰᠢᠭᠤ # New Barag Left Banner
-    expected: sin-e bargu jegun hosigu
+    expected: sin-e bargû jegun hôsigû
   - source: ᠰᠢᠨ᠎ᠡ ᠪᠠᠷᠭᠤ ᠪᠠᠷᠠᠭᠤᠨ ᠬᠣᠰᠢᠭᠤ # New Barag Right Banner
-    expected: sin-e bargu baragun hosigu
+    expected: sin-e bargû baragûn hôsigû
   - source: ᠣᠲᠣᠭ ᠬᠣᠰᠢᠭᠤ # Otog Banner
-    expected: otog hosigu
+    expected: ôtôg hôsigû
   - source: ᠳ᠋ᠦᠩᠱᠧᠩ ᠲᠣᠭᠣᠷᠢᠭ # Dongsheng District
-    expected: d᠋ungxeng togorig
+    expected: d᠋ungxeng tôgôrig
   - source: ᠳᠠᠯᠠᠳ ᠬᠣᠰᠢᠭᠤ # Dalad Banner
-    expected: dalad hosigu
+    expected: dalad hôsigû
   - source: ᠵᠡᠭᠦᠨᠭᠠᠷ ᠬᠣᠰᠢᠭᠤ # Jungar Banner
-    expected: jegungar hosigu
-  - source: ᠣᠲᠣᠭ ᠤᠨ ᠡᠮᠦᠨᠡᠳᠦ ᠬᠣᠰᠢᠭᠤ # Otog Front Banner 
-    expected: otog-un emunedu hosigu
+    expected: jegungar hôsigû
+  - source: ᠣᠲᠣᠭ ᠤᠨ ᠡᠮᠦᠨᠡᠳᠦ ᠬᠣᠰᠢᠭᠤ # Otog Front Banner
+    expected: ôtôg-ûn emunedu hôsigû
   - source: ᠬᠠᠩᠭᠢᠨ ᠬᠣᠰᠢᠭᠤ # Hanggin Banner
-    expected:	hanggin hosigu
+    expected:	hanggin hôsigû
   - source: ᠦᠦᠰᠢᠨ ᠬᠣᠰᠢᠭᠤ # Uxin Banner
-    expected: uusin hosigu
+    expected: uusin hôsigû
   - source: ᠡᠵᠢᠨ ᠬᠣᠷᠣᠭ᠎ᠠ ᠬᠣᠰᠢᠭᠤ # Эзэн Хороо хошуу
-    expected: ejin horog-a hosigu
+    expected: ejin hôrôg-a hôsigû
   - source: ᠵᠠᠯᠠᠨ ᠠᠢ᠌ᠯ ᠬᠣᠲᠠ # Жалан-Айл хот
-    expected: jalan ai᠌l hota
+    expected: jalan ai᠌l hôta
   - source: ᠶᠠᠭᠰᠢ ᠬᠣᠲᠠ # Ягши хот
-    expected: yagsi hota
+    expected: yagsi hôta
   - source: ᠮᠠᠨᠵᠤᠤᠷ ᠬᠣᠲᠠ # Манжуур хот
-    expected: manjuur hota
+    expected: manjûûr hôta
   - source: ᠬᠠᠶᠢᠯᠠᠷ ᠲᠣᠭᠣᠷᠢᠭ # Хайлаар тойрог
-    expected: hayilar togorig
+    expected: hayilar tôgôrig
   - source: ᠬᠣᠷᠴᠢᠨ ᠲᠣᠭᠣᠷᠢᠭ # Horqin District
-    expected: horqin togorig
+    expected: hôrqin tôgôrig
   - source: ᠺᠠᠶᠢᠯᠦ ᠰᠢᠶᠠᠨ # Kailu County
     expected: kayilu siyan
   - source: ᠬᠦᠷᠢᠶ᠎ᠡ ᠬᠣᠰᠢᠭᠤ # Hure Banner
-    expected: huriy-e hosigu
+    expected: huriy-e hôsigû
   - source: ᠨᠠᠢᠮᠠᠨ ᠬᠣᠰᠢᠭᠤ # Naiman Banner
-    expected: naiman hosigu
+    expected: naiman hôsigû
   - source: ᠵᠠᠷᠤᠳ ᠬᠣᠰᠢᠭᠤ # Jarud Banner
-    expected: jarud hosigu
+    expected: jarûd hôsigû
   - source: ᠬᠣᠷᠴᠢᠨ ᠪᠠᠷᠠᠭᠤᠨ ᠭᠠᠷᠤᠨ ᠳᠤᠮᠳᠠᠳᠤ ᠬᠣᠰᠢᠭᠤ # Хорчин Баруун Гарын Дундад Хошуу
-    expected: horqin baragun garun dumdadu hosigu
+    expected: hôrqin baragûn garûn dûmdadû hôsigû
   - source: ᠬᠣᠷᠴᠢᠨ ᠵᠡᠭᠦᠨ ᠭᠠᠷᠤᠨ ᠳᠤᠮᠳᠠᠳᠤ ᠬᠣᠰᠢᠭᠤ # Horqin Left Middle Banner
-    expected: horqin jegun garun dumdadu hosigu
+    expected: hôrqin jegun garûn dûmdadû hôsigû
   - source: ᠬᠣᠷᠴᠢᠨ ᠵᠡᠭᠦᠨ ᠭᠠᠷᠤᠨ ᠬᠣᠶᠢᠲᠤ ᠬᠣᠰᠢᠭᠤ # Horqin Left Rear Banner
-    expected: horqin jegun garun hoyitu hosigu
+    expected: hôrqin jegun garûn hôyitû hôsigû
   - source: ᠤᠯᠠᠭᠠᠨᠬᠠᠳᠠ ᠬᠣᠲᠠ # Улаанхад хот
-    expected: ulaganhada hota
+    expected: ûlaganhada hôta
   - source: ᠰᠡᠷᠡᠴᠢ # Salaqi
     expected: sereqi
   - source: ᠭᠡᠭᠡᠨ ᠭᠣᠤᠯ ᠬᠣᠲᠠ # Гэгээнгол хот
-    expected: gegen goul hota
+    expected: gegen gôûl hôta
   - source: ᠠᠯᠠᠱᠠ ᠵᠡᠭᠦᠨ ᠬᠣᠰᠢᠭᠤ # Alxa Left Banner
-    expected: alaxa jegun hosigu
+    expected: alaxa jegun hôsigû
   - source: ᠠᠯᠠᠱᠠ ᠪᠠᠷᠠᠭᠤᠨ ᠬᠣᠰᠢᠭᠤ # Alxa Right Banner
-    expected: alaxa baragun hosigu
+    expected: alaxa baragûn hôsigû
   - source: ᠡᠵᠡᠨ᠎ᠡ ᠬᠣᠰᠢᠭᠤ # Ejin Banner
-    expected: ejen-e hosigu
+    expected: ejen-e hôsigû
   - source: ᠬᠥᠪᠡᠭᠡᠲᠦ ᠰᠢᠷ᠎ᠠ ᠬᠣᠰᠢᠭᠤ # Хөвөөт Шар хошуу
-    expected: hobegetu sir-a hosigu
+    expected: hobegetu sir-a hôsigû
   - source: ᠦᠶᠤᠸᠠᠨ ᠰᠢᠶᠠᠨ # Үюань шянь
-    expected: uyuwan siyan
+    expected: uyûwan siyan
   - source: ᠦᠴᠤᠸᠠᠨ ᠰᠢᠶᠠᠨ # Wuchuan County
-    expected: uquwan siyan
+    expected: uqûwan siyan
   - source: ᠲᠦᠴᠢᠤᠸᠠᠨ ᠰᠢᠶᠠᠨ # Тучуань шянь
-    expected: tuqiuwan siyan
+    expected: tuqiûwan siyan
   - source: ᠨᠢᠩᠴᠧᠩ ᠰᠢᠶᠠᠨ # Ningcheng County
     expected: ningqeng siyan
   - source: ᠯᠢᠨᠰᠢ ᠰᠢᠶᠠᠨ # Linxi County
     expected: linsi siyan
   - source: ᠯᠢᠨᠾᠧ ᠲᠣᠭᠣᠷᠢᠭ # Linhe
-    expected: linhe togorig
+    expected: linhe tôgôrig
   - source: ᠬᠠᠷᠠᠴᠢᠨ ᠬᠣᠰᠢᠭᠤ # Harqin Banner
-    expected: haraqin hosigu
+    expected: haraqin hôsigû
   - source: ᠳ᠋ᠧᠩᠺᠧᠦ ᠰᠢᠶᠠᠨ # Dengkou County
     expected: d᠋engkeu siyan
   - source: ᠠᠤᠬᠠᠨ ᠬᠣᠰᠢᠭᠤ # Aohan Banner
-    expected: auhan hosigu
+    expected: aûhan hôsigû
   - source: ᠴᠢᠩ ᠱᠦᠢ ᠾᠧ ᠰᠢᠶᠠᠨ # Qingshuihe County
     expected: qing xui he siyan
   - source: ᠬᠣᠳᠣᠩ ᠠᠷᠠᠳ ᠤᠨ ᠲᠣᠭᠣᠷᠢᠭ # Huimin District
-    expected: hodong arad-un togorig
+    expected: hôdông arad-ûn tôgôrig
   - source: ᠰᠠᠶᠢᠬᠠᠨ ᠲᠣᠭᠣᠷᠢᠭ # Saihan District
-    expected: sayihan togorig
+    expected: sayihan tôgôrig
   - source: ᠰᠢᠨ᠎ᠡ ᠬᠣᠲᠠ ᠲᠣᠭᠣᠷᠢᠭ # Xincheng District
-    expected: sin-e hota togorig
+    expected: sin-e hôta tôgôrig
   - source: ᠬᠠᠶᠢᠷᠤᠪ ᠤᠨ ᠲᠣᠬᠣᠢ ᠲᠣᠭᠣᠷᠢᠭ # Haibowan (Hairibin Tohoi) District
-    expected: hayirub-un tohoi togorig
+    expected: hayirûb-ûn tôhôi tôgôrig
   - source: ᠰᠦᠩ ᠱᠠᠨ ᠲᠣᠭᠣᠷᠢᠭ # Songshan District
-    expected: sung xan togorig
+    expected: sung xan tôgôrig
   - source: ᠬᠦᠩ ᠱᠠᠨ ᠲᠣᠭᠣᠷᠢᠭ # Hongshan District
-    expected: hung xan togorig
+    expected: hung xan tôgôrig
   - source: ᠠᠷᠤᠨ ᠬᠣᠰᠢᠭᠤ # Арун хошуу
-    expected: arun hosigu
+    expected: arûn hôsigû
   - source: ᠶᠤᠸᠠᠨ ᠪᠣᠣ ᠱᠠᠨ ᠲᠣᠭᠣᠷᠢᠭ # Юаньбаошань тойрог
-    expected: yuwan boo xan togorig
+    expected: yûwan bôô xan tôgôrig
   - source: ᠰᠢᠯᠤᠭᠤᠨ ᠬᠥᠪᠡᠭᠡᠲᠦ ᠴᠠᠭᠠᠨ ᠬᠣᠰᠢᠭᠤ # Шулуун Хөвөөт Цагаан хошуу
-    expected: silugun hobegetu qagan hosigu
+    expected: silûgûn hobegetu qagan hôsigû
   - source: ᠰᠢᠯᠤᠭᠤᠨ ᠬᠥᠬᠡ ᠬᠣᠰᠢᠭᠤ # Шулуун хөх хошуу
-    expected: silugun hohe hosigu
+    expected: silûgûn hohe hôsigû
   - source: ᠤᠷᠠᠳ ᠤᠨ ᠳᠤᠮᠳᠠᠳᠤ ᠬᠣᠰᠢᠭᠤ # Урадын Дундад Хошуу
-    expected: urad-un dumdadu hosigu
+    expected: ûrad-ûn dûmdadû hôsigû
   - source: ᠤᠷᠠᠳ ᠤᠨ ᠡᠮᠦᠨᠡᠳᠦ ᠬᠣᠰᠢᠭᠤ # Урадын Өмнөд Хошуу
-    expected: urad-un emunedu hosigu
+    expected: ûrad-ûn emunedu hôsigû
   - source: ᠲᠣᠭᠲᠠᠬᠤ ᠰᠢᠶᠠᠨ # Тогтох шянь
-    expected: togtahu siyan
+    expected: tôgtahû siyan
   - source: ᠲᠠᠶᠢᠫᠤᠰᠧ ᠬᠣᠰᠢᠭᠤ # Тайвас хошуу
-    expected: tayipuse hosigu
+    expected: tayipûse hôsigû
   - source: ᠰᠥᠨᠡᠳ ᠵᠡᠭᠦᠨ ᠬᠣᠰᠢᠭᠤ # Sonid Left Banner
-    expected: soned jegun hosigu
+    expected: soned jegun hôsigû
   - source: ᠰᠥᠨᠡᠳ ᠪᠠᠷᠠᠭᠤᠨ ᠬᠣᠰᠢᠭᠤ # Sonid Right Banner
-    expected: soned baragun hosigu
+    expected: soned baragûn hôsigû
   - source: ᠣᠩᠨᠢᠭᠤᠳ ᠬᠣᠰᠢᠭᠤ # Ongniud Banner
-    expected: ongnigud hosigu
+    expected: ôngnigûd hôsigû
   - source: ᠵᠠᠯᠠᠢᠳ ᠬᠣᠰᠢᠭᠤ # Jalaid Banner
-    expected: jalaid hosigu
+    expected: jalaid hôsigû
   - source: ᠬᠠᠩᠭᠢᠨ ᠬᠣᠶᠢᠲᠤ ᠬᠣᠰᠢᠭᠤ # Hanggin Rear Banner
-    expected: hanggin hoyitu hosigu
+    expected: hanggin hôyitû hôsigû
   - source: ᠵᠡᠭᠦᠨ ᠤᠵᠤᠮᠤᠴᠢᠨ ᠬᠣᠰᠢᠭᠤ # East Ujimqin Banner
-    expected: jegun ujumuqin hosigu
+    expected: jegun ûjûmûqin hôsigû
   - source: ᠠᠷᠤ ᠬᠣᠷᠴᠢᠨ ᠬᠣᠰᠢᠭᠤ # Ar Horqin Banner
-    expected: aru horqin hosigu
+    expected: arû hôrqin hôsigû
   - source: ᠠᠪᠠᠭ᠎ᠠ ᠬᠣᠰᠢᠭᠤ # Abag Banner
-    expected: abag-a hosigu
+    expected: abag-a hôsigû
   - source: ᠪᠤᠷᠢᠶᠠᠳ # Буриад
-    expected: buriyad
+    expected: bûriyad
   - source: ᠤᠯᠠᠭᠠᠨᠪᠠᠭᠠᠲᠤᠷ # Улаанбаатар
-    expected: ulaganbagatur
+    expected: ûlaganbagatûr
 
 map:
-
-  characters:
-    "ᠠ": "a"      # \u1820
-    "ᠪ": "b"      # \u182a
-    "ᠼ": "c"      # \u183c
-    "ᠲ": "d"      # \u1832
-    "ᠳ": "d"      # \u1833
-    "ᠡ": "e"      # \u1821
-    "ᠹ": "f"      # \u1839
-    "ᠭ": "g"      # \u182d
-    "ᠺ": "g"      # \u183a
-    "ᠬ": "h"      # \u182c
-    "ᠾ": "h"     # \u183e
-    "ᠢ": "i"     # \u1822
-    "ᠵ": "j"      # \u1835
-    "ᠺ": "k"      # \u183a
-    "ᠯ": "l"      # \u182f
-    "ᠮ": "m"      # \u182e
-    "ᠨ": "n"      # \u1828
-    "ᠥ": "o"     # \u1825
-    "ᠫ": "p"      # \u182b
-    "ᠴ": "q"      # \u1834
-    "ᠷ": "r"      # \u1837
-    "ᠰ": "s"      # \u1830
-    "ᠲ": "t"      # \u1832
-    "ᠦ": "u"     # \u1826
-    "ᠸ": "w"      # \u1838
-    "ᠱ": "x"      # \u1831
-    "ᠶ": "y"      # \u1836
-    "ᠽ": "z"      # \u183d
-    "ᠣ": "o"      # \u1823
-      # - "o"     # General use
-      # - "ô"     # For place names
-    "ᠤ": "u"      # \u1824
-      # - "u"     # General use
-      # - "û"     # For place names
-    "ᠧ": "e"     # \u1827
-    "ᠩ": "ng"     # \u1829
-    "\u180e": "-" # MVS
-    "\u202f": "-" # NNBSP
+  inherit: sasm-mon-Mong-Latn-phonetic-1978
