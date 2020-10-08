@@ -6,7 +6,7 @@ RSpec.describe "filenames" do
     bgna bgnpcgn bis biulo bsi bt bulac by cn cnt din dmg dos easc efeo elot
     gaz ggg gki gost gsi hk icao ign iso itk jp jra kp lbmod lshk ma md mext
     mk mlc mlit mlmupc mns moct mofa msst mv nco nikl nrs odni rjgc royin rs
-    sac ses sfs sgk tm ua ucis un uz var xlsc yivo mvd stategeocadastre]
+    sac ses sfs sgk tm ua ucis un uz var xlsc yivo mvd stategeocadastre sasm]
 
   # From https://www.loc.gov/standards/iso639-2/php/code_list.php
   iso6392 = %w[
