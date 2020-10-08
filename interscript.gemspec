@@ -10,9 +10,11 @@ Gem::Specification.new do |spec|
   spec.required_rubygems_version = Gem::Requirement.new('>= 2.4.0') if spec.respond_to? :required_rubygems_version=
   spec.summary       = %q{Interoperable script conversion systems}
   spec.description   = %q{Interoperable script conversion systems}
-  spec.authors = ['project_contibutors']
+  spec.authors       = ["Ribose Inc."]
+  spec.email         = ["open.source@ribose.com"]
+
   spec.date = %q{2019-11-17}
-  spec.homepage      = ""
+  spec.homepage      = "https://www.interscript.com"
   spec.license       = "MIT"
   spec.files = Dir.glob("{lib,exe,spec,maps}/**/*", File::FNM_DOTMATCH)
   spec.files += ['README.adoc']
