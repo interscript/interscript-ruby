@@ -38,9 +38,10 @@ end
 
 desc "Build Interscript maps for use with Opal"
 task :js_maps do
-  require "yaml"
-  require "fileutils"
-  require_relative "lib/interscript/opal/map_translate"
+  require 'yaml'
+  require 'fileutils'
+  require 'json'
+  require_relative 'lib/interscript/opal/map_translate'
 
   FileUtils.mkdir_p "vendor/assets/maps"
 
