@@ -5,6 +5,10 @@ language: iso-639-2:bel
 source_script: Cyrl
 destination_script: Latn
 name: National System of Geographic Names Transmission into Roman Alphabet in Belarus
+alias:
+  ogc11122:
+    code: bel_Cyrl2Latn_GBO_1998
+    description: Byelorussian Government of Belarus 1998 System
 url: https://unstats.un.org/unsd/geoinfo/UNGEGN/docs/20th-gegn-docs/20th_gegn_WP34.pdf
 creation_date: 1998
 description: |

@@ -5,6 +5,10 @@ language: iso-639-2:pan
 source_script: Guru
 destination_script: Latn
 name: Panjabi Romanization, 1997
+alias:
+  ogc11122:
+    code: pan_Deva2Latn_ALA_1997
+    description: Panjabi ALA-Library of Congress 1997 System
 url: https://www.loc.gov/catdir/cpso/romanization/panjabi.pdf
 creation_date: 1997
 description: |

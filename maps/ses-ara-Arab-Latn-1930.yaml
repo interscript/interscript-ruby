@@ -4,6 +4,10 @@ id: 1930
 language: iso-639-2:ara
 source_script: Arab
 destination_script: Latn
+alias:
+  ogc11122:
+    code: ara_Arab2Latn_SES_1930
+    description: Arabic Survey of Egypt System
 name: ROMANIZATION OF ARABIC -- UNGEGN 2017 System
 url: http://www.eki.ee/wgrs/rom1_ar.pdf
 creation_date: 1930

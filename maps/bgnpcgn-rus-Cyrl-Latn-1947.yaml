@@ -5,6 +5,10 @@ language: iso-639-2:rus
 source_script: Cyrl
 destination_script: Latn
 name: ROMANIZATION OF RUSSIAN, BGN/PCGN 1947 System
+alias:
+  ogc11122:
+    code: rus_Cyrl2Latn_BGN_1947
+    description: Russian US Board on Geographic Names(BGN)/Permanent Committee on Geographical Names for British Official Use(PCGN) 1947 System
 url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/807920/ROMANIZATION_OF_RUSSIAN.pdf
 creation_date: 1947
 confirmation_date: 2019-06

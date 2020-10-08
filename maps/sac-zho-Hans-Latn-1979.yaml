@@ -5,6 +5,10 @@ language: iso-639-2:chn
 source_script: Hans
 destination_script: Latn
 name: Pinyin
+alias:
+  ogc11122:
+    code: zho_Hani2Latn_GCH_1979
+    description: Chinese Hanyu Pinyin 1979 System
 url: ftp://ftp.cuhk.hk/pub/chinese/ifcss/software/data/Uni2Pinyin.gz
 creation_date: 1996-04-17
 description: |

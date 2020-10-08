@@ -5,6 +5,10 @@ language: iso-639-2:mar
 source_script: Deva
 destination_script: Latn
 name: Marathi Romanization, 1997
+alias:
+  ogc11122:
+    code: mar_Deva2Latn_ALA_1997
+    description: Marathi ALA-Library of Congress 1997 System
 url: http://catdir.loc.gov/catdir/cpso/romanization/marathi.pdf
 creation_date: 1997
 description: |

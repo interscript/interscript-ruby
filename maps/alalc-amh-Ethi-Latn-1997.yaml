@@ -5,6 +5,10 @@ language: iso-639-2:amh
 source_script: Ethi
 destination_script: Latn
 name: ALA-LC Romanization Table -- Amharic (1997)
+alias:
+  ogc11122:
+    code: amh_Ethi2Latn_ALA_1997
+    description: Amharic ALA-Library of Congress 1997 System
 url: http://catdir.loc.gov/catdir/cpso/romanization/amharic.pdf
 creation_date: 1997
 description: |

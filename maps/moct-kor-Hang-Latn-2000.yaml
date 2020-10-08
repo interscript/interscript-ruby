@@ -5,6 +5,10 @@ language: iso-639-2:kor
 source_script: Hang
 destination_script: Latn
 name: Korean Ministry of Culture and Tourism 2000 System
+alias:
+  ogc11122:
+    code: kor_Hang2Latn_MOCT_2000
+    description: Korean Ministry of Culture and Tourism 2000 System
 url: https://www.korean.go.kr/front_eng/roman/roman_01.do
 creation_date: 2000
 adoption_date: 2002

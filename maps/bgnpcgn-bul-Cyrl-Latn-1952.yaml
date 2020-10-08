@@ -5,6 +5,10 @@ language: iso-639-2:bul
 source_script: Cyrl
 destination_script: Latn
 name: ROMANIZATION SYSTEM FOR BULGARIAN BGN/PCGN of 1952
+alias:
+  ogc11122:
+    code: bul_Cyrl2Latn_BGN_1952
+    description: Bulgarian US Board on Geographic Names(BGN)/Permanent Committee on Geographical Names for British Official Use(PCGN) Bulgarian 1952 System
 url: https://libraries.ucsd.edu/bib/fed/USBGN_romanization.pdf
 creation_date: 1945
 confirmation_date: 1952

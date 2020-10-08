@@ -5,6 +5,10 @@ language: iso-639-2:hin
 source_script: Deva
 destination_script: Latn
 name: Hindi Romanization, 1997
+alias:
+  ogc11122:
+    code: hin_Deva2Latn_ALA_1997
+    description: Hindi ALA-Library of Congress 1997 System
 url: http://catdir.loc.gov/catdir/cpso/romanization/hindi.pdf
 creation_date: 1997
 description: |

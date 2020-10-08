@@ -5,6 +5,10 @@ language: iso-639-2:mon
 source_script: Cyrl
 destination_script: Latn
 name: BGN/PCGN 1964 System
+alias:
+  ogc11122:
+    code: mon_Cyrl2Latn_BGN_1964
+    description: Mongolian US Board on Geographic Names(BGN)/Permanent Committee on Geographical Names for British Official Use(PCGN) 1964 System
 url: https://github.com/interscript/interscript/files/5180767/BGN_Romanization_Guide_1964_mongolian_1964.pdf
 creation_date:
 confirmation_date:

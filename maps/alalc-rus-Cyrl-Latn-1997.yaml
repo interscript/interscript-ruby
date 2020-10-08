@@ -5,6 +5,10 @@ language: iso-639-2:rus
 source_script: Cyrl
 destination_script: Latn
 name: ALA-LC Romanization System 1997
+alias:
+  ogc11122:
+    code: rus_Cyrl2Latn_ALA_1997
+    description: Russian ALA-Library of Congress 1997 System
 url: https://en.wikipedia.org/wiki/ALA-LC_romanization_for_Russian
 creation_date: 1997
 description: |

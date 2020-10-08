@@ -5,6 +5,10 @@ language: iso-639-2:rus
 source_script: Cyrl
 destination_script: Latn
 name: BASHKIR TABLE OF CORRESPONDENCES CYRILLIC-ROMAN BGN/PCGN 2007 Agreement
+alias:
+  ogc11122:
+    code: bak_Cyrl2Latn_BGN_2007
+    description: Bashkir 2007 BGN/PCGN Cyrillic-Latin Table of Correspondences
 url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/829203/TABLE_OF_CORRESPONDENCES__FOR_BASHKIR.pdf
 creation_date: 2007
 confirmation_date: 2019

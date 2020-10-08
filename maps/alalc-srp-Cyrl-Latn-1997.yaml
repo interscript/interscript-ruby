@@ -5,6 +5,10 @@ language: iso-639-2:srp
 source_script: Cyrl
 destination_script: Latn
 name: Serbian and Makedonian Romanization, ALA-LC 1997 System
+alias:
+  ogc11122:
+    code: srp_Cyrl2Latn_ALA_1997
+    description: Serbian and Macedonian ALA-Library of Congress 1997 System
 url: http://catdir.loc.gov/catdir/cpso/romanization/serbian.pdf
 creation_date: 1997
 description: ALA-LC Romanization table for Serbian and Makedonian.

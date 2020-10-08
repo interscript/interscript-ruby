@@ -5,6 +5,10 @@ language: iso-639-2:mkd
 source_script: Cyrl
 destination_script: Latn
 name: Makedonian Romanization, BGN/PCGN 1981 System
+alias:
+  ogc11122:
+    code: mkd_Cyrl2Latn_BGN_1981
+    description: Macedonian US Board on Geographic Names(BGN)/Permanent Committee on Geographical Names for British Official Use(PCGN) 1981 System
 url: https://github.com/riboseinc/interscript/files/4247920/USBGN_romanization_Macedonian_1981.pdf
 creation_date: 1981
 description: BGN/PCGN Romanization table for Makedonian.

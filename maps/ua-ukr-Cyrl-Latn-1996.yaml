@@ -5,6 +5,10 @@ language: iso-639-2:ukr
 source_script: Cyrl
 destination_script: Latn
 name: Government of Ukraine Ukrainian System (1996)
+alias:
+  ogc11122:
+    code: ukr_Cyrl2Latn_GUP_1996
+    description: Ukrainian Government of Ukraine 1996 System
 url: http://transliteration.eki.ee/pdf/Ukrainian.pdf
 creation_date: 1996
 description: Romanization table for Ukrainian. The current national system of romanization.

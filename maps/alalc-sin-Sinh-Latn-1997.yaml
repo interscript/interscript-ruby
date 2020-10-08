@@ -5,6 +5,10 @@ language: iso-639-2:sin
 source_script: Sinh
 destination_script: Latn
 name: Sinhalese Romanization, 1997
+alias:
+  ogc11122:
+    code: sin_Sinh2Latn_ALA_1997
+    description: Sinhalese ALA-Library of Congress 1997 System
 url: http://catdir.loc.gov/catdir/cpso/romanization/sinhales.pdf
 creation_date: 1997
 description: |
