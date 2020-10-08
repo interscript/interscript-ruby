@@ -5,6 +5,10 @@ language: iso-639-2:bul
 source_script: Cyrl
 destination_script: Latn
 name: BGN/PCGN 2013 Agreement
+alias:
+  ogc11122:
+    code: bul_Cyrl2Latn_BGN_2013
+    description: Bulgarian US Board on Geographic Names(BGN)/Permanent Committee on Geographical Names(PCGN) Bulgarian 2013 System
 url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/811509/ROMANIZATION_OF_BULGARIAN.pdf
 creation_date: 2013
 confirmation date: 2019-06

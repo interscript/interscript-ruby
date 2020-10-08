@@ -5,6 +5,10 @@ language: iso-639-2:amh
 source_script: Ethi
 destination_script: Latn
 name: BGN/PCGN Romanization System -- Amharic (1967)
+alias:
+  ogc11122:
+    code: amh_Ethi2Latn_BGN_1967
+    description: Amharic Board on Geographic Names/Permanent Committee on Geographical Names for British Official Use(PCGN) 1967 System
 url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/693663/ROMANIZATION_OF_AMHARIC.pdf
 creation_date: 1967
 description: |

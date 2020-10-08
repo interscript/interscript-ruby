@@ -5,6 +5,10 @@ language: iso-639-2:tam
 source_script: Taml
 destination_script: Latn
 name: Tamil Romanization, 1997
+alias:
+  ogc11122:
+    code: tam_Taml2Latn_ALA_1997
+    description: Tamil ALA-Library of Congress 1997 System
 url: http://catdir.loc.gov/catdir/cpso/romanization/tamil.pdf
 creation_date: 1997
 description: |

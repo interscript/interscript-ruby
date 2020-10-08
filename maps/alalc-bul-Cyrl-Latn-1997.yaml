@@ -5,6 +5,10 @@ language: iso-639-2:bul
 source_script: Cyrl
 destination_script: Latn
 name: ALA-LC Romanization Table -- Bulgarian (1997)
+alias:
+  ogc11122:
+    code: bul_Cyrl2Latn_ALA_1997
+    description: Bulgarian ALA-Library of Congress Bulgarian 1997 System
 url: http://www.rechtertie.nl/databases/judd/downloads/Bulgarian.pdf
 creation_date: 1997
 

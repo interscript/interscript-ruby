@@ -5,6 +5,10 @@ language: iso-639-2:ara
 source_script: Arab
 destination_script: Latn
 name: ROMANIZATION OF ARABIC -- BGN/PCGN 1956 System
+alias:
+  ogc11122:
+    code: ara_Arab2Latn_BGN_1956
+    description: Arabic US Board on Geographic Names(BGN)/Permanent Committee on Geographical Names for British Official Use(PCGN) 1956 System
 url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/858000/ROMANIZATION_OF_ARABIC.pdf
 creation_date: 1956
 confirmation date: 2019-12

@@ -5,6 +5,10 @@ language: iso-639-2:bel
 source_script: Cyrl
 destination_script: Latn
 name: ALA-LC Romanization Table -- Byelorussian (1997)
+alias:
+  ogc11122:
+    code: bel_Cyrl2Latn_ALA_1997
+    description: Byelorussian ALA-Library of Congress 1997 System
 url: http://catdir.loc.gov/catdir/cpso/romanization/beloruss.pdf
 creation_date: 1997
 

@@ -1,10 +1,14 @@
 ---
 authority_id: var
-id: 1979
+id: wd-1979
 language: iso-639-2:zho
 source_script: Hani
 destination_script: Latn
 name: Wade-Giles
+alias:
+  ogc11122:
+    code: zho_Hani2Latn_WDG_1979
+    description: Chinese Wade-Giles 1979 System
 url:
 description: Chinese Wade-Giles 1979 System
 

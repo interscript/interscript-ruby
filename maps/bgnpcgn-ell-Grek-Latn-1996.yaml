@@ -5,6 +5,10 @@ language: iso-639-2:ell
 source_script: Grek
 destination_script: Latn
 name: BGN/PCGN 1996 System
+alias:
+  ogc11122:
+    code: ell_Grek2Latn_ELOT743_1996
+    description: Greek ELOT 743 System, US Board on Geographic Names(BGN)/Permanent Committee on Geographical Names for British Official Use(PCGN) 1996 agreement
 url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/693694/ROMANIZATION_OF_GREEK.pdf
 creation_date: 1996
 description: |

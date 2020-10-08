@@ -5,6 +5,10 @@ language: iso-639-2:ell
 source_script: Grek
 destination_script: Latn
 name: Greek Romanization, 1997
+alias:
+  ogc11122:
+    code: ell_Grek2Latn_ALA_1997
+    description: Greek ALA-Library of Congress 1997 System
 url: http://catdir.loc.gov/catdir/cpso/romanization/greek.pdf
 creation_date: 1997
 description: |

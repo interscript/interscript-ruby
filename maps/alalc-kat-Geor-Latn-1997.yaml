@@ -5,6 +5,10 @@ language: iso-639-2:kat
 source_script: Geor
 destination_script: Latn
 name: ALA-LC Georgian System (1997)
+alias:
+  ogc11122:
+    code: kat_Geor2Latn_ALA_1997
+    description: Georgian ALA-Library of Congress 1997 System
 url: https://www.loc.gov/catdir/cpso/romanization/georgian.pdf
 creation_date: 1997
 confirmation_date: 1997

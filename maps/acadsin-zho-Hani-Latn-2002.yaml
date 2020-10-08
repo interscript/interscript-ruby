@@ -5,6 +5,10 @@ language: iso-639-2:zho
 source_script: Hani
 destination_script: Latn
 name: Chinese Tongyong Pinyin Academica Sinica 2002 System
+alias:
+  ogc11122:
+    code: zho_Hani2Latn_AcadSin_2002
+    description: Chinese Tongyong Pinyin Academica Sinica 2002 System
 url:
 description: Chinese Tongyong Pinyin Academica Sinica 2002 System
 

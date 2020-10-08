@@ -5,6 +5,10 @@ language: iso-639-2:asm
 source_script: Deva
 destination_script: Latn
 name: Assamese Romanization, 1997
+alias:
+  ogc11122:
+    code: asm_Deva2Latn_ALA_1997
+    description: Assamese ALA-Library of Congress 1997 System
 url: http://catdir.loc.gov/catdir/cpso/romanization/assamese.pdf
 creation_date: 1997
 description: |

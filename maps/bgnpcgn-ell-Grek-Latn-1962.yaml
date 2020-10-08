@@ -5,6 +5,10 @@ language: iso-639-2:ell
 source_script: Grek
 destination_script: Latn
 name: BGN/PCGN 1962 System
+alias:
+  ogc11122:
+    code: ell_Grek2Latn_BGN_1962
+    description: US Board on Geographic Names(BGN)/Permanent Committee on Geographical Names for British Official Use(PCGN) Greek 1962 System (out of date)
 url: https://github.com/riboseinc/interscript/files/4225556/BGN_Romanization_Guide_1962_greek.pdf
 creation_date: 1962
 description: |

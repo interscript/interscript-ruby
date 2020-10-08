@@ -5,6 +5,10 @@ language: iso-639-2:kor
 source_script: Hang
 destination_script: Latn
 name: BGN Agreement -- Korean McCune-Reischauer System (1943)
+alias:
+  ogc11122:
+    code: kor_Hang2Latn_MR_1939
+    description: Korean McCune-Reischauer System, 1943 US Board on Geographic Names (BGN) Agreement
 url:
 creation_date: 1943
 adoption_date:

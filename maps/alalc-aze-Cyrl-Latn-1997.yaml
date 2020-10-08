@@ -5,6 +5,10 @@ language: iso-639-2:aze
 source_script: Cyrl
 destination_script: Latn
 name: ALA-LC Romanization Table -- Azerbaijani (1997)
+alias:
+  ogc11122:
+    code: aze_Cyrl2Latn_ALA_1997
+    description: Azerbaijani ALA-Library of Congress 1997 System
 url: https://transliteration.eki.ee/pdf/Azerbaijani.pdf
 creation_date: 1997
 description: |

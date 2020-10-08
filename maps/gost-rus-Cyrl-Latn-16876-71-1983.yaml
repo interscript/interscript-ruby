@@ -5,6 +5,10 @@ language: iso-639-2:rus
 source_script: Cyrl
 destination_script: Latn
 name: LETTERS TRANSLATION RULES OF KIRILLOVSKY ALPHABET WITH LETTERS OF LATIN ALPHABET GOST 16876-71
+alias:
+  ogc11122:
+    code: rus_Cyrl2Latn_GOST_1983
+    description: Russian GOST 1983 System, Main Administration of Geodesy and Cartography of the Former Soviet Union
 url: https://unstats.un.org/unsd/geoinfo/UNGEGN/docs/7th-uncsgn-docs/econf/7th_UNCSGN_econf.91_3_Add1.pdf
 creation_date: 1978
 confirmation_date: 1982-04-16

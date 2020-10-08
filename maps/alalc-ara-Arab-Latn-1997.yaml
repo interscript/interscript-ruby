@@ -5,6 +5,10 @@ language: iso-639-2:ara
 source_script: Arab
 destination_script: Latn
 name: ALA-LC Romanization Table -- Arabic (1997)
+alias:
+  ogc11122:
+    code: ara_Arab2Latn_ALA_1997
+    description: Arabic ALA-Library of Congress 1997 System
 url: http://catdir.loc.gov/catdir/cpso/romanization/arabic.pdf
 creation_date: 1997
 description: |

@@ -5,6 +5,10 @@ language: iso-639-2:bel
 source_script: Cyrl
 destination_script: Latn
 name: United States Board on Geographic Names Foreign Names Committee Staff, 1994. Romanization Systems and Roman-Script Spelling Conventions, p. 23.
+alias:
+  ogc11122:
+    code: bel_Cyrl2Latn_BGN_1979
+    description: Byelorussian US Board on Geographic Names(BGN)/Permanent Committee on Geographical Names for British Official Use(PCGN) 1979 System
 url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/811510/ROMANIZATION_OF_BELARUSIAN.pdf
 creation_date: 1979
 description: |

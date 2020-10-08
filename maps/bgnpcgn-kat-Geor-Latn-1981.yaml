@@ -5,6 +5,10 @@ language: iso-639-2:kat
 source_script: Geor
 destination_script: Latn
 name: ROMANIZATION OF GEORGIAN; BGN/PCGN 1981 System
+alias:
+  ogc11122:
+    code: kat_Geor2Latn_BGN_1981
+    description: Georgian US Board on Geographic Names(BGN)/Permanent Committee on Geographical Names for British Official Use(PCGN) 1981 System
 url: https://transliteration.eki.ee/pdf/Georgian.pdf
 creation_date: 1981
 confirmation_date: 1981

@@ -5,6 +5,10 @@ language: iso-639-2:kor
 source_script: Hang
 destination_script: Latn
 name: Korean Democratic People's Republic of Korea Korean System (2002)
+alias:
+  ogc11122:
+    code: kor_Hang2Latn_GKN_2002
+    description: Korean Democratic People's Republic of Korea Korean 2002 System
 url: https://unstats.un.org/unsd/geoinfo/UNGEGN/docs/8th-uncsgn-docs/inf/8th_UNCSGN_econf.94_INF.72.pdf
 creation_date:
 adoption_date:

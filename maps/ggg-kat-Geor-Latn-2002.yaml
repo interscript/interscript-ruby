@@ -5,6 +5,10 @@ language: iso-639-2:kat
 source_script: Geor
 destination_script: Latn
 name: Georgian State Department of Geodesy and Cartography 2002 System
+alias:
+  ogc11122:
+    code: kat_Geor2Latn_GGG_2002
+    description: Georgian State Department of Geodesy and Cartography 2002 System
 url: https://transliteration.eki.ee/pdf/Georgian.pdf
 creation_date: 1998
 confirmation_date: 2002

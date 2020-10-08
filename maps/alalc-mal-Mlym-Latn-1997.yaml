@@ -5,6 +5,10 @@ language: iso-639-2:mal
 source_script: Mlym
 destination_script: Latn
 name: Malayalam Romanization, 1997
+alias:
+  ogc11122:
+    code: mal_Mlym2Latn_ALA_1997
+    description: Malayalam ALA-Library of Congress 1997 System
 url: http://catdir.loc.gov/catdir/cpso/romanization/malayala.pdf
 creation_date: 1997
 description: |
