@@ -18,22 +18,22 @@ Ruby-FFI assumes a shared memory model. WebAssembly has different memory spaces 
 calling process and each library. This makes some assumptions false.
 
 For instance, for the following code, we don't know which memory space to use:
-
+```ruby
     FFI::MemoryPointer.new(:uint8, 1200)
-
+```    
 This requires us to use a special syntax, like:
-
+```ruby
     LibraryName.context do
       FFI::MemoryPointer.new(:uint8, 1200)
     end
-
+```    
 This context call makes it clear that we want this memory to be alocated in the
 "LibraryName" space.
 
 Another thing is that a call like the following:
-
+```ruby
     FFI::MemoryPointer.from_string("Test string")
-
+```    
 Would not allocate the memory, but share the memory between the calling process and
 the library. In Opal-WebAssembly we must allocate the memory. Now, another issue comes
 into play. In regular Ruby a call similar to this should allocate the memory and clear
@@ -47,22 +47,22 @@ those will be needed.
 Chromium browser doesn't allow us to load WebAssembly modules larger than 4KB synchronously.
 This means that we had to implement some methods for awaiting the load. This also means,
 that in the browser we can't use the code in a following way:
-
+```html
     <script src='file.js'></script>
     <script>
         Opal.Library.$new();
     </script>
-
+```    
 This approach works in Node and possibly in other browsers, but Chromium requires us to
 do it this way:
-
+```html
     <script src='file.js'></script>
     <script>
         Opal.WebAssembly.$wait_for("library-wasm").then(function() {
             Opal.Library.$new();
         });
     </script>
-
+```    
 There are certain assumptions of how a library should be loaded on Opal side, but for that
 please read how interscript/lib/interscript/opal/entrypoint.rb works.
 
@@ -73,11 +73,11 @@ possible or healthy. This library should stay as a separate gem for a couple of 
 
 First is that due to the memory issues, we aren't able to make it work as a drop-in
 replacement. We need to manually call an #ffi_free method. Eg:
-
+```ruby
     re = Onigmo::Regexp.new("ab+")
     # use the regular expression
     re.ffi_free # free it afterwards and not use it anymore
-
+```    
 At early stages our implementation of Opal-Onigmo we didn't consider the memory a
 problem. When hit with a real world problem, we found out, that it's a severe issue and
 needs to be dealt with. As far as we know, the library doesn't leak any memory if the
@@ -112,11 +112,11 @@ frees the regexps (see a previous note about #ffi_free), because we never know i
 won't be in use later on (and the Regexps are actually cached in a Hash for performance
 reasons). The issue about dangling Regexps can be worked out in the future, but the JS API
 will need to change again. We would need to do something like:
-
+```html
     Opal.Interscript.$with_a_map("map-name", function() {
         // do some work with a map
     });
-
+```
 This call would at the beginning allocate all the Regexps needed, and at the end, free
 them all. The good news is that we would be able to somehow integrate the map loading
 (along with dependencies) with such a construct.
