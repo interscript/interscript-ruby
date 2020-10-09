@@ -1,0 +1,489 @@
+---
+authority_id: bgnpcgn
+id: 2007
+language: iso-639-3:prs # prs stands for Dari (https://iso639-3.sil.org/code/prs&_ga=GA1.2.2054538372.1574092823)
+source_script: Arab
+destination_script: Latn
+name: TRANSLITERATION SYSTEM FOR PERSIAN BGN/PCGN 1958 System
+url: https://github.com/interscript/interscript/files/5180821/BGN_Romanization_Guide_1964_persian_1958.pdf
+creation_date: 1958
+confirmation_date: 2017-11
+description: |
+  The BGN/PCGN 1958 System for the Persian alphabet was
+  adopted by the BGN in 1946 and by the PCGN In 1958. It Is
+  used for the romanization of standard geographic names in
+  Iran.
+  The Persian alphabet is the same as the Arabic alphabet
+  except for the addition of four consonant symbols for
+  sounds which do not occur in Arabic. Therefore, the same
+  conversion values are used for the Persian alphabet as for
+  the Arabic alphabet wherever phonetically valid. Where
+  letters common to the two alphabets have different
+  pronunciation in the two languages, conversion values
+  reflecting the Persian pronunciation are provided in the
+  Persian system.
+  It may be noted that neither the system of pointing nor the
+  conversion values for vowels and diphthongs are the same
+  for Persian as for Arabic.
+  Persian presents the same problems of vowel pointing as
+  Arabic in that the short vowel symbols necessary for the
+  proper rendering of short vowels, long vowels, and
+  diphthongs are almost always omitted from written Persian.
+  It follows that, in order to produce transliter- tions in
+  terms of standard written Persian, the transliterator must
+  be able to identify the words used in names and must know
+  their standard written Persian spelling, their proper vowel
+  pointing, and how to eliminate pecularities due to
+  dialectical variation.
+  The notes and special rules explain details of
+  transliteration not stated in the tables.
+
+notes:
+  - |
+    1)The Persian writing system, in its generally used form,
+    employs only the symbols found in Table I, and the alef maddeh
+    (آ) of Table II. The symbols in column 1 of Table II are
+    traditional auxiliary symbols used by Persians only
+    sporadically to indicate the exact reading of a given word.
+    In the case of i, ū, ey and ow, a choice of symbology
+    exists, one system adhering to the Arabic tradition, the
+    other being a modification of it. Likewise, there are two
+    ways of writing alef maq§ureh. The BGN/PCGN transliteration
+    system presupposes forms fully pointed with the Persian
+    symbols represented in Table II, though these are omitted
+    from the examples given below.
+
+  - 2) Alef ( أ ) occurs with the following uses
+    a. Initially, it indicates that the word begins with a vowel or
+    diphthong, and the alef itself is not transliterated, e.g.,
+    انجيرة Anjīreh, ايواني Eyvānī
+    b. Initially with maddeh ( آ ),it indicates ā, e.g., آبادان Ābādān.
+    c. Medially and finally. it represents ā, e.g., e.g., آبادان Ābādān,
+     توكا Tūkā.
+    d.	With hamzeh. See Note 5.
+
+
+  - 3) Where special considerations are paramount, the sub-dot
+    may be used in place of the cedilla
+
+  - 4) The two-letter symbols kh, zh, sh, and gh are convenient
+    for use and easily comprehensible. The infrequent sequences
+    of kāf, ze, sīn, and gāf followed by he can be unequivocally
+    transliterated for bibliographical purposes by the use of a
+    slant line (“shilling,” “solidus") to separate true h from
+    a preceding k, z, s, or	g; that is,	kh represents khe, but
+    k/h stands for kāf followed by he.
+
+  - 5) Hamzeh (ء)	is	not regarded as a letter of the Persian
+    alphabet, but as a diacritic mark, and as such is not
+    always expressed in actual writing. In fully pointed words,
+    however, it appears in several graphic forms, standing
+    alone or written in conjunction with alef, vav, or ye (the
+    ye in this instance being undotted). All these forms are
+    transliterated simply with the apostrophe in the form
+    resembling a small raised figure 9 (’)	,e.g., جزء Joz’
+    صفراء şafrā’, مأخذ ma’khaz̄, مؤتمن mu’taman, پائين pā’īn Occasionally a word may
+    appear pointed according to the strict Arabic tradition so
+    as to indicate an initial hamzeh. This initial hamzeh is
+    never transliterated, but only the vowel which it carries,
+    e.g., •Jfi , whether pointed	or	0	.	is "transliterated
+    simply Anjireh.	' Hamzeh is also sometimes written over
+    final he or ye to represent the -ye form of the eg&feh, cf.
+    Note 8.
+
+  - 6) Alef maddeh is used initially to indicate ā, e.g., آبادان Ābādān
+    Noninitially it indicates ’ā in words of Arabic origin,
+    and must be so transliterated, e.g., قرآن Qor’ān, مآب ma’āb
+
+  - 7) Tashdid ( ّ) indicates doubling of the consonant over which
+    it is written and is represented in transliteration by writing
+    the consonant twice, e.g محمّد Mohammad The sequence kasreh ye ye
+    is transliterated īy.In names of Arabic origin containing the
+    definite article, the vowel of the article is transliterated according
+    to its Persian pronunciation and the lam, when followed by a “sun letter”
+    (t, s̄, d, z̄, r, s, sh, ẕ, ţ, z̧, ţ, z̧, l, n) is assimilated. The article
+    is written in lower case and separate from the preceding and following word,
+    e.g., Zeyn od Din, but *£4 . Zeyn ed Dīn. Cf. Special Rule 1.
+
+  - 8) The relational suffix	is	transliter ated -e after final consonants
+    (except for silent A). After silent A and after vowels, it is transliterated
+    -ye. It is usually not expressed in Persian writing after a consonant^/
+    (kasreh being understood), e.g., Kuh-e MarghQb. After final alef	it
+    is written with ye (tf), e.g.,	P&-ye Ab,	As.	After	ye	(<5)	and
+    silent he it is written as hamzeh over the letter, e.g.,	//**{) Dah&neh-ye Mambar,
+    Salasl-ye Soz^rg. Digitized by boogie
+
+  - The word الله, meaning God, should always be romanized Allāh,
+    except as specified in note 3. Note that the Unicode value FDF2 spells
+    Allāh, but omits the alif in some common fonts, including Times New
+    Roman. If in doubt, try in Arial Unicode MS to verify. Also note that
+    the “dagger al f” ( ) above the second ل (lām) n the ord الله, is not
+    written but should be romanized ā, like a full-size alif.
+
+  - In names of Arabic origin, the l of the definite article al s ass m
+    lated before the ‘s n letters’ , , , , r, z, s, sh, ş, ẕ, , z, l and n.
+    In its romanization, the article should be separated from the name it
+    precedes and should not be capitalized except at the beginning of a
+    name, e.g. جبل السراج→ Jabal
+    as Sarāj
+
+  - In Arabic names, a shaddah, ّ is used to denote the doubling of a
+    particular consonant character, e.g. ُم َح َمد → Muḩammad. Ho ever, n
+    Pashto th s ‘do bl ng’ s freq ently om tted n both Perso- Arabic script
+    and the resulting romanization. Guidance on doubling may be taken from
+    an authoritative names source, such as an Afghan government source or
+    Pashto dictionary; for example, it is usual to see Ḩājī without and
+    ‘Abbās with the doubled consonant. The doubled y consonant is almost
+    always retained, as in Sayyid or Qayyūm.
+
+  - In Afghan names which contain an iẕāfah, it should be romanized as
+    -e or –ye according to
+    common pronunciation, but generally, -e is used if the preceding word
+    ends with a consonant other
+    than silent heh, and -ye if the preceding word ends with a vowel
+    sound e.g. غر ِحصار → Ghar-e ِ
+    Ḩ şār; َقل َع ٔه َنو → Qal‘ah-ye Now. Scholarly sources indicate that
+    heh is silent in darah and qal‘ah (thus darah-ye, qal‘ah-ye), but
+    lightly spoken in kōh and chāh (thus kōh-e, chāh-e).
+
+  - The character sequence خو, where followed by ا or ی should be
+    romanized khwā or khwī, although the w is either not pronounced, or
+    only weakly so, as in خواجه → khwājah.
+
+  - Plural nouns ending in -hā or -ān should always be romanized as a
+    single word, regardless of whether a space appears in a Perso-Arabic
+    script source.
+
+  - Unicode values listed in the tables above are required to ensure
+    standardization and to minimize confusion from competing
+    representations of a given character. It should be noted that the
+    Persian Unicode value 0643 or FEDA( ك Unicode value 06A9) is
+    recommended rather than the Arabic( ک or FED9), the Persian گ (Unicode
+    value 06AF) is recommended rather than ګ (Unicode value 06AB) or ڰ
+    (Unicode value 06B0) or ك (Unicode value 0643 or FEDA or FED9), and the
+    Pashto character ځ (Unicode value 0681) is recommended rather than the
+    heh with a dot above and a dot below (no Unicode value). For the letter ی
+    in its many variations, care must be exercised to follow this romanization
+    guide's recommendations to eliminate confusion for search engines
+    and software. BGN/PCGN does not use the Unicode encoding FEEF for the
+    character ی in any Afghan word.
+
+  - |
+    An inventory of letter-diacritic combinations in addition to the
+    unmodified letters of the basic Roman script is:
+
+    ‘ (U+2018)
+    Ā (U+0100)
+    Á (U+00C1)
+    Ḏ (U+0044+0031)
+    Ē (U+9112)
+    Ê (U+00CA)
+    Ḩ (U+1E28)
+    Ī (U+012A)
+    N-bar-top (U+004E+0304)
+    Ō (U+014C)
+    R-bar-bottom (U+0052+0031)
+    Ş (U+015E)
+    S-bar-top (U+0053+0304)
+    Ṯ (U+0054+0031)
+    Ţ (U+0162)
+    Ū (U+918A)
+    Z-comma-bottom (U+005A+0327)
+    Z-bar-top (U+005A+0304)
+    Ẕ (U+005A+0331)
+    ẔH (U+005A+0048+035F)
+
+
+    ʼ (U+2019)
+    ā (U+0101)
+    á (U+00E1)
+    ḏ (U+0064+00031)
+    ē (U+0113)
+    ê (U+00EA)
+    ḩ (U+1E29)
+    ī (U+912B)
+    n-bar-top (U+004E+0304)
+    ō (U+014D)
+    r-bar-bottom (U+0072+0031)
+    ş (U+015F)
+    s-bar-top (U+0073+0304)
+    ṯ (U+0074+0031)
+    ţ (U+0163)
+    ū (U+918B)
+    z-comma-bottom (U+007A+0327)
+    z-bar-top (U+007A+0304)
+    ẕ (U+007A+0331)
+    zh-under-bar (U+007A+0068+035F)
+
+
+  - The Romanization columns show only lowercase forms but, when
+    romanizing, uppercase and lowercase Roman letters as appropriate should
+    be used.
+
+
+tests:
+
+  - source: اَنجِيرة
+    expected: Anjīreh
+
+  - source: اِيْوَانِي
+    expected: Eyvānī
+
+  - source: آبادان
+    expected: Ābādān
+
+  - source: تُوكا
+    expected: Tūkā
+
+  - source: آبادان
+    expected: Ābādān
+
+  - source: قُرآن
+    expected: Qor’ān
+
+  - source: مَآب
+    expected: Ma’āb
+
+  - source: مُحَمَّد
+    expected: Moḩammad
+
+  # - source: بَغْلان
+  #   expected: baghlān
+
+  # - source: پُوټَكَى
+  #   expected: pōṯakay
+
+
+map:
+  postrules:
+    - pattern: (?<=\b)(?<!\b[‘|’|'])[\u0061-\uFFFF]
+      result: "upcase"
+
+  characters:
+
+    # word-medial or word-final form where so appearing in a word.
+    # '\u0627': '-'
+
+    # # Vowel, Diphthong and Diacritical Characters
+
+    # '\u064E': 'a'
+
+    # # Both e and i are available to romanize this short vowel,
+    # # depending on local usage and/or root language. In cases where the sound
+    # # is uncertain, i is the default romanization in BGN/PCGN standardization
+    # # procedures.
+    # '\u0650':
+    #   - 'e'
+    #   - 'i'
+
+    # # Both o and u are available to romanize this short vowel,
+    # # depending on local usage and/or root language. In cases where the sound
+    # # is uncertain, u is the default romanization in BGN/PCGN standardization
+    # # procedures.
+    # '\u064F':
+    #   - 'o'
+    #   - 'u'
+    # '\u0659': 'ê'
+
+    # # An alif with mad ( آ ) is written only in the initial position by
+    # # BGN/PCGN standardization procedures, in keeping with Persian language
+    # # family standards of use of the Arabic alphabet. The same letter written
+    # # in a medial or final position is written . . .
+    # '\u0622': 'ā'
+
+    # pending issue #442
+    # '\u0648': 'ō'
+    # '\u0648': 'ū'
+    # '\u0648': 'ow'
+    # '\u06CC': 'ī'
+
+    # # Or 'ē'. The character ی should be romanized ay or ē according to
+    # # its root language or local pronunciation. In case of uncertainty a
+    # # reference source (such as the Fairchild Aerial Surveys map series, or a
+    # # BGN/PCGN approved policy document/list of recommended spellings) should
+    # # be consulted.
+    # '\u06CC': 'ay'
+    # '\u06D0': 'ē'
+
+    # # Or 'aī'. Both the combination ay and aī are available to romanize
+    # # this character according to its root language or local pronunciation.
+    # # In cases where the sound is uncertain ay is the default romanization in
+    # # BGN/PCGN standardization procedures
+    # '\u06CC':
+    #   - 'ay'
+    #   - 'á'
+    # '\u06CD': 'êy'
+    # '\u0621': '’'
+    # '\u0674':
+    #   - '-e'
+    #   - '-ye'
+
+    # # Other Diacritical Marks and Language Conventions
+
+    # '\u0627': 'āy'
+
+    # '\u0648': 'w'
+    # '\u0626': '’'
+    # '\u06C0': ''
+    # '\u0651': ''
+
+
+    # special rules
+
+    '\s(?=\u0622\u0628\u064E\u0627\u062F)': '' # space followed by abad is removed
+    '\ufdf2': 'Allāh' # See note 5
+    '\u064e(?=\u0629)' : '' # َ fatha followed by ta' marboota
+    '\u064e(?=a[h|t])' : '' # َ fatha followed by ta' marboota, handling different order of conversion
+
+    # pointing
+    '\u064e' : 'a' # َ fatha
+    '\u0650': 'e' # ِ kasra
+    '\u064f': 'o' # ُ damma
+    '\u064e\u0627' : 'ā'  # ـَا fatha followed by ا
+    '\u0649\u0670': 'á' # ىٰ
+    '\u0622' : '’ā'  # آ
+    '\b\u0622' : 'ā'  # آ
+    '\u0650\u064a' : 'ī' # ـِي kasra followed by ي
+    '\u0650\u06cc' : 'ī' # ـِي kasra followed by يīy
+    '\u064f\u0648' : 'ū'  # ـُو damma followed by و
+    '\u064e\u064a\u0652' : 'ey'  # ـَيْ
+    '\u0650\u064a\u0652' : 'ey'  # ـِيْ
+    '\u064e\u0648' : 'ow'  # ـَو
+    '\u0652' : ''  # ْ sokoon
+    '\u0650\u064a\u0651' : 'īy'  # ـِيّ
+
+    # shadda
+
+    '\u0628\u0651' : 'bb'  # ب
+    '\u062a\u0651' : 'tt'  # ت
+    '\u062b\u0651' : 'thth'  # ث
+    '\u062c\u0651' : 'jj'  # ج
+    '\u062d\u0651' : 'ḩḩ' # ح
+    '\u062e\u0651' : 'khkh'  # خ
+    '\u062f\u0651' : 'dd'  # د
+    '\u0630\u0651' : 'z̄z̄'  # ذ
+    '\u0631\u0651' : 'rr'  # ر
+    '\u0632\u0651' : 'zz'  # ز
+    '\u0633\u0651' : 'ss'  # س
+    '\u0634\u0651' : 'sh'  # ش
+    '\u0635\u0651' : 'şş'  # ص
+    '\u0636\u0651' : 'ḏḏ'  # ض
+    '\u0637\u0651' : 'ţţ'  # ط
+    '\u0638\u0651' : 'z̧z̧'  # ظ
+    '\u063a\u0651' : 'ghgh'  # غ
+    '\u0641\u0651' : 'ff'  # ف
+    '\u0642\u0651' : 'qq'  # ق
+    '\u0643\u0651' : 'kk'  # ك
+    '\u0644\u0651' : 'll'  # ل
+    '\u0645\u0651' : 'mm'  # م
+    '\u0646\u0651' : 'nn'  # ن
+    '\u0647\u0651' : 'hh'  # ه
+    '\u0648\u0651' : 'ww'  # و
+    '\u064a\u0651' : 'yy'  # ي
+
+
+    '\u0659': 'ê'
+
+    # # special pointed letters
+    # '\u0639\u064e' : '‘a'  # عَ
+    # '\u0639\u0650' : '‘i'  # عِ
+    # '\u0639\u064f' : '‘ū'  # عُ
+    # # handle MacOS regex difference
+    # '\u0639\u064f\u0648' : '‘ū'  # عُو damma followed by و
+
+    # '\u0650\u064a\u0651\u064e' : 'īy' # ـِيَّ
+    # '\u0650\u064a(?=\u064e|u064f)' : 'iy' # ـِي kasra followed by ي
+    # # '\u064f\u0648' : 'ō'  # ـُو damma followed by و
+    # '\u064e\u0649' : 'ay'  # ـَى fatha followed by ى which is ا not ي
+    # # '\u064e\u0648\u0652' : 'aw'  # ـَوْ
+    # '\u0650\u06cc\u0651\u064e' : 'īy' # ـِيَّ
+    # '\u064e\u064a' : 'aī'  # ـَي
+    # '\u064e\u06cc' : 'aī'  # ـَي
+    # '\u0674': '-e' # ٴ
+    # '\u0654': '-e' #  ٔ
+    #   # - '-ye'
+
+
+    # ta' marboota
+    '\u0629' : 'at' # ة in the middle of the sentence
+    '\u0629$' : 'eh'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{2})\u0629' : 'eh'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{3})\u0629' : 'eh'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{4})\u0629' : 'eh'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{5})\u0629' : 'eh'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{6})\u0629' : 'eh'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{7})\u0629' : 'eh'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{8})\u0629' : 'eh'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{9})\u0629' : 'eh'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{10})\u0629' : 'eh'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{11})\u0629' : 'eh'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{12})\u0629' : 'eh'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{13})\u0629' : 'eh'
+
+
+    # See note B
+    '\b\u0627\u0644' : 'al '  # ال
+    # '\uFE8E' : ''  # ﺎ
+
+    # Sun letters
+    '\b\u0627\u0644\u062a' : 'at t'  # الت
+    '\b\u0627\u0644\u062b' : 'as̄ s̄'  # الث
+    '\b\u0627\u0644\u062f' : 'ad d' # الد
+    '\b\u0627\u0644\u0630' : 'az̄ z̄'  # الذ
+    '\b\u0627\u0644\u0631' : 'ar r' # الر
+    '\b\u0627\u0644\u0632' : 'az z'  # الز
+    '\b\u0627\u0644\u0633' : 'as s' # الس
+    '\b\u0627\u0644\u0634' : 'ash sh' # الش
+    '\b\u0627\u0644\u0635' : 'aş ş'  # الص
+    '\b\u0627\u0644\u0636' : 'aẕ ẕ'  # الض
+    '\b\u0627\u0644\u0637' : 'aţ ţ'  # الط
+    '\b\u0627\u0644\u0638' : 'az̧ z̧' # الظ
+    '\b\u0627\u0644\u0644' : 'al l'  # الل
+    '\b\u0627\u0644\u0646' : 'an n'  # الن
+
+
+    '\u0621': '’' # ء
+    '\u0626': '’' # ئ
+
+    '\u0623' : ''  # أ
+    '\u0625': ''    # إ
+    '\u0627' : 'ā'  # ا
+    '\b\u0627' : ''  # ا
+
+    # consonant characters
+
+    '\u0628' : 'b'  # ب
+    '\u067E' : 'p' # پ
+    '\u062a' : 't'  # ت
+    '\u062B' : 's̄'   # ث
+    '\u062c' : 'j'  # ج
+    '\u0686' : 'ch'  # ‫چ‬
+    '\u062d' : 'ḩ' # ح
+    '\u062e' : 'kh'  # خ
+    '\u062f' : 'd'  # د
+    '\u0630' : 'z̄'  # ذ
+    '\u0631' : 'r'  # ر
+    '\u0632' : 'z'  # ز
+    '\u0698' : 'zh'  # ‫ژ‬
+    '\u0633' : 's'  # س
+    '\u0634' : 'sh'  # ش
+    '\u0635' : 'ş'  # ص
+    '\u0636' : 'ẕ'  # ض
+    '\u0637' : 'ţ'  # ط
+    '\u0638' : 'z̧'  # ظ
+    '\u0639' : '‘'  # ع
+    '\u063a' : 'gh'  # غ
+    '\u0641' : 'fe'  # ف
+    '\u0642' : 'q'  # ق
+    '\u0643' : 'k'  # ك
+    '\u06A9' : 'k' # ک
+    '\u06AF' : 'g' # ‫گ‬
+    '\u0644' : 'l'  # ل
+    '\u0645' : 'm'  # م
+    '\u0646' : 'n'  # ن
+    '\u0647' : 'h'  # ه
+    '\u0648' : 'v'  # و
+    '\u064a' : 'y'  # ي
+    '\u0649' : 'y'  # ي
+    '\u06D0' : 'ē'   # ې
+    '\u06CD' : 'êy'  # ‫ۍ‬
