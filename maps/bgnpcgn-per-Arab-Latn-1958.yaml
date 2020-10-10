@@ -105,13 +105,13 @@ notes:
     is written in lower case and separate from the preceding and following word,
     e.g., Zeyn od Din, but *£4 . Zeyn ed Dīn. Cf. Special Rule 1.
 
-  - 8) The relational suffix	is	transliter ated -e after final consonants
-    (except for silent A). After silent A and after vowels, it is transliterated
-    -ye. It is usually not expressed in Persian writing after a consonant^/
-    (kasreh being understood), e.g., Kuh-e MarghQb. After final alef	it
-    is written with ye (tf), e.g.,	P&-ye Ab,	As.	After	ye	(<5)	and
-    silent he it is written as hamzeh over the letter, e.g.,	//**{) Dah&neh-ye Mambar,
-    Salasl-ye Soz^rg. Digitized by boogie
+  - 8) The relational (ezafeh) suffix	is	transliterated -e after final consonants
+    (except for silent h). After silent h and after vowels, it is transliterated
+    -ye. It is usually not expressed in Persian writing after a consonant
+    (kasreh being understood), e.g., كوهِ مَرغٌوب Kuh-e Marghūb. After final alef or vav
+    it is written with ye (ي), e.g., بايِ آب	Pa-ye Ab,	جويِ آس Jū-ye Ās.	After	ye (ي)
+    and silent he it is written as hamzeh over the letter, e.g., دَهَانهٴ مَمبَر Dahāneh-ye Mambar,
+    سَلَيٴ بُذٌرگ Salasi-ye Bozorrg.
 
   - The word الله, meaning God, should always be romanized Allāh,
     except as specified in note 3. Note that the Unicode value FDF2 spells
@@ -247,16 +247,25 @@ tests:
   - source: مُحَمَّد
     expected: Moḩammad
 
-  # - source: بَغْلان
-  #   expected: baghlān
+  - source: كُوهِ مَرغُوب
+    expected: Kūh-e Marghūb
 
-  # - source: پُوټَكَى
-  #   expected: pōṯakay
+  - source: پَايِ آب
+    expected: Pā-ye Āb
+
+  - source: جُويِ آس
+    expected: Jū-ye Ās
+
+  - source: دَهَانِهٴ مَمبَر
+    expected: Dahāneh-ye Mambar
+
+  - source: سَلَسِيٴ بُذُرگ
+    expected: Salasī-ye Boz̄org
 
 
 map:
   postrules:
-    - pattern: (?<=\b)(?<!\b[‘|’|'])[\u0061-\uFFFF]
+    - pattern: (?<=\b)(?<!\b[‘|’|'|-])[\u0061-\uFFFF]
       result: "upcase"
 
   characters:
@@ -337,21 +346,24 @@ map:
 
     # pointing
     '\u064e' : 'a' # َ fatha
-    '\u0650': 'e' # ِ kasra
-    '\u064f': 'o' # ُ damma
+    '\u0650' : 'e' # ِ kasra
+    '\u064f' : 'o' # ُ damma
     '\u064e\u0627' : 'ā'  # ـَا fatha followed by ا
-    '\u0649\u0670': 'á' # ىٰ
+    '\u0649\u0670' : 'á' # ىٰ
     '\u0622' : '’ā'  # آ
     '\b\u0622' : 'ā'  # آ
-    '\u0650\u064a' : 'ī' # ـِي kasra followed by ي
-    '\u0650\u06cc' : 'ī' # ـِي kasra followed by يīy
+    '\u0650[\u064a|\u06cc]' : 'ī' # ـِي kasra followed by ي
+    # '\u0650\u06cc' : 'ī' # ـِي kasra followed by ي
     '\u064f\u0648' : 'ū'  # ـُو damma followed by و
-    '\u064e\u064a\u0652' : 'ey'  # ـَيْ
-    '\u0650\u064a\u0652' : 'ey'  # ـِيْ
+    '\u064e[\u064a|\u06cc]\u0652' : 'ey'  # ـَيْ
+    '\u0650[\u064a|\u06cc]\u0652' : 'ey'  # ـِيْ
     '\u064e\u0648' : 'ow'  # ـَو
     '\u0652' : ''  # ْ sokoon
     '\u0650\u064a\u0651' : 'īy'  # ـِيّ
-
+    '[\u0654|\u0674]' : '-e' # ٴ ezafeh
+    '(?<=[\u064a|\u0647])[\u0654|\u0674]' : '-ye' # ٴ ezafeh
+    '\u0650\b' : '-e' # ِ kasra
+    '[\u064a|\u06cc]\u0650\b' : '-ye' # ِ kasra
     # shadda
 
     '\u0628\u0651' : 'bb'  # ب
