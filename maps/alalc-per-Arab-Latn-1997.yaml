@@ -1,0 +1,303 @@
+---
+authority_id: alalc
+id: 2007
+language: iso-639-3:prs # prs stands for Dari (https://iso639-3.sil.org/code/prs&_ga=GA1.2.2054538372.1574092823)
+source_script: Arab
+destination_script: Latn
+name: ALA-LC Romanization Table -- Persian (1997)
+url: http://catdir.loc.gov/catdir/cpso/romanization/persian.pdf
+creation_date: 1997
+confirmation_date: 1997
+description: |
+notes:
+  - 1. For the use of ا (alif) to support ء (hamzah) and ~ (maddah)
+    see rule 1(a). For the romanization of ء and see rules 4 and
+    respectively. For the use of ا to represent the long vowel
+    romanized ā see the table of vowels and diphthongs, and rule 1(b).
+
+  - 2. Final ک and ‫گ‬ may have the form ك, without the distinguishing
+    upper stroke or strokes. The two letters are always distinguished in romanization.
+
+  - 3. For other values of »5 and ,s see the table of vowels and diphthongs,
+    and rules 2, 3, and 7.
+
+  - 4. ة (dotted ه) when used as an alternative to ت is romanized t.
+
+  - 5. Vowel points are not printed on Library of Congress cards.
+
+  - 6. See rules 1(b) and 5.
+
+  - 7. See rule 3(d).
+
+  - Rule 1.(a) As a support for ء (hamzah) and ~ (maddah). In these cases it is
+    not represented in romanization. See rules 4 and 5.
+    (b) To indicate the long vowel romanized G. Forthe use of| in tanvin
+    see rule 6 dānā دَانَا
+
+  - Rule 2.و is used to represent
+    (a) the consonant romanized v Silent و following خ is retained in romanization.
+    (b) the long u-vowel (and short u-vowel in some monosyllables) is romanized ū
+    (c) the diphthong romanized aw.
+    Whenthe diphthong precedes a consonantal و, the combination is romanized avv. See
+    rule 7.
+    و may be used as a support for ء (hamzah); in this case it is not represented in
+    romanization. See rule 4.
+
+  - Rule 3. ي is used to represent
+    (a) the consonant romanized y.
+    (b) the long vowel romanized ī.
+    (c) the diphthong romanized ay.
+    (d) the final long vowel romanized á.
+    For the use of ى as a mark of izafah see rule 8(c)
+    ى in the medial form ىـ without dots, may be used as a support
+    for ء (hamzah); in this case ى is not represented in romanization.
+    See rule 4 below.
+
+  - Rule 4. ء (hamzah)
+    (a)When initial, ء is not represented in romanization.
+    When medial orfinal, ء is romanized ’ (alif) except as noted
+    in (c) and (d) below.
+    (c)When used as a mark of izafah, ء is romanized -’i.
+    (d)When used to mark the indefinite article i
+
+  - Rule 5. ~(maddah)
+    (a) initial آ is romanized ā
+
+tests:
+  # 1(b)
+  - source: دَانَا
+    expected: dānā
+
+  # 2(a)
+  - source: وَرزِش
+    expected: varzish
+
+  - source: دَوَا
+    expected: davā
+
+  - source: سَرو
+    expected: sarv
+
+  - source: خوَاستَن
+    expected: khvāstan
+
+  - source: خوُد
+    expected: khvud
+
+  # 2(b)
+  - source: دُور
+    expected: dūr
+
+  - source: چُون
+    expected: chūn
+
+  - source: تُو
+    expected: tū
+
+  # 2(c)
+  - source: فِردَوْسِي
+    expected: firdawsī
+
+  # 3(a)
+  - source: يَار
+    expected: yār
+
+  - source: سِيَاه
+    expected: siyāh
+
+  - source: پَاي
+    expected: pāy
+
+  # 3(b)
+  - source: اِيرَان
+    expected: īrān
+
+  - source: قَالِي
+    expected: qālī
+
+  # 3(c)
+  - source: اَيوَان
+    expected: ayvān
+
+  - source: رَي
+    expected: ray
+
+  # 3(d)
+  - source: مُصطَفَى
+    expected: muṣṭafá
+
+  # 4(a)
+  - source: مُؤَثِّر
+    expected: mu’as̱s̱ir
+
+  - source: خُلَفَاء
+    expected: khulafā’
+
+  - source: پَائِين
+    expected: pā’īn
+
+  # 4(c)
+  - source: اَستَانَهٔ دَر
+    expected: astānah-’i dar
+
+  # 5(a)
+  - source: آب
+    expected: āb
+
+  - source: كُلِّيَّة الآدَاب
+    expected: kullīyat al-ādāb
+
+  # 5(c)
+  - source: مَآثِر
+    expected: ma’ās̱ir
+
+map:
+  characters:
+    # special rules
+
+    '\s(?=\u0622\u0628\u064E\u0627\u062F)': '' # space followed by abad is removed
+    '\ufdf2': 'Allāh' # See note 5
+
+    # pointing
+    '\u064e(?=\u0629)' : '' # َ fatha followed by ta' marboota
+    '\u064e(?=a[h|t])' : '' # َ fatha followed by ta' marboota, handling different order of conversion
+
+    '\u064e' : 'a' # َ fatha
+    '\u064e\u0627' : 'ā'  # ـَا fatha followed by ا
+    '\b\u0622' : 'ā'  # آ
+    '\u0622' : '’ā'  # آ
+
+    '\u0650': 'i'  # ِ kasra
+    '\u0650[\u064a|\u06cc]' : 'ī' # ـِي kasra followed by ي
+    '\u0650\b' : '-e' # ِ kasra
+    '\u064e\u0649' : 'á'  # ـَى fatha followed by ى which is ا not ي
+    '\u064e\u064a\u0652' : 'ay'  # ـَيْ
+    '\u0650\u064a(?=\u064e|u064f)' : 'iy' # ـِي kasra followed by ي
+
+    '\u064f' : 'u' # ُ damma
+    '\u064e\u0648\u0652' : 'aw'  # ـَوْ
+    '\u064f\u0648' : 'ū'  # ـُو damma followed by و
+
+    '\u0652' : ''  # ْ sokoon
+    '\u0659': 'ê'
+
+    '[\u0674|\u0654]': '-’i' # ٴ
+
+    '\u0650[\u064a|\u06cc]\u0651\u064e' : 'īy' # ـِيَّ
+    '\u0649\u0670': 'á' # ىٰ
+      # - '-ye'
+
+
+    # ta' marboota
+    '\u0629' : 'at' # ة in the middle of the sentence
+    '\u0629$' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{2})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{3})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{4})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{5})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{6})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{7})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{8})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{9})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{10})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{11})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{12})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{13})\u0629' : 'ah'
+
+    # shadda
+
+    '\u0628\u0651' : 'bb'  # ب
+    '\u062a\u0651' : 'tt'  # ت
+    '\u062b\u0651' : 's̱s̱'  # ث
+    '\u062c\u0651' : 'jj'  # ج
+    '\u062d\u0651' : 'ḥḥ' # ح
+    '\u062e\u0651' : 'khkh'  # خ
+    '\u062f\u0651' : 'dd'  # د
+    '\u0630\u0651' : 'ẕẕ'  # ذ
+    '\u0631\u0651' : 'rr'  # ر
+    '\u0632\u0651' : 'zz'  # ز
+    '\u0633\u0651' : 'ss'  # س
+    '\u0634\u0651' : 'sh'  # ش
+    '\u0635\u0651' : 'ṣṣ'  # ص
+    '\u0636\u0651' : 'ḏḏ'  # ض
+    '\u0637\u0651' : 'ṭṭ'  # ط
+    '\u0638\u0651' : 'ẓẓ'  # ظ
+    '\u063a\u0651' : 'ghgh'  # غ
+    '\u0641\u0651' : 'ff'  # ف
+    '\u0642\u0651' : 'qq'  # ق
+    '\u0643\u0651' : 'kk'  # ك
+    '\u0644\u0651' : 'll'  # ل
+    '\u0645\u0651' : 'mm'  # م
+    '\u0646\u0651' : 'nn'  # ن
+    '\u0647\u0651' : 'hh'  # ه
+    '\u0648\u0651' : 'vv'  # و
+    '\u064a\u0651' : 'yy'  # ي
+
+
+    '\u0621': '’' # ء
+    '\u0624': '’' # ؤ
+    '\u0626': '’' # ئ
+
+    '\u0623' : ''  # أ
+    '\u0625': ''    # إ
+    '\u0627' : 'ā'  # ا
+    '\b\u0627' : ''  # ا
+
+    # See note B
+    '\b\u0627\u0644' : 'al-'  # ال
+    # '\uFE8E' : ''  # ﺎ
+
+    # Sun letters
+    '\b\u0627\u0644\u062a' : 'at t'  # الت
+    '\b\u0627\u0644\u062b' : 'as̱ s̱'  # الث
+    '\b\u0627\u0644\u062f' : 'ad d' # الد
+    '\b\u0627\u0644\u0630' : 'aẕ ẕ'  # الذ
+    '\b\u0627\u0644\u0631' : 'ar r' # الر
+    '\b\u0627\u0644\u0632' : 'az z'  # الز
+    '\b\u0627\u0644\u0633' : 'as s' # الس
+    '\b\u0627\u0644\u0634' : 'ash sh' # الش
+    '\b\u0627\u0644\u0635' : 'aṣ ṣ'  # الص
+    '\b\u0627\u0644\u0636' : 'az̤ z̤'  # الض
+    '\b\u0627\u0644\u0637' : 'aṭ ṭ'  # الط
+    '\b\u0627\u0644\u0638' : 'aẓ ẓ' # الظ
+    '\b\u0627\u0644\u0644' : 'al l'  # الل
+    '\b\u0627\u0644\u0646' : 'an n'  # الن
+
+
+    # consonant characters
+
+    '\u0628' : 'b'  # ب
+    '\u067E' : 'p' # پ
+    '\u062a' : 't'  # ت
+    '\u062B' : 's̱'   # ث
+    '\u062c' : 'j'  # ج
+    '\u0686' : 'ch'  # ‫چ‬
+    '\u062d' : 'ḥ' # ح
+    '\u062e' : 'kh'  # خ
+    '\u062f' : 'd'  # د
+    '\u0630' : 'ẕ'  # ذ
+    '\u0631' : 'r'  # ر
+    '\u0632' : 'z'  # ز
+    '\u0698' : 'zh'  # ‫ژ‬
+    '\u0633' : 's'  # س
+    '\u0634' : 'sh'  # ش
+    '\u0635' : 'ṣ'  # ص
+    '\u0636' : 'z̤'  # ض # not yet
+    '\u0637' : 'ṭ'  # ط
+    '\u0638' : 'ẓ'  # ظ
+    '\u0639' : '‘'  # ع
+    '\u063a' : 'gh'  # غ
+    '\u0641' : 'f'  # ف
+    '\u0642' : 'q'  # ق
+    '\u0643' : 'k'  # ك
+    '\u06A9' : 'k' # ک
+    '\u06AF' : 'g' # ‫گ‬
+    '\u0644' : 'l'  # ل
+    '\u0645' : 'm'  # م
+    '\u0646' : 'n'  # ن
+    '\u0648' : 'v'  # و
+    '\u0647' : 'h'  # ه
+    '\u064a' : 'y'  # ي
+    '\u0649' : 'y'  # ي
+    '\u06D0' : 'ē'   # ې
+    '\u06CD' : 'êy'  # ‫ۍ‬
