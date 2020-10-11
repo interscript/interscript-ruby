@@ -1,7 +1,7 @@
 ---
 authority_id: alalc
-id: 2007
-language: iso-639-3:prs # prs stands for Dari (https://iso639-3.sil.org/code/prs&_ga=GA1.2.2054538372.1574092823)
+id: 1997
+language: iso-639-3:prs
 source_script: Arab
 destination_script: Latn
 name: ALA-LC Romanization Table -- Persian (1997)
@@ -9,6 +9,8 @@ url: http://catdir.loc.gov/catdir/cpso/romanization/persian.pdf
 creation_date: 1997
 confirmation_date: 1997
 description: |
+  ALA-LC Romanization table for Persian
+
 notes:
   - 1. For the use of ا (alif) to support ء (hamzah) and ~ (maddah)
     see rule 1(a). For the romanization of ء and see rules 4 and
@@ -62,101 +64,183 @@ notes:
 
   - Rule 5. ~(maddah)
     (a) initial آ is romanized ā
+    (b) Medial آ, whenit represents the phonetic combination ’ā,
+        is so romanized.
+    (c) is otherwise not represented in romanization.
+
+  - Rule 6. Tanvin (written ٌ, ٍ , ً , ـًا), which occurs chiefly in Arabic words,
+    is romanized un, in, an, and an, respectively.
+
+  - Rule 7. ّ (shaddah or tashdid) is represented by doubling the letter or
+    digraph concerned. Note the exceptional case where 4 is written over و and ي
+    to represent the combination of long vowel plus consonant.
+
+  - Rule 8.Izafah. When two wordsareassociated in the relation known as
+    izGfah,the first (the muzaf) is followed by an additional letter or
+    syllable in romanization. This is added according to the following rules
+    (a)When the muzaf bears no special mark of izafah, it is followed by-i.
+    (b)When the muzaf is marked by the addition ofء, it is followed by-’i.
+    (c)Whenthe muzaf is marked by the addition ofcs, it is followed by -yi.
+    (d)Izafah is represented in romanization of personal names only when
+    expressly indicated in the Persian script.
+
+  - Rule 9.(a) When the affix and the word with which it is connected
+    grammatically are written separately in Persian, the two are separated
+    in romanization bya single prime (’). See also 12(b) below.
+    (b) The Arabic article al is separated by a hyphen, in romanization,
+    from the word to which it is prefixed.
+
+  - Rule 10. Compounds. When the elements of a compound (except a
+    compound personal name) are written separately in Persian, they are
+    separated in romanization by a single prime (’). See also 12(b) below.
+
+  - Rule 11. Capitalization.
+    (a) Rules for the capitalization of English are followed, except that
+    the Arabic article al is lowercased in all positions.
+    (b) Diacritics are used with both capital and lowercaseletters.
+
+  - Rule 12. The single prime (’) is used
+    (a) To separate two letters representing two distinct consonantal
+    sounds, when the combination might otherwise be read as a digraph.
+    (b) To mark theuse ofa letterin its final form whenit occurs in the
+    middle of a word. See also rules 9(a) and 10 above.
+
+  - Rule 13. Foreign words in a Persian context, including Arabic words,
+    are romanized accordingto the rules for Persian. For short vowels
+    not indicated in the script, the Persian vowels nearest the original
+    pronunciation of the word are supplied in romanization.
+
+  - Rule 14. Dictionaries.
+    In romanizing Persian, the Library of Congress has foundit necessary
+    to consult dictionaries as an appendage to the romanizationtables,
+    primarily for the purpose of supplying vowels. For Persian, the
+    principle dictionary consulted is M. Mu’in. Farhang-i Farsi-i mutavassit
 
 tests:
   # 1(b)
   - source: دَانَا
-    expected: dānā
+    expected: Dānā
 
   # 2(a)
   - source: وَرزِش
-    expected: varzish
+    expected: Varzish
 
   - source: دَوَا
-    expected: davā
+    expected: Davā
 
   - source: سَرو
-    expected: sarv
+    expected: Sarv
 
   - source: خوَاستَن
-    expected: khvāstan
+    expected: Khvāstan
 
   - source: خوُد
-    expected: khvud
+    expected: Khvud
 
   # 2(b)
   - source: دُور
-    expected: dūr
+    expected: Dūr
 
   - source: چُون
-    expected: chūn
+    expected: Chūn
 
   - source: تُو
-    expected: tū
+    expected: Tū
 
   # 2(c)
   - source: فِردَوْسِي
-    expected: firdawsī
+    expected: Firdawsī
 
   # 3(a)
   - source: يَار
-    expected: yār
+    expected: Yār
 
   - source: سِيَاه
-    expected: siyāh
+    expected: Siyāh
 
   - source: پَاي
-    expected: pāy
+    expected: Pāy
 
   # 3(b)
   - source: اِيرَان
-    expected: īrān
+    expected: Īrān
 
   - source: قَالِي
-    expected: qālī
+    expected: Qālī
 
   # 3(c)
   - source: اَيوَان
-    expected: ayvān
+    expected: Ayvān
 
   - source: رَي
-    expected: ray
+    expected: Ray
 
   # 3(d)
   - source: مُصطَفَى
-    expected: muṣṭafá
+    expected: Muṣṭafá
 
   # 4(a)
   - source: مُؤَثِّر
-    expected: mu’as̱s̱ir
+    expected: Mu’as̱s̱ir
 
   - source: خُلَفَاء
-    expected: khulafā’
+    expected: Khulafā’
 
   - source: پَائِين
-    expected: pā’īn
+    expected: Pā’īn
 
   # 4(c)
   - source: اَستَانَهٔ دَر
-    expected: astānah-’i dar
+    expected: Astānah-’i Dar
 
   # 5(a)
   - source: آب
-    expected: āb
+    expected: Āb
 
   - source: كُلِّيَّة الآدَاب
-    expected: kullīyat al-ādāb
+    expected: Kullīyat al-Ādāb
 
-  # 5(c)
+  # 5(b)
   - source: مَآثِر
-    expected: ma’ās̱ir
+    expected: Ma’ās̱ir
+
+  - source: دَريَاآبَادِي
+    expected: Daryā’ābādī
+
+  # 7
+  - source: خُرَّم
+    expected: Khurram
+
+  - source: اَوَّل
+    expected: Avval
+
+  - source: بَچّة
+    expected: Bachchah
+
+  - source: خَيَّام
+    expected: Khayyām
+
+  - source: نَشرِيَّات
+    expected: Nashrīyāt
+
+  - source: قُوَّة
+    expected: Qūvah
+
+  - source: قُوَّة
+    expected: Qūvah
 
 map:
+  postrules:
+    - pattern: '(?<=\b)(?<![‘|’])[\u0061-\uFFFF]'
+      result: "upcase"
+    - pattern: "Al-" # ال
+      result: "al-"
+
   characters:
     # special rules
 
-    '\s(?=\u0622\u0628\u064E\u0627\u062F)': '' # space followed by abad is removed
-    '\ufdf2': 'Allāh' # See note 5
+    '\s(?=\u0622\u0628\u064E\u0627\u062F)' : '' # space followed by abad is removed
+    '\ufdf2' : 'Allāh' # See note 5
 
     # pointing
     '\u064e(?=\u0629)' : '' # َ fatha followed by ta' marboota
@@ -167,7 +251,7 @@ map:
     '\b\u0622' : 'ā'  # آ
     '\u0622' : '’ā'  # آ
 
-    '\u0650': 'i'  # ِ kasra
+    '\u0650' : 'i'  # ِ kasra
     '\u0650[\u064a|\u06cc]' : 'ī' # ـِي kasra followed by ي
     '\u0650\b' : '-e' # ِ kasra
     '\u064e\u0649' : 'á'  # ـَى fatha followed by ى which is ا not ي
@@ -179,14 +263,18 @@ map:
     '\u064f\u0648' : 'ū'  # ـُو damma followed by و
 
     '\u0652' : ''  # ْ sokoon
-    '\u0659': 'ê'
+    '\u0659' : 'ê'
 
-    '[\u0674|\u0654]': '-’i' # ٴ
+    '[\u0674|\u0654]' : '-’i' # ٴ
 
-    '\u0650[\u064a|\u06cc]\u0651\u064e' : 'īy' # ـِيَّ
-    '\u0649\u0670': 'á' # ىٰ
+    '\u0649\u0670' : 'á' # ىٰ
       # - '-ye'
 
+    # Tanvin Rule 6
+    '\u064c' : 'un' #  ٌ
+    '\u064d' : 'in' #  ٍ
+    '\u064b' : 'an' #  ً
+    '\u064b\u0627' : 'an' #  ً
 
     # ta' marboota
     '\u0629' : 'at' # ة in the middle of the sentence
@@ -207,18 +295,21 @@ map:
     # shadda
 
     '\u0628\u0651' : 'bb'  # ب
+    '\u067E\u0651' : 'pp' # پ
     '\u062a\u0651' : 'tt'  # ت
     '\u062b\u0651' : 's̱s̱'  # ث
     '\u062c\u0651' : 'jj'  # ج
+    '\u0686\u0651' : 'chch'  # ‫چ‬
     '\u062d\u0651' : 'ḥḥ' # ح
     '\u062e\u0651' : 'khkh'  # خ
     '\u062f\u0651' : 'dd'  # د
     '\u0630\u0651' : 'ẕẕ'  # ذ
     '\u0631\u0651' : 'rr'  # ر
     '\u0632\u0651' : 'zz'  # ز
+    '\u0698\u0651' : 'zhzh'  # ‫ژ‬
     '\u0633\u0651' : 'ss'  # س
-    '\u0634\u0651' : 'sh'  # ش
-    '\u0635\u0651' : 'ṣṣ'  # ص
+    '\u0634\u0651' : 'shsh'  # ش
+    '\u0635\u0651' : 'z̤z̤'  # ص
     '\u0636\u0651' : 'ḏḏ'  # ض
     '\u0637\u0651' : 'ṭṭ'  # ط
     '\u0638\u0651' : 'ẓẓ'  # ظ
@@ -226,43 +317,27 @@ map:
     '\u0641\u0651' : 'ff'  # ف
     '\u0642\u0651' : 'qq'  # ق
     '\u0643\u0651' : 'kk'  # ك
+    '\u06A9\u0651' : 'kk' # ک
+    '\u06AF\u0651' : 'gg' # ‫گ‬
     '\u0644\u0651' : 'll'  # ل
     '\u0645\u0651' : 'mm'  # م
     '\u0646\u0651' : 'nn'  # ن
     '\u0647\u0651' : 'hh'  # ه
     '\u0648\u0651' : 'vv'  # و
-    '\u064a\u0651' : 'yy'  # ي
+    '[\u064a|\u0649]\u0651' : 'yy'  # ي
+    '\u0650[\u064a|\u06cc]\u0651\u064e' : 'īy' # ـِيَّ
+    '\u064f\u0648\u0651' : 'ūv'  # ـُو damma followed by و
 
-
-    '\u0621': '’' # ء
-    '\u0624': '’' # ؤ
-    '\u0626': '’' # ئ
+    '\u0621' : '’' # ء
+    '\u0624' : '’' # ؤ
+    '\u0626' : '’' # ئ
 
     '\u0623' : ''  # أ
-    '\u0625': ''    # إ
+    '\u0625' : ''    # إ
     '\u0627' : 'ā'  # ا
     '\b\u0627' : ''  # ا
 
-    # See note B
     '\b\u0627\u0644' : 'al-'  # ال
-    # '\uFE8E' : ''  # ﺎ
-
-    # Sun letters
-    '\b\u0627\u0644\u062a' : 'at t'  # الت
-    '\b\u0627\u0644\u062b' : 'as̱ s̱'  # الث
-    '\b\u0627\u0644\u062f' : 'ad d' # الد
-    '\b\u0627\u0644\u0630' : 'aẕ ẕ'  # الذ
-    '\b\u0627\u0644\u0631' : 'ar r' # الر
-    '\b\u0627\u0644\u0632' : 'az z'  # الز
-    '\b\u0627\u0644\u0633' : 'as s' # الس
-    '\b\u0627\u0644\u0634' : 'ash sh' # الش
-    '\b\u0627\u0644\u0635' : 'aṣ ṣ'  # الص
-    '\b\u0627\u0644\u0636' : 'az̤ z̤'  # الض
-    '\b\u0627\u0644\u0637' : 'aṭ ṭ'  # الط
-    '\b\u0627\u0644\u0638' : 'aẓ ẓ' # الظ
-    '\b\u0627\u0644\u0644' : 'al l'  # الل
-    '\b\u0627\u0644\u0646' : 'an n'  # الن
-
 
     # consonant characters
 
@@ -282,7 +357,7 @@ map:
     '\u0633' : 's'  # س
     '\u0634' : 'sh'  # ش
     '\u0635' : 'ṣ'  # ص
-    '\u0636' : 'z̤'  # ض # not yet
+    '\u0636' : 'z̤'  # ض
     '\u0637' : 'ṭ'  # ط
     '\u0638' : 'ẓ'  # ظ
     '\u0639' : '‘'  # ع
@@ -298,6 +373,3 @@ map:
     '\u0648' : 'v'  # و
     '\u0647' : 'h'  # ه
     '\u064a' : 'y'  # ي
-    '\u0649' : 'y'  # ي
-    '\u06D0' : 'ē'   # ې
-    '\u06CD' : 'êy'  # ‫ۍ‬
