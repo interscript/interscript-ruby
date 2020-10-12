@@ -9,7 +9,7 @@ alias:
   ogc11122:
     code: pan_Deva2Latn_ALA_1997
     description: Panjabi ALA-Library of Congress 1997 System
-url: https://www.loc.gov/catdir/cpso/romanization/panjabi.pdf
+url: http://catdir.loc.gov/catdir/cpso/romanization/panjabi.pdf
 creation_date: 1997
 description: |
   ALA-LC Romanization table for Panjabi
