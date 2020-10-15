@@ -59,6 +59,39 @@ tests:
       A kid' sya narodyš v teplji, obkolesenyj laskov, rozvyvaš sya v dobrych usloviyach, vypadeš iz skaralušči, yak micna istota.
       Takym potim bude i tvij dalšyj žyvot. Iz dobrji založenym fundamentom. Bylo by smišno si robyty nadjij, že žyvot je lem jedna rivna put'…
       Kiby to tak čolovik znav… Kiby sya mig išči raz narodyty i pity po tij istij puty…
+  # Based on http://www.philology.ru/linguistics3/suprun-89.htm
+  - source: |
+      Вишло слунко красне, ясне,
+      и цму швета розогнало -
+      жем желену, били хмарки
+      як зоз златом да обцагло.
+    expected: |
+      Vyšlo slunko krasne, yasne,
+      y cmu šveta rozognalo -
+      žem želenu, byly chmarky
+      yak zoz zlatom da obcaglo.
+  - source: шнїг
+    expected: šnjig
+  - source: жем
+    expected: žem
+  - source: дзень
+    expected: dzen'
+  - source: спомнуц
+    expected: spomnuc
+  - source: крава
+    expected: krava
+  # Based on https://lingvoforum.net/index.php?topic=43545.0
+  - source: дївка
+    expected: djivka
+  - source: дрыв
+    expected: dryv
+  - source: фёрд
+    expected: fjord
+  - source: Ёзеф
+    expected: Jozef
+  - source: пастырї
+    expected: pastyrji
+
 
 map:
   characters:
