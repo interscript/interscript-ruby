@@ -28,49 +28,201 @@ notes:
   - |
     Ligatures may be formed with r as the first component: ~ह rha.
 
+  ######################################## Additional Note ############################################################
+  #    It is recommended that the vowel अ (a) should always be romanized except when it ends a                        #
+  #    name. In the scheme we are not yet able to detect a name. Analysing language pattern and the example           #
+  #    we found that actually when a word ends with a consonant it should be transliterated without the vowel in it.  #
+  #    so we are applying this rule as if a word ends with a consonant, in this case we are removing the ending 'a'.  #
+  #####################################################################################################################
+
+
 tests:
+  - source: "नेपाल"
+    expected: "nepāl"
+  - source: "नेपाल काठ्माडौं"
+    expected: "nepāl kāṭhmāḍauṁ"
   - source: "लेखन"
-    expected: "laekhana"
+    expected: "lekhan"
   - source: "मुद्रा"
-    expected: "maudaaraā"
+    expected: "mudrā"
   - source: "प्रशंसा"
-    expected: "paarashaṁsaā"
+    expected: "prashaṁsā"
   - source: "अंक"
-    expected: "aṁka"
+    expected: "aṁk"
   - source: "नेकपाले स्थगित स्थायी कमिटीको बैठक भदौ गते बोलाउने भएको"
-    expected: "naekapaālae saathagaita saathaāyaī kamaiṭaīkao baaiṭhaka bhadaau gatae baolaāunae bhaekao"
+    expected: "nekapāle sthagit sthāyī kamiṭīko baiṭhak bhadau gate bolāune bhaeko"
   - source: "न घर रह्यो, न परिवार"
-    expected: "na ghara rahaayao, na paraivaāra"
+    expected: "n ghar rahayo, n parivār"
   - source: "ढोरपाटनमा भुजीखोला बाढीपहिरोले अभिभावक गुमाएका बालबालिकाको बिचल्ली"
-    expected: "ḍhaorapaāṭanamaā bhaujaīkhaolaā baāḍhaīpahairaolae abhaibhaāvaka gaumaāekaā baālabaālaikaākao baichalaalaī"
+    expected: "ḍhorapāṭanamā bhujīkholā bāḍhīpahirole abhibhāvak gumāekā bālabālikāko bichallī"
   - source: "सुस्मिताका काका हेमबहादुर र काकीलाई पनि पहिरोले बगायो"
-    expected: "sausaamaitaākaā kaākaā haemabahaādaura ra kaākaīlaāī panai pahairaolae bagaāyao"
+    expected: "susmitākā kākā hemabahādur r kākīlāī pani pahirole bagāyo"
   - source: "संविधान जारी भएसँगै सार्वजनिक प्रशासनमा नयाँ उत्साह आउने अपेक्षा थियो"
-    expected: "saṁvaidhaāna jaāraī bhaesam̐gaai saāraavajanaika paarashaāsanamaā nayaām̐ utaasaāha āunae apaekaaṣhaā thaiyao"
+    expected: "saṁvidhān jārī bhaesam̐gai sārvajanik praśāsanamā nayām̐ utsāh āune apekṣā thiyo"
   - source: "देशमा कोरोना संक्रमित र मृतकको संख्या हरेक दिन बढ्दो छ"
-    expected: "daeshamaā kaoraonaā saṁkaaramaita ra maṛtakakao saṁkhaayaā haraeka daina baḍhaadao chha"
+    expected: "deshamā koronā saṁkramit r mṛtakako saṁkhyā harek din baḍhdo ch"
   - source: "गाउँपालिकाका अध्यक्ष टिका गुरुङका अनुसार विष्णुदासलाई राजुले सुत्नका लागि बेलुका साथी लगेका थिए"
-    expected: "gaāum̐paālaikaākaā adhaayakaaṣha ṭaikaā gaurauṅakaā anausaāra vaiṣhaaṇaudaāsalaāī raājaulae sautaanakaā laāgai baelaukaā saāthaī lagaekaā thaie"
+    expected: "gāum̐pālikākā adhyakṣ ṭikā guruṅakā anusār viṣhṇudāsalāī rājule sutnakā lāgi belukā sāthī lagekā thie"
   - source: "यो आयोजना गाउँपालिकाको केन्द्र तेल्लोकमा पर्छ"
-    expected: "yao āyaojanaā gaāum̐paālaikaākao kaenaadaara taelaalaokamaā paraachha"
+    expected: "yo āyojanā gāum̐pālikāko kendr tellokamā parch"
   - source: "सुस्मिताका काका हेमबहादुर र काकीलाई पनि पहिरोले बगायो"
-    expected: "sausaamaitaākaā kaākaā haemabahaādaura ra kaākaīlaāī panai pahairaolae bagaāyao"
+    expected: "susmitākā kākā hemabahādur r kākīlāī pani pahirole bagāyo"
   - source: "चैत पहिलो साता घर आएका उनी लकडाउन भएपछि यतै रोकिए"
-    expected: "chaaita pahailao saātaā ghara āekaā unaī lakaḍaāuna bhaepachhai yataai raokaie"
+    expected: "cait pahilo sātā ghar āekā unī lakaḍāun bhaepachi yatai rokie"
   - source: "काम गर्न जानेको हकमा रोजगारदाता कम्पनीको पत्रसँगै वडा र जिल्ला प्रशासनको सिफारिस अनिवार्य गरिएको छ"
-    expected: "kaāma garaana jaānaekao hakamaā raojagaāradaātaā kamaapanaīkao pataarasam̐gaai vaḍaā ra jailaalaā paarashaāsanakao saiphaāraisa anaivaāraaya garaiekao chha"
+    expected: "kām garn jāneko hakamā rojagāradātā kampanīko patrasam̐gai vaḍā r jillā praśāsanako siphāris anivāry garieko ch"
   - source: "ऋण"
-    expected: "ṛṇa"
+    expected: "ṛṇ"
   - source: "अर्पित"
-    expected: "araapaita"
+    expected: "arpit"
   - source: "अरार्यते"
-    expected: "araāraayatae"
+    expected: "arāryate"
   - source: "श्रीमान्"
-    expected: "shaaraīmaānaa"
+    expected: "shrīmān"
   - source: "खाँचो बिरुवा बैंकको"
-    expected: "khaām̐chao bairauvaā baaiṁkakao"
+    expected: "khām̐co biruvā baiṁkako"
+
 
 map:
+
+  rules:
+    - pattern: ([क]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020])
+      result: 'k'
+    - pattern: ([ख]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020])
+      result: 'kh'
+    - pattern: ([ग]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020])
+      result: 'g'
+    - pattern: ([घ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020])
+      result: 'gh'
+    - pattern: ([ङ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020])
+      result: 'ṅ'
+    - pattern: ([च]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020])
+      result: 'c'
+    - pattern: ([छ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020])
+      result: 'ch'
+    - pattern: ([ज]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020])
+      result: 'j'
+    - pattern: ([झ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020])
+      result: 'jh'
+    - pattern: ([ञ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020])
+      result: 'ñ'
+    - pattern: ([ट]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020])
+      result: 'ṭ'
+    - pattern: ([ठ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020])
+      result: 'ṭh'
+    - pattern: ([ड]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020])
+      result: 'ḍ'
+    - pattern: ([ढ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020])
+      result: 'ḍh'
+    - pattern: ([ण]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020])
+      result: 'ṇ'
+    - pattern: ([त]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020])
+      result: 't'
+    - pattern: ([थ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020])
+      result: 'th'
+    - pattern: ([द]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020])
+      result: 'd'
+    - pattern: ([ध]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020])
+      result: 'dh'
+    - pattern: ([न]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020])
+      result: 'n'
+    - pattern: ([प]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020])
+      result: 'p'
+    - pattern: ([फ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020])
+      result: 'ph'
+    - pattern: ([ब]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020])
+      result: 'b'
+    - pattern: ([भ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020])
+      result: 'bh'
+    - pattern: ([म]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020])
+      result: 'm'
+    - pattern: ([य]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020])
+      result: 'y'
+    - pattern: ([र]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020])
+      result: 'r'
+    - pattern: ([ल]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020])
+      result: 'l'
+    - pattern: ([ळ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020])
+      result: 'ḷ'
+    - pattern: ([व]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020])
+      result: 'v'
+    - pattern: ([श]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020])
+      result: 'ś'
+    - pattern: ([ष]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020])
+      result: 'ṣ'
+    - pattern: ([स]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020])
+      result: 's'
+    - pattern: ([ह]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020])
+      result: 'h'
+
+    - pattern: ([क])(?=\b)
+      result: 'k'
+    - pattern: ([ख])(?=\b)
+      result: 'kh'
+    - pattern: ([ग])(?=\b)
+      result: 'g'
+    - pattern: ([घ])(?=\b)
+      result: 'gh'
+    - pattern: ([ङ])(?=\b)
+      result: 'ṅ'
+    - pattern: ([च])(?=\b)
+      result: 'c'
+    - pattern: ([छ])(?=\b)
+      result: 'ch'
+    - pattern: ([ज])(?=\b)
+      result: 'j'
+    - pattern: ([झ])(?=\b)
+      result: 'jh'
+    - pattern: ([ञ])(?=\b)
+      result: 'ñ'
+    - pattern: ([ट])(?=\b)
+      result: 'ṭ'
+    - pattern: ([ठ])(?=\b)
+      result: 'ṭh'
+    - pattern: ([ड])(?=\b)
+      result: 'ḍ'
+    - pattern: ([ढ])(?=\b)
+      result: 'ḍh'
+    - pattern: ([ण])(?=\b)
+      result: 'ṇ'
+    - pattern: ([त])(?=\b)
+      result: 't'
+    - pattern: ([थ])(?=\b)
+      result: 'th'
+    - pattern: ([द])(?=\b)
+      result: 'd'
+    - pattern: ([ध])(?=\b)
+      result: 'dh'
+    - pattern: ([न])(?=\b)
+      result: 'n'
+    - pattern: ([प])(?=\b)
+      result: 'p'
+    - pattern: ([फ])(?=\b)
+      result: 'ph'
+    - pattern: ([ब])(?=\b)
+      result: 'b'
+    - pattern: ([भ])(?=\b)
+      result: 'bh'
+    - pattern: ([म])(?=\b)
+      result: 'm'
+    - pattern: ([य])(?=\b)
+      result: 'y'
+    - pattern: ([र])(?=\b)
+      result: 'r'
+    - pattern: ([ल])(?=\b)
+      result: 'l'
+    - pattern: ([ळ])(?=\b)
+      result: 'ḷ'
+    - pattern: ([व])(?=\b)
+      result: 'v'
+    - pattern: ([श])(?=\b)
+      result: 'ś'
+    - pattern: ([ष])(?=\b)
+      result: 'ṣ'
+    - pattern: ([स])(?=\b)
+      result: 's'
+    - pattern: ([ह])(?=\b)
+      result: 'h'
 
   characters:
 
@@ -170,4 +322,62 @@ map:
     'ँ': 'm̐'
 
     # halanta
-    '्': 'a'
+    '्': ''
+
+    #V. Ligatures(To cover all Ligatures at unicode)
+    #  Implemnting Pronunciation without a vowel: क् k.
+
+    # Gutturals
+    'क्': 'k'
+    'ख्': 'kh'
+    'ग्': 'g'
+    'घ्': 'gh'
+    'ङ्': 'ṅ'
+
+    # Palatals
+    'च्': 'ch'
+    'छ्': 'chh'
+    'ज्': 'j'
+    'झ्': 'jh'
+    'ञ्': 'ñ'
+
+    # Cerebrals
+    'ट्': 'ṭ'
+    'ठ्': 'ṭh'
+    'ड्': 'ḍ'
+    'ढ्': 'ḍh'
+    'ण्': 'ṇ'
+
+    # Dentals
+    'त्': 't'
+    'थ्': 'th'
+    'द्': 'd'
+    'ध्': 'dh'
+    'न्': 'n'
+
+    # Labials
+    'प्': 'p'
+    'फ्': 'ph'
+    'ब्': 'b'
+    'भ्': 'bh'
+    'म्': 'm'
+
+    # Semivowels
+    'य्': 'y'
+    'र्': 'r'
+    'ल्': 'l'
+    'व्': 'v'
+
+    # Sibilants
+    'श्': 'sh'
+    'ष्': 'ṣh'
+    'स्': 's'
+
+    # Dotted variants
+    'क़्': 'q'
+    'ख़्': 'ḳh'
+    'ग़्': 'ġ'
+    'ज़्': 'z'
+    'ड़्': 'ṙ'
+    'ढ़्': 'ṙh'
+    'फ़्': 'f'
