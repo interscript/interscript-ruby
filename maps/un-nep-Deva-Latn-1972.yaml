@@ -52,25 +52,25 @@ tests:
   - source: "नेकपाले स्थगित स्थायी कमिटीको बैठक भदौ गते बोलाउने भएको"
     expected: "nekapāle sthagit sthāyī kamiṭīko baiṭhak bhadau gate bolāune bhaeko"
   - source: "न घर रह्यो, न परिवार"
-    expected: "n ghar rahayo, n parivār"
+    expected: "n ghar rahyo, n parivār"
   - source: "ढोरपाटनमा भुजीखोला बाढीपहिरोले अभिभावक गुमाएका बालबालिकाको बिचल्ली"
     expected: "ḍhorapāṭanamā bhujīkholā bāḍhīpahirole abhibhāvak gumāekā bālabālikāko bichallī"
   - source: "सुस्मिताका काका हेमबहादुर र काकीलाई पनि पहिरोले बगायो"
     expected: "susmitākā kākā hemabahādur r kākīlāī pani pahirole bagāyo"
   - source: "संविधान जारी भएसँगै सार्वजनिक प्रशासनमा नयाँ उत्साह आउने अपेक्षा थियो"
-    expected: "saṁvidhān jārī bhaesam̐gai sārvajanik praśāsanamā nayām̐ utsāh āune apekṣā thiyo"
+    expected: "saṁvidhān jārī bhaesam̐gai sārvajanik prashāsanamā nayām̐ utsāh āune apekṣhā thiyo"
   - source: "देशमा कोरोना संक्रमित र मृतकको संख्या हरेक दिन बढ्दो छ"
-    expected: "deshamā koronā saṁkramit r mṛtakako saṁkhyā harek din baḍhdo ch"
+    expected: "deshamā koronā saṁkramit r mṛtakako saṁkhyā harek din baḍhdo chh"
   - source: "गाउँपालिकाका अध्यक्ष टिका गुरुङका अनुसार विष्णुदासलाई राजुले सुत्नका लागि बेलुका साथी लगेका थिए"
-    expected: "gāum̐pālikākā adhyakṣ ṭikā guruṅakā anusār viṣhṇudāsalāī rājule sutnakā lāgi belukā sāthī lagekā thie"
+    expected: "gāum̐pālikākā adhyakṣh ṭikā guruṅakā anusār viṣhṇudāsalāī rājule sutnakā lāgi belukā sāthī lagekā thie"
   - source: "यो आयोजना गाउँपालिकाको केन्द्र तेल्लोकमा पर्छ"
-    expected: "yo āyojanā gāum̐pālikāko kendr tellokamā parch"
+    expected: "yo āyojanā gāum̐pālikāko kendr tellokamā parchh"
   - source: "सुस्मिताका काका हेमबहादुर र काकीलाई पनि पहिरोले बगायो"
     expected: "susmitākā kākā hemabahādur r kākīlāī pani pahirole bagāyo"
   - source: "चैत पहिलो साता घर आएका उनी लकडाउन भएपछि यतै रोकिए"
-    expected: "cait pahilo sātā ghar āekā unī lakaḍāun bhaepachi yatai rokie"
+    expected: "chait pahilo sātā ghar āekā unī lakaḍāun bhaepachhi yatai rokie"
   - source: "काम गर्न जानेको हकमा रोजगारदाता कम्पनीको पत्रसँगै वडा र जिल्ला प्रशासनको सिफारिस अनिवार्य गरिएको छ"
-    expected: "kām garn jāneko hakamā rojagāradātā kampanīko patrasam̐gai vaḍā r jillā praśāsanako siphāris anivāry garieko ch"
+    expected: "kām garn jāneko hakamā rojagāradātā kampanīko patrasam̐gai vaḍā r jillā prashāsanako siphāris anivāry garieko chh"
   - source: "ऋण"
     expected: "ṛṇ"
   - source: "अर्पित"
@@ -80,149 +80,174 @@ tests:
   - source: "श्रीमान्"
     expected: "shrīmān"
   - source: "खाँचो बिरुवा बैंकको"
-    expected: "khām̐co biruvā baiṁkako"
+    expected: "khām̐cho biruvā baiṁkako"
 
 
 map:
 
   rules:
-    - pattern: ([क]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d])
-      result: 'k'
-    - pattern: ([ख]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d])
-      result: 'kh'
-    - pattern: ([ग]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d])
-      result: 'g'
-    - pattern: ([घ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d])
-      result: 'gh'
-    - pattern: ([ङ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d])
-      result: 'ṅ'
-    - pattern: ([च]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d])
-      result: 'c'
-    - pattern: ([छ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d])
-      result: 'ch'
-    - pattern: ([ज]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d])
-      result: 'j'
-    - pattern: ([झ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d])
-      result: 'jh'
-    - pattern: ([ञ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d])
-      result: 'ñ'
-    - pattern: ([ट]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d])
-      result: 'ṭ'
-    - pattern: ([ठ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d])
-      result: 'ṭh'
-    - pattern: ([ड]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d])
-      result: 'ḍ'
-    - pattern: ([ढ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d])
-      result: 'ḍh'
-    - pattern: ([ण]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d])
-      result: 'ṇ'
-    - pattern: ([त]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d])
-      result: 't'
-    - pattern: ([थ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d])
-      result: 'th'
-    - pattern: ([द]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d])
-      result: 'd'
-    - pattern: ([ध]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d])
-      result: 'dh'
-    - pattern: ([न]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d])
-      result: 'n'
-    - pattern: ([प]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d])
-      result: 'p'
-    - pattern: ([फ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d])
-      result: 'ph'
-    - pattern: ([ब]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d])
-      result: 'b'
-    - pattern: ([भ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d])
-      result: 'bh'
-    - pattern: ([म]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d])
-      result: 'm'
-    - pattern: ([य]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d])
-      result: 'y'
-    - pattern: ([र]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d])
-      result: 'r'
-    - pattern: ([ल]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d])
-      result: 'l'
-    - pattern: ([ळ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d])
-      result: 'ḷ'
-    - pattern: ([व]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d])
-      result: 'v'
-    - pattern: ([श]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d])
-      result: 'ś'
-    - pattern: ([ष]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d])
-      result: 'ṣ'
-    - pattern: ([स]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d])
-      result: 's'
-    - pattern: ([ह]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d])
-      result: 'h'
+    - pattern: ([क]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'k'
+    - pattern: ([ख]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'kh'
+    - pattern: ([ग]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'g'
+    - pattern: ([घ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'gh'
+    - pattern: ([ङ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'ṅ'
+    - pattern: ([च]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'ch'
+    - pattern: ([छ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'chh'
+    - pattern: ([ज]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'j'
+    - pattern: ([झ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'jh'
+    - pattern: ([ञ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'ñ'
+    - pattern: ([ट]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'ṭ'
+    - pattern: ([ठ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'ṭh'
+    - pattern: ([ड]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'ḍ'
+    - pattern: ([ढ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'ḍh'
+    - pattern: ([ण]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'ṇ'
+    - pattern: ([त]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  't'
+    - pattern: ([थ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'th'
+    - pattern: ([द]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'd'
+    - pattern: ([ध]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'dh'
+    - pattern: ([न]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'n'
+    - pattern: ([प]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'p'
+    - pattern: ([फ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'ph'
+    - pattern: ([ब]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'b'
+    - pattern: ([भ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'bh'
+    - pattern: ([म]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'm'
+    - pattern: ([य]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'y'
+    - pattern: ([र]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'r'
+    - pattern: ([ल]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'l'
+    - pattern: ([व]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'v'
+    - pattern: ([श]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'sh'
+    - pattern: ([ष]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'ṣh'
+    - pattern: ([स]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  's'
+    - pattern: ([क़]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'q'
+    - pattern: ([ख़]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'ḳh'
+    - pattern: ([ग़]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'g'
+    - pattern: ([ज़]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'z'
+    - pattern: ([ड़]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'ṙ'
+    - pattern: ([ढ़]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'ṙh'
+    - pattern: ([फ़]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'f'
+    - pattern: ([ह]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]) 
+      result:  'h'
 
-    - pattern: ([क])(?=\b)
-      result: 'k'
-    - pattern: ([ख])(?=\b)
-      result: 'kh'
-    - pattern: ([ग])(?=\b)
-      result: 'g'
-    - pattern: ([घ])(?=\b)
-      result: 'gh'
-    - pattern: ([ङ])(?=\b)
-      result: 'ṅ'
-    - pattern: ([च])(?=\b)
-      result: 'c'
-    - pattern: ([छ])(?=\b)
-      result: 'ch'
-    - pattern: ([ज])(?=\b)
-      result: 'j'
-    - pattern: ([झ])(?=\b)
-      result: 'jh'
-    - pattern: ([ञ])(?=\b)
-      result: 'ñ'
-    - pattern: ([ट])(?=\b)
-      result: 'ṭ'
-    - pattern: ([ठ])(?=\b)
-      result: 'ṭh'
-    - pattern: ([ड])(?=\b)
-      result: 'ḍ'
-    - pattern: ([ढ])(?=\b)
-      result: 'ḍh'
-    - pattern: ([ण])(?=\b)
-      result: 'ṇ'
-    - pattern: ([त])(?=\b)
-      result: 't'
-    - pattern: ([थ])(?=\b)
-      result: 'th'
-    - pattern: ([द])(?=\b)
-      result: 'd'
-    - pattern: ([ध])(?=\b)
-      result: 'dh'
-    - pattern: ([न])(?=\b)
-      result: 'n'
-    - pattern: ([प])(?=\b)
-      result: 'p'
-    - pattern: ([फ])(?=\b)
-      result: 'ph'
-    - pattern: ([ब])(?=\b)
-      result: 'b'
-    - pattern: ([भ])(?=\b)
-      result: 'bh'
+
+    - pattern: ([क])(?=\b) 
+      result:  'k'                  
+    - pattern: ([ख])(?=\b) 
+      result:  'kh'                 
+    - pattern: ([ग])(?=\b) 
+      result:  'g'                  
+    - pattern: ([घ])(?=\b) 
+      result:  'gh'                 
+    - pattern: ([ङ])(?=\b) 
+      result:  'ṅ'                 
+    - pattern: ([च])(?=\b) 
+      result:  'ch'                 
+    - pattern: ([छ])(?=\b) 
+      result:  'chh'                
+    - pattern: ([ज])(?=\b) 
+      result:  'j'                  
+    - pattern: ([झ])(?=\b) 
+      result:  'jh'                 
+    - pattern: ([ञ])(?=\b) 
+      result:  'ñ'                 
+    - pattern: ([ट])(?=\b) 
+      result:  'ṭ'                 
+    - pattern: ([ठ])(?=\b) 
+      result:  'ṭh'                
+    - pattern: ([ड])(?=\b) 
+      result:  'ḍ'                 
+    - pattern: ([ढ])(?=\b) 
+      result:  'ḍh'                
+    - pattern: ([ण])(?=\b) 
+      result:  'ṇ'                 
+    - pattern: ([त])(?=\b) 
+      result:  't'                  
+    - pattern: ([थ])(?=\b) 
+      result:  'th'                 
+    - pattern: ([द])(?=\b) 
+      result:  'd'                  
+    - pattern: ([ध])(?=\b) 
+      result:  'dh'                 
+    - pattern: ([न])(?=\b) 
+      result:  'n'                  
+    - pattern: ([प])(?=\b) 
+      result:  'p'                  
+    - pattern: ([फ])(?=\b) 
+      result:  'ph'                 
+    - pattern: ([ब])(?=\b) 
+      result:  'b'                  
+    - pattern: ([भ])(?=\b) 
+      result:  'bh'                 
     - pattern: ([म])(?=\b)
-      result: 'm'
-    - pattern: ([य])(?=\b)
-      result: 'y'
-    - pattern: ([र])(?=\b)
-      result: 'r'
-    - pattern: ([ल])(?=\b)
-      result: 'l'
-    - pattern: ([ळ])(?=\b)
-      result: 'ḷ'
-    - pattern: ([व])(?=\b)
-      result: 'v'
-    - pattern: ([श])(?=\b)
-      result: 'ś'
-    - pattern: ([ष])(?=\b)
-      result: 'ṣ'
-    - pattern: ([स])(?=\b)
-      result: 's'
-    - pattern: ([ह])(?=\b)
-      result: 'h'
+      result:  'm'                  
+    - pattern: ([य])(?=\b) 
+      result:  'y'                  
+    - pattern: ([र])(?=\b) 
+      result:  'r'                  
+    - pattern: ([ल])(?=\b) 
+      result:  'l'                  
+    - pattern: ([व])(?=\b) 
+      result:  'v'                  
+    - pattern: ([श])(?=\b) 
+      result:  'sh'                 
+    - pattern: ([ष])(?=\b) 
+      result:  'ṣh'                 
+    - pattern: ([स])(?=\b) 
+      result:  's'                  
+    - pattern: ([क़])(?=\b) 
+      result:  'q'                  
+    - pattern: ([ख़])(?=\b) 
+      result:  'ḳh'                 
+    - pattern: ([ग़])(?=\b) 
+      result:  'g'                  
+    - pattern: ([ज़])(?=\b) 
+      result:  'z'                  
+    - pattern: ([ड़])(?=\b) 
+      result:  'ṙ'                  
+    - pattern: ([ढ़])(?=\b) 
+      result:  'ṙh'                 
+    - pattern: ([फ़])(?=\b) 
+      result:  'f'                  
+    - pattern: ([ह])(?=\b) 
+      result:  'h'                  
 
   characters:
 
