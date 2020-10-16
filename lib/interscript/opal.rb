@@ -10,13 +10,7 @@ module Interscript
     def mkregexp(regexpstring)
       @cache ||= {}
       if s = @cache[regexpstring]
-        if s.class == Onigmo::Regexp
-          # Opal-Onigmo stores a variable "lastIndex" mimicking the JS
-          # global regexp. If we want to reuse it, we need to reset it.
-          s.reset
-        else
-          s
-        end
+        s
       else
         # JS regexp is more performant than Onigmo. Let's use the JS
         # regexp wherever possible, but use Onigmo where we must.
