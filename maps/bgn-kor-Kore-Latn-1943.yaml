@@ -14,7 +14,7 @@ notes:
 
 tests:
   - source: 서울
-    expected: "Sŏŭl"
+    expected: "Sŏul"
   - source: 平壤
     expected: "P’yŏngyang"
   - source: 釜山
