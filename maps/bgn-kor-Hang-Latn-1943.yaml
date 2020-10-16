@@ -17,7 +17,7 @@ description:
 notes:
 
 tests:
-  - source: 서을
+  - source: 서울
     expected: "Sŏŭl"
   - source: 평양
     expected: "P’yŏngyang"
