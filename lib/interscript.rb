@@ -120,7 +120,7 @@ module Interscript
       return unless output
 
       re = mkregexp('^(.)')
-      output = output.sub(re, &:upcase) if title_case
+      output = output.gsub(re, &:upcase) if title_case
       if word_separator != ''
         re = mkregexp("#{word_separator}#{separator}")
         output = output.gsub(re, word_separator)
