@@ -199,172 +199,172 @@ notes:
 
 tests:
   - source: بَغْلان
-    expected: baghlān
+    expected: Baghlān
 
   - source: پُوټَكَى
-    expected: pōṯakay
+    expected: Pōṯakay
 
   - source: شِيرِين تَگَاب
-    expected: shīrīn tagāb
+    expected: Shīrīn Tagāb
 
   - source: کُوْټ
-    expected: kōṯ
+    expected: Kōṯ
 
   - source: ثَابِر
-    expected: s̄ābir
+    expected: S̄ābir
 
   - source: جَلال آبَاد
-    expected: jalālābād
+    expected: Jalālābād
 
   - source: چَارِيكَار
-    expected: chārīkār
+    expected: Chārīkār
 
   - source: ځَدْرَاڼ
-    expected: dzadrāṉ
+    expected: Dzadrāṉ
 
   - source: څَوکۍ
-    expected: tsowkêy
+    expected: Tsowkêy
 
   - source: حَضْرَتِ إِمَام
-    expected: ḩaẕrat-e imām
+    expected: Ḩaẕrat-e Imām
 
   - source: خُوْسْت
-    expected: khōst
+    expected: Khōst
 
   - source: سْپِين بُوْلْدَک
-    expected: spīn bōldak
+    expected: Spīn Bōldak
 
   - source: ډَنْډ وَ پَتَان
-    expected: ḏanḏ wa patān
+    expected: Ḏanḏ Wa Patān
 
   # - source: گُذَرْگَاهٔ نور
-  #   expected: guz̄argāh-e nūr
+  #   expected: Guz̄argāh-e nūr
 
   - source: كَنْدَهَار
-    expected: kandahār
+    expected: Kandahār
 
   - source: أَنْدَړ
-    expected: andaṟ
+    expected: Andaṟ
 
   - source: كُنْدُز
-    expected: kunduz
+    expected: Kunduz
 
   - source: مِير أَسْلَم ژْرَنْدَه
-    expected: mīr aslam zhrandah
+    expected: Mīr Aslam Zhrandah
 
   - source: ږِيرَه
-    expected: z͟hīrah
+    expected: Z͟hīrah
 
   - source: سَمَنْگَان
-    expected: samangān
+    expected: Samangān
 
   # - source: مَزَارِ شَريف
-  #   expected: mazār-e sharīf
+  #   expected: Mazār-e sharīf
 
   - source: كښٙتَه كَلا
-    expected: ks͟hêtah kalā
+    expected: Ks͟hêtah Kalā
 
   - source: قَيْصَار
-    expected: qayşār
+    expected: Qayşār
 
   - source: فَيض آبَاد
-    expected: faīẕābād
+    expected: Faīẕābād
 
   - source: حَضْرَتِ سُلْطَان
-    expected: ḩaẕrat-e sulţān
+    expected: Ḩaẕrat-e Sulţān
 
   - source: ظَاهِر كَلا
-    expected: z̧āhir kalā
+    expected: Z̧āhir Kalā
 
   - source: پُلِ عَلَم
-    expected: pul-e ‘alam
+    expected: Pul-e ‘Alam
 
   - source: غَزْنِي
-    expected: ghaznī
+    expected: Ghaznī
 
   - source: مَزَارِ شَرِيف
-    expected: mazār-e sharīf
+    expected: Mazār-e Sharīf
 
   - source: قَيْصَار
-    expected: qayşār
+    expected: Qayşār
 
   - source: كَنْدَهَار
-    expected: kandahār
+    expected: Kandahār
 
   - source: گَرْدېز
-    expected: gardēz
+    expected: Gardēz
 
   - source: کَابُل
-    expected: kābul
+    expected: Kābul
 
   - source: مَيمَنَه
-    expected: maīmanah
+    expected: Maīmanah
 
   - source: خَان آبَاد
-    expected: khānābād
+    expected: Khānābād
 
   - source: مَاڼۍ
-    expected: māṉêy
+    expected: Māṉêy
 
   - source: وَاخَان
-    expected: wākhān
+    expected: Wākhān
 
   # - source: هِرَات
-  #   expected: herāt
+  #   expected: Herāt
 
   - source: يَنْگِي قَلعَه
-    expected: yangī qal‘ah
+    expected: Yangī Qal‘ah
 
   - source: جَلال آبَاد
-    expected: jalālābād
+    expected: Jalālābād
 
   # - source: هِرات پُلِ حِصَار
   #   expected: Herāt Pul-e Ḩişār
 
   - source: مُرْغَاب کَابُل
-    expected: murghāb kābul
+    expected: Murghāb Kābul
 
   - source: گٙردُون
-    expected: gêrdōn
+    expected: Gêrdōn
 
   - source: آب بَنْد
-    expected: āb band
+    expected: Āb Band
 
   - source: سْپِين بُوْلْدَک
-    expected: spīn bōldak
+    expected: Spīn Bōldak
 
   # - source: بَالا بُلُوک
   #   expected: Bālā Bulūk
 
   - source: جَوزجَان
-    expected: jowzjān
+    expected: Jowzjān
 
   # - source:  غَزْنِى سْپِين
-  #   expected: ghaznī spīn
+  #   expected: Ghaznī spīn
 
   # - source: ريگ مَيوَنْد
   #   expected: Maywand, Rēg
 
   - source: گَرْدېز
-    expected: gardēz
+    expected: Gardēz
 
   - source: مَیدان شَهْر
-    expected: maīdān shahr
+    expected: Maīdān Shahr
 
   - source: ډَنْډِ سُفْلىٰ
-    expected: ḏanḏ-e suflá
+    expected: Ḏanḏ-e Suflá
 
   # - source: څَوْکۍ
   #   expected: Tsowkêy
 
   # - source: هَوائِي ډَگَر
-  #   expected: hawā’ī ḏagar
+  #   expected: Hawā’ī ḏagar
 
   # - source: مَزارِ شَريف
-  #   expected: mazār-e sharīf
+  #   expected: Mazār-e sharīf
 
   # - source: دايکندی
-  #   expected: dāykundī
+  #   expected: Dāykundī
 
   # - source: زيارت
   #   expected: Zīārat
@@ -376,9 +376,43 @@ tests:
   #   expected: Myā
 
   - source: جَبَل السَرَاج
-    expected: jabal as sarāj
+    expected: Jabal as Sarāj
 
 map:
+  postrules:
+    - pattern: (?<=\b)(?<!\b[‘|’|'|-])[\u0061-\uFFFF]
+      result: "upcase"
+    # don't capitalize defined article in the middle of a sentence
+    - pattern : ' At T'  # الت
+      result: ' at T'
+    - pattern : ' As̄ S̄'  # الث
+      result: ' as̄ S̄'
+    - pattern : ' Ad D' # الد
+      result: ' ad D'
+    - pattern : ' Az̄ Z̄'  # الذ
+      result: ' az̄ Z̄'
+    - pattern : ' Ar R' # الر
+      result: ' ar R'
+    - pattern : ' Az Z'  # الز
+      result: ' az Z'
+    - pattern : ' As S' # الس
+      result: ' as S'
+    - pattern : ' Ash Sh' # الش
+      result: ' ash Sh'
+    - pattern : ' Aş Ş'  # الص
+      result: ' aş Ş'
+    - pattern : ' Aẕ Ẕ'  # الض
+      result: ' aẕ Ẕ'
+    - pattern : ' Aţ Ţ'  # الط
+      result: ' aţ Ţ'
+    - pattern : ' Az̧ Z̧' # الظ
+      result: ' az̧ Z̧'
+    - pattern : ' Al L'  # الل
+      result: ' al L'
+    - pattern : ' An N'  # الن
+      result: ' an N'
+    - pattern: " Al " # ال
+      result: " al "
   characters:
 
     # word-medial or word-final form where so appearing in a word.

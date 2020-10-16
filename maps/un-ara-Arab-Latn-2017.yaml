@@ -168,7 +168,7 @@ map:
       result: ' ad͟h D͟h'
     - pattern : ' Al L'  # الل
       result: ' al L'
-    - pattern : ' an n'  # الن
+    - pattern : ' An N'  # الن
       result: ' an N'
     - pattern: " Al " # ال
       result: " al "

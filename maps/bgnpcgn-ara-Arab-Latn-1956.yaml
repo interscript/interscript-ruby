@@ -297,7 +297,7 @@ map:
       result: ' az̧ Z̧'
     - pattern : ' Al L'  # الل
       result: ' al L'
-    - pattern : ' an n'  # الن
+    - pattern : ' An N'  # الن
       result: ' an N'
     - pattern: " Al " # ال
       result: " al "
