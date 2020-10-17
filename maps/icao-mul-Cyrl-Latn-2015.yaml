@@ -1,0 +1,317 @@
+---
+authority_id: icao
+id: 9303
+language: iso-639-2:mul
+source_script: Cyrl
+destination_script: Latn
+name: "Doc 9303: Machine Readable Travel Documents, Part 3: Specifications Common to all MRTDs, Seventh Edition, 2015"
+url: https://www.icao.int/publications/Documents/9303_p3_cons_en.pdf
+creation_date: 2015
+description: |
+  Part 3 defines specifications that are common to TD1, TD2 and TD3
+  size machine readable travel documents (MRTDs) including those
+  necessary for global interoperability using visual inspection and
+  machine readable (optical character recognition) means.
+
+  Since only Latin-alphabet characters are allowed in the VIZ, if
+  mandatory data elements are in a national language that does not use
+  the Latin alphabet, a transcription or transliteration shall also be
+  provided.
+
+  This document defines the transliteration mappings used to produce
+  this transcription or transliteration.
+tests:
+
+map:
+  characters:
+    # A. Transliteration of Multinational Latin-based Characters
+    "\u00C0": "A"          # À
+    "\u00C1": "A"          # Á
+    "\u00C2": "A"          # Â
+    "\u00C3": "A"          # Ã
+    "\u00C4": [AE, A]      # Ä
+    "\u00C5": [AA, A]      # Å
+    "\u00C6": "AE"         # Æ
+    "\u00C7": "C"          # Ç
+    "\u00C8": "E"          # È
+    "\u00C9": "E"          # É
+    "\u00CA": "E"          # Ê
+    "\u00CB": "E"          # Ë
+    "\u00CC": "I"          # Ì
+    "\u00CD": "I"          # Í
+    "\u00CE": "I"          # Î
+    "\u00CF": "I"          # Ï
+    "\u00D0": "D"          # Ð 
+    "\u00D1": [N, NXX]     # Ñ
+    "\u00D2": "O"          # Ò
+    "\u00D3": "O"          # Ó
+    "\u00D4": "O"          # Ô
+    "\u00D5": "O"          # Õ
+    "\u00D6": [OE, O]      # Ö
+    "\u00D8": "OE"         # Ø
+    "\u00D9": "U"          # Ù
+    "\u00DA": "U"          # Ú
+    "\u00DB": "U"          # Û
+    "\u00DC": [UE, UXX, U] # Ü
+    "\u00DD": "Y"          # Ý
+    "\u00DE": "TH"         # Þ
+    "\u00DF": "SS"         # ß
+    "\u0100": "A"          # Ā
+    "\u0102": "A"          # Ă
+    "\u0104": "A"          # Ą
+    "\u0106": "C"          # Ć
+    "\u0108": "C"          # Ĉ
+    "\u010A": "C"          # Ċ
+    "\u010C": "C"          # Č
+    "\u010E": "D"          # Ď
+    "\u0110": "D"          # Ð
+    "\u0112": "E"          # Ē
+    "\u0114": "E"          # Ĕ
+    "\u0116": "E"          # Ė
+    "\u0118": "E"          # Ę
+    "\u011A": "E"          # Ě
+    "\u011C": "G"          # Ĝ
+    "\u011E": "G"          # Ğ
+    "\u0120": "G"          # Ġ
+    "\u0122": "G"          # Ģ
+    "\u0124": "H"          # Ĥ
+    "\u0126": "H"          # Ħ
+    "\u0128": "I"          # Ĩ
+    "\u012A": "I"          # Ī
+    "\u012C": "I"          # Ĭ
+    "\u012E": "I"          # Į
+    "\u0130": "I"          # İ
+    "\u0049": "I"          # I
+    "\u0132": "IJ"         # Ĳ
+    "\u0134": "J"          # Ĵ
+    "\u0136": "K"          # Ķ
+    "\u0139": "L"          # Ĺ
+    "\u013B": "L"          # Ļ
+    "\u013D": "L"          # Ľ
+    "\u013F": "L"          # Ŀ
+    "\u0141": "L"          # Ł
+    "\u0143": "N"          # Ń
+    "\u0145": "N"          # Ņ
+    "\u0147": "N"          # Ň
+    "\u014A": "N"          # Ŋ
+    "\u014C": "O"          # Ō
+    "\u014E": "O"          # Ŏ
+    "\u0150": "O"          # Ő
+    "\u0152": "OE"         # Œ
+    "\u0154": "R"          # Ŕ
+    "\u0156": "R"          # Ŗ
+    "\u0158": "R"          # Ř
+    "\u015A": "S"          # Ś
+    "\u015C": "S"          # Ŝ
+    "\u015E": "S"          # Ş
+    "\u0160": "S"          # Š
+    "\u0162": "T"          # Ţ
+    "\u0164": "T"          # Ť
+    "\u0166": "T"          # Ŧ
+    "\u0168": "U"          # Ũ
+    "\u016A": "U"          # Ū
+    "\u016C": "U"          # Ŭ
+    "\u016E": "U"          # Ů
+    "\u0170": "U"          # Ű
+    "\u0172": "U"          # Ų
+    "\u0174": "W"          # Ŵ
+    "\u0176": "Y"          # Ŷ
+    "\u0178": "Y"          # Ÿ
+    "\u0179": "Z"          # Ź
+    "\u017B": "Z"          # Ż
+    "\u017D": "Z"          # Ž
+
+    "\u00E0": "a"          # à
+    "\u00E1": "a"          # á
+    "\u00E2": "a"          # â
+    "\u00E3": "a"          # ã
+    "\u00E4": [ae, a]      # ä
+    "\u00E5": [aa, a]      # å
+    "\u00E6": "ae"         # æ
+    "\u00E7": "c"          # ç
+    "\u00E8": "e"          # è
+    "\u00E9": "e"          # é
+    "\u00EA": "e"          # ê
+    "\u00EB": "e"          # ë
+    "\u00EC": "i"          # ì
+    "\u00ED": "i"          # í
+    "\u00EE": "i"          # î
+    "\u00EF": "i"          # ï
+    "\u00F0": "d"          # ð
+    "\u00F1": [n, nxx]     # ñ
+    "\u00F2": "o"          # ò
+    "\u00F3": "o"          # ó
+    "\u00F4": "o"          # ô
+    "\u00F5": "o"          # õ
+    "\u00F6": [oe, o]      # ö
+    "\u00F8": "oe"         # ø
+    "\u00F9": "u"          # ù
+    "\u00FA": "u"          # ú
+    "\u00FB": "u"          # û
+    "\u00FC": [ue, uxx, u] # ü
+    "\u00FD": "y"          # ý
+    "\u00FE": "th"         # þ
+    "\u00FF": "ss"         # ß
+    "\u0101": "a"          # ā
+    "\u0103": "a"          # ă
+    "\u0105": "a"          # ą
+    "\u0107": "c"          # ć
+    "\u0109": "c"          # ĉ
+    "\u010B": "c"          # ċ
+    "\u010D": "c"          # č
+    "\u010F": "d"          # ď
+    "\u0111": "d"          # ð
+    "\u0113": "e"          # ē
+    "\u0115": "e"          # ĕ
+    "\u0117": "e"          # ė
+    "\u0119": "e"          # ę
+    "\u011B": "e"          # ě
+    "\u011D": "g"          # ĝ
+    "\u011F": "g"          # ğ
+    "\u0121": "g"          # ġ
+    "\u0123": "g"          # ģ
+    "\u0125": "h"          # ĥ
+    "\u0127": "h"          # ħ
+    "\u0129": "i"          # ĩ
+    "\u012B": "I"          # ī
+    "\u012D": "I"          # ĭ
+    "\u012F": "I"          # į
+    "\u0069": "I"          # i̇
+    "\u0131": "I"          # i
+    "\u0133": "IJ"         # ĳ
+    "\u0135": "J"          # ĵ
+    "\u0137": "K"          # ķ
+    "\u013A": "L"          # ĺ
+    "\u013C": "L"          # ļ
+    "\u013E": "L"          # ľ
+    "\u0140": "L"          # ŀ
+    "\u0142": "L"          # ł
+    "\u0144": "N"          # ń
+    "\u0146": "N"          # ņ
+    "\u0148": "N"          # ň
+    "\u014B": "N"          # ŋ
+    "\u014D": "O"          # ō
+    "\u014F": "O"          # ŏ
+    "\u0151": "O"          # ő
+    "\u0153": "OE"         # œ
+    "\u0155": "R"          # ŕ
+    "\u0157": "R"          # ŗ
+    "\u0159": "R"          # ř
+    "\u015B": "S"          # ś
+    "\u015D": "S"          # ŝ
+    "\u015F": "S"          # ş
+    "\u0161": "S"          # š
+    "\u0163": "T"          # ţ
+    "\u0165": "T"          # ť
+    "\u0167": "T"          # ŧ
+    "\u0169": "U"          # ũ
+    "\u016B": "U"          # ū
+    "\u016D": "U"          # ŭ
+    "\u016F": "U"          # ů
+    "\u0171": "U"          # ű
+    "\u0173": "U"          # ų
+    "\u0175": "W"          # ŵ
+    "\u0177": "Y"          # ŷ
+    "\u00FF": "Y"          # ÿ
+    "\u017A": "Z"          # ź
+    "\u017C": "Z"          # ż
+    "\u017E": "Z"          # ž
+
+    # B. Transliteration of Cyrillic Characters
+    "\u0401": "E"          # Ё (except Belorussian = IO) 
+    "\u0402": "D"          # Ћ
+    "\u0404": "IE"         # Є (except if Ukrainian first character, then = YE)
+    "\u0405": "DZ"         # Ѕ 
+    "\u0406": "I"          # І 
+    "\u0407": "I"          # Ї (except if Ukrainian first character, then = YI)
+    "\u0408": "J"          # Ј 
+    "\u0409": "LJ"         # Љ 
+    "\u040A": "NJ"         # Њ 
+    "\u040C": "K"          # Ќ (except in the language spoken in the former Yugoslav Republic of Macedonia = KJ)
+    "\u040E": "U"          # ў 
+    "\u040F": "DZ"         # Џ (except in the language spoken in the former Yugoslav Republic of Macedonia = DJ) 
+    "\u0410": "A"          # А
+    "\u0411": "B"          # Б
+    "\u0412": "V"          # В
+    "\u0413": "G"          # Г (except Belorussian, Serbian, and Ukrainian = H) 
+    "\u0414": "D"          # Д
+    "\u0415": "E"          # Е
+    "\u0416": "ZH"         # Ж (except Serbian = Z)
+    "\u0417": "Z"          # З
+    "\u0418": "I"          # И (except Ukrainian = Y)
+    "\u0419": "I"          # Й (except if Ukrainian first character, then = Y) 
+    "\u041A": "K"          # К
+    "\u041B": "L"          # Л
+    "\u041C": "M"          # М
+    "\u041D": "N"          # Н
+    "\u041E": "O"          # О
+    "\u041F": "P"          # П
+    "\u0420": "R"          # Р
+    "\u0421": "S"          # С
+    "\u0422": "T"          # Т
+    "\u0423": "U"          # У
+    "\u0424": "F"          # Ф
+    "\u0425": "KH"         # Х (except Serbian and in the language spoken in the former Yugoslav Republic of Macedonia = H)
+    "\u0426": "TS"         # Ц (except Serbian and in the language spoken in the former Yugoslav Republic of Macedonia = C)
+    "\u0427": "CH"         # Ч (except Serbian = C)
+    "\u0428": "SH"         # Ш (except Serbian = S)
+    "\u0429": "SHCH"       # Щ (except Bulgarian = SHT)
+    "\u042A": "IE"         # Ъ
+    "\u042B": "Y"          # Ы
+    "\u042D": "E"          # Э
+    "\u042E": "IU"         # Ю (except if Ukrainian first character, then = YU)
+    "\u042F": "IA"         # Я (except if Ukrainian first character, then = YA)
+    "\u046A": "U"          # Ѫ
+    "\u0474": "Y"          # Ѵ
+    "\u0490": "G"          # Ґ
+    "\u0492": "G"          # Ғ (except in the language spoken in the former Yugoslav Republic of Macedonia = GJ) 
+    "\u04BA": "C"          # Һ
+
+    "\u0451": "e"          # ё (except Belorussian = io) 
+    "\u0452": "d"          # ћ
+    "\u0454": "ie"         # є (except if Ukrainian first character, then = ye)
+    "\u0455": "dz"         # ѕ 
+    "\u0456": "i"          # і 
+    "\u0457": "i"          # ї (except if Ukrainian first character, then = yi)
+    "\u0458": "j"          # ј 
+    "\u0459": "lj"         # љ 
+    "\u045A": "nj"         # њ 
+    "\u045C": "k"          # ќ (except in the language spoken in the former Yugoslav Republic of Macedonia = kj)
+    "\u045E": "u"          # ў 
+    "\u045F": "dz"         # џ (except in the language spoken in the former Yugoslav Republic of Macedonia = dj) 
+    "\u0410": "a"          # а
+    "\u0431": "b"          # б
+    "\u0432": "v"          # в
+    "\u0433": "g"          # г (except Belorussian, Serbian, and Ukrainian = h) 
+    "\u0434": "d"          # д
+    "\u0435": "e"          # е
+    "\u0436": "zh"         # ж (except Serbian = z)
+    "\u0437": "z"          # з
+    "\u0438": "i"          # и (except Ukrainian = y)
+    "\u0439": "i"          # й (except if Ukrainian first character, then = y) 
+    "\u043A": "k"          # к
+    "\u043B": "l"          # л
+    "\u043C": "m"          # м
+    "\u043D": "n"          # н
+    "\u043E": "o"          # о
+    "\u043F": "p"          # п
+    "\u0440": "r"          # р
+    "\u0441": "s"          # с
+    "\u0442": "t"          # т
+    "\u0443": "u"          # у
+    "\u0444": "f"          # ф
+    "\u0445": "kh"         # х (except Serbian and in the language spoken in the former Yugoslav Republic of Macedonia = h)
+    "\u0446": "ts"         # ц (except Serbian and in the language spoken in the former Yugoslav Republic of Macedonia = c)
+    "\u0447": "ch"         # ч (except Serbian = c)
+    "\u0448": "sh"         # ш (except Serbian = s)
+    "\u0449": "shch"       # щ (except Bulgarian = sht)
+    "\u044A": "ie"         # ъ
+    "\u044B": "y"          # ы
+    "\u044D": "e"          # э
+    "\u044E": "iu"         # ю (except if Ukrainian first character, then = yu)
+    "\u044F": "ia"         # я (except if Ukrainian first character, then = ya)
+    "\u046B": "u"          # ѫ
+    "\u0475": "y"          # ѵ
+    "\u0491": "g"          # ґ
+    "\u0493": "g"          # ғ (except in the language spoken in the former Yugoslav Republic of Macedonia = gj) 
+    "\u04BB": "c"          # һ
