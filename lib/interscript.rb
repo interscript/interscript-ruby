@@ -39,8 +39,6 @@ module Interscript
       title_case = mapping.title_case
       downcase = mapping.downcase
 
-      # charmap = mapping.characters&.sort_by { |k, _v| k.size }&.reverse&.to_h
-      # dictmap = mapping.dictionary&.sort_by { |k, _v| k.size }&.reverse&.to_h
       charmap = mapping.characters_hash
       dictmap = mapping.dictionary_hash
       trie = mapping.dictionary_trie
