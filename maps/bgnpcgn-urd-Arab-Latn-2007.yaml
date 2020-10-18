@@ -184,7 +184,7 @@ tests:
   - source: جھِیل
     expected: Jhīl
 
-  - source:  غَزْنِى سْپِين
+  - source:  غَزْنِي سْپِين
     expected: Ghaznī Spīn
 
   - source: بَادشَاه چھُم
@@ -198,6 +198,63 @@ tests:
 
   # - source: غوزگَڑھِی
   #   expected: Ghozgaṛhī
+
+  # - source: دوغَل گاکھَر
+  #   expected: Doghal Gākhar
+
+  - source: خَان گھَڑِی
+    expected: Khān Ghaṛī
+
+  - source: غُلَامَک كَلے
+    expected: Ghulāmak Kale
+
+  # - source: کاراخیل
+  #   expected: Kārākhel
+
+  - source: خَپیَنگا
+    expected: Khapyangā
+
+  - source: گَندَه كَلے
+    expected: Gandah Kale
+
+  # - source: گُلونَا ڈھيرِي
+  #   expected: Gulonā Ḍherī
+
+  # - source: خيرَه دِين
+  #   expected: Kherah Dīn
+
+  - source: مَورپِتھِی
+    expected: Maurpithī
+
+  - source: درے پلارِی
+    expected: Dre Plārī
+
+  - source: آگرَہ
+    expected: Āgrah
+
+  - source: ڈَنڈَر
+    expected: Ḍanḍar
+
+  # - source: گِیدو
+  #   expected: Gīdo
+
+  - source: گُبازانَہ
+    expected: Gubāzānah
+
+  # - source: اُوشو
+  #   expected: Ūsho
+
+  - source: حَےدَر عَلِی كَلے
+    expected: Ḩaidar ‘Alī Kale
+
+  - source: تَودَہ چِینَہ
+    expected: Taudah Chīnah
+
+  - source: مُوسى خَان كَلے
+    expected: Mūsá Khān Kale
+
+  - source: مُلَّا بَاغ
+    expected: Mullā Bāgh
 
 map:
   postrules:
@@ -248,7 +305,7 @@ map:
     '\u0652' : ''  # ْ sokoon
     '\u0659': 'ê'
 
-    '\u0650[\u064a|\u0649|\u06cc]' : 'ī' # ـِي kasra followed by ي
+    '\u0650[\u064a|\u06cc]' : 'ī' # ـِي kasra followed by ي
     '\u0650' : 'i' # karsra
     '\u06d2' : 'e' # ـے
 
@@ -264,6 +321,7 @@ map:
     '\u064e\u06d2' : 'ai' # ـے
     '\u064e\u0648' : 'au'  # ـَو
     '\u0670': 'á' # ىٰ
+    '\u0649': 'á' # ىٰ
 
     # shadda
     '\u0628\u0651' : 'bb'  # ب
@@ -393,6 +451,6 @@ map:
     '[\u0647|\u06c1|\u06be]' : 'h'  # ه
     '\u0648' : 'w'  # و
     '[\u064a|\u06cc]' : 'y'  # ي
-    '\u0649' : 'y'  # ي
+    # '\u0649' : 'y'  # ي
     '\u06D0' : 'ē'   # ې
     '\u06CD' : 'êy'  # ‫ۍ‬
