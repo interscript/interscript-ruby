@@ -30,158 +30,30 @@ description: |
   designed to harmonize with the BGN/PCGN Persian
   romanization system.
 notes:
-  - |
-    Alif (ا) should be romanized as follows:
-
-    a. Initially, it indicates that the word begins with a vowel or
-      diphthong; the alif itself is not romanized, but rather the short vowel
-      it “carries” is romanized; e.g., ميړ أَسَلم ژرَندَه → Mī Aslam Zhrandah
-    b. When it carries a maddah (آ) (see vowel table, row 6), it represents ā; e.g., آب بَند → Āb Band.
-    c. Medially and finally it represents ā (see vowel table, row 5); e.g., ماڼۍ → Māṉêy
-    d. Medially and finally in words of Arabic origin, alif may serve as the bearer of hamzah, e.g. رأس → ra’s.
-
-  - Occasionally the letter sequences سه ,زه ,که, and گه occur without
-    intervening vowels. They may be romanized k·h, z·h, s·h, and g·h in
-    order to differentiate these romanizations from the digraphs kh, zh,
-    sh, and gh, which are used to represent the letters ش ,ژ ,خ, and غ.
-    Additionally, the Pashto letters څ and ځ, routinely romanized ts and
-    dz, may be alternatively romanized s and z تس when for special reasons
-    it is desired that confusion be avoided with the character sequences
-    (ts) and دز (dz), respectively.
-
-  - "The vagaries of written Afghan languages, as pertains to spacing
-    and word division, are addressed as follows:
-    Spaces may be added to or subtracted from Afghan words written in
-    Arabic script, for the purposes of standardization. This is
-    particularly relevant when the words are hand-written, are rendered
-    “art st cally”, or express other s ch non-standard flourishes, as long
-    as the sense of the toponym, word, or phrase is not compromised.
-    Romanized toponyms are typically divided into constituent words
-    (spaces and other grammatical rules applied) when those words can stand
-    independently, for purposes of standardization and minimization of
-    confusion, particularly in situations where Afghan writers are
-    inconsistent in their application of spacing and word breaks. When the
-    Afghan word or suffix is only used in combination with other nouns or
-    adjectives, then it should be appended to the preceding word in its
-    romanization. This includes (but is not limited to) - ābā , -zaī, -zā
-    ah, - ū, -wand, -gaī, -kaī, -pūr, - ēsh, -lar, -lī, -lū and ullāh, as,
-    for example, seen in Raḩmatābād (رحمت آباد) and Raḩmatullāh (رحمت االله),
-    but Raḩmat Khēl (رحمتخيل) and Raḩmat Shahr (رحمتشهر)."
-
-  - The one-letter words د (Pashto) and و (Dari) are romanized dê and
-    wa, respectively.
-
-  - The word الله, meaning God, should always be romanized Allāh,
-    except as specified in note 3. Note that the Unicode value FDF2 spells
-    Allāh, but omits the alif in some common fonts, including Times New
-    Roman. If in doubt, try in Arial Unicode MS to verify. Also note that
-    the “dagger al f” ( ) above the second ل (lām) n the ord الله, is not
-    written but should be romanized ā, like a full-size alif.
-
-  - In names of Arabic origin, the l of the definite article al s ass m
-    lated before the ‘s n letters’ , , , , r, z, s, sh, ş, ẕ, , z, l and n.
-    In its romanization, the article should be separated from the name it
-    precedes and should not be capitalized except at the beginning of a
-    name, e.g. جبل السراج→ Jabal
-    as Sarāj
-
-  - In Arabic names, a shaddah, ّ is used to denote the doubling of a
-    particular consonant character, e.g. ُم َح َمد → Muḩammad. Ho ever, n
-    Pashto th s ‘do bl ng’ s freq ently om tted n both Perso- Arabic script
-    and the resulting romanization. Guidance on doubling may be taken from
-    an authoritative names source, such as an Afghan government source or
-    Pashto dictionary; for example, it is usual to see Ḩājī without and
-    ‘Abbās with the doubled consonant. The doubled y consonant is almost
-    always retained, as in Sayyid or Qayyūm.
-
-  - In Afghan names which contain an iẕāfah, it should be romanized as
-    -e or –ye according to
-    common pronunciation, but generally, -e is used if the preceding word
-    ends with a consonant other
-    than silent heh, and -ye if the preceding word ends with a vowel
-    sound e.g. غر ِحصار → Ghar-e ِ
-    Ḩ şār; َقل َع ٔه َنو → Qal‘ah-ye Now. Scholarly sources indicate that
-    heh is silent in darah and qal‘ah (thus darah-ye, qal‘ah-ye), but
-    lightly spoken in kōh and chāh (thus kōh-e, chāh-e).
-
-  - The character sequence خو, where followed by ا or ی should be
-    romanized khwā or khwī, although the w is either not pronounced, or
-    only weakly so, as in خواجه → khwājah.
-
-  - Plural nouns ending in -hā or -ān should always be romanized as a
-    single word, regardless of whether a space appears in a Perso-Arabic
-    script source.
-
-  - Unicode values listed in the tables above are required to ensure
-    standardization and to minimize confusion from competing
-    representations of a given character. It should be noted that the
-    Persian Unicode value 0643 or FEDA( ك Unicode value 06A9) is
-    recommended rather than the Arabic( ک or FED9), the Persian گ (Unicode
-    value 06AF) is recommended rather than ګ (Unicode value 06AB) or ڰ
-    (Unicode value 06B0) or ك (Unicode value 0643 or FEDA or FED9), and the
-    Pashto character ځ (Unicode value 0681) is recommended rather than the
-    heh with a dot above and a dot below (no Unicode value). For the letter ی
-    in its many variations, care must be exercised to follow this romanization
-    guide's recommendations to eliminate confusion for search engines
-    and software. BGN/PCGN does not use the Unicode encoding FEEF for the
-    character ی in any Afghan word.
-
-  - |
-    An inventory of letter-diacritic combinations in addition to the
-    unmodified letters of the basic Roman script is:
-
-    ‘ (U+2018)
-    Ā (U+0100)
-    Á (U+00C1)
-    Ḏ (U+0044+0031)
-    Ē (U+9112)
-    Ê (U+00CA)
-    Ḩ (U+1E28)
-    Ī (U+012A)
-    N-bar-top (U+004E+0304)
-    Ō (U+014C)
-    R-bar-bottom (U+0052+0031)
-    Ş (U+015E)
-    S-bar-top (U+0053+0304)
-    Ṯ (U+0054+0031)
-    Ţ (U+0162)
-    Ū (U+918A)
-    Z-comma-bottom (U+005A+0327)
-    Z-bar-top (U+005A+0304)
-    Ẕ (U+005A+0331)
-    ẔH (U+005A+0048+035F)
-
-
-    ʼ (U+2019)
-    ā (U+0101)
-    á (U+00E1)
-    ḏ (U+0064+00031)
-    ē (U+0113)
-    ê (U+00EA)
-    ḩ (U+1E29)
-    ī (U+912B)
-    n-bar-top (U+004E+0304)
-    ō (U+014D)
-    r-bar-bottom (U+0072+0031)
-    ş (U+015F)
-    s-bar-top (U+0073+0304)
-    ṯ (U+0074+0031)
-    ţ (U+0163)
-    ū (U+918B)
-    z-comma-bottom (U+007A+0327)
-    z-bar-top (U+007A+0304)
-    ẕ (U+007A+0331)
-    zh-under-bar (U+007A+0068+035F)
-
-
-  - The Romanization columns show only lowercase forms but, when
-    romanizing, uppercase and lowercase Roman letters as appropriate should
-    be used.
-
+  - 1. When the vowel sign zīr ( ِ) occurs word-finally in the
+    first element of a compound, it is assumed to mark the
+    Persian izafat
+    morpheme, and is romanized -e, not i.
+  - 2. The source of almost all example names is the 1951
+    Census of Pakistan, Village List, Northwest Frontier
+    Province, Chitral
+    State. Office of the Provincial Superintendant of Census,
+    North-West Frontier Province, Peshawar.
+  - 3. No examples of aspirated dental r (rh, رھ ( were found,
+    though this phoneme is assumed to be part of the phonology
+    of
+    Urdu, and was therefore left out of Table 2.
+  - 4. Note that the short vowels in the Urdu examples are not
+    pointed.
+  - 5. Occasionally, sequences of /z/ or /s/ plus /h/ may be
+    encountered, i.e. z·h, s·h. These may be romanized with the
+    Unicode
+    'center dot' (U+00B7) separating the two letters, to
+    distinguish them from the digraphs /zh/ and /sh/.
 
 tests:
-  - source: بوغدِی
-    expected: Boghdī
+  # - source: بوغدِی
+  #   expected: Boghdī
 
   - source: پَالِير
     expected: Pālīr
@@ -189,8 +61,8 @@ tests:
   # - source: بیزوت كَلے
   #   expected: Bezot Kale
 
-  - source: عَمَل كوٹ
-    expected: ‘Amal Koṭ
+  # - source: عَمَل كوٹ
+  #   expected: ‘Amal Koṭ
 
   - source: ثَابِر
     expected: S̄ābir
@@ -228,8 +100,8 @@ tests:
   - source: عَلِي زَائِي
     expected: ‘Alī Zā’ī
 
-  - source: ژوب
-    expected: Zhob
+  # - source: ژوب
+  #   expected: Zhob
 
   - source: بِسَاتُو
     expected: Bisātū
@@ -255,8 +127,8 @@ tests:
   - source: بغَاكِي
     expected: Bghākī
 
-  - source: مُظَفَر كوٹ
-    expected: Muz̧afar Koṭ
+  # - source: مُظَفَر كوٹ
+  #   expected: Muz̧afar Koṭ
 
   - source: حَقدَرَه
     expected: Ḩaqdarah
@@ -276,8 +148,8 @@ tests:
   - source: نَہر
     expected: Nahr
 
-  - source: جوکَالِیَاں
-    expected: Jokālīāñ
+  # - source: جوکَالِیَاں
+  #   expected: Jokālīāñ
 
   - source: اَرَوْالِی
     expected: Arawālī
@@ -315,41 +187,17 @@ tests:
   - source:  غَزْنِى سْپِين
     expected: Ghaznī Spīn
 
-  # # - source: ريگ مَيوَنْد
-  # #   expected: Maywand, Rēg
+  - source: بَادشَاه چھُم
+    expected: Bādshāh Chhum
 
-  # - source: گَرْدېز
-  #   expected: Gardēz
+  - source:  سِندھ
+    expected: Sindh
 
-  # - source: مَیدان شَهْر
-  #   expected: Maīdān Shahr
+  - source: ڈھَنڈ
+    expected: Ḍhanḍ
 
-  # - source: ډَنْډِ سُفْلىٰ
-  #   expected: Ḏanḏ-e Suflá
-
-  # # - source: څَوْکۍ
-  # #   expected: Tsowkêy
-
-  # # - source: هَوائِي ډَگَر
-  # #   expected: Hawā’ī ḏagar
-
-  # # - source: مَزارِ شَريف
-  # #   expected: Mazār-e sharīf
-
-  # # - source: دايکندی
-  # #   expected: Dāykundī
-
-  # # - source: زيارت
-  # #   expected: Zīārat
-
-  # # - source: غوريان
-  # #   expected: Ghōriyān
-
-  # # - source: ميا
-  # #   expected: Myā
-
-  # - source: جَبَل السَرَاج
-  #   expected: Jabal as Sarāj
+  # - source: غوزگَڑھِی
+  #   expected: Ghozgaṛhī
 
 map:
   postrules:
@@ -392,79 +240,32 @@ map:
     '\s(?=\u0622\u0628\u064E\u0627\u062F)': '' # space followed by abad is removed
     '\ufdf2': 'Allāh' # See note 5
 
-    # pointing
+    # Vowels, Diphthongs, and Diacritical Marks
     '\u064e' : 'a' # َ fatha
     '\u064e(?=\u0629)' : '' # َ fatha followed by ta' marboota
     '\u064e(?=a[h|t])' : '' # َ fatha followed by ta' marboota, handling different order of conversion
 
-    # Both e and i are available to romanize this short vowel,
-    # depending on local usage and/or root language. In cases where the sound
-    # is uncertain, i is the default romanization in BGN/PCGN standardization
-    # procedures.
-    '\u0650':
-      - 'i'
-      - 'e'
-    '\u0650\b' : '-e' # ِ kasra
-
-    # Both o and u are available to romanize this short vowel,
-    # depending on local usage and/or root language. In cases where the sound
-    # is uncertain, u is the default romanization in BGN/PCGN standardization
-    # procedures.
-    '\u064f':  # ُ damma
-      - 'u'
-      - 'o'
-
     '\u0652' : ''  # ْ sokoon
     '\u0659': 'ê'
 
-    # special pointed letters
-    '\u0639\u064e' : '‘a'  # عَ
-    '\u0639\u0650' : '‘i'  # عِ
-    '\u0639\u064f' : '‘ū'  # عُ
-    # handle MacOS regex difference
-    '\u0639\u064f\u0648' : '‘ū'  # عُو damma followed by و
-
     '\u0650[\u064a|\u0649|\u06cc]' : 'ī' # ـِي kasra followed by ي
-    '\u0650\u064a\u0651\u064e' : 'īy' # ـِيَّ
-    '\u0650\u064a(?=\u064e|u064f)' : 'iy' # ـِي kasra followed by ي
-    '\u064f\u0648' : 'ū'  # ـُو damma followed by و
-    '\u064e\u0627' : 'ā'  # ـَا fatha followed by ا
-    '\u064e\u0649' : 'ay'  # ـَى fatha followed by ى which is ا not ي
-    '\u064e\u0648\u0652' : 'aw'  # ـَوْ
-    '\u064e\u0648' : 'ow'  # ـَو
-    '\u064e\u064a\u0652' : 'ay'  # ـَيْ
-    '\u0650\u06cc\u0651\u064e' : 'īy' # ـِيَّ
-    '\u064e\u064a' : 'aī'  # ـَي
-    '\u064e\u06cc' : 'aī'  # ـَي
-    '\u0649\u0670': 'á' # ىٰ
-    '\u0674': '-e' # ٴ
-    '\u0654': '-e' #  ٔ
-      # - '-ye'
+    '\u0650' : 'i' # karsra
+    '\u06d2' : 'e' # ـے
 
-    # An alif with mad ( آ ) is written only in the initial position by
-    # BGN/PCGN standardization procedures, in keeping with Persian language
-    # family standards of use of the Arabic alphabet. The same letter written
-    # in a medial or final position is written . . .
     '\u0622' : 'ā'  # آ
+    '\u064e\u0627' : 'ā'  # ـَا fatha followed by ا
+    '\u0627' : 'ā'  # ا
+    '\b\u0627' : ''  # ا
 
-    # ta' marboota
-    '\u0629' : 'at' # ة in the middle of the sentence
-    '\u0629$' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{2})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{3})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{4})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{5})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{6})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{7})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{8})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{9})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{10})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{11})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{12})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{13})\u0629' : 'ah'
+    '\u0648' : 'o'  # و # suspect
+    '\u064f' : 'u' # ُ damma
+    '\u064f\u0648' : 'ū'  # ـُو damma followed by و
+
+    '\u064e\u06d2' : 'ai' # ـے
+    '\u064e\u0648' : 'au'  # ـَو
+    '\u0670': 'á' # ىٰ
 
     # shadda
-
     '\u0628\u0651' : 'bb'  # ب
     '\u062a\u0651' : 'tt'  # ت
     '\u062b\u0651' : 'thth'  # ث
@@ -492,6 +293,39 @@ map:
     '\u0648\u0651' : 'ww'  # و
     '[\u064a|\u06cc]\u0651' : 'yy'  # ي
 
+    # NOTE 1
+    '\u0650\b' : '-e' # ِ kasra
+    '\u0674' : '-e' # ٴ
+    '\u0654' : '-e' #  ٔ
+
+    '\u0650\u064a\u0651\u064e' : 'īy' # ـِيَّ
+    '\u0650\u064a(?=\u064e|u064f)' : 'iy' # ـِي kasra followed by ي
+    '\u064e\u0649' : 'ay'  # ـَى fatha followed by ى which is ا not ي
+    '\u064e\u0648\u0652' : 'aw'  # ـَوْ
+    '\u064e\u064a\u0652' : 'ay'  # ـَيْ
+    '\u0650\u06cc\u0651\u064e' : 'īy' # ـِيَّ
+    '\u064e\u064a' : 'aī'  # ـَي
+    '\u064e\u06cc' : 'aī'  # ـَي
+      # - '-ye'
+
+
+    # ta' marboota
+    '\u0629' : 'at' # ة in the middle of the sentence
+    '\u0629$' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{2})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{3})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{4})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{5})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{6})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{7})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{8})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{9})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{10})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{11})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{12})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{13})\u0629' : 'ah'
+
+
 
     '\u0621' : '’' # ء
     '\u0624' : '’' # ؤ
@@ -500,9 +334,6 @@ map:
 
     '\u0623' : ''  # أ
     '\u0625' : ''    # إ
-    '\u0627' : 'ā'  # ا
-    '\b\u0627' : ''  # ا
-    '\u06d2' : 'e'
     # See note B
     '\b\u0627\u0644' : 'al '  # ال
     # '\uFE8E' : ''  # ﺎ
@@ -561,7 +392,6 @@ map:
     '\u06BA' : 'ñ' # ڼ
     '[\u0647|\u06c1|\u06be]' : 'h'  # ه
     '\u0648' : 'w'  # و
-    '\u0648' : 'o'  # و
     '[\u064a|\u06cc]' : 'y'  # ي
     '\u0649' : 'y'  # ي
     '\u06D0' : 'ē'   # ې
