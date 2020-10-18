@@ -127,6 +127,8 @@ module Interscript
         @characters = (inherited_mapping.characters|| {}).merge(characters)
         @dictionary = (inherited_mapping.dictionary|| {}).merge(dictionary)
       end
+
+      @characters.compact! # the feature to ignore characters from inherited
     end
 
     def build_hashes
