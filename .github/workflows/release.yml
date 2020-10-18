@@ -45,3 +45,10 @@ jobs:
           git -C interscript-js add interscript.js
           git -C interscript-js commit -m "Update interscript.js ${INTERSCRIPT_CLI_REF#*/v}"
           echo "git -C interscript-js push"
+      - name: Trigger interscript-api
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.METANORMA_CI_PAT_TOKEN }}
+          repository: interscript/interscript-api
+          event-type: ${{ github.repository }}
+          client-payload: '{ "ref": "${{ github.ref }}" }'
