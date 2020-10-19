@@ -9,6 +9,7 @@ pkg/
 /spec/ch.txt
 /spec/ch.cache.rbs
 /Gemfile.lock
+/aliases.json
 /vendor/assets/javascripts/interscript.js
 /vendor/assets/maps/*.json
 
