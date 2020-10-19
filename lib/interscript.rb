@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require "interscript/opal/maps" if RUBY_ENGINE == "opal"
 require "interscript/mapping"
 
 # Transliteration
@@ -21,6 +20,8 @@ module Interscript
   class << self
 
     def transliterate(system_code, string, maps={})
+      system_code = map_resolve(system_code)
+
       unless maps.has_key? system_code
         maps[system_code] = Interscript::Mapping.for(system_code)
       end
@@ -130,6 +131,12 @@ module Interscript
       end
 
       output.unicode_normalize
+    end
+
+    def map_resolve(map)
+      map = aliases[map] if aliases.key? map
+      raise ArgumentError, "Map #{map} doesn't exist" unless map_exist? map
+      map
     end
 
     private

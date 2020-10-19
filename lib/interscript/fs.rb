@@ -59,7 +59,34 @@ module Interscript
       string
     end
 
+    def aliases (refresh: false)
+      file = root_path.join("./aliases.json").to_s
+      if !refresh && File.exist?(file)
+        JSON.load(File.read(file))
+      elsif !refresh && @aliases
+        @aliases
+      else
+        @aliases = {}
+        Dir[root_path.join('./maps/*.yaml').to_s].each do |yaml_file|
+          org_name = File.basename(yaml_file, ".yaml")
+          map = YAML.load_file(yaml_file)
+          (map["alias"] || {}).each do |k,v|
+            @aliases[v["code"]] = org_name
+          end
+        end
+
+        # Try to save it to a file, but not force it.
+        File.write("aliases.json", JSON.dump(@aliases)) rescue nil
+
+        @aliases
+      end
+    end
+
     private
+
+    def map_exist?(map)
+      File.exist?(root_path.join("./maps/" + map + ".yaml").to_s)
+    end
 
     def mkregexp(regexpstring)
       /#{regexpstring}/u
