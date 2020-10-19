@@ -31,33 +31,44 @@ notes:
   - |
     The following independent characters are sometimes used: अि i, अी ī, अु u, अू ū, अे e, अै ai.
 
+  ######################################## Additional Note ############################################################
+  #    It is recommended that the vowel अ (a) should always be romanized except when it ends a                        #
+  #    name. In the scheme we are not yet able to detect a name. Analysing language pattern and the example           #
+  #    we found that actually when a word ends with a consonant it should be transliterated without the vowel in it.  #
+  #    so we are applying this rule as if a word ends with a consonant, in this case we are removing the ending 'a'.  #
+  #####################################################################################################################
+
 tests:
+  - source: "महाराष्ट्र"
+    expected: "mahārāṣhṭr"
+  - source: "मुंबई"
+    expected: "muṁbaī"
   - source: "परिपक्क"
-    expected: "paraipakka"
+    expected: "paripakk"
   - source: "ठाणे - जिल्ह्यात बुधवारी एक हजार रुग्णांची वाढ, तर जणांच्या मृत्यूची नोंद"
-    expected: "ṭhaāṇae - jailhayaāta baudhavaāraī eka hajaāra raugṇaāṁchaī vaāḍha, tara jaṇaāṁchyaā maṛtyaūchaī naoṁda"
+    expected: "ṭhāṇe - jilhyāt budhavārī ek hajār rugṇāṁchī vāḍh, tar jaṇāṁchyā mṛtyūchī noṁd"
   - source: "एकता कपूर पुन्हा अडकली वादात, वेबसीरिजमधल्या 'त्या' सीनमुळे जमावाची घरावर दगडफेक"
-    expected: "ekataā kapaūra paunhaā aḍakalaī vaādaāta, vaebasaīraijamadhalyaā 'tyaā' saīnamauḷae jamaāvaāchaī gharaāvara dagaḍaphaeka"
+    expected: "ekatā kapūr punhā aḍakalī vādāt, vebasīrijamadhalyā 'tyā' sīnamuḷae jamāvāchī gharāvar dagaḍaphek"
   - source: "जाणून घ्या, बीएमसीच्या अधिकाऱ्यांनी कंगना राणौतच्या ऑफिसमधले नक्की काय- काय तोडलं"
-    expected: "jaāṇaūna ghyaā, baīemasaīchyaā adhaikaāryaāṁnaī kaṁganaā raāṇaautachyaā ôphaisamadhalae nakkaī kaāya- kaāya taoḍalaṁ"
+    expected: "jāṇūn ghyā, bīemasīchyā adhikāryāṁnī kaṁganā rāṇautachyā ôphisamadhale nakkī kāy- kāy toḍalaṁ"
   - source: "कंगना मुंबईत दाखल होण्यापूर्वी 'मातोश्री'वरून फर्मान सुटले; प्रवक्त्यांना सक्त आदेश"
-    expected: "kaṁganaā mauṁbaīta daākhala haoṇyaāpaūrvaī 'maātaoshraī'varaūna pharmaāna sauṭalae; pravaktyaāṁnaā sakta ādaesha"
+    expected: "kaṁganā muṁbaīt dākhal hoṇyāpūrvī 'mātoshrī'varūn pharmān suṭale; pravaktyāṁnā sakt ādesh"
   - source: "मराठा आरक्षणास तात्पुरती स्थगिती; सर्वोच्च न्यायालयाचा निर्णय"
-    expected: "maraāṭhaā ārakṣhaṇaāsa taātpaurataī sthagaitaī; sarvaochcha nyaāyaālayaāchaā nairṇaya"
+    expected: "marāṭhā ārakṣhaṇās tātpuratī sthagitī; sarvochch nyāyālayāchā nirṇay"
   - source: "भारताच्या तिन्ही लशींचा पहिला टप्पा यशस्वी, वाचा कधी येणार बाजारात"
-    expected: "bhaārataāchyaā tainhaī lashaīṁchaā pahailaā ṭappaā yashasvaī, vaāchaā kadhaī yaeṇaāra baājaāraāta"
+    expected: "bhāratāchyā tinhī lashīṁchā pahilā ṭappā yashasvī, vāchā kadhī yeṇār bājārāt"
   - source: "रुग्णवाढीमुळे खाटांची चणचण"
-    expected: "raugṇavaāḍhaīmauḷae khaāṭaāṁchaī chaṇachaṇa"
+    expected: "rugṇavāḍhīmuḷae khāṭāṁchī chaṇachaṇ"
   - source: "पीएम स्वनिधी कर्ज योजनेला मुंबईतून अल्प प्रतिसाद"
-    expected: "paīema svanaidhaī karja yaojanaelaā mauṁbaītaūna alpa prataisaāda"
+    expected: "pīem svanidhī karj yojanelā muṁbaītūn alp pratisād"
   - source: "सांताक्रूझ-चेंबूर लिंक रोडवरील उन्नत मार्गाला स्थगिती"
-    expected: "saāṁtaākraūjha-chaeṁbaūra laiṁka raoḍavaraīla unnata maārgaālaā sthagaitaī"
+    expected: "sāṁtākrūjh-cheṁbūr liṁk roḍavarīl unnat mārgālā sthagitī"
   - source: "संपादक अर्णब गोस्वामी यांच्याविरूद्ध खडक पोलिस ठाण्यात तक्रार"
-    expected: "saṁpaādaka arṇaba gaosvaāmaī yaāṁchyaāvairaūddha khaḍaka paolaisa ṭhaāṇyaāta takraāra"
+    expected: "saṁpādak arṇab gosvāmī yāṁchyāvirūddh khaḍak polis ṭhāṇyāt takrār"
   - source: "करणाऱ्या मुलांना अनुक्रमे प्ले ग्रूप"
-    expected: "karaṇaāryaā maulaāṁnaā anaukramae plae graūpa"
+    expected: "karaṇāryā mulāṁnā anukrame ple grūp"
   - source: "राज्यातील शाळा दिवाळीपर्यंत बंद, मंत्र्यांच्या बैठकीत निर्णय, शिक्षकांची जबाबदारी वाढली"
-    expected: "raājyaātaīla shaāḷaā daivaāḷaīparyaṁta baṁda, maṁtryaāṁchyaā baaiṭhakaīta nairṇaya, shaikṣhakaāṁchaī jabaābadaāraī vaāḍhalaī"
+    expected: "rājyātīl shāḷaā divāḷaīparyaṁt baṁd, maṁtryāṁchyā baiṭhakīt nirṇay, shikṣhakāṁchī jabābadārī vāḍhalī"
 
 map:
   inherit: "un-hin-Deva-Latn-2016"

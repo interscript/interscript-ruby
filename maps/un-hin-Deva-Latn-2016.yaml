@@ -30,33 +30,127 @@ notes:
     It is recommended that the vowel अ (a) should always be romanized except when it ends a
     name. If a name ends with a consonant, the consonant should carry a sub-macron. Such
     cases, however, will be very rare. For example, कानपुर Kānapur (not Kānapura), जगत्
-    Jagaṯ.
+    Jagat.
   - |
     If each letter of a digraph or any two parts of a trigraph has a distinct independent sound
     then it should be indicated by a hyphen, thus d-h.
+    
+  ######################################## Additional Note ############################################################
+  #    It is recommended that the vowel अ (a) should always be romanized except when it ends a                        #
+  #    name. In the scheme we are not yet able to detect a name. Analysing language pattern and the example           #
+  #    we found that actually when a word ends with a consonant it should be transliterated without the vowel in it.  #
+  #    so we are applying this rule as if a word ends with a consonant, in this case we are removing the ending 'a'.  #
+  #####################################################################################################################
 
 tests:
+  - source: "दिल्ली"
+    expected: "dillī"
+  - source: "भारत"
+    expected: "bhārat"
   - source: "परिपक्क"
-    expected: "paraipakka"
+    expected: "paripakk"
   - source: "जगत्"
     expected: "jagat"
   - source: "संख्या"
-    expected: "saṁkhyaā"
+    expected: "saṁkhyā"
   - source: "गंभीर मरीजों के मामले में भारत दूसरे नंबर पर"
-    expected: "gaṁbhaīra maraījaoṁ kae maāmalae maeṁ bhaārata daūsarae naṁbara para"
+    expected: "gaṁbhīr marījoṁ ke māmale meṁ bhārat dūsare naṁbar par"
   - source: "कोरोना अपडेट्स"
-    expected: "kaoraonaā apaḍaeṭsa"
+    expected: "koronā apaḍeṭs"
   - source: "सीडीसी चीफ का बयान अहम"
-    expected: "saīḍaīsaī chaīpha kaā bayaāna ahama"
+    expected: "sīḍīsī chīph kā bayān aham"
   - source: "गूगल प्ले स्टोर पर पेटीएम की वापसी"
-    expected: "gaūgala plae sṭaora para paeṭaīema kaī vaāpasaī"
+    expected: "gūgal ple sṭor par peṭīem kī vāpasī"
   - source: "भारत में गैंबलिंग की इजाजत नहीं"
-    expected: "bhaārata maeṁ gaaiṁbalaiṁga kaī ijaājata nahaīṁ"
+    expected: "bhārat meṁ gaiṁbaliṁg kī ijājat nahīṁ"
   - source: "कोरोना वैक्सीन मुद्दे पर घिरे राष्ट्रपति; जो बाइडेन बोले- मुझे और देश को वैज्ञानिकों पर भरोसा है, डोनाल्ड ट्रम्प पर नहीं"
-    expected: "kaoraonaā vaaiksaīna mauddae para ghairae raāṣhṭrapatai; jao baāiḍaena baolae- maujhae aura daesha kao vaaijñaānaikaoṁ para bharaosaā haai, ḍaonaālḍa ṭrampa para nahaīṁ"
+    expected: "koronā vaiksīn mudde par ghire rāṣhṭrapati; jo bāiḍen bole- mujhe aur desh ko vaijñānikoṁ par bharosā hai, ḍonālḍ ṭramp par nahīṁ"
   - source: "गूगल की कार्रवाई पर पेटीएम ने कहा था कि ऐप को अस्थायी तौर पर प्ले-स्टोर से हटाया गया है, आपके पैसे सुरक्षित हैं"
-    expected: "gaūgala kaī kaārravaāī para paeṭaīema nae kahaā thaā kai aipa kao asthaāyaī taaura para plae-sṭaora sae haṭaāyaā gayaā haai, āpakae paaisae saurakṣhaita haaiṁ"
+    expected: "gūgal kī kārravāī par peṭīem ne kahā thā ki aip ko asthāyī taur par ple-sṭor se haṭāyā gayā hai, āpake paise surakṣhit haiṁ"
+
 map:
+
+  rules:
+    - pattern: (([क]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([क])(?=\b))
+      result:  'k'
+    - pattern: (([ख]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ख])(?=\b))
+      result:  'kh'
+    - pattern: (([ग]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ग])(?=\b))
+      result:  'g'
+    - pattern: (([घ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([घ])(?=\b))
+      result:  'gh'
+    - pattern: (([ङ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ङ])(?=\b))
+      result:  'ṅ'
+    - pattern: (([च]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([च])(?=\b))
+      result:  'ch'
+    - pattern: (([छ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([छ])(?=\b))
+      result:  'chh'
+    - pattern: (([ज]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ज])(?=\b))
+      result:  'j'
+    - pattern: (([झ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([झ])(?=\b))
+      result:  'jh'
+    - pattern: (([ञ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ञ])(?=\b))
+      result:  'ñ'
+    - pattern: (([ट]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ट])(?=\b))
+      result:  'ṭ'
+    - pattern: (([ठ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ठ])(?=\b))
+      result:  'ṭh'
+    - pattern: (([ड]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ड])(?=\b))
+      result:  'ḍ'
+    - pattern: (([ढ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ढ])(?=\b))
+      result:  'ḍh'
+    - pattern: (([ण]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ण])(?=\b))
+      result:  'ṇ'
+    - pattern: (([त]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([त])(?=\b))
+      result:  't'
+    - pattern: (([थ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([थ])(?=\b))
+      result:  'th'
+    - pattern: (([द]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([द])(?=\b))
+      result:  'd'
+    - pattern: (([ध]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ध])(?=\b))
+      result:  'dh'
+    - pattern: (([न]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([न])(?=\b))
+      result:  'n'
+    - pattern: (([प]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([प])(?=\b))
+      result:  'p'
+    - pattern: (([फ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([फ])(?=\b))
+      result:  'ph'
+    - pattern: (([ब]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ब])(?=\b))
+      result:  'b'
+    - pattern: (([भ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([भ])(?=\b))
+      result:  'bh'
+    - pattern: (([म]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([म])(?=\b))
+      result:  'm'
+    - pattern: (([य]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([य])(?=\b))
+      result:  'y'
+    - pattern: (([र]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([र])(?=\b))
+      result:  'r'
+    - pattern: (([ल]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ल])(?=\b))
+      result:  'l'
+    - pattern: (([व]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([व])(?=\b))
+      result:  'v'
+    - pattern: (([श]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([श])(?=\b))
+      result:  'sh'
+    - pattern: (([ष]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ष])(?=\b))
+      result:  'ṣh'
+    - pattern: (([स]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([स])(?=\b))
+      result:  's'
+    - pattern: (([क़]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([क़])(?=\b))
+      result:  'q'
+    - pattern: (([ख़]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ख़])(?=\b))
+      result:  'ḳh'
+    - pattern: (([ग़]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ग़])(?=\b))
+      result:  'g'
+    - pattern: (([ज़]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ज़])(?=\b))
+      result:  'z'
+    - pattern: (([ड़]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ड़])(?=\b))
+      result:  'ṙ'
+    - pattern: (([ढ़]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ढ़])(?=\b))
+      result:  'ṙh'
+    - pattern: (([फ़]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([फ़])(?=\b))
+      result:  'f'
+    - pattern: (([ह]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ह])(?=\b))
+      result:  'h'
 
   characters:
 
