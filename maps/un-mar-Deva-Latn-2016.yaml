@@ -40,7 +40,7 @@ notes:
 
 tests:
   - source: "महाराष्ट्र"
-    extrcted: "mahārāṣhṭr"
+    expected: "mahārāṣhṭr"
   - source: "मुंबई"
     expected: "muṁbaī"
   - source: "परिपक्क"
