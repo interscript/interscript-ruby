@@ -7,12 +7,12 @@ var mapcache = Opal.Opal.hash({});
 
 var prom = Promise.all([]);
 
-Object.keys(InterscriptMaps).forEach(function(key) {
-	prom = prom.then(function() {
-		return Opal.Opal.Interscript.$on_load_maps({maps: key, path: "../maps/"});
-	}).then(function() {
+Object.keys(InterscriptMaps).forEach(function (key) {
+	prom = prom.then(function () {
+		return Opal.Opal.Interscript.$on_load_maps({ maps: key, path: "../maps/" });
+	}).then(function () {
 		var map = JSON.parse(InterscriptMaps[key]);
-		describe(key+' system', function () {
+		describe(key + ' system', function () {
 			this.timeout(10000);
 
 			if (map.map.transcription || (map.chain && map.chain.indexOf("var-tha-Thai-Thai-phonemic") !== -1)) {
@@ -27,10 +27,10 @@ Object.keys(InterscriptMaps).forEach(function(key) {
 				return;
 			}
 
-			map.tests && map.tests.forEach(function(test) {
+			map.tests && map.tests.forEach(function (test) {
 
-	      if (test['source'] === null || test['expected'] === null)
-	        return;
+				if (test['source'] === null || test['expected'] === null)
+					return;
 
 				it('test for ' + JSON.stringify(test), function () {
 					var result = Opal.Opal.Interscript.$transliterate(key, test['source'], mapcache);
@@ -41,7 +41,7 @@ Object.keys(InterscriptMaps).forEach(function(key) {
 				});
 			});
 		});
-	}).catch(function(error) {
+	}).catch(function (error) {
 		console.log(error);
 	});
 });

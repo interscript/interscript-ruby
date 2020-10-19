@@ -122,14 +122,14 @@ module Interscript
           if (#{opts[:loader] != nil}) {
             return #{opts[:loader]}(#{opts[:path]}+map+'.json').then(#{opts[:processor]});
           }
+          else if (typeof window !== "undefined") {
+            return ajax_loader(map);
+          }
           else if (typeof global !== "undefined") {
             return node_loader(map);
           }
           else if (!is_local && typeof fetch === "function") {
             return fetch_loader(map);
-          }
-          else if (typeof window !== "undefined") {
-            return ajax_loader(map);
           }
           else {
             #{raise StandardError, "We couldn't find a good way to load a map"}
