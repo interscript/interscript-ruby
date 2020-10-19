@@ -135,8 +135,8 @@ end
 
 desc "All in one"
 task all: [:clean] do
-  Rake::Task["js"].execute
-  Rake::Task["js_maps"].execute
+  Rake::Task["js"].invoke
+  Rake::Task["js_maps"].invoke
 end
 
 task default: [:spec]
