@@ -12,7 +12,7 @@ task :clean do
 end
 
 desc "Build Interscript JavaScript"
-task :js do
+task :js => ["aliases.json"] do
   puts "creating javascript version..."
   require "opal/builder"
   require "opal/builder_processors"
@@ -41,7 +41,6 @@ task :js_maps do
   require "yaml"
   require "fileutils"
   require "json"
-  require_relative "lib/interscript/opal/map_translate"
 
   FileUtils.mkdir_p "vendor/assets/maps"
 
@@ -54,14 +53,14 @@ task :js_maps do
       loaded << cur
       file = File.read("maps/#{cur}.yaml")
       yaml = YAML.load(file)
-      if yaml["map"]["inherit"]
-        inh = Array(yaml["map"]["inherit"])
-        stack += (inh - loaded)
-      end
+      # Don't bundle inherited maps
+      # if yaml["map"]["inherit"]
+      #   inh = Array(yaml["map"]["inherit"])
+      #   stack += (inh - loaded)
+      # end
       contents[cur] = yaml
     end
     f = JSON.dump(contents)
-    f = Interscript::OpalMapTranslate.translate_regexp(f)
     File.write("vendor/assets/maps/#{File.basename yaml_file, ".yaml"}.json", f)
   end
 end
@@ -128,10 +127,16 @@ task :rename do
   changed.each { |new_name| puts new_name }
 end
 
+file "aliases.json" => Dir["maps/*.yaml"] + ["Rakefile"] do
+  require "interscript"
+
+  Interscript.aliases(refresh: true)
+end
+
 desc "All in one"
 task all: [:clean] do
-  Rake::Task["js"].execute
-  Rake::Task["js_maps"].execute
+  Rake::Task["js"].invoke
+  Rake::Task["js_maps"].invoke
 end
 
 task default: [:spec]

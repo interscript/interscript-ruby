@@ -76,7 +76,7 @@ module Interscript
     end
 
     def load_opal_mappings
-      JSON.parse(`InterscriptMaps[#{system_code}]`)
+      JSON.parse(`Opal.global.InterscriptMaps[#{system_code}]`)
     end
 
     def load_fs_mappings
