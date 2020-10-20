@@ -106,13 +106,32 @@ notes:
     romanizing, uppercase and lowercase Roman letters as appropriate should
     be used.
 
+  # Special Rules
+  - The conjunction و (and) should be rendered u if the
+    preceding word ends in a consonant, and w if the preceding
+    word ends in a vowel. It should be separated by spaces from
+    the preceding and following words.
 
+  - In the Perso-Arabic orthography for Kurdish, all vowels are
+    written, with the exception of the short i, which is
+    expressed with a kasrah under the preceding consonant (ِ).
+    In Perso-Arabic script, the kasrah will rarely be written (
+    e.g., كرن kirin “to do”). Like all Kurdish vowels, the
+    short i will be preceded by a kursî hamza )ئ )if it appears
+    at the beginning of a word (see 3 below; see row 4 of vowel
+    table).
 tests:
   - source: test
     expected: test
 
 map:
   characters:
+
+    # Note 1
+    '\u0621' : '’' # ء
+    '\u0624' : '’' # ؤ
+    '\u0626' : '’' # ئ
+
     '\u0621': '’' # ء (see note 1 and 7)
     '\u0628': 'b'  # ب
     '\u067E': 'p'  # پ
@@ -153,20 +172,20 @@ map:
     '\u064A': 'y'  # ي
 
     # VOWELS
-    'ه' : 'e' # See notes 1 and 5
-    'ئه' : 'e' # See notes 1 and 5
-    'ا' : 'a' # See note 1
-    'ئا' : 'a' # See note 1
-    'ي' : 'î' # See notes 1, 6 and 7
-    'ئي' : 'î' # See notes 1, 6 and 7
-    'ئ' : 'i'
-    'ێ' : 'ê' # See note 7
-    'ئێ' : 'ê' # See note 7
-    'و' : 'u'
-    'ئو' : 'u'
-    'وو' : 'û' # See note 7
-    'ئوو' : 'û' # See note 7
-    'ۆ' : 'o'
-    'ئۆ' : 'o'
-    'و' : 'ö' # Rare; previously written وي . See note 7
-    'ۊ' : 'ü' # Only appearing in some dialects and only in old sources. Often equated to /û/ (row 7 above). Sometimes written يو See note 7.
+    'ه': 'e' # See notes 1 and 5
+    'ئه': 'e' # See notes 1 and 5
+    'ا': 'a' # See note 1
+    'ئا': 'a' # See note 1
+    'ي': 'î' # See notes 1, 6 and 7
+    'ئي': 'î' # See notes 1, 6 and 7
+    'ئ': 'i'
+    'ێ': 'ê' # See note 7
+    'ئێ': 'ê' # See note 7
+    'و': 'u'
+    'ئو': 'u'
+    'وو': 'û' # See note 7
+    'ئوو': 'û' # See note 7
+    'ۆ': 'o'
+    'ئۆ': 'o'
+    'و': 'ö' # Rare; previously written وي . See note 7
+    'ۊ': 'ü' # Only appearing in some dialects and only in old sources. Often equated to /û/ (row 7 above). Sometimes written يو See note 7.
