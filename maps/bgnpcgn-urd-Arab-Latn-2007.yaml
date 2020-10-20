@@ -1,7 +1,7 @@
 ---
 authority_id: bgnpcgn
 id: 2007
-language: iso-639-3:prs # prs stands for Dari (https://iso639-3.sil.org/code/prs&_ga=GA1.2.2054538372.1574092823)
+language: iso-639-2:urd
 source_script: Arab
 destination_script: Latn
 name: BGN/PCGN Romanization System -- Urdu (2007)
