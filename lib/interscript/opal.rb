@@ -103,7 +103,9 @@ module Interscript
             error = fail;
           });
           try {
-            resolve(require(#{opts[:path] || opts[:node_path]}+map+'.json'));
+            var node_require = eval("require");
+            var data = node_require(#{opts[:path] || opts[:node_path]}+map+'.json');
+            resolve(data);
           }
           catch(e) {
             error("Node failed load: "+map+". Error: "+e);
