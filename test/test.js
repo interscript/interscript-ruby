@@ -1,5 +1,5 @@
 var assert = require('assert');
-var Opal = require('../vendor/assets/javascripts/interscript.js');
+var Opal = require('../vendor/assets/javascripts/interscript.opt.js');
 var fs = require('fs');
 
 // Let's cache the work that is done by Interscript::Mapping.
