@@ -65,6 +65,17 @@ task :js_maps do
   end
 end
 
+desc "Optimize the resulting Javascript"
+task :js_optimize => [:js] do
+  require "opal/optimizer"
+
+  js = File.read("vendor/assets/javascripts/interscript.js")
+  exports = File.read("lib/interscript/opal/exports.rb")
+
+  opt = Opal::Optimizer.new(js, exports: exports).optimize
+  File.write("vendor/assets/javascripts/interscript.opt.js", opt)
+end
+
 desc "Correct file names in 'maps' directory to ensure to be uppercase for 3rd and 4rd"
 task :rename do
   require "yaml"
@@ -135,7 +146,7 @@ end
 
 desc "All in one"
 task all: [:clean] do
-  Rake::Task["js"].invoke
+  Rake::Task["js_optimize"].invoke
   Rake::Task["js_maps"].invoke
 end
 
