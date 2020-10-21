@@ -1,0 +1,439 @@
+---
+authority_id: ungegn
+id: 2017
+language: iso-639-2:ara
+source_script: Arab
+destination_script: Latn
+name: ROMANIZATION OF ARABIC -- UNGEGN 2017 System
+url: http://www.eki.ee/wgrs/rom1_ar.pdf
+creation_date: 2017
+confirmation date: 2018-06
+description: |
+  The United Nations recommended system was approved in 1972 (
+  II/11) and amended in 1977 (III/12), based on a report
+  prepared by D. N. Sharma. The tables and their corrections
+  were published in volume II of the conference reports1,2.
+
+  There is no evidence of the use of the system either in
+  Pakistan, India or in international cartographic products.
+  Instead, in Pakistan the Hunterian system is officially
+  used3. The resolutions III/12 (1977) and IV/17 (1982)
+  recommended association, inter alia, with Pakistan, in
+  carrying out further studies on the system.
+
+  Urdu (Urdū) uses the Perso-Arabic script which is written
+  from right to left. In the script vowel points are usually
+  omitted which makes it difficult to obtain uniform
+  romanizations. Some of the Arabic consonants are
+  undifferentiated in romanization which means that the
+  system is not fully reversible.
+notes:
+  - A If preceded by short a, it is romanized ‘ā, e.g. مَعمُل M‘āmul.
+  - B When و is imperceptible, e.g. in a few words of Persian origin when preceded by خ (ḳh).
+  - C Word-finally after a short vowel.
+  - D Marks aspiration of consonants.
+  - E The character ے is used only word-finally.
+tests:
+  # - source: بوغدِی
+  #   expected: Boghdī
+
+  - source: پَالِير
+    expected: Pālīr
+
+  # - source: بیزوت كَلے
+  #   expected: Bezot Kale
+
+  # - source: عَمَل كوٹ
+  #   expected: ‘Amal Koṭ
+
+  - source: ثَابِر
+    expected: Sābir
+
+  - source: شَاه نَثَار ميلة
+    expected: Shāh Nasār Mylah
+
+  # - source: بَرجُو ميلَه
+  #   expected: Barjū Melah
+
+  - source: چَپرِی
+    expected: Chaprī
+
+  - source: أَحمَد خَان كَلے
+    expected: Ahmad Ḳhān Kale
+
+  # - source: آكَا خيل
+  #   expected: Ākā Ḳhel
+
+  - source: دُرَانِي
+    expected: Durānī
+
+  - source: ڈَنگِیلا
+    expected: Ḍangīlā
+
+  - source: ذَرَانِی
+    expected: Zarānī
+
+  - source: بُركِي
+    expected: Burkī
+
+  - source: گِیدَڑَه
+    expected: Gīdaṙah
+
+  - source: عَلِي زَائِي
+    expected: ‘Alī Zā’ī
+
+  # - source: ژوب
+  #   expected: ỵob
+
+  - source: بِسَاتُو
+    expected: Bisātū
+
+  - source: أَحمَدِي شَامَا
+    expected: Ahmadī Shāmā
+
+  - source: اَصَالَت كَلے
+    expected: Asālat Kale
+
+  - source: خَضَر خَان
+    expected: Ḳhazar Ḳhān
+
+  - source: سُلْطَان
+    expected: Sultān
+
+  - source: عَزَم سَيِّد نُور كَلے
+    expected: ‘Azam Sayyid Nūr Kale
+
+  # - source: عَلَم شير
+  #   expected: ‘Alam Sher
+
+  - source: بغَاكِي
+    expected: Bghākī
+
+  # - source: مُظَفَر كوٹ
+  #   expected: Muzafar Koṭ
+
+  - source: حَقدَرَه
+    expected: Haqdarah
+
+  - source: کَچکِینَہ
+    expected: Kachkīnah
+
+  - source: بَاگَن
+    expected: Bāgan
+
+  - source: بُلبَلَک
+    expected: Bulbalak
+
+  - source: بِلیَامِین
+    expected: Bilyāmīn
+
+  - source: نَہر
+    expected: Nahr
+
+  # - source: جوکَالِیَاں
+  #   expected: Jokālīāñ
+
+  - source: اَرَوْالِی
+    expected: Arawālī
+
+  # - source: هیروشاه
+  #   expected: Heroshāh
+
+  - source: مَہردِی
+    expected: Mahrdī
+
+  - source: بَڑھ
+    expected: Baṙh
+
+  # - source: شِیوَاؤ
+  #   expected: Shīwā’o
+
+  - source:  یَاردَا کَلے
+    expected: Yārdā Kale
+
+  - source: بهَائِي خَان
+    expected: Bhā’ī Ḳhān
+
+  - source: پھاشک
+    expected: Phāshk
+
+  - source: تھَلّ
+    expected: Thall
+
+  - source: پَٹھان ريَا
+    expected: Paṭhān Ryā
+
+  - source: جھِیل
+    expected: Jhīl
+
+  - source:  غَزْنِي سْپِين
+    expected: Ghaznī Spīn
+
+  - source: بَادشَاه چھُم
+    expected: Bādshāh Chhum
+
+  - source:  سِندھ
+    expected: Sindh
+
+  - source: ڈھَنڈ
+    expected: Ḍhanḍ
+
+  # - source: غوزگَڑھِی
+  #   expected: Ghozgaṙhī
+
+  # - source: دوغَل گاکھَر
+  #   expected: Doghal Gāḳhar
+
+  - source: خَان گھَڑِی
+    expected: Ḳhān Ghaṙī
+
+  - source: غُلَامَک كَلے
+    expected: Ghulāmak Kale
+
+  # - source: کاراخیل
+  #   expected: Kārāḳhel
+
+  - source: خَپیَنگا
+    expected: Ḳhapyangā
+
+  - source: گَندَه كَلے
+    expected: Gandah Kale
+
+  # - source: گُلونَا ڈھيرِي
+  #   expected: Gulonā Ḍherī
+
+  # - source: خيرَه دِين
+  #   expected: Ḳherah Dīn
+
+  - source: مَورپِتھِی
+    expected: Maurpithī
+
+  - source: درے پلارِی
+    expected: Dre Plārī
+
+  - source: آگرَہ
+    expected: Āgrah
+
+  - source: ڈَنڈَر
+    expected: Ḍanḍar
+
+  # - source: گِیدو
+  #   expected: Gīdo
+
+  - source: گُبازانَہ
+    expected: Gubāzānah
+
+  # - source: اُوشو
+  #   expected: Ūsho
+
+  - source: حَےدَر عَلِی كَلے
+    expected: Haidar ‘Alī Kale
+
+  - source: تَودَہ چِینَہ
+    expected: Taudah Chīnah
+
+  - source: مُوسى خَان كَلے
+    expected: Mūsá Ḳhān Kale
+
+  - source: مُلَّا بَاغ
+    expected: Mullā Bāgh
+
+map:
+  postrules:
+    - pattern: (?<=\b)(?<!\b[‘|’|'|-])[\u0061-\uFFFF]
+      result: "upcase"
+    # don't capitalize defined article in the middle of a sentence
+    - pattern : ' At T'  # الت
+      result: ' at T'
+    - pattern : ' As̄ S̄'  # الث
+      result: ' as̄ S̄'
+    - pattern : ' Ad D' # الد
+      result: ' ad D'
+    - pattern : ' Az Z'  # الذ
+      result: ' az Z'
+    - pattern : ' Ar R' # الر
+      result: ' ar R'
+    - pattern : ' Az Z'  # الز
+      result: ' az Z'
+    - pattern : ' As S' # الس
+      result: ' as S'
+    - pattern : ' Ash Sh' # الش
+      result: ' ash Sh'
+    - pattern : ' As S'  # الص
+      result: ' as S'
+    - pattern : ' Az Z'  # الض
+      result: ' az Z'
+    - pattern : ' At T'  # الط
+      result: ' at T'
+    - pattern : ' Az Z' # الظ
+      result: ' az Z'
+    - pattern : ' Al L'  # الل
+      result: ' al L'
+    - pattern : ' An N'  # الن
+      result: ' an N'
+    - pattern: " Al " # ال
+      result: " al "
+  characters:
+    # special rules
+
+    '\s(?=\u0622\u0628\u064E\u0627\u062F)': '' # space followed by abad is removed
+    '\ufdf2': 'Allāh' # See note 5
+
+    # Vowels, Diphthongs, and Diacritical Marks
+    '\u064e' : 'a' # َ fatha
+    '\u064e\u0627' : 'ā'  # ـَا fatha followed by ا
+    '\u0627' : 'ā'  # ا
+    '\u0649\u0670' : 'ā' # ىٰ
+    '\u06D2\u0670' : 'ā' # ےٰ
+    '\u0622' : 'ā'  # آ
+    '\b\u0627' : ''  # ا
+    '\u064e(?=\u0629)' : '' # َ fatha followed by ta' marboota
+    '\u064e(?=a[h|t])' : '' # َ fatha followed by ta' marboota, handling different order of conversion
+
+    '\u0652' : ''  # ْ sokoon
+    '\u0659': 'ê'
+
+    '\u0650' : 'i' # karsra
+    '\u0650[\u064a|\u06cc]' : 'ī' # ـِي kasra followed by ي
+    '\u06d2' : 'e' # ـے
+
+    '\u064f' : 'u' # ُ damma
+    '\u064f\u0648' : 'ū'  # ـُو damma followed by و
+
+
+    '\u064e\u06d2' : 'ai' # ـے
+    '\u064e\u0648' : 'au'  # ـَو
+    '\u0670': 'á' # ىٰ
+    '\u0649': 'á' # ىٰ
+
+    # shadda
+    '\u0628\u0651' : 'bb'  # ب
+    '\u062a\u0651' : 'tt'  # ت
+    '\u062b\u0651' : 'ss'  # ث
+    '\u062c\u0651' : 'jj'  # ج
+    '\u062d\u0651' : 'hh' # ح
+    '\u062e\u0651' : 'ḳhḳh'  # خ
+    '\u062f\u0651' : 'dd'  # د
+    '\u0630\u0651' : 'zz'  # ذ
+    '\u0631\u0651' : 'rr'  # ر
+    '\u0632\u0651' : 'zz'  # ز
+    '\u0633\u0651' : 'ss'  # س
+    '\u0634\u0651' : 'sh'  # ش
+    '\u0635\u0651' : 'ss'  # ص
+    '\u0636\u0651' : 'ḏḏ'  # ض
+    '\u0637\u0651' : 'tt'  # ط
+    '\u0638\u0651' : 'zz'  # ظ
+    '\u063a\u0651' : 'ghgh'  # غ
+    '\u0641\u0651' : 'ff'  # ف
+    '\u0642\u0651' : 'qq'  # ق
+    '\u0643\u0651' : 'kk'  # ك
+    '\u0644\u0651' : 'll'  # ل
+    '\u0645\u0651' : 'mm'  # م
+    '\u0646\u0651' : 'nn'  # ن
+    '\u0647\u0651' : 'hh'  # ه
+    '\u0648\u0651' : 'ww'  # و
+    '[\u064a|\u06cc]\u0651' : 'yy'  # ي
+
+    # NOTE 1
+    '\u0650\b' : '-e' # ِ kasra
+    '\u0674' : '-e' # ٴ
+    '\u0654' : '-e' #  ٔ
+
+    '\u0650\u064a\u0651\u064e' : 'īy' # ـِيَّ
+    '\u0650\u064a(?=\u064e|u064f)' : 'iy' # ـِي kasra followed by ي
+    '\u064e\u0649' : 'ay'  # ـَى fatha followed by ى which is ا not ي
+    '\u064e\u0648\u0652' : 'aw'  # ـَوْ
+    '\u064e\u064a\u0652' : 'ay'  # ـَيْ
+    '\u0650\u06cc\u0651\u064e' : 'īy' # ـِيَّ
+    '\u064e\u064a' : 'aī'  # ـَي
+    '\u064e\u06cc' : 'aī'  # ـَي
+      # - '-ye'
+
+
+    # ta' marboota
+    '\u0629' : 'at' # ة in the middle of the sentence
+    '\u0629$' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{2})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{3})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{4})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{5})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{6})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{7})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{8})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{9})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{10})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{11})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{12})\u0629' : 'ah'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{13})\u0629' : 'ah'
+
+
+
+    '\u0621' : '’' # ء
+    '\u0624' : '’' # ؤ
+    '\u0624\b' : '’o' # ؤ
+    '\u0626' : '’' # ئ
+
+    '\u0623' : ''  # أ
+    '\u0625' : ''    # إ
+    # See note B
+    '\b\u0627\u0644' : 'al '  # ال
+    # '\uFE8E' : ''  # ﺎ
+
+    # Sun letters
+    '\b\u0627\u0644\u062a' : 'at t'  # الت
+    '\b\u0627\u0644\u062b' : 'as s'  # الث
+    '\b\u0627\u0644\u062f' : 'ad d' # الد
+    '\b\u0627\u0644\u0630' : 'az z'  # الذ
+    '\b\u0627\u0644\u0631' : 'ar r' # الر
+    '\b\u0627\u0644\u0632' : 'az z'  # الز
+    '\b\u0627\u0644\u0633' : 'as s' # الس
+    '\b\u0627\u0644\u0634' : 'ash sh' # الش
+    '\b\u0627\u0644\u0635' : 'as s'  # الص
+    '\b\u0627\u0644\u0636' : 'az z'  # الض
+    '\b\u0627\u0644\u0637' : 'at t'  # الط
+    '\b\u0627\u0644\u0638' : 'az z' # الظ
+    '\b\u0627\u0644\u0644' : 'al l'  # الل
+    '\b\u0627\u0644\u0646' : 'an n'  # الن
+
+
+    # consonant characters
+
+    '\u0628' : 'b'  # ب
+    '\u067E' : 'p' # پ
+    '\u062a' : 't'  # ت
+    '\u0679' : 'ṭ'  # ٹ
+    '\u062B' : 's'   # ث
+    '\u062c' : 'j'  # ج
+    '\u0686' : 'ch'  # ‫چ‬
+    '\u062d' : 'h' # ح
+    '\u062e' : 'ḳh'  # خ
+    '\u062f' : 'd'  # د
+    '\u0688' : 'ḍ' # ‫ڈ
+    '\u0630' : 'z'  # ذ
+    '\u0631' : 'r'  # ر
+    '\u0691' : 'ṙ'   # ڑ
+    '\u0632' : 'z'  # ز
+    '\u0698' : 'ỵ'  # ‫ژ‬
+    '\u0633' : 's'  # س
+    '\u0634' : 'sh'  # ش
+    '\u0635' : 's'  # ص
+    '\u0636' : 'z'  # ض
+    '\u0637' : 't'  # ط
+    '\u0638' : 'z'  # ظ
+    '\u0639' : '‘'  # ع
+    '\u063a' : 'gh'  # غ
+    '\u0641' : 'f'  # ف
+    '\u0642' : 'q'  # ق
+    '\u0643' : 'k'  # ك
+    '\u06A9' : 'k' # ک
+    '\u06AF' : 'g' # ‫گ‬
+    '\u0644' : 'l'  # ل
+    '\u0645' : 'm'  # م
+    '[\u06BA|\u0646]' : 'n'  # ن, ں
+    '[\ufba9|\u06c1]' : 'h' # ہ , ﮩ
+    '[\u0647|\u06be]' : 'h'  # ه, ھ
+    '\u0648' : 'w'  # و
+    '[\u064a|\u06cc]' : 'y'  # ي
+    # '\u0649' : 'y'  # ي
+    '\u06D0' : 'ē'   # ې
+    '\u06CD' : 'êy'  # ‫ۍ‬
