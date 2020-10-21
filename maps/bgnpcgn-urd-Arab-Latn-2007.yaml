@@ -50,6 +50,9 @@ notes:
     Unicode
     'center dot' (U+00B7) separating the two letters, to
     distinguish them from the digraphs /zh/ and /sh/.
+  - Commented tests are blocked by this issue https://github.com/interscript/interscript/issues/572
+    depends on the different ways of handling ي to y or e AND و to u or o
+
 
 tests:
   # - source: بوغدِی
