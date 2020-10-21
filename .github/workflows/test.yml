@@ -45,9 +45,9 @@ jobs:
           cache-name: cache-ruby-modules
         with:
           path: vendor/bundle
-          key: ${{ runner.os }}-ruby-${{ matrix.ruby }}-gems-${{ hashFiles('**/interscript.gemspec') }}
+          key: ${{ runner.os }}-ruby-${{ matrix.ruby }}-${{ matrix.python }}-gems-${{ hashFiles('**/interscript.gemspec') }}
           restore-keys: |
-            ${{ runner.os }}-ruby-${{ matrix.ruby }}-gems-
+            ${{ runner.os }}-ruby-${{ matrix.ruby }}-${{ matrix.python }}-gems-
 
       - name: Install gems
         run: |
