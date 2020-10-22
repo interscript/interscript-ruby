@@ -4,6 +4,9 @@ require "timeout"
 require "pycall/import"
 include PyCall::Import
 
+# Cache the map aliases early so they don't timeout the tests
+Interscript.aliases
+
 RSpec.describe Interscript do
   mask = ENV["TRANSLIT_SYSTEM"] || "*"
   maps = Dir["maps/#{mask}.yaml"]
