@@ -15,20 +15,20 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
         ruby: ['2.6', '2.5', '2.4']
-        python: ['3.x']
+        python: ['3.8']
         experimental: [false]
         include:
           - ruby: '2.7'
             os: ubuntu-latest
-            python: '3.x'
+            python: '3.8'
             experimental: true
           - ruby: '2.7'
             os: macos-latest
-            python: '3.x'
+            python: '3.8'
             experimental: true
           - ruby: '2.7'
             os: windows-latest
-            python: '3.x'
+            python: '3.8'
             experimental: true
 
     steps:
@@ -45,9 +45,9 @@ jobs:
           cache-name: cache-ruby-modules
         with:
           path: vendor/bundle
-          key: ${{ runner.os }}-ruby-${{ matrix.ruby }}-gems-${{ hashFiles('**/interscript.gemspec') }}
+          key: ${{ runner.os }}-ruby-${{ matrix.ruby }}-${{ matrix.python }}-gems-${{ hashFiles('**/interscript.gemspec') }}
           restore-keys: |
-            ${{ runner.os }}-ruby-${{ matrix.ruby }}-gems-
+            ${{ runner.os }}-ruby-${{ matrix.ruby }}-${{ matrix.python }}-gems-
 
       - name: Install gems
         run: |
@@ -82,25 +82,25 @@ jobs:
         if: matrix.os == 'ubuntu-latest'
         with:
           path: ~/.cache/pip
-          key: ${{ runner.os }}-pip
+          key: ${{ runner.os }}-${{ matrix.python }}-pip
           restore-keys: |
-            ${{ runner.os }}-pip
+            ${{ runner.os }}-${{ matrix.python }}-pip
 
       - uses: actions/cache@v2
         if: matrix.os == 'macos-latest'
         with:
           path: ~/Library/Caches/pip
-          key: ${{ runner.os }}-pip
+          key: ${{ runner.os }}-${{ matrix.python }}-pip
           restore-keys: |
-            ${{ runner.os }}-pip
+            ${{ runner.os }}-${{ matrix.python }}-pip
 
       - uses: actions/cache@v2
         if: runner.os == 'windows-latest'
         with:
           path: ~\AppData\Local\pip\Cache
-          key: ${{ runner.os }}-pip
+          key: ${{ runner.os }}-${{ matrix.python }}-pip
           restore-keys: |
-            ${{ runner.os }}-pip
+            ${{ runner.os }}-${{ matrix.python }}-pip
 
       - name: Update Sequitur
         run: |
@@ -109,4 +109,4 @@ jobs:
 
       - name: Run RSpecs
         run: |
-          bundle exec parallel_split_test spec/
+          bundle exec rake spec
