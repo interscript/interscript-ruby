@@ -2,7 +2,7 @@
 authority_id: iso
 id: 15919-2001
 language: iso-639-2:kan
-source_script: Knda
+source_script: kana
 destination_script: Latn
 name: "Information and documentation — Transliteration of Devanagari and related Indic scripts into Latin characters"
 url: https://www.chatranjali.fr/Scripts/Standards/ISO15919.pdf
