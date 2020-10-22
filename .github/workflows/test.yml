@@ -109,4 +109,4 @@ jobs:
 
       - name: Run RSpecs
         run: |
-          bundle exec rake spec
+          bundle exec parallel_split_test spec/
