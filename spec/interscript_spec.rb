@@ -18,10 +18,15 @@ RSpec.describe Interscript do
       system = YAML.load_file(system_file)
       system_name = File.basename(system_file, ".yaml")
 
+      cache = {}
+      # Let's preload the cache but silence the exception if not possible
+      # (it will be reraised during the test)
+      Interscript.transliterate(system_name, "", cache) rescue nil
+
       system["tests"]&.uniq&.reduce([]) do |_, test|
         it "test for #{test}" do
           Timeout::timeout(5) do
-            result = Interscript.transliterate(system_name, test["source"])
+            result = Interscript.transliterate(system_name, test["source"], cache)
             expected = test["expected"]&.unicode_normalize
             expect(result).to eq(expected)
           end
