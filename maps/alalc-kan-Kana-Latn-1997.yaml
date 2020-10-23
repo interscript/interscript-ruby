@@ -243,6 +243,7 @@ map:
     'ೂ': "ū"
     'ೃ': "ṛ"
     'ೄ': "ṝ"
+    '\u0CE2': 'ḻ' # KANNADA VOWEL SIGN VOCALIC L ( ೢ)
 
 
     'ೆ': "e"
