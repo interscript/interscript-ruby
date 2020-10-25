@@ -5,7 +5,7 @@ language: iso-639-2:ara
 source_script: Arab
 destination_script: Latn
 name: ROMANIZATION OF ARABIC -- UNGEGN 2017 System
-url: http://www.eki.ee/wgrs/rom1_ar.pdf
+url: https://www.eki.ee/wgrs/rom1_ur.htm
 creation_date: 2017
 confirmation date: 2018-06
 description: |
@@ -34,17 +34,20 @@ notes:
   - D Marks aspiration of consonants.
   - E The character ے is used only word-finally.
 tests:
-  # - source: بوغدِی
-  #   expected: Boghdī
+  - source: بوغدِی
+    expected: Bvghdī
+
+  - source: مَعمُل
+    expected: M‘āmul
 
   - source: پَالِير
     expected: Pālīr
 
-  # - source: بیزوت كَلے
-  #   expected: Bezot Kale
+  - source: بیزوت كَلے
+    expected: Byzvt Kale
 
-  # - source: عَمَل كوٹ
-  #   expected: ‘Amal Koṭ
+  - source: عَمَل كوٹ
+    expected: ‘Amal Kvṭ
 
   - source: ثَابِر
     expected: Sābir
@@ -52,17 +55,11 @@ tests:
   - source: شَاه نَثَار ميلة
     expected: Shāh Nasār Mylah
 
-  # - source: بَرجُو ميلَه
-  #   expected: Barjū Melah
-
   - source: چَپرِی
     expected: Chaprī
 
   - source: أَحمَد خَان كَلے
     expected: Ahmad Ḳhān Kale
-
-  # - source: آكَا خيل
-  #   expected: Ākā Ḳhel
 
   - source: دُرَانِي
     expected: Durānī
@@ -80,10 +77,10 @@ tests:
     expected: Gīdaṙah
 
   - source: عَلِي زَائِي
-    expected: ‘Alī Zā’ī
+    expected: ‘Alī Zā-ī
 
-  # - source: ژوب
-  #   expected: ỵob
+  - source: ژوب
+    expected: Ỵvb
 
   - source: بِسَاتُو
     expected: Bisātū
@@ -103,20 +100,14 @@ tests:
   - source: عَزَم سَيِّد نُور كَلے
     expected: ‘Azam Sayyid Nūr Kale
 
-  # - source: عَلَم شير
-  #   expected: ‘Alam Sher
-
   - source: بغَاكِي
     expected: Bghākī
-
-  # - source: مُظَفَر كوٹ
-  #   expected: Muzafar Koṭ
 
   - source: حَقدَرَه
     expected: Haqdarah
 
   - source: کَچکِینَہ
-    expected: Kachkīnah
+    expected: Kachkīnaḥ
 
   - source: بَاگَن
     expected: Bāgan
@@ -130,14 +121,8 @@ tests:
   - source: نَہر
     expected: Nahr
 
-  # - source: جوکَالِیَاں
-  #   expected: Jokālīāñ
-
   - source: اَرَوْالِی
     expected: Arawālī
-
-  # - source: هیروشاه
-  #   expected: Heroshāh
 
   - source: مَہردِی
     expected: Mahrdī
@@ -145,14 +130,11 @@ tests:
   - source: بَڑھ
     expected: Baṙh
 
-  # - source: شِیوَاؤ
-  #   expected: Shīwā’o
-
   - source:  یَاردَا کَلے
     expected: Yārdā Kale
 
   - source: بهَائِي خَان
-    expected: Bhā’ī Ḳhān
+    expected: Bhā-ī Ḳhān
 
   - source: پھاشک
     expected: Phāshk
@@ -178,32 +160,17 @@ tests:
   - source: ڈھَنڈ
     expected: Ḍhanḍ
 
-  # - source: غوزگَڑھِی
-  #   expected: Ghozgaṙhī
-
-  # - source: دوغَل گاکھَر
-  #   expected: Doghal Gāḳhar
-
   - source: خَان گھَڑِی
     expected: Ḳhān Ghaṙī
 
   - source: غُلَامَک كَلے
     expected: Ghulāmak Kale
 
-  # - source: کاراخیل
-  #   expected: Kārāḳhel
-
   - source: خَپیَنگا
     expected: Ḳhapyangā
 
   - source: گَندَه كَلے
     expected: Gandah Kale
-
-  # - source: گُلونَا ڈھيرِي
-  #   expected: Gulonā Ḍherī
-
-  # - source: خيرَه دِين
-  #   expected: Ḳherah Dīn
 
   - source: مَورپِتھِی
     expected: Maurpithī
@@ -212,25 +179,19 @@ tests:
     expected: Dre Plārī
 
   - source: آگرَہ
-    expected: Āgrah
+    expected: Āgraḥ
 
   - source: ڈَنڈَر
     expected: Ḍanḍar
 
-  # - source: گِیدو
-  #   expected: Gīdo
-
   - source: گُبازانَہ
-    expected: Gubāzānah
-
-  # - source: اُوشو
-  #   expected: Ūsho
+    expected: Gubāzānaḥ
 
   - source: حَےدَر عَلِی كَلے
     expected: Haidar ‘Alī Kale
 
   - source: تَودَہ چِینَہ
-    expected: Taudah Chīnah
+    expected: Taudaḥ Chīnaḥ
 
   - source: مُوسى خَان كَلے
     expected: Mūsá Ḳhān Kale
@@ -295,10 +256,13 @@ map:
 
     '\u0650' : 'i' # karsra
     '\u0650[\u064a|\u06cc]' : 'ī' # ـِي kasra followed by ي
+    '\u0650\u06d2\u0652' : 'e' # ـے
+    '\u0650\u06d2' : 'e' # ـے
     '\u06d2' : 'e' # ـے
 
     '\u064f' : 'u' # ُ damma
     '\u064f\u0648' : 'ū'  # ـُو damma followed by و
+    '\u064f\u0648\u0652' : 'o'  # ـَوْ
 
 
     '\u064e\u06d2' : 'ai' # ـے
@@ -331,7 +295,7 @@ map:
     '\u0645\u0651' : 'mm'  # م
     '\u0646\u0651' : 'nn'  # ن
     '\u0647\u0651' : 'hh'  # ه
-    '\u0648\u0651' : 'ww'  # و
+    '\u0648\u0651' : 'vv'  # و
     '[\u064a|\u06cc]\u0651' : 'yy'  # ي
 
     # NOTE 1
@@ -368,10 +332,9 @@ map:
 
 
 
-    '\u0621' : '’' # ء
-    '\u0624' : '’' # ؤ
-    '\u0624\b' : '’o' # ؤ
-    '\u0626' : '’' # ئ
+    '\u0621' : '-' # ء
+    '\u0624' : '-' # ؤ
+    '\u0626' : '-' # ئ
 
     '\u0623' : ''  # أ
     '\u0625' : ''    # إ
@@ -421,6 +384,7 @@ map:
     '\u0637' : 't'  # ط
     '\u0638' : 'z'  # ظ
     '\u0639' : '‘'  # ع
+    '\u064e\u0639' : '‘ā'  # ع NOTE A
     '\u063a' : 'gh'  # غ
     '\u0641' : 'f'  # ف
     '\u0642' : 'q'  # ق
@@ -431,8 +395,10 @@ map:
     '\u0645' : 'm'  # م
     '[\u06BA|\u0646]' : 'n'  # ن, ں
     '[\ufba9|\u06c1]' : 'h' # ہ , ﮩ
+    '(?<=[\u064e|\u0650|\u064f])[\ufba9|\u06c1]\b' : 'ḥ' # ہ , ﮩ NOTE C
     '[\u0647|\u06be]' : 'h'  # ه, ھ
-    '\u0648' : 'w'  # و
+    '\u0648' : 'v'  # و
+    '(?<=\u062e)\u0648' : 'ẉ'  # و NOTE B
     '[\u064a|\u06cc]' : 'y'  # ي
     # '\u0649' : 'y'  # ي
     '\u06D0' : 'ē'   # ې
