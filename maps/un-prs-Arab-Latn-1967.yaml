@@ -91,7 +91,7 @@ tests:
     expected: Salasī-ye Boz̄org
 
   - source: ذُو الفَقَار
-    expected: Z̄ū al Faqār
+    expected: Z̄ū ol Faqār
 
 
 map:
@@ -101,6 +101,9 @@ map:
 
     - pattern: " Al"
       result: " al"
+
+    - pattern: " Ol"
+      result: " ol"
 
   characters:
 
@@ -120,7 +123,8 @@ map:
     '[\u064e|\u0650]\u064a\u0652' : 'ey'  # ـَيْ
     '[\u064e|\u064f]\u0648\u0652' : 'ow'  # ـَوْ
     '\u0621' : '’' # ء
-
+    '\u2013' : '–'
+    '\u2013[\u0649|\u064a]\u0647' : '-īyeh'
     '[\u0654|\u0674]' : '-e' # ٴ ezafeh
     '(?<=[\u064a|\u0647])[\u0654|\u0674]' : '-ye' # ٴ ezafeh
     '\u0650\b' : '-e' # ِ kasra
@@ -171,7 +175,7 @@ map:
     '\b\u0627\u0644\u0644' : 'ol l'  # الل
     '\b\u0627\u0644\u0646' : 'on n'  # الن
 
-    '\u0650\u064a\u0651\u064e' : 'īy' # ـِيَّ
+    '\u0650\u064a\u0651' : 'īy' # ـِيَّ
     '\u0650\u064a(?=\u064e|u064f)' : 'iy' # ـِي kasra followed by ي
 
     # ta' marboota
@@ -191,6 +195,7 @@ map:
     '(?<=\b\u0627\u0644[\u0600-\u06ff]{13})\u0629' : 'ah'
 
     '\b\u0627\u0644' : 'al '  # ال
+    '\s\b\u0627\u0644' : ' ol '  # ال #special Rule 1
 
     '\b\u0627' : ''  # ا initial
     '\u0627' : 'ā'  # ا middial
