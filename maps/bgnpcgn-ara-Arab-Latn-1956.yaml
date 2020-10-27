@@ -269,6 +269,8 @@ tests:
   - source: زَاڴُورَة
     expected: Zāgūrah
 
+  - source: اِيران
+    expected: Īrān
 
 map:
   postrules:
