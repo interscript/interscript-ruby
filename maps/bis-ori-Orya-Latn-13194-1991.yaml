@@ -40,9 +40,11 @@ tests:
   - source: "ନବନିଯୁକ୍ତ ଓଡିଶା କଂଗ୍ରେସ ପ୍ରଭାରୀ ଏ.ଚେଲ୍ଲା କୁମାରଙ୍କୁ କରୋନା"
     expected: "nbniyukt ŏḍiśā kṅgrēs prbhārī ē.cēllā kumārṅku krŏnā"
   - source: "ଦିଲ୍ଲୀ: ଦିନ ଦ୍ବିପହରରେ ଗାଡ଼ି ଉପରକୁ ଦୁର୍ବୃତ୍ତ ଚଳାଇଲେ ୮ ରାଉଣ୍ଡ ଗୁଳି: ଚାଳକଙ୍କ ମୃତ୍ୟୁ"
-    expected: "dillī: din dbiphrrē gād̂i uprku durbṛtt cḷāilē ୮ rāuṇḍ guḷi: cāḷkṅk mṛtẏu"
+    expected: "dillī: din dbiphrrē gād̂i uprku durbṛtt cḷāilē 8 rāuṇḍ guḷi: cāḷkṅk mṛtẏu"
   - source: "ବୟସରେ ଆର ପାରିକୁ ଚାଲିଗଲେ କଣ୍ଠଶିଳ୍ପୀ ଅନୁରାଧା ପୋଡୱାଲଙ୍କ ପୁଅ ଆଦିତ୍ୟ"
     expected: "bẏsrē ār pāriku cāliglē kṇṭhśiḷpī anurādhā pēāḍୱālṅk pua āditẏ"
+  - source: "୦୧୭୧୬୪୨୯୭୦୦"
+    expected: "01716429700"
 
 map:
 
@@ -158,3 +160,16 @@ map:
     '।': '.'
     "‍": ''# Used for joining
     "‌": ''# Used for non joining
+
+    # Numbers
+
+    '୦': '0'
+    '୧': '1'
+    '୨': '2'
+    '୩': '3'
+    '୪': '4'
+    '୫': '5'
+    '୬': '6'
+    '୭': '7'
+    '୮': '8'
+    '୯': '9'
