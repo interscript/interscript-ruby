@@ -196,6 +196,8 @@ tests:
   - source: اللَّه آبَاد
     expected: Allāhābād
 
+  - source: اِيران
+    expected: Īrān
 map:
   postrules:
     - pattern: (?<=\b)(?<!\b[‘|’|'|-])[\u0061-\uFFFF]
