@@ -120,18 +120,75 @@ notes:
     short i will be preceded by a kursî hamza )ئ )if it appears
     at the beginning of a word (see 3 below; see row 4 of vowel
     table).
+
+  - In the Perso-Arabic orthography for Kurdish, when a vowel
+    comes at the beginning of a word, or when a vowel directly
+    follows another vowel, a kursî hamza )ئ )precedes it (e.g.,
+    ئاگر agir “fire”).
+
+  - A Kurdish word will never start with alif )ا .)A Kurdish
+    word may begin with a yā’ (ي) or wāw )و ,)but only when
+    they are used as a consonant, when they will be romanized
+    as y and w, respectively.
+
+  - When preceded by a consonant, yā’ (ي )and wāw )و )should be
+    romanized î and u, respectively. When preceded by a vowel (
+    including short i, which is not written), yā’ (ي )and wāw (
+    و )should be romanized y and w, respectively.
+
+  - The Arabic sign shaddah ( ّ ) denoting a doubled consonant
+    is not used in Kurdish; doubled consonants, which are rare,
+    are written twice e.g. موحەممەد Muḧemmed; ننا موسه Musanna.
+    Shaddah might be used in Arabic borrowings but, as in
+    unpointed Arabic, would generally be omitted.
+
+  - Particles such as له le (= at, in, on) and به be (= to,
+    for, by, with) should be written separately from their
+    following word, e.g. كوردستانێ له Le Kurdistanê “in
+    Kurdistan”
+
+  - Occasionally the character sequences چه ,سه and گه occur.
+    They may be romanized c·h, s·h, and g·h in order to
+    differentiate those romanizations from the digraphs ch, sh,
+    and gh.
+
 tests:
-  - source: test
-    expected: test
+  - source: كاني ماسێ
+    expected: Kanî Masê
+
+  - source: كِرِن
+    expected: Kirin
+
+  # - source: ئاگر
+  #   expected: Agir
+
+  - source: موحەممەد
+    expected: Muḧemmed
+
+  # - source: موسەننا
+  #   expected: Musanna
+
+  - source: لەكوردِستانێ
+    expected: Le Kurdistanê
 
 map:
-  characters:
+  postrules:
+    - pattern: (?<=\b)(?<!\b[‘|’|'])[\u0061-\uFFFF]
+      result: "upcase"
 
+  characters:
+    const: '[\u0621|\u0628|\u067E|\u062A|\u062C|\u0686|\u062D|\u062E|\u062F|\u0631|\u0695|\u0632|\u0698|\u0633|\u0634|\u0635|\u0636|\u0637|\u0639|\u063A|\u0341|\u06A8|\u0642|\u06A9|\u0643|\u06AF|\u0644|\u06B5|\u0645|\u0646|\u0648|\u0647|\u064A]'
+
+    '\u0650' : 'i' # ِ kasra special rule 2
+    '\u0644\u06d5' : 'le ' # special rule 7
+    '\u0628\u06d5' : 'be ' # special rule 7
     # Note 1
     '\u0621' : '’' # ء
     '\u0624' : '’' # ؤ
     '\u0626' : '’' # ئ
 
+    "(?<=[\u0621|\u0628|\u067E|\u062A|\u062C|\u0686|\u062D|\u062E|\u062F|\u0631|\u0695|\u0632|\u0698|\u0633|\u0634|\u0635|\u0636|\u0637|\u0639|\u063A|\u0341|\u06A8|\u0642|\u06A9|\u0643|\u06AF|\u0644|\u06B5|\u0645|\u0646|\u0648|\u0647|\u064A])\u0648" : 'u' # special note 4/5
+    "(?<=[\u0621|\u0628|\u067E|\u062A|\u062C|\u0686|\u062D|\u062E|\u062F|\u0631|\u0695|\u0632|\u0698|\u0633|\u0634|\u0635|\u0636|\u0637|\u0639|\u063A|\u0341|\u06A8|\u0642|\u06A9|\u0643|\u06AF|\u0644|\u06B5|\u0645|\u0646|\u0648|\u0647|\u064A])\u064A" : 'î' # special note 4/5
     '\u0621': '’' # ء (see note 1 and 7)
     '\u0628': 'b'  # ب
     '\u067E': 'p'  # پ
@@ -162,6 +219,7 @@ map:
     '\u06A8': 'v'  # ڨ  (see note 4)
     '\u0642': 'q'  # ق
     '\u06A9': 'k'  # ك
+    '\u0643': 'k'  # ك
     '\u06AF': 'g'  # گ
     '\u0644': 'l'  # ل
     '\u06B5': 'ł'  # ڵ  (Formerly written ڶ according to type available; may vary on older sources. See note 7)
@@ -172,11 +230,12 @@ map:
     '\u064A': 'y'  # ي
 
     # VOWELS
-    'ه': 'e' # See notes 1 and 5
-    'ئه': 'e' # See notes 1 and 5
+    '\u0647\b': 'e' # See notes 1 and 5
+    '\u06D5': 'e' # See notes 1 and 5
+    '\u0626\u06D5': 'e' # See notes 1 and 5
     'ا': 'a' # See note 1
     'ئا': 'a' # See note 1
-    'ي': 'î' # See notes 1, 6 and 7
+    '\u064A': 'î' # See notes 1, 6 and 7
     'ئي': 'î' # See notes 1, 6 and 7
     'ئ': 'i'
     'ێ': 'ê' # See note 7
