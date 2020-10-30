@@ -1,16 +1,16 @@
 ---
 authority_id: alalc
-id: 2012
+id: 2011
 language: iso-639-2:kan
 source_script: Kana
 destination_script: Latn
-name: Kannada Romanization, 2012
+name: Kannada Romanization, 2011
 alias:
   ogc11122:
-    code: kan_Kand2Latn_ALA_2012
-    description: Kannada ALA-Library of Congress 2012 System
+    code: kan_Kand2Latn_ALA_2011
+    description: Kannada ALA-Library of Congress 2011 System
 url: http://catdir.loc.gov/catdir/cpso/romanization/kannada.pdf
-creation_date: 2012
+creation_date: 2011
 description: |
   ALA-LC Romanization table for Kannada
 
