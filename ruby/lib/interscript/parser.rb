@@ -1,0 +1,2 @@
+class Interscript::Parser
+end

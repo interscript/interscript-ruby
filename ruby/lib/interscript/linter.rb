@@ -1,0 +1,2 @@
+class Interscript::Linter
+end
