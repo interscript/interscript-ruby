@@ -5,10 +5,6 @@ language: iso-639-2:kan
 source_script: Kana
 destination_script: Latn
 name: Kannada Romanization, 1997
-alias:
-  ogc11122:
-    code: kan_Kand2Latn_ALA_1997
-    description: Kannada ALA-Library of Congress 1997 System
 url: http://catdir.loc.gov/catdir/cpso/romanization/kannada.pdf
 creation_date: 1997
 description: |
