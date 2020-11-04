@@ -2,6 +2,7 @@
 authority_id: icao
 id: 9303
 language: iso-639-2:mul
+supported_languages: [iso-639-2:rus, iso-639-2:bel, iso-639-2:ukr, iso-639-2:mkd, iso-639-2:srb ]
 source_script: Cyrl
 destination_script: Latn
 name: "Doc 9303: Machine Readable Travel Documents, Part 3: Specifications Common to all MRTDs, Seventh Edition, 2015"
@@ -20,9 +21,171 @@ description: |
 
   This document defines the transliteration mappings used to produce
   this transcription or transliteration.
+
 tests:
+  - source: Бабрыковіч Аляксандр
+    expected: Babrykovich Aliaksandr
+    language: iso-639-2:bel
+  - source: Міховіч Марыя
+    expected: Mikhovich Maryia
+    language: iso-639-2:bel
+  - source: Максім
+    expected: Maksim
+    language: iso-639-2:bel
+  - source: Іван
+    expected: Ivan
+    language: iso-639-2:bel
+  - source: СВЯТЛАНА
+    expected: SVIATLANA
+    language: iso-639-2:bel
+  - source: Ігар
+    expected: Ihar
+    language: iso-639-2:bel
+  - source: Палто Алена
+    expected: Palto Alena
+    language: iso-639-2:bel
+  - source: Мікалай
+    expected: Mikalai
+    language: iso-639-2:bel
+  # https://en.wikipedia.org/wiki/Machine-readable_passport#Names
+  - source: Горбачёв
+    expected: Gorbachev
+    language: iso-639-2:rus
+  - source: Горбачёв
+    expected: Horbachiov
+    language: iso-639-2:bel
+  - source: Алексей
+    expected: Aleksei
+    language: iso-639-2:rus
+  - source: Академика Королёва
+    expected: Akademika Koroleva
+    language: iso-639-2:rus
+  - source: улица Бирюлёвская
+    expected: ulitsa Biriulevskaia
+    language: iso-639-2:rus
+  - source: Врубеля Улица
+    expected: Vrubelia Ulitsa
+    language: iso-639-2:rus
+  - source: Люблинская
+    expected: Liublinskaia
+    language: iso-639-2:rus
+  # https://news.tut.by/society/650761.html
+  - source: Мария Рудь
+    expected: Mariia Rud
+    language: iso-639-2:rus
+  - source: Мария Рудь
+    expected: Mariia Rud
+    language: iso-639-2:bel
+  # https://pasport.org.ua/ru/vazhno/transliteratsiya
+  - source: Олександр
+    expected: Oleksandr
+    language: iso-639-2:urk
 
 map:
+  rules:
+    - pattern: \u0401
+      result: IO
+      language: [ iso-639-2:bel ]
+    - pattern: (?<!\b\u2019)\b\u0404
+      result: YE
+      language: [ iso-639-2:ukr ]
+    - pattern: (?<!\b\u2019)\b\u0407
+      result: YI
+      language: [ iso-639-2:ukr ]
+    - pattern: \u040C
+      result: KJ
+      language: [ iso-639-2:mkd ]
+    - pattern: \u040F
+      result: DJ
+      language: [ iso-639-2::mkd ]
+    - pattern: \u0413
+      result: H
+      language: [ iso-639-2:bel, iso-639-2:srb, iso-639-2:ukr ]
+    - pattern: \u0416
+      result: Z
+      language: [ iso-639-2:srb ]
+    - pattern: \u0418
+      result: Y
+      language: [ iso-639-2:ukr ]
+    - pattern: (?<!\b\u2019)\b\u0419
+      result: Y
+      language: [ iso-639-2:ukr ]
+    - pattern: \u0425
+      result: H
+      language: [ iso-639-2:srb, iso-639-2:mkd ]
+    - pattern: \u0426
+      result: C
+      language: [ iso-639-2:srb, iso-639-2:mkd ]
+    - pattern: \u0427
+      result: C
+      language: [ iso-639-2:srb ]
+    - pattern: \u0428
+      result: S
+      language: [ iso-639-2:srb ]
+    - pattern: \u0429
+      result: SHT
+      language: [ iso-639-2:bul ]
+    - pattern: (?<!\b\u2019)\b\u042E
+      result: YA
+      language: [ iso-639-2:ukr ]
+    - pattern: (?<!\b\u2019)\b\u042F
+      result: YA
+      language: [ iso-639-2:urk ]
+    - pattern: \u0492
+      result: GJ
+      language: [ iso-639-2:mkd ]
+    - pattern: \u0451
+      result: io
+      language: [ iso-639-2:bel ]
+    - pattern: (?<!\b\u2019)\b\u0454
+      result: ye
+      language: [ iso-639-2:ukr ]
+    - pattern: (?<!\b\u2019)\b\u0457
+      result: yi
+      language: [ iso-639-2:ukr ]
+    - pattern: \u045C
+      result: kj
+      language: [ iso-639-2:mkd ]
+    - pattern: \u045F
+      result: dj
+      language: [ iso-639-2:mkd ]
+    - pattern: \u0433
+      result: h
+      language: [ iso-639-2:bel, iso-639-2:srb, iso-639-2:ukr ]
+    - pattern: \u0436
+      result: z
+      language: [ iso-639-2:srb ]
+    - pattern: \u0438
+      result: y
+      language: [ iso-639-2:ukr ]
+    - pattern: (?<!\b\u2019)\b\u0439
+      result: y
+      language: [ iso-639-2:ukr ]
+    - pattern: \u0445
+      result: h
+      language: [ iso-639-2:srb, iso-639-2:mkd ]
+    - pattern: \u0446
+      result: c
+      language: [ iso-639-2:srb, iso-639-2:mkd ]
+    - pattern: \u0447
+      result: c
+      language: [ iso-639-2:srb ]
+    - pattern: \u0448
+      result: s
+      language: [ iso-639-2:srb ]
+    - pattern: \u0449
+      result: sht
+      language: [ iso-639-2:bul ]
+    - pattern: \u044E
+      result: yu
+      language: [ iso-639-2:ukr ]
+    - pattern: \u044F
+      result: ya
+      language: [ iso-639-2:ukr ]
+    - pattern: \u0493
+      result: gj
+      language: [ iso-639-2:mkd ]
+
   characters:
     # A. Transliteration of Multinational Latin-based Characters
     "\u00C0": "A"          # À
@@ -81,7 +244,6 @@ map:
     "\u012C": "I"          # Ĭ
     "\u012E": "I"          # Į
     "\u0130": "I"          # İ
-    "\u0049": "I"          # I
     "\u0132": "IJ"         # Ĳ
     "\u0134": "J"          # Ĵ
     "\u0136": "K"          # Ķ
@@ -173,52 +335,51 @@ map:
     "\u0125": "h"          # ĥ
     "\u0127": "h"          # ħ
     "\u0129": "i"          # ĩ
-    "\u012B": "I"          # ī
-    "\u012D": "I"          # ĭ
-    "\u012F": "I"          # į
-    "\u0069": "I"          # i̇
-    "\u0131": "I"          # i
-    "\u0133": "IJ"         # ĳ
-    "\u0135": "J"          # ĵ
-    "\u0137": "K"          # ķ
-    "\u013A": "L"          # ĺ
-    "\u013C": "L"          # ļ
-    "\u013E": "L"          # ľ
-    "\u0140": "L"          # ŀ
-    "\u0142": "L"          # ł
-    "\u0144": "N"          # ń
-    "\u0146": "N"          # ņ
-    "\u0148": "N"          # ň
-    "\u014B": "N"          # ŋ
-    "\u014D": "O"          # ō
-    "\u014F": "O"          # ŏ
-    "\u0151": "O"          # ő
-    "\u0153": "OE"         # œ
-    "\u0155": "R"          # ŕ
-    "\u0157": "R"          # ŗ
-    "\u0159": "R"          # ř
-    "\u015B": "S"          # ś
-    "\u015D": "S"          # ŝ
-    "\u015F": "S"          # ş
-    "\u0161": "S"          # š
-    "\u0163": "T"          # ţ
-    "\u0165": "T"          # ť
-    "\u0167": "T"          # ŧ
-    "\u0169": "U"          # ũ
-    "\u016B": "U"          # ū
-    "\u016D": "U"          # ŭ
-    "\u016F": "U"          # ů
-    "\u0171": "U"          # ű
-    "\u0173": "U"          # ų
-    "\u0175": "W"          # ŵ
-    "\u0177": "Y"          # ŷ
-    "\u00FF": "Y"          # ÿ
-    "\u017A": "Z"          # ź
-    "\u017C": "Z"          # ż
-    "\u017E": "Z"          # ž
+    "\u012B": "i"          # ī
+    "\u012D": "i"          # ĭ
+    "\u012F": "i"          # į
+    "\u0131": "i"          # i
+    "\u0133": "ij"         # ĳ
+    "\u0135": "j"          # ĵ
+    "\u0137": "k"          # ķ
+    "\u013A": "l"          # ĺ
+    "\u013C": "l"          # ļ
+    "\u013E": "l"          # ľ
+    "\u0140": "l"          # ŀ
+    "\u0142": "l"          # ł
+    "\u0144": "n"          # ń
+    "\u0146": "n"          # ņ
+    "\u0148": "n"          # ň
+    "\u014B": "n"          # ŋ
+    "\u014D": "o"          # ō
+    "\u014F": "o"          # ŏ
+    "\u0151": "o"          # ő
+    "\u0153": "oe"         # œ
+    "\u0155": "r"          # ŕ
+    "\u0157": "r"          # ŗ
+    "\u0159": "r"          # ř
+    "\u015B": "s"          # ś
+    "\u015D": "s"          # ŝ
+    "\u015F": "s"          # ş
+    "\u0161": "s"          # š
+    "\u0163": "t"          # ţ
+    "\u0165": "t"          # ť
+    "\u0167": "t"          # ŧ
+    "\u0169": "u"          # ũ
+    "\u016B": "u"          # ū
+    "\u016D": "u"          # ŭ
+    "\u016F": "u"          # ů
+    "\u0171": "u"          # ű
+    "\u0173": "u"          # ų
+    "\u0175": "w"          # ŵ
+    "\u0177": "y"          # ŷ
+    "\u00FF": "y"          # ÿ
+    "\u017A": "z"          # ź
+    "\u017C": "z"          # ż
+    "\u017E": "z"          # ž
 
     # B. Transliteration of Cyrillic Characters
-    "\u0401": "E"          # Ё (except Belorussian = IO) 
+    "\u0401": "E"          # Ё (except Belorussian = IO)
     "\u0402": "D"          # Ћ
     "\u0404": "IE"         # Є (except if Ukrainian first character, then = YE)
     "\u0405": "DZ"         # Ѕ 
@@ -229,11 +390,11 @@ map:
     "\u040A": "NJ"         # Њ 
     "\u040C": "K"          # Ќ (except in the language spoken in the former Yugoslav Republic of Macedonia = KJ)
     "\u040E": "U"          # ў 
-    "\u040F": "DZ"         # Џ (except in the language spoken in the former Yugoslav Republic of Macedonia = DJ) 
+    "\u040F": "DZ"         # Џ (except in the language spoken in the former Yugoslav Republic of Macedonia = DJ)
     "\u0410": "A"          # А
     "\u0411": "B"          # Б
     "\u0412": "V"          # В
-    "\u0413": "G"          # Г (except Belorussian, Serbian, and Ukrainian = H) 
+    "\u0413": "G"          # Г (except Belorussian, Serbian, and Ukrainian = H)
     "\u0414": "D"          # Д
     "\u0415": "E"          # Е
     "\u0416": "ZH"         # Ж (except Serbian = Z)
@@ -279,7 +440,7 @@ map:
     "\u045C": "k"          # ќ (except in the language spoken in the former Yugoslav Republic of Macedonia = kj)
     "\u045E": "u"          # ў 
     "\u045F": "dz"         # џ (except in the language spoken in the former Yugoslav Republic of Macedonia = dj) 
-    "\u0410": "a"          # а
+    "\u0430": "a"          # а
     "\u0431": "b"          # б
     "\u0432": "v"          # в
     "\u0433": "g"          # г (except Belorussian, Serbian, and Ukrainian = h) 
@@ -315,3 +476,8 @@ map:
     "\u0491": "g"          # ґ
     "\u0493": "g"          # ғ (except in the language spoken in the former Yugoslav Republic of Macedonia = gj) 
     "\u04BB": "c"          # һ
+
+    # Soft sign transliteration don't defined by standard so it's skipped
+    # https://ru.wikipedia.org/wiki/Транслитерация_русского_алфавита_латиницей#cite_note-tt12-19
+    "\u042C": ""           # Ь
+    "\u044C": ""           # ь
