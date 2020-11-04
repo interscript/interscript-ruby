@@ -2,7 +2,7 @@
 authority_id: icao
 id: 9303
 language: iso-639-2:mul
-supported_languages: [iso-639-2:rus, iso-639-2:bel, iso-639-2:ukr, iso-639-2:mkd, iso-639-2:srb ]
+supported_languages: [ 'iso-639-2:rus', 'iso-639-2:bel', 'iso-639-2:ukr', 'iso-639-2:mkd', 'iso-639-2:srb' ]
 source_script: Cyrl
 destination_script: Latn
 name: "Doc 9303: Machine Readable Travel Documents, Part 3: Specifications Common to all MRTDs, Seventh Edition, 2015"
@@ -85,106 +85,106 @@ map:
   rules:
     - pattern: \u0401
       result: IO
-      language: [ iso-639-2:bel ]
+      language: [ 'iso-639-2:bel' ]
     - pattern: (?<!\b\u2019)\b\u0404
       result: YE
-      language: [ iso-639-2:ukr ]
+      language: [ 'iso-639-2:ukr' ]
     - pattern: (?<!\b\u2019)\b\u0407
       result: YI
-      language: [ iso-639-2:ukr ]
+      language: [ 'iso-639-2:ukr' ]
     - pattern: \u040C
       result: KJ
-      language: [ iso-639-2:mkd ]
+      language: [ 'iso-639-2:mkd' ]
     - pattern: \u040F
       result: DJ
-      language: [ iso-639-2::mkd ]
+      language: [ 'iso-639-2::mkd' ]
     - pattern: \u0413
       result: H
-      language: [ iso-639-2:bel, iso-639-2:srb, iso-639-2:ukr ]
+      language: [ 'iso-639-2:bel', 'iso-639-2:srb', 'iso-639-2:ukr' ]
     - pattern: \u0416
       result: Z
-      language: [ iso-639-2:srb ]
+      language: [ 'iso-639-2:srb' ]
     - pattern: \u0418
       result: Y
-      language: [ iso-639-2:ukr ]
+      language: [ 'iso-639-2:ukr' ]
     - pattern: (?<!\b\u2019)\b\u0419
       result: Y
-      language: [ iso-639-2:ukr ]
+      language: [ 'iso-639-2:ukr' ]
     - pattern: \u0425
       result: H
-      language: [ iso-639-2:srb, iso-639-2:mkd ]
+      language: [ 'iso-639-2:srb', 'iso-639-2:mkd' ]
     - pattern: \u0426
       result: C
-      language: [ iso-639-2:srb, iso-639-2:mkd ]
+      language: [ 'iso-639-2:srb', 'iso-639-2:mkd' ]
     - pattern: \u0427
       result: C
-      language: [ iso-639-2:srb ]
+      language: [ 'iso-639-2:srb' ]
     - pattern: \u0428
       result: S
-      language: [ iso-639-2:srb ]
+      language: [ 'iso-639-2:srb' ]
     - pattern: \u0429
       result: SHT
-      language: [ iso-639-2:bul ]
+      language: [ 'iso-639-2:bul' ]
     - pattern: (?<!\b\u2019)\b\u042E
       result: YA
-      language: [ iso-639-2:ukr ]
+      language: [ 'iso-639-2:ukr' ]
     - pattern: (?<!\b\u2019)\b\u042F
       result: YA
-      language: [ iso-639-2:urk ]
+      language: [ 'iso-639-2:urk' ]
     - pattern: \u0492
       result: GJ
-      language: [ iso-639-2:mkd ]
+      language: [ 'iso-639-2:mkd' ]
     - pattern: \u0451
       result: io
-      language: [ iso-639-2:bel ]
+      language: [ 'iso-639-2:bel' ]
     - pattern: (?<!\b\u2019)\b\u0454
       result: ye
-      language: [ iso-639-2:ukr ]
+      language: [ 'iso-639-2:ukr' ]
     - pattern: (?<!\b\u2019)\b\u0457
       result: yi
-      language: [ iso-639-2:ukr ]
+      language: [ 'iso-639-2:ukr' ]
     - pattern: \u045C
       result: kj
-      language: [ iso-639-2:mkd ]
+      language: [ 'iso-639-2:mkd' ]
     - pattern: \u045F
       result: dj
-      language: [ iso-639-2:mkd ]
+      language: [ 'iso-639-2:mkd' ]
     - pattern: \u0433
       result: h
-      language: [ iso-639-2:bel, iso-639-2:srb, iso-639-2:ukr ]
+      language: [ 'iso-639-2:bel', 'iso-639-2:srb', 'iso-639-2:ukr' ]
     - pattern: \u0436
       result: z
-      language: [ iso-639-2:srb ]
+      language: [ 'iso-639-2:srb' ]
     - pattern: \u0438
       result: y
-      language: [ iso-639-2:ukr ]
+      language: [ 'iso-639-2:ukr' ]
     - pattern: (?<!\b\u2019)\b\u0439
       result: y
-      language: [ iso-639-2:ukr ]
+      language: [ 'iso-639-2:ukr' ]
     - pattern: \u0445
       result: h
-      language: [ iso-639-2:srb, iso-639-2:mkd ]
+      language: [ 'iso-639-2:srb', 'iso-639-2:mkd' ]
     - pattern: \u0446
       result: c
-      language: [ iso-639-2:srb, iso-639-2:mkd ]
+      language: [ 'iso-639-2:srb', 'iso-639-2:mkd' ]
     - pattern: \u0447
       result: c
-      language: [ iso-639-2:srb ]
+      language: [ 'iso-639-2:srb' ]
     - pattern: \u0448
       result: s
-      language: [ iso-639-2:srb ]
+      language: [ 'iso-639-2:srb' ]
     - pattern: \u0449
       result: sht
-      language: [ iso-639-2:bul ]
+      language: [ 'iso-639-2:bul' ]
     - pattern: \u044E
       result: yu
-      language: [ iso-639-2:ukr ]
+      language: [ 'iso-639-2:ukr' ]
     - pattern: \u044F
       result: ya
-      language: [ iso-639-2:ukr ]
+      language: [ 'iso-639-2:ukr' ]
     - pattern: \u0493
       result: gj
-      language: [ iso-639-2:mkd ]
+      language: [ 'iso-639-2:mkd' ]
 
   characters:
     # A. Transliteration of Multinational Latin-based Characters
