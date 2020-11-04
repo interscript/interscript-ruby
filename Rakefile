@@ -9,6 +9,7 @@ end
 desc "Remove javascript files"
 task :clean do
   Dir.glob('vendor/assets/javascripts/*').each { |f| File.delete(f) }
+  File.delete('aliases.json') if File.exist?('aliases.json')
 end
 
 desc "Build Interscript JavaScript"
