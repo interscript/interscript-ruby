@@ -1,0 +1,34 @@
+---
+authority_id: odni
+id: 2005
+language: iso-639-2:srp
+source_script: Cyrl
+destination_script: Latn
+name: Office of the Director Of National Intelligence Serbian Personal Names 2004 System
+creation_date: 2005
+confirmation_date: 2005
+description: |
+  Office of the Director Of National Intelligence Serbian Personal Names 2004 System
+
+notes:
+
+tests:
+  - source: Гојко Митић
+    expected: Gojko Mitic
+  - source: Горња Ваганица
+    expected: Gornja Vaganica
+  - source: Довиђења
+    expected: Dovidjenja
+  - source: Ћао! Здраво!
+    expected: Cao! Zdravo!
+  - source: Кључ
+    expected: Kljuc
+  - source: Цигарете
+    expected: Cigarete
+  - source: Пролеће
+    expected: Prolece
+  - source: Понедељак
+    expected: Ponedeljak
+
+map:
+  inherit: odni-srp-Cyrl-Latn-2015
