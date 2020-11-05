@@ -1,12 +1,7 @@
 require "spec_helper"
 
 RSpec.describe "filenames" do
-  # Taken from https://github.com/interscript/interscript/issues/368
-  valid_authcodes = %w[acadsin ahl alalc ammi ansi apcbg asm az bas bds bgn
-    bgna bgnpcgn bis biulo bsi bt bulac by cn cnt din dmg dos easc efeo elot
-    gaz ggg gki gost gsi hk icao ign iso itk jp jra kp lbmod lshk ma md mext
-    mk mlc mlit mlmupc mns moct mofa msst mv nco nikl nrs odni rjgc royin rs
-    sac ses sfs sgk tm ua ucis un uz var xlsc yivo mvd stategeocadastre sasm]
+  valid_authcodes = YAML.load(File.read("authority_codes.yaml")).keys
 
   # From https://www.loc.gov/standards/iso639-2/php/code_list.php
   iso6392 = %w[
