@@ -1,5 +1,5 @@
 ---
-authority_id: mns
+authority_id: masm
 id: 2012
 language: iso-639-2:mon
 source_script: Cyrl
@@ -13,7 +13,7 @@ description: |
   for transliteration from Cyrillic Mongolian in Latin alphabet. It repeats and supplements the previous
   standard dating from 2003 (MNS 5217:2003).
 
-  This standard differs from the ISO 9 system for Cyrillic adopted by Russia, Armenia, Azerbaijan, 
+  This standard differs from the ISO 9 system for Cyrillic adopted by Russia, Armenia, Azerbaijan,
   Belarus, Kazakhstan, Kyrgyzstan, Uzbekistan, Tajikistan and Turkmenistan.
 
 tests:
