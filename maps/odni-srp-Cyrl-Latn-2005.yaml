@@ -29,6 +29,8 @@ tests:
     expected: Prolece
   - source: Понедељак
     expected: Ponedeljak
+  - source: Горња Ваганица
+    expected: Gornja Vaganica
 
 map:
   inherit: odni-srp-Cyrl-Latn-2015
