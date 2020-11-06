@@ -69,6 +69,7 @@ notes:
     appropriate should be used.
 
 tests:
+  # commented tests are blocked by https://github.com/interscript/interscript/issues/620
     # 'cultivable patch of riverbed'
   - source: بےنٹَگ
     expected: Benṭag
@@ -138,9 +139,9 @@ tests:
   # - source: ہ یرات
   #   expected: Herāt
 
-  #   # 'Philippines'
-  # - source: فلپاٸن
-  #   expected: Filpā’in
+    # 'Philippines'
+  - source: فِلپائِن
+    expected: Filpā’in
 
   - source: مُرگاپ
     expected: Murgāp
