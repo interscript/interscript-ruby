@@ -1,0 +1,88 @@
+---
+authority_id: var
+id: ipa
+language: iso-639-2:mon
+source_script: Latn
+destination_script: Latn
+name: Mongolian Pinyin to IPA conversion
+url: https://github.com/interscript/interscript/files/5345233/e_conf_74_L48.pdf
+creation_date:
+description: |
+  The romanization of Chinese geographical names is closely related with the progress of the
+  standardization of geographical names in the country. In 1977, the China Geographical Names
+  Committee was set up. Composed of the representatives of related ministries, commissions and
+  scientific institutes, it takes charge of drawing up the principles of standardized geographical
+  names at home and abroad, organizes the departments concerned to gather, edit and check place
+  names materials, and to compile reference books on geographical names and gives guidance to the
+  standardization of geographical names throughout the country.
+
+  Transcription of Mongolian place names is made from their proper pronunciation based on the written
+  from of the Mongolian language and Qahar vernacular the Zhenglan as its representative pronunciation.
+  The long and short vowels in the Mongolian language are not distinguished in the transcription.
+
+notes:
+  - The long and short Mongolian vowels are not distinguished in the spellings for general use,
+    but in the recording the pronunciation of place names, the long vowel is represented by duplication.
+  - Where two forms of the same letter, with and without a diacritical mark, are listed together for
+    transcribing with Pinyin, the form with the diacritical mark is used for recording the pronunciation
+    of place names, while the form without the diacritical mark is for general use.
+
+tests:
+  - source: Hūhehaote
+    expected: Xʊxəxaote
+
+map:
+
+  characters:
+    "a": "a"
+    "b": "p"
+    "c": "ts"
+    "d": "t"
+    "e": "ə"
+    "f": "f"
+    "g": "k"
+    "h": "x"
+    "i": "i"
+    "j": "tʃ"
+    "k": "k"
+    "l": "l"
+    "m": "m"
+    "n": "n"
+    "o": "o"
+    "p": "p"
+    "q": "tʃ"
+    "r": "r"
+    "s": "s"
+    "t": "t"
+    "u": "u"
+    "w": "w"
+    "x": "ʃ"
+    "y": "i"
+    "z": "ts"
+    "ū": "ʊ"
+    "A": "A"
+    "B": "P"
+    "C": "Ts"
+    "D": "T"
+    "E": "Ə"
+    "F": "F"
+    "G": "K"
+    "H": "X"
+    "I": "I"
+    "J": "Tʃ"
+    "K": "K"
+    "L": "L"
+    "M": "M"
+    "N": "N"
+    "O": "O"
+    "P": "P"
+    "Q": "Tʃ"
+    "R": "R"
+    "S": "S"
+    "T": "T"
+    "U": "U"
+    "W": "W"
+    "X": "Ʃ"
+    "Y": "I"
+    "Z": "Ts"
+    "Ū": "Ʊ"
