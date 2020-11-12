@@ -1,0 +1,182 @@
+---
+authority_id: odni
+id: 2004
+language: iso-639-2:hin
+source_script: Deva
+destination_script: Latn
+name: IC STANDARDS FOR TRANSLITERATION OF HINDI AND URDU PERSONAL NAMES
+url: https://github.com/interscript/interscript-private-references/blob/master/odni/Hindi_and_Urdu_IC_Standard.doc
+creation_date: 2004
+description: |
+  IC STANDARDS FOR TRANSLITERATION OF HINDI AND URDU PERSONAL NAMES
+
+notes:
+  - |
+    Long/Short Vowels: Long and short vowels are not distinguished in the system:
+    The borrowed Arabic name Samir could represent two distinct names, one with a
+    long /a/ (Saamir) and one with a long /i/ (Samiir). One solution would be to use
+    /ee/ to stand for the long /i/, as is often done (Sameer). The IC Standard will not
+    distinguish between these.
+  - |
+    No distinction is made between: retroflex and non-retroflex consonants; and
+    nasalized vowels and vowels followed by /n/.
+  - |
+    A distinction is drawn between Urdu letters qaf and kaf (and correspondingly,
+    Hindi qa and ka).
+  - |
+    A distinction is drawn between aspirated (e.g., /d/) and nonaspirated consonants
+    (e.g., /dh/), with the exception of ch/chh, both represented by /ch/.
+  - |
+    Digraphs: No distinction is made between digraphs such as /sh/ and single
+    contiguous letters such as /s/ followed by /h/.
+  - |
+    Hyphens: Hyphens (-) are NOT used to connect name elements within a name:
+    Abdur Rahman. The single exception to this is the izafat (i.e., linking vowel in
+    noun-link-modifier construction of Persian origin), which does show a hypen
+    before the /e/ and a following space: Koh-e Nur (‘mountain of light’), “Jaish-e
+    xx” (‘Army of xx’ construction).
+  - |
+    Names incorporating “din” are written as one unit: Azermuddin, Badruddin,
+    Faizuddin, Salahuddin.
+  - |
+    Names that incorporate Allah as part of the name show the Arabic grammatical
+    marker /u/ rather than the /a/ of Allah: Abdullah (not Abdallah).
+  - |
+    Inherent short vowel /a/ in Devanagari is represented with an /a/ in Roman. Final
+    consonants are assumed not to have a short /a/ (e.g., masc. name Ram Lal, not
+    Rama Lala).
+  - |
+    As a general rule, Devanagari va is transcribed as a /v/: Vijay, Vishal, etc.
+    Exception: /sw/ combination: Saraswati, Krishnaswami. Urdu wau, however, is
+    transcribed as /w/: Wasim, Walid.
+
+tests:
+  - source: "दिल्ली"
+    expected: "dilli"
+  - source: "भारत"
+    expected: "bhart"
+  - source: "विजय"
+    expected: "vijy"
+  - source: "विशाल"
+    expected: "vishal"
+  - source: "अब्दुल्ला"
+    expected: "abdulla"
+  - source: "संख्या"
+    expected: "snkhya"
+  - source: "संख्या"
+    expected: "snkhya"
+  - source: "समीर"
+    expected: "smir"
+  - source: "सरस्वती"
+    expected: "srsvti"
+  - source: "कृष्णास्वामी"
+    expected: "krishnasvami"
+
+map:
+
+  characters:
+
+    #Independent vowel characters
+    'अ': 'a'
+    'आ': 'a'
+    'इ': 'i'
+    'ई': 'i'
+    'उ': 'u'
+    'ऊ': 'u'
+    'ऋ': 'ri'
+    'ऌ': 'l̤'
+    'ए': 'e'
+    'ऐ': 'ai'
+    'ओ': 'o'
+    'ऑ': 'au'
+    'औ': 'au'
+
+    #Dependent Vowels
+    'ा': "a"
+    'ि': "i"
+    'ी': "i"
+    'ु': "u"
+    'ू': "u"
+    'ृ': "ri"
+    'े': "e"
+    'ै': "ai"
+    'ॅ': "ai"
+    'ो': "o"
+    'ौ': "au"
+    'ॉ': "au" 
+
+
+    # Consonants
+
+    # Gutturals
+    'क': 'k'
+    'क्ष': 'ksha'
+    'क़': 'q'
+    'ख': 'kh'
+    'ख़': 'kh'
+    'ग': 'g'
+    'ग़': 'gh'
+    'घ': 'gh'
+    'ङ': 'n'
+
+    # Palatals
+    'च': 'ch'
+    'छ': 'ch'
+    'ज': 'j'
+    'ज़': 'z'
+    'झ': 'gya'
+    'झ': 'jh'
+    'ञ': 'n'
+
+    # Cerebrals
+    'ट': 't'
+    'ठ': 'th'
+    'ड': 'd'
+    'ड़': 'r'
+    'ढ़': 'rh'
+    'ढ': 'dh'
+    'ण': 'n'
+
+    # Dentals
+    'त': 't'
+    'थ': 'th'
+    'द': 'd'
+    'ध': 'dh'
+    'न': 'n'
+
+    # Labials
+    'प': 'p'
+    'फ़': 'f'
+    'फ': 'ph'
+    'ब': 'b'
+    'भ': 'bh'
+    'म': 'm'
+
+    # Semivowels
+    'य': 'y'
+    'र': 'r'
+    'ल': 'l'
+    'व': 'v'
+
+    # Sibilants
+    'श': 'sh'
+    'ष': 'sh'
+    'स': 's'
+
+
+    # Aspirate
+    'ह': 'h'
+
+    # Anusvāra
+    'ं': 'n'
+
+    # Anunāsika
+    'ँ': 'n'
+
+    # halanta
+    '्': ''
+
+    # bisharga
+    'ः': 'h'
+
+    '़': ''
