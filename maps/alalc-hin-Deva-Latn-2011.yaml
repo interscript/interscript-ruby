@@ -40,7 +40,25 @@ notes:
 
 tests:
   - source: "इस चुनौतीपूर्ण समय में 'वर्क फ्रॉम होम’ सामान्य बन चुका है"
-    expected: "isa caunaăutaīpaūraṇa samaya maeṃ 'varaka pharaôma haoma’ saāmaānaya bana caukaā haai"
+    expected: "is cunăutīpūrṇ samay meṃ 'vark phrôm homa’ sāmāny ban cukā hai"
+  - source: "दिल्ली में त्योहार पर खरीददारी करने निकले बड़ी संख्या में लोग, कई जगहों पर लगा भीषण जाम"
+    expected: "dillī meṃ tyohār par kharīdadārī karane nikale baṛī saṃkhyā meṃ loga, kaī jagahoṃ par lagā bhīshaṇ jāma"
+  - source: "सरकार ने पेंशन भोगियों को लाइफ सर्टिफिकेट जमा कराने के मामले में दी बड़ी राहत"
+    expected: "sarakār ne peṃśan bhogiyoṃ ko lāiph sarṭiphikeṭ jamā karāne ke māmale meṃ dī baṛī rāhata"
+  - source: "कांग्रेस ने माना उसके लचर प्रदर्शन ने डुबोई महागठबंधन की लुटिया, पार्टी में उठने लगी आत्ममंथन की आवाज"
+    expected: "kāṃgres ne mānā usake lacar pradarśan ne ḍuboī mahāgaṭhabandhan kī luṭiyā, pārṭī meṃ uṭhane lagī ātmamanthan kī āvāja"
+  - source: "डिजिटल पेमेंट सिस्टम ने छोटे-मध्यम कारोबारों का दिया साथ, कोरोना की परेशानियों को किया कम"
+    expected: "ḍijiṭal pemeṃṭ sisṭam ne choṭe-madhyam kārobāroṃ kā diyā sātha, koronā kī pareśāniyoṃ ko kiyā kama"
+  - source: "छोटे व्यापारियों को ढूंढें, उनसे खरीदें और उनका साथ दें"
+    expected: "choṭe vyāpāriyoṃ ko ḍhūṃḍheṃ, unase kharīdeṃ ăur unakā sāth deṃ"
+  - source: "भारत के साथ साझीदारी को महत्व देंगे बाइडन, ओबामा प्रशासन में रहीं वरिष्ठ अधिकारी एलिसा ने जताई उम्मीद"
+    expected: "bhārat ke sāth sājhīdārī ko mahatv deṃge bāiḍana, obāmā praśāsan meṃ rahīṃ varishṭh adhikārī elisā ne jatāī ummīda"
+  - source: "दो महीने से कोमा में था युवक, चिकन की चर्चा सुनते ही आया होश"
+    expected: "do mahīne se komā meṃ thā yuvaka, cikan kī carcā sunate hī āyā hośa"
+  - source: "कोरोना के टीके पर खुशखबरी, भारत पहुंची रूसी वैक्सीन की पहली खेप"
+    expected: "koronā ke ṭīke par khuśakhabarī, bhārat pahuṃcī rūsī vaiksīn kī pahalī khepa"
+  - source: "दिल्ली के गांधी नगर स्थित एक दुकान में लगी भीषण आग, दमकल की 20 गाड़ियां मौके पर"
+    expected: "dillī ke gāṃdhī nagar sthit ek dukān meṃ lagī bhīshaṇ āga, damakal kī 20 gāṛiyāṃ măuke para"
 
 map:
 
