@@ -38,27 +38,96 @@ notes:
 
 tests:
   - source: "पूर्णमदः पूर्णमिदं पूर्णात् पूर्ण्मुदच्यते"
-    expected: "paūraṇamadaḥ paūraṇamaidaṃ paūraṇaāta paūraṇamaudacayatae"
+    expected: "pūrṇamadaḥ pūrṇamidaṃ pūrṇāt pūrṇmudacyate"
   - source: "पूर्णस्य पूर्णमादाय पूर्णमेवावशिष्यते"
-    expected: "paūraṇasaya paūraṇamaādaāya paūraṇamaevaāvaśaiṣayatae"
+    expected: "pūrṇasya pūrṇamādāya pūrṇamevāvaśiṣyate"
   - source: "यथा चतुर्भिः कनकं परीक्ष्यते निर्घषणच्छेदन तापताडनैः"
-    expected: "yathaā cataurabhaiḥ kanakaṃ paraīkaṣayatae nairaghaṣaṇacachaedana taāpataāḍanaaiḥ"
+    expected: "yathā caturbhiḥ kanakaṃ parīkṣyate nirghaṣaṇacchedana tāpatāḍanaiḥ"
   - source: "तथा चतुर्भिः पुरुषः परीक्ष्यते त्यागेन शीलेन गुणेन कर्मणा"
-    expected: "tathaā cataurabhaiḥ paurauṣaḥ paraīkaṣayatae tayaāgaena śaīlaena gauṇaena karamaṇaā"
+    expected: "tathā caturbhiḥ puruṣaḥ parīkṣyate tyāgena śīlena guṇena karmaṇā"
   - source: "यो न हृष्यति न द्वेष्टि न शोचति न काङ्‍क्षति"
-    expected: "yao na haṛṣayatai na davaeṣaṭai na śaocatai na kaāṅakaṣatai"
+    expected: "yo na hṛṣyati na dveṣṭi na śocati na kāṅkṣati"
   - source: "शुभाशुभपरित्यागी भक्तिमान्यः स मे प्रियः"
-    expected: "śaubhaāśaubhaparaitayaāgaī bhakataimaānayaḥ sa mae paraiyaḥ"
+    expected: "śubhāśubhaparityāgī bhaktimānyaḥ sa me priyaḥ"
   - source: "सत्य -सत्यमेवेश्वरो लोके सत्ये धर्मः सदाश्रितः"
-    expected: "sataya -satayamaevaeśavarao laokae satayae dharamaḥ sadaāśaraitaḥ"
+    expected: "satya -satyameveśvaro loke satye dharmaḥ sadāśritaḥ"
   - source: "सत्यमूलनि सर्वाणि सत्यान्नास्ति परं पदम्"
-    expected: "satayamaūlanai saravaāṇai satayaānanaāsatai paraṃ padama"
+    expected: "satyamūlani sarvāṇi satyānnāsti paraṃ padam"
   - source: "पिता माताग्निरात्मा च गुरुश्च भरतर्षभ"
-    expected: "paitaā maātaāganairaātamaā ca gaurauśaca bharataraṣabha"
+    expected: "pitā mātāgnirātmā ca guruśca bharatarṣabha"
 
 map:
 
   rules:
+    # note [2]
+    - pattern: (क=?)(?=[\u093e\u093f\u0940\u0941\u0942\u0943\u0944\u0947\u0948\u094b\u094c\u094d])
+      result:  'k'
+    - pattern: (ख=?)(?=[\u093e\u093f\u0940\u0941\u0942\u0943\u0944\u0947\u0948\u094b\u094c\u094d])
+      result:  'kh'
+    - pattern: (ग=?)(?=[\u093e\u093f\u0940\u0941\u0942\u0943\u0944\u0947\u0948\u094b\u094c\u094d])
+      result:  'g'
+    - pattern: (घ=?)(?=[\u093e\u093f\u0940\u0941\u0942\u0943\u0944\u0947\u0948\u094b\u094c\u094d])
+      result:  'gh'
+    - pattern: (ङ=?)(?=[\u093e\u093f\u0940\u0941\u0942\u0943\u0944\u0947\u0948\u094b\u094c\u094d])
+      result:  'ṅ'
+    - pattern: (च=?)(?=[\u093e\u093f\u0940\u0941\u0942\u0943\u0944\u0947\u0948\u094b\u094c\u094d])
+      result:  'c'
+    - pattern: (छ=?)(?=[\u093e\u093f\u0940\u0941\u0942\u0943\u0944\u0947\u0948\u094b\u094c\u094d])
+      result:  'ch'
+    - pattern: (ज=?)(?=[\u093e\u093f\u0940\u0941\u0942\u0943\u0944\u0947\u0948\u094b\u094c\u094d])
+      result:  'j'
+    - pattern: (झ=?)(?=[\u093e\u093f\u0940\u0941\u0942\u0943\u0944\u0947\u0948\u094b\u094c\u094d])
+      result:  'jh'
+    - pattern: (ञ=?)(?=[\u093e\u093f\u0940\u0941\u0942\u0943\u0944\u0947\u0948\u094b\u094c\u094d])
+      result:  'ñ'
+    - pattern: (ट=?)(?=[\u093e\u093f\u0940\u0941\u0942\u0943\u0944\u0947\u0948\u094b\u094c\u094d])
+      result:  'ṭ'
+    - pattern: (ठ=?)(?=[\u093e\u093f\u0940\u0941\u0942\u0943\u0944\u0947\u0948\u094b\u094c\u094d])
+      result:  'ṭh'
+    - pattern: (ड=?)(?=[\u093e\u093f\u0940\u0941\u0942\u0943\u0944\u0947\u0948\u094b\u094c\u094d])
+      result:  'ḍ'
+    - pattern: (ढ=?)(?=[\u093e\u093f\u0940\u0941\u0942\u0943\u0944\u0947\u0948\u094b\u094c\u094d])
+      result:  'ḍh'
+    - pattern: (ण=?)(?=[\u093e\u093f\u0940\u0941\u0942\u0943\u0944\u0947\u0948\u094b\u094c\u094d])
+      result:  'ṇ'
+    - pattern: (त=?)(?=[\u093e\u093f\u0940\u0941\u0942\u0943\u0944\u0947\u0948\u094b\u094c\u094d])
+      result:  't'
+    - pattern: (थ=?)(?=[\u093e\u093f\u0940\u0941\u0942\u0943\u0944\u0947\u0948\u094b\u094c\u094d])
+      result:  'th'
+    - pattern: (द=?)(?=[\u093e\u093f\u0940\u0941\u0942\u0943\u0944\u0947\u0948\u094b\u094c\u094d])
+      result:  'd'
+    - pattern: (ध=?)(?=[\u093e\u093f\u0940\u0941\u0942\u0943\u0944\u0947\u0948\u094b\u094c\u094d])
+      result:  'dh'
+    - pattern: (न=?)(?=[\u093e\u093f\u0940\u0941\u0942\u0943\u0944\u0947\u0948\u094b\u094c\u094d])
+      result:  'n'
+    - pattern: (प=?)(?=[\u093e\u093f\u0940\u0941\u0942\u0943\u0944\u0947\u0948\u094b\u094c\u094d])
+      result:  'p'
+    - pattern: (फ=?)(?=[\u093e\u093f\u0940\u0941\u0942\u0943\u0944\u0947\u0948\u094b\u094c\u094d])
+      result:  'ph'
+    - pattern: (ब=?)(?=[\u093e\u093f\u0940\u0941\u0942\u0943\u0944\u0947\u0948\u094b\u094c\u094d])
+      result:  'b'
+    - pattern: (भ=?)(?=[\u093e\u093f\u0940\u0941\u0942\u0943\u0944\u0947\u0948\u094b\u094c\u094d])
+      result:  'bh'
+    - pattern: (म=?)(?=[\u093e\u093f\u0940\u0941\u0942\u0943\u0944\u0947\u0948\u094b\u094c\u094d])
+      result:  'm'
+    - pattern: (य=?)(?=[\u093e\u093f\u0940\u0941\u0942\u0943\u0944\u0947\u0948\u094b\u094c\u094d])
+      result:  'y'
+    - pattern: (र=?)(?=[\u093e\u093f\u0940\u0941\u0942\u0943\u0944\u0947\u0948\u094b\u094c\u094d])
+      result:  'r'
+    - pattern: (ल=?)(?=[\u093e\u093f\u0940\u0941\u0942\u0943\u0944\u0947\u0948\u094b\u094c\u094d])
+      result:  'l'
+    - pattern: (ळ=?)(?=[\u093e\u093f\u0940\u0941\u0942\u0943\u0944\u0947\u0948\u094b\u094c\u094d])
+      result:  'ḻ'
+    - pattern: (व=?)(?=[\u093e\u093f\u0940\u0941\u0942\u0943\u0944\u0947\u0948\u094b\u094c\u094d])
+      result:  'v'
+    - pattern: (श=?)(?=[\u093e\u093f\u0940\u0941\u0942\u0943\u0944\u0947\u0948\u094b\u094c\u094d])
+      result:  'ś'
+    - pattern: (ष=?)(?=[\u093e\u093f\u0940\u0941\u0942\u0943\u0944\u0947\u0948\u094b\u094c\u094d])
+      result:  'ṣ'
+    - pattern: (स=?)(?=[\u093e\u093f\u0940\u0941\u0942\u0943\u0944\u0947\u0948\u094b\u094c\u094d])
+      result:  's'
+    - pattern: (ह=?)(?=[\u093e\u093f\u0940\u0941\u0942\u0943\u0944\u0947\u0948\u094b\u094c\u094d])
+      result:  'h'
     # note[3]
     - pattern: \u0902(?=[कखगघङ])
       result: ṅ
