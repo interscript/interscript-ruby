@@ -38,9 +38,9 @@ notes:
 
 tests:
   - source: "सृष्टिस्थितिविनाशानां शक्तिभूते सनातनि"
-    expected: "saṛṣaṭaisathaitaivainaāśaānaāṃ śakataibhaūtae sanaātanai"
+    expected: "sṛṣṭisthitivināśānāṃ śaktibhūte sanātani"
   - source: "गुणाश्रये गुणमये नारायणि नमोऽस्तु ते"
-    expected: "gauṇaāśarayae gauṇamayae naāraāyaṇai namao’satau tae"
+    expected: "guṇāśraye guṇamaye nārāyaṇi namo’stu te"
 
 map:
 
