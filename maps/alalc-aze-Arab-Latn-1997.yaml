@@ -103,10 +103,18 @@ notes:
     Maktabí-i Sírãzí    مكتبي شيرازي
 
   # Affixes and Compounds
+  - Rule 7 Affixes.
+    (a) When the affix and the word with it is connected grammatically are
+    written separately in Azerbaijani, the two are separated in romanization
+    by a single prime(').
 
+    (b) The Arabic article al is separated by a hyphen, in romanization,
+    from the word to which it is prefixed.
 
-
-
+  - Rule 8 Compounds.
+    When the elements of a compound (except a compound personal name)
+    are written separately in Azerbaijani, they are separated in
+    romanization by a single prime(').
   # Orthography of Azerbaijani in Romanization
 
   - Rule 9 Capitalization
@@ -226,52 +234,8 @@ map:
       result: 'al'
 
   characters:
-    # pointing
-    '\u064e' : 'a' # َ fatha
-    # '\u064e(?=\u0629)' : '' # َ fatha followed by ta' marboota
-    # '\u064e(?=a[h|t])' : '' # َ fatha followed by ta' marboota, handling different order of conversion
-    '\u0650' : 'i' # ِ kasra
-    '\u064f' : 'u' # ُ damma
-    '\u0652' : ''  # ْ sokoon, see note A below
-
-
-    # special pointed letters
-    '\u0639\u064e' : '‘a'  # عَ
-    '\u0639\u0650' : '‘i'  # عِ
-    '\u0639\u064f' : '‘ū'  # عُ
-    # handle MacOS regex difference
-    '\u0639\u064f\u0648' : '‘ū'  # عُو damma followed by و
-
-    '\u0650\u064a' : 'ī' # ـِي kasra followed by ي
-    '\u0650\u064a(?=\u064e|u064f)' : 'iy' # ـِي kasra followed by ي
-    '\u064f\u0648' : 'ū'  # ـُو damma followed by و
-    '\u064e\u0627' : 'ā'  # ـَا fatha followed by ا
-    '\u064e\u0649' : 'á'  # ـَى fatha followed by ى which is ا not ي
-
-
-    # Rule 4
-    '\u064f\u0648\u0627' : 'ū'  # وا
-
-    # Rule 8
-    '\u0621' : '’'
-    '\b\u0623' : ''  # أ
-    '\u0623' : '’'  # أ
-    '\u0624': '’' # ؤ
-    '\u0626' : "’" # ئ
-    '\u0623\b' : '’a'  # أ
-    '\u0623\u0648' : 'aw'  # أو
-    '\u0623\u064a' : 'ay'  # أي
-    '\u0625\u064a' : 'ī'  # إِ
-    '\u0625' : 'i'  # إِ
-    '\u0626\b' : "’a" # ئ
-    # '\b\u0627' : 'a'  # ا
-
     # Rule 10
 
-    '\b\u0622' : 'ā'  # آ
-    '(?<!\b\u0627\u0644)(?<!\b)\u0622(?![\b|\u0621])' : '’ā'  # آ in middle, not final, or initial, or after ال
-    '\u064e\u0622' : 'ā'  # ـَآ fatha followed by ا
-    '\u0622' : ''  # آ
 
     '\u0628\u0651' : 'bb'  # ب
     '\u062a\u0651' : 'tt'  # ت
@@ -362,6 +326,16 @@ map:
     '\b\u0627' : '' # ا
     '\b\u064e\u0627': 'a' # ـَا
     '\b\u0650\u0627': 'i' # ـِا
+
+    # hamzah
+    '\b\u0623' : ''  # أ
+    '\u0623' : '’'  # أ
+    '\u0624': '’' # ؤ
+    '\u0626' : "’" # ئ
+    '\b\u0622' : 'ā'  # آ
+    '(?<!\b\u0627\u0644)(?<!\b)\u0622(?![\b|\u0621])' : '’ā'  # آ in middle, not final, or initial, or after ال
+    '\u064e\u0622' : 'ā'  # ـَآ fatha followed by ا
+    '\u0622' : ''  # آ
 
     # Rule 3 - shadda
     '\u0650\u064a\u0651' : 'īy' # ـِيَّ
