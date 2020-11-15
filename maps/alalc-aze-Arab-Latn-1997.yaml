@@ -1,0 +1,419 @@
+---
+authority_id: alalc
+id: 1997
+language: iso-639-2:aze
+source_script: Arab
+destination_script: Latn
+name: ALA-LC Romanization Table -- azerbaij (1997)
+alias:
+  ogc11122:
+    code: aze_Arab2Latn_ALA_1997
+    description: Arabic ALA-Library of Congress 1997 System
+url: http://catdir.loc.gov/catdir/cpso/romanization/azerbaij.pdf
+creation_date: 1997
+description: |
+  ALA-LC Romanization table for Arabic
+
+notes:
+  - 1. As seen in the examples above, vowel harmony, which is
+    found in Modern Turkish, applies to Azerbaijani as well.
+
+  - 2. The letter ى in final position may represent the long
+    vowel romanized á, in addition to the
+    vowels romanized i and 1. This occurs in Arabic names, such
+    as Mustafá
+    al-Musanná
+
+  - 3. Vowel points are used sparingly in Azerbaijani
+    publications. For romanization, they must be
+    supplied from a dictionary.
+
+  - Rule 1 ء hamza
+    (a) When initial, ء is not represented in romanization
+        üzdah  أوزدة
+
+    (b) When medial or final in words of Perso-Arabic origin, 9 is
+    romanized as ’ (alit), except when it accompanies the
+    phonetic sound e (as in men), in which case it is romanized
+    by e.
+      mas’alah مَسئَلة
+      gecah كئجة
+      necah نئجة
+
+  - Rule 2 ˜ (maddah)
+
+    (a) Initial آ is romanized ā.
+
+    ādām				        آدام
+
+    (b) Medial آ, when it represents the phonetic combination ’ā, is so romanized.
+
+    Heydar'ãbãd     حيدَرآبَاد
+
+  - Rule 3  ّ
+    (shaddah or tashdid) is represented by doubling the letter or digraph concerned.
+    sãqqãl   سَاقَّال
+
+    Note the exceptional case where  ّ is written over و and ي to represent
+    the combination of long vowel plus consonants.
+    madaníyat  مَدَنِيَّت
+
+  - |
+    Rule 4 Tanvīn (written form ٌ, ً (ًا), or ٍ ) which occurs chiefly in Arabic words,
+    is romanized un, in, an, and an, respectively.
+
+    (a)	When it occurs in indefinite nouns derived from defective roots.
+
+      qāḍin				قاضٍ
+      ma‘nan				معنىً
+
+    (b)	When it indicates the adverbial use of a noun or adjective.
+
+      ṭab‘an				  طبعًا
+      faj’atan				فجأةً
+      al-Mushtarik waḍ‘an		المشترك وضعاً
+            wa-al-muftariq ṣuq‘an	والمفترق صقعاً
+
+  - ة in a word in the construct state is romanized t.  See rule 7(b).
+
+  - The consonant letter ö at the end of Arabic words in the
+    genetive construction (izãfah) is romanized by t.
+
+    takmilat al-axbãr    تَكمِلَة الأخبَار
+
+  # Grammatical Structure as It Affects Romanization
+  - Rule 6 izãfah. When two Persian words are used in an Azerbaijani
+    context in a relationship known as izãfah, the first word (
+    the muzãf) is followed by an additional letter or syllable
+    in romanization. This is added according to the following
+    rules
+    (a) When the muzaf bears no special mark of izãfah, it is
+    followed by -i.
+    Sazman-i tabligãti-Islãm   سازمان تبليغات اسلامي
+
+    (b) When the muzãf is marked by the addition of 9, it is followed by -'i.
+    Nãbigah-'i dahr   نابغة دَهر
+
+    (c) When the muzãf is marked by the addition of û, it is followed by -yi.
+    darya-yi nur    دَريَاي نُور
+
+    (d) izãfah is represented in romanization of personal names only when
+    implied in the Persian script.
+    Mucír-i BeylaqãnT   مَجير بيلقاني
+    Maktabí-i Sírãzí    مكتبي شيرازي
+
+  # Affixes and Compounds
+
+
+
+
+  # Orthography of Azerbaijani in Romanization
+
+  - Rule 9 Capitalization
+
+    (a) Rules for the capitalization of English are followed, except that
+    the Arabic article al, is lower cased in all positions.
+
+    (b)	Diacritics are used with both upper and lower case letters in romanization.
+
+  - Rule 10 Foreign words.
+    Foreign words in an Azerbaijani context, including Persian and Arabic words,
+    are romanized according to the rules for Azerbaijani. For short vowels not
+    indicated in the script, the Azerbaijani vowels nearest the original
+    pronunciation of the word are supplied in romanization.
+
+tests:
+  - source: بَرَكَت
+    expected: Barakat
+
+  - source: سَاحِل
+    expected: Sāḥil
+
+  - source: بَادِمجَان
+    expected: Bādimcān
+
+  - source: قُدرَت
+    expected: Qudrat
+
+  - source: بُوغَا
+    expected: Būğā
+
+  - source: آرَام
+    expected: Ārām
+
+  - source: اِئنلِي
+    expected: Enlī
+
+  - source: دَلِيل
+    expected: Dalīl
+
+  - source: قَارَانلِيق
+    expected: Qārānlīq
+
+  - source: اِيش
+    expected: Īş
+
+  - source: اِيشِيق
+    expected: Īşīq
+
+  - source: اُون
+    expected: 'On'
+
+  - source:  ُاون
+    expected: Ūn
+
+  - source:  ُاؤن
+    expected: Ön
+
+  # - source: ُأوزُوم
+  #   expected: üzūm
+
+  - source: اَيْوَان
+    expected: Eyvān
+
+  - source: اَوحَدِي
+    expected: Awḥadī
+
+  - source: َاوَّل
+    expected: Avval
+
+  - source: طَهي
+    expected: Ṭahy
+
+  # From Rule 1 - part a
+
+  - source: ُأوزدَة
+    expected: Üzdah
+
+  # From Rule 1 - part b
+
+  - source: مَسئَلَة
+    expected: Mas’alah
+
+  - source: گِئجَة
+    expected: Gecah
+
+  - source: نِئچَة
+    expected: Neçah
+
+  # From Rule 2 - part a
+  - source: آدَام
+    expected: Ādām
+
+  # From Rule 2 - part b
+  - source: حَيْدَرآبَاد
+    expected: Ḥeydar’ābād
+
+  # From Rule 3
+  - source: سَاقَّال
+    expected: Sāqqāl
+
+  - source: مَدَنِيَّت
+    expected: Madanīyat
+
+  # From Rule 5
+
+  - source: تَكمِلَة الأَخبَار
+    expected: Takmilat al-Axbār
+
+
+map:
+  postrules:
+    - pattern: (?<=\b)(?<!\b[‘|’|'])[\u0061-\uFFFF]
+      result: "upcase"
+
+    - pattern : '\bAl'  # الت
+      result: 'al'
+
+  characters:
+    # pointing
+    '\u064e' : 'a' # َ fatha
+    # '\u064e(?=\u0629)' : '' # َ fatha followed by ta' marboota
+    # '\u064e(?=a[h|t])' : '' # َ fatha followed by ta' marboota, handling different order of conversion
+    '\u0650' : 'i' # ِ kasra
+    '\u064f' : 'u' # ُ damma
+    '\u0652' : ''  # ْ sokoon, see note A below
+
+
+    # special pointed letters
+    '\u0639\u064e' : '‘a'  # عَ
+    '\u0639\u0650' : '‘i'  # عِ
+    '\u0639\u064f' : '‘ū'  # عُ
+    # handle MacOS regex difference
+    '\u0639\u064f\u0648' : '‘ū'  # عُو damma followed by و
+
+    '\u0650\u064a' : 'ī' # ـِي kasra followed by ي
+    '\u0650\u064a(?=\u064e|u064f)' : 'iy' # ـِي kasra followed by ي
+    '\u064f\u0648' : 'ū'  # ـُو damma followed by و
+    '\u064e\u0627' : 'ā'  # ـَا fatha followed by ا
+    '\u064e\u0649' : 'á'  # ـَى fatha followed by ى which is ا not ي
+
+
+    # Rule 4
+    '\u064f\u0648\u0627' : 'ū'  # وا
+
+    # Rule 8
+    '\u0621' : '’'
+    '\b\u0623' : ''  # أ
+    '\u0623' : '’'  # أ
+    '\u0624': '’' # ؤ
+    '\u0626' : "’" # ئ
+    '\u0623\b' : '’a'  # أ
+    '\u0623\u0648' : 'aw'  # أو
+    '\u0623\u064a' : 'ay'  # أي
+    '\u0625\u064a' : 'ī'  # إِ
+    '\u0625' : 'i'  # إِ
+    '\u0626\b' : "’a" # ئ
+    # '\b\u0627' : 'a'  # ا
+
+    # Rule 10
+
+    '\b\u0622' : 'ā'  # آ
+    '(?<!\b\u0627\u0644)(?<!\b)\u0622(?![\b|\u0621])' : '’ā'  # آ in middle, not final, or initial, or after ال
+    '\u064e\u0622' : 'ā'  # ـَآ fatha followed by ا
+    '\u0622' : ''  # آ
+
+    '\u0628\u0651' : 'bb'  # ب
+    '\u062a\u0651' : 'tt'  # ت
+    '\u062b\u0651' : 'thth'  # ث
+    '\u062c\u0651' : 'jj'  # ج
+    '\u062d\u0651' : 'ḥḥ' # ح
+    '\u062e\u0651' : 'khkh'  # خ
+    '\u062f\u0651' : 'dd'  # د
+    '\u0630\u0651' : 'dhdh'  # ذ
+    '\u0631\u0651' : 'rr'  # ر
+    '\u0632\u0651' : 'zz'  # ز
+    '\u0633\u0651' : 'ss'  # س
+    '\u0634\u0651' : 'shsh'  # ش
+    '\u0635\u0651' : 'ṣṣ'  # ص
+    '\u0636\u0651' : 'ḍḍ'  # ض
+    '\u0637\u0651' : 'ṭṭ'  # ط
+    '\u0638\u0651' : 'ẓẓ'  # ظ
+    '\u063a\u0651' : 'ghgh'  # غ
+    '\u0641\u0651' : 'ff'  # ف
+    '\u0642\u0651' : 'qq'  # ق
+    '\u0643\u0651' : 'kk'  # ك
+    '\u0644\u0651' : 'll'  # ل
+    '\u0645\u0651' : 'mm'  # م
+    '\u0646\u0651' : 'nn'  # ن
+    '\u0647\u0651' : 'hh'  # ه
+    '\u0648\u0651' : 'vv'  # و
+    '\u064a\u0651' : 'yy'  # ي
+
+    # Rule 13
+    '\u0647\u064e' : 'hā'  # ه
+
+    '\u060c': ',' # ،
+
+    '\u0627\u0644\u0644\u0651\u064e\u0647': "Allāh"
+
+    '\b\u0627\u0644' : 'al-'  # ال
+    # '\uFE8E' : ''  # ﺎ
+
+    '\u0628': 'b'  # ب
+    '\u067E': 'p'  # پ
+    '\u062A': 't'  # ت
+    '\u062b': 's̱'  # ث
+    '\u062C': 'c'  # ج
+    '\u0686': 'ç'  # چ
+    '\u062d': 'ḥ'  # ح
+    '\u062E': 'x'  # خ
+    '\u062F': 'd'  # د
+    '\u0630': 'ẕ'  # ذ
+    '\u0631': 'r'  # ر
+    '\u0632': 'z'  # ز
+    '\u0698': 'j'  # ژ
+    '\u0633': 's'  # س
+    '\u0634': 'ş'  # ش
+    '\u0635': 'ṣ'  # ص
+    '\u0636': 'z̤'  # ض
+    '\u0637': 'ṭ'  # ط
+    '\u0638': 'ẓ'  # ظ
+    '\u0639': '‘'  # ع
+    '\u063A': 'ğ'  # غ
+    '\u0341': 'f'  # ف
+    '\u0642': 'q'  # ق
+    '\u06A9': 'k'  # ك
+    '\u0643': 'k'  # ك
+    '\u06AF': 'g'  # گ
+    '\u0644': 'l'  # ل
+    '\u0645': 'm'  # م
+    '\u0646': 'n'  # ن
+    '\u0648': 'v'  # و
+    '\u0647': 'h'  # ه
+    '\u064A': 'y'  # ي
+
+    # Vowels and Diphthongs
+    '\u064e': 'a'
+    '\u0650': 'i'
+    '\u064f': 'u'
+    '\u064f\u0648' : 'ū'  # ـُو damma followed by و
+    '\u064e\u0627' : 'ā'  # ـَا fatha followed by ا
+    '\u0622' : 'ā'  # آ
+    '\u0650[\u0621|\u0623|\u0624|\u0626]' : 'e' # ـِأ kasra followed by hamza
+    '\u0650\u064a' : 'ī' # ـِي kasra followed by ي
+    '\u0650\u0627\u064a' : 'ī' # ـِي kasra followed by ي
+    '[\u064f]?\u0627\u064f\u0648' : 'o'  # ـُاُو
+    '\u064f\u0627\u0648' : 'ū'  # ـُاو
+    '\u064f\u0627\u0624' : 'ö'  # ـُاؤ
+    '\u064f\u0623\u0648' : 'ü'  # ـُأو
+    '\u064e\u064a\u0652' : 'ey'  # ـَيْ
+    '\u064e\u0648\u0652?' : 'aw'  # ـَوْ
+    '\b\u0627' : '' # ا
+    '\b\u064e\u0627': 'a' # ـَا
+    '\b\u0650\u0627': 'i' # ـِا
+
+    # Rule 3 - shadda
+    '\u0650\u064a\u0651' : 'īy' # ـِيَّ
+    '\u064f\u0648\u0651' : 'ūw'  # ـَوّ damma followed by و with shadda
+    '\u0650\u064a\u0651\b' : 'ī' # ـِيَّ
+    '\u064e\u0648\u0651' : 'aww'  # ـَوّ fatha followed by و with shadda
+    '\u064e\u064a\u0651' : 'ayy'  # ـَيّ fatha followed by و with shadda
+
+    # Rule 4 - tanvin
+    '\u064c': 'un' #  ٌ
+    '\u064b': 'an' #  ً
+    '\u064d': 'in' #  ٍ
+    # tanween should be onb the letter preceeding the end in case of ا, ى
+    # however, it's common that people mistake that, so we're handling both orders
+    '\u064b\u0649': 'an' #  ً
+    '\u064b\u0627': 'an' #  ً
+    '\u0649\u064b': 'an' #  ً
+    '\u0627\u064b': 'an' #  ً
+
+    # Rule 5 ta' marboota
+    '\u0629' : 't' # ة in the middle of the sentence
+    '\u0629$' : 'h'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{2})\u0629' : 'h'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{3})\u0629' : 'h'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{4})\u0629' : 'h'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{5})\u0629' : 'h'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{6})\u0629' : 'h'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{7})\u0629' : 'h'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{8})\u0629' : 'h'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{9})\u0629' : 'h'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{10})\u0629' : 'h'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{11})\u0629' : 'h'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{12})\u0629' : 'h'
+    '(?<=\b\u0627\u0644[\u0600-\u06ff]{13})\u0629' : 'h'
+
+
+    '\u0650\u064a(?=\u064e|u064f)' : 'iy' # ـِي kasra followed by ي
+    '\u064e\u0649' : 'á'  # ـَى fatha followed by ى which is ا not ي
+
+    '\ufeed \u064f': 'ū'
+    '\u064e\u0627': 'ā' # see Rule 5
+    '\ufeef \u064e': 'á' # see Rule 6(a)
+    '\ufeef \u0650': 'ī'
+    '\ufeed\u0652 \u064e': 'aw'
+    '\ufeef\u0652 \u064e': 'ay'
+
+    # Letters Representing Non-Arabic Consonants
+    # (this list in not exhaustive)
+    '\u06af': 'g' # گ
+    '\u06b4': 'ñ' # ڴ
+    '\u067e': 'p' # پ
+    '\u0698': 'zh' # ژ
+    '\u06a4': 'v' # ڤ
+    '\u06cb': 'v' # ۋ
+    '\u06a5': 'v' # ڥ
