@@ -82,6 +82,10 @@ tests:
     expected: Yaroshenko
   - source: Костянтин
     expected: Kostyantyn
+  - source: Новофедорівка
+    expected: Novofedorivka
+  - source: Гуляйгородок
+    expected: Hulyayhorodok
 
 map:
   rules:
