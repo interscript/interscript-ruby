@@ -1022,11 +1022,11 @@ map:
     '\u064f': 'u'
     '\u0650': 'i'
     '\u064e\u0627': 'ā' # see Rule 5
-    '\ufeef \u064e': 'á' # see Rule 6(a)
-    '\ufeed \u064f': 'ū'
-    '\ufeef \u0650': 'ī'
-    '\ufeed\u0652 \u064e': 'aw'
-    '\ufeef\u0652 \u064e': 'ay'
+    '\u064e\u0649': 'á' # see Rule 6(a)
+    '\u064f\u0648': 'ū'
+    '\u0650\u064a': 'ī'
+    '\u064e\u0648\u0652': 'aw'
+    '\u064e\u064a\u0652': 'ay'
 
     # Letters Representing Non-Arabic Consonants
     # (this list in not exhaustive)
