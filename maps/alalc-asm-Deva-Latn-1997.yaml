@@ -35,30 +35,107 @@ notes:
 
 tests:
   - source: "অসমীয়া কবিতা"
-    expected: "asamaīẏaā kabaitaā"
+    expected: "asamīẏā kabitā"
   - source: "কবিৰ আজি জন্মদিন"
-    expected: "kabaira ājai janamadaina"
+    expected: "kabira āji janmadina"
   - source: "বেৰুটত এমাহৰ পাছতে পুনৰ ভয়ংকৰ অগ্নিকাণ্ড"
-    expected: "baerauṭata emaāhara paāchatae paunara bhayaṃkara aganaikaāṇaḍa"
+    expected: "beruṭata emāhara pāchate punara bhayaṃkara agnikāṇḍa"
   - source: "ভঙাৰ বিৰুদ্ধে আৱেদন দাখিল কংগনাৰ"
-    expected: "bhaṅaāra bairaudadhae āwaedana daākhaila kaṃganaāra"
+    expected: "bhaṅāra biruddhe āwedana dākhila kaṃganāra"
   - source: "আপুনি পঢ়ি ভাল পাব পৰা বাতৰি"
-    expected: "āpaunai paṛhai bhaāla paāba paraā baātarai"
+    expected: "āpuni paṛhi bhāla pāba parā bātari"
   - source: "শ্ৰীৰামপুৰত গৰুভৰ্তি ট্ৰাক জব্দ, দুজনক আটক"
-    expected: "śaraīraāmapaurata garaubharatai ṭaraāka jabada, daujanaka āṭaka"
+    expected: "śrīrāmapurata garubharti ṭrāka jabda, dujanaka āṭaka"
   - source: "কেনে আছে প্ৰাক্তন"
-    expected: "kaenae āchae paraākatana"
+    expected: "kene āche prāktana"
   - source: "কমুম্বাইৰ মেয়ৰৰ দেহত কোভিড পজিটিভ"
-    expected: "kamaumabaāira maeẏarara daehata kaobhaiḍa pajaiṭaibha"
+    expected: "kamumbāira meẏarara dehata kobhiḍa pajiṭibha"
   - source: "টুইটাৰযোগে খোদ সদৰী কৰে এই কথা"
-    expected: "ṭauiṭaāraẏaogae khaoda sadaraī karae ei kathaā"
+    expected: "ṭuiṭāraẏoge khoda sadarī kare ei kathā"
   - source: "লখিমপুৰ জিলাৰ নাৰায়ণপুৰৰ বৰপথাৰত আজি প্ৰশান্তি ধাম নামেৰে এখন বৃদ্ধাশ্ৰমৰ শুভাৰম্ভ কৰা হয়"
-    expected: "lakhaimapaura jailaāra naāraāẏaṇapaurara barapathaārata ājai paraśaānatai dhaāma naāmaerae ekhana baṛdadhaāśaramara śaubhaāramabha karaā haẏa"
+    expected: "lakhimapura jilāra nārāẏaṇapurara barapathārata āji praśānti dhāma nāmere ekhana bṛddhāśramara śubhārambha karā haẏa"
 
 
 map:
 
   rules:
+    # note[2]
+    - pattern: (ক=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'k'
+    - pattern: (খ=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'kh'
+    - pattern: (গ=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'g'
+    - pattern: (ঘ=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'gh'
+    - pattern: (ঙ=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'ṅ'
+    - pattern: (চ=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'c'
+    - pattern: (ছ=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'ch'
+    - pattern: (জ=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'j'
+    - pattern: (ঝ=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'jh'
+    - pattern: (ঞ=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'ñ'
+    - pattern: (ট=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'ṭ'
+    - pattern: (ঠ=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'ṭh'
+    - pattern: (ড=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'ḍ'
+    - pattern: (ড়=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'ṛ'
+    - pattern: (ঢ=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'ḍh'
+    - pattern: (ঢ়=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'ṛh'
+    - pattern: (ণ=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'ṇ'
+    - pattern: (ত=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  't'
+    - pattern: (ৎ=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'ṭ'
+    - pattern: (থ=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'th'
+    - pattern: (দ=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'd'
+    - pattern: (ধ=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'dh'
+    - pattern: (ন=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'n'
+    - pattern: (প=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'p'
+    - pattern: (ফ=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'ph'
+    - pattern: (ব=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'b'
+    - pattern: (ভ=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'bh'
+    - pattern: (ম=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'm'
+    - pattern: (য়=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'y'
+    - pattern: (য=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'ẏ'
+    - pattern: (য়=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'ẏ'
+    - pattern: (ৰ=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'r'
+    - pattern: (ল=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'l'
+    - pattern: (ৱ=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'w'
+    - pattern: (শ=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'ś'
+    - pattern: (ষ=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'sh'
+    - pattern: (স=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  's'
+    - pattern: (হ=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd])
+      result:  'h'
     # note[3]
     - pattern: \u0981(?=[কখগঘঙচছজঝঞটঠডড়ঢঢ়ণতৎথদধন])    # ঁ before guttural, palatal, cerebral, and dental
       result: ṅ
@@ -132,7 +209,7 @@ map:
     #Sibilants
     'শ': 'śa'
     'ষ': 'sha'
-    'স': 'sa'
+    'স': ''
 
     #Aspirate
     'হ': 'ha'
@@ -162,4 +239,21 @@ map:
     '\u09cb': 'o'
     '\u09cc': 'au'
     '।': '.'
+    '्': ''
     '\u09CD': '' # Used for joining
+
+    # Digits
+
+    '১': '1'
+    '২': '2'
+    '৩': '3'
+    '৪': '4'
+    '৫': '5'
+    '৬': '6'
+    '৭': '7'
+    '৮': '8'
+    '৯': '9'
+    '০': '0'
+
+
+

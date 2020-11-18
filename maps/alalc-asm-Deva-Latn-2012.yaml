@@ -31,10 +31,25 @@ notes:
 
 tests:
   - source: "ৰাজ্যিক স্বাস্থ্য মন্ত্ৰী পীয়ুষ হাজৰিকাৰ বিৰুদ্ধে দাখিল কৰা হৈছে এজাহাৰ।"
-    expected: "raājaẏaika sabaāsathaẏa manataraī paīyausha haājaraikaāra bairaudadhae daākhaila karaā haaichae ejaāhaāra."
+    expected: "rājẏika sbāsthẏa mantrī pīyusha hājarikāra biruddhe dākhila karā haiche ejāhāra."
   - source: "কোৰোনা মহামাৰীৰ এই সময়ত সভাখনত হাজাৰ হাজাৰ লোকে মাস্ক পৰিধান নকৰাৰ লগতে সামাজিক দূৰত্ব নমনাৰ অভিযোগ উত্থাপন কৰা হৈছে"
-    expected: "kaoraonaā mahaāmaāraīra ei samayata sabhaākhanata haājaāra haājaāra laokae maāsaka paraidhaāna nakaraāra lagatae saāmaājaika daūrataba namanaāra abhaiẏaoga utathaāpana karaā haaichae"
-
+    expected: "koronā mahāmārīra ei samayata sabhākhanata hājāra hājāra loke māska paridhāna nakarāra lagate sāmājika dūratba namanāra abhiẏoga utthāpana karā haiche"
+  - source: "হাওৰাঘাটৰ গ্ৰামীণ বিকাশ বেংক হিতাধিকাৰীৰ পৰা উৎকোচ লৈ গ্ৰেপ্তাৰ বিজেপি কৰ্মী যীচু কেম্পাই"
+    expected: "hāorāghāṭara grāmīṇa bikāśa beṃka hitādhikārīra parā uṭkoca lai greptāra bijepi karmī ẏīcu kempāi"
+  - source: "জ্যেষ্ঠ সাংবাদিক পৰাগ ভূঞাৰ মৃত্যুক লৈ তদন্ত আৰম্ভ চিআইডিৰ"
+    expected: "jẏeshṭha sāṃbādika parāga bhūñāra mṛtẏuka lai tadanta ārambha ciāiḍira"
+  - source: "সাংবাদিক পৰাগ ভূঞাৰ মৃত্যুৰ উচিত তদন্তৰ দাবীত নলবাৰীত অৱস্থান ধৰ্মঘট"
+    expected: "sāṃbādika parāga bhūñāra mṛtẏura ucita tadantara dābīta nalabārīta awasthāna dharmaghaṭa"
+  - source: "দৰঙৰ বিভিন্ন অঞ্চলত মানসিক ৰোগৰ সজাগতামূলক বাটৰ নাট প্ৰদৰ্শন"
+    expected: "daraṅara bibhinna añcalata mānasika rogara sajāgatāmūlaka bāṭara nāṭa pradarśana"
+  - source: "অযোধ্যাত দীপাৱলীঃ ৫.৮৬ লাখ মাটি চাকি জ্বলাই গঢ়িলে গিনিজ ৱ’ৰ্ল্ড ৰেকৰ্ড"
+    expected: "aẏodhẏāta dīpāwalīḥ 5.86 lākha māṭi cāki jbalāi gaḍha়ile ginija wa’rlḍa rekarḍa"
+  - source: "ৰাজ্যত আকৌ ২৩৩ জন কোভিড পজিটিভ, সুস্থ হৈছে ৬৪২ জন"
+    expected: "rājẏata ākau 233 jana kobhiḍa pajiṭibha, sustha haiche 642 jana"
+  - source: "এতিয়ালৈকে ৰাজ্যত এই ভাইৰাছত আক্ৰান্ত লোকৰ সংখ্যা ২১০০৬৮জনলৈ পাইছে বৃদ্ধি।"
+    expected: "etiyālaike rājẏata ei bhāirāchata ākrānta lokara saṃkhẏā 210068janalai pāiche bṛddhi."
+  - source: "এতিয়ালৈকে ৰাজ্যত কোৰোনাত আক্ৰান্ত হৈ ৯৫৮জন লোক হেৰুৱাইছে প্ৰাণ।"
+    expected: "etiyālaike rājẏata koronāta ākrānta hai 958jana loka heruwāiche prāṇa."
 map:
 
   inherit: "alalc-asm-Deva-Latn-1997"
