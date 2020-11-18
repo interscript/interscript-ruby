@@ -209,7 +209,7 @@ map:
     #Sibilants
     'শ': 'śa'
     'ষ': 'sha'
-    'স': ''
+    'স': 'sa'
 
     #Aspirate
     'হ': 'ha'
