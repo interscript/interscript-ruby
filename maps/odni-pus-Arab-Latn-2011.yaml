@@ -169,8 +169,7 @@ notes:
     z͟ h (U+007A+0068+035F)
 
 tests:
-  - source: جَبَل السَرَاج
-    expected: Jabal us Sarāj
+
 map:
   inherit: bgnpcgn-prs-Arab-Latn-2007
   postrules:
@@ -263,8 +262,6 @@ map:
     '\u0648' : 'w'  # و
     '\u064a' : 'y'  # ي
     '\u0649' : 'y'  # ي
-    '\u06D0' : 'ē'   # ې
-    '\u06CD' : 'êy'  # ‫ۍ‬
 
     '\u064e' : 'a' # َ fatha
     '\u0650':
@@ -278,3 +275,5 @@ map:
     '\u064e\u0648\u0652' : 'aw'  # ـَوْ
     '\u064f\u0648' : 'u' # ـُو
     '\u064e\u064a' : 'ai' # ـي
+    '\u06D0' : 'e'   # ې
+    '\u06CD' : 'ey'  # ‫ۍ‬
