@@ -6,8 +6,8 @@ source_script: Arab
 destination_script: Latn
 name: Arabic Personal Names Office of the Director Of National Intelligence 2004 System
 url: https://github.com/interscript/interscript-private-references/blob/master/odni/Arabic_IC_Standard.doc
-creation_date: 2017
-confirmation date: 2018-06
+creation_date: 2004
+confirmation date: 2004-06
 description:
 notes:
   - Long/Short Vowels Long and short vowels are not
@@ -75,10 +75,10 @@ notes:
 tests:
 
   - source: مِصر
-    expected: Misr
+    expected: Miṣr
 
   - source: قَطَر
-    expected: Qatar
+    expected: Qaṭar
 
   - source: المَغرِب
     expected: Al Maghrib
@@ -90,7 +90,7 @@ tests:
     expected: Jumhuriyat al ’Iraq
 
   - source: جُمهُورِيَّة مِصر العَرَبِيَّة
-    expected: Jumhuriyat Misr al ’Arabiyah
+    expected: Jumhuriyat Miṣr al ’Arabiyah
 
   - source: بَغداد
     expected: Baghdad
@@ -114,22 +114,22 @@ tests:
     expected: Al Jaza’ir
 
   - source: عَبدالرَحمَن
-    expected: ’Abd-al-Rahman
+    expected: ’Abd al Rahman
 
   - source: هَيْثَم
     expected: Haytham
 
   - source: فَيْصَل
-    expected: Faysal
+    expected: Fayṣal
 
   - source: تَوْفِيق
     expected: Tawfiq
 
   - source: رَوْضَة
-    expected: Rawdah
+    expected: Rawḍah
 
   - source: نُورُالدِين
-    expected: Nur-al-Din
+    expected: Nur al Din
 
   - source: عَبدُاللَّه
     expected: ’Abdallah

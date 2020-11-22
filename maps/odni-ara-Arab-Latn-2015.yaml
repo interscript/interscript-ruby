@@ -131,10 +131,10 @@ notes: |
 tests:
 
   - source: مِصر
-    expected: Misr
+    expected: Miṣr
 
   - source: قَطَر
-    expected: Qatar
+    expected: Qaṭar
 
   - source: المَغرِب
     expected: Al Maghrib
@@ -146,7 +146,7 @@ tests:
     expected: Jumhuriyat al ’Iraq
 
   - source: جُمهُورِيَّة مِصر العَرَبِيَّة
-    expected: Jumhuriyat Misr al ’Arabiyah
+    expected: Jumhuriyat Miṣr al ’Arabiyah
 
   - source: بَغداد
     expected: Baghdad
@@ -170,22 +170,22 @@ tests:
     expected: Al Jaza’ir
 
   - source: عَبدالرَحمَن
-    expected: ’Abd-al-Rahman
+    expected: ’Abd al Rahman
 
   - source: هَيْثَم
     expected: Haytham
 
   - source: فَيْصَل
-    expected: Faysal
+    expected: Fayṣal
 
   - source: تَوْفِيق
     expected: Tawfiq
 
   - source: رَوْضَة
-    expected: Rawdah
+    expected: Rawḍah
 
   - source: نُورُالدِين
-    expected: Nur-al-Din
+    expected: Nur al Din
 
   - source: عَبدُاللَّه
     expected: ’Abdallah
@@ -195,8 +195,6 @@ map:
       result: "upcase"
     - pattern: " Al " # ال
       result: " al "
-    - pattern: "-Al-" # ال
-      result: "-al-"
 
     # don't capitalize defined article in the middle of a sentence
 
@@ -254,10 +252,10 @@ map:
     '\u0632\u0651' : 'zz'  # ز
     '\u0633\u0651' : 'ss'  # س
     '\u0634\u0651' : 'sh'  # ش
-    '\u0635\u0651' : 'ss'  # ص
-    '\u0636\u0651' : 'dd'  # ض
-    '\u0637\u0651' : 'tt'  # ط
-    '\u0638\u0651' : 'zz'  # ظ
+    '\u0635\u0651' : 'ṣṣ'  # ص
+    '\u0636\u0651' : 'ḍḍ'  # ض
+    '\u0637\u0651' : 'ṭṭ'  # ط
+    '\u0638\u0651' : 'ẓẓ'  # ظ
     '\u063a\u0651' : 'gh'  # غ
     '\u0641\u0651' : 'ff'  # ف
     '\u0642\u0651' : 'qq'  # ق
@@ -280,7 +278,8 @@ map:
        - ''
 
     '\b\u0627\u0644' : 'al '  # ال
-    '\B\u064f?\u0627\u0644' : '-al-'  # ال in middle of composite name
+    '\B\u064f?\u0627\u0644' : ' al '  # ال in middle of composite name
+
     # '\uFE8E' : ''  # ﺎ
 
 
@@ -299,10 +298,10 @@ map:
     '\u0632' : 'z'  # ز
     '\u0633' : 's'  # س
     '\u0634' : 'sh'  # ش
-    '\u0635' : 's'  # ص
-    '\u0636' : 'd'  # ض
-    '\u0637' : 't'  # ط
-    '\u0638' : 'z'  # ظ
+    '\u0635' : 'ṣ'  # ص
+    '\u0636' : 'ḍ'  # ض
+    '\u0637' : 'ṭ'  # ط
+    '\u0638' : 'ẓ'  # ظ
     '\u0639' : '’'  # ع
     '\u063a' : 'gh'  # غ
     '\u0641' : 'f'  # ف
