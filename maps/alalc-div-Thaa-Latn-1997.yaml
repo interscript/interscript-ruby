@@ -75,6 +75,10 @@ tests:
     expected: "biheh"
   - source: "އަތްތެރި"
     expected: "at̤teri"
+  - source: "ޗައްޕަލު"
+    expected: "cappalu"
+  - source: "އައްޕައްޗި"
+    expected: "appacci"
 
 map:
 
@@ -91,8 +95,52 @@ map:
     - pattern: \b(\u0787=?)(?=[\u07a6\u07a7\u07a8\u07a9\u07aa\u07ab\u07ac\u07ad\u07ae\u07af]) # initial position with any vowel sign
       result:  ''
     # note[3(c)]  a consonant follows އް in medial position
+    - pattern: (?<!\b)\u0787\u07b0(?=[ހ])
+      result: "h"
+    - pattern: (?<!\b)\u0787\u07b0(?=[ށ])
+      result: "ś"
+    - pattern: (?<!\b)\u0787\u07b0(?=[ނ])
+      result: "n"
+    - pattern: (?<!\b)\u0787\u07b0(?=[ރ])
+      result: "r"
+    - pattern: (?<!\b)\u0787\u07b0(?=[ބ])
+      result: "b"
+    - pattern: (?<!\b)\u0787\u07b0(?=[ޅ])
+      result: "ḷ"
+    - pattern: (?<!\b)\u0787\u07b0(?=[ކ])
+      result: "k"
+    - pattern: (?<!\b)\u0787\u07b0(?=[ވ])
+      result: "v"
+    - pattern: (?<!\b)\u0787\u07b0(?=[މ])
+      result: "m"
+    - pattern: (?<!\b)\u0787\u07b0(?=[ފ])
+      result: "f"
+    - pattern: (?<!\b)\u0787\u07b0(?=[ދ])
+      result: "d"
+    - pattern: (?<!\b)\u0787\u07b0(?=[ތ])
+      result: "t"
+    - pattern: (?<!\b)\u0787\u07b0(?=[ލ])
+      result: "l"
+    - pattern: (?<!\b)\u0787\u07b0(?=[ގ])
+      result: "g"
+    - pattern: (?<!\b)\u0787\u07b0(?=[ޏ])
+      result: "ñ"
+    - pattern: (?<!\b)\u0787\u07b0(?=[ސ])
+      result: "s"
+    - pattern: (?<!\b)\u0787\u07b0(?=[ޑ])
+      result: "ḍ"
+    - pattern: (?<!\b)\u0787\u07b0(?=[ޖ])
+      result: "j"
+    - pattern: (?<!\b)\u0787\u07b0(?=[ޗ])
+      result: "c"
+    - pattern: (?<!\b)\u0787\u07b0(?=[ޒ])
+      result: "z"
+    - pattern: (?<!\b)\u0787\u07b0(?=[ޓ])
+      result: "ṭ"
     - pattern: (?<!\b)\u0787\u07b0(?=[ޕ])
-      result:  'p'
+      result: "p"
+    - pattern: (?<!\b)\u0787\u07b0(?=[ޔ])
+      result: "y"
     # note[3(d)]
     - pattern: (?<!\b)\u0787\u07b0(?=\b) # final position with sukun
       result:  'h'
