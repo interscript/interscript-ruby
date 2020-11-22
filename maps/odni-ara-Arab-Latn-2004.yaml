@@ -1,0 +1,137 @@
+---
+authority_id: ungegn
+id: 2004
+language: ics-630-01:ara
+source_script: Arab
+destination_script: Latn
+name: Arabic Personal Names Office of the Director Of National Intelligence 2004 System
+url: https://github.com/interscript/interscript-private-references/blob/master/odni/Arabic_IC_Standard.doc
+creation_date: 2017
+confirmation date: 2018-06
+description:
+notes:
+  - Long/Short Vowels Long and short vowels are not
+    distinguished in this system Samir (could be Saamir or
+    Samiir in Arabic).
+
+  - Double consonants Double consonants represented by the
+    Arabic shaddah are shown in most cases (e.g., Hassan,
+    Muhammad). Exceptions ’ayn and consonants represented by
+    digraphs are not doubled (e.g., al-Qadhafi [not
+    alQadhdhafi], Mubashir [not Mubashshir]).
+
+  - Hamzah (glottal stop) The hamzah is represented by an
+    apostrophe (’). Note that this is the same symbol used to
+    represent another consonant, the ’ayn.
+
+  - Ta’ marbutah (feminine ending marker) On the construct
+    form or when pronounced “t”, it is represented with a roman
+    t. In all other cases, it is represented with an h.
+
+  - Digraphs No distinction is made between digraphs such as
+    sh and single contiguous letters (e.g., s followed by h).
+
+  - Definite article “al” (‘the’) Follows Arabic spelling
+    rather than pronunciation. That is, sun letter assimilation
+    is not shown in the Romanized form (e.g., ’Abd-alRahman,
+    not ’Abd-ar-Rahman).
+
+  - Diphthongs the second element of the diphthong is
+    represented by a y or a w (rather than an i or a u)
+    Haytham, Faysal, Tawfiq, Rawdah.
+
+  - Hyphens Hyphens (-) are used to connect name elements
+    within a name ’Abd- al Rahman, Abu-al-Bashar, Bin-Ladin.
+    Exceptions Names that incorporate “Allah” as part of the
+    name (e.g., ’Abdallah, Nasrallah), names marked by the
+    lineage/family marker “Al” (e.g., Al Thani) are not
+    hyphenated.
+
+  - The definite article, “al”, within name phrases, is
+    Romanized as al and not as ul Nur-al-Din (not Nur-ul-Din).
+    It is not capitalized when name-initial.
+
+  - Names that incorporate Allah as part of the name retain the
+    a of Allah rather than a grammatical marker u ’Abdallah (
+    not ’Abdullah).
+
+  - Foreign names borrowed or appearing in Arabic are spelled
+    according to the standard Western tradition Georges,
+    Michel. However, names of non-Arabic origin no longer
+    considered foreign by Arabic speakers follow the IC
+    conventions Butrus (not Peter).
+
+  - Prefix ‫بن‬ (bin ‘son of’) is Romanized Bin unless written
+    with an alif, in which case it is Romanized as Ibn. The
+    colloquial form Bu (‘father’) should not be standardized as
+    Abu. These prefixes are capitalized.
+
+  - In general, Romanization follows the Modern Standard
+    Arabic (MSA) form rather than local pronunciation
+    standards. For example, the letter ‫ج‬ (jim) is represented
+    as a j even when pronounced as a “g” (e.g., Egyptian Gamal
+    is Romanized as Jamal).
+
+tests:
+
+  - source: مِصر
+    expected: Misr
+
+  - source: قَطَر
+    expected: Qatar
+
+  - source: المَغرِب
+    expected: Al Maghrib
+
+  - source: الجُمهُورِيَّة العِراقِيَّة
+    expected: Al Jumhuriyah al ’Iraqiyah
+
+  - source: جُمهُورِيَّة العِراق
+    expected: Jumhuriyat al ’Iraq
+
+  - source: جُمهُورِيَّة مِصر العَرَبِيَّة
+    expected: Jumhuriyat Misr al ’Arabiyah
+
+  - source: بَغداد
+    expected: Baghdad
+
+  - source: تُونِس
+    expected: Tunis
+
+  - source: حَسّان
+    expected: Hassan
+
+  - source: مُحَمَّد
+    expected: Muhammad
+
+  - source: القَذَّافِي
+    expected: Al Qadhafi
+
+  - source: مُبَشِّر
+    expected: Mubashir
+
+  - source: الجَزائِر
+    expected: Al Jaza’ir
+
+  - source: عَبدالرَحمَن
+    expected: ’Abd-al-Rahman
+
+  - source: هَيْثَم
+    expected: Haytham
+
+  - source: فَيْصَل
+    expected: Faysal
+
+  - source: تَوْفِيق
+    expected: Tawfiq
+
+  - source: رَوْضَة
+    expected: Rawdah
+
+  - source: نُورُالدِين
+    expected: Nur-al-Din
+
+  - source: عَبدُاللَّه
+    expected: ’Abdallah
+map:
+  inherit: odni-ara-Arab-Latn-2015
