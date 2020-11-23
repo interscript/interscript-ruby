@@ -4,7 +4,7 @@ id: 1997
 language: iso-639-2:div
 source_script: Thaa
 destination_script: Latn
-name: Divehi Romanization, 1997
+name: ALA-Library of Congress Divehi Romanization 1997 System
 alias:
   ogc11122:
     code: div_Thaa2Latn_ALA_1997
@@ -12,7 +12,7 @@ alias:
 url: http://catdir.loc.gov/catdir/cpso/romanization/divehi.pdf
 creation_date: 1997
 description: |
-  ALA-LC Romanization table for Divehi
+  ALA-Library of Congress Divehi Romanization 1997 System
 
 notes:
 
