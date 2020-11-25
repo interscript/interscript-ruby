@@ -1,10 +1,10 @@
 ---
-authority_id: ungegn
+authority_id: odni
 id: 2017
 language: ics-630-01:ara
 source_script: Arab
 destination_script: Latn
-name: ROMANIZATION OF ARABIC -- UNGEGN 2017 System
+name: Office of the Director Of National Intelligence Arabic Personal Names 2015 System
 url: https://github.com/interscript/ics-630-01/blob/master/reference-docs/ANNEX%20A%20-%20Arabic_Personal_Names_FLTS%20(U).pdf
 creation_date: 2017
 confirmation date: 2018-06
@@ -131,10 +131,10 @@ notes: |
 tests:
 
   - source: مِصر
-    expected: Misr
+    expected: Miṣr
 
   - source: قَطَر
-    expected: Qatar
+    expected: Qaṭar
 
   - source: المَغرِب
     expected: Al Maghrib
@@ -146,7 +146,7 @@ tests:
     expected: Jumhuriyat al ’Iraq
 
   - source: جُمهُورِيَّة مِصر العَرَبِيَّة
-    expected: Jumhuriyat Misr al ’Arabiyah
+    expected: Jumhuriyat Miṣr al ’Arabiyah
 
   - source: بَغداد
     expected: Baghdad
@@ -170,22 +170,22 @@ tests:
     expected: Al Jaza’ir
 
   - source: عَبدالرَحمَن
-    expected: ’Abd-al-Rahman
+    expected: ’Abd al Rahman
 
   - source: هَيْثَم
     expected: Haytham
 
   - source: فَيْصَل
-    expected: Faysal
+    expected: Fayṣal
 
   - source: تَوْفِيق
     expected: Tawfiq
 
   - source: رَوْضَة
-    expected: Rawdah
+    expected: Rawḍah
 
   - source: نُورُالدِين
-    expected: Nur-al-Din
+    expected: Nur al Din
 
   - source: عَبدُاللَّه
     expected: ’Abdallah
@@ -195,8 +195,6 @@ map:
       result: "upcase"
     - pattern: " Al " # ال
       result: " al "
-    - pattern: "-Al-" # ال
-      result: "-al-"
 
     # don't capitalize defined article in the middle of a sentence
 
@@ -254,10 +252,10 @@ map:
     '\u0632\u0651' : 'zz'  # ز
     '\u0633\u0651' : 'ss'  # س
     '\u0634\u0651' : 'sh'  # ش
-    '\u0635\u0651' : 'ss'  # ص
-    '\u0636\u0651' : 'dd'  # ض
-    '\u0637\u0651' : 'tt'  # ط
-    '\u0638\u0651' : 'zz'  # ظ
+    '\u0635\u0651' : 'ṣṣ'  # ص
+    '\u0636\u0651' : 'ḍḍ'  # ض
+    '\u0637\u0651' : 'ṭṭ'  # ط
+    '\u0638\u0651' : 'ẓẓ'  # ظ
     '\u063a\u0651' : 'gh'  # غ
     '\u0641\u0651' : 'ff'  # ف
     '\u0642\u0651' : 'qq'  # ق
@@ -280,146 +278,38 @@ map:
        - ''
 
     '\b\u0627\u0644' : 'al '  # ال
-    '\B\u064f?\u0627\u0644' : '-al-'  # ال in middle of composite name
+    '\B\u064f?\u0627\u0644' : ' al '  # ال in middle of composite name
+
     # '\uFE8E' : ''  # ﺎ
 
 
     '\u0623' : ''  # أ
     '\b\u0627' : ''  # ا
     '\u0627' : 'a'  # ا
-
     '\u0628' : 'b'  # ب
-    '\uFE91' : 'b'  # ﺑ
-    '\uFE92' : 'b'  # ﺒ
-    '\uFE90' : 'b'  # ﺐ
-
     '\u062a' : 't'  # ت
-    '\ufe97' : 't'  # ﺗ
-    '\ufe98' : 't'  # ﺘ
-    '\ufe96' : 't'  # ﺖ
-
     '\u062b' : 'th'  # ث
-    '\ufe9b' : 'th'  # ﺛ
-    '\ufe9c' : 'th'  # ﺜ
-    '\ufe9a' : 'th'  # ﺚ
-
     '\u062c' : 'j'  # ج
-    '\ufe9f' : 'j'  # ﺟ
-    '\ufea0' : 'j'  # ﺠ
-    '\ufe9e' : 'j'  # ﺞ
-
     '\u062d' : 'h' # ح
-    '\ufea3' : 'h' # ﺣ
-    '\ufea4' : 'h' # ﺤ
-    '\ufea2' : 'h' # ﺢ
-
     '\u062e' : 'kh'  # خ
-    '\ufea7' : 'kh'  # ﺧ
-    '\ufea8' : 'kh'  # ﺨ
-    '\ufea6' : 'kh'  # ﺦ
-
     '\u062f' : 'd'  # د
-    '\ufeaa' : 'd'  # ﺪ
-
     '\u0630' : 'dh'  # ذ
-    '\ufeac' : 'dh'  # ﺬ
-
     '\u0631' : 'r'  # ر
-    '\ufeae' : 'r'  # ﺮ
-
     '\u0632' : 'z'  # ز
-    '\ufeb0' : 'z'  # ﺰ
-
     '\u0633' : 's'  # س
-    '\ufeb3' : 's'  # ﺳ
-    '\ufeb4' : 's'  # ﺴ
-    '\ufeb2' : 's'  # ﺲ
-
     '\u0634' : 'sh'  # ش
-    '\ufeb7' : 'sh'  # ﺷ
-    '\ufeb8' : 'sh'  # ﺸ
-    '\ufeb6' : 'sh'  # ﺶ
-
-    '\u0635' : 's'  # ص
-    '\ufebb' : 's'  # ﺻ
-    '\ufebc' : 's'  # ﺼ
-    '\ufeba' : 's'  # ﺺ
-
-    '\u0636' : 'd'  # ض
-    '\ufebf' : 'd'  # ﺿ
-    '\ufec0' : 'd'  # ﻀ
-    '\ufebe' : 'd'  # ﺾ
-
-    '\u0637' : 't'  # ط
-    '\ufec3' : 't'  # ﻃ
-    '\ufec4' : 't'  # ﻄ
-    '\ufec2' : 't'  # ﻂ
-
-    '\u0638' : 'z'  # ظ
-    '\ufec7' : 'z'  # ﻇ
-    '\ufec8' : 'z'  # ﻈ
-    '\ufec6' : 'z'  # ﻆ
-
+    '\u0635' : 'ṣ'  # ص
+    '\u0636' : 'ḍ'  # ض
+    '\u0637' : 'ṭ'  # ط
+    '\u0638' : 'ẓ'  # ظ
     '\u0639' : '’'  # ع
-    '\ufecb' : '’'  # ﻋ
-    '\ufecc' : '’'  # ﻌ
-    '\ufeca' : '’'  # ﻊ
-
     '\u063a' : 'gh'  # غ
-    '\ufecf' : 'gh'  # ﻏ
-    '\ufed0' : 'gh'  # ﻐ
-    '\ufece' : 'gh'  # ﻎ
-
     '\u0641' : 'f'  # ف
-    '\ufed3' : 'f'  # ﻓ
-    '\ufed4' : 'f'  # ﻔ
-    '\ufed2' : 'f'  # ﻒ
-
     '\u0642' : 'q'  # ق
-    '\ufed7' : 'q'  # ﻗ
-    '\ufed8' : 'q'  # ﻘ
-    '\ufed6' : 'q'  # ﻖ
-
     '\u0643' : 'k'  # ك
-    '\ufedb' : 'k'  # ﻛ
-    '\ufedc' : 'k'  # ﻜ
-    '\ufeda' : 'k'  # ﻚ
-
     '\u0644' : 'l'  # ل
-    '\ufedf' : 'l'  # ﻟ
-    '\ufee0' : 'l'  # ﻠ
-    '\ufede' : 'l'  # ﻞ
-
     '\u0645' : 'm'  # م
-    '\ufee3' : 'm'  # ﻣ
-    '\ufee4' : 'm'  # ﻤ
-    '\ufee2' : 'm'  # ﻢ
-
     '\u0646' : 'n'  # ن
-    '\ufee7' : 'n'  # ﻧ
-    '\ufee8' : 'n'  # ﻨ
-    '\ufee6' : 'n'  # ﻦ
-
-    # See note C
     '\u0647' : 'h'  # ه
-    '\ufeeb' : 'h'  # ﻫ
-    '\ufeec' : 'h'  # ﻬ
-    '\ufeea' : 'h'  # ﻪ
-
     '\u0648' : 'w'  # و
-    '\ufeee' : 'w'  # ﻮ
-
     '\u064a' : 'y'  # ي
-    '\ufef3' : 'y'  # ﻳ
-    '\ufef4' : 'y'  # ﻴ
-    '\ufef1' : 'y'  # ﻱ
-
-    # (A) Not romanized word-initially.
-
-    # (B) Not romanized, but see romanizations accompanying alif (ا) in the table for vowels.
-
-    # (C) In certain endings, an original tā’ (ت) is written ة, i.e., like hā’ (ه) with two dots, and is known as tā’ marbūṯah. It is romanized h, except in the construct form of feminine nouns, where it is romanized t, instead.
-
-
-    # Vowels, diphthongs and diacritical marks
-    # (ـ stands for any consonant)
