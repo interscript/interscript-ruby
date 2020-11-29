@@ -1,0 +1,3 @@
+setuptools
+numpy
+git+https://github.com/sequitur-g2p/sequitur-g2p@9b7c505
