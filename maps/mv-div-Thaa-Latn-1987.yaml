@@ -1,0 +1,66 @@
+---
+authority_id: mv
+id: 1987
+language: iso-639-2:div
+source_script: Thaa
+destination_script: Latn
+name: Maldivian (Divehi) Maldivian Government 1987 system
+alias:
+  ogc11122:
+    code: div_Thaa2Latn_GMV_1988
+    description: Maldivian (Divehi) Maldivian Government 1988 system
+url: https://www.eki.ee/wgrs/rom2_dv.htm
+creation_date: 1887
+description: |
+  In 1987 the Maldivian government adopted a system for the romanization of Maldivian. It was also approved by the BGN and the PCGN in 1988.
+  Maldivian is written from right to left. Vowels are marked as diacritical marks accompanying a consonant character.
+
+notes:
+  - The character އ is not romanized. If it bears a vowel character, that vowel character alone is romanized, e.g. އިރުގައި irugai.
+  - Characters އް and ށް word-finally and before a digraph are romanized h, e.g. ވޭވަށް Veyvah, ކެރެއްދޫ Kerehdhoo. In other cases,
+    when އް and ށް are used, the romanized value of the following consonant character is doubled, e.g. ބައްޓެށް batteh, ކަޅެހުއްޓާ Kalhehuttaa.
+  - The character ނ is romanized n’ if used without any vowel or auxiliary sign. For example kan’du (ކަނޑު).
+  - The character އ is Not romanized but see note 1
+  - Character ތް is romanized iy, e.g. ޒިޔާރަތްފުށި Ziyaaraiyfushi.
+
+tests:
+  - source: "އިރުގައި"
+    expected: "irugai"
+  - source: "ޒިޔާރަތްފުށި"
+    expected: "ziyaaraiyfushi"
+  - source: "ރައްކާތެރިކުރުމާއި"
+    expected: "rakkaatherikurumaai"
+  - source: "ޝަހީދުންގެ ދުވަސް"
+    expected: "sh’aheedhun’ge dhuvas"
+  - source: "މަރުޙަބާ"
+    expected: "maruh’abaa"
+  - source: "ކިހިނެހް"
+    expected: "kihin’eh"
+  - source: "ކޮން ނަމެއް ކިޔަނީ"
+    expected: "kon’ n’ameh kiyan’ee"
+  - source: "ބައްއަޖޖެވުރި ހެނދުނެހް"
+    expected: "baajjevuri hen’dhun’eh"
+  - source: "މެނދުރެހް"
+    expected: "men’dhureh"
+  - source: "ހަވީރެހް"
+    expected: "haveereh"
+
+map:
+  inherit: bgnpcgn-div-Thaa-Latn-1988
+  characters:
+    #Consonants with diacritical marks (used mainly in words of Arabic origin, corresponding
+    # Arabic characters and their romanizations are shown in parentheses)
+    "ޘ": "th’"
+    "ޙ": "h’"
+    "ޚ": "kh"
+    "ޛ": "dh’"
+    "ޜ": "x"
+    "ޝ": "sh’"
+    "ޞ": "s’"
+    "ޟ": "l’"
+    "ޠ": "t’"
+    "ޡ": "z’"
+    "ޢ": "’"
+    "ޣ": "gh"
+    "ޤ": "q"
+    "ޥ": "w"
