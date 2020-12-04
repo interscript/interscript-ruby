@@ -1,0 +1,270 @@
+---
+authority_id: un
+id: 1972
+language: iso-639-2:tel
+source_script: Telu
+destination_script: Latn
+name: REPORT ON THE CURRENT STATUS OF UNITED NATIONS ROMANIZATION SYSTEMS FOR GEOGRAPHICAL NAMES -- Telugu Romanization, 1972
+url: https://www.eki.ee/wgrs/rom1_te.htm
+creation_date: 1972
+confirmation_date: 2016
+description: |
+  The United Nations recommended system was approved in 1972 (II/11) and amended in 1977 (III/12),
+  based on a report prepared by D. N. Sharma. The tables and their corrections were published in volume II
+  of the conference reports.
+
+  There is no evidence of the use of the system either in India or in international cartographic products.
+
+  Telugu uses an alphasyllabic script whereby each character represents a syllable rather than one sound.
+  Vowels and diphthongs are marked in two ways: as independent characters (used syllable-initially) and in
+  an abbreviated form, to denote vowels after consonants. The romanization table is unambiguous. The system is
+  mostly reversible but there may exist some ambiguities in the romanization of vowels (independent vs. abbreviated characters)
+  and consonants (combinations with subscript consonants vs. character sequences).
+
+notes:
+
+  - |
+    Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for
+    vowels following a consonant can be found in grammars; no distinction between the two is
+    made in transliteration.
+  - |
+    The vowel a is implicit after all consonants and consonant clusters and is supplied in
+    transliteration, with the following exceptions:
+    a) when another vowel is indicated by its appropriate sign; and
+    b) when the absence of any vowel is indicated by the superscript sign ( ౬ ) called valapalagilaka.
+  - |
+    Exception: Sunna is transliterated by:
+    a) ṅ before gutturals,
+    b) ñ before palatals,
+    c) ṇ before cerebrals,
+    d) n before dentals, and
+    e) m before labials.
+  - |
+    Ardhasunna before gutturals and palatal, cerebral, and dental occlusives is transliterated n̐.
+    Before labials, sibilants, semivowels, the aspirate, vowels, and in final position it is
+    transliterated m
+
+tests:
+  - source: "తమిళనాడు"
+    expected: "tamiḷanāḍu"
+  - source: "తంటికొండ ఘటన: ఆగని మృత్యుఘోష"
+    expected: "taṃṭikŏṃḍa ghaṭana: āgani mṛtyughoṣha"
+  - source: "మళ్లీ వివాదం: అమితాబ్‌పై కేసు"
+    expected: "maḷlī vivādaṃ: amitābpai kesu"
+  - source: "వరద సాయం పేరుతో వైట్ కాలర్ దోపిడీ"
+    expected: "varada sāyaṃ peruto vaiṭ kālar dopiḍī"
+  - source: "రెండో విడత జీఎస్టీ పరిహారం"
+    expected: "rĕṃḍo viḍata jīĕsṭī parihāraṃ"
+  - source: "నితీష్‌ కుమార్‌ అధ్యాయం ముగిసినట్లేనా?!"
+    expected: "nitīṣh kumār adhyāyaṃ mugisinaṭlenā?!"
+  - source: "వారిపై జీవితాంతం నిషేధం విధించండి!"
+    expected: "vāripai jīvitāṃtaṃ niṣhedhaṃ vidhiṃchaṃḍi!"
+  - source: "మరో లాక్‌డౌన్‌ వల్ల అన్నీ అనర్థాలే!"
+    expected: "maro lākḍaun valla annī anarthāle!"
+  - source: "జెసిండా మరో సంచలనం"
+    expected: "jĕsiṃḍā maro saṃchalanaṃ"
+  - source: "స్వీయ నిర్బంధంలోకి డబ్ల్యూహెచ్‌ఓ డైరెక్టర్‌"
+    expected: "svīya nirbaṃdhaṃloki ḍablyūhĕcho ḍairĕkṭar"
+  - source: "కరోనాపై యుద్ధంలో సమిధలు"
+    expected: "karonāpai yuddhaṃlo samidhalu"
+  - source: "అమెరికా ఎన్నికలు: ‘పెద్దన్న’ ఎవరో?!"
+    expected: "amĕrikā ĕnnikalu: ‘pĕddanna’ ĕvaro?!"
+  - source: "౪౬౨౬౯"
+    expected: "46269"
+  - source: "రంగపూర్"
+    expected: "raṃgapūr"
+  # subscript consonant characters
+  - source: "ట్ట"
+    expected: "ṭṭa"
+  - source: "ప్ప"
+    expected: "ppa"
+  - source: "చ్చ"
+    expected: "chcha"
+
+
+map:
+
+  rules:
+    - pattern: ([క]=?)(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c\u0c4d])
+      result:  'k'
+    - pattern: ([ఖ]=?)(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c\u0c4d])
+      result:  'kh'
+    - pattern: ([గ]=?)(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c\u0c4d])
+      result:  'g'
+    - pattern: ([ఘ]=?)(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c\u0c4d])
+      result:  'gh'
+    - pattern: ([ఙ]=?)(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c\u0c4d])
+      result:  'ṅ'
+    - pattern: ([చ]=?)(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c\u0c4d])
+      result:  'ch'
+    - pattern: ([ఛ]=?)(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c\u0c4d])
+      result:  'chh'
+    - pattern: ([జ]=?)(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c\u0c4d])
+      result:  'j'
+    - pattern: ([ఝ]=?)(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c\u0c4d])
+      result:  'jh'
+    - pattern: ([ఞ]=?)(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c\u0c4d])
+      result:  'ñ'
+    - pattern: ([ట]=?)(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c\u0c4d])
+      result:   'ṭ'
+    - pattern: ([ఠ]=?)(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c\u0c4d])
+      result:   'ṭh'
+    - pattern: ([డ]=?)(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c\u0c4d])
+      result:   'ḍ'
+    - pattern: ([ఢ]=?)(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c\u0c4d])
+      result:   'ḍh'
+    - pattern: ([ణ]=?)(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c\u0c4d])
+      result:   'ṇ'
+    - pattern: ([త]=?)(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c\u0c4d])
+      result:  't'
+    - pattern: ([థ]=?)(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c\u0c4d])
+      result:  'th'
+    - pattern: ([ద]=?)(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c\u0c4d])
+      result:  'd'
+    - pattern: ([ధ]=?)(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c\u0c4d])
+      result:  'dh'
+    - pattern: ([న]=?)(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c\u0c4d])
+      result:  'n'
+    - pattern: ([ప]=?)(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c\u0c4d])
+      result:  'p'
+    - pattern: ([ఫ]=?)(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c\u0c4d])
+      result:  'ph'
+    - pattern: ([బ]=?)(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c\u0c4d])
+      result:  'b'
+    - pattern: ([భ]=?)(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c\u0c4d])
+      result:  'bh'
+    - pattern: ([మ]=?)(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c\u0c4d])
+      result:  'm'
+    - pattern: ([య]=?)(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c\u0c4d])
+      result:  'y'
+    - pattern: ([ర]=?)(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c\u0c4d])
+      result:  'r'
+    - pattern: ([ఱ]=?)(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c\u0c4d])
+      result:  'r'
+    - pattern: ([ల]=?)(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c\u0c4d])
+      result:  'l'
+    - pattern: ([వ]=?)(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c\u0c4d])
+      result:  'v'
+    - pattern: ([శ]=?)(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c\u0c4d])
+      result:  'sh'
+    - pattern: ([ష]=?)(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c\u0c4d])
+      result:  'ṣh'
+    - pattern: ([స]=?)(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c\u0c4d])
+      result:  's'
+    - pattern: ([హ]=?)(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c\u0c4d])
+      result:  'h'
+    - pattern: ([ళ]=?)(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c\u0c4d])
+      result:   'ḷ'
+
+  characters:
+
+    # I. Independent vowel characters
+
+    'అ': 'a'
+    'ఆ': 'ā'
+    'ఇ': 'i'
+    'ఈ': 'ī'
+    'ఉ': 'u'
+    'ఊ': 'ū'
+    'ఋ': 'ṛ'
+    'ౠ': 'ṝ'
+    'ఎ': 'ĕ'
+    'ఏ': 'e'
+    'ఐ': 'ai'
+    'ఒ': 'ŏ'
+    'ఓ': 'o'
+    'ఔ': 'au'
+
+    # II. Abbreviated vowel characters and other symbols
+
+    'ా': 'ā'
+    'ి': 'i' # Variations: చి chi, ని ni, యి yi, లి li, etc.
+    'ీ': 'ī'
+    'ు': 'u' # Variations: జు ju, పు pu, వు vu, etc.
+    'ూ': 'ū'
+    'ృ': 'ṛ'
+    'ె': 'ĕ'
+    'ే': 'e'
+    'ై': 'ai'
+    'ొ': 'ŏ' # Variations: మొ mŏ, యొ yŏ.
+    'ో': 'o' # Variations: మో mo, యో yo.
+    'ౌ': 'au'
+    'ঁ': 'ṁ'
+    'ఁ': 'm̐' # Signified historic nasal sound, now obsolete.
+    'ః': 'ḥ'
+    'ం': 'ṃ'
+    '\u0c4d': '' # End-of-syllable mark (i.e., a consonant without a vowel): రంగపూర్ Raṁgapūr.
+
+    # III. Consonant characters
+
+    # Gutturals
+    'క': 'ka'
+    'ఖ': 'kha'
+    'గ': 'ga'
+    'ఘ': 'gha'
+    'ఙ': 'ṅa'
+
+    # Palatals
+    'చ': 'cha'
+    'ఛ': 'chha'
+    'జ': 'ja'
+    'ఝ': 'jha'
+    'ఞ': 'ña'
+
+    # Cerebrals
+    'ట':  'ṭa'
+    'ఠ':  'ṭha'
+    'డ':  'ḍa'
+    'ఢ':  'ḍha'
+    'ణ':  'ṇa'
+
+    # Dentals
+    'త': 'ta'
+    'థ': 'tha'
+    'ద': 'da'
+    'ధ': 'dha'
+    'న': 'na'
+
+    # Labials
+    'ప': 'pa'
+    'ఫ': 'pha'
+    'బ': 'ba'
+    'భ': 'bha'
+    'మ': 'ma'
+
+    # Semivowels
+    'య': 'ya'
+    'ర': 'ra' #Variant: ఱ.
+    'ఱ': 'ra'
+    'ల': 'la'
+    'వ': 'va'
+
+    # Sibilants
+    'శ': 'sha'
+    'ష': 'ṣha'
+    'స': 'sa'
+
+    # Aspirate
+    'హ': 'ha'
+    'ళ' : 'ḷa'
+
+    '\u09CD': '' # Used for joining
+    'ౕ	': ''
+    'ౖ	': ''
+    '्': ''
+    '़': ''
+    "‍": ''# Used for joining
+    "‌": ''# Used for non joining
+
+    # numbers
+
+    '౦': '0'
+    '౧': '1'
+    '౨': '2'
+    '౩': '3'
+    '౪': '4'
+    '౫': '5'
+    '౬': '6'
+    '౭': '7'
+    '౮': '8'
+    '౯': '9'

@@ -1,8 +1,8 @@
 ---
 authority_id: alalc
 id: 1997
-language: iso-639-2:kan
-source_script: Kana
+language: iso-639-2:tel
+source_script: Telu
 destination_script: Latn
 name: Telugu Romanization, 1997
 alias:
