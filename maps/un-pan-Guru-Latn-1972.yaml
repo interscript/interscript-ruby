@@ -46,8 +46,6 @@ notes:
     Absence of the inherent vowel (-a) is not marked in the spelling in any way except for the combinations
     with subscript characters and those which are doubled by ੱ (adhaka).
 
-# completed upto this
-
 tests:
   - source: "ਪੰਜਾਬ 'ਚ ਵਧ ਰਿਹਾ ਖ਼ੁਦਕੁਸ਼ੀਆਂ ਦਾ ਰੁਝਾਨ"
     expected: "paṁzāba 'cha vadha rihā khaḳhudakusḳhīāṁ dā rujhāna"
@@ -234,7 +232,6 @@ map:
   characters:
 
     # I. Vowels and Diphthongs (see Note 1)
-
     'ਅ': 'a'
     'ਆ': 'ā'
     'ਇ': 'i'
@@ -300,7 +297,6 @@ map:
     'ੰ': 'ṁ'
 
     # Adhik character doubling of the following consonant[Note 5]
-
     'ੱਕ': 'kka'
     'ੱਖ': 'kkha'
     'ੱਖ਼': 'ḳḳha'
@@ -342,7 +338,6 @@ map:
     'ੱਹ': 'hh'
 
     # Adhik character doubling of the following consonant and ends with ੍ [Note 5]
-
     'ੱਕ੍': 'kk'
     'ੱਖ੍': 'kkh'
     'ੱਖ਼੍': 'ḳḳh'
@@ -395,7 +390,6 @@ map:
     "਼": ""
 
     # digits
-
     '੦': '0'
     '੧': '1'
     '੨': '2'
@@ -406,4 +400,3 @@ map:
     '੭': '7'
     '੮': '8'
     '੯': '9'
-
