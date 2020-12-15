@@ -1,0 +1,251 @@
+---
+authority_id: un
+id: 1972
+language: iso-639-2:mal
+source_script: Mlym
+destination_script: Latn
+name: REPORT ON THE CURRENT STATUS OF UNITED NATIONS ROMANIZATION SYSTEMS FOR GEOGRAPHICAL NAMES --Malayalam Romanization Version 4.0
+url: https://www.eki.ee/wgrs/rom1_ml.htm
+creation_date: 1972
+confirmation_date: 2016
+description: |
+  The United Nations recommended system was approved in 1972 (II/11) and amended in 1977 (III/12),
+  based on a report prepared by D. N. Sharma. The tables and their corrections were published in
+  volume II of the conference reports.
+
+  There is no evidence of the use of the system either in India or in international cartographic products.
+
+  Malayalam (Malayāḷam) uses an alphasyllabic script whereby each character represents a syllable rather
+  than one sound. Vowels and diphthongs are marked in two ways: as independent characters (used syllable-initially)
+  and in an abbreviated form, to denote vowels after consonants. The romanization table is unambiguous but now
+  outdated because since the 1970's a new orthography has been introduced and the use of many character
+  combinations and ligatures has been simplified. Nevertheless the user of the romanization table would have to
+  recognize many ligatures not given in the original table. The system is mostly reversible but there exist some
+  ambiguities in the romanization of vowels (independent vs. abbreviated characters) and
+  consonants (ligatures vs. character sequences), particularly in the case of older orthography.
+
+
+notes:
+  - |
+    ടു For traditional script forms ഖു khu, മു mu, etc., exceptionally കു ku (ക്കു kku, ങ്കു ṅku), ഗു gu, ഛു chhu, ജു ju, ണു ṇu, തു tu, നു nu (ന്നു nnu), ഭു bhu, രു ru, ശു shu, ഹു hu
+  - |
+    ടൂ For traditional script forms ഖൂ khū, മൂ mū, etc., exceptionally കൂ kū, ഗൂ gū, ഛൂ chhū, ജൂ jū, ണൂ ṇū, തൂ tū, നൂ nū, ഭൂ bhū, രൂ rū, ശൂ shū, ഹൂ hū
+  - |
+    ടൃ Traditionally written in conjunction with the consonant character: കൃ kṛ .
+  - |
+    ടൗ In the older spelling: ൌ.
+  - |
+    ട്‌  Indicates absence of the inherent short [a] vowel, e.g. ക്‌ k , സ്‌ s. Special, co-called chillu-forms of consonants with that symbol: ണ്‍ ṇ, ന്‍ n, ര്‍ r, ല്‍ l, ള്‍ ḷ.
+  - |
+    റ  Special ligature: റ്റ ṭ̈.
+
+tests:
+  - source: "ചൈനയ്ക്കെതിരെ ലഡാക്കിൽ സദാസജ്ജം; യുഎസിൽനിന്ന് ൭൨,൫൦൦ സിഗ്–൧൬ റൈഫിൾ"
+    expected: "chainaykkĕtirĕ laḍākkil sadāsajjaṃ; yuĕsilninn 72,500 sig–16 ṟaiphiḷ"
+  - source: "സർഗഭൂമിക’യ്ക്കില്ല; ലളിതച്ചേച്ചി അങ്ങനെ പറഞ്ഞിട്ടുണ്ടാവില്ല: ആർഎൽവി രാമകൃഷ്ണൻ"
+    expected: "sargabhūmika’ykkilla; laḷitachchechchi aṅṅanĕ paṟaññiṭṭuṇṭāvilla: ārĕlvi rāmakṛṣhṇan"
+  - source: "സ്വർണക്കടത്ത്‌: ഫൈസൽ ഫരീദും റബിന്‍സും ദുബായിൽ അറസ്റ്റിലായെന്ന്‌ എന്‍ഐഎ"
+    expected: "svarṇakkaṭatt: phaisal pharīduṃ ṟabinsuṃ dubāyil aṟasṟṟilāyĕnn ĕnaiĕ"
+  - source: "വരുമോ ചൈനയുടെ വാക്സീൻ?; ആഗോള ഉപയോഗത്തിന് ഡബ്ല്യുഎച്ച്ഒയുമായി ചർച്ച"
+    expected: "varumo chainayuṭĕ vāksīn?; āgoḷa upayogattin ḍablyuĕchchŏyumāyi charchcha"
+  - source: "കുട്ടികളുടെ മാനസിക പിരിമുറുക്കം മാറ്റാൻ പരിശീലനം; ക്ലാസുമായി പോക്സോ പ്രതി"
+    expected: "kuṭṭikaḷuṭĕ mānasika pirimuṟukkaṃ māṟṟān parishīlanaṃ; klāsumāyi pokso prati"
+  - source: "ആദ്യം അമിത് ഷാ, ഇപ്പോൾ മോദി; ബിജെപിയെ പുണരാൻ ജഗൻ; ആന്ധ്രയിലെ കരുനീക്കങ്ങൾ"
+    expected: "ādyaṃ amit ṣhā, ippoḷ modi; bijĕpiyĕ puṇarān jagan; āndhrayilĕ karunīkkaṅṅaḷ"
+  - source: "ലഹരിമരുന്ന് കേസ്: ബിനീഷ് കോടിയേരിയെ ഇഡി 6 മണിക്കൂർ ചോദ്യം ചെയ്തു"
+    expected: "laharimarunn kes: binīṣh koṭiyeriyĕ iḍi 6 maṇikkūr chodyaṃ chĕytu"
+  - source: "ഈന്തപ്പഴം വിതരണം ചെയ്തത് ശിവശങ്കര്‍ പറഞ്ഞതു പ്രകാരം: ടി.വി അനുപമയുടെ മൊഴി"
+    expected: "īntappaḻaṃ vitaraṇaṃ chĕytat shivashaṅkar paṟaññatu prakāraṃ: ṭi.vi anupamayuṭĕ mŏḻi"
+  - source: "൫൦൦൦ മണിക്കൂർ കാത്തിരിക്കാൻ തയാറെന്ന് രാഹുൽ: ഒടുവിൽ വഴങ്ങി ഹരിയാന"
+    expected: "5000 maṇikkūr kāttirikkān tayāṟĕnn rāhul: ŏṭuvil vaḻaṅṅi hariyāna"
+  - source: "കാരണം ഷോര്‍ട്ട്‌സര്‍ക്യൂട്ടല്ല; കത്തിയത് ഫയല്‍ മാത്രം, സാനിറ്റൈസര്‍ ഉള്‍പ്പെടെ കത്തിയില്ല"
+    expected: "kāraṇaṃ ṣhorṭṭsarkyūṭṭalla; kattiyat phayal mātraṃ, sāniṟṟaisar uḷppĕṭĕ kattiyilla"
+  - source: "വിമൺ സയൻറിസ്റ്റ്സ് സ്കീം"
+    expected: "vimaṇ sayanṟisṟṟs skīṃ"
+
+map:
+
+  rules:
+    - pattern: ([ക]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result: 'k'
+    - pattern: ([ഖ]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result: 'kh'
+    - pattern: ([ഗ]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result: 'g'
+    - pattern: ([ഘ]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result: 'gh'
+    - pattern: ([ങ]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result: 'ṅ'
+    - pattern: ([ച]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result: 'ch'
+    - pattern: ([ഛ]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result: 'chh'
+    - pattern: ([ജ]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result: 'j'
+    - pattern: ([ഝ]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result: 'jh'
+    - pattern: ([ഞ]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result: 'ñ'
+    - pattern: ([ട]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result:  'ṭ'
+    - pattern: ([ഠ]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result:  'ṭh'
+    - pattern: ([ഡ]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result: 'ḍ'
+    - pattern: ([ഢ]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result: 'ḍh'
+    - pattern: ([ണ]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result: 'ṇ'
+    - pattern: ([ത]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result: 't'
+    - pattern: ([ഥ]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result: 'th'
+    - pattern: ([ദ]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result: 'd'
+    - pattern: ([ധ]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result: 'dh'
+    - pattern: ([ന]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result: 'n'
+    - pattern: ([പ]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result: 'p'
+    - pattern: ([ഫ]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result: 'ph'
+    - pattern: ([ബ]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result: 'b'
+    - pattern: ([ഭ]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result: 'bh'
+    - pattern: ([മ]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result: 'm'
+    - pattern: ([യ]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result: 'y'
+    - pattern: ([ര]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result: 'r'
+    - pattern: ([ല]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result: 'l'
+    - pattern: ([വ]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result: 'v'
+    - pattern: ([ശ]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result: 'sh'
+    - pattern: ([ഷ]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result: 'ṣh'
+    - pattern: ([സ]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result: 's'
+    - pattern: ([ഹ]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result: 'h'
+    - pattern: ([ള]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result: 'ḷ'
+    - pattern: ([ഴ]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result: 'ḻ'
+    - pattern: ([റ]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result: 'ṟ'
+    - pattern: ([ക്ഷ]=?)(?=[\u0d3e\u0d3f\u0d40\u0d41\u0d42\u0d43\u0d46\u0d47\u0d48\u0d4a\u0d4b\u0d4c\u0d4d])
+      result: 'kṣh'
+
+  characters:
+    # I. Independent vowel characters
+    'അ': 'a'
+    'ആ': 'ā'
+    'ഇ': 'i'
+    'ഈ': 'ī'
+    'ഉ': 'u'
+    'ഊ': 'ū'
+    'ഋ': "ṛ"
+    'എ': 'ĕ'
+    'ഏ': 'e'
+    'ഐ': 'ai'
+    'ഒ': 'ŏ'
+    'ഓ': 'o'
+    'ഔ': 'au'
+
+    # II. Abbreviated vowel characters
+    'ാ': 'ā'
+    'ി': 'i'
+    'ീ': 'ī'
+    'ു': 'u'
+    'ൂ': 'ū'
+    'ൃ': "ṛ"
+    'െ': "ĕ"
+    'േ': "e"
+    'ൈ': "ai"
+    'ൊ': 'ŏ'
+    'ോ': 'o'
+    'ൌ': 'au'
+
+    #III. Other symbols
+    'ഃ': 'ḥ'
+    'ം': 'ṃ'
+    '്': ''
+
+    #IV. Consonant characters
+    'ക': 'ka'
+    'ഖ': 'kha'
+    'ഗ': 'ga'
+    'ഘ': 'gha'
+    'ങ': 'ṅa'
+    'ച': 'cha'
+    'ഛ': 'chha'
+    'ജ': 'ja'
+    'ഝ': 'jha'
+    'ഞ': 'ña'
+    'ട':  'ṭa'
+    'ഠ':  'ṭha'
+    'ഡ': 'ḍa'
+    'ഢ': 'ḍha'
+    'ണ': 'ṇa'
+    'ത': 'ta'
+    'ഥ': 'tha'
+    'ദ': 'da'
+    'ധ': 'dha'
+    'ന': 'na'
+    'പ': 'pa'
+    'ഫ': 'pha'
+    'ബ': 'ba'
+    'ഭ': 'bha'
+    'മ': 'ma'
+    'യ': 'ya'
+    'ര': 'ra'
+    'ല': 'la'
+    'വ': 'va'
+    'ശ': 'sha'
+    'ഷ': 'ṣha'
+    'സ': 'sa'
+    'ഹ': 'ha'
+    'ക്ഷ': 'kṣha'
+    'ള': 'ḷa'
+    'ഴ': 'ḻa'
+    'റ': 'ṟa'
+    'റ്റ':  'ṭ̈'
+
+
+    '्': ''
+    '़': ''
+    'ൗ': ''
+    "‍": '' # no need for zero with joiner
+    "‌": '' # no need for zero with non joiner
+
+
+    # numbers
+    '൦': '0'
+    '൧': '1'
+    '൨': '2'
+    '൩': '3'
+    '൪': '4'
+    '൫': '5'
+    '൬': '6'
+    '൭': '7'
+    '൮': '8'
+    '൯': '9'
+    '൰': '10'
+    '൱': '100'
+    '൲': '1000'
+
+
+    # chillu-forms of consonants note 5
+    'ൿ': 'k'
+    'ൺ': 'ṇ'
+    'ൻ': 'n'
+    'ൽ': 'l'
+    'ൾ': 'ḷ'
+    'ർ': 'r'
+    'സ്': 's'
+
