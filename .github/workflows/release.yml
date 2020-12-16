@@ -23,6 +23,7 @@ jobs:
         env:
           RUBYGEMS_API_KEY: ${{secrets.INTERSCRIPT_RUBYGEMS_API_KEY}}
         run: |
+          bundle exec rake aliases.json
           gem install gem-release
           touch ~/.gem/credentials
           cat > ~/.gem/credentials << EOF
@@ -41,6 +42,7 @@ jobs:
           git config --global user.email "interscript-ci@users.noreply.github.com"
           git clone https://interscript-ci:${{ secrets.INTERSCRIPT_CI_PAT }}@github.com/interscript/interscript-js
           cp vendor/assets/javascripts/interscript.js interscript-js/interscript.js
+          rm interscript-js/maps/*
           cp vendor/assets/maps/*.json interscript-js/maps/
           git -C interscript-js add interscript.js
           git -C interscript-js commit -m "Update interscript.js ${INTERSCRIPT_CLI_REF#*/v}"
