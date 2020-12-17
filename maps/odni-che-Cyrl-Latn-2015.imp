@@ -1,62 +1,65 @@
-authority_id "odni"
-id "2015"
-language "iso-639-2:che"
-source_script "Cyrl"
-destination_script "Latn"
-name "Office of the Director Of National Intelligence -- ICS 630-01 -- Chechen Cyrillic 2015"
-url "https://github.com/interscript/ics-630-01/blob/master/reference-docs/ANNEX%20C%20-%20Chechen_Personal_Names_FLTS%20(U).pdf"
-source "ICS-630-01 Annex C"
-creation_date "2015"
-confirmation_date "2015"
+metadata do
+  authority_id "odni"
+  id "2015"
+  language "iso-639-2:che"
+  source_script "Cyrl"
+  destination_script "Latn"
+  name "Office of the Director Of National Intelligence -- ICS 630-01 -- Chechen Cyrillic 2015"
+  url "https://github.com/interscript/ics-630-01/blob/master/reference-docs/ANNEX%20C%20-%20Chechen_Personal_Names_FLTS%20(U).pdf"
+  source "ICS-630-01 Annex C"
+  creation_date "2015"
+  confirmation_date "2015"
 
-description <<~END
-  This system is the Intelligence Community (IC) standard for the transliteration of Chechen names
-  that will be applied to all final written reports and products for IC consumers. It is not intended to
-  eliminate variations of a name that can contribute forensic information. Rather, it is to provide an
-  IC standard Romanized (English) transliteration from Chechen that can then be linked to forensic
-  information in ways that will help identify the referent of the name.
-  In cases where an individual’s name has already been transliterated in a variant spelling, the IC
-  Standard spelling should appear first, followed by the variant spelling(s) in parentheses at the first
-  usage. In addition, if the original Cyrillic or Arabic-script spelling is known, that spelling should
-  also appear in parentheses following the name, if possible, following best practices of the issuing
-  organization and taking into consideration information system capabilities. For example: Ilyas
-  Akhmadkant (also seen as Ilyas Axmadkhant, Ильяс Ахмадкӏант). This convention is designed
-  to ensure that vital forensic information is not lost.
-  For names of persons who are known to not be part of the Chechen-speaking community, use the
-  relevant IC transliteration standard for names from that language (e.g., Mikhail, Yitzhak). A
-  translator’s note may be used to clarify the known origin of the person. Spell names of
-  individuals from languages that are written in Roman letters as they are spelled in those
-  languages (e.g., George Clooney, Jorge Garcia, Georges Pompidou).
-  In the case of active senior government officials in the on-line CIA World Factbook and the online directory of Chiefs of State and Cabinet Members of Foreign Governments, the spellings
-  given in these on-line reference works should be used in place of the IC Standard. For any
-  individual who has at one time been listed in the Factbook or Chiefs of State directory but who no
-  longer appears in those resources (i.e. is no longer a government official), the IC Standard
-  spelling should appear first, with the spelling, if known, as it previously appeared in those
-  resources listed within parentheses at the first usage.
-  The primary goal is to produce a consistent Romanized transcription of names that is specifically
-  readable to the English-speaking non-specialist. The system uses the 26 letters of the standard
-  (English) Roman alphabet plus the apostrophe. Some ambiguities in the Romanized form will
-  occur without the use of diacritics. However, within the context of a report, where additional
-  information about the individual is provided, the referent will be clearly identified. This system
-  will be used in conjunction with on-line tools, name dictionaries, and lists containing
-  conventional spellings of names of well-known individuals.
-END
+  description <<~END
+    This system is the Intelligence Community (IC) standard for the transliteration of Chechen names
+    that will be applied to all final written reports and products for IC consumers. It is not intended to
+    eliminate variations of a name that can contribute forensic information. Rather, it is to provide an
+    IC standard Romanized (English) transliteration from Chechen that can then be linked to forensic
+    information in ways that will help identify the referent of the name.
+    In cases where an individual’s name has already been transliterated in a variant spelling, the IC
+    Standard spelling should appear first, followed by the variant spelling(s) in parentheses at the first
+    usage. In addition, if the original Cyrillic or Arabic-script spelling is known, that spelling should
+    also appear in parentheses following the name, if possible, following best practices of the issuing
+    organization and taking into consideration information system capabilities. For example: Ilyas
+    Akhmadkant (also seen as Ilyas Axmadkhant, Ильяс Ахмадкӏант). This convention is designed
+    to ensure that vital forensic information is not lost.
+    For names of persons who are known to not be part of the Chechen-speaking community, use the
+    relevant IC transliteration standard for names from that language (e.g., Mikhail, Yitzhak). A
+    translator’s note may be used to clarify the known origin of the person. Spell names of
+    individuals from languages that are written in Roman letters as they are spelled in those
+    languages (e.g., George Clooney, Jorge Garcia, Georges Pompidou).
+    In the case of active senior government officials in the on-line CIA World Factbook and the online
+    directory of Chiefs of State and Cabinet Members of Foreign Governments, the spellings
+    given in these on-line reference works should be used in place of the IC Standard. For any
+    individual who has at one time been listed in the Factbook or Chiefs of State directory but who no
+    longer appears in those resources (i.e. is no longer a government official), the IC Standard
+    spelling should appear first, with the spelling, if known, as it previously appeared in those
+    resources listed within parentheses at the first usage.
+    The primary goal is to produce a consistent Romanized transcription of names that is specifically
+    readable to the English-speaking non-specialist. The system uses the 26 letters of the standard
+    (English) Roman alphabet plus the apostrophe. Some ambiguities in the Romanized form will
+    occur without the use of diacritics. However, within the context of a report, where additional
+    information about the individual is provided, the referent will be clearly identified. This system
+    will be used in conjunction with on-line tools, name dictionaries, and lists containing
+    conventional spellings of names of well-known individuals.
+  END
 
-notes [
-  "Add a preceding 'y' if the vowel is preceded by the sound of a 'y' consonant.",
-  "This is a single apostrophe as found on regular US keyboards (ASCII character 39), "+
-    "though software may render the apostrophe with differing appearances (e.g. curved left or right). "+
-    "Note that the same apostrophe is used for 'ъ', '|', 'ӏ', and '1'.",
-  "A word-initial hard sign 'ъ' is not represented, but instead is left out of the transliteration.",
-  "The romanization follows the dialect spoken in Chechnya rather than other local pronunciations.",
-  "Long and short vowels are not distinguished in this system.",
-  "In the Roman, no distinction is made between digraphs such as 'sh' and single contiguous letters (e.g. 's' followed by 'h').",
-  "The Cyrillic soft sign ('ь') by itself (not part of a digraph) is not represented, but instead is left out of the transliteration.",
-  "Interpretation of Cyrillic digraphs in Table 1 takes precedence over interpretation of the individual "+
-    "characters. Thus, 'кх' -> 'q', and not to 'k' followed by 'kh'.",
-  "Transliteration of Cyrillic digraphs for diphthongs will follow the combination of the transliteration of "+
-    "the individual characters. Thus, 'aй' -> 'ay', 'oй' -> 'oy', and both 'эй' and 'eй' -> 'ey'."
-]
+  notes [
+    "Add a preceding 'y' if the vowel is preceded by the sound of a 'y' consonant.",
+    "This is a single apostrophe as found on regular US keyboards (ASCII character 39), "+
+      "though software may render the apostrophe with differing appearances (e.g. curved left or right). "+
+      "Note that the same apostrophe is used for 'ъ', '|', 'ӏ', and '1'.",
+    "A word-initial hard sign 'ъ' is not represented, but instead is left out of the transliteration.",
+    "The romanization follows the dialect spoken in Chechnya rather than other local pronunciations.",
+    "Long and short vowels are not distinguished in this system.",
+    "In the Roman, no distinction is made between digraphs such as 'sh' and single contiguous letters (e.g. 's' followed by 'h').",
+    "The Cyrillic soft sign ('ь') by itself (not part of a digraph) is not represented, but instead is left out of the transliteration.",
+    "Interpretation of Cyrillic digraphs in Table 1 takes precedence over interpretation of the individual "+
+      "characters. Thus, 'кх' -> 'q', and not to 'k' followed by 'kh'.",
+    "Transliteration of Cyrillic digraphs for diphthongs will follow the combination of the transliteration of "+
+      "the individual characters. Thus, 'aй' -> 'ay', 'oй' -> 'oy', and both 'эй' and 'eй' -> 'ey'."
+  ]
+end
 
 tests do
   test "Ильяс Ахмадкӏант", "Ilyas Akhmadkant"
