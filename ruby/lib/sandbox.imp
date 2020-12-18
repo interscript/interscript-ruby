@@ -1,0 +1,75 @@
+metadata do
+  authority_id "iso"
+  id "1996-method1"
+  language "iso-639-2:kor"
+  source_script "Hang"
+  destination_script "Latn"
+  name "ISO/TR 11941:1996 Information and documentation — Transliteration of Korean script into Latin characters"
+  url "https://www.iso.org/standard/20564.html"
+  creation_date "1996"
+  adoption_date ""
+  description "Establishes a system for the transliteration of the characters of Korean script into Latin characters. "+
+              "Intended to provide a means for international communication of written documents."
+
+  notes ['notes','notes']
+end
+
+
+tests do
+  # Tests from https://www.eki.ee/wgrs/rom2_ko.pdf
+  test "꽃이", "kkoch'i" # Bad OCR
+  test "강에", "kang'e"
+  test "앉아라", "anc'ara"
+  test "아까", "a'kka"
+  test "흰떡", "hyin'tteok"
+  test "유쾌하다", "yu'khwaehata"
+
+  # Tests from https://github.com/interscript/interscript/files/5249245/ISO-TR-11941-1996.pdf
+  test "애기", "aeki"
+  test "방", "pang"
+  test "아이", "a'i"
+  test "고양이", "ko'yang'i"
+  test "굽이", "kup'i"
+  test "밖에", "pakk'e"
+  test "박게", "pakke"
+  test "바께", "pa'kke"
+  test "간게", "kanke"
+  test "안자라", "ancara"
+  test "오빠", "o'ppa"
+  test "어찌", "eo'cci"
+  test "아씨", "a'ssi"
+  test "애타다", "ae'thata"
+  test "아프다", "a'pheuta"
+  test "기차다", "ki'chata"
+  test "동녘에", "tongnyeokh'e"
+  test "같이", "kath'i"
+  test "앞에", "aph'e"
+  test "꽃에", "kkoch'e"
+end
+
+
+
+
+
+dependency "var-kor-Hang", as: :hang, import: true
+dependency "var-kor-Hang-Hang-jamo", as: :jamo
+
+def_alias :double_cons_jamo, any("ᄁᄄᄈᄍᄊ")
+def_alias :aspirated_cons_jamo, any("ᄏᄐᄑᄎ")
+
+
+
+stage do 
+
+  sub 'A','a', not_before: boundary
+
+  sub 'B','b', before: not_word, after: not_word
+
+
+  sub line_start + space , none
+  sub line_start + space + space, none
+
+  sub space + line_end, none, before: not_word
+
+  sub any("aAbB"), none
+end

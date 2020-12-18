@@ -66,22 +66,22 @@ stage do
   #   ...
   # end
   # the unnamed stage is named :main
-  run map[:jamo].stage[:hang2jamo]
+  #run map[:jamo].stage[:hang2jamo]
 
   # Add space to the two ends of the string for easier word boundary handling
   sub line_start, space
   sub line_end, space
 
   # Marks A, B, C
-  sub "ᄋ", "", not_before: hangul # Word initially
+  #sub "ᄋ", "", not_before: hangul # Word initially
   sub "ᄋ", "'" # See notes 2, 3 and 4.
   sub "ᆼ", "ng" # At the end of a syllable.
 
   # Note 4: add apostrophe before 5 double consonants at initial position
   #         unless start of the word
-  sub none, "'", not_before: hangul, after: double_cons
+  #sub none, "'", not_before: hangul, after: double_cons
   # Note 4: (only method 1) same but with 4 aspirated
-  sub none, "'", not_before: hangul, after: aspirated_cons
+  #sub none, "'", not_before: hangul, after: aspirated_cons
 
   # Those rules may be executed in parallel for performance gains
   parallel do
