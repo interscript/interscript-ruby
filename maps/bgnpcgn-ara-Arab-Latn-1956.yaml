@@ -351,7 +351,8 @@ map:
     '\u064e\u0649\u0670' : 'á'  # Note 5
     '\u0649\u0670': 'á' # See Note 5
     '\u0652' : ''  # ْ sokoon, not romanized, Indicates absence of short vowel
-    '\u064e\u064a\u0652?' : 'ay'  # ـَيْ
+    '\u064e\u064a\u0652' : 'ay'  # ـَيْ
+    '(?<=\u0644)\u064e\u064a' : 'ay'  # ـَيْ
     '\u064e\u064a' : 'aī'  # ـَي
 
     '\u064e\u0648\u0652?(?!\u0651)' : 'aw'  # ـَوْ
