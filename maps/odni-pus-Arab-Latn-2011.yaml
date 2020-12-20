@@ -33,140 +33,57 @@ description: |
   this document.
 
 notes:
-  - 1. Alif ( ‫ا‬ ) should be romanized as follows
-    a. Initially,it indicates that the word begins with a vowel or
-    diphthong; the alif itself is not romanized, but rather the
-    short vowel it “carries” is romanized; e.g., Aslam Zhrandah
-    ‫ه‬ َ‫د‬ ‫ن‬ ‫ژر‬ ‫سلَم‬ َ‫أ‬ ‫ميړ‬ → b. When it carries a
-    maddah (‫)آ‬ (see vowel table, row 3), it represents ā;
-    e.g., Band. Mīṟ ‫د‬ ‫ن‬ ‫ب‬ َ ‫آب‬ → Āb c. Medially and
-    finally it represents ā (see table 2, row 2); e.g., ‫ۍ‬
-    ‫ماڼ‬ → Māṉêy d. Medially and finally in words of Arabic
-    origin, alif may serve as the bearer of hamzah, e.g.
-    ‫رأس‬ → ra’s. See also note 4.
+  # Special rules: Consonants
+  - Pashto letter ge (‫ږ‬) The two common renderings for this
+    letter are 'zh' and 'g.' 1 The preferred option will be
+    'zh' (consistent with the choice of southern 'sh' for ‫)ښ‬.
+    However, when referring to communities that consistently
+    render the name with a 'g' as opposed to a 'zh,' then 'g'
+    will be the preferred option. In these cases, the inclusion
+    of a variant spelling with 'zh' is strongly encouraged.
 
-  - 2. The characters tsē ( ‫څ‬ ) and dzē ( ‫ځ‬ ) may be
-    romanized t͡ s and d͡ z (the combining double breve (
-    Unicode 0361) appearing over the digraph) when for special
-    reasons it is desired that confusion be avoided between
-    ‫ت‬ (t) plus ‫س‬ (s) and between ‫د‬ (d) plus ‫ز‬ (z),
-    respectively.
+  - Double consonants Double consonants represented by the
+    tashdid (shaddah) are shown in most cases regardless of
+    whether they are clearly enunciated in speech. Examples
+    Muhammad Hassan, Izzatullah. However, consonants
+    represented by digraphs are not doubled. Example Mubashir (
+    not Mubashshir). Special care should be taken when
+    possible to discriminate between doubled and
+    non-doubled letters in names that are otherwise
+    indistinguishable in their transliterated forms
+    Hasan (حسن (vs. Hassan (حسان(
 
-  - 3. Occasionally the character sequences ‫ه‬ ‫ك‬ , ‫ه‬ ‫ز‬ ,
-    ‫ه‬ ‫س‬ , and ‫ه‬ ‫گ‬ occur . They may be romanized k·h, z·
-    h, s·h, and g·h in order to differentiate these
-    romanizations from the digraphs kh, zh, sh, and gh, which
-    are used to represent the characters ‫خ‬ , ‫ژ‬, ‫ش‬ , and
-    ‫غ‬ respectively .
+  - Digraphs No distinction is made between digraphs such as 'sh'
+    and single contiguous letters such as 's' followed by 'h.'
 
-  - 4. Hamzah ( ‫ء‬ ) should be romanized as follows a. In
-    word-initial position, where it will appear either above or
-    below alif ( indicates a short vowel and should not itself
-    be romanized. romanized by an apostrophe, e.g. ‫أ‬ or
-    ‫إ‬ ), it In other positions it should be ‫جُزء‬ → juz’. b.
-    Yeh with hamzah ( ‫ئ‬ ) should be romanized êy, unless it
-    represents the compound (iẕāfah) morpheme, in which case it
-    is romanized according to note 9 below.
+  # Special rules: Vowels
+  - Short vowels zair and pesh The preferred options for the
+    short vowels represented by the zair and pesh will be 'i'
+    and 'u.' However, in cases where there is a mixed Dari and
+    Pashto environment, then the use of 'e' and 'o' is accepted
+    in consideration of Dari norms.
 
-  - 5. The division of words utilized in Pashto writing is
-    followed in romanization, except that the elements –ābād, -
-    khwā, -shahr, -zādah, -zay and -ullāh are always romanized
-    as part of the preceding word, e.g. ‫آباد‬ ‫ت‬ ‫م‬ َ ْ‫ح‬
-    ‫ر‬ َ → Raḩmatābād and ‫الله‬ ‫ت‬ ‫م‬ َ ْ‫ح‬ ‫ر‬ َ →
-    Raḩmatullāh. However, when the word for God ( ‫الله‬ )
-    appears as a standalone word it should be written Allāh.
-    Note also the “dagger alif” ( ٙ) above the second ‫ل‬ (lām)
-    in the word ‫الله‬ ; this, like the short vowels, is not
-    written in Pashto but should be romanized ā, like a full-
-    size alif. Persian derivational endings such as –vand and
-    endings of Turkish origin such as –lar, -lī, -lū, -i, -u, -
-    si, and –su, should be written together with the preceding
-    word.
+  - Long/short vowels Long and short vowels are not
+    distinguished in the system (with the exception of
+    certain spellings driven by Dari influence as discussed
+    above). In this and other systems, the borrowed
+    Arabic name Salim could represent two distinct names, one
+    with a long /a/ (Saalim - ‫)سالم and one with a
+    long /i/ (Saliim - ‫)سلیم‬. This is known as a collision.
+    This and many other prevailing standardization
+    systems do not distinguish between these types of
+    collisions. However, in cases like these, it is
+    recommended that a vigorous effort be made to include
+    variant spellings in order to eliminate ambiguity
+    as to which name is intended, as in the following examples
+    Hamid (var. Hameed) – ‫حمید‬
+    Hamid (var. Hamed) – ‫حامد‬
 
-  - 6. The Pashto preposition ‫د‬ should be romanized dê in
-    agreement with its pronunciation, despite the fact that
-    it is sometimes pointed with kasrah ( ٙ ).
-
-  - 7. In names of Arabic origin, the l of the definite article
-    al/ul is assimilated before the ‘sun letters’ t, s̄ , d,
-    z̄ , r, z, s, sh, ş, ẕ, ţ, z̧ , l and n. In romanization,
-    the article will be written al or its assimilated
-    equivalent in name-initial position but ul or its
-    assimilated equivalent elsewhere; the article should be
-    separated from the name it precedes and should not be
-    capitalized, except at the beginning of a name, e.g. جَبَل
-    السَرَاج → Jabal us Sarāj
-
-  - 8. In Arabic names, a shaddah, ٙ is used to denote the
-    doubling of a particular consonant character, e.g. ‫مَّد‬
-    َ‫ح‬ ‫م‬ ُ → Muḩammad. However, in Pashto this ‘doubling’
-    is frequently omitted in both Perso-Arabic script and the
-    resulting romanization. Guidance on doubling may be taken
-    from an authoritative names source, such as an Afghan
-    government source or Pashto dictionary; for example, it is
-    usual to see Ḩājī without and ‘Abbās with the doubled
-    consonant. The doubled y consonant is almost always
-    retained, as in Sayyid or Qayyūm
-
-  - 9. The iẕāfah morpheme is not a grammatical feature of
-    Pashto and, if encountered in a linguistically hybrid
-    geographical name (i.e. combining features of both Pashto
-    and Dari), it should be treated according to the BGN/PCGN
-    national system of romanization for Afghanistan, 2007, as –
-    e, unless the preceding word ends with a silent heh (‫)ه‬
-    or a vowel when it should be shown – ye, e.g. 10. The
-    character sequence ‫خو‬ , ‫صار‬ ‫ح‬ ِ ‫غر‬ → Ghar-e Ḩişār;
-    ‫و‬ ‫ن‬ َ ‫ه‬ ٔ ‫لع‬ َ ‫ق‬ َ → when followed by ‫ا‬ or
-    ‫ی‬ , Qal‘ah-ye Now.
-
-
-  - 10. The character sequence خو when followed by ‫ا‬ or
-    ‫ی‬ ,should be romanized khw, although the w is either not
-    pronounced, or only weakly pronounced; e.g. ‫خواجه‬ →
-    khwājah.
-
-  - 11. An inventory of letter-diacritic combinations in addition to the unmodified letters of the
-    basic Roman script is
-    ‘ (U+2018)
-    ʼ (U+2019)
-    Ā (U+0100)
-    ā (U+0101)
-    Á (U+00C1)
-    á (U+00E1)
-    Ḏ (U+0044+0031)
-    ḏ (U+0064+00031)
-    Ē (U+0112)
-    ē (U+0113)
-    Ê (U+00CA)
-    ê (U+00EA)
-    Ḩ (U+1E28)
-    ḩ (U+1E29)
-    Ī (U+012A)
-    ī (U+012B)
-    N̄ (U+004E+0304)
-    n̄ (U+004E+0304)
-    Ō (U+014C)
-    ō (U+014D)
-    Ṟ (U+0052+0031)
-    ṟ (U+0072+0031)
-    Ş (U+015E)
-    ş (U+015F)
-    S̄ (U+0053+0304)
-    s̄ (U+0073+0304)
-    Ṯ (U+0054+0031)
-    ṯ (U+0074+0031)
-    Ţ (U+0162)
-    ţ (U+0163)
-    Ū (U+016A)
-    ū (U+016B)
-    Z̧ (U+005A+0327)
-    z̧ (U+007A+0327)
-    Z̄ (U+005A+0304)
-    z̄ (U+007A+0304)
-    Ẕ (U+005A+0331)
-    ẕ (U+007A+0331)
-    Z͟ H (U+005A+0048+035F)
-    z͟ h (U+007A+0068+035F)
+  - Izafat The linking vowel of Persian origin known as the
+    izafat will be written with a hyphen and then 'e'
+    and then a following space. Example Koh-e Nur ("mountain
+    of light"). There will be no special
+    accommodation for when the initial word ends in a vowel.
 
 tests:
 
@@ -270,10 +187,40 @@ map:
     '\u064f':  # ُ damma
       - 'u'
       - 'o'
-    '[\u0622|u0627]' : 'a' # آ/ا
+    '[\u0622|\u0627]' : 'a' # آ/ا
     '\u0648' : 'o' # و
     '\u064e\u0648\u0652' : 'aw'  # ـَوْ
     '\u064f\u0648' : 'u' # ـُو
     '\u064e\u064a' : 'ai' # ـي
     '\u06D0' : 'e'   # ې
-    '\u06CD' : 'ey'  # ‫ۍ‬
+    '\u06CD' : 'ey'  # ‫ۍ
+    '\u06CC'‬ : 'a'   # ‫ی‬
+    '\u064e\u06CC[\u0647|\u0627]' : 'aya' # َيا / َيه
+    '\u0650\u06CC[\u0647|\u0627]' : 'ia' # # َيا / َيه
+    '\u0652\u06CC\u0627' : 'ya' # ْيا
+    '[\u06D0|\u06D2]\b' : 'ey' # ‫ے‬ / ‫ې‬
+    '\u0648\u064A\b' : 'oy' # ‫وي‬
+    '\u064f\u0648\u064A\b' : 'uy' # ُوي
+
+    # Double consonants
+    '\u0628\u0651' : 'b'  # ب
+    '\u067E\u0651' : 'p' # پ
+    '[\u062a|\u067C|\u0637]\u0651' : 't'  # ت/ټ/ط
+    '\u062c\u0651' : 'j'  # ج
+    '[\u062d|\u0647]\u0651' : 'h' # ح/ه
+    '[\u062f|\u0689]\u0651' : 'd'  # د/ډ‬
+    '[\u0631|\u0693]\u0651' : 'r'  # ر/ړ
+    '[\u0630|\u0632|\u0636|\u0638]\u0651' : 'z'  # ذ/ز/ض/ظ
+    '[\u062B|\u0633|\u0635]\u0651' : 's'  # س/ث/ص
+    '\u0641\u0651' : 'f'  # ف
+    '\u0642\u0651' : 'q'  # ق
+    '\u0643\u0651' : 'k'  # ك
+    '\u06A9\u0651' : 'k' # ک
+    '[\u06AF|\u06AB]\u0651' : 'g' # ‫گ‬/ګ
+    '\u0644\u0651' : 'l'  # ل
+    '\u0645\u0651' : 'm'  # م
+    '[\u0646|\u06BC]\u0651' : 'n'  # ن/ڼ
+    '\u0648\u0651' : 'w'  # و
+    '\u064a\u0651' : 'y'  # ي
+    '\u0649\u0651' : 'y'  # ي
+
