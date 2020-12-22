@@ -1,10 +1,8 @@
 module Interscript::DSL::Stage
 
-  %i{boundary not_word line_start line_end none space}.each do |sym|
-    self.class.send(:define_method,sym) {
-       Interscript::Node::Item.new(sym)}
-  end
-
+  include Interscript::DSL::Items
+  include Interscript::DSL::Group 
+  
   #doesn't do anything yet
   def map(*args)
     {}
@@ -15,7 +13,7 @@ module Interscript::DSL::Stage
 
   def parallel(&block)
     puts "parallel(#{chars.inspect}) from #{self.inspect}" if $DEBUG
-    self.children << Interscript::Node::Group::Parallel.new(&block)
+    @children << Interscript::Node::Group::Parallel.new(&block)
   end
 
 end

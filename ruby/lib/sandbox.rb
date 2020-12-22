@@ -2,20 +2,23 @@ $: << "."
 
 require 'interscript.rb'
 
-$root = Interscript::Node::Document.new
 
 
+fname = './sandbox.imp'
 
-#$root.parse('./sandbox.imp')
-#$root.parse('../../maps/odni-che-Cyrl-Latn-2015.imp')
-$root.parse('../../maps/iso-kor-Hang-Latn-1996-method1.imp')
+fname = '../../maps/odni-che-Cyrl-Latn-2015.imp'
+
+fname = '../../maps/iso-kor-Hang-Latn-1996-method1.imp'
+
+
+$document = Interscript::DSL.parse(fname)
 
 $DEBUG = false
 
 require 'pry'
 
-Pry::ColorPrinter.pp($root)
+Pry::ColorPrinter.pp($document)
 
-Pry::ColorPrinter.pp($root.to_hash)
+Pry::ColorPrinter.pp($document.to_hash)
 
 pry

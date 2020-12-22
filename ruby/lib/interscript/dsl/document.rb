@@ -1,12 +1,16 @@
-module Interscript::DSL::Document
+class Interscript::DSL::Document
 
-
+  attr_accessor :document
+  def initialize
+    @document = Interscript::Node::Document.new
+  end
+  
   %i{authority_id id language source_script 
     destination_script name url creation_date
     adoption_date description character notes
     source confirmation_date}.each do |sym|
     self.send(:define_method,sym) {|stuff|
-       @metadata_data[sym] = stuff
+       @document.metadata[sym] = stuff
      }
   end
 
@@ -16,9 +20,8 @@ module Interscript::DSL::Document
   end
 
 
-
   def test(from,to)
-    @tests_data << [from, to]
+    @document.tests << [from, to]
   end
 
   def tests(&block)
@@ -32,22 +35,30 @@ module Interscript::DSL::Document
     dep.name = kargs[:as]
     dep.full_name = full_name
     dep.import = kargs[:import] || false
-    @dependencies << dep
+    @document.dependencies << dep
   end
 
 
   def def_alias(name, chars)
     puts "def_alias(#{name.inspect}, #{thing.inspect})" if $DEBUG
-    @aliases << Interscript::Node::Alias.new(name,chars)
-
+    @document.aliases << Interscript::Node::Alias.new(name,chars)
   end
+
+  def any(chars)
+    puts "any(#{chars.inspect}) from #{self.inspect}" if $DEBUG
+    Interscript::Node::Item::Any.new(chars)
+  end
+  
 
 
   def stage(&block)
     puts "stage() from #{self.inspect}" if $DEBUG
-    @stage_data << Interscript::Node::Stage.new(&block)
+    @document.stage << Interscript::Node::Stage.new(&block)
   end
 
+  def to_hash
+    @document.to_hash
+  end
 
 
 end
