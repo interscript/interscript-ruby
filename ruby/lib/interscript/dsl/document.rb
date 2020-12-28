@@ -1,8 +1,9 @@
 class Interscript::DSL::Document
 
-  attr_accessor :document
-  def initialize
-    @document = Interscript::Node::Document.new
+  attr_accessor :node
+  
+  def initialize(&block)
+    @node = Interscript::Node::Document.new
   end
   
   %i{authority_id id language source_script 
@@ -10,7 +11,7 @@ class Interscript::DSL::Document
     adoption_date description character notes
     source confirmation_date}.each do |sym|
     self.send(:define_method,sym) {|stuff|
-       @document.metadata[sym] = stuff
+       @node.metadata[sym] = stuff
      }
   end
 
@@ -19,15 +20,13 @@ class Interscript::DSL::Document
     instance_eval(&block)
   end
 
-
-  def test(from,to)
-    @document.tests << [from, to]
-  end
-
   def tests(&block)
     instance_eval(&block)
   end
 
+  def test(from,to)
+    @node.tests << [from, to]
+  end
 
   def dependency(full_name, **kargs)
     puts "dependency(#{name.inspect}, #{kargs.inspect}" if $DEBUG
@@ -35,13 +34,13 @@ class Interscript::DSL::Document
     dep.name = kargs[:as]
     dep.full_name = full_name
     dep.import = kargs[:import] || false
-    @document.dependencies << dep
+    @node.dependencies << dep
   end
 
 
   def def_alias(name, chars)
     puts "def_alias(#{name.inspect}, #{thing.inspect})" if $DEBUG
-    @document.aliases << Interscript::Node::Alias.new(name,chars)
+    @node.aliases << Interscript::Node::Alias.new(name,chars)
   end
 
   def any(chars)
@@ -50,16 +49,11 @@ class Interscript::DSL::Document
   end
   
 
-
   def stage(&block)
     puts "stage() from #{self.inspect}" if $DEBUG
-    @document.stage << Interscript::Node::Stage.new(&block)
+    stage = Interscript::DSL::Stage.new(&block)
+    @node.stage = stage.node
   end
-
-  def to_hash
-    @document.to_hash
-  end
-
 
 end
 

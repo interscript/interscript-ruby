@@ -1,9 +1,9 @@
 module Interscript::DSL
 
   def self.parse(filename)
-    @document = Interscript::DSL::Document.new
-    @document.instance_eval File.read(filename)
-    @document.document
+    @obj = Interscript::DSL::Document.new
+    @obj.instance_eval File.read(filename)
+    @obj.node.to_hash
   end
 
 end

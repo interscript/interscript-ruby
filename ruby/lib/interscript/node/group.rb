@@ -1,25 +1,15 @@
 class Interscript::Node::Group < Interscript::Node
-  include Interscript::DSL::Group
 
   attr_accessor :children
 
-  def initialize *children, &block
-    @children = children
-
-    if block_given?
-      instance_eval(&block)
-    end
-    self
+  def initialize
+    @children = []
   end
-
-
-
 
   def to_hash
     {:class => self.class.to_s,
       :children => @children.map{|x| x.to_hash}}
   end
-
 
 end
 
