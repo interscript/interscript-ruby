@@ -9,7 +9,7 @@ class Interscript::Node::Tests < Interscript::Node
   end
 
   def to_hash
-    {:class => self.class.to_s,
-      :data => @data}
+    { :class => self.class.to_s,
+      :data => @data }
   end
 end

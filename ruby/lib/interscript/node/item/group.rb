@@ -14,7 +14,7 @@ class Interscript::Node::Item::Group < Interscript::Node::Item
 
   def to_hash
     { :class => self.class.to_s,
-      :children => self.children.map{|x| x.to_hash}}
+      :children => self.children.map{|x| x.to_hash} }
   end
 
 end

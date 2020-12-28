@@ -1,9 +1,7 @@
 
 class Interscript::Node
-
   def initialize
   end
-
 
   def method_missing(name, *args, **kargs, &block)
     puts "method_missing(#{
@@ -13,8 +11,6 @@ class Interscript::Node
         },) from #{self.inspect} "#,@mm_level=#{@mm_level}"
     caller_line = caller.first.split(":")[1] if $DEBUG
     puts "#{__FILE__} : #{caller_line} : #{name}"   if $DEBUG
-
-
   end
 
   def to_hash
@@ -22,7 +18,6 @@ class Interscript::Node
       :question => "is something missing?"
     }
   end
-
 end
 
 
@@ -37,4 +32,3 @@ require 'interscript/node/tests'
 require "interscript/node/stage"
 require "interscript/node/rule"
 require "interscript/node/item"
-

@@ -1,5 +1,4 @@
 class Interscript::DSL::Group
-
   include Interscript::DSL::Items
 
   attr_accessor :node
@@ -7,8 +6,6 @@ class Interscript::DSL::Group
   def initialize(&block)
     @node = Interscript::Node::Group.new
     self.instance_exec(&block)
-    @node
-
   end
 
   def map(*args)
@@ -38,7 +35,6 @@ class Interscript::DSL::Group
     group = Interscript::DSL::Group::Parallel.new(&block)
     @node.children << group.node
   end
-
 end
 
 require 'interscript/dsl/group/parallel'

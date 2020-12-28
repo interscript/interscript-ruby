@@ -1,18 +1,18 @@
 class Interscript::DSL::Document
 
   attr_accessor :node
-  
+
   def initialize(&block)
     @node = Interscript::Node::Document.new
   end
-  
-  %i{authority_id id language source_script 
+
+  %i{authority_id id language source_script
     destination_script name url creation_date
     adoption_date description character notes
     source confirmation_date}.each do |sym|
-    self.send(:define_method,sym) {|stuff|
-       @node.metadata[sym] = stuff
-     }
+    define_method sym do |stuff|
+      @node.metadata[sym] = stuff
+    end
   end
 
 
@@ -47,13 +47,11 @@ class Interscript::DSL::Document
     puts "any(#{chars.inspect}) from #{self.inspect}" if $DEBUG
     Interscript::Node::Item::Any.new(chars)
   end
-  
+
 
   def stage(&block)
     puts "stage() from #{self.inspect}" if $DEBUG
     stage = Interscript::DSL::Stage.new(&block)
     @node.stage = stage.node
   end
-
 end
-

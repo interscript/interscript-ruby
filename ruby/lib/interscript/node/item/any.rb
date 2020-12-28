@@ -8,5 +8,4 @@ class Interscript::Node::Item::Any < Interscript::Node::Item
     { :class => self.class.to_s,
       :chars => self.chars }
   end
-
 end

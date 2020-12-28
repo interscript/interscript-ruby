@@ -23,10 +23,9 @@ class Interscript::Node::Item < Interscript::Node
     { :class => self.class.to_s,
      :item => self.item}
    end
-
 end
 
 require "interscript/node/item/alias"
-require "interscript/node/item/character"
+require "interscript/node/item/string"
 require "interscript/node/item/group"
 require "interscript/node/item/any"
