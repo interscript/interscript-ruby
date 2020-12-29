@@ -1,30 +1,20 @@
 class Interscript::DSL::Document
+  include Interscript::DSL::Items # Items are needed for alias definitions.. should we improve on that?
+
   attr_accessor :node
 
   def initialize(&block)
     @node = Interscript::Node::Document.new
   end
 
-  %i{authority_id id language source_script
-    destination_script name url creation_date
-    adoption_date description character notes
-    source confirmation_date}.each do |sym|
-    define_method sym do |stuff|
-      @node.metadata[sym] = stuff
-    end
-  end
-
-
   def metadata(&block)
-    instance_eval(&block)
+    metadata = Interscript::DSL::Metadata.new(&block)
+    @node.metadata = metadata.node
   end
 
   def tests(&block)
-    instance_eval(&block)
-  end
-
-  def test(from,to)
-    @node.tests << [from, to]
+    tests = Interscript::DSL::Tests.new(&block)
+    @node.tests = tests.node
   end
 
   def dependency(full_name, **kargs)

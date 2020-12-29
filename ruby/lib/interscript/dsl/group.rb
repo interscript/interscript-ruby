@@ -25,11 +25,6 @@ class Interscript::DSL::Group
     @node.children << rule
   end
 
-  def any(chars)
-    puts "any(#{chars.inspect}) from #{self.inspect}" if $DEBUG
-    Interscript::Node::Item::Any.new(chars)
-  end
-
   def parallel(&block)
     puts "parallel(#{chars.inspect}) from #{self.inspect}" if $DEBUG
     group = Interscript::DSL::Group::Parallel.new(&block)

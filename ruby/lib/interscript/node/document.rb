@@ -4,8 +4,8 @@ class Interscript::Node::Document < Interscript::Node::Group
 
   def initialize
     puts "Interscript::Node::Document.new " if $DEBUG
-    @metadata = Interscript::Node::MetaData.new
-    @tests = Interscript::Node::Tests.new
+    @metadata = nil
+    @tests = nil
     @dependencies = []
     @aliases = []
     @stage = Interscript::Node::Stage.new

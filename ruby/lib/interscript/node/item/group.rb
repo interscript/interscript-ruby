@@ -1,5 +1,6 @@
 class Interscript::Node::Item::Group < Interscript::Node::Item
   attr_accessor :children
+
   def initialize *children
     @children = children.map do |i|
       Interscript::Node::Item::String.new(i) if i.class == ::String
@@ -17,5 +18,4 @@ class Interscript::Node::Item::Group < Interscript::Node::Item
     { :class => self.class.to_s,
       :children => self.children.map{|x| x.to_hash} }
   end
-
 end
