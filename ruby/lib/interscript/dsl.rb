@@ -13,7 +13,7 @@ module Interscript::DSL
         return f if File.exist?(f)
       end
     end
-    raise MapNotFoundError
+    raise MapNotFoundError, "Couldn't locate #{map_name}"
   end
 
   @cache = {}

@@ -53,8 +53,8 @@ end
 
 # The following line means "importing a supposed korean library" containing some maybe useful korean aliases
 # import means move to our namespace (we will be able to call just: `hangul` instead of `map[:hang].alias[:hangul]`)
-dependency "var-kor-Hang", as: :hang, import: true
-dependency "var-kor-Hang-Hang-jamo", as: :jamo
+dependency "var-kor", import: true
+dependency "var-kor-Hang-Hang-jamo", as: :hangjamo
 
 # Those may be parts of this supposed korean library
 aliases do
@@ -63,7 +63,7 @@ aliases do
 end
 
 stage do
-  run map[:jamo].stage[:main]
+  run map[:hangjamo].stage[:main]
 
   # Add space to the two ends of the string for easier word boundary handling
   sub line_start, space

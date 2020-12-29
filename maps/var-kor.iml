@@ -1,0 +1,12 @@
+aliases do
+  # Any hangul character
+  def_alias :hangul, any("\uac00".."\ud7af")
+  # Modern jamo leading consonants
+  def_alias :jamo_leading_cons, any("\u1100".."\u1112")
+  # Modern jamo vowels
+  def_alias :jamo_vowel, any("\u1161".."\u1175")
+  # Modern jamo trailing consonants
+  def_alias :jamo_trailing_cons, any("\u11a8".."\u11c2")
+  # Any jamo
+  def_alias :jamo, any([jamo_leading_cons, jamo_vowel, jamo_trailing_cons])
+end

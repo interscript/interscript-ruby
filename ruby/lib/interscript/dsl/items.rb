@@ -1,12 +1,4 @@
 module Interscript::DSL::Items
-  # Those are for the stdlib and we don't need those as we have a method_missing
-  #
-  #%i{boundary not_word line_start line_end none space}.each do |sym|
-  #  define_method sym do
-  #    Interscript::Node::Item::Alias.new(sym)
-  #  end
-  #end
-
   def method_missing sym, *args, **kwargs, &block
     super if args.length > 0
     super if kwargs.length > 0

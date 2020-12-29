@@ -26,6 +26,8 @@ class Interscript::DSL::Document
     dep.name = kargs[:as]
     dep.full_name = full_name
     dep.import = kargs[:import] || false
+
+    dep.document = Interscript::DSL.parse(full_name)
     @node.dependencies << dep
   end
 

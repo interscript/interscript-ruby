@@ -1,5 +1,8 @@
 
 class Interscript::Node
+  STDLIB_ALIASES = %w[none space whitespace boundary word not_word alpha not_alpha
+                      digit not_digit line_start line_end string_start string_end]
+
   def initialize
     raise NotImplementedError, "You can't construct a Node directly"
   end
