@@ -1,0 +1,54 @@
+= Interscript Map format syntax
+
+This document describes the DSL-based files with an extension `.iml` or `.imp`.
+
+An `.imp` file is a file containing a standalone transliteration map. For
+instance, a map that can transliterate a Korean file to a Latin file.
+
+An `.iml` file is a file that contains a library of aliases and stages to be
+used by the `.imp` maps. It follows the same format, but does not require the
+metadata fields to exist.
+
+Those files are in essence Ruby programs using a DSL described below. A
+non-programmer should not be necessarily concerned about this, but treat this
+format as if it were a YAML file, with certain restrictions regarding the
+syntax, a programmer should note that those programs are not executed directly
+to transliterate a string, but they are meant to be compiled to other languages.
+Therefore an assumption that full programming power is available from this part
+is wrong. Such an assumption, while wrong, does not mean that the format can't
+be extended to allow for such usecases.
+
+== Ruby syntax
+
+This document does not assume a person has a knowledge of any programming
+language. It assumes that a person has some knowledge about some basic
+structured data formats, like YAML or XML.
+
+A `#` character is a comment character. This means, that the part that follows
+a `#` character is not executed by the
+
+== The document
+
+The root part of the `.iml` file is called a document. A map has a format as
+follows:
+
+[source,ruby]
+----
+metadata do
+  # Metadata part comes here
+end
+
+tests do
+  # Tests part comes here
+end
+
+aliases do
+  # Aliases part comes here
+end
+
+stage do
+  # A stage description comes here
+end
+
+# There may be more than 1 stage
+----
