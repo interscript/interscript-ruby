@@ -1,0 +1,39 @@
+metadata do
+  authority_id "bgnpcgn"
+  id "2011"
+  language "iso-639-2:kor"
+  source_script "Kore"
+  destination_script "Latn"
+  name "Ministry of Culture and Tourism System (2000) BGN/PCGN 2011 Agreement"
+  url ""
+  creation_date ""
+  adoption_date ""
+  description "Establishes a system for the transliteration of the characters of Korean script into Latin characters. "+
+              "Intended to provide a means for international communication of written documents."
+
+  notes ["BGN/PCGN 2011 Agreement"]
+end
+
+tests do
+  test "佛國寺", "Bulguksa"
+  test "묵호", "Mukho"
+  test "蔚山", "Ulsan"
+  test "獨立門", "Dongnimmun"
+  test "江南驛", "Gangnamyeok"
+  test "南山里", "Namsan-ri" #Note: no assimilation for -ri even after nasals
+  test "내월里", "Naewol-ri"
+  test "鬱陵郡", "Ulleung-gun"
+  test "雪嶽山", "Seoraksan"
+  test "三竹面", "Samjuk-myeon"
+  test "坪里1洞", "Pyeongni Il-dong"
+  test "坪里2洞", "Pyeongni I-dong"
+  test "탑안이", "Tabani"
+end
+
+dependency "var-kor-Kore-Hang-2013", as: :korehang
+dependency "moct-kor-Hang-Latn-2000", as: :hanglatn
+
+stage do
+  run map[:korehang].stage[:main]
+  run map[:hanglatn].stage[:main]
+end
