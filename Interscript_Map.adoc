@@ -348,14 +348,14 @@ aliases to strings.
 === `+` method
 
 Items can be concatenated (added together) to denote a complex item. For instance:
-`any("ab") + "e"` means "either ae or be" and is equivalent to `any("ae", "be")`.
+`any("ab") + "e"` means "either ae or be" and is equivalent to `any(["ae", "be"])`.
 
 === `any` item
 
 Any denotes some alternative variations of a string. It has 3 forms of call:
 
 * `any("abcde")` - any character: a, b, c, d or e
-* `any("one", "two")` - any string: one or two
+* `any(["one", "two"])` - any string: one or two
 * `any("a".."z")` - any character from a to z
 
 Any can be also used with other kinds of items than String, for instance:
@@ -363,7 +363,7 @@ Any can be also used with other kinds of items than String, for instance:
 [source,ruby]
 ----
 stage do
-  sub any(line_start + "a", "a" + line_end), none
+  sub any([line_start + "a", "a" + line_end]), none
 end
 ----
 
