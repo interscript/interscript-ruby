@@ -27,7 +27,7 @@ language. It assumes that a person has some knowledge about some basic
 structured data formats, like YAML or XML.
 
 A `\#` character is a comment character. This means, that the part that follows
-a `\#` character till the end of the line is ignored by Interscript, but exist to
+a `#` character till the end of the line is ignored by Interscript, but exist to
 communicate to a human reader the intention behind the content. In this document
 it is most often a hint to a person reading this document.
 
@@ -265,14 +265,15 @@ end
 
 This call allows for some named parameters:
 
+[cols="2"]
 |===
 | `before:`
 | Execute this substitution only if the "source" is preceded by what is given
   as a parameter, but won't replace it, it will only replace the "source".
-|---
+
 | `after:`
 | Same, but this parameter denotes what is used after.
-|---
+
 | `not_before:`, `not_after:`
 | Negation of `before:` and `after:`. The substitution will only happen if a
   parameter is NOT present before or after the "source".
