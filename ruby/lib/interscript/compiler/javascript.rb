@@ -10,7 +10,7 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
 
     compile_rule(map.stages[:main], map)
 
-    @code = @code.gsub(';s = s.replace', '.replace')
+    @code = @code.gsub(');s = s.replace', '.replace')
 
     @code += "return s; }"
   end
