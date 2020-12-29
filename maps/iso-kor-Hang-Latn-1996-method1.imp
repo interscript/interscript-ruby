@@ -66,8 +66,8 @@ stage do
   run map[:hangjamo].stage[:main]
 
   # Add space to the two ends of the string for easier word boundary handling
-  sub line_start, space
-  sub line_end, space
+  #sub line_start, space
+  #sub line_end, space
 
   # Marks A, B, C
   sub "ᄋ", "", not_before: jamo # Word initially
@@ -156,6 +156,6 @@ stage do
 
 
   # Remove space added
-  sub line_start + space, none
-  sub space + line_end, none
+  #sub line_start + space, none
+  #sub space + line_end, none
 end

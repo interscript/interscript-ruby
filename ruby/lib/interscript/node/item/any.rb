@@ -1,17 +1,27 @@
 class Interscript::Node::Item::Any < Interscript::Node::Item
-  attr_accessor :data
-  def initialize *data
-    if data.length != 1
-      raise ArgumentError, "wrong number of arguments (given #{data.length}, expected 1)"
-    elsif Array === data[0]
-      self.data = data[0].map { |i| Interscript::Node::Item.try_convert(i) }
-    elsif ::String === data[0]
-      self.data = data[0].split("").map { |i| Interscript::Node::Item.try_convert(i) }
-    elsif Range === data[0]
-      self.data = data[0].map { |i| Interscript::Node::Item.try_convert(i) }
+  attr_accessor :value
+  def initialize data
+    case data
+    when Array, ::String, Range
+      self.value = data
     else
       raise TypeError, "Wrong type #{data[0].class}, excepted Array, String or Range"
     end
+  end
+
+  def data
+    case @value
+    when Array
+      value.map { |i| Interscript::Node::Item.try_convert(i) }
+    when ::String
+      value.split("").map { |i| Interscript::Node::Item.try_convert(i) }
+    when Range
+      value.map { |i| Interscript::Node::Item.try_convert(i) }
+    end
+  end
+
+  def max_length
+    self.data.map(&:max_length).max
   end
 
   def to_hash

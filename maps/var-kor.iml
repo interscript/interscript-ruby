@@ -9,4 +9,6 @@ aliases do
   def_alias :jamo_trailing_cons, any([any("\u11a8".."\u11ff"), any("\ud7cb".."\ud7fb")])
   # Any jamo
   def_alias :jamo, any([jamo_leading_cons, jamo_vowel, jamo_trailing_cons])
+  # Any hangul or jamo
+  def_alias :hangul_or_jamo, any([hangul, jamo])
 end

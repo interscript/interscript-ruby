@@ -9,6 +9,10 @@ class Interscript::Node::Item::String  < Interscript::Node::Item
       :data => self.data }
   end
 
+  def max_length
+    self.data.length
+  end
+
   def + other
     if Interscript::Node::Item::String === self &&
       (Interscript::Node::Item::String === other || ::String === other)

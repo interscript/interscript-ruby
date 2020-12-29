@@ -28,6 +28,10 @@ class Interscript::Node::Item::Group < Interscript::Node::Item
     end
   end
 
+  def max_length
+    @children.map { |i| i.max_length }.sum
+  end
+
   def to_hash
     { :class => self.class.to_s,
       :children => self.children.map{|x| x.to_hash} }

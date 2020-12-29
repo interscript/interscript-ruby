@@ -17,7 +17,12 @@ class Interscript::Interpreter < Interscript::Compiler
 
     def execute_rule r
       case r
-      when Interscript::Node::Group # A special handling for parallel will be needed
+      when Interscript::Node::Group::Parallel
+        # A hack at this time, it should become a trie.
+        r.children.sort_by { |i| -i.from.max_length }.each do |t|
+          execute_rule(t)
+        end
+      when Interscript::Node::Group
         r.children.each do |t|
           execute_rule(t)
         end
@@ -81,11 +86,14 @@ class Interscript::Interpreter < Interscript::Compiler
         if target == :str
           raise ArgumentError, "Can't use Any in a string context" # A linter could find this!
         elsif target == :re
-          data = i.data.map { |j| build_item(j, target, doc) }
-          if data.all? { |j| j.length == 1 }
-            "[#{data.join}]"
-          else
-            "(?:"+data.join("|")+")"
+          case i.value
+          when Array
+            data = i.data.map { |j| build_item(j, target, doc) }
+            "(?:"+data.join("|").gsub("])|(?:[", '').gsub("]|[", '')+")"
+          when String
+            "[#{Regexp.escape(i.value)}]"
+          when Range
+            "[#{Regexp.escape(i.value.first)}-#{Regexp.escape(i.value.last)}]"
           end
         end
       end
