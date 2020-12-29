@@ -67,6 +67,14 @@ tests do
 end
 
 stage do
+  # note[1]
+  sub boundary + "\u0415", "Ye", not_before: boundary + "\u2019"
+  sub boundary + "\u0435", "ye", not_before: boundary + "\u2019"
+  # note[2]
+  sub "1", "ӏ", before: not_word, after: not_word
+  sub "1", "ӏ", before: not_word
+  sub "1", "ӏ", after: not_word
+
   parallel do
     sub "\u0410"        , 'A'               # А
     sub "\u0411"        , 'B'               # Б
@@ -155,12 +163,4 @@ stage do
     sub "\u04CF"        , "'"               # ӏ note[2]
     sub "\u044C"        , ''                # ь note[7]
   end
-
-  # note[1]
-  sub boundary + "\u0415", "Ye", not_before: boundary + "\u2019"
-  sub boundary + "\u0435", "ye", not_before: boundary + "\u2019"
-  # note[2]
-  sub "1", "l", before: not_word, after: not_word
-  sub "1", "l", before: not_word
-  sub "1", "l", after: not_word
 end

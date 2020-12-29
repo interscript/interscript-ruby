@@ -1,25 +1,26 @@
 class Interscript::Compiler::Javascript < Interscript::Compiler
   def compile(map)
+    @map = map
     @code = File.read(__dir__+"/../../../../js/stdlib.js")
     @code += "function(s) {"
     @code += "var a = JSON.parse(JSON.stringify(is_stdlib_aliases));" # Create a deep clone
 
-    map.aliases.each do |a|
+    map.aliases.each do |_,a|
       @code += "a.#{a.name} = #{compile_item(a.data, :str)};"
     end
 
     compile_rule(map.stages[:main], map)
 
-    @code = @code.gsub(');s = s.replace', '.replace')
+    @code = @code.gsub(');s = s.replace', ').replace')
 
     @code += "return s; }"
   end
 
-  def compile_rule(r, map)
+  def compile_rule(r)
     case r
     when Interscript::Node::Group
       r.children.each do |t|
-        compile_rule(t, map)
+        compile_rule(t)
       end
     when Interscript::Node::Rule::Sub
       @code += "s = s.replace(#{compile_item(r.from, :re)}, #{compile_item(r.to, :str)});"

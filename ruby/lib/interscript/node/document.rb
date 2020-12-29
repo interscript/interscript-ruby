@@ -1,17 +1,37 @@
 class Interscript::Node::Document < Interscript::Node::Group
   attr_accessor :metadata, :tests
-  attr_accessor :dependencies, :aliases, :stages
+  attr_accessor :dependencies, :aliases, :stages, :dep_aliases
 
   def initialize
     puts "Interscript::Node::Document.new " if $DEBUG
     @metadata = nil
     @tests = nil
     @dependencies = []
-    @aliases = []
+    @dep_aliases = {}
+    @aliases = {}
     @stages = {}
   end
 
-  def all_aliases
+  def imported_aliases
+    aliases = @aliases
+    @dependencies.select(&:import).each do |d|
+      aliases = d.document.aliases.merge(aliases)
+    end
+    aliases
+  end
+
+  def imported_stages
+    stages = @stages
+    @dependencies.select(&:import).each do |d|
+      stages = d.document.stages.merge(stages)
+    end
+    stages
+  end
+
+  def all_dependencies
+    (dependencies + dependencies.map { |i| i.document.dependencies }).flatten.uniq_by do |i|
+      i.full_name
+    end
   end
 
   def to_hash

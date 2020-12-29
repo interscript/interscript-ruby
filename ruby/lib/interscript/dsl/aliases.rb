@@ -4,12 +4,12 @@ class Interscript::DSL::Aliases
   attr_accessor :node
 
   def initialize(&block)
-    @node = []
+    @node = {}
     self.instance_exec(&block)
   end
 
   def def_alias(name, value)
     puts "def_alias(#{name.inspect}, #{thing.inspect})" if $DEBUG
-    @node << Interscript::Node::AliasDef.new(name, value)
+    @node[name] = Interscript::Node::AliasDef.new(name, value)
   end
 end

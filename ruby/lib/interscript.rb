@@ -3,6 +3,8 @@ require "interscript/version"
 module Interscript
 end
 
+require 'interscript/stdlib'
+
 require "interscript/compiler"
 require "interscript/interpreter"
 

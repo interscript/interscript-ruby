@@ -29,6 +29,7 @@ class Interscript::DSL::Document
 
     dep.document = Interscript::DSL.parse(full_name)
     @node.dependencies << dep
+    @node.dep_aliases[dep.name] = dep if dep.name
   end
 
   def stage(name = :main, &block)
