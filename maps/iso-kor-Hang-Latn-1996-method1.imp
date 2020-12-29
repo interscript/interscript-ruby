@@ -76,9 +76,9 @@ stage do
 
   # Note 4: add apostrophe before 5 double consonants at initial position
   #         unless start of the word
-  #sub none, "'", not_before: hangul, after: double_cons
+  sub none, "'", before: jamo, after: double_cons_jamo
   # Note 4: (only method 1) same but with 4 aspirated
-  #sub none, "'", not_before: hangul, after: aspirated_cons
+  sub none, "'", before: jamo, after: aspirated_cons_jamo
 
   # Those rules may be executed in parallel for performance gains
   parallel do
