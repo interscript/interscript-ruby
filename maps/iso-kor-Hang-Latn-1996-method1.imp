@@ -57,8 +57,10 @@ dependency "var-kor-Hang", as: :hang, import: true
 dependency "var-kor-Hang-Hang-jamo", as: :jamo
 
 # Those may be parts of this supposed korean library
-def_alias :double_cons_jamo, any("ᄁᄄᄈᄍᄊ")
-def_alias :aspirated_cons_jamo, any("ᄏᄐᄑᄎ")
+aliases do
+  def_alias :double_cons_jamo, any("ᄁᄄᄈᄍᄊ")
+  def_alias :aspirated_cons_jamo, any("ᄏᄐᄑᄎ")
+end
 
 stage do
   # we execute a stage defined this way in a map -jamo:

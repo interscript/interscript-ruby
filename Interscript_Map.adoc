@@ -7,7 +7,9 @@ instance, a map that can transliterate a Korean file to a Latin file.
 
 An `.iml` file is a file that contains a library of aliases and stages to be
 used by the `.imp` maps. It follows the same format, but does not require the
-metadata fields to exist and doesn't allow the `:main` stage to exist.
+metadata and tests parts to exist and doesn't allow the `:main` stage to exist.
+This document describes the map version of the format if it isn't noted
+otherwise.
 
 Those files are in essence Ruby programs using a DSL described below. A
 non-programmer should not be necessarily concerned about this, but treat this
@@ -24,8 +26,8 @@ This document does not assume a person has a knowledge of any programming
 language. It assumes that a person has some knowledge about some basic
 structured data formats, like YAML or XML.
 
-A `#` character is a comment character. This means, that the part that follows
-a `#` character till the end of the line is ignored by Interscript, but exist to
+A `\#` character is a comment character. This means, that the part that follows
+a `\#` character till the end of the line is ignored by Interscript, but exist to
 communicate to a human reader the intention behind the content. In this document
 it is most often a hint to a person reading this document.
 
@@ -158,16 +160,139 @@ using a + command, for example: `line_start + "rest"`.
 
 == Tests part
 
+The tests part describes a group of the tests to be executed by the automated
+system to verify that the map is defined properly. An example tests part looks
+like this:
+
+[source,ruby]
+----
+tests do
+  test "애기", "aeki"
+  test "방", "pang"
+end
+----
+
+This means, that we want to test our map to transliterate a string "애기" to
+"aeki" and "방" to "pang".
+
 == Aliases part
+
+An aliases part describes a group of aliases to be used by the stages to
+simplify the code of our map.
+
+Let's suppose that our map refers to
 
 == Stage part
 
+A stage part describes a stage, a sequential group of steps to transliterate
+a string from a source script code to a destination script code. An example
+stage looks like the following:
+
+[source,ruby]
+----
+stage do
+  run map[:hangjamo].stage[:main]
+  sub any("ᄀᆨ"), "k"
+  sub any("ᄏᆿ"), "kh"
+  parallel do
+    sub "ᅡ", "a"
+    sub "ᅥ", "eo"
+  end
+end
+----
+
+A stage can be named, as described in the Document section. The default name
+of a stage is `:main`.
+
 === `sub` call
+
+A `sub` call does a substitution of an item (string, character, alias) with
+another item.
+
+[source,ruby]
+----
+stage do
+  sub "source", "destination"
+end
+----
+
+This call allows for some named parameters:
+
+|===
+| `before:`
+| Execute this substitution only if the "source" is preceded by what is given
+  as a parameter, but won't replace it, it will only replace the "source".
+
+| `after:`
+| Same, but this parameter denotes what is used after.
+
+| `not_before:`, 'not_after:'
+| Negation of `before:` and `after:`
+|===
+
+For example:
+
+[source,ruby]
+----
+stage do
+  sub boundary + "Е", "Ye", not_before: boundary + "’"
+  sub boundary + "е", "ye", not_before: boundary + "’"
+
+  sub none, "'", not_before: hangul, after: aspirated_cons
+end
+----
+
+=== `parallel` block
+
+A parallel block can be defined as a subsection of a `stage` part. It indicates
+that the steps inside need to be executed in parallel. At the current time, only
+`sub` calls can be executed in parallel (with a limited functionality). It also
+means, that those steps will try to find the longest substrings first.
+
+[source,ruby]
+----
+stage do
+  parallel do
+    sub "А", 'A'
+    sub "Б", 'B'
+    sub "В", 'V'
+    sub "Г", 'G'
+  end
+end
+----
 
 === `run` call
 
-The run call
+The run call runs a stage defined inside the document, or another map or
+library. If this map isn't local, a map or library dependency needs to be
+declared using the `dependency` call.
+
+For example:
+
+----
+stage do
+  # If dependency declared with import: true
+  run map[:hangjamo].stage[:main]
+  # If dependency declated without import: true, or we reference a local stage
+  run stage[:remove_spaces]
+end
+----
 
 === `external` call
 
-The external call
+The external call is not defined yet. It exists for compatibility with older
+maps.
+
+== Items
+
+Interscript doesn't work purely on Strings, even though Strings are mostly
+referenced to by this document. The items can be used in the `alias` and `stage`
+context.
+
+=== `any` item
+
+Any has 3 forms,
+
+=== `alias` item
+
+=== String item
