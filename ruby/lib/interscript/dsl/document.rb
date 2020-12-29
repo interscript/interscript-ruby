@@ -1,5 +1,4 @@
 class Interscript::DSL::Document
-
   attr_accessor :node
 
   def initialize(&block)
@@ -38,14 +37,9 @@ class Interscript::DSL::Document
   end
 
 
-  def def_alias(name, chars)
+  def def_alias(name, value)
     puts "def_alias(#{name.inspect}, #{thing.inspect})" if $DEBUG
-    @node.aliases << Interscript::Node::Alias.new(name,chars)
-  end
-
-  def any(chars)
-    puts "any(#{chars.inspect}) from #{self.inspect}" if $DEBUG
-    Interscript::Node::Item::Any.new(chars)
+    @node.aliases << Interscript::Node::AliasDef.new(name, value)
   end
 
 

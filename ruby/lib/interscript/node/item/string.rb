@@ -6,6 +6,18 @@ class Interscript::Node::Item::String  < Interscript::Node::Item
 
   def to_hash
     { :class => self.class.to_s,
-      :char => self.data }
+      :data => self.data }
+  end
+end
+
+# stdext
+class String
+  alias plus_before_interscript +
+  def + other
+    if Interscript::Node === other
+      Interscript::Node::Item::String.new(self) + other
+    else
+      self.plus_before_interscript(other)
+    end
   end
 end

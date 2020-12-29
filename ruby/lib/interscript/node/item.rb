@@ -1,8 +1,7 @@
 class Interscript::Node::Item < Interscript::Node
   attr_accessor :item
   def initialize item
-    self.item = item
-    self
+    raise NotImplementedError, "You can't construct a Node::Item directly"
   end
 
   def + other
@@ -10,9 +9,9 @@ class Interscript::Node::Item < Interscript::Node
     # res = Interscript::Node::Item.new 'placeholder'
     # puts res.inspects
     if other.class == Array
-      Interscript::Node::Item::Group.new( self, *other)
+      Interscript::Node::Item::Group.new(self, *other)
     elsif other.class == String
-      other = Interscript::Node::Item.new other
+      other = Interscript::Node::Item::String.new other
       Interscript::Node::Item::Group.new(self, other)
     else
       Interscript::Node::Item::Group.new(self, other)
@@ -21,7 +20,7 @@ class Interscript::Node::Item < Interscript::Node
 
   def to_hash
     { :class => self.class.to_s,
-     :item => self.item}
+      :item => self.item }
    end
 end
 

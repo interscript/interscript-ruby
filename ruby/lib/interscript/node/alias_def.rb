@@ -1,7 +1,8 @@
-class Interscript::Node::Alias < Interscript::Node
+class Interscript::Node::AliasDef < Interscript::Node
   attr_accessor :name, :data
 
-  def initialize(name, chars)
+  def initialize(name, data)
+    data = Interscript::Node::Item::String.new(data) if data.class == ::String
     @name = name
     @data = data
   end

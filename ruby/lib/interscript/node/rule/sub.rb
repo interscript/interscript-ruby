@@ -8,9 +8,9 @@ class Interscript::Node::Rule::Sub < Interscript::Node::Rule
       kargs.inspect
     })" if $DEBUG
 
-    from = Interscript::Node::Item::String.new from if from.class == String
+    from = Interscript::Node::Item::String.new from if from.class == ::String
     self.from = from
-    to = Interscript::Node::Item::String.new(to) if to.class == String
+    to = Interscript::Node::Item::String.new(to) if to.class == ::String
     self.to = to
     self.params = kargs if kargs
   end

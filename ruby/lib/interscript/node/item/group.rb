@@ -1,15 +1,16 @@
 class Interscript::Node::Item::Group < Interscript::Node::Item
   attr_accessor :children
   def initialize *children
-    @children = children
+    @children = children.map do |i|
+      Interscript::Node::Item::String.new(i) if i.class == ::String
+    end
   end
 
   def +(item)
-    if item.class == String
-      item = Interscript::Node::Item.new item
-    end
-    @children << item
-    self
+    item = Interscript::Node::Item::String.new(item) if item.class == ::String
+    out = self.dup
+    out.children << item
+    out
   end
 
   def to_hash
