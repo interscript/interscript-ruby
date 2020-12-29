@@ -26,7 +26,9 @@ class Interscript::Node::Item < Interscript::Node
        other = this[1..-1]
     end
 
-    Interscript::Node::Item::Group.new(*this, *middle, *other)
+    g = Interscript::Node::Item::Group.new(*this, *middle, *other)
+    g.verify!
+    g
   end
 
   def to_hash
@@ -45,3 +47,4 @@ require "interscript/node/item/alias"
 require "interscript/node/item/string"
 require "interscript/node/item/group"
 require "interscript/node/item/any"
+require "interscript/node/item/stage"

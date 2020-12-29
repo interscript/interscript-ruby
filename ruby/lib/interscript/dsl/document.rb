@@ -1,6 +1,4 @@
 class Interscript::DSL::Document
-  include Interscript::DSL::Items # Items are needed for alias definitions.. should we improve on that?
-
   attr_accessor :node
 
   def initialize(&block)
@@ -17,6 +15,11 @@ class Interscript::DSL::Document
     @node.tests = tests.node
   end
 
+  def aliases(&block)
+    aliases = Interscript::DSL::Aliases.new(&block)
+    @node.aliases = aliases.node
+  end
+
   def dependency(full_name, **kargs)
     puts "dependency(#{name.inspect}, #{kargs.inspect}" if $DEBUG
     dep = Interscript::Node::Dependency.new
@@ -24,11 +27,6 @@ class Interscript::DSL::Document
     dep.full_name = full_name
     dep.import = kargs[:import] || false
     @node.dependencies << dep
-  end
-
-  def def_alias(name, value)
-    puts "def_alias(#{name.inspect}, #{thing.inspect})" if $DEBUG
-    @node.aliases << Interscript::Node::AliasDef.new(name, value)
   end
 
   def stage(name = :main, &block)

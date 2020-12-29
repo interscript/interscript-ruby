@@ -1,4 +1,4 @@
-class Interscript::Node::Item::Alias < Interscript::Node::Item
+class Interscript::Node::Item::Stage < Interscript::Node::Item
   attr_accessor :name
   attr_accessor :map
   def initialize(name, map: nil)

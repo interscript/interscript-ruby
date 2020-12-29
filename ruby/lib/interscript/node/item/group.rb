@@ -11,7 +11,21 @@ class Interscript::Node::Item::Group < Interscript::Node::Item
     item = Interscript::Node::Item.try_convert(item)
     out = self.dup
     out.children << item
+    out.verify!
     out
+  end
+
+  # Verify if a group is valid
+  def verify!
+    wrong = @children.find do |i|
+      Interscript::Node::Item::Stage === i ||
+      ! (Interscript::Node::Item === i) ||
+      i.class == Interscript::Node::Item
+    end
+
+    if wrong
+      raise TypeError, "An I::Node::Item::Group can't contain an #{wrong.class} item."
+    end
   end
 
   def to_hash

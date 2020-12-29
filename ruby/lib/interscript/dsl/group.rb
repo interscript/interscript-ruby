@@ -8,20 +8,19 @@ class Interscript::DSL::Group
     self.instance_exec(&block)
   end
 
-  def map(*args)
-    {}
+  def run(stage)
+    if stage.class != Interscript::Node::Item::Stage
+      raise TypeError, "I::Node::Item::Stage expected, got #{stage.class}"
+    end
+    @node.children << Interscript::Node::Rule::Run.new(stage)
   end
 
-  def run(*args)
-    nil
-  end
-
-  def sub(from, to, **kargs, &block)
+  def sub(from, to, **kwargs, &block)
     puts "sub(#{from.inspect},#{to}, kargs = #{
       kargs.inspect
     }) from #{self.inspect}" if $DEBUG
 
-    rule = Interscript::Node::Rule::Sub.new(from, to,**kargs)
+    rule = Interscript::Node::Rule::Sub.new(from, to, **kwargs)
     @node.children << rule
   end
 
