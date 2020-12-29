@@ -23,9 +23,9 @@ module Interscript::DSL
     return @cache[map_name] if @cache[map_name]
     path = locate(map_name)
 
-    @obj = Interscript::DSL::Document.new
-    @obj.instance_eval File.read(path), File.expand_path(path, Dir.pwd), 1
-    @cache[map_name] = @obj.node
+    obj = Interscript::DSL::Document.new
+    obj.instance_eval File.read(path), File.expand_path(path, Dir.pwd), 1
+    @cache[map_name] = obj.node
   end
 
 end

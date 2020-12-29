@@ -1,6 +1,6 @@
 class Interscript::Node::Document < Interscript::Node::Group
   attr_accessor :metadata, :tests
-  attr_accessor :dependencies, :aliases, :stage
+  attr_accessor :dependencies, :aliases, :stages
 
   def initialize
     puts "Interscript::Node::Document.new " if $DEBUG
@@ -8,7 +8,7 @@ class Interscript::Node::Document < Interscript::Node::Group
     @tests = nil
     @dependencies = []
     @aliases = []
-    @stage = Interscript::Node::Stage.new
+    @stages = {}
   end
 
   def all_aliases
@@ -19,6 +19,6 @@ class Interscript::Node::Document < Interscript::Node::Group
       :tests => @tests&.to_hash,
       :dependencies => @dependencies.map{|x| x.to_hash},
       :aliases => @aliases.map{|x| x.to_hash},
-      :stage => @stage.to_hash }
+      :stages => @stages.transform_values(&:to_hash) }
   end
 end

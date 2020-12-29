@@ -34,6 +34,6 @@ class Interscript::DSL::Document
   def stage(name = :main, &block)
     puts "stage(#{name}) from #{self.inspect}" if $DEBUG
     stage = Interscript::DSL::Stage.new(name, &block)
-    @node.stage = stage.node
+    @node.stages[name] = stage.node
   end
 end
