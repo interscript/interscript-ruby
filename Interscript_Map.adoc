@@ -81,6 +81,7 @@ end
 # a subsection.
 dependency "other-map-or-library", as: :shortname
 
+# This part is optional
 aliases do
   # Aliases part comes here
 end
@@ -158,6 +159,40 @@ using a + command, for example: `line_start + "rest"`.
 
 == Metadata part
 
+The metadata part describes our map.
+
+[source,ruby]
+----
+metadata do
+  # ID of the authority that provided the transliteration rules we are about to implement
+  authority_id "iso"
+  # ID of the rules, most often the year they were defined
+  id "1996-method1"
+  # The language code of the map
+  language "iso-639-2:kor"
+  # The source script of our map, in our example Hang for Hangul
+  source_script "Hang"
+  # The destination script of our map
+  destination_script "Latn"
+  # The longer name of our map
+  name "ISO/TR 11941:1996 Information and documentation — Transliteration of Korean script into Latin characters"
+  # The URL where it was published
+  url "https://www.iso.org/standard/20564.html"
+  # The creation date of our map
+  creation_date "1996"
+  # The adoption date of our map, or empty if not adopted
+  adoption_date ""
+  # The description of our map
+  description "Establishes a system for the transliteration of the characters of Korean script into Latin characters. "+
+              "Intended to provide a means for international communication of written documents."
+  # The notes that describe some parts of our map that we are about to implement
+  notes [
+    "A word-initial hard sign 'ъ' is not represented, but instead is left out of the transliteration.",
+    "The romanization follows the dialect spoken in Chechnya rather than other local pronunciations.",
+  ]
+end
+----
+
 == Tests part
 
 The tests part describes a group of the tests to be executed by the automated
@@ -180,7 +215,19 @@ This means, that we want to test our map to transliterate a string "애기" to
 An aliases part describes a group of aliases to be used by the stages to
 simplify the code of our map.
 
-Let's suppose that our map refers to
+Let's suppose that our map refers to "Double consonant jamo" and "Aspirated
+consonant jamo" quite extensively. We can alias those
+
+[source,ruby]
+----
+aliases do
+  def_alias :double_cons_jamo, any("ᄁᄄᄈᄍᄊ")
+  def_alias :aspirated_cons_jamo, any("ᄏᄐᄑᄎ")
+end
+----
+
+And later in the stage part refer to them by just `double_cons_jamo`, not
+needing to repeat ourselves.
 
 == Stage part
 
@@ -222,12 +269,13 @@ This call allows for some named parameters:
 | `before:`
 | Execute this substitution only if the "source" is preceded by what is given
   as a parameter, but won't replace it, it will only replace the "source".
-
+|---
 | `after:`
 | Same, but this parameter denotes what is used after.
-
-| `not_before:`, 'not_after:'
-| Negation of `before:` and `after:`
+|---
+| `not_before:`, `not_after:`
+| Negation of `before:` and `after:`. The substitution will only happen if a
+  parameter is NOT present before or after the "source".
 |===
 
 For example:
@@ -269,6 +317,7 @@ declared using the `dependency` call.
 
 For example:
 
+[source,ruby]
 ----
 stage do
   # If dependency declared with import: true
@@ -289,10 +338,41 @@ Interscript doesn't work purely on Strings, even though Strings are mostly
 referenced to by this document. The items can be used in the `alias` and `stage`
 context.
 
+=== String item
+
+The most basic kind of item. For example `"Г"` means "match Г" or "replace
+with Г" depending on usage context. Some contexts will only accept strings, or
+aliases to strings.
+
+=== `+` method
+
+Items can be concatenated (added together) to denote a complex item. For instance:
+`any("ab") + "e"` means "either ae or be" and is equivalent to `any("ae", "be")`.
+
 === `any` item
 
-Any has 3 forms,
+Any denotes some alternative variations of a string. It has 3 forms of call:
+
+`any("abcde")` - any character: a, b, c, d or e
+`any("one", "two")` - any string: one or two
+`any("a".."z")` - any character from a to z
+
+Any can be also used with other kinds of items than String, for instance:
+
+[source,ruby]
+----
+stage do
+  sub any(line_start + "a", "a" + line_end), none
+end
+----
 
 === `alias` item
 
-=== String item
+An alias item references an alias. For example `map[:other_map][:alias_from_other_map]`
+or simply `a_local_alias_or_an_alias_from_imported_library`.
+
+== Ending notes
+
+This document described everything Interscript currently supports, but it is
+strongly advised to read the existing maps to get a grasp of how those
+functionalities can be used best.
