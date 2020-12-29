@@ -5,7 +5,7 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
     @code += "var a = JSON.parse(JSON.stringify(is_stdlib_aliases));" # Create a deep clone
 
     map.aliases.each do |a|
-      @code += "a[#{a.name}] = #{compile_item(a.data, :str)};"
+      @code += "a.#{a.name} = #{compile_item(a.data, :str)};"
     end
 
     compile_rule(map.stages[:main], map)
