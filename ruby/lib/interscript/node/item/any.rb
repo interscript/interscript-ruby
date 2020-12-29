@@ -4,8 +4,8 @@ class Interscript::Node::Item::Any < Interscript::Node::Item
     if data.length > 1
       self.data = data.map { |i| Interscript::Node::Item.try_convert(i) }
     elsif Array === data[0]
-      self.data = data[0].split("").map { |i| Interscript::Node::Item.try_convert(i) }
-    elsif String === data[0]
+      self.data = data[0].map { |i| Interscript::Node::Item.try_convert(i) }
+    elsif ::String === data[0]
       self.data = data[0].split("").map { |i| Interscript::Node::Item.try_convert(i) }
     elsif Range === data[0]
       self.data = data[0].map { |i| Interscript::Node::Item.try_convert(i) }
@@ -16,6 +16,6 @@ class Interscript::Node::Item::Any < Interscript::Node::Item
 
   def to_hash
     { :class => self.class.to_s,
-      :chars => self.chars.map { |i| i.to_hash } }
+      :data => self.data.map { |i| i.to_hash } }
   end
 end

@@ -4,11 +4,11 @@ require 'interscript.rb'
 
 
 
-fname = './sandbox.imp'
+fname = 'sandbox'
 
-fname = '../../maps/odni-che-Cyrl-Latn-2015.imp'
+#fname = 'odni-che-Cyrl-Latn-2015'
 
-#fname = '../../maps/iso-kor-Hang-Latn-1996-method1.imp'
+fname = 'iso-kor-Hang-Latn-1996-method1'
 
 
 $document = Interscript::DSL.parse(fname)
@@ -17,6 +17,6 @@ $DEBUG = false
 
 require 'pry'
 
-Pry::ColorPrinter.pp($document)
+Pry::ColorPrinter.pp($document.to_hash)
 
 pry

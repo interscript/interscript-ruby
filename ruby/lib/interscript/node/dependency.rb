@@ -1,5 +1,8 @@
 class Interscript::Node::Dependency < Interscript::Node
-  attr_accessor :name, :full_name, :import
+  attr_accessor :name, :full_name, :import, :document
+
+  def initialize
+  end
 
   def to_hash
     { :class => self.class.to_s,
