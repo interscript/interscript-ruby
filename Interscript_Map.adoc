@@ -7,7 +7,7 @@ instance, a map that can transliterate a Korean file to a Latin file.
 
 An `.iml` file is a file that contains a library of aliases and stages to be
 used by the `.imp` maps. It follows the same format, but does not require the
-metadata fields to exist.
+metadata fields to exist and doesn't allow the `:main` stage to exist.
 
 Those files are in essence Ruby programs using a DSL described below. A
 non-programmer should not be necessarily concerned about this, but treat this
@@ -25,9 +25,42 @@ language. It assumes that a person has some knowledge about some basic
 structured data formats, like YAML or XML.
 
 A `#` character is a comment character. This means, that the part that follows
-a `#` character is not executed by the
+a `#` character till the end of the line is ignored by Interscript, but exist to
+communicate to a human reader the intention behind the content. In this document
+it is most often a hint to a person reading this document.
 
-== The document
+A String is a part of the document of a form either: `"content"` or `'content'`.
+It denotes a group of characters to be used. It can be joined together using a
+`+` character like so: `"a" + "b"` which is equal to as if someone wrote just
+`"ab"`.
+
+There is another way to convey a string, a HEREDOC notation which may be used in
+some maps, especially for multiline descriptions. It is a form of this kind:
+
+[source,ruby]
+----
+<<~END
+  Here comes a string
+  spanning multiple lines
+END
+----
+
+The reader shouldn't be concerned about this too much, but know that all those
+forms are interchangeable. The choice of the form depends on a context. For
+example to express a character `"` one would want to write `'"'` to be
+unambiguous, as `'''` is invalid Ruby code.
+
+Except for the strings of the form `'content'`, all those forms can contain
+escape forms like `\u0410`, which means "An Unicode character 0410". The usage
+of those forms is discouraged in new maps, but possible.
+
+An array (or a list) is a part of the document of a form `["a", "b", "c"]`. It
+means a sequential group of Strings, or other types.
+
+This section does not explain the Ruby syntax over what is needed to write or
+understand an Interscript map.
+
+== Document
 
 The root part of the `.iml` file is called a document. A map has a format as
 follows:
@@ -42,6 +75,10 @@ tests do
   # Tests part comes here
 end
 
+# A dependency directive may happen zero or more times. It will be described in
+# a subsection.
+dependency "other-map-or-library", as: :shortname
+
 aliases do
   # Aliases part comes here
 end
@@ -50,5 +87,87 @@ stage do
   # A stage description comes here
 end
 
-# There may be more than 1 stage
+# There may be more than 1 stage, the other stages need to have a name. The
+# default stage name is :main. A name can't happen more than once in a document.
+
+stage :named_stage do
+  # A stage description comes here
+end
 ----
+
+=== Dependency
+
+Dependency is an instruction to be issued only in the document context. It means
+that we want to import some aliases or stages from another map or a library.
+
+[source,ruby]
+----
+dependency "other-map-or-library", as: :shortname
+----
+
+This instruction will allow us to reference aliases and stages from other
+libraries in this form: `map[:shortname].stage[:stagename]` for stages and
+`map[:shortname][:aliasname]` for aliases.
+
+There is a second syntax, mostly useful for loading libraries that will import
+the stages and aliases to a global context resulting in possibly more human
+readable maps:
+
+[source,ruby]
+----
+dependency "other-map-or-library", as: :shortname, import: true
+----
+
+This form allows to reference other stages and aliases in the following form:
+`stage[:stagename]`, `aliasname`
+
+It is not possible to load maps using this form, only libraries, because we
+can't override the :main stage.
+
+The standard library is implicitly imported this way. There's no way or need to
+import it explicitly.
+
+==== Standard library
+
+All maps depend on a standard library implicitly. This standard library defines
+a few useful aliases that may or may not be expressed otherwise.
+
+Below is a table that describes the aliases defined by the standard library:
+
+|===
+| `none`           | An empty string
+| `space`          | A space character
+| `whitespace`     | Any whitespace ascii character (space, tab, line-delimiter, ...)
+| `boundary`       | A word boundary (see below for what institutes a word character)
+| `word`           | An ascii word character (a-z, A-Z, 0-9, _)
+| `not_word`       | Negation of the above
+| `alpha`          | Any ascii alphabetic character (a-z, A-Z)
+| `not_alpha`      | Negation of the above
+| `digit`          | Any ascii digit
+| `not_digit`      | Negation of the above
+| `line_start`     | Beginning of a line
+| `line_end`       | Ending of a line
+| `string_start`   | Beginning of a string
+| `string_end`     | Ending of a string
+|===
+
+Any standard library (or otherwise) aliases can be joined with anything else
+using a + command, for example: `line_start + "rest"`.
+
+== Metadata part
+
+== Tests part
+
+== Aliases part
+
+== Stage part
+
+=== `sub` call
+
+=== `run` call
+
+The run call
+
+=== `external` call
+
+The external call
