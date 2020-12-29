@@ -63,12 +63,7 @@ aliases do
 end
 
 stage do
-  # we execute a stage defined this way in a map -jamo:
-  # stage :hang2jamo do
-  #   ...
-  # end
-  # the unnamed stage is named :main
-  #run map[:jamo].stage[:hang2jamo]
+  run map[:jamo].stage[:main]
 
   # Add space to the two ends of the string for easier word boundary handling
   sub line_start, space
