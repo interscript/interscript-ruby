@@ -6,8 +6,9 @@ class Interscript::Compiler
     if String === map
       map = Interscript::DSL.parse(map)
     end
-
-    new.compile(map)
+    compiler = new
+    compiler.compile(map)
+    compiler
   end
 
   def compile(map)
