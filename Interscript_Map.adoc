@@ -354,9 +354,9 @@ Items can be concatenated (added together) to denote a complex item. For instanc
 
 Any denotes some alternative variations of a string. It has 3 forms of call:
 
-`any("abcde")` - any character: a, b, c, d or e
-`any("one", "two")` - any string: one or two
-`any("a".."z")` - any character from a to z
+* `any("abcde")` - any character: a, b, c, d or e
+* `any("one", "two")` - any string: one or two
+* `any("a".."z")` - any character from a to z
 
 Any can be also used with other kinds of items than String, for instance:
 
