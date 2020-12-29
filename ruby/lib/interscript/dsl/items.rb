@@ -15,8 +15,8 @@ module Interscript::DSL::Items
     Interscript::Node::Item::Alias.new(sym)
   end
 
-  def any(chars)
+  def any(*chars)
     puts "any(#{chars.inspect}) from #{self.inspect}" if $DEBUG
-    Interscript::Node::Item::Any.new(chars)
+    Interscript::Node::Item::Any.new(*chars)
   end
 end

@@ -2,7 +2,7 @@ module Interscript::DSL
 
   def self.parse(filename)
     @obj = Interscript::DSL::Document.new
-    @obj.instance_eval File.read(filename), filename, 0
+    @obj.instance_eval File.read(filename), File.expand_path(filename, Dir.pwd), 1
     @obj.node.to_hash
   end
 

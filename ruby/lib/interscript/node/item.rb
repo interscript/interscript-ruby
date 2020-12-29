@@ -5,22 +5,39 @@ class Interscript::Node::Item < Interscript::Node
   end
 
   def + other
-    # puts "Interscript::Node::Item +(#{self.inspect}, #{other.inspect})"
-    # res = Interscript::Node::Item.new 'placeholder'
-    # puts res.inspects
-    if other.class == Array
-      Interscript::Node::Item::Group.new(self, *other)
-    elsif other.class == String
-      other = Interscript::Node::Item::String.new other
-      Interscript::Node::Item::Group.new(self, other)
-    else
-      Interscript::Node::Item::Group.new(self, other)
+    this = self
+
+    this  = this.children  if Interscript::Node::Item::Group === this
+    other = other.children if Interscript::Node::Item::Group === other
+
+    this  = Array(this)
+    other = Array(other)
+
+    this  = this.map  { |i| Interscript::Node::Item.try_convert(i) }
+    other = other.map { |i| Interscript::Node::Item.try_convert(i) }
+
+    middle = []
+
+    if Interscript::Node::Item::String === this.last &&
+       Interscript::Node::Item::String === other.first
+
+       middle = [this.last + other.first]
+       this = this[0..-2]
+       other = this[1..-1]
     end
+
+    Interscript::Node::Item::Group.new(*this, *middle, *other)
   end
 
   def to_hash
     { :class => self.class.to_s,
       :item => self.item }
+   end
+
+   def self.try_convert(i)
+     i = Interscript::Node::Item::String.new(i) if i.class == ::String
+     raise TypeError, "Wrong type #{i.class}, expected I::Node::Item" unless Interscript::Node::Item === i
+     i
    end
 end
 

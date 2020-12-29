@@ -26,16 +26,14 @@ class Interscript::DSL::Document
     @node.dependencies << dep
   end
 
-
   def def_alias(name, value)
     puts "def_alias(#{name.inspect}, #{thing.inspect})" if $DEBUG
     @node.aliases << Interscript::Node::AliasDef.new(name, value)
   end
 
-
-  def stage(&block)
-    puts "stage() from #{self.inspect}" if $DEBUG
-    stage = Interscript::DSL::Stage.new(&block)
+  def stage(name = :main, &block)
+    puts "stage(#{name}) from #{self.inspect}" if $DEBUG
+    stage = Interscript::DSL::Stage.new(name, &block)
     @node.stage = stage.node
   end
 end

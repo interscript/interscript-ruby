@@ -2,7 +2,7 @@ class Interscript::Node::AliasDef < Interscript::Node
   attr_accessor :name, :data
 
   def initialize(name, data)
-    data = Interscript::Node::Item::String.new(data) if data.class == ::String
+    data = Interscript::Node::Item.try_convert(data)
     @name = name
     @data = data
   end
