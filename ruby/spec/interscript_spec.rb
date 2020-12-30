@@ -2,7 +2,7 @@ require "timeout"
 
 RSpec.describe Interscript do
   mask = ENV["TRANSLIT_SYSTEM"] || "*"
-  maps = Dir["../maps/#{mask}.imp"]
+  maps = Interscript.maps(select: mask)
 
   maps.each do |system_file|
     system_name = File.basename(system_file, ".imp")
@@ -20,7 +20,7 @@ RSpec.describe Interscript do
             end
           end
         end
-      rescue Interscript::DSL::MapNotFoundError => e
+      rescue Interscript::MapNotFoundError => e
         it "loads" do
           raise e
         end

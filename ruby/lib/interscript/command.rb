@@ -20,9 +20,8 @@ module Interscript
 
     desc 'list', 'Prints allowed transliteration systems'
     def list
-      dir = File.expand_path '../../../maps/*.yaml', __dir__
-      Dir[dir].each do |path|
-        puts File.basename path, '.yaml'
+      Interscript.maps(load_path: true).each do |path|
+        puts File.basename path, '.imp'
       end
     end
   end

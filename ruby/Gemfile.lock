@@ -1,7 +1,13 @@
 PATH
+  remote: ../maps
+  specs:
+    interscript-maps (1.90.0)
+
+PATH
   remote: .
   specs:
     interscript (1.90.0)
+      interscript-maps
       thor
 
 GEM
@@ -29,6 +35,7 @@ PLATFORMS
 
 DEPENDENCIES
   interscript!
+  interscript-maps!
   rake (~> 12.0)
   rspec (~> 3.0)
 
