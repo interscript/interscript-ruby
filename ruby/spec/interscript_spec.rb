@@ -8,7 +8,7 @@ RSpec.describe Interscript do
     system_name = File.basename(system_file, ".imp")
     context "#{system_name} system" do
       begin
-        system = Interscript::DSL.parse(system_name)
+        system = Interscript.parse(system_name)
 
         cache = {}
 
