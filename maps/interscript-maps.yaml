@@ -1,0 +1,6 @@
+---
+# This file denotes that there are Interscript Maps in this Gem and their locations
+# relative to this file.
+paths:
+  - libs
+  - maps
