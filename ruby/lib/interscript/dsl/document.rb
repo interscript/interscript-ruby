@@ -1,4 +1,6 @@
 class Interscript::DSL::Document
+  include Interscript::DSL::SymbolMM
+
   attr_accessor :node
 
   def initialize(&block)

@@ -1,8 +1,11 @@
 module Interscript::DSL::Items
+  include Interscript::DSL::SymbolMM
+
   def method_missing sym, *args, **kwargs, &block
     super if args.length > 0
     super if kwargs.length > 0
     super if sym.to_s =~ /[?!=]\z/
+    super unless sym.to_s =~ /\A[\w\d]+\z/
     super if block_given?
 
     Interscript::Node::Item::Alias.new(sym)
@@ -21,10 +24,13 @@ module Interscript::DSL::Items
 
   # Implementation of `map[:x]`
   module Maps
-    # Select a remote map
-    def self.[] map
-      Symbol === map or raise TypeError, "A map name must be a Symbol, not #{alias_name.class}"
-      Map.new(map)
+    class << self
+      # Select a remote map
+      def [] map
+        Symbol === map or raise TypeError, "A map name must be a Symbol, not #{alias_name.class}"
+        Map.new(map)
+      end
+      alias method_missing []
     end
   end
 
@@ -37,6 +43,7 @@ module Interscript::DSL::Items
       Symbol === alias_name or raise TypeError, "An alias name must be a Symbol, not #{alias_name.class}"
       Interscript::Node::Item::Alias.new(alias_name, map: name)
     end
+    alias method_missing []
 
     # Implementation of `map[:x].stage[:stage]`
     def stage; Stages.new(@name); end
@@ -49,5 +56,6 @@ module Interscript::DSL::Items
     def [] stage
       Interscript::Node::Item::Stage.new(stage, map: @map)
     end
+    alias method_missing []
   end
 end

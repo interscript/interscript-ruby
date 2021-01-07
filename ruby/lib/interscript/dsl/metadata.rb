@@ -1,7 +1,8 @@
 class Interscript::DSL::Metadata
   attr_accessor :node
 
-  def initialize(&block)
+  def initialize(yaml: false, &block)
+    raise ArgumentError, "Can't evaluate metadata from Ruby context" unless yaml
     @node = Interscript::Node::MetaData.new
     self.instance_exec(&block)
   end

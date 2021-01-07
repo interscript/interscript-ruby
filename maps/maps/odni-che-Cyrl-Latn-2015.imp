@@ -1,16 +1,16 @@
-metadata do
-  authority_id "odni"
-  id "2015"
-  language "iso-639-2:che"
-  source_script "Cyrl"
-  destination_script "Latn"
-  name "Office of the Director Of National Intelligence -- ICS 630-01 -- Chechen Cyrillic 2015"
-  url "https://github.com/interscript/ics-630-01/blob/master/reference-docs/ANNEX%20C%20-%20Chechen_Personal_Names_FLTS%20(U).pdf"
-  source "ICS-630-01 Annex C"
-  creation_date "2015"
-  confirmation_date "2015"
+metadata {
+  authority_id: odni
+  id: 2015
+  language: iso-639-2:che
+  source_script: Cyrl
+  destination_script: Latn
+  name: Office of the Director Of National Intelligence -- ICS 630-01 -- Chechen Cyrillic 2015
+  url: https://github.com/interscript/ics-630-01/blob/master/reference-docs/ANNEX%20C%20-%20Chechen_Personal_Names_FLTS%20(U).pdf
+  source: ICS-630-01 Annex C
+  creation_date: 2015
+  confirmation_date: 2015
 
-  description <<~END
+  description: |
     This system is the Intelligence Community (IC) standard for the transliteration of Chechen names
     that will be applied to all final written reports and products for IC consumers. It is not intended to
     eliminate variations of a name that can contribute forensic information. Rather, it is to provide an
@@ -42,31 +42,30 @@ metadata do
     information about the individual is provided, the referent will be clearly identified. This system
     will be used in conjunction with on-line tools, name dictionaries, and lists containing
     conventional spellings of names of well-known individuals.
-  END
 
-  notes [
-    "Add a preceding 'y' if the vowel is preceded by the sound of a 'y' consonant.",
-    "This is a single apostrophe as found on regular US keyboards (ASCII character 39), "+
-      "though software may render the apostrophe with differing appearances (e.g. curved left or right). "+
-      "Note that the same apostrophe is used for 'ъ', '|', 'ӏ', and '1'.",
-    "A word-initial hard sign 'ъ' is not represented, but instead is left out of the transliteration.",
-    "The romanization follows the dialect spoken in Chechnya rather than other local pronunciations.",
-    "Long and short vowels are not distinguished in this system.",
-    "In the Roman, no distinction is made between digraphs such as 'sh' and single contiguous letters (e.g. 's' followed by 'h').",
-    "The Cyrillic soft sign ('ь') by itself (not part of a digraph) is not represented, but instead is left out of the transliteration.",
-    "Interpretation of Cyrillic digraphs in Table 1 takes precedence over interpretation of the individual "+
-      "characters. Thus, 'кх' -> 'q', and not to 'k' followed by 'kh'.",
-    "Transliteration of Cyrillic digraphs for diphthongs will follow the combination of the transliteration of "+
-      "the individual characters. Thus, 'aй' -> 'ay', 'oй' -> 'oy', and both 'эй' and 'eй' -> 'ey'."
-  ]
-end
+  notes:
+    - Add a preceding 'y' if the vowel is preceded by the sound of a 'y' consonant.
+    - |
+      This is a single apostrophe as found on regular US keyboards (ASCII character 39),
+      though software may render the apostrophe with differing appearances (e.g. curved left or right).
+      Note that the same apostrophe is used for 'ъ', '|', 'ӏ', and '1'.
+    - A word-initial hard sign 'ъ' is not represented, but instead is left out of the transliteration.
+    - The romanization follows the dialect spoken in Chechnya rather than other local pronunciations.
+    - Long and short vowels are not distinguished in this system.
+    - In the Roman, no distinction is made between digraphs such as 'sh' and single contiguous letters (e.g. 's' followed by 'h').
+    - The Cyrillic soft sign ('ь') by itself (not part of a digraph) is not represented, but instead is left out of the transliteration.
+    - Interpretation of Cyrillic digraphs in Table 1 takes precedence over interpretation of the individual
+      characters. Thus, 'кх' -> 'q', and not to 'k' followed by 'kh'.
+    - Transliteration of Cyrillic digraphs for diphthongs will follow the combination of the transliteration of
+      the individual characters. Thus, 'aй' -> 'ay', 'oй' -> 'oy', and both 'эй' and 'eй' -> 'ey'.
+}
 
-tests do
+tests {
   test "Ильяс Ахмадкӏант", "Ilyas Akhmadkant"
   test "Ильяс Ахмадк1ант", "Ilyas Akhmadkant"
-end
+}
 
-stage do
+stage {
   # note[1]
   sub boundary + "\u0415", "Ye", not_before: boundary + "\u2019"
   sub boundary + "\u0435", "ye", not_before: boundary + "\u2019"
@@ -75,7 +74,7 @@ stage do
   sub "1", "ӏ", before: not_word
   sub "1", "ӏ", after: not_word
 
-  parallel do
+  parallel {
     sub "\u0410"        , 'A'               # А
     sub "\u0411"        , 'B'               # Б
     sub "\u0412"        , 'V'               # В
@@ -162,5 +161,5 @@ stage do
     sub "\u044F"        , 'ya'              # я
     sub "\u04CF"        , "'"               # ӏ note[2]
     sub "\u044C"        , ''                # ь note[7]
-  end
-end
+  }
+}

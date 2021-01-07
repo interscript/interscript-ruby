@@ -1,25 +1,25 @@
-metadata do
-  authority_id "nil"
-  id "jamo"
-  language "iso-639-2:kor"
-  source_script "Hang"
-  destination_script "Hang"
-  name "Hangul to Jamo decomposition"
-  url ""
-  creation_date ""
-  adoption_date ""
-  description ""
+metadata {
+  authority_id: nil
+  id: jamo
+  language: iso-639-2:kor
+  source_script: Hang
+  destination_script: Hang
+  name: Hangul to Jamo decomposition
+  url: ""
+  creation_date: ""
+  adoption_date: ""
+  description: ""
 
 
-  notes []
-end
+  notes: []
+}
 
-tests do
+tests {
   test "안녕", "안녕"
-end
+}
 
-stage do
-  parallel do
+stage {
+  parallel {
     sub "가", "가"
     sub "각", "각"
     sub "갂", "갂"
@@ -11192,5 +11192,5 @@ stage do
     sub "힡", "힡"
     sub "힢", "힢"
     sub "힣", "힣"
-  end
-end
+  }
+}

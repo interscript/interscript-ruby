@@ -1,20 +1,21 @@
-metadata do
-  authority_id "iso"
-  id "1996-method1"
-  language "iso-639-2:kor"
-  source_script "Hang"
-  destination_script "Latn"
-  name "ISO/TR 11941:1996 Information and documentation — Transliteration of Korean script into Latin characters"
-  url "https://www.iso.org/standard/20564.html"
-  creation_date "1996"
-  adoption_date ""
-  description "Establishes a system for the transliteration of the characters of Korean script into Latin characters. "+
-              "Intended to provide a means for international communication of written documents."
+metadata {
+  authority_id: iso
+  id: 1996-method1
+  language: iso-639-2:kor
+  source_script: Hang
+  destination_script: Latn
+  name: ISO/TR 11941:1996 Information and documentation — Transliteration of Korean script into Latin characters
+  url: https://www.iso.org/standard/20564.html
+  creation_date: 1996
+  adoption_date: ""
+  description: |
+    Establishes a system for the transliteration of the characters of Korean script into Latin characters.
+    Intended to provide a means for international communication of written documents.
 
-  notes []
-end
+  notes: []
+}
 
-tests do
+tests {
   # Tests from https://www.eki.ee/wgrs/rom2_ko.pdf
   test "꽃이", "kkoch'i" # Bad OCR
   test "강에", "kang'e"
@@ -44,7 +45,7 @@ tests do
   test "같이", "kath'i"
   test "앞에", "aph'e"
   test "꽃에", "kkoch'e"
-end
+}
 
 # We will work out the correct location for those
 #character_separator none
@@ -54,16 +55,16 @@ end
 # The following line means "importing a supposed korean library" containing some maybe useful korean aliases
 # import means move to our namespace (we will be able to call just: `hangul` instead of `map[:hang].alias[:hangul]`)
 dependency "var-kor", import: true
-dependency "var-kor-Hang-Hang-jamo", as: :hangjamo
+dependency "var-kor-Hang-Hang-jamo", as: hangjamo
 
 # Those may be parts of this supposed korean library
-aliases do
-  def_alias :double_cons_jamo, any("ᄁᄄᄈᄍᄊ")
-  def_alias :aspirated_cons_jamo, any("ᄏᄐᄑᄎ")
-end
+aliases {
+  def_alias double_cons_jamo, any("ᄁᄄᄈᄍᄊ")
+  def_alias aspirated_cons_jamo, any("ᄏᄐᄑᄎ")
+}
 
-stage do
-  run map[:hangjamo].stage[:main]
+stage {
+  run map.hangjamo.stage.main
 
   # Add space to the two ends of the string for easier word boundary handling
   #sub line_start, space
@@ -81,7 +82,7 @@ stage do
   sub none, "'", before: jamo, after: aspirated_cons_jamo
 
   # Those rules may be executed in parallel for performance gains
-  parallel do
+  parallel {
     # Consonants differing between method1 and method2
     sub any("ᄀᆨ"), "k"
     sub any("ᄏᆿ"), "kh"
@@ -152,10 +153,10 @@ stage do
     sub "ᅰ", "we"
     sub "ᅴ", "yi"
     # End
-  end
+  }
 
 
   # Remove space added
   #sub line_start + space, none
   #sub space + line_end, none
-end
+}

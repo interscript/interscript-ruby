@@ -12,12 +12,18 @@ RSpec.describe Interscript do
 
         cache = {}
 
-        system.tests.data.each do |from,expected|
-          it "test for #{from}" do
-            Timeout::timeout(5) do
-              result = Interscript.transliterate(system_name, from, cache)
-              expect(result).to eq(expected)
+        if system.tests && system.tests.data
+          system.tests.data.each do |from,expected|
+            it "test for #{from}" do
+              Timeout::timeout(5) do
+                result = Interscript.transliterate(system_name, from, cache)
+                expect(result).to eq(expected)
+              end
             end
+          end
+        else
+          it "has tests" do
+            expect(false).to be(true)
           end
         end
       rescue Interscript::MapNotFoundError => e
