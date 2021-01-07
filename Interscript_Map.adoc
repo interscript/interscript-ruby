@@ -7,24 +7,11 @@ instance, a map that can transliterate a Korean file to a Latin file.
 
 An `.iml` file is a file that contains a library of aliases and stages to be
 used by the `.imp` maps. It follows the same format, but does not require the
-metadata and tests parts to exist and doesn't allow the `:main` stage to exist.
+metadata and tests parts to exist and doesn't allow the `main` stage to exist.
 This document describes the map version of the format if it isn't noted
 otherwise.
 
-Those files are in essence Ruby programs using a DSL described below. A
-non-programmer should not be necessarily concerned about this, but treat this
-format as if it were a YAML file, with certain restrictions regarding the
-syntax, a programmer should note that those programs are not executed directly
-to transliterate a string, but they are meant to be compiled to other languages.
-Therefore an assumption that full programming power is available from this part
-is wrong. Such an assumption, while wrong, does not mean that the format can't
-be extended to allow for such usecases.
-
-== Ruby syntax
-
-This document does not assume a person has a knowledge of any programming
-language. It assumes that a person has some knowledge about some basic
-structured data formats, like YAML or XML.
+== Basic syntax
 
 A `\#` character is a comment character. This means, that the part that follows
 a `#` character till the end of the line is ignored by Interscript, but exist to
@@ -36,31 +23,12 @@ It denotes a group of characters to be used. It can be joined together using a
 `+` character like so: `"a" + "b"` which is equal to as if someone wrote just
 `"ab"`.
 
-There is another way to convey a string, a HEREDOC notation which may be used in
-some maps, especially for multiline descriptions. It is a form of this kind:
-
-[source,ruby]
-----
-<<~END
-  Here comes a string
-  spanning multiple lines
-END
-----
-
-The reader shouldn't be concerned about this too much, but know that all those
-forms are interchangeable. The choice of the form depends on a context. For
-example to express a character `"` one would want to write `'"'` to be
-unambiguous, as `'''` is invalid Ruby code.
-
 Except for the strings of the form `'content'`, all those forms can contain
 escape forms like `\u0410`, which means "An Unicode character 0410". The usage
 of those forms is discouraged in new maps, but possible.
 
 An array (or a list) is a part of the document of a form `["a", "b", "c"]`. It
 means a sequential group of Strings, or other types.
-
-This section does not explain the Ruby syntax over what is needed to write or
-understand an Interscript map.
 
 == Document
 
@@ -69,31 +37,31 @@ follows:
 
 [source,ruby]
 ----
-metadata do
+metadata {
   # Metadata part comes here
-end
+}
 
-tests do
+tests {
   # Tests part comes here
-end
+}
 
 # A dependency directive may happen zero or more times. It will be described in
 # a subsection.
-dependency "other-map-or-library", as: :shortname
+dependency "other-map-or-library", as: shortname
 
 # This part is optional
-aliases do
+aliases {
   # Aliases part comes here
-end
+}
 
-stage do
+stage {
   # A stage description comes here
-end
+}
 
 # There may be more than 1 stage, the other stages need to have a name. The
-# default stage name is :main. A name can't happen more than once in a document.
+# default stage name is `main`. A name can't happen more than once in a document.
 
-stage :named_stage do
+stage named_stage do
   # A stage description comes here
 end
 ----
@@ -105,12 +73,12 @@ that we want to import some aliases or stages from another map or a library.
 
 [source,ruby]
 ----
-dependency "other-map-or-library", as: :shortname
+dependency "other-map-or-library", as: shortname
 ----
 
 This instruction will allow us to reference aliases and stages from other
-libraries in this form: `map[:shortname].stage[:stagename]` for stages and
-`map[:shortname][:aliasname]` for aliases.
+libraries in this form: `map.shortname.stage.stagename` for stages and
+`map.shortname.aliasname` for aliases.
 
 There is a second syntax, mostly useful for loading libraries that will import
 the stages and aliases to a global context resulting in possibly more human
@@ -118,14 +86,14 @@ readable maps:
 
 [source,ruby]
 ----
-dependency "other-map-or-library", as: :shortname, import: true
+dependency "other-map-or-library", as: shortname, import: true
 ----
 
 This form allows to reference other stages and aliases in the following form:
-`stage[:stagename]`, `aliasname`
+`stage.stagename`, `aliasname`
 
 It is not possible to load maps using this form, only libraries, because we
-can't override the :main stage.
+can't override the `main` stage.
 
 The standard library is implicitly imported this way. There's no way or need to
 import it explicitly.
@@ -159,38 +127,39 @@ using a + command, for example: `line_start + "rest"`.
 
 == Metadata part
 
-The metadata part describes our map.
+The metadata part describes our map. It follows a YAML syntax.
 
 [source,ruby]
 ----
-metadata do
+metadata {
   # ID of the authority that provided the transliteration rules we are about to implement
-  authority_id "iso"
+  authority_id: iso
   # ID of the rules, most often the year they were defined
-  id "1996-method1"
+  id: 1996-method1
   # The language code of the map
-  language "iso-639-2:kor"
+  language: iso-639-2:kor
   # The source script of our map, in our example Hang for Hangul
-  source_script "Hang"
+  source_script: Hang
   # The destination script of our map
-  destination_script "Latn"
+  destination_script: Latn
   # The longer name of our map
-  name "ISO/TR 11941:1996 Information and documentation — Transliteration of Korean script into Latin characters"
+  name: ISO/TR 11941:1996 Information and documentation — Transliteration of Korean script into Latin characters
   # The URL where it was published
-  url "https://www.iso.org/standard/20564.html"
+  url: https://www.iso.org/standard/20564.html
   # The creation date of our map
-  creation_date "1996"
+  creation_date: 1996
   # The adoption date of our map, or empty if not adopted
-  adoption_date ""
+  adoption_date: ""
   # The description of our map
-  description "Establishes a system for the transliteration of the characters of Korean script into Latin characters. "+
-              "Intended to provide a means for international communication of written documents."
+  description: |
+    Establishes a system for the transliteration of the characters of Korean script into Latin characters.
+    Intended to provide a means for international communication of written documents.
+
   # The notes that describe some parts of our map that we are about to implement
-  notes [
-    "A word-initial hard sign 'ъ' is not represented, but instead is left out of the transliteration.",
-    "The romanization follows the dialect spoken in Chechnya rather than other local pronunciations.",
-  ]
-end
+  notes:
+    - A word-initial hard sign 'ъ' is not represented, but instead is left out of the transliteration.
+    - The romanization follows the dialect spoken in Chechnya rather than other local pronunciations.
+}
 ----
 
 == Tests part
@@ -201,10 +170,10 @@ like this:
 
 [source,ruby]
 ----
-tests do
+tests {
   test "애기", "aeki"
   test "방", "pang"
-end
+}
 ----
 
 This means, that we want to test our map to transliterate a string "애기" to
@@ -220,10 +189,10 @@ consonant jamo" quite extensively. We can alias those
 
 [source,ruby]
 ----
-aliases do
-  def_alias :double_cons_jamo, any("ᄁᄄᄈᄍᄊ")
-  def_alias :aspirated_cons_jamo, any("ᄏᄐᄑᄎ")
-end
+aliases {
+  def_alias double_cons_jamo, any("ᄁᄄᄈᄍᄊ")
+  def_alias aspirated_cons_jamo, any("ᄏᄐᄑᄎ")
+}
 ----
 
 And later in the stage part refer to them by just `double_cons_jamo`, not
@@ -237,19 +206,19 @@ stage looks like the following:
 
 [source,ruby]
 ----
-stage do
-  run map[:hangjamo].stage[:main]
+stage {
+  run map.hangjamo.stage.main
   sub any("ᄀᆨ"), "k"
   sub any("ᄏᆿ"), "kh"
-  parallel do
+  parallel {
     sub "ᅡ", "a"
     sub "ᅥ", "eo"
-  end
-end
+  }
+}
 ----
 
 A stage can be named, as described in the Document section. The default name
-of a stage is `:main`.
+of a stage is `main`.
 
 === `sub` call
 
@@ -258,9 +227,9 @@ another item.
 
 [source,ruby]
 ----
-stage do
+stage {
   sub "source", "destination"
-end
+}
 ----
 
 This call allows for some named parameters:
@@ -283,12 +252,12 @@ For example:
 
 [source,ruby]
 ----
-stage do
+stage {
   sub boundary + "Е", "Ye", not_before: boundary + "’"
   sub boundary + "е", "ye", not_before: boundary + "’"
 
   sub none, "'", not_before: hangul, after: aspirated_cons
-end
+}
 ----
 
 === `parallel` block
@@ -300,14 +269,14 @@ means, that those steps will try to find the longest substrings first.
 
 [source,ruby]
 ----
-stage do
-  parallel do
+stage {
+  parallel {
     sub "А", 'A'
     sub "Б", 'B'
     sub "В", 'V'
     sub "Г", 'G'
-  end
-end
+  }
+}
 ----
 
 === `run` call
@@ -322,9 +291,9 @@ For example:
 ----
 stage do
   # If dependency declared with import: true
-  run map[:hangjamo].stage[:main]
+  run map.hangjamo.stage.main
   # If dependency declated without import: true, or we reference a local stage
-  run stage[:remove_spaces]
+  run stage.remove_spaces
 end
 ----
 
@@ -362,14 +331,14 @@ Any can be also used with other kinds of items than String, for instance:
 
 [source,ruby]
 ----
-stage do
+stage {
   sub any([line_start + "a", "a" + line_end]), none
-end
+}
 ----
 
 === `alias` item
 
-An alias item references an alias. For example `map[:other_map][:alias_from_other_map]`
+An alias item references an alias. For example `map.other_map.alias_from_other_map`
 or simply `a_local_alias_or_an_alias_from_imported_library`.
 
 == Ending notes
