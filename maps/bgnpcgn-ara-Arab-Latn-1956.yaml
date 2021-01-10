@@ -119,7 +119,7 @@ tests:
   - source: الكُوت
     expected: Al Kūt
 
-  - source: الثُّلَيْثُوَات
+  - source: الثُّلَيثُوَات
     expected: Ath Thulaythuwāt
 
   - source: الجَزِيرَة
@@ -352,9 +352,10 @@ map:
     '\u0649\u0670': 'á' # See Note 5
     '\u0652' : ''  # ْ sokoon, not romanized, Indicates absence of short vowel
     '\u064e\u064a\u0652' : 'ay'  # ـَيْ
+    '(?<=\u0644)\u064e\u064a' : 'ay'  # ـَيْ
     '\u064e\u064a' : 'aī'  # ـَي
 
-    '\u064e\u0648\u0652' : 'aw'  # ـَوْ
+    '\u064e\u0648\u0652?(?!\u0651)' : 'aw'  # ـَوْ
     '\u064b': '' # See Note 6
     '\u064d': '' # See Note 6
     '\u064c': '' # See Note 6
