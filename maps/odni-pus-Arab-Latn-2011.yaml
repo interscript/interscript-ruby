@@ -4,7 +4,7 @@ id: 2007
 language: iso-639-3:prs
 source_script: Arab
 destination_script: Latn
-name: BGN/PCGN Romanization System -- Pashto (1968)
+name: ODNI Pashto Personal Names 2011 System
 url: https://github.com/interscript/interscript-private-references/blob/master/odni/Pashto%20June%202011.pdf
 creation_date: 2011
 confirmation_date: 2011-06
@@ -85,42 +85,178 @@ notes:
     of light"). There will be no special
     accommodation for when the initial word ends in a vowel.
 
+  # Special rules: Arabic
+  - The Arabic article al ( ‫ال‬ ) The Arabic article will be
+    written with a lowercase 'a' and followed by a hyphen, with
+    the obvious exception that an uppercase 'a' should be used
+    where required by English orthographic conventions, e.g.,
+    at the beginning of a sentence. Example Karim al-Afghani
+
+  - Genitive constructions Multi-part Arabic names that follow
+    the Arabic genitive construction will be written with a
+    lowercase ul joined to the last part of the name by a
+    hyphen. Arabic sun letter assimilation generally will not
+    be shown.
+  # Genitive construction exceptions
+  - In deference to widespread usage, the name Abd will be
+    combined with the genitive article ul,
+    and the rest of the name will be written separately (
+    specifically, one of the ninety-nine
+    "names of God"). Examples Abdul Haq, Abdul Rahman
+  - Names incorporating "--ullah" will be written as a single
+    unit. Examples Abdullah, Rahmatullah
+  - Names incorporating "--din" will be written as a single
+    unit with sun letter assimilation
+    shown, causing ul to change to ud. This type of name is the
+    only case in which sun letter assimilation will be shown.
+    Examples Jamaluddin, Shamsuddin
+  - Note, no effort will be made to force names into the
+    genitive construction if they are not
+    linked by the article. For example, both names Fazl ul-
+    Rahman and Fazl Rahman would be
+    acceptable, depending on whether the article was included
+    in the individual's name.
+
+  - Consonant clusters Traditional Arabic names ending in a
+    final consonant cluster will be spelled with the
+    consonant cluster intact. Although most native Pashto
+    speakers will break up the cluster in conversational
+    speech, general usage in the written transliteration of
+    names still favors the preservation of the consonant
+    cluster in print.
+    This type of name should not be confused with Arabic names whose orthography includes a zabar (short
+    'a' vowel) prior to the final consonant. -- NOT DONE
+
+  # Special rules: Multiple-part Pashto names
+  - TODO
+
+  # Special rules: Glides versus consonants
+  - The unwritten phonetic "glides," also known as semi-
+    consonants (sounding similar to /y/ and /w/), will
+    generally not be shown between two vowels.
+    Examples Rauf, Said (سعيد)
+
+  - Care should be taken to distinguish the above rule from
+    cases in which wao or ya are a written part of the name and
+    function as true consonants, including cases where they are
+    doubled. Examples Fayiz ( ‫فایز‬ ), Fayyaz ( ‫فیّاض‬ )
+
+  - A common form where ya will be shown in its role as a
+    consonant is with the Arabic nisba (suffix showing origin,
+    relation, etc.) appended to names that end in a vowel.
+    Examples Ziayi, Shafiyi, Mirzayi, Paktiayi
+
+  # Specific rules: Exceptions
+  - TODO
+    In spite of best intentions, the unbending application of
+    rules in any transliteration system is likely to produce
+    some forms that fly in the face of accepted use. Therefore,
+    the following names will be spelled as follows, in spite of
+    minor variance with the rules described above.
+    Aurangzeb (not Awrangzeb)
+    Eid (not Id)
+    Faizad (not Faizzad)
+    Javed (not Jawed) 2
+    Parvez (not Parwez)
+    Qureshi (not Quraishi)
+    Saad (not Sad)
+    Sherpao (not Sherpaw)
+
+  - The following names do not constitute exceptions to the
+    rules of this standard, but they are names that pose
+    significant challenges to standardization and are therefore
+    listed here to ensure consensus
+    Bahadur (not Bahadar, Bahader)
+    Feroz (not Firoz, Fairuz, etc.)
+    Firdaws (not Firdos)
+    Husain (not Hussain)
+    Isfandyar (not Asfandyar)
+    Ismail (not Ismael)
+    Khushhal (not Khushal)
+    Niamat (not Nimat)
+    Numan (not Nauman)
+    Raza (not Reza)
+    Sherzad (not Shirzad)
+    Tor Jan (not Tur Jan)
+    Uwais (not Awais)
+
+  # Special rules: Titles
+  - We treat the spelling of commonly used titles differently
+    from the handling of names, given that titles are subject
+    to norms of English as they are accepted into the English
+    language. Though not specifically covered by the scope of
+    this transliteration standard, the following spellings are
+    recommended for the sake of consistency
+    Akhund
+    Amir
+    Commander (not Commandan)
+    Hafiz
+    Haji
+    Mawlana
+    Mawlawi
+    Mullah
+    Qari
+    Qazi
+    Sahib
+    Sheikh
+    Syed ( ‫سیّد‬ )
+    Ustad
 tests:
+  - source: حَسّان
+    expected: Hassan
+
+  - source: حَسَن
+    expected: Hasan
+
+  - source: صَفّار
+    expected: Saffar
+
+  - source: صَفَر
+    expected: Safar
+
+  # collision
+  - source: حَمِيد
+    expected: Hamid
+  # collision
+  - source: حامِد
+    expected: Hamid
+
+  - source: كَرِيم الأَفغَانِي
+    expected: Karim al-Afghani
+
+  - source: عَبداللَّه
+    expected: Abdullah
+
+  - source: جَمَال الدين
+    expected: Jamaluddin
+
+  - source: شَمسُ الدين
+    expected: Shamsuddin
+
+  - source: فَيَّاض
+    expected: Fayyaz
+
+  - source: فايِز
+    expected: Fayiz
+
+  - source: رَؤوف
+    expected: Rauf
+
+  - source: سَعِيد
+    expected: Said
+
+  - source: قَيُّوم
+    expected: Qayyum
+
 
 map:
-  inherit: bgnpcgn-prs-Arab-Latn-2007
+  # inherit: bgnpcgn-prs-Arab-Latn-2007
   postrules:
-    - pattern: (?<=\b)(?<!\b[‘|’|'|-])[\u0061-\uFFFF]
+    - pattern: (?<=\b)(?<!\b[‘|’|'])[\u0061-\uFFFF]
       result: "upcase"
     # don't capitalize defined article in the middle of a sentence
-    - pattern : ' Ut T'  # الت
-      result: ' ut T'
-    - pattern : ' Us̄ S̄'  # الث
-      result: ' us̄ S̄'
-    - pattern : ' Ud D' # الد
-      result: ' ud D'
-    - pattern : ' Uz̄ Z̄'  # الذ
-      result: ' uz̄ Z̄'
-    - pattern : ' Ur R' # الر
-      result: ' ur R'
-    - pattern : ' Uz Z'  # الز
-      result: ' uz Z'
-    - pattern : ' Us S' # الس
-      result: ' us S'
-    - pattern : ' Ush Sh' # الش
-      result: ' ush Sh'
-    - pattern : ' Uş Ş'  # الص
-      result: ' uş Ş'
-    - pattern : ' Uẕ Ẕ'  # الض
-      result: ' uẕ Ẕ'
-    - pattern : ' Uţ Ţ'  # الط
-      result: ' uţ Ţ'
-    - pattern : ' Uz̧ Z̧' # الظ
-      result: ' uz̧ Z̧'
-    - pattern : ' Ul L'  # الل
-      result: ' ul L'
-    - pattern : ' Un n'  # الن
-      result: ' un N'
+    - pattern : ' Al-'  # الن
+      result: ' al-'
   characters:
 
     '\u0650': 'i' # ِ kasra
@@ -128,25 +264,11 @@ map:
 
     '\u0650\b' : '-e' # ِ kasra
 
-    '\s\u0627\u0644\u0644\u0651\u064e\u0647' : 'ullāh' # Note5
     '\u0652' : ''  # ْ sokoon
     '\u0659': 'ê'
 
     # Sun letters
-    '\b\u0627\u0644\u062a' : 'ut t'  # الت
-    '\b\u0627\u0644\u062b' : 'us̄ s̄'  # الث
-    '\b\u0627\u0644\u062f' : 'ud d' # الد
-    '\b\u0627\u0644\u0630' : 'uz̄ z̄'  # الذ
-    '\b\u0627\u0644\u0631' : 'ur r' # الر
-    '\b\u0627\u0644\u0632' : 'uz z'  # الز
-    '\b\u0627\u0644\u0633' : 'us s' # الس
-    '\b\u0627\u0644\u0634' : 'ush sh' # الش
-    '\b\u0627\u0644\u0635' : 'uş ş'  # الص
-    '\b\u0627\u0644\u0636' : 'uẕ ẕ'  # الض
-    '\b\u0627\u0644\u0637' : 'uţ ţ'  # الط
-    '\b\u0627\u0644\u0638' : 'uz̧ z̧' # الظ
-    '\b\u0627\u0644\u0644' : 'ul l'  # الل
-    '\b\u0627\u0644\u0646' : 'un n'  # الن
+    '\u064f?\s?\u0627\u0644\u062f[\u064a|\u0649]\u0646' : 'uddin' # الدين
 
     '\u0626': 'êy' # ئ
 
@@ -180,47 +302,54 @@ map:
     '\u064a' : 'y'  # ي
     '\u0649' : 'y'  # ي
 
-    '\u064e' : 'a' # َ fatha
+    '\u064e\u0627?' : 'a' # َ fatha
     '\u0650':
       - 'i'
       - 'e'
     '\u064f':  # ُ damma
       - 'u'
       - 'o'
-    '[\u0622|\u0627]' : 'a' # آ/ا
+    '\u0622' : 'a' # آ
+    '\u0627' : 'a' # ا
     '\u0648' : 'o' # و
     '\u064e\u0648\u0652' : 'aw'  # ـَوْ
     '\u064f\u0648' : 'u' # ـُو
     '\u064e\u064a' : 'ai' # ـي
+    '\u0650[\u064a|\u0649]' : 'i'
     '\u06D0' : 'e'   # ې
     '\u06CD' : 'ey'  # ‫ۍ
     '\u06CC' : 'a'   # ‫ی‬
     '\u064e\u06CC[\u0647|\u0627]' : 'aya' # َيا / َيه
-    '\u0650\u06CC[\u0647|\u0627]' : 'ia' # # َيا / َيه
+    '\u0650\u06CC[\u0647|\u0627]' : 'ia' # ِيا /ِيه
     '\u0652\u06CC\u0627' : 'ya' # ْيا
     '[\u06D0|\u06D2]\b' : 'ey' # ‫ے‬ / ‫ې‬
     '\u0648\u064A\b' : 'oy' # ‫وي‬
     '\u064f\u0648\u064A\b' : 'uy' # ُوي
+    '\u0623' : ''  # أ
 
     # Double consonants
-    '\u0628\u0651' : 'b'  # ب
-    '\u067E\u0651' : 'p' # پ
-    '[\u062a|\u067C|\u0637]\u0651' : 't'  # ت/ټ/ط
-    '\u062c\u0651' : 'j'  # ج
-    '[\u062d|\u0647]\u0651' : 'h' # ح/ه
-    '[\u062f|\u0689]\u0651' : 'd'  # د/ډ‬
-    '[\u0631|\u0693]\u0651' : 'r'  # ر/ړ
-    '[\u0630|\u0632|\u0636|\u0638]\u0651' : 'z'  # ذ/ز/ض/ظ
-    '[\u062B|\u0633|\u0635]\u0651' : 's'  # س/ث/ص
-    '\u0641\u0651' : 'f'  # ف
-    '\u0642\u0651' : 'q'  # ق
-    '\u0643\u0651' : 'k'  # ك
-    '\u06A9\u0651' : 'k' # ک
-    '[\u06AF|\u06AB]\u0651' : 'g' # ‫گ‬/ګ
-    '\u0644\u0651' : 'l'  # ل
-    '\u0645\u0651' : 'm'  # م
-    '[\u0646|\u06BC]\u0651' : 'n'  # ن/ڼ
-    '\u0648\u0651' : 'w'  # و
-    '\u064a\u0651' : 'y'  # ي
-    '\u0649\u0651' : 'y'  # ي
+    '\u0628\u0651' : 'bb'  # ب
+    '\u067E\u0651' : 'pp' # پ
+    '[\u062a|\u067C|\u0637]\u0651' : 'tt'  # ت/ټ/ط
+    '\u062c\u0651' : 'jj'  # ج
+    '[\u062d|\u0647]\u0651' : 'hh' # ح/ه
+    '[\u062f|\u0689]\u0651' : 'dd'  # د/ډ‬
+    '[\u0631|\u0693]\u0651' : 'rr'  # ر/ړ
+    '[\u0630|\u0632|\u0636|\u0638]\u0651' : 'zz'  # ذ/ز/ض/ظ
+    '[\u062B|\u0633|\u0635]\u0651' : 'ss'  # س/ث/ص
+    '\u0641\u0651' : 'ff'  # ف
+    '\u0642\u0651' : 'qq'  # ق
+    '\u0643\u0651' : 'kk'  # ك
+    '\u06A9\u0651' : 'kk' # ک
+    '[\u06AF|\u06AB]\u0651' : 'gg' # ‫گ‬/ګ
+    '\u0644\u0651' : 'll'  # ل
+    '\u0645\u0651' : 'mm'  # م
+    '[\u0646|\u06BC]\u0651' : 'nn'  # ن/ڼ
+    '\u0648\u0651' : 'ww'  # و
+    '\u064a\u0651' : 'yy'  # ي
+    '\u0649\u0651' : 'yy'  # ي
 
+    '(?<=\s)\b\u0627\u0644' : 'al-'  # ال
+    '\s?\u0627\u0644\u0644\u0651\u064e\u0647': 'ullah'
+
+    '\u0624\u0648' : u
