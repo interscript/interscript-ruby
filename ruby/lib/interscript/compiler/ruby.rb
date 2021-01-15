@@ -4,16 +4,22 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
     stage = @map.stages[stage]
     @code = compile_rule(stage, true)
   end
-
   def compile_rule(r, wrapper = false)
     c = ""
     case r
     when Interscript::Node::Stage
-      c += "ISC = Proc.new{|s| " if wrapper
+      if wrapper
+      c = "if !defined?(Interscript::Maps); module Interscript; module Interscript::Maps\n"
+      c += "@@maps = {}\n"
+      c += "def self.add_map(name,proc);     @@maps[name] = proc; end\n"
+      c += "def self.transcribe(map,string); @@maps[map].call(string); end\n"
+      c += "end;end;end\n"
+      c += "Interscript::Maps.add_map(\"#{@fname}\", Proc.new{|s| \n"
+      end
       r.children.each do |t|
         c += compile_rule(t)
       end
-      c += "s }" if wrapper
+      c += "s })" if wrapper
     when Interscript::Node::Group::Parallel
       r.children.sort_by{|i| -i.from.max_length }.each do |t|
         c += compile_rule(t)
