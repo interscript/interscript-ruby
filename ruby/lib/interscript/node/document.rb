@@ -38,7 +38,8 @@ class Interscript::Node::Document < Interscript::Node::Group
     { :class => self.class.to_s, :metadata => @metadata&.to_hash,
       :tests => @tests&.to_hash,
       :dependencies => @dependencies.map{|x| x.to_hash},
-      :aliases => @aliases.map{|x| x.to_hash},
+      :dep_aliases => @dep_aliases.transform_values(&:to_hash),
+      :aliases => @aliases.transform_values(&:to_hash),
       :stages => @stages.transform_values(&:to_hash) }
   end
 end

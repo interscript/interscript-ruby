@@ -22,10 +22,10 @@ class Interscript::Node::Rule::Sub < Interscript::Node::Rule
     { :class => self.class.to_s,
       :from => self.from.to_hash,
       :to => self.to.to_hash,
-      :before => self.before,
-      :not_before => self.not_before,
-      :after => self.after,
-      :not_after => self.not_after
+      :before => self.before&.to_hash,
+      :not_before => self.not_before&.to_hash,
+      :after => self.after&.to_hash,
+      :not_after => self.not_after&.to_hash
     }
   end
 end
