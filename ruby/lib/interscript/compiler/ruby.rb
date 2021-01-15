@@ -18,10 +18,6 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
       r.children.sort_by{|i| -i.from.max_length }.each do |t|
         c += compile_rule(t)
       end
-    when Interscript::Node::Group
-      r.children.each do |t|
-        c += compile_rule(t)
-      end
     when Interscript::Node::Rule::Sub
       from = Regexp.new(build_regexp(r)).inspect
       to = compile_item(r.to, :str)
@@ -81,8 +77,7 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
       i.children.map { |j| compile_item(j, target, doc) }.join
     when Interscript::Node::Item::Any
       if target == :str
-        "\"#{i.inspect}\""
-        #raise ArgumentError, "Can't use Any in a string context" # A linter could find this!
+        raise ArgumentError, "Can't use Any in a string context" # A linter could find this!
       elsif target == :re
         case i.value
         when Array
