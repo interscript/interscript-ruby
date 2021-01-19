@@ -1,6 +1,7 @@
 class Interscript::Compiler::Ruby < Interscript::Compiler
   def compile(map, stage=:main)
     @map = map
+    @loaded = false
     stage = @map.stages[stage]
     @code = compile_rule(stage, true)
   end
@@ -98,5 +99,11 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
     end
   end
 
+  def call(str)
+    if !@loaded
+      eval(@code)
+    end
 
+    Interscript::Maps.transcribe(@map.name, str)
   end
+end
