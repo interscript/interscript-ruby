@@ -19,4 +19,26 @@ class Interscript::Stdlib
   def self.re_only_alias?(a)
     ! %i[none space].include?(a)
   end
+
+  @recache = {}
+
+  def self.parallel_replace(str, hash)
+    if @recache[hash.hash]
+      re, newhash = @recache[hash.hash]
+    else
+      newhash = {}
+      hash.map do |k,v|
+        if String === k
+          newhash[k] = v
+        elsif Array === k
+          k.each { |kk| newhash[kk] = v }
+        end
+      end
+      re = Regexp.union(newhash.keys.sort_by(&:length).reverse)
+      @recache[hash.hash] = [re, newhash]
+    end
+    str.gsub(re) do |i|
+      newhash[i]
+    end
+  end
 end

@@ -23,9 +23,17 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
       end
       c += "s })" if wrapper
     when Interscript::Node::Group::Parallel
-      r.children.sort_by{|i| -i.from.max_length }.each do |t|
-        c += compile_rule(t)
+      h = {}
+      r.children.each do |i|
+        raise ArgumentError, "Can't parallelize #{i.class}" unless Interscript::Node::Rule::Sub === i
+        raise ArgumentError, "Can't parallelize rules with :before" if i.before
+        raise ArgumentError, "Can't parallelize rules with :after" if i.after
+        raise ArgumentError, "Can't parallelize rules with :not_before" if i.not_before
+        raise ArgumentError, "Can't parallelize rules with :not_after" if i.not_after
+
+        h[compile_item(i.from, :par)] = compile_item(i.to, :par)
       end
+      c += "s = ::Interscript::Stdlib.parallel_replace(s, #{h.inspect})\n"
     when Interscript::Node::Rule::Sub
       from = Regexp.new(build_regexp(r)).inspect
       to = compile_item(r.to, :str)
@@ -67,14 +75,16 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
         a = d.imported_aliases[i.name]
         compile_item(a.data, target, d)
       elsif Interscript::Stdlib::ALIASES.include?(i.name)
-        if target == :str && Interscript::Stdlib.re_only_alias?(i.name)
-          raise ArgumentError, "Can't use #{i.name} in a string context"
+        if target != :re && Interscript::Stdlib.re_only_alias?(i.name)
+          raise ArgumentError, "Can't use #{i.name} in a #{target} context"
         end
 
         if target == :str
           "::Interscript::Stdlib::ALIASES[#{i.name.inspect}]"
         elsif target == :re
           "\#{::Interscript::Stdlib::ALIASES[#{i.name.inspect}]}"
+        elsif target == :par
+          raise NotImplementedError, "Can't use aliases in parallel mode yet"
         end
       else
         a = doc.imported_aliases[i.name]
@@ -83,14 +93,22 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
     when Interscript::Node::Item::String
       if target == :str
         "\"#{i.data}\""
+      elsif target == :par
+        i.data
       elsif target == :re
         Regexp.escape(i.data)
       end
     when Interscript::Node::Item::Group
-      i.children.map { |j| compile_item(j, target, doc) }.join
+      if target == :par
+        raise NotImplementedError, "Can't concatenate in parallel mode yet"
+      else
+        i.children.map { |j| compile_item(j, target, doc) }.join
+      end
     when Interscript::Node::Item::Any
       if target == :str
         raise ArgumentError, "Can't use Any in a string context" # A linter could find this!
+      elsif target == :par
+        i.data.map(&:data)
       elsif target == :re
         case i.value
         when Array
