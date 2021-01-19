@@ -10,7 +10,8 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
     case r
     when Interscript::Node::Stage
       if wrapper
-      c = "if !defined?(Interscript::Maps); module Interscript; module Interscript::Maps\n"
+      c = "require 'interscript/stdlib'\n"
+      c += "if !defined?(Interscript::Maps); module Interscript; module Interscript::Maps\n"
       c += "@@maps = {}\n"
       c += "def self.add_map(name,proc);     @@maps[name] = proc; end\n"
       c += "def self.transcribe(map,string); @@maps[map].call(string); end\n"
@@ -69,7 +70,12 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
         if target == :str && Interscript::Stdlib.re_only_alias?(i.name)
           raise ArgumentError, "Can't use #{i.name} in a string context"
         end
-        Interscript::Stdlib::ALIASES[i.name]
+
+        if target == :str
+          "::Interscript::Stdlib::ALIASES[#{i.name.inspect}]"
+        elsif target == :re
+          "\#{::Interscript::Stdlib::ALIASES[#{i.name.inspect}]}"
+        end
       else
         a = doc.imported_aliases[i.name]
         compile_item(a.data, target, doc)
