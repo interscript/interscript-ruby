@@ -1,12 +1,14 @@
 # An Interscript compiler interface
 class Interscript::Compiler
-  attr_accessor :code, :fname
+  attr_accessor :code
 
-  def initialize(fname)
-    @fname = fname
-    map = Interscript::parse(fname)
-    compile(map)
-    self
+  def self.call(map)
+    if String === map
+      map = Interscript::DSL.parse(map)
+    end
+    compiler = new
+    compiler.compile(map)
+    compiler
   end
 
   def compile(map)

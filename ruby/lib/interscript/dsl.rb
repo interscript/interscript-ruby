@@ -49,6 +49,7 @@ module Interscript::DSL
       end
     end
     obj.node.metadata = md.node
+    obj.node.name = map_name
 
     @cache[map_name] = obj.node
   end

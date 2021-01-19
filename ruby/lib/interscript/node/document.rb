@@ -1,5 +1,5 @@
 class Interscript::Node::Document < Interscript::Node::Group
-  attr_accessor :metadata, :tests
+  attr_accessor :metadata, :tests, :name
   attr_accessor :dependencies, :aliases, :stages, :dep_aliases
 
   def initialize

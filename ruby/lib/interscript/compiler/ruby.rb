@@ -14,7 +14,7 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
       c += "def self.add_map(name,proc);     @@maps[name] = proc; end\n"
       c += "def self.transcribe(map,string); @@maps[map].call(string); end\n"
       c += "end;end;end\n"
-      c += "Interscript::Maps.add_map(\"#{@fname}\", Proc.new{|s| \n"
+      c += "Interscript::Maps.add_map(\"#{@map.name}\", Proc.new{|s| \n"
       end
       r.children.each do |t|
         c += compile_rule(t)
