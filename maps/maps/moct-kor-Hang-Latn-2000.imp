@@ -470,4 +470,6 @@ stage {
   # Remove space added
   sub line_start + space, none
   sub space + line_end, none
+
+  title_case
 }

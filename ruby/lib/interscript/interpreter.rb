@@ -35,6 +35,8 @@ class Interscript::Interpreter < Interscript::Compiler
         end
       when Interscript::Node::Rule::Sub
         @str = @str.gsub(Regexp.new(build_regexp(r)), build_item(r.to, :str))
+      when Interscript::Node::Rule::Funcall
+        @str = Interscript::Stdlib::Functions.public_send(r.name, @str, **r.kwargs)
       when Interscript::Node::Rule::Run
         if r.stage.map
           doc = @map.dep_aliases[r.stage.map].document

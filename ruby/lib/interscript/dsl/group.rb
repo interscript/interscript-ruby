@@ -24,6 +24,15 @@ class Interscript::DSL::Group
     @node.children << rule
   end
 
+  Interscript::Stdlib.available_functions.each do |fun|
+    define_method fun do |**kwargs|
+      puts "funcall(#{fun}, #{kwargs.inspect}) from #{self.inspect}" if $DEBUG
+
+      rule = Interscript::Node::Rule::Funcall.new(fun, **kwargs)
+      @node.children << rule
+    end
+  end
+
   def parallel(&block)
     puts "parallel(#{chars.inspect}) from #{self.inspect}" if $DEBUG
     group = Interscript::DSL::Group::Parallel.new(&block)

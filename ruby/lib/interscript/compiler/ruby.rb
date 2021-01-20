@@ -38,6 +38,8 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
       from = Regexp.new(build_regexp(r)).inspect
       to = compile_item(r.to, :str)
       c += "s = s.gsub(#{from}, #{to})\n"
+    when Interscript::Node::Rule::Funcall
+      c += "s = Interscript::Stdlib::Functions.#{r.name}(s, #{r.kwargs.inspect[1..-2]})\n"
     when Interscript::Node::Rule::Run
       if r.stage.map
         doc = @map.dep_aliases[r.stage.map].document

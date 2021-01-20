@@ -41,4 +41,25 @@ class Interscript::Stdlib
       newhash[i]
     end
   end
+
+  def self.available_functions
+    %i[title_case]
+  end
+
+  module Functions
+    def self.title_case(output, character_separator: "", word_separator: " ")
+      re = /^(.)/
+      output = output.gsub(re, &:upcase) #if title_case
+      if word_separator != ''
+        re = /#{word_separator}#{character_separator}/
+        output = output.gsub(re, word_separator)
+
+        #if title_case
+          re = /#{word_separator}(.)/
+          output = output.gsub(re, &:upcase)
+        #end
+      end
+      output
+    end
+  end
 end
