@@ -71,6 +71,7 @@ class Interscript::Interpreter < Interscript::Compiler
         if i.map
           d = doc.dep_aliases[i.stage.map].document
           a = d.imported_aliases[i.name]
+          raise ArgumentError, "Alias #{i.name} of #{i.stage.map} not found" unless a
           build_item(a.data, target, d)
         elsif Interscript::Stdlib::ALIASES.include?(i.name)
           if target != :re && Interscript::Stdlib.re_only_alias?(i.name)
@@ -79,6 +80,7 @@ class Interscript::Interpreter < Interscript::Compiler
           Interscript::Stdlib::ALIASES[i.name]
         else
           a = doc.imported_aliases[i.name]
+          raise ArgumentError, "Alias #{i.name} not found" unless a
           build_item(a.data, target, doc)
         end
       when Interscript::Node::Item::String

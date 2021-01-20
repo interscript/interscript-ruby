@@ -85,8 +85,6 @@ aliases {
 }
 
 stage {
-  run map.hangjamo.stage.main
-
   # convert numbers to space + Hangul
   sub none, space, not_before: any([digit, space]), after: digit
   sub "1", "일"
@@ -100,9 +98,10 @@ stage {
   sub "9", "구"
 
   # add hyphen in front of generics
-  sub none, "-", after: line_end + any("도시군구읍면리동가")
+  sub none, "-", not_before: line_start, after: any("도시군구읍면리동가") + line_end
 
-  # parallel {
+  run map.hangjamo.stage.main
+
   # Add space to the two ends of the string for easier word boundary handling
   sub line_start, space
   sub line_end, space
@@ -142,6 +141,7 @@ stage {
   sub "ᆵ", "ᆯ", after: any("ᄃᄄᄐ")
   sub "ᆵ", "ᄇ"
 
+  parallel {
   # HANGUL JONGSEONG RIEUL-HIEUH
   sub "ᆶᄀ", "ᆯᄏ"
   sub "ᆶᄃ", "ᆯᄐ"
@@ -183,7 +183,9 @@ stage {
   sub "ᇂᄇ", "ᄑ"
   sub "ᇂᄌ", "ᄎ"
   sub "ᇂ", ""
+  }
 
+  parallel {
   # From Unicode Chart
   # https://github.com/unicode-org/cldr/blob/master/common/transforms/Korean-Latin-BGN.xml
 
@@ -322,25 +324,28 @@ stage {
   sub "ᆼᄈ", "ngpp"	# HANGUL JONGSEONG IEUNG + CHOSEONG SSANGPIEUP
   sub "ᆼᄊ", "ngss"	# HANGUL JONGSEONG IEUNG + CHOSEONG SSANGSIOS
   sub "ᆼᄍ", "ngjj"	# HANGUL JONGSEONG IEUNG + CHOSEONG SSANGCIEUC
-  sub "ᄀ", "g", before: any([alpha, digit, jamo_vowel]) + "-"	  # VOWEL + CHOSEONG KIYEOK
-  sub "ᄂ", "n", before: any([alpha, digit, jamo_vowel]) + "-"	  # VOWEL + CHOSEONG NIEUN
-  sub "ᄃ", "d", before: any([alpha, digit, jamo_vowel]) + "-"	  # VOWEL + CHOSEONG TIEUT
-  sub "ᄅ", "r", before: any([alpha, digit, jamo_vowel]) + "-"	  # VOWEL + CHOSEONG RIEUL
-  sub "ᄆ", "m", before: any([alpha, digit, jamo_vowel]) + "-"	  # VOWEL + CHOSEONG MIEUM
-  sub "ᄇ", "b", before: any([alpha, digit, jamo_vowel]) + "-"	  # VOWEL + CHOSEONG PIEUP
-  sub "ᄉ", "s", before: any([alpha, digit, jamo_vowel]) + "-"	  # VOWEL + CHOSEONG SIOS
-  sub "ᄋ", "", before: any([alpha, digit, jamo_vowel]) + "-"	  # VOWEL + CHOSEONG IEUNG
-  sub "ᄌ", "j", before: any([alpha, digit, jamo_vowel]) + "-"	  # VOWEL + CHOSEONG CIEUC
-  sub "ᄎ", "ch", before: any([alpha, digit, jamo_vowel]) + "-"	# VOWEL + CHOSEONG CHIEUCH
-  sub "ᄏ", "k", before: any([alpha, digit, jamo_vowel]) + "-"	  # VOWEL + CHOSEONG KHIEUKH
-  sub "ᄐ", "t", before: any([alpha, digit, jamo_vowel]) + "-"	  # VOWEL + CHOSEONG THIEUTH
-  sub "ᄑ", "p", before: any([alpha, digit, jamo_vowel]) + "-"	  # VOWEL + CHOSEONG PHIEUPH
-  sub "ᄒ", "h", before: any([alpha, digit, jamo_vowel]) + "-"	  # VOWEL + CHOSEONG HIEUH
+  }
+
+  sub "ᄀ", "g",  before: any([alpha, digit, jamo_vowel, "-"])   # VOWEL + CHOSEONG KIYEOK
+  sub "ᄂ", "n",  before: any([alpha, digit, jamo_vowel, "-"])   # VOWEL + CHOSEONG NIEUN
+  sub "ᄃ", "d",  before: any([alpha, digit, jamo_vowel, "-"])	  # VOWEL + CHOSEONG TIEUT
+  sub "ᄅ", "r",  before: any([alpha, digit, jamo_vowel, "-"])	  # VOWEL + CHOSEONG RIEUL
+  sub "ᄆ", "m",  before: any([alpha, digit, jamo_vowel, "-"])   # VOWEL + CHOSEONG MIEUM
+  sub "ᄇ", "b",  before: any([alpha, digit, jamo_vowel, "-"])	  # VOWEL + CHOSEONG PIEUP
+  sub "ᄉ", "s",  before: any([alpha, digit, jamo_vowel, "-"])	  # VOWEL + CHOSEONG SIOS
+  sub "ᄋ", "",   before: any([alpha, digit, jamo_vowel, "-"])	  # VOWEL + CHOSEONG IEUNG
+  sub "ᄌ", "j",  before: any([alpha, digit, jamo_vowel, "-"])	  # VOWEL + CHOSEONG CIEUC
+  sub "ᄎ", "ch", before: any([alpha, digit, jamo_vowel, "-"])  	# VOWEL + CHOSEONG CHIEUCH
+  sub "ᄏ", "k",  before: any([alpha, digit, jamo_vowel, "-"])	  # VOWEL + CHOSEONG KHIEUKH
+  sub "ᄐ", "t",  before: any([alpha, digit, jamo_vowel, "-"])	  # VOWEL + CHOSEONG THIEUTH
+  sub "ᄑ", "p",  before: any([alpha, digit, jamo_vowel, "-"])   # VOWEL + CHOSEONG PHIEUPH
+  sub "ᄒ", "h",  before: any([alpha, digit, jamo_vowel, "-"])   # VOWEL + CHOSEONG HIEUH
   sub "ᄁ", "kk", before: any([alpha, digit, jamo_vowel])	      # VOWEL + CHOSEONG SSANGKIYEOK
   sub "ᄄ", "tt", before: any([alpha, digit, jamo_vowel])	      # VOWEL + CHOSEONG SSANGTIEUT
   sub "ᄈ", "pp", before: any([alpha, digit, jamo_vowel])	      # VOWEL + CHOSEONG SSANGPIEUP
   sub "ᄊ", "ss", before: any([alpha, digit, jamo_vowel])	      # VOWEL + CHOSEONG SSANGSIOS
   sub "ᄍ", "jj", before: any([alpha, digit, jamo_vowel])	      # VOWEL + CHOSEONG SSANGCIEUC
+  parallel {
   sub "ᆰᄀ", "lg"	# HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG KIYEOK
   sub "ᆰᄂ", "ngn"	# HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG NIEUN
   sub "ᆰᄃ", "kd"	# HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG TIEUT
@@ -398,6 +403,7 @@ stage {
   sub "ᆲᄈ", "lpp"	# HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG SSANGPIEUP
   sub "ᆲᄊ", "pss"	# HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG SSANGSIOS
   sub "ᆲᄍ", "pjj"	# HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG SSANGCIEUC
+  }
   sub "ᄀ", "g",   before: space	# HANGUL CHOSEONG KIYEOK
   sub "ᄂ", "n",   before: space	# HANGUL CHOSEONG NIEUN
   sub "ᄃ", "d",   before: space	# HANGUL CHOSEONG TIEUT
@@ -422,6 +428,7 @@ stage {
   sub "ᄊ", "ss",  before: space	# HANGUL CHOSEONG SSANGSIOS
   sub "ᄍ", "jj",  before: space	# HANGUL CHOSEONG SSANGCIEUC
   sub "ᄶ", "jj",  before: space	# HANGUL CHOSEONG SIOS-CIEUC
+  parallel {
   sub "ᅡ", "a"	# HANGUL JUNGSEONG A
   sub "ᅣ", "ya"	# HANGUL JUNGSEONG YA
   sub "ᅥ", "eo"	# HANGUL JUNGSEONG EO
@@ -443,6 +450,7 @@ stage {
   sub "ᅯ", "wo"	# HANGUL JUNGSEONG WEO
   sub "ᅫ", "wae"	# HANGUL JUNGSEONG WAE
   sub "ᅰ", "we"	# HANGUL JUNGSEONG WE
+  }
   sub "ᆨ", "k", after: any([space,"-"])	# HANGUL JONGSEONG KIYEOK
   sub "ᆫ", "n", after: any([space,"-"])	# HANGUL JONGSEONG NIEUN
   sub "ᆮ", "t", after: any([space,"-"])	# HANGUL JONGSEONG TIEUT
@@ -458,7 +466,6 @@ stage {
   sub "ᇁ", "p", after: any([space,"-"])	# HANGUL JONGSEONG PHIEUPH
   sub "ᆰ", "k", after: any([space,"-"])	# HANGUL JONGSEONG RIEUL-KIYEOK
   sub "ᆲ", "p", after: any([space,"-"])	# HANGUL JONGSEONG RIEUL-PIEUP
- #}
 
   # Remove space added
   sub line_start + space, none
