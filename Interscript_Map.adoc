@@ -61,9 +61,9 @@ stage {
 # There may be more than 1 stage, the other stages need to have a name. The
 # default stage name is `main`. A name can't happen more than once in a document.
 
-stage named_stage do
+stage named_stage {
   # A stage description comes here
-end
+}
 ----
 
 === Dependency
@@ -289,12 +289,12 @@ For example:
 
 [source,ruby]
 ----
-stage do
+stage {
   # If dependency declared with import: true
   run map.hangjamo.stage.main
   # If dependency declated without import: true, or we reference a local stage
   run stage.remove_spaces
-end
+}
 ----
 
 === `external` call
@@ -313,17 +313,23 @@ For a function named `title_case`, it can be called with the following:
 
 [source,ruby]
 ----
-stage do
+stage {
   title_case
-end
+}
 ----
+
+A standard library function can take (named) arguments. Those are described in
+the table below and they may be omitted if a default value is specified.
 
 ==== List of standard library functions
 
 [options="header"]
 |===
-| Function name          | Sample input          | Sample output
-| `title_case`           | example string        | Example String
+| Function name     | Arguments             | Sample input          | Sample output
+| `title_case`      | `word_separator: " "` | `"example string"`    | `"Example String"`
+| `compose`         |                       | `"ᄆ"+"ᅮ"`            | `"무"`
+| `decompose`       |                       | `"무"`                | `"ᄆ"+"ᅮ"`
+| `separate`        | `separator: " "`      | `"こんいちは"`         | `"こ ん い ち は"`
 |===
 
 == Items

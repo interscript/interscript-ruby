@@ -43,23 +43,26 @@ class Interscript::Stdlib
   end
 
   def self.available_functions
-    %i[title_case]
+    %i[title_case compose decompose separate]
   end
 
   module Functions
-    def self.title_case(output, character_separator: "", word_separator: " ")
-      re = /^(.)/
-      output = output.gsub(re, &:upcase) #if title_case
-      if word_separator != ''
-        re = /#{word_separator}#{character_separator}/
-        output = output.gsub(re, word_separator)
-
-        #if title_case
-          re = /#{word_separator}(.)/
-          output = output.gsub(re, &:upcase)
-        #end
-      end
+    def self.title_case(output, word_separator: " ")
+      output = output.gsub(/^(.)/, &:upcase)
+      output = output.gsub(/#{word_separator}(.)/, &:upcase) unless word_separator == ''
       output
+    end
+
+    def self.compose(output)
+      output.unicode_normalize(:nfc)
+    end
+
+    def self.decompose(output)
+      output.unicode_normalize(:nfd)
+    end
+
+    def self.separate(output, separator: " ")
+      output.split("").join(separator)
     end
   end
 end
