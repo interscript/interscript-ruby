@@ -10,10 +10,18 @@ metadata {
   adoption_date: ""
   description: "This is a Hanja-Hangul map available in the public domain."
 
-
   notes:
     - Alternative url
     - http://kldp.net/hanja/
+}
+
+tests {
+  test "一一一", "일일일"
+  test "相助會", "상조회"
+  test "感知型感覺的感謝節", "감지형감각적감사절"
+  test "感知型一感覺的感謝節", "감지형일감각적감사절"
+  test "協力局長協助主義協同組合協同農場南倭北虜", "협력국장협조주의협동조합협동농장남왜북로"
+  test "㟺㟻㟼㟽㟾㟿㠀㠁㠂㠃㠄㠅", "루참오표용망도참오적습복"
 }
 
 stage {
