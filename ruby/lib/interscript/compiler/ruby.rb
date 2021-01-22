@@ -5,10 +5,10 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
     @map = map
     stage = @map.stages[stage]
     @parallel_trees = {}
-    @code = compile_rule(stage, true)
+    @code = compile_rule(stage, @map, true)
   end
 
-  def compile_rule(r, wrapper = false)
+  def compile_rule(r, map = @map, wrapper = false)
     c = ""
     case r
     when Interscript::Node::Stage
@@ -25,7 +25,7 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
         c += "s = s.dup\n"
       end
       r.children.each do |t|
-        c += compile_rule(t)
+        c += compile_rule(t, map)
       end
       if wrapper
         c += "end\n"
@@ -43,7 +43,7 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
         raise ArgumentError, "Can't parallelize rules with :not_before" if i.not_before
         raise ArgumentError, "Can't parallelize rules with :not_after" if i.not_after
 
-        h[compile_item(i.from, :par)] = compile_item(i.to, :par)
+        h[compile_item(i.from, map, :par)] = compile_item(i.to, map, :par)
       end
       hh = h.hash.abs
       unless @parallel_trees.include? hh
@@ -52,30 +52,30 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
       end
       c += "s = Interscript::Stdlib.parallel_replace_tree(s, Interscript::Maps::Cache::PTREE_#{hh})\n"
     when Interscript::Node::Rule::Sub
-      from = Regexp.new(build_regexp(r)).inspect
-      to = compile_item(r.to, :str)
+      from = Regexp.new(build_regexp(r, map)).inspect
+      to = compile_item(r.to, map, :str)
       c += "s.gsub!(#{from}, #{to})\n"
     when Interscript::Node::Rule::Funcall
       c += "s = Interscript::Stdlib::Functions.#{r.name}(s, #{r.kwargs.inspect[1..-2]})\n"
     when Interscript::Node::Rule::Run
       if r.stage.map
-        doc = @map.dep_aliases[r.stage.map].document
+        doc = map.dep_aliases[r.stage.map].document
         stage = doc.imported_stages[r.stage.name]
-        c += compile_rule(stage)
+        c += compile_rule(stage, doc)
       else
-        stage = @map.imported_stages[r.stage.name]
-        c += compile_rule(stage)
+        stage = map.imported_stages[r.stage.name]
+        c += compile_rule(stage, map)
       end
     end
     c
   end
 
-  def build_regexp(r)
-    from = compile_item(r.from, :re)
-    before = compile_item(r.before, :re) if r.before
-    after = compile_item(r.after, :re) if r.after
-    not_before = compile_item(r.not_before, :re) if r.not_before
-    not_after = compile_item(r.not_after, :re) if r.not_after
+  def build_regexp(r, map=@map)
+    from = compile_item(r.from, map, :re)
+    before = compile_item(r.before, map, :re) if r.before
+    after = compile_item(r.after, map, :re) if r.after
+    not_before = compile_item(r.not_before, map, :re) if r.not_before
+    not_after = compile_item(r.not_after, map, :re) if r.not_after
 
     re = ""
     re += "(?<=#{before})" if before
@@ -86,14 +86,14 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
     re
   end
 
-  def compile_item i, target=nil, doc=@map
+  def compile_item i, doc=@map, target=nil
     out = case i
     when Interscript::Node::Item::Alias
       if i.map
-        d = doc.dep_aliases[i.stage.map].document
+        d = d.dep_aliases[i.stage.map].document
         a = d.imported_aliases[i.name]
         raise ArgumentError, "Alias #{i.name} of #{i.stage.map} not found" unless a
-        compile_item(a.data, target, d)
+        compile_item(a.data, d, target)
       elsif Interscript::Stdlib::ALIASES.include?(i.name)
         if target != :re && Interscript::Stdlib.re_only_alias?(i.name)
           raise ArgumentError, "Can't use #{i.name} in a #{target} context"
@@ -109,7 +109,7 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
       else
         a = doc.imported_aliases[i.name]
         raise ArgumentError, "Alias #{i.name} not found" unless a
-        compile_item(a.data, target, doc)
+        compile_item(a.data, doc, target)
       end
     when Interscript::Node::Item::String
       if target == :str
@@ -123,7 +123,7 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
       if target == :par
         raise NotImplementedError, "Can't concatenate in parallel mode yet"
       else
-        i.children.map { |j| compile_item(j, target, doc) }.join
+        i.children.map { |j| compile_item(j, doc, target) }.join
       end
     when Interscript::Node::Item::Any
       if target == :str
@@ -133,7 +133,7 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
       elsif target == :re
         case i.value
         when Array
-          data = i.data.map { |j| compile_item(j, target, doc) }
+          data = i.data.map { |j| compile_item(j, doc, target) }
           "(?:"+data.join("|").gsub("])|(?:[", '').gsub("]|[", '')+")"
         when String
           "[#{Regexp.escape(i.value)}]"
