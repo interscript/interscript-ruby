@@ -4,6 +4,7 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
   def compile(map, stage=:main)
     @map = map
     stage = @map.stages[stage]
+    @parallel_trees = {}
     @code = compile_rule(stage, true)
   end
 
@@ -14,6 +15,7 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
       if wrapper
         c = "require 'interscript/stdlib'\n"
         c += "if !defined?(Interscript::Maps); module Interscript; module Maps\n"
+        c += "module Cache; end\n"
         c += "@maps = {}\n"
         c += "def self.has_map?(name);         @maps.include?(name); end\n"
         c += "def self.add_map(name,&block);   @maps[name] = block; end\n"
@@ -25,7 +27,13 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
       r.children.each do |t|
         c += compile_rule(t)
       end
-      c += "end\n" if wrapper
+      if wrapper
+        c += "end\n"
+
+        @parallel_trees.each do |k,v|
+          c += "Interscript::Maps::Cache::PTREE_#{k} ||= #{v.inspect}\n"
+        end
+      end
     when Interscript::Node::Group::Parallel
       h = {}
       r.children.each do |i|
@@ -37,7 +45,12 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
 
         h[compile_item(i.from, :par)] = compile_item(i.to, :par)
       end
-      c += "s = Interscript::Stdlib.parallel_replace(s, #{h.inspect})\n"
+      hh = h.hash.abs
+      unless @parallel_trees.include? hh
+        tree = Interscript::Stdlib.parallel_replace_compile_tree(h)
+        @parallel_trees[hh] = tree
+      end
+      c += "s = Interscript::Stdlib.parallel_replace_tree(s, Interscript::Maps::Cache::PTREE_#{hh})\n"
     when Interscript::Node::Rule::Sub
       from = Regexp.new(build_regexp(r)).inspect
       to = compile_item(r.to, :str)

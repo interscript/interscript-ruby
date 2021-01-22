@@ -20,26 +20,72 @@ class Interscript::Stdlib
     ! %i[none space].include?(a)
   end
 
-  @recache = {}
+  @treecache = {}
 
-  def self.parallel_replace(str, hash)
-    if @recache[hash.hash]
-      re, newhash = @recache[hash.hash]
+  def self.parallel_replace_compile_tree(hash)
+    hh = hash.hash
+    if @treecache[hh]
+      tree = @treecache[hh]
     else
-      newhash = {}
-      hash.map do |k,v|
-        if String === k
-          newhash[k] = v
-        elsif Array === k
-          k.each { |kk| newhash[kk] = v }
+      tree = {}
+      hash.each do |from, to|
+        from = Array(from)
+        from.each do |f|
+          branch = tree
+          chars = f.split("")
+          chars[0..-2].each do |c|
+            branch[c.ord] ||= {}
+            branch = branch[c.ord]
+          end
+          branch[chars.last.ord] ||= {}
+          branch[chars.last.ord][nil] = to
         end
       end
-      re = Regexp.union(newhash.keys.sort_by(&:length).reverse)
-      @recache[hash.hash] = [re, newhash]
+      @treecache[hh] = tree
     end
-    str.gsub(re) do |i|
-      newhash[i]
+  end
+
+  def self.parallel_replace_tree(str, tree)
+    newstr = ""
+    len = str.length
+    i = 0
+    while i < len
+      c = str[i]
+
+      sub = ""
+      branch = tree
+      match, repl = nil, nil
+
+      j = 0
+      while j < len-i
+        cc = str[i+j]
+        if branch.include? cc.ord
+          branch = branch[cc.ord]
+          sub << cc
+          if branch.include? nil
+            match = sub
+            repl = branch[nil]
+          end
+          j += 1
+        else
+          break
+        end
+      end
+
+      if match
+        i += match.length
+        newstr << repl
+      else
+        newstr << c
+        i += 1
+      end
     end
+    newstr
+  end
+
+  def self.parallel_replace(str, hash)
+    tree = parallel_replace_compile_tree(hash)
+    parallel_replace_tree(str, tree)
   end
 
   def self.available_functions

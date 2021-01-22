@@ -1,2 +1,4 @@
 class Interscript::Node::Group::Parallel < Interscript::Node::Group
+  # A place for Interpreter to store a compiled form of the tree
+  attr_accessor :cached_tree
 end
