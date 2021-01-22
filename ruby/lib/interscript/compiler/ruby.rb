@@ -1,27 +1,31 @@
+$main_binding = binding
+
 class Interscript::Compiler::Ruby < Interscript::Compiler
   def compile(map, stage=:main)
     @map = map
-    @loaded = false
     stage = @map.stages[stage]
     @code = compile_rule(stage, true)
   end
+
   def compile_rule(r, wrapper = false)
     c = ""
     case r
     when Interscript::Node::Stage
       if wrapper
-      c = "require 'interscript/stdlib'\n"
-      c += "if !defined?(Interscript::Maps); module Interscript; module Interscript::Maps\n"
-      c += "@@maps = {}\n"
-      c += "def self.add_map(name,proc);     @@maps[name] = proc; end\n"
-      c += "def self.transcribe(map,string); @@maps[map].call(string); end\n"
-      c += "end;end;end\n"
-      c += "Interscript::Maps.add_map(\"#{@map.name}\", Proc.new{|s| \n"
+        c = "require 'interscript/stdlib'\n"
+        c += "if !defined?(Interscript::Maps); module Interscript; module Maps\n"
+        c += "@maps = {}\n"
+        c += "def self.has_map?(name);         @maps.include?(name); end\n"
+        c += "def self.add_map(name,&block);   @maps[name] = block; end\n"
+        c += "def self.transcribe(map,string); @maps[map].(string); end\n"
+        c += "end; end; end\n"
+        c += "Interscript::Maps.add_map \"#{@map.name}\" do |s|\n"
+        c += "s = s.dup\n"
       end
       r.children.each do |t|
         c += compile_rule(t)
       end
-      c += "s })" if wrapper
+      c += "end\n" if wrapper
     when Interscript::Node::Group::Parallel
       h = {}
       r.children.each do |i|
@@ -33,11 +37,11 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
 
         h[compile_item(i.from, :par)] = compile_item(i.to, :par)
       end
-      c += "s = ::Interscript::Stdlib.parallel_replace(s, #{h.inspect})\n"
+      c += "s = Interscript::Stdlib.parallel_replace(s, #{h.inspect})\n"
     when Interscript::Node::Rule::Sub
       from = Regexp.new(build_regexp(r)).inspect
       to = compile_item(r.to, :str)
-      c += "s = s.gsub(#{from}, #{to})\n"
+      c += "s.gsub!(#{from}, #{to})\n"
     when Interscript::Node::Rule::Funcall
       c += "s = Interscript::Stdlib::Functions.#{r.name}(s, #{r.kwargs.inspect[1..-2]})\n"
     when Interscript::Node::Rule::Run
@@ -128,8 +132,8 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
   end
 
   def call(str)
-    if !@loaded
-      eval(@code)
+    if !defined?(Interscript::Maps) || !Interscript::Maps.has_map?(@map.name)
+      eval(@code, $main_binding)
     end
 
     Interscript::Maps.transcribe(@map.name, str)

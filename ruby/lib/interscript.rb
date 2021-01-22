@@ -25,12 +25,10 @@ module Interscript
     end
 
     # Transliterates the string.
-    def transliterate(system_code, string, maps={})
+    def transliterate(system_code, string, maps={}, compiler: Interscript::Interpreter)
       # The current best implementation is Interpreter
-      impl = Interscript::Interpreter
-
-      maps[system_code] ||= impl.(system_code)
-      maps[system_code].(string)
+      maps[[system_code, compiler.name]] ||= compiler.(system_code)
+      maps[[system_code, compiler.name]].(string)
     end
 
     def transliterate_file(system_code, input_file, output_file, maps={})
