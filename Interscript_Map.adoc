@@ -302,6 +302,30 @@ end
 The external call is not defined yet. It exists for compatibility with older
 maps.
 
+Question: shouldn't they be implemented using standard library functions?
+
+=== Standard library functions
+
+There are certain conversions that may be hard to be achieved using stages, those
+are implemented in respective standard libraries using programming languages.
+
+For a function named `title_case`, it can be called with the following:
+
+[source,ruby]
+----
+stage do
+  title_case
+end
+----
+
+==== List of standard library functions
+
+[options="header"]
+|===
+| Function name          | Sample input          | Sample output
+| `title_case`           | example string        | Example String
+|===
+
 == Items
 
 Interscript doesn't work purely on Strings, even though Strings are mostly
