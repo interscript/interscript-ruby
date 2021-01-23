@@ -28,6 +28,7 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
         c += compile_rule(t, map)
       end
       if wrapper
+        c += "s\n"
         c += "end\n"
 
         @parallel_trees.each do |k,v|
@@ -90,7 +91,7 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
     out = case i
     when Interscript::Node::Item::Alias
       if i.map
-        d = d.dep_aliases[i.stage.map].document
+        d = doc.dep_aliases[i.map].document
         a = d.imported_aliases[i.name]
         raise ArgumentError, "Alias #{i.name} of #{i.stage.map} not found" unless a
         compile_item(a.data, d, target)
@@ -134,7 +135,7 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
         case i.value
         when Array
           data = i.data.map { |j| compile_item(j, doc, target) }
-          "(?:"+data.join("|").gsub("])|(?:[", '').gsub("]|[", '')+")"
+          "(?:"+data.join("|")+")"
         when String
           "[#{Regexp.escape(i.value)}]"
         when Range
@@ -144,7 +145,9 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
     end
   end
 
-  def call(str)
+  def call(str, stage=:main)
+    raise ArgumentError, "Calling other stages than :main is not supported for Compiler::Ruby" unless stage == :main
+
     if !defined?(Interscript::Maps) || !Interscript::Maps.has_map?(@map.name)
       eval(@code, $main_binding)
     end

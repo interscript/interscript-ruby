@@ -1,19 +1,25 @@
 require "timeout"
-require "interscript/compiler/ruby"
+
+cache = {}
+mask = ENV["TRANSLIT_SYSTEM"] || "*"
+maps = Interscript.maps(select: mask)
+
+# Precache can be used to compare interpreter to compiler performance
+if ENV.include? "PRECACHE"
+  each_compiler do |compiler|
+    system_name = File.basename(system_file, ".imp")
+    Interscript.transliterate(system_name, "", cache, compiler: compiler)
+  end
+end
 
 RSpec.describe Interscript do
-  [Interscript::Interpreter, Interscript::Compiler::Ruby].each do |compiler|
-    context compiler do
-      mask = ENV["TRANSLIT_SYSTEM"] || "*"
-      maps = Interscript.maps(select: mask)
-
+  each_compiler do |compiler|
+    describe compiler do
       maps.each do |system_file|
         system_name = File.basename(system_file, ".imp")
         context "#{system_name} system" do
           begin
             system = Interscript.parse(system_name)
-
-            cache = {}
 
             if system.tests && system.tests.data
               system.tests.data.each do |from,expected|

@@ -61,7 +61,7 @@ stage {
 # There may be more than 1 stage, the other stages need to have a name. The
 # default stage name is `main`. A name can't happen more than once in a document.
 
-stage named_stage {
+stage(stage_name) {
   # A stage description comes here
 }
 ----

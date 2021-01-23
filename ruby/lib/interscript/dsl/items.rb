@@ -41,7 +41,7 @@ module Interscript::DSL::Items
     # Implementation of `map[:x][:alias]`
     def [] alias_name
       Symbol === alias_name or raise TypeError, "An alias name must be a Symbol, not #{alias_name.class}"
-      Interscript::Node::Item::Alias.new(alias_name, map: name)
+      Interscript::Node::Item::Alias.new(alias_name, map: @name)
     end
     alias method_missing []
 

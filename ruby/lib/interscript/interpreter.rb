@@ -76,7 +76,7 @@ class Interscript::Interpreter < Interscript::Compiler
       out = case i
       when Interscript::Node::Item::Alias
         if i.map
-          d = doc.dep_aliases[i.stage.map].document
+          d = doc.dep_aliases[i.map].document
           a = d.imported_aliases[i.name]
           raise ArgumentError, "Alias #{i.name} of #{i.stage.map} not found" unless a
           build_item(a.data, target, d)
@@ -111,7 +111,7 @@ class Interscript::Interpreter < Interscript::Compiler
           case i.value
           when Array
             data = i.data.map { |j| build_item(j, target, doc) }
-            "(?:"+data.join("|").gsub("])|(?:[", '').gsub("]|[", '')+")"
+            "(?:"+data.join("|")+")"
           when String
             "[#{Regexp.escape(i.value)}]"
           when Range

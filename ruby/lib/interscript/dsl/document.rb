@@ -5,6 +5,7 @@ class Interscript::DSL::Document
 
   def initialize(&block)
     @node = Interscript::Node::Document.new
+    self.instance_exec &block if block_given?
   end
 
   def metadata(&block)
