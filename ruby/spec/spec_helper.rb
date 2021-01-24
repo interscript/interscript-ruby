@@ -1,3 +1,7 @@
+if ENV.include? "COVERAGE"
+  require 'simplecov'
+  SimpleCov.start
+end
 require "bundler/setup"
 require "interscript"
 require "interscript/compiler/ruby"
