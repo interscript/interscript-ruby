@@ -10,6 +10,8 @@ module Interscript
     end
 
     def locate map_name
+      map_name = map_aliases[map_name] if map_aliases.include? map_name
+
       load_path.each do |i|
         # iml is an extension for a library, imp for a map
         ["iml", "imp"].each do |ext|
@@ -43,14 +45,34 @@ module Interscript
       output_file
     end
 
+    def map_gems
+      @map_gems ||= Gem.find_latest_files('interscript-maps.yaml').map do |i|
+        [i, YAML.load_file(i)]
+      end.to_h
+    end
+
     def map_locations
-      Gem.find_latest_files('interscript-maps.yaml').map do |i|
-        YAML.load_file(i)["paths"].map do |j|
+      @map_locations ||= map_gems.map do |i,v|
+        v["paths"].map do |j|
           File.expand_path(j, File.dirname(i))
         end
       end.flatten
     end
 
+    def map_aliases
+      return @map_aliases if @map_aliases
+
+      @map_aliases = {}
+      map_gems.each do |i,v|
+        (v["aliases"] || {}).each do |code, value|
+          value.each do |al, map|
+            @map_aliases[al] = map["alias_to"]
+          end
+        end
+      end
+      @map_aliases
+    end
+    
     # List all possible maps to use
     def maps(load_path: false, select: "*")
       if load_path

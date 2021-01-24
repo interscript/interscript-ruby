@@ -4,3 +4,12 @@
 paths:
   - libs
   - maps
+
+# This part registers aliases. Those were previously a part of maps themselves,
+# moving this here saves us from a burden of having to load all the maps to 
+# locate one that we are tyring to access.
+aliases:
+  ogc11122:
+    kor_Hang2Latn_MOCT_2000:
+      description: Korean Ministry of Culture and Tourism 2000 System
+      alias_to: moct-kor-Hang-Latn-2000
