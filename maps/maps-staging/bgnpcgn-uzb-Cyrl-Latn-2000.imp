@@ -34,6 +34,7 @@ tests {
   test "Карами Хакка нихоят йукдур", "Karami Xakka nixoyat yukdur"
   test "Йахши", "Yaxshi"
   test "Тутук белгись", "Tutuk belgis’"
+  test "ПАПАПАЧУКА Респект!", "PAPAPACHUKA Respekt!"
 }
 
 __END__

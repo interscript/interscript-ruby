@@ -113,12 +113,12 @@ old_maps.shuffle.each do |old_map|
     tests.each do |i|
       ni = await + i
       case ni
-      when /\A  .*? \|/
+      when /\A  .*? \|\z/
         raise MultilineError
-      when /\A(?:  )?  - source: (.*?)(\s*#.*?)?\z/
+      when /\A(?:  ){0,2}- source: (.*?)(\s*#.*?)?\z/
         new << "  test #{YAML.load($1).inspect}, "
         cmt = $2 if $2
-      when /\A(?:  )?    expected:[ \t](.*?)(\s*#.*?)?\z/
+      when /\A(?:  ){0,3}expected:[ \t](.*?)(\s*#.*?)?\z/
         new << "#{YAML.load($1).inspect}"
         new << cmt
         new << $2 if $2
@@ -133,8 +133,10 @@ old_maps.shuffle.each do |old_map|
       end
       await = ""
     rescue Psych::SyntaxError, MultilineError
-      await << i
+      i = i.lstrip
+      await << i << "\n"
     end
+    p await if await != ''
     new << "}\n\n"
   end
 

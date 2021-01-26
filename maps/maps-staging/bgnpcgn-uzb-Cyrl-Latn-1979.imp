@@ -25,6 +25,7 @@ tests {
   test "Карами Хакка нихоят йукдур", "Karami Khakka nikhoyat yukdur"
   test "Йахши", "Yakhshi"
   test "Тутук белгись", "Tutuk belgisʼ"
+  test "ПАПАПАЧУКА Респект!", "PAPAPACHUKA Respekt!"
 }
 
 __END__

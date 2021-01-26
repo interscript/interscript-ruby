@@ -78,6 +78,12 @@ tests {
   test "র্ক", "rka"
   test "গ্র", "gra"
   test "ত্য", "tya"
+  # Note: There are still couple of improvements we can do in the
+  # transilation system, but for now this could work
+  #
+  # But please revisit this - specially the use case of `য়`, it's adding
+  # some mixed character in the text.
+  #
 }
 
 __END__

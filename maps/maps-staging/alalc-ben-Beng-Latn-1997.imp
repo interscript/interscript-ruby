@@ -36,6 +36,18 @@ metadata {
 }
 
 tests {
+  test "ট্রাম্প-বাইডেন মহারণ: জয় দাবি দুজনেরই", "ṭrāmpa-bāiḍena mahāraṇa: jaẏa dābi dujanerai"
+  test "রিপাবলিকান গভর্নর ডগ ডসি বলেছেন, ফলাফল নিয়ে এখনই কথা বলার সময় আসেনি।", "ripābalikāna gabharnara ḍaga ḍasi balechena, phalāphala niẏe ekhanai kathā balāra samaẏa āseni।"
+  test "অনেক আগে থেকেই ট্রাম্প ফ্লোরিডায় জিতে গেছেন বলে গণমাধ্যমগুলোতে তুলে ধরা হচ্ছে", "aneka āge thekei ṭrāmpa phloriḍāẏa jite gechena bale gaṇamādhyamagulote tule dharā hacche"
+  test "করোনায় আরও ২১ মৃত্যু, নতুন শনাক্ত ১৫১৭", "karonāẏa ārao 21 mṛtyu, natuna śanākta 1517"
+  test "শালিক পাখিকে পোষ মানানোর মতো কঠিন কাজ করা কিশোর রোহানের বাড়ি কুষ্টিয়া শহরের পিটিআই সড়কে।", "śālika pākhike posha mānānora mato kaṭhina kāja karā kiśora rohānera bāṛi kushṭiẏā śaharera piṭiāi saṛake।"
+  test "সুইং স্টেটের সর্বশেষ অবস্থা দেখে মনে হচ্ছে, দুজনের ভাগ্য দুলছে পেন্ডুলামে।", "suiṃ sṭeṭera sarbaśesha abasthā dekhe mane hacche, dujanera bhāgya dulache penḍulāme।"
+  test "২০১৬ সালের নির্বাচনে বহিরাগত হিসেবেই ডোনাল্ড ট্রাম্পের রাজনীতিতে আগমন", "2016 sālera nirbācane bahirāgata hisebei ḍonālḍa ṭrāmpera rājanītite āgamana"
+  test "কই সঙ্গে রাজনীতির পাদপ্রদীপ থেকে সম্পূর্ণ বাইরে থাকা তাঁর পরিবারও চলে আসে রাজনীতির আলোচনায়", "kai saṅge rājanītira pādapradīpa theke sampūrṇa bāire thākā tān̐ra paribārao cale āse rājanītira ālocanāẏa"
+  test "নির্বাচনী প্রচারের সময় প্রেসিডেন্ট ডোনাল্ড ট্রাম্পের পরিবারের সদস্যরা মাঠে নেমেছেন", "nirbācanī pracārera samaẏa presiḍenṭa ḍonālḍa ṭrāmpera paribārera sadasyarā māṭhe nemechena"
+  test "তাঁরা সমর্থকদের উদ্দেশ্যে বলেছেন, এ নির্বাচন শুধু প্রেসিডেন্ট ডোনাল্ড ট্রাম্পের প্রতি নয়", "tān̐rā samarthakadera uddeśye balechena, e nirbācana śudhu presiḍenṭa ḍonālḍa ṭrāmpera prati naẏa"
+  test "স্মার্টফোন কিনতে ৮ হাজার করে ঋণ পাবেন ৪১৫০১ শিক্ষার্থী", "smārṭaphona kinate 8 hājāra kare ṛṇa pābena 41501 śikshārthī"
+  test "বার্সা সমর্থকদের নিয়ে উদ্‌যাপনের কথা গিলতে হলো ভিদালকে", "bārsā samarthakadera niẏe ud‌yāpanera kathā gilate halo bhidālake"
 }
 
 __END__

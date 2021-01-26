@@ -27,6 +27,15 @@ metadata {
 }
 
 tests {
+  test "ЁЖ Ёж ёж", "EZH Ezh ezh"
+  test "Цветущий сад", "Tsvetushchiy sad"
+  test "Чувство юмора", "Chuvstvo yumora"
+  test "Широкий выбор", "Shirokiy vibor"
+  test "Все подъезды заблокированны", "Vse podezdi zablokirovanni"
+  test "Ожерелье", "Ozherelye"
+  test "Ручьи", "Ruchyi"
+  test "Каньон", "Kanyon"
+  test "Бельэтаж", "Belyetazh"
 }
 
 __END__

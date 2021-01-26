@@ -36,6 +36,18 @@ tests {
   test "руська бисіда", "rus'ka bysida"
   test "руснацькый язык", "rusnac'kyj yazyk"
   test "руски язик", "rusky yazyk"
+  # Based on http://www.philology.ru/linguistics3/suprun-89.htm
+  test "шнїг", "šnjig"
+  test "жем", "žem"
+  test "дзень", "dzen'"
+  test "спомнуц", "spomnuc"
+  test "крава", "krava"
+  # Based on https://lingvoforum.net/index.php?topic=43545.0
+  test "дївка", "djivka"
+  test "дрыв", "dryv"
+  test "фёрд", "fjord"
+  test "Ёзеф", "Jozef"
+  test "пастырї", "pastyrji"
 }
 
 __END__

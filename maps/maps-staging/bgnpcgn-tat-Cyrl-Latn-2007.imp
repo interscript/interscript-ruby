@@ -51,6 +51,18 @@ tests {
   test "баеды", "bayıdı" # note[4]
   test "кардәш", "qardəş"
   test "калынлык һәм аеру билгесе", "qalınlıq həm ayıru bilgese" # note[4]
+  # https://www.azatliq.org/a/30820571.html
+  test "Әлдермештән Әлмәндәр", "Əldermeştən Əlməndər"
+  test "Әссәламү галәйкүм", "Əssəlamü ğaləyküm"
+  test "Танымаган кешегә", "Tanımağan keşegə" # note[3]
+  test "Иң әүвәл кул бирешеп күрешик", "İꞑ əwwəl qul bireşep küreşiq" # note[5]
+  test "Ялгышмыйсың", "Yalğışmıysıꞑ"
+  test "Нәкъ үзе", "Nəq üze"
+  test "Кирәгеннән артыгын", "Kirəgennən artığın" # note[3]
+  test "мәңгелеккә килмәгән", "məꞑgeleqkə kilməgən"
+  test "кулыңны куй", "qulıꞑnı quy"
+  test "Өммия", "Ommiä" # note[8]
+  test "Җиһангир", "Cihangir" # note[3]
 }
 
 __END__

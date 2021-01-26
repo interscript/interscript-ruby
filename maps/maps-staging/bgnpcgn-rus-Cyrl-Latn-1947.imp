@@ -52,6 +52,23 @@ metadata {
 }
 
 tests {
+  test "ДЛИННОЕ ПОКРЫВАЛО", "DLINNOYE POKRYVALO"
+  test "Еловая шишка", "Yelovaya shishka"
+  test "ЕЛОВАЯ ШИШКА", "YELOVAYA SHISHKA"
+  test "Длинное покрывало", "Dlinnoye pokryvalo"
+  test "В лесу еловые шишки", "V lesu yelovyye shishki"
+  test "OН ВИДЕЛ ЕЁ В ПЕРВЫЙ РАЗ", "ON VIDEL YEYË V PERVYY RAZ"
+  test "Ёж колючий", "Yëzh kolyuchiy"
+  test "ЁЖ КОЛЮЧИЙ", "YËZH KOLYUCHIY"
+  test "Он видел её в первый раз", "On videl yeyë v pervyy raz"
+  test "У ёжа колючки", "U yëzha kolyuchki"
+  test "ЙА Йа йа", "Y·A Y·a y·a"
+  test "ЫУ Ыу ыу", "Y·U Y·u y·u"
+  test "ОЫ Оы оы", "O·Y O·y o·y"
+  test "ОЫУ Оыу оыу", "O·Y·U O·y·u o·y·u"
+  test "СЭ Сэ сэ", "S·E S·e s·e"
+  test "ТС тс Тс тС", "T·S t·s T·s t·S"
+  test "ШЧ шч Шч шЧ", "SH·CH sh·ch Sh·ch sh·Ch"
 }
 
 __END__
