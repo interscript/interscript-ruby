@@ -17,6 +17,8 @@ metadata {
 tests {
   # from internet
   test "Азәрбајҹан дили", "Azărbaı̐jan dili"
+  test "Бүтүн инсанлар ләјагәт вә һүгугларына ҝөрә азад вә бәрабәр доғулурлар.\nОнларын шүурлары вә виҹданлары вар вә бир-бирләринә мүнасибәтдә гардашлыг руһунда давранмалыдырлар.", "Bu̇tu̇n insanlar lăı̐agăt vă ḣu̇guglaryna ġȯră azad vă bărabăr doghulurlar.\nOnlaryn shu̇urlary vă vijdanlary var vă bir-birlărină mu̇nasibătdă gardashlyg ruḣunda davranmalydyrlar."
+  test "Азәрбајҹан! Азәрбајҹан!\nЕј гәһрәман өвладын шанлы Вәтәни!\nСәндән өтрү ҹан вермәјә ҹүмлә һазырыз!\nСәндән өтрү ган төкмәјә ҹүмлә гадириз!\nҮчрәнҝли бајрағынла мәсуд јаша!\nҮчрәнҝли бајрағынла мәсуд јаша!\nМинләрлә ҹан гурбан олду,\nСинән һәрбә мејдан олду!\nҺүгугундан кечән әсҝәр,\nҺәрә бир гәһрәман олду!\nСән оласан ҝүлүстан,\nСәнә һәр ан ҹан гурбан!\nСәнә мин бир мәһәббәт\nСинәмдә тутмуш мәкан!\nНамусуну һифз етмәјә,\nБајрағыны јүксәлтмәјә\nНамусуну һифз етмәјә,\nҸүмлә ҝәнҹләр мүштагдыр!\nШанлы Вәтән! Шанлы Вәтән!\nАзәрбајҹан! Азәрбајҹан!\nАзәрбајҹан! Азәрбајҹан!", "Azărbaı̐jan! Azărbaı̐jan!\nEı̐ găḣrăman ȯvladyn shanly Vătăni!\nSăndăn ȯtru̇ jan vermăı̐ă ju̇mlă ḣazyryz!\nSăndăn ȯtru̇ gan tȯkmăı̐ă ju̇mlă gadiriz!\nU̇chrănġli baı̐raghynla măsud ı̐asha!\nU̇chrănġli baı̐raghynla măsud ı̐asha!\nMinlărlă jan gurban oldu,\nSinăn ḣărbă meı̐dan oldu!\nḢu̇gugundan kechăn ăsġăr,\nḢără bir găḣrăman oldu!\nSăn olasan ġu̇lu̇stan,\nSănă ḣăr an jan gurban!\nSănă min bir măḣăbbăt\nSinămdă tutmush măkan!\nNamusunu ḣifz etmăı̐ă,\nBaı̐raghyny ı̐u̇ksăltmăı̐ă\nNamusunu ḣifz etmăı̐ă,\nJu̇mlă ġănjlăr mu̇shtagdyr!\nShanly Vătăn! Shanly Vătăn!\nAzărbaı̐jan! Azărbaı̐jan!\nAzărbaı̐jan! Azărbaı̐jan!\n"
 }
 
 __END__

@@ -36,6 +36,7 @@ metadata {
 }
 
 tests {
+  test "আমার সোনার বাংলা, আমি তোমায় ভালোবাসি।\nচিরদিন তোমার আকাশ, তোমার বাতাস, আমার প্রাণে বাজায় বাঁশি॥\nও মা, ফাগুনে তোর আমের বনে ঘ্রাণে পাগল করে, মরি হায়, হায় রে—\nও মা, অঘ্রাণে তোর ভরা ক্ষেতে আমি কী দেখেছি মধুর হাসি॥\n\nকী শোভা, কী ছায়া গো, কী স্নেহ, কী মায়া গো—\nকী আঁচল বিছায়েছ বটের মূলে, নদীর কূলে কূলে।\nমা, তোর মুখের বাণী আমার কানে লাগে সুধার মতো,\nমরি হায়, হায় রে—\nমা, তোর বদনখানি মলিন হলে, ও মা, আমি নয়নজলে ভাসি॥\n", "āmāra sonāra bāṃlā, āmi tomāẏa bhālobāsi।\nciradina tomāra ākāśa, tomāra bātāsa, āmāra prāṇe bājāẏa bān̐śi॥\no mā, phāgune tora āmera bane ghrāṇe pāgala kare, mari hāẏa, hāẏa re—\no mā, aghrāṇe tora bharā kshete āmi kī dekhechi madhura hāsi॥\n\nkī śobhā, kī chāyaṛā go, kī sneha, kī māyaṛā go—\nkī ām̐cala bichāyaṛecha baṭera mūle, nadīra kūle kūle।\nmā, tora mukhera bāṇī āmāra kāne lāge sudhāra mato,\nmari hāẏa, hāẏa re—\nmā, tora badanakhāni malina hale, o mā, āmi naẏanajale bhāsi॥"
   test "ট্রাম্প-বাইডেন মহারণ: জয় দাবি দুজনেরই", "ṭrāmpa-bāiḍena mahāraṇa: jaẏa dābi dujanerai"
   test "রিপাবলিকান গভর্নর ডগ ডসি বলেছেন, ফলাফল নিয়ে এখনই কথা বলার সময় আসেনি।", "ripābalikāna gabharnara ḍaga ḍasi balechena, phalāphala niẏe ekhanai kathā balāra samaẏa āseni।"
   test "অনেক আগে থেকেই ট্রাম্প ফ্লোরিডায় জিতে গেছেন বলে গণমাধ্যমগুলোতে তুলে ধরা হচ্ছে", "aneka āge thekei ṭrāmpa phloriḍāẏa jite gechena bale gaṇamādhyamagulote tule dharā hacche"

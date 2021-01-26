@@ -18,6 +18,7 @@ metadata {
 }
 
 tests {
+  test "Ένα πράμα μόνον με παρακίνησε κι εμένα να γράψω ότι τούτην την πατρίδα την έχομεν όλοι μαζί, και σοφοί κι αμαθείς και πλούσιοι και φτωχοί και πολιτικοί και στρατιωτικοί και οι πλέον μικρότεροι άνθρωποι· όσοι αγωνιστήκαμεν, αναλόγως ο καθείς, έχομεν να ζήσομεν εδώ. Το λοιπόν δουλέψαμεν όλοι μαζί, να την φυλάμεν κι όλοι μαζί και να μην λέγει ούτε ο δυνατός «εγώ» ούτε ο αδύνατος. Ξέρετε πότε να λέγει ο καθείς «εγώ»; Όταν αγωνιστεί μόνος του και φκιάσει ή χαλάσει, να λέγει «εγώ»· όταν όμως αγωνίζονται πολλοί και φκιάνουν, τότε να λένε «εμείς». Είμαστε εις το «εμείς» κι όχι εις το «εγώ». Και εις το εξής να μάθομεν γνώση, αν θέλομεν να φκιάσομεν χωριόν, να ζήσομεν όλοι μαζί.\n\nΓιάννης Μακρυγιάννης.\n", "Ena prama monon me parakinēse ki emena na grapsō oti toutēn tēn patrida tēn echomen oloi mazi, kai sophoi ki amatheis kai plousioi kai phtōchoi kai politikoi kai stratiōtikoi kai oi pleon mikroteroi anthrōpoi; osoi agōnistēkamen, analogōs o katheis, echomen na zēsomen edō. To loipon doulepsamen oloi mazi, na tēn phylamen ki oloi mazi kai na mēn legei oute o dynatos «egō» oute o adynatos. Xerete pote na legei o katheis «egō»? Otan agōnistei monos tou kai phkiasei ē chalasei, na legei «egō»; otan omōs agōnizontai polloi kai phkianoun, tote na lene «emeis». Eimaste eis to «emeis» ki ochi eis to «egō». Kai eis to exēs na mathomen gnōsē, an thelomen na phkiasomen chōrion, na zēsomen oloi mazi.\n\nGiannēs Makrygiannēs.\n"
   test "ΑΘΗΝΑ", "ATHĒNA"
   test "μπαμπάκι", "bampaki"
   test "νταντά", "ḏanta"

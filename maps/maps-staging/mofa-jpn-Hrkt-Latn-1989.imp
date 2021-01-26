@@ -72,10 +72,10 @@ tests {
   test "タカトウ", "TAKATO"  # 高藤
   test "ミソノウ", "MISONO"  # 御園生
   # 「ヴ」のつく氏名例
-  test "ヴィヴィアン",   #expected: "BUIBUIAN"
-"BIBIAN"  # ヴィヴィアン
-  test "ヴォードレール",   #expected: "BUODORERU"
-"BODORERU"  # ヴォードレール
+  test "ヴィヴィアン", "BIBIAN"  # ヴィヴィアン
+    #expected: "BUIBUIAN"
+  test "ヴォードレール", "BODORERU"  # ヴォードレール
+    #expected: "BUODORERU"
 }
 
 __END__

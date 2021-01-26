@@ -51,6 +51,7 @@ tests {
   test "баеды", "bayıdı" # note[4]
   test "кардәш", "qardəş"
   test "калынлык һәм аеру билгесе", "qalınlıq həm ayıru bilgese" # note[4]
+  test "Барлык кешеләр дә азат һәм үз абруйлары һәм хокуклары ягыннан тиң булып туалар.\nАларга акыл һәм вөҗдан бирелгән һәм бер-берсенә карата туганнарча мөнасәбәттә булырга тиешләр.", "Barlıq keşelər də azat həm üz abruyları həm xoquqları yağınnan tiꞑ bulıp tualar.\nAlarğa aqıl həm wocdan birelgən həm ber-bersenə qarata tuğannarça monasəbəttə bulırğa tieşlər."
   # https://www.azatliq.org/a/30820571.html
   test "Әлдермештән Әлмәндәр", "Əldermeştən Əlməndər"
   test "Әссәламү галәйкүм", "Əssəlamü ğaləyküm"

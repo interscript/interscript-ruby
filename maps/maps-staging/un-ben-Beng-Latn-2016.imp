@@ -78,12 +78,14 @@ tests {
   test "র্ক", "rka"
   test "গ্র", "gra"
   test "ত্য", "tya"
-  # Note: There are still couple of improvements we can do in the
-  # transilation system, but for now this could work
-  #
-  # But please revisit this - specially the use case of `য়`, it's adding
-  # some mixed character in the text.
-  #
+  test "আমার সোনার বাংলা, আমি তোমায় ভালোবাসি।\nচিরদিন তোমার আকাশ, তোমার বাতাস, আমার প্রাণে বাজায় বাঁশি॥\nও মা, ফাগুনে তোর আমের বনে ঘ্রাণে পাগল করে, মরি হায়, হায় রে—\nও মা, অঘ্রাণে তোর ভরা ক্ষেতে আমি কী দেখেছি মধুর হাসি॥\n\nকী শোভা, কী ছায়া গো, কী স্নেহ, কী মায়া গো—\nকী আঁচল বিছায়েছ বটের মূলে, নদীর কূলে কূলে।\nমা, তোর মুখের বাণী আমার কানে লাগে সুধার মতো,\nমরি হায়, হায় রে—\nমা, তোর বদনখানি মলিন হলে, ও মা, আমি নয়নজলে ভাসি॥", "āmaāra saonaāra baāṁlaā, āmai taomaāj̱aA় bhaālaobaāsai।\nchairadaina taomaāra ākaāsha, taomaāra baātaāsa, āmaāra praāṇae baājaāj̱aA় baām̐shai॥\no maā, phaāgaunae taora āmaera banae ghraāṇae paāgala karae, marai haāj̱aA়, haāj̱aA় rae—\no maā, aghraāṇae taora bharaā kṣhaetae āmai kaī daekhaechhai madhaura haāsai॥\n\nkaī shaobhaā, kaī chhaāj̱aA়ā gao, kaī snaeha, kaī maāj̱aA়ā gao—\nkaī ām̐chala baichhaāj̱aA়echha baṭaera maūlae, nadaīra kaūlae kaūlae।\nmaā, taora maukhaera baāṇaī āmaāra kaānae laāgae saudhaāra matao,\nmarai haāj̱aA়, haāj̱aA় rae—\nmaā, taora badanakhaānai malaina halae, o maā, āmai naj̱aA়najalae bhaāsai॥\n"
+
+    # Note: There are still couple of improvements we can do in the
+    # transilation system, but for now this could work
+    #
+    # But please revisit this - specially the use case of `য়`, it's adding
+    # some mixed character in the text.
+    #
 }
 
 __END__

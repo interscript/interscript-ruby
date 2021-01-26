@@ -25,6 +25,7 @@ tests {
   test "Карами Хакка нихоят йукдур", "Karami Khakka nikhoyat yukdur"
   test "Йахши", "Yakhshi"
   test "Тутук белгись", "Tutuk belgisʼ"
+  test "Барча одамлар эркин, қадр-қиммат ва ҳуқуқларда тенг бўлиб туғиладилар.\nУлар ақл ва виждон соҳибидирлар ва бир-бирлари ила биродарларча муомала қилишлари зарур.", "Barcha odamlar erkin, qadr-qimmat wa huquqlarda teng bŭlib tughiladilar.\nUlar aql wa wizhdon sohibidirlar wa bir-birlari ila birodarlarcha muomala qilishlari zarur."
   test "ПАПАПАЧУКА Респект!", "PAPAPACHUKA Respekt!"
 }
 

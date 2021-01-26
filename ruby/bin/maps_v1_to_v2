@@ -109,34 +109,51 @@ old_maps.shuffle.each do |old_map|
   if tests.length > 0
     new << "tests {\n"
     cmt = ""
-    await = ""
-    tests.each do |i|
-      ni = await + i
-      case ni
-      when /\A  .*? \|\z/
-        raise MultilineError
-      when /\A(?:  ){0,2}- source: (.*?)(\s*#.*?)?\z/
+
+    iter = 0
+    while iter < tests.length; begin
+      test = tests[iter]
+
+      if test =~ /\A\s*#/
+        new << "  " << test.strip << "\n"
+        iter += 1
+        next
+      end
+
+      re_source = /\A(?:  ){0,2}- source: (.*?)(\s*#.*?)?\z/m
+      re_expect = /\A(?:  ){0,3}expected:[ \t](.*?)(\s*#.*?)?\z/m
+
+      if test.rstrip.end_with?("|") ||
+         (test =~ /"/ && !test.rstrip.end_with?('"'))
+        while iter < tests.length
+          xtest = tests[iter+1]
+          break if xtest =~ re_source || xtest =~ re_expect
+          test << "\n" << (xtest||"")
+          iter += 1
+        end
+      end
+
+      case test
+      when re_source
         new << "  test #{YAML.load($1).inspect}, "
         cmt = $2 if $2
-      when /\A(?:  ){0,3}expected:[ \t](.*?)(\s*#.*?)?\z/
+      when re_expect
         new << "#{YAML.load($1).inspect}"
         new << cmt
         new << $2 if $2
         new << "\n"
         cmt = ""
-      when /\A\s*#/
-        new << "  " << i.strip << "\n"
       when /\A\s*\z/
-        # ignore empty lines
+        # empty line, ignore
       else
-        p i
+        new << "\n# BUG: #{test}\n"
       end
-      await = ""
-    rescue Psych::SyntaxError, MultilineError
-      i = i.lstrip
-      await << i << "\n"
-    end
-    p await if await != ''
+
+      iter += 1
+    rescue Psych::SyntaxError
+      p test
+    end; end
+
     new << "}\n\n"
   end
 

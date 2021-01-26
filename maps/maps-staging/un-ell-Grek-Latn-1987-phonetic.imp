@@ -22,6 +22,7 @@ metadata {
 }
 
 tests {
+  test "Ένα πράμα μόνον με παρακίνησε κι εμένα να γράψω ότι τούτην την πατρίδα την έχομεν όλοι μαζί,\n\nκαι σοφοί κι αμαθείς και πλούσιοι και φτωχοί και πολιτικοί και στρατιωτικοί και οι πλέον μικρότεροι άνθρωποι·\n\nόσοι αγωνιστήκαμεν, αναλόγως ο καθείς, έχομεν να ζήσομεν εδώ.\n\nΤο λοιπόν δουλέψαμεν όλοι μαζί, να την φυλάμεν κι όλοι μαζί και να μην λέγει ούτε ο δυνατός «εγώ» ούτε ο αδύνατος.\n\nΞέρετε πότε να λέγει ο καθείς «εγώ»; Όταν αγωνιστεί μόνος του και φκιάσει ή χαλάσει, να λέγει «εγώ»·\n\nόταν όμως αγωνίζονται πολλοί και φκιάνουν, τότε να λένε «εμείς». Είμαστε εις το «εμείς» κι όχι εις το «εγώ».\n\nΚαι εις το εξής να μάθομεν γνώση, αν θέλομεν να φκιάσομεν χωριόν, να ζήσομεν όλοι μαζί.\n\nΓιάννης Μακρυγιάννης.\n", "ɛnɑ prɑmɑ monon mɛ pɑrɑkinisɛ ki ɛmɛnɑ nɑ ɣrɑpso oti tutin tin pɑtriðɑ tin ɛxomɛn oli mɑzi,\n\nkɛ sofi ki ɑmɑθis kɛ plusii kɛ ftoxi kɛ politiki kɛ strɑtiotiki kɛ i plɛon mikrotɛri ɑnθropi;\n\nosi ɑɣonistikɑmɛn, ɑnɑloɣos o kɑθis, ɛxomɛn nɑ zisomɛn ɛðo.\n\nto lipon ðulɛpsɑmɛn oli mɑzi, nɑ tin filɑmɛn ki oli mɑzi kɛ nɑ min lɛɣi utɛ o ðinɑtos «ɛɣo» utɛ o ɑðinɑtos.\n\nksɛrɛtɛ potɛ nɑ lɛɣi o kɑθis «ɛɣo»? otɑn ɑɣonisti monos tu kɛ fkiɑsi i xɑlɑsi, nɑ lɛɣi «ɛɣo»;\n\notɑn omos ɑɣonizondɛ poli kɛ fkiɑnun, totɛ nɑ lɛnɛ «ɛmis». imɑstɛ is to «ɛmis» ki oxi is to «ɛɣo».\n\nkɛ is to ɛksis nɑ mɑθomɛn ɣnosi, ɑn θɛlomɛn nɑ fkiɑsomɛn xorion, nɑ zisomɛn oli mɑzi.\n\nɣiɑnis mɑkriɣiɑnis.\n"
   test "ΑΘΗΝΑ", "ɑθinɑ"
   test "μπαμπάκι", "bɑmbɑki"
   test "νταντά", "dɑndɑ"

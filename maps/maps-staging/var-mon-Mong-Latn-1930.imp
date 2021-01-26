@@ -58,6 +58,7 @@ metadata {
 }
 
 tests {
+  test "ᠮᠠᠨ ᠤ ᠤᠯᠤᠰ ᠤᠨ ᠨᠡᠶᠢᠰᠯᠡᠯ ᠬᠣᠲᠠ ᠤᠯᠠᠭᠠᠨᠪᠠᠭᠠᠲᠤᠷ ᠪᠣᠯ 80 000 ᠰᠢᠬᠠᠮ ᠬᠦᠮᠦᠨ ᠲᠡᠢ᠂ ᠤᠯᠤᠰ ᠤᠨ ᠣᠯᠠᠨ ᠨᠡᠶᠢᠲᠡ ᠶᠢᠨ᠂ ᠠᠵᠤ ᠠᠬᠤᠢ ᠶᠢᠨ ᠲᠥᠪ ᠭᠠᠵᠠᠷ ᠤᠳ ᠣᠷᠣᠰᠢᠭᠰᠠᠨ ᠶᠡᠬᠡᠬᠡᠨ ᠣᠷᠣᠨ ᠪᠣᠯᠤᠨ᠎ᠠ᠃\nᠲᠤᠰ ᠤᠯᠤᠰ ᠤᠨ ᠳᠣᠲᠣᠷ᠎ᠠ ᠠᠴᠠ ᠭᠠᠷᠬᠤ ᠲᠦᠭᠦᠬᠡᠢ ᠵᠤᠶᠢᠯ ᠢ ᠪᠣᠯᠪᠠᠰᠤᠷᠠᠭᠤᠯᠬᠤ ᠠᠵᠤ ᠦᠢᠯᠡᠳᠪᠦᠷᠢ ᠶᠢᠨ ᠭᠠᠵᠠᠷ ᠤᠳ ᠢ ᠪᠠᠶᠢᠭᠤᠯᠬᠤ ᠨᠢ ᠴᠢᠬᠤᠯᠠ᠃", "man-u ulus-un nejislel kota ulaganbagatur bol 80 000 sikam kymyn-tei, ulus-un olan nejite-jin, aƶu akui-jin tөb gaƶar-ud orosigsan jekeken oron bolun-a.\ntus ulus-un dotor-a-aça garku tygykei ƶujil-i bolbasuragulku aƶu yiledbyri-jin gaƶar-ud-i bajigulku ni çikula.\n"
 }
 
 __END__

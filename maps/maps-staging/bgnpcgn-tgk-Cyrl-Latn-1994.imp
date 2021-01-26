@@ -41,6 +41,7 @@ metadata {
 
 tests {
   # https://ru.wikipedia.org/wiki/Таджикская_письменность#Образцы_записи
+  test "Тамоми одамон озод ба дунё меоянд ва аз лиҳози манзилату ҳуқуқ бо ҳам баробаранд.\nҲама соҳиби ақлу виҷдонанд, бояд нисбат ба якдигар бародарвор муносабат намоянд.", "Tamomi odamon ozod ba dunyo meoyand va az lihozi manzilatu huquq bo ham barobarand.\nHama sohibi aqlu vijdonand, boyad nisbat ba yakdigar barodarvor munosabat namoyand."
   test "Баниодам аъзои як пайкаранд, ки дар офариниш зи як гавҳаранд. Чу узве ба дард оварад рӯзгор, дигар узвҳоро намонад қарор.", "Baniodam a’zoi yak paykarand, ki dar ofarinish zi yak gavharand. Chu uzve ba dard ovarad rŭzgor, digar uzvhoro namonad qaror."
   test "Саъдӣ", "Sa’dí"
   test "Мурда будам, зинда шудам; гиря будам, xанда шудам. Давлати ишқ омаду ман давлати поянда шудам.", "Murda budam, zinda shudam; girya budam, xanda shudam. Davlati ishq omadu man davlati poyanda shudam."

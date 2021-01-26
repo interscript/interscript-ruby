@@ -57,6 +57,7 @@ tests {
   test "Пакаранне", "Pakarannye"
   test "Бэз", "Bez"
   test "Чабор", "Chabor"
+  test "Дзяўчына, дзяўчыначка пасярод гісторыі\nЗ прастадушнай шчырасьцю глядзіць на тэрыторыю.\nУ вакне заўсёды звыклая выява:\nШэры двор, шэры слуп, на слупе аб'явы.", "Dzyawchyna, dzyawchynachka pasyarod historyi\nZ prastadushnay shchyrastsyu hlyadzits na terytoryyu.\nU vaknye zawsyody zvyklaya vyyava:\nShery dvor, shery slup, na slupye abyavy.\n"
 }
 
 __END__

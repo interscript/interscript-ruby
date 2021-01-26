@@ -19,6 +19,7 @@ metadata {
 }
 
 tests {
+  test "Ένα πράμα μόνον με παρακίνησε κι εμένα να γράψω ότι τούτην την πατρίδα την έχομεν όλοι μαζί, και σοφοί κι αμαθείς και πλούσιοι και φτωχοί και πολιτικοί και στρατιωτικοί και οι πλέον μικρότεροι άνθρωποι· όσοι αγωνιστήκαμεν, αναλόγως ο καθείς, έχομεν να ζήσομεν εδώ. Το λοιπόν δουλέψαμεν όλοι μαζί, να την φυλάμεν κι όλοι μαζί και να μην λέγει ούτε ο δυνατός «εγώ» ούτε ο αδύνατος. Ξέρετε πότε να λέγει ο καθείς «εγώ»; Όταν αγωνιστεί μόνος του και φκιάσει ή χαλάσει, να λέγει «εγώ»· όταν όμως αγωνίζονται πολλοί και φκιάνουν, τότε να λένε «εμείς». Είμαστε εις το «εμείς» κι όχι εις το «εγώ». Και εις το εξής να μάθομεν γνώση, αν θέλομεν να φκιάσομεν χωριόν, να ζήσομεν όλοι μαζί.\n\nΓιάννης Μακρυγιάννης.\n", "Éna práma mónon me parakínise ki eména na grápso óti toútin tin patrídha tin ékhomen óloi mazí, kai sofoí ki amathís kai ploúsioi kai ftokhoí kai politikoí kai stratiotikoí kai oi pléon mikróteroi ánthropoi; ósoi agonistíkamen, analógos o kathís, ékhomen na zísomen edhó. To loipón dhoulépsamen óloi mazí, na tin filámen ki óloi mazí kai na min léyi oúte o dhinatós «egó» oúte o adhínatos. Xérete póte na léyi o kathís «egó»? Ótan agonistí mónos tou kai fkiási í khalási, na léyi «egó»; ótan ómos agonízondai polloí kai fkiánoun, tóte na léne «emís». Ímaste is to «emís» ki ókhi is to «egó». Kai is to exís na máthomen gnósi, an thélomen na fkiásomen khorión, na zísomen óloi mazí.\n\nYiánnis Makriyiánnis.\n"
   test "ΑΘΗΝΑ", "ATHINA"
   test "μπαμπάκι", "bambáki"
   test "νταντά", "dandá"

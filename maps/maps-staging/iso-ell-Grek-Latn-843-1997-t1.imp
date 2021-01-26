@@ -22,6 +22,7 @@ metadata {
 }
 
 tests {
+  test "Ένα πράμα μόνον με παρακίνησε κι εμένα να γράψω ότι τούτην την πατρίδα την έχομεν όλοι μαζί, και σοφοί κι αμαθείς και πλούσιοι και φτωχοί και πολιτικοί και στρατιωτικοί και οι πλέον μικρότεροι άνθρωποι· όσοι αγωνιστήκαμεν, αναλόγως ο καθείς, έχομεν να ζήσομεν εδώ. Το λοιπόν δουλέψαμεν όλοι μαζί, να την φυλάμεν κι όλοι μαζί και να μην λέγει ούτε ο δυνατός «εγώ» ούτε ο αδύνατος. Ξέρετε πότε να λέγει ο καθείς «εγώ»; Όταν αγωνιστεί μόνος του και φκιάσει ή χαλάσει, να λέγει «εγώ»· όταν όμως αγωνίζονται πολλοί και φκιάνουν, τότε να λένε «εμείς». Είμαστε εις το «εμείς» κι όχι εις το «εγώ». Και εις το εξής να μάθομεν γνώση, αν θέλομεν να φκιάσομεν χωριόν, να ζήσομεν όλοι μαζί.\n\nΓιάννης Μακρυγιάννης.\n", "Éna práma mónon me parakínīse ki eména na grápsō óti toútīn tīn patrída tīn échomen óloi mazí, kai sofoí ki amatheís kai ploúsioi kai ftōchoí kai politikoí kai stratiōtikoí kai oi pléon mikróteroi ánthrōpoi; ósoi agōnistī́kamen, analógōs o katheís, échomen na zī́somen edṓ. To loipón doulépsamen óloi mazí, na tīn fylámen ki óloi mazí kai na mīn légei oúte o dynatós «egṓ» oúte o adýnatos. Xérete póte na légei o katheís «egṓ»? Ótan agōnisteí mónos tou kai fkiásei ī́ chalásei, na légei «egṓ»; ótan ómōs agōnízontai polloí kai fkiánoun, tóte na léne «emeís». Eímaste eis to «emeís» ki óchi eis to «egṓ». Kai eis to exī́s na máthomen gnṓsī, an thélomen na fkiásomen chōrión, na zī́somen óloi mazí.\n\nGiánnīs Makrygiánnīs.\n"
   test "ΑΘΗΝΑ", "ATHĪNA"
   test "μπαμπάκι", "mpampáki"
   test "νταντά", "ntantá"
