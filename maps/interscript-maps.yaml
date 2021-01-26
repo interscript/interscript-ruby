@@ -1,9 +1,16 @@
 ---
-# This file denotes that there are Interscript Maps in this Gem and their locations
-# relative to this file.
+# Existence of this file denotes that there are Interscript Maps in this gem.
+
+# Main locations of libraries and maps relative to this file.
 paths:
   - libs
   - maps
+
+# Staging map locations. Those maps don't pass the tests yet, they may be in a
+# process of porting. To enable them, one must pass an INTERSCRIPT_STAGING
+# environment variable.
+staging:
+  - maps-staging
 
 # This part registers aliases. Those were previously a part of maps themselves,
 # moving this here saves us from a burden of having to load all the maps to 

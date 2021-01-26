@@ -15,4 +15,12 @@ class Interscript::DSL::Metadata
       @node[sym] = stuff
     end
   end
+
+  %i{special_rules original_description original_notes
+    implementation_notes}.each do |sym|
+    define_method sym do |stuff|
+      warn "Metadata key #{sym} is non-standard"
+      @node[sym] = stuff
+    end
+  end
 end

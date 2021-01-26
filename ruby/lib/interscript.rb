@@ -53,7 +53,9 @@ module Interscript
 
     def map_locations
       @map_locations ||= map_gems.map do |i,v|
-        v["paths"].map do |j|
+        paths = v["paths"].dup
+        paths += v["staging"] if ENV["INTERSCRIPT_STAGING"] && v["staging"]
+        paths.map do |j|
           File.expand_path(j, File.dirname(i))
         end
       end.flatten

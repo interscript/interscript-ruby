@@ -1,0 +1,160 @@
+#!/usr/bin/env ruby
+# This is a helper script for porting Interscript v1 maps to v2 format. It won't
+# ever be able to port them completely, but it should help bootstrap the process.
+
+require 'yaml'
+require 'fileutils'
+
+Dir.chdir(__dir__ + "/../")
+FileUtils.rm_rf("../maps/maps-staging/")
+FileUtils.mkdir_p("../maps/maps-staging/")
+
+old_maps = Dir["../../interscript/maps/*.yaml"]
+ex_maps = Dir["../maps/maps/*.imp"]
+ex_map_names = ex_maps.map { |i| File.basename(i, ".imp") }
+
+old_maps.shuffle.each do |old_map|
+  old_map_name = File.basename(old_map, ".yaml")
+
+  if ex_map_names.include? old_map_name
+    puts "* Skipping #{old_map_name} as it's already ported"
+    next
+  end
+
+  print "* Converting #{old_map_name}."
+
+  f = File.read(old_map)
+  fl = f.split("\n")
+
+  md = []
+  tests = []
+  map = []
+  chain = nil
+
+  cur = md
+
+  bugnotes = false
+
+  fl.each do |i|
+    if i == '---'
+      # skip the first line
+    elsif i =~ /\A\s+|\A\z/
+      # continuation
+      if bugnotes
+        i = "#{i}"
+        md << i
+      else
+        cur << i
+      end
+    else
+      cmt = nil
+      i = i.sub(/(#.*?)\z/) do |j|
+        cmt = j
+        ""
+      end
+
+      # block begin or md
+      case i.strip
+      when "tests:"
+        cur = tests
+        bugnotes = false
+      when "map:"
+        cur = map
+        bugnotes = false
+      when "notes:"
+        md << "notes:"
+        bugnotes = true
+      when /\Achain:/
+        chain = i
+      else
+        cur << i
+      end
+
+      cur << cmt if cmt
+    end
+  end
+
+  print "."
+
+  newmd = []
+  aliasff = false
+  md.each do |i|
+    if i.strip == "alias:"
+      aliasff = true
+    elsif i !~ /\A\s+/
+      aliasff = false
+    end
+    newmd << i unless aliasff
+  end
+  md = newmd
+
+  print "."
+
+  newmd = md.map(&"  ".method(:+))
+            .join("\n")
+            .gsub("  note:", "  notes:")
+            .gsub("confirmation date:", "confirmation_date:")
+            #.gsub("special_rules:", '  - "special rules:"')
+            #.gsub("original_description:", "  # original description:")
+            #.gsub("original_notes:", '  - "original notes:"')
+            #.gsub("implementation_notes:", '  - "implementation notes:"')
+            .rstrip
+
+  new = "metadata {\n"
+  new << newmd
+  new << "\n}\n\n"
+
+  class MultilineError < StandardError; end
+
+  if tests.length > 0
+    new << "tests {\n"
+    cmt = ""
+    await = ""
+    tests.each do |i|
+      ni = await + i
+      case ni
+      when /\A  .*? \|/
+        raise MultilineError
+      when /\A(?:  )?  - source: (.*?)(\s*#.*?)?\z/
+        new << "  test #{YAML.load($1).inspect}, "
+        cmt = $2 if $2
+      when /\A(?:  )?    expected:[ \t](.*?)(\s*#.*?)?\z/
+        new << "#{YAML.load($1).inspect}"
+        new << cmt
+        new << $2 if $2
+        new << "\n"
+        cmt = ""
+      when /\A\s*#/
+        new << "  " << i.strip << "\n"
+      when /\A\s*\z/
+        # ignore empty lines
+      else
+        p i
+      end
+      await = ""
+    rescue Psych::SyntaxError, MultilineError
+      await << i
+    end
+    new << "}\n\n"
+  end
+
+  print "."
+
+  new << "__END__\n"
+  new << "# This map has been partially converted by the bin/maps_v1_to_v2 script\n"
+  new << "# The section below requires human attention. Remember to remove the\n"
+  new << "# __END__ marker and this comment and move the converted map to 'maps/'\n"
+  new << "# directory. Please also take note that the maps-staging directory will\n"
+  new << "# be cleaned up whenever you run the bin/maps_v1_to_v2 script.\n\n"
+
+  if chain
+    new << "# This map is chained and probably depends on seq2seq:\n"
+    new << "# #{chain}\n\n"
+  end
+
+  new << map.join("\n")
+
+  File.write("../maps/maps-staging/#{old_map_name}.imp", new)
+
+  puts " done!"
+end

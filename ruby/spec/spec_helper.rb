@@ -1,6 +1,9 @@
 if ENV.include? "COVERAGE"
   require 'simplecov'
-  SimpleCov.start
+  SimpleCov.start do
+    enable_coverage :branch
+    primary_coverage :branch
+  end
 end
 require "bundler/setup"
 require "interscript"
