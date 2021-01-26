@@ -1,0 +1,41 @@
+metadata {
+  authority_id: var
+  id: 1872
+  language: iso-639-2:mar
+  source_script: Deva
+  destination_script: Latn
+  name: Marathi Hunterian system
+  url: https://transliteration.eki.ee/pdf/Hindi-Marathi-Nepali.pdf
+  creation_date: 1872
+  description:
+    The Hunterian system is the national system of romanization in India.
+  
+  notes:
+  
+    -  a, i and u are used in word-final position. The a in gaon and the u in pur are not accented.
+    -  ज्ञ is transliterated gy.
+    -  v is used before i.
+}
+
+tests {
+  test "ठाणे - जिल्ह्यात बुधवारी एक हजार रुग्णांची वाढ, तर जणांच्या मृत्यूची नोंद", "thaānae - jailhyaāta baudhawaāraī eka hajaāra raugnaānchaī waādha, tara janaānchyaā marityaūchaī naonda"
+  test "एकता कपूर पुन्हा अडकली वादात, वेबसीरिजमधल्या 'त्या' सीनमुळे जमावाची घरावर दगडफेक", "ekataā kapaūra paunhaā adakalaī waādaāta, waebasaīraijamadhalyaā 'tyaā' saīnamaulae jamaāwaāchaī gharaāwara dagadaphaeka"
+  test "जाणून घ्या, बीएमसीच्या अधिकाऱ्यांनी कंगना राणौतच्या ऑफिसमधले नक्की काय- काय तोडलं", "jaānaūna ghyaā, baīemasaīchyaā adhaikaāऱ्yaānnaī kanganaā raānaautachyaā ऑphaisamadhalae nakkaī kaāya- kaāya taodalan"
+  test "कंगना मुंबईत दाखल होण्यापूर्वी 'मातोश्री'वरून फर्मान सुटले; प्रवक्त्यांना सक्त आदेश", "kanganaā maunbaīta daākhala haonyaāpaūrwaī 'maātaosraī'waraūna pharmaāna sautalae; prawaktyaānnaā sakta ādaesa"
+  test "मराठा आरक्षणास तात्पुरती स्थगिती; सर्वोच्च न्यायालयाचा निर्णय", "maraāthaā ārakshanaāsa taātpaurataī sthagaitaī; sarwaochcha nyaāyaālayaāchaā nairnaya"
+  test "भारताच्या तिन्ही लशींचा पहिला टप्पा यशस्वी, वाचा कधी येणार बाजारात", "bhaārataāchyaā tainhaī lasaīnchaā pahailaā tappaā yasaswaī, waāchaā kadhaī yaenaāra baājaāraāta"
+  test "रुग्णवाढीमुळे खाटांची चणचण", "raugnawaādhaīmaulae khaātaānchaī chanachana"
+  test "पीएम स्वनिधी कर्ज योजनेला मुंबईतून अल्प प्रतिसाद", "paīema swanaidhaī karja yaojanaelaā maunbaītaūna alpa prataisaāda"
+  test "सांताक्रूझ-चेंबूर लिंक रोडवरील उन्नत मार्गाला स्थगिती", "saāntaākraūjha-chaenbaūra lainka raodawaraīla unnata maārgaālaā sthagaitaī"
+  test "संपादक अर्णब गोस्वामी यांच्याविरूद्ध खडक पोलिस ठाण्यात तक्रार", "sanpaādaka arnaba gaoswaāmaī yaānchyaāwairaūddha khadaka paolaisa thaānyaāta takraāra"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+
+  inherit: 'var-hin-Deva-Latn-hunterian-1872'

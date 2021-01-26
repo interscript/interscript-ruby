@@ -1,0 +1,215 @@
+metadata {
+  authority_id: iso
+  id: 15919-2001
+  language: iso-639-2:guj
+  source_script: Gujr
+  destination_script: Latn
+  name: "Information and documentation — Transliteration of Devanagari and related Indic scripts into Latin characters"
+  url: https://www.chatranjali.fr/Scripts/Standards/ISO15919.pdf
+  creation_date: 2001
+  adoption_date: 2001
+  description: |
+    Script conversion is often required for documents such as historical and literary texts, geographical texts (including
+    maps and atlases), bibliographies, catalogues, lists and passports (and other identification documents).
+  
+    Text in Devanagari script or other Indic scripts sometimes needs to be shown in Latin script, where users, or
+    equipment that they are using, cannot read or write the text
+  
+    This International Standard applies to transliteration of Devanagari, and to Indic scripts related to Devanagari,
+    independent of the period in which it is or was used.
+  
+  notes:
+  
+    - All transliterations made using this International Standard shall be case-insensitive.
+    - Inherent a with a consonant shall always be transliterated.
+    - anusvara (including Vedic anusvara) shall be transliterated as ṁ
+    - candrabindu shall be transliterated as m̐
+    - When m̐, ṃ or ṁ are associated with a vowel, they shall be placed after the vowel. When m̐ is associated
+      with a semivowel, it shall be placed before the semivowel.
+    - Latin punctuation signs and Hindu-Arabic numerals shall remain unchanged in transliteration.
+      Indic punctuation is outside the scope of this International Standard.
+    - The Vedic accent Udatta shall be transliterated as an acute accent over the transliterated vowel, and the
+      independent Svarita as a grave accent over the transliterated vowel. In the case of the digraphs ai, au, the accent
+      shall be attached to the second vowel.
+    - |
+      A colon: before a Latin character shall be used to resolve ambiguity. Some normative cases are as
+      follows.
+       -  :’ for avagraha in modern text. (The apostrophe in modern text remains unchanged in accordance with previous rule.
+    - If a character in an Indic script is defined in such a way as to be equivalent to another character in any
+      script, where the second character has a transliteration in this International Standard, then the first character shall
+      be transliterated in the same way as the second character.
+    - Where it is desired to show the Vedic accent Anudatta, it should be transliterated as an underscore. In the case of
+      the digraphs ai, au, both Latin vowels should be underscored.
+      Where word boundaries are not shown in the original text (as happens commonly in Sanskrit) and a word ends in a
+      consonant, the transliteration should show word division by a space; but when phonological processes result in two
+      words sharing a common vowel, no attempt should be made to separate them. This will require a good knowledge
+      of the language in question.
+}
+
+tests {
+  test "અમિત શાહનો કોરોના રિપોર્ટ 2 ઓગસ્ટે પોઝિટિવ આવ્યો હતો, ત્યારથી તેમનું સ્વાસ્થ્ય સારું નથી", "amaita śaāhanao kaoraonaā raipaoratạ 2 ogasatạe paojhaitạiva āvayao hatao, tayaārathaī taemanauṁ savaāsathaya saārauṁ nathaī"
+  test "મેદાંતા હોસ્પિટલમાં તેમનો ઇલાજ ચાલી રહ્યો હતો", "maedaāṁtaā haosapaitạlamaāṁ taemanao ilaāja caālaī rahayao hatao"
+  test "ભારતના વિશ્વનાથન આનંદે શેનયાનમાં પહેલો ફિડે શતરંજ વિશ્વ કપ જીત્યો", "bhaāratanaā vaiśavanaāthana ānaṁdae śaenayaānamaāṁ pahaelao phaiḍae śataraṁja vaiśava kapa jaītayao"
+  test "ભારતીય વડા પ્રધાન જવાહરલાલ નેહરુએ 40 લાખ હિન્દુઓ અને મુસલમાનોના પારસ્પરિક સ્થાનાંતરણનું સૂચન આપ્યું", "bhaārataīya vaḍaā paradhaāna javaāharalaāla naeharaue 40 laākha hainadauo anae mausalamaānaonaā paārasaparaika sathaānaāṁtaraṇanauṁ saūcana āpayauṁ"
+  test "લિબિયાના એલ અજિજિયામાં ધરતી પર સૌથી વધુ તાપમાન નોંધાયું. એ વખતે છાયામાં નોંધવામાં આવેલું તાપમાન ૫૮ ડિગ્રી સેલ્સિયસ હતું.", "laibaiyaānaā ela ajaijaiyaāmaāṁ dharataī para saauthaī vadhau taāpamaāna naoṁdhaāyauṁ. e vakhatae chaāyaāmaāṁ naoṁdhavaāmaāṁ āvaelauṁ taāpamaāna 58 ḍaigaraī saelasaiyasa hatauṁ."
+  test "પ્રથમ વિશ્વયુદ્ધઃ જર્મની અને ફ્રાન્સ વચ્ચે એસ્નેની લડાઈ શરૂ થઈ હતી", "parathama vaiśavayaudadhaḥ jaramanaī anae pharaānasa vacacae esanaenaī laḍaāī śaraū thaī hataī"
+  test "એન્ગ્લો-મિસ્ત્ર યુદ્ધઃ તેલ અલ કેબિરનું યુદ્ધ લડવામાં આવ્યું હતું.", "enagalao-maisatara yaudadhaḥ taela ala kaebairanauṁ yaudadha laḍavaāmaāṁ āvayauṁ hatauṁ."
+  test "પુરાવા ન હતા, એ જ કારણે કેસ ચાલ્યો નહીં, પણ તેમને નજરકેદ રાખવામાં આવ્યા", "pauraāvaā na hataā, e ja kaāraṇae kaesa caālayao nahaīṁ, paṇa taemanae najarakaeda raākhavaāmaāṁ āvayaā"
+  test "સરદાર પટેલે નક્કી કર્યું હતું કે કાશ્મીર ભારતનો હિસ્સો બનશે; 91 વર્ષ પહેલાં લાહોર જેલમાં ભૂખહડતાળ દરમિયાન શહીદ થયા હતા જતીન દાસ", "saradaāra patạelae nakakaī karayauṁ hatauṁ kae kaāśamaīra bhaāratanao haisasao banaśae; 91 varaṣa pahaelaāṁ laāhaora jaelamaāṁ bhaūkhahaḍataāḷa daramaiyaāna śahaīda thayaā hataā jataīna daāsa"
+  test "કોરોના પ્રોટોકોલ વચ્ચે આજે મેડિકલ પ્રવેશ પરીક્ષા લેવાશેઃ એન્ટ્રી ટચ ફ્રી રહેશે, એડમિટ કાર્ડ બાર કોડથી ચેક થશે", "kaoraonaā paraotạokaola vacacae ājae maeḍaikala paravaeśa paraīkaṣaā laevaāśaeḥ enatạraī tạca pharaī rahaeśae, eḍamaitạ kaāraḍa baāra kaoḍathaī caeka thaśae"
+  test "અલ્ ક઼`ઇદ્ માં હવામાન", "ala qa`ida maāṁ havaāmaāna"
+  test "મંત્રાલય તથા ખ઼.ય ના વિ૨ષ્ઠ અધિકા૨ીઓ ઉપસ્થિત ૨હ્યા હતા", "maṁtaraālaya tathaā ḵẖa.ya naā vai2ṣaṭha adhaikaā2īo upasathaita 2hayaā hataā"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+
+  characters:
+
+    'અ': 'a'
+    'આ': 'ā'
+    'ઇ': 'i'
+    'ઈ': 'ī'
+    'ઉ': 'u'
+    'ઊ': 'ū'
+    'ઋ': 'ṛ'
+    'ૠ': 'ṝ'
+    'ઌ': 'ḷ'
+    'ૡ': 'ḹ'
+
+    'ઍ': 'ê'
+    'એ': 'e'
+    'ઐ': 'ai'
+
+    'ઑ': 'ô'
+    'ઓ': 'o'
+    'ઔ': 'au'
+
+    # Gutturals
+    'ક': 'ka'
+    'ખ': 'kha'
+    'ગ': 'ga'
+    'ઘ': 'gha'
+    'ઙ': 'ṅa'
+
+    # Palatals
+    'ચ': 'ca'
+    'છ': 'cha'
+    'જ': 'ja'
+    'ઝ': 'jha'
+    'ઞ': 'ña'
+
+    # Cerebrals
+    'ટ':  'tạ'
+    'ઠ':  'ṭha'
+    'ડ':  'ḍa'
+    'ઢ':  'ḍha'
+    'ણ':  'ṇa'
+
+    # Dentals
+    'ત': 'ta'
+    'થ': 'tha'
+    'દ': 'da'
+    'ધ': 'dha'
+    'ન': 'na'
+
+    # Labials
+    'પ': 'pa'
+    'ફ': 'pha'
+    'બ': 'ba'
+    'ભ': 'bha'
+    'મ': 'ma'
+
+    # Semivowels
+    'ય': 'ya'
+    'ર': 'ra'
+    'લ': 'la'
+    'ળ': 'ḷa'
+    'વ': 'va'
+
+    # Sibilants
+    'શ': 'śa'
+    'ષ': 'ṣa'
+    'સ': 'sa'
+
+
+    # Aspirate
+    'હ': 'ha'
+
+    # Chandrabindu
+    'ઁ': 'm̐'
+
+    # Bisarga
+    'ઃ': 'ḥ'
+
+    # Anusvāra
+    'ં': 'ṁ'
+
+    # Medials # Needed for connecting constants
+
+    'ા': 'ā'
+    'િ': 'i'
+    'ી': 'ī'
+    'ુ': 'u'
+    'ૂ': 'ū'
+    'ૃ': 'ṛ'
+    'ૄ': 'ṝ'
+    '\u0AE2': 'ḷ'  #  ૢ
+    '\u0AE3': 'ḹ'  #  ૣ
+
+    'ૅ': 'ê'
+    'ૉ': 'ô'
+
+    'ે': 'e'
+    'ૈ': 'ai'
+    'ો': 'o'
+    'ૌ': 'au'
+
+    # for semivowel rule no. 5
+
+    'યઁ': 'm̐ya'
+    'રઁ': 'm̐ra'
+    'લઁ': 'm̐la'
+    'ળઁ': 'm̐ḷa'
+    'વઁ': 'm̐va'
+
+
+    # Perso-Arabic Characters
+
+    'ક઼': 'qa'
+    'ખ઼': 'ḵẖa'
+    'ગ઼': 'ġa'
+    'જ઼': 'za'
+    'ફ઼': 'fa'
+
+
+    # Abagraha
+    'ऽ': ':’'
+
+
+
+
+    '\u09CD': '' # Used for joining
+    '્': ''
+    '઼': ''
+    '।': '.'
+    "‍": ''# Used for joining
+
+
+    # digits
+
+    '૦': '0'
+    '૧': '1'
+    '૨': '2'
+    '૩': '3'
+    '૪': '4'
+    '૫': '5'
+    '૬': '6'
+    '૭': '7'
+    '૮': '8'
+    '૯': '9'

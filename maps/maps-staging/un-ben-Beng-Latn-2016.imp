@@ -1,0 +1,509 @@
+metadata {
+  authority_id: un
+  id: 2016
+  language: iso-639-2:ben
+  source_script: Beng
+  destination_script: Latn
+  name: Bengali Romanization, Version 4.0
+  url: http://www.eki.ee/wgrs/rom1_bn.htm
+  creation_date: 2016
+  description: |
+    The United Nations recommended system was approved in 1972 (II/11)
+    and amended in 1977 (III/12), based on a report prepared by D. N.
+    Sharma. The tables and their corrections were published in volume II of
+    the conference reports1,2.
+  
+    There is no evidence of the use of the system either in Bangladesh,
+    in India or in international cartographic products. The resolution
+    IV/17 (1982) recommended association, inter alia, with Bangladesh, in
+    carrying out further studies on the system.
+  
+    Bengali (Bānglā) uses an alphasyllabic script whereby each character
+    represents a syllable rather than one sound. Vowels and diphthongs are
+    marked in two ways: as independent characters (used syllable-initially)
+    and in an abbreviated form, to denote vowels after consonants. The
+    romanization table is unambiguous but the user would have to recognize
+    many ligatures not given in the original table. The system is mostly
+    reversible but there exist some ambiguities in the romanization of
+    vowels (independent vs. abbreviated characters) and consonants
+    (ligatures vs. character sequences).
+  
+    Other systems of romanization
+  
+    For differences between the UN system and the ISO transliteration
+    standard ISO 15919: 2001 see the section on the romanization of Hindi.
+  
+    References
+  
+    Second United Nations Conference on the Standardization of
+    Geographical Names. London, 10–31 May 1972. Vol. II. Technical papers.
+    United Nations. New York 1974, pp. 139–140.
+  
+    Third United Nations Conference on the Standardization of
+    Geographical Names. Athens, 17 August – 7 September 1977. Vol. II,
+    Technical papers, pp. 393 etc.
+  
+  notes:
+    - |
+      In the romanization system below character variations and the table of ligatures have been added.
+  
+      I. Independent vowel characters
+  
+      1	অ	a
+      2	আ	ā
+      3	ই	i
+      4	ঈ	ī
+      5	উ	u
+      6	ঊ	ū
+      7	ঋ	ṛ
+      8	এ	e
+      9	ঐ	ai
+      10	ও	o
+      11	ঔ	au
+  
+  
+  
+  
+    - Where two Roman equivalents are given, the second (in brackets) is
+      used for recording the pronunciation of place-names while the first
+      form is for general use.
+    - In the table only word-initial character variants are shown.
+      Depending on the position in the word many variants of the characters
+      are used as well as some ligatures. These features are not covered here.
+    - For technical reasons the characters of the Mongolian script are
+      turned 90˚ anti-clockwise.
+}
+
+tests {
+  test "র্ক", "rka"
+  test "গ্র", "gra"
+  test "ত্য", "tya"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  characters:
+
+    # I. Independent vowel characters
+
+    'অ': 'a'	 # 1
+    'আ': 'ā'	# 2
+    'ই': 'i'	 # 3
+    'ঈ': 'ī'	 # 4
+    'উ': 'u'	 # 5
+    'ঊ': 'ū'	 # 6
+    'ঋ': 'ṛ'	 # 7
+    'এ': 'e'	 # 8
+    'ঐ': 'ai'	# 9
+    'ও': 'o'	 # 10
+    'ঔ': 'au'	# 11
+
+    # II. Abbreviated vowel characters (ক stands for any consonant character)
+
+    # 'ক': 'a'   # 1
+    '\u09be': 'ā'	  # 2 কা
+    '\u09bf': 'i'	  # 3 কি
+    '\u09c0': 'ī'	  # 4 কী
+    '\u09c1': 'u'   # 5 কু Exceptions: গু gu; রু ru; শু shu; হু hu; ন্তু ntu; স্তু stu.
+    '\u09c2': 'ū'   # 6 কূ Exception: রূ rū.
+    '\u09c3': 'ṛ'   # 7 কৃ Exception: হৃ hṛ.
+    '\u09c7': 'e'	  # 8 কে
+    '\u09c8': 'ai'	# 9 কৈ
+    '\u09cb': 'o'	  # 10 কো
+    '\u09cc': 'au'	# 11 কৌ
+
+    # II 5 Exceptions
+    'গু': 'gu'
+    'রু': 'ru'
+    'শু': 'shu'
+    'হু': 'hu'
+    'ন্তু': 'ntu'
+    'স্তু': 'stu'
+    # II 6 Exceptions
+    'রূ': 'rū'
+    # II 7 Exceptions
+    'হৃ': 'hṛ'
+
+    # III. Other symbols (ক stands for any consonant character)
+
+    '\u0982':	'ṁ'	  # 1 কং
+    '\u0981':	'm̐'	  # 2 কঁ
+    '\u0983':	'ḥ'	  # 3 কঃ
+    '\u09cd\u200c': ''	 # 4 ক্‌ Pronunciation without a vowel; special form: ৎ t.
+
+    # III 4 special form
+    'ৎ': 't'
+
+    # IV. Consonant characters
+
+    'ক': 'ka'		# 1
+    'খ': 'kha'	# 2
+    'গ': 'ga'		# 3
+    'ঘ': 'gha'	# 4
+    'ঙ': 'ṅa'		# 5
+    'চ': 'cha'	# 6
+    'ছ': 'chha' # 7
+    'জ': 'ja'		# 8
+    'ঝ': 'jha'	# 9
+    'ঞ': 'ña'	# 10
+    'ট': 'ṭa'	  # 11
+    'ঠ': 'ṭha' 	# 12
+    'ড': 'ḍa'	# 13 A Dotted variants of the characters: ড় ṙa; ঢ় ṙha; য় ya.
+    'ঢ': 'ḍha'	# 14 A Dotted variants of the characters: ড় ṙa; ঢ় ṙha; য় ya.
+    'ণ': 'ṇa'		# 15
+    'ত': 'ta'		# 16
+    'থ': 'tha'	# 17
+    'দ': 'da'		# 18
+    'ধ': 'dha'	# 19
+    'ন': 'na'		# 20
+    'প': 'pa'		# 21
+    'ফ': 'pha'	# 22
+    'ব': 'ba'		# 23
+    'ভ': 'bha'	# 24
+    'ম': 'ma'		# 25
+    'য': 'j̱aA'	# 26
+    'র': 'ra'		# 27
+    'ল': 'la'		# 28
+    'শ': 'sha'	# 29
+    'ষ': 'ṣha'	# 30
+    'স': 'sa'		# 31
+    'হ': 'ha'		# 32
+
+    # IV 13, 14
+    'ড়': 'ṙa'
+    'ঢ়': 'ṙha'
+    'য়': 'ya'
+
+
+    # V. Ligatures
+    # Adscript forms of some consonants
+    #
+    # We already implemented one to one mapping for most commonly used
+    # combined letters - (Zuktabarna), so we can ignore this custom rules
+    # fro now.
+    #
+    # 'র্‍':	'r-:'
+    # '‍্র':	'-r:'
+    # '‍্য':	'-y:'
+
+
+    # Other ligatures (the list is not complete)
+
+    'ক্ক': 'kka'
+    'ক্ট': 'kṭa'
+    'ক্ত': 'kta'
+    'ক্ন': 'kna'
+    'ক্ম': 'kma'
+    'ক্র': 'kra'
+    'ক্ল': 'kla'
+    'ক্ব': 'kva'
+    'ক্ষ': 'kṣha'
+    'ক্ষ্ন': 'kṣhna'
+    'ক্ষ্ম': 'kṣhma'
+    'ক্ষ্ব': 'kṣhva'
+
+    'ক্স': 'ksa'
+    'গ্গ': 'gga'
+    'গ্দ': 'gda'
+    'গ্ধ': 'gdha'
+    'গ্ন': 'gna'
+    'গ্ম': 'gma'
+    'গ্র': 'gra'
+    'গ্ল': 'gla'
+    'ঘ্র': 'ghra'
+    'ঙ্ক': 'ṅka'
+    'ঙ্গ': 'ṅga'
+    'চ্চ': 'chcha'
+
+    'চ্ছ': 'chchha'
+    'চ্ছ্ব': 'chchhva'
+    'চ্ঞ': 'chña'
+    'জ্জ': 'jja'
+    'জ্জ্ব': 'jjva'
+    'জ্ঝ': 'jjha'
+    'জ্ঞ': 'jña'
+    'জ্ব': 'jva'
+    'ঞ্চ': 'ñcha'
+    'ঞ্ছ': 'ñchha'
+    'ঞ্জ': 'ñja'
+    'ঞ্ঝ': 'ñjha'
+
+    'ট্ট': 'ṭṭa'
+    'ড্ড': 'ḍḍa'
+    'ণ্ট': 'ṇṭa'
+    'ণ্ঠ': 'ṇṭha'
+    'ণ্ড': 'ṇḍa'
+    'ত্ত': 'tta'
+    'ত্ত্ব': 'ttva'
+    'ত্থ': 'ttha'
+    'ত্ন': 'tna'
+    'ত্ম': 'tma'
+    'ত্র': 'tra'
+    'ত্ল': 'tla'
+
+    'ত্ব': 'tva'
+    'দ্দ': 'dda'
+    'দ্দ্ব': 'ddva'
+    'দ্ধ': 'ddha'
+    'দ্ধ্ব': 'ddhva'
+    'দ্ন': 'dna'
+    'দ্ব': 'dva'
+    'দ্ভ': 'dbha'
+    'দ্ম': 'dma'
+    'দ্র': 'dra'
+    'দ্ল': 'dla'
+    'ধ্র': 'dhra'
+
+    'ন্ঠ': 'nṭha'
+    'ন্ড': 'nḍa'
+    'ন্ক': 'nka'
+    'ন্ত': 'nta'
+    'ন্ত্র': 'ntra'
+    'ন্থ': 'ntha'
+    'ন্দ': 'nda'
+    'ন্দ্র': 'ndra'
+    'ন্ধ': 'ndha'
+    'ন্ন': 'nna'
+    'ন্ম': 'nma'
+    'ন্ব': 'nva'
+
+    'প্ন': 'pna'
+    'প্ত': 'pta'
+    'প্প': 'ppa'
+    'প্র': 'pra'
+    'প্ল': 'pla'
+    'ফ্র': 'phra'
+    'ব্জ': 'bja'
+    'ব্দ': 'bda'
+    'ব্ধ': 'bdha'
+    'ব্ব': 'bba'
+    'ব্র': 'bra'
+    'ভ্র': 'bhra'
+    'ম্প': 'mpa'
+    'ম্ব': 'mba'
+    'ম্ভ': 'mbha'
+    'ম্ভ্র': 'mbhra'
+    'ম্ম': 'mma'
+    'ম্র': 'mra'
+    'ম্ল': 'mla'
+    'ল্ক': 'lka'
+    'ল্ট': 'lṭa'
+    'ল্ড': 'lḍa'
+    'ল্ম': 'lma'
+    'ল্ল': 'lla'
+
+    'শ্চ': 'shcha'
+    'শ্ছ': 'shchha'
+    'শ্ত': 'shta'
+    'শ্ন': 'shna'
+    'শ্ম': 'shma'
+    'শ্র': 'shra'
+    'শ্ল': 'shla'
+    'শ্ব': 'shva'
+    'ষ্ক': 'ṣhka'
+    'ষ্ট': 'ṣhṭa'
+    'ষ্ট্র': 'ṣhṭra'
+    'ষ্ঠ': 'ṣhṭha'
+
+    'ষ্ঞ': 'ṣhña'
+    'ষ্প': 'ṣhpa'
+    'ষ্ফ': 'ṣhpha'
+    'স্ক': 'ska'
+    'স্ক্র': 'skra'
+    'স্খ': 'skha'
+    'স্ত': 'sta'
+    'স্ন': 'sna'
+    'স্ম': 'sma'
+    'স্র': 'sra'
+    'স্ব': 'sva'
+    'হ্ন': 'hna'
+
+    'হ্ম': 'hma'
+    'হ্র': 'hra'
+    'হ্ল': 'hla'
+
+    # Zuktabarna - combined letters
+    #
+    # The followings are not the official list, but this has been
+    # collected and varified from some reliable source.
+    # Source: https://www.somewhereinblog.net/blog/trivuzblog/28849694
+    #
+    'ক্ট্র': 'kṭra'
+    'ক্ত্র': 'ktra'
+    'ক্য': 'kya'
+    'ক্ষ্ণ': 'kṣṇa'
+    'ক্ষ্ম': 'kṣma'
+    'খ্য': 'khaj̱a'
+    'খ্র': 'khra'
+    'গ্ন': 'gna'
+    'গ্‌ণ': 'gṇa'
+    'গ্ধ্য': 'gdhya'
+    'গ্ধ্র': 'gdhra'
+    'গ্ন্য': 'gnya'
+    'গ্ব': 'gva'
+    'গ্য': 'gya'
+    'গ্র্য': 'grya'
+    'ঘ্ন': 'ghna'
+    'ঘ্য': 'ghya'
+    'ঙ্‌ক্ত': 'ṅkata'
+    'ঙ্ক্য': 'ṅkaya'
+    'ঙ্ক্ষ': 'ṅkṣa'
+    'ঙ্খ': 'ṅkha'
+    'ঙ্গ্য': 'ṅgaya'
+    'ঙ্ঘ': 'ṅgha'
+    'ঙ্ঘ্য': 'ṅghya'
+    'ঙ্ঘ্র': 'ṅghra'
+    'ঙ্ম': 'ṅma'
+    'চ্ছ্র': 'cchra'
+    'চ্ব': 'cva'
+    'চ্য': 'cya'
+    'জ্য': 'jya'
+    'জ্র': 'jra'
+    'ট্ব': 'ṭva'
+    'ট্ম': 'ṭma'
+    'ট্য': 'ṭya'
+    'ট্র': 'ṭra'
+    'ড্ব': 'ḍva'
+    'ড্য': 'ḍya'
+    'ড্র': 'ḍra'
+    'ড়্গ': 'ḍga'
+    'ঢ্য': 'ḍhya'
+    'ঢ্র': 'ḍhra'
+    'ণ্ঠ্য': 'ṇṭhya'
+    'ণ্ড্য': 'ṇḍya'
+    'ণ্ড্র': 'ṇḍra'
+    'ণ্ঢ': 'ṇḍha'
+    'ণ্ণ': 'ṇṇa'
+    'ণ্ব': 'ṇva'
+    'ণ্ম': 'ṇma'
+    'ণ্য': 'ṇya'
+    'ৎক': 'tka'
+    'ত্ত্য': 'ttya'
+    'ত্ম্য': 'tmya'
+    'ত্য': 'tya'
+    'ত্র্য': 'trya'
+    'ৎল': 'tla'
+    'ৎস': 'tsa'
+    'থ্ব': 'thva'
+    'থ্য': 'thya'
+    'থ্র': 'thra'
+    'দ্গ': 'dga'
+    'দ্ঘ': 'dgha'
+    'দ্ভ্র': 'dbhra'
+    'দ্য': 'dya'
+    'দ্র্য': 'draya'
+    'ধ্ন': 'dhna'
+    'ধ্ব': 'dhva'
+    'ধ্ম': 'dhma'
+    'ধ্য': 'dya'
+    'ন্ট': 'nṭa'
+    'ন্ট্র': 'nṭra'
+    'ন্ড্র': 'nḍra'
+    'ন্ত্ব': 'ntva'
+    'ন্ত্য': 'ntaya'
+    'ন্ত্র্য': 'ntraya'
+    'ন্থ্র': 'nthra'
+    'ন্দ্য': 'ndya'
+    'ন্দ্ব': 'ndva'
+    'ন্ধ্য': 'ndhya'
+    'ন্ধ্র': 'ndhra'
+    'ন্য': 'nya'
+    'প্ট': 'pṭa'
+    'প্য': 'pya'
+    'প্র্য': 'praya'
+    'প্স': 'psa'
+    'ফ্ল': 'phla'
+    'ব্য': 'bya'
+    'ব্ল': 'bla'
+    'ভ্ব': 'bhva'
+    'ভ্য': 'bhya'
+    'ম্ন': 'mna'
+    'ম্প্র': 'mpra'
+    'ম্ফ': 'mpha'
+    'ম্ব্র': 'mvra'
+    'ম্য': 'mya'
+    'য্য': 'j̱aya'
+    'র্ক': 'rka'
+    'র্ক্য': 'rkya'
+    'র্গ্য': 'rgya'
+    'র্ঘ্য': 'rghya'
+    'র্চ্য': 'rchya'
+    'র্জ্য': 'rjya'
+    'র্ণ্য': 'rṇya'
+    'র্ত্য': 'rtya'
+    'র্থ্য': 'rthya'
+    'র্ব্য': 'rvya'
+    'র্ম্য': 'rmya'
+    'র্শ্য': 'rshya'
+    'র্ষ্য': 'rṣhya'
+    'র্হ্য': 'rhya'
+    'র্খ': 'rkha'
+    'র্গ': 'rga'
+    'র্গ্র': 'rgra'
+    'র্ঘ': 'rgha'
+    'র্চ': 'rcha'
+    'র্ছ': 'rchha'
+    'র্জ': 'rja'
+    'র্ঝ': 'rjha'
+    'র্ট': 'rṭa'
+    'র্ড': 'rḍa'
+    'র্ণ': 'rṇa'
+    'র্ত': 'rta'
+    'র্ত্র': 'rtra'
+    'র্থ': 'rtha'
+    'র্দ': 'rda'
+    'র্দ্ব': 'rdva'
+    'র্দ্র': 'rdra'
+    'র্ধ': 'rdha'
+    'র্ধ্ব': 'rdhba'
+    'র্ন': 'rna'
+    'র্প': 'rpa'
+    'র্ফ': 'rpha'
+    'র্ভ': 'rbha'
+    'র্ম': 'rma'
+    'র্য': 'rya'
+    'র্ল': 'rla'
+    'র্শ': 'rsha'
+    'র্শ্ব': 'rshba'
+    'র্ষ': 'rṣha'
+    'র্স': 'rsa'
+    'র্হ': 'rha'
+    'র্ঢ্য': 'rḍhya'
+    'ল্ক্য': 'lkaya'
+    'ল্গ': 'lga'
+    'ল্প': 'lpa'
+    'ল্‌ফ': 'lpha'
+    'ল্ফ': 'lpha'
+    'ল্ব': 'lba'
+    'ল্‌ভ': 'lbha'
+    'ল্য': 'lya'
+    'শ্য': 'sya'
+    'ষ্ক্র': 'ṣkra'
+    'ষ্ট্য': 'ṣṭya'
+    'ষ্ঠ্য': 'ṣṭhya'
+    'ষ্ণ': 'ṣṇa'
+    'ষ্প্র': 'ṣpra'
+    'ষ্ব': 'ṣva'
+    'ষ্ম': 'ṣma'
+    'ষ্য': 'ṣya'
+    'স্ট': 'sṭa'
+    'স্ট্র': 'sṭra'
+    'স্ত্ব': 'stva'
+    'স্ত্য': 'stṣya'
+    'স্ত্র': 'stra'
+    'স্থ': 'stha'
+    'স্থ্য': 'sthya'
+    'স্প': 'spa'
+    'স্প্র': 'spra'
+    'স্প্‌ল': 'spala'
+    'স্ফ': 'spha'
+    'স্য': 'sya'
+    'স্ল': 'sla'
+    'হ্ণ': 'hṇa'
+    'হ্ব': 'hva'
+    'হ্য': 'hya'

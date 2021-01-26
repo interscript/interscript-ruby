@@ -1,0 +1,72 @@
+metadata {
+  authority_id: ua
+  id: 2007
+  language: iso-639-2:ukr
+  source_script: Cyrl
+  destination_script: Latn
+  name: The Cabinet of Ministers of Ukraine adopted Resolution No 858 "About the statement of the technical description and a sample passport form of a citizen of Ukraine to go abroad and make changes to some acts of the Cabinet of Ministers of Ukraine"
+  url: https://zakon.rada.gov.ua/laws/show/858-2007-%D0%BF/ed20070626
+  creation_date: 2007
+}
+
+tests {
+  # tests generated with https://dmsu.gov.ua/services/transliteration.html
+  test "ОЛЕКСАНДР ЯН", "OLEKSANDR YAN"
+  test "ТРАНСЛІТЕРАЦІЇ", "TRANSLITERATSII"
+  test "ПЕРЕВІРКА", "PEREVIRKA"
+  test "ВСІ МАТЕРІАЛИ РОЗМІЩЕНІ НА УМОВАХ ЛІЦЕНЗІЇ", "VSI MATERIALY ROZMISHCHENI NA UMOVAKH LITSENZII"
+  test "ВВЕДІТЬ ПРІЗВИЩЕ ТА ІМ'Я УКРАЇНСЬКИМИ ЛІТЕРАМИ", "VVEDIT PRIZVYSHCHE TA IMIA UKRAINSKYMY LITERAMY"
+  test "ДОДАТКОВА ІНФОРМАЦІЯ", "DODATKOVA INFORMATSIIA"
+  test "ДІЯЛЬНІСТЬ", "DIIALNIST"
+  test "ЮЛІЯ", "YULIIA"
+  test "ЗГОРАНИ", "ZGHORANY"
+  test "ЙОРКШИР-ТЕР'ЄР", "YORKSHYR-TERIER"
+  test "ПАПА ПАЧУКА", "PAPA PACHUKA"
+  test "ЄНАКІЄВЕ", "YENAKIIEVE"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  inherit: ua-ukr-Cyrl-Latn-1996
+
+  rules:
+    # override parent rules
+    - pattern: \u0027
+      result: ""
+    - pattern: \u2019
+      result: ""
+    - pattern: (?<=[З])\u0413 # Г after З or з
+      result: GH
+    - pattern: \b\u0404 # Є in initial position -> YE
+      result: YE
+    - pattern: \b\u0407 # Ї in initial position -> I
+      result: I
+    - pattern: \b\u042e # Ю in initial position -> YU
+      result: YU
+    - pattern: \b\u042f # Я in initial position -> YA
+      result: YA
+
+  characters:
+    "\u0413": 'G'    # Г
+    "\u0404": 'IE'   # Є
+    "\u0416": 'ZH'   # Ж
+    "\u0425": 'KH'   # Х
+    "\u0426": 'TS'   # Ц
+    "\u0427": 'CH'   # Ч
+    "\u0428": 'SH'   # Ш
+    "\u0429": 'SHCH' # Щ
+    "\u042e": 'IU'   # Ю
+    "\u042f": 'IA'   # Я
+    "\u042c": ''     # Ь ->
+    "\u0433": 'g'    # г
+    "\u0449": 'shch' # щ
+    "\u044e": 'iu'   # ю
+    "\u044f": 'ia'   # я
+    "\u044c": ''     # ь ->
+    "\u0027": ''     # ' ->
+    "\u2019": ''     # ’ ->

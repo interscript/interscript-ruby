@@ -1,0 +1,38 @@
+metadata {
+  authority_id: bgn
+  id: mr-1939
+  language: iso-639-2:kor
+  source_script: Hang
+  destination_script: Latn
+  name: McCune-Reischauer System
+  url:
+  creation_date: 1939
+  adoption_date:
+  description:
+    E. O. Reischauer and G. M. McCune
+    The Romanization of the Korean Language Based on Its Phonetic Structure. XXIX:1-55.
+    Korea Branch of the Royal Asiatic Society. Volume XXIX (PDF)
+  notes:
+    This map add Hanja resolution to var-kor-Hang-Latn-mr-1939
+}
+
+tests {
+  test "博物館", "Pangmulgwan"
+  test "사발", "Sabal"
+  test "韓國", "Han’guk"
+  test "韓國 의 맛", "Han’guk Ŭi Mat"
+  test "金浦 國際 空港", "Kŭmp’o Kukche Konghang"
+  test "悠久한 歷史와 傳統에 빛나는 우리 大韓國民", "Yuguhan Yŏksawa Chŏnt’onge Pinnanŭn Uri Taehan’gungmin"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  character_separator: ""
+  word_separator: " "
+  title_case: True
+  inherit: [var-kor-Kore-Hang-2013, var-kor-Hang-Latn-mr-1939]

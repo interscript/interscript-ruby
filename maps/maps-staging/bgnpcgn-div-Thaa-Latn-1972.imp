@@ -1,0 +1,92 @@
+metadata {
+  authority_id: bgnpcgn
+  id: 1972
+  language: iso-639-2:div
+  source_script: Thaa
+  destination_script: Latn
+  name: ROMANIZATION SYSTEM FOR MALDIVIAN BGN/PCGN 1972 System
+  url: ''
+  creation_date: 1972
+  description: ROMANIZATION SYSTEM FOR MALDIVIAN BGN/PCGN 1972 System
+  notes:
+    - Maldivian writing is read from right to left.
+    - In the vowel and Diacritical Mark columns x represents any Maldivian consonant character. A Roman vowel letter follows the romanized Maldivian consonant
+    - Alifu(އ) is romanized [’], except when brearing a vowel ,marker, in which case it is not represented in romanization.
+    - Nūnu(ނ) appearing immediately before bā, dālu, d̦aviyani, or gāfu, and not braring a vowel marker or sukunu, is romanised [ň];otherwise [n].
+    - Where sīnu is followed by hā, or nūnu by yā, a raised dot or slash may be employed in order to differentiate these form shaviyani and nyaviyani respectively
+}
+
+tests {
+  test "އިރުގައި", "’iruga’i"
+  test "ޒިޔާރަތްފުށި", "ziyāratfushi"
+  test "ރައްކާތެރިކުރުމާއި", "ra’kāterikurumā’i"
+  test "ޝަހީދުންގެ ދުވަސް", "shahīdunge duvas"
+  test "ކިހިނެހް", "kihineh"
+  test "ކޮން ނަމެއް ކިޔަނީ", "kon name’ kiyanī"
+  test "ބައްއަޖޖެވުރި ހެނދުނެހް", "ba’’ajjevuri heňduneh"
+  test "މެނދުރެހް", "meňdureh"
+  test "ހަވީރެހް", "havīreh"
+  test "ސހ", "s·h"
+  test "ނޔ", "n·y"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  rules:
+    # rule 3
+    - pattern: \u0787(?!=[\u07a6\u07a7\u07a8\u07a9\u07aa\u07ab\u07ac\u07ad\u07ae\u07af\u07B0])
+      result: "’"
+    # rule 4
+    - pattern: \u0782(?=[\u0784\u078b\u0791\u078e])
+      result: "ň"
+
+    # rule 5
+    - pattern: \u0790(?=[\u0780])
+      result: "s·" #raised dot unicode U+2E33
+    - pattern: \u0782(?=[\u0794])
+      result: "n·" #raised dot unicode U+2E33
+
+  characters:
+    # Vowels
+    "\u07a6": "a"
+    "\u07a7": "ā"
+    "\u07ac": "e"
+    "\u07ad": "ē"
+    "\u07a8": "i"
+    "\u07a9": "ī"
+    "\u07aa": "u"
+    "\u07ab": "ū"
+    "\u07ae": "o"
+    "\u07af": "ō"
+    "\u07B0": "" # omitted
+
+    "ހ": "h"
+    "ށ": "sh"
+    "ނ": "n"
+    "ރ": "r"
+    "ބ": "b"
+    "ޅ": "l̦"
+    "ކ": "k"
+    "އ": ""
+    "ވ": "v"
+    "މ": "m"
+    "ފ": "f"
+    "ދ": "d"
+    "ތ": "t"
+    "ލ": "l"
+    "ގ": "g"
+    "ޏ": "ny"
+    "ސ": "s"
+    "ޝ": "sh"
+    "ޑ": "d̦"
+    "ޒ": "z"
+    "ޓ": "ț"
+    "ޔ": "y"
+    "ޕ": "p"
+    "ޖ": "j"
+    "ޗ": "ch"

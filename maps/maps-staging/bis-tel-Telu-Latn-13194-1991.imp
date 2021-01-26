@@ -1,0 +1,170 @@
+metadata {
+  authority_id: bis
+  id: 1991
+  language: iso-639-2:tel
+  source_script: Telu
+  destination_script: Latn
+  name: Indian script code for information interchange - ISCII - Telegu Romanization
+  
+  #url:
+  creation_date: 1991
+  description: |
+    IS 13194 (1991): Indian script code for information
+    interchange - ISCII [LITD 20: Indian Language Technologies
+    and Products]
+  
+  notes:
+    - |
+      Exception: Anusvāra is transliterated by:
+  
+      a) ṅ before gutturals,
+      b) ñ before palatals,
+      c) ṇ before cerebrals,
+      d) n before dentals, and
+      e) m before labials.
+}
+
+tests {
+  test "ఇప్పుడు ఇదే కోవలో టాలీవుడ్‌లో మరో మల్టీస్టారర్‌ రూపొందనుందని సినీ వర్గాల్లో వార్తలు వినిపిస్తున్నాయి", "ippuḍu idē kŏvlŏ ṭālīvuḍlŏ mrŏ mlṭīsṭārr rūpondnundni sinī vrgāllŏ vārtlu vinipistunnāyi"
+  test "అంటే ఉంటాయి, అయితే అవి చాలా పెద్దవై ఉండాల్సిన అవసరం లేదు అంటున్నారు మమ్ముట్టి", "aṇṭē uṇṭāyi, ayitē avi cālā peddvai uṇḍālsin avsrṃ lēdu aṇṭunnāru mmmuṭṭi"
+  test "ఆ సంతోషాన్ని అభిమానులతో పంచుకున్నారు", "ā sntŏṣānni abhimānultŏ pñcukunnāru"
+  test "కెమెరాను అన్‌బాక్స్‌ చేసే వీడియోను సోషల్‌ మీడియాలో అభిమానులతో పంచుకున్నారు", "kemerānu anbāks cēsē vīḍiyŏnu sŏṣl mīḍiyālŏ abhimānultŏ pñcukunnāru"
+  test "ఇన్నాళ్లకు నిజమయింది. ఇక ఇప్పటి నుంచి దీంతో ఫొటోలు క్లిక్‌ మనిపిస్తా’’ అని ఆ వీడియోలో పేర్కొన్నారు", "innāḷlku nijmyindi. ik ippṭi nuñci dīntŏ phoṭŏlu klik mnipistā’’ ani ā vīḍiyŏlŏ pērkonnāru"
+  test "గవర్నర్‌తో కంగనా భేటీ", "gvrnrtŏ kṅgnā bhēṭī"
+  test "శ్రియ సినిమా సెట్‌లో అడుగుపెట్టి ఆరు నెలలు కావొస్తోంది", "śriy sinimā seṭlŏ aḍugupeṭṭi āru nellu kāvostŏndi"
+  test "ఇప్పుడు తను కోరుకున్న కెమెరా చేతికి రావడంతో త్వరలో మమ్ముట్టి నుంచి స్టన్నింగ్‌ ఫొటోస్‌ రావడం ఖాయం అంటున్నారు ఆయన అభిమానులు", "ippuḍu tnu kŏrukunn kemerā cētiki rāvḍntŏ tvrlŏ mmmuṭṭi nuñci sṭnniṅg phoṭŏs rāvḍṃ khāyṃ aṇṭunnāru āyn abhimānulu"
+  test "ఇప్పుడు ఆ వీడియో వైరల్‌ అయింది. ‘ఆ కెమెరాను కొనాలనేది చాలాకాలంగా నా కల.", "ippuḍu ā vīḍiyŏ vairl ayindi. ‘ā kemerānu konālnēdi cālākālṅgā nā kl."
+  test "మరో వైపు ఎన్టీఆర్‌, రామ్‌చరణ్‌ కలిసి ట్రిపుల్‌ ఆర్‌ సినిమాలో నటిస్తున్నారు", "mrŏ vaipu enṭīār, rāmcrṇ klisi ṭripul ār sinimālŏ nṭistunnāru"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+
+  rules:
+    # note
+    - pattern: \u0C02(?=[కఖగఘఙ])
+      result: ṅ
+    - pattern: \u0C02(?=[చఛజఝఞ])
+      result: ñ
+    - pattern: \u0C02(?=[టఠడఢణ])
+      result: ṇ
+    - pattern: \u0C02(?=[తథదధన])
+      result: n
+    - pattern: \u0C02(?=[పఫబభమ])
+      result: m
+
+
+  characters:
+    'అ': 'a'
+    'ఆ': 'ā'
+    'ఇ': 'i'
+    'ఈ': 'ī'
+    'ఉ': 'u'
+    'ఊ': 'ū'
+    'ఋ': 'ṛ'
+    'ఌ': 'ḻ'
+    'ౡ': 'ḻ'
+    'ఎ': 'e'
+    'ఏ': 'ē'
+    'ఐ': 'ai'
+    'ఒ': 'o'
+    'ఓ': 'ŏ'
+    'ఔ': 'au'
+
+    # II. Consonants (see Note 2)
+    # Gutturals  క ఖ గ ఘ ఙ
+    'క': 'k'
+    'ఖ': 'kh'
+    'గ': 'g'
+    'ఘ': 'gh'
+    'ఙ': 'ṅ'
+
+    # Palatals చ ఛ జ ఝ ఞ
+    'చ': 'c'
+    'ఛ': 'ch'
+    'జ': 'j'
+    'ఝ': 'jh'
+    'ఞ': 'ñ'
+
+    # Cerebrals ట ఠ డ ఢ ణ
+    'ట':  'ṭ'
+    'ఠ':  'ṭh'
+    'డ':  'ḍ'
+    'ఢ':  'ḍh'
+    'ణ':  'ṇ'
+
+    # Dentals త థ ద ధ న
+    'త': 't'
+    #'ৎ': 't'
+    'థ': 'th'
+    'ద': 'd'
+    'ధ': 'dh'
+    'న': 'n'
+
+    # Labials ప ఫ బ భ మ
+    'ప': 'p'
+    'ఫ': 'ph'
+    'బ': 'b'
+    'భ': 'bh'
+    'మ': 'm'
+
+    # Semivowels య ర ల వ
+    'య': 'y'
+    'ర': 'r'
+    'ఱ': 'ṛ'
+    'ల': 'l'
+    'ళ': 'ḷ'
+    'వ': 'v'
+
+    # Sibilants శ ష స హ
+    'శ': 'ś'
+    'ష': 'ṣ'
+    'స': 's'
+
+
+
+    # Aspirate
+    'హ': 'h'
+
+
+    'క్ష': 'kṣa'
+
+
+    # Chandrabindu
+    'ঁ': 'm'
+
+    # Bisarga
+    'ః': 'ḥ'
+
+    # Anusvāra
+    'ం': 'ṃ'
+
+    # Medials # Needed for connecting constants
+
+    'ా': 'ā'
+    'ి': 'i'
+    'ీ': 'ī'
+    'ు': 'u'
+    'ూ': 'ū'
+    'ృ': 'ṛ'
+    'ె': 'e'
+    'ే': 'ē'
+    'ై': 'ai'
+    'ొ': 'o'
+    'ో': 'ŏ'
+    'ౌ': 'au'
+    '\u09CD': '' # Used for joining
+
+
+    '\u0c4d': '' #verma sign for halanta
+    'ౕ	': ''
+    'ౖ	': ''
+    '्': ''
+    '़': ''
+    "‍": ''# Used for joining
+    "‌": ''# Used for non joining

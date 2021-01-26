@@ -1,0 +1,215 @@
+metadata {
+  authority_id: iso
+  id: 1996-method2
+  language: iso-639-2:kor
+  source_script: Hang
+  destination_script: Latn
+  name: "ISO/TR 11941:1996 Information and documentation — Transliteration of Korean script into Latin characters"
+  url: https://www.iso.org/standard/20564.html
+  creation_date: 1996
+  adoption_date:
+  description: Establishes a system for the transliteration of the characters of Korean script into Latin characters. Intended to provide a means for international communication of written documents.
+  
+  notes: ""
+}
+
+tests {
+  # Tests from https://www.eki.ee/wgrs/rom2_ko.pdf
+  test "꽃이", "ggoc'i" # Bad OCR
+  test "강에", "gang'e"
+  test "앉아라", "anj'ara"
+  test "아까", "a'gga"
+  test "흰떡", "hyin'ddeog"
+  #- source: "유쾌하다" not present in method2
+  #  expected: "yu'khwaehata"
+  # Tests from https://github.com/interscript/interscript/files/5249245/ISO-TR-11941-1996.pdf
+  test "애기", "aegi"
+  test "방", "bang"
+  test "아이", "a'i"
+  test "고양이", "go'yang'i"
+  test "굽이", "gub'i"
+  test "밖에", "bagg'e"
+  test "박게", "bagge"
+  test "바께", "ba'gge"
+  test "간게", "gange"
+  test "안자라", "anjara"
+  test "오빠", "o'bba"
+  test "어찌", "eo'jji"
+  test "아씨", "a'ssi"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  character_separator: ""
+  word_separator: " "
+  title_case: False
+  inherit: var-kor-Hang-Hang-jamo
+
+  rules:
+
+  postrules:
+    # Add space to the two ends of the string for easier word boundary handling
+    - pattern: "^"
+      result: " "
+    - pattern: "$"
+      result: " "
+
+    # Marks A, B, C
+    - pattern: "(?<!\\p{Hangul})ᄋ" # Word initially
+      result: ""
+    - pattern: "ᄋ" # See notes 2, 3 and 4.
+      result: "'"
+    - pattern: "ᆼ" # At the end of a syllable.
+      result: "ng"
+
+    # Note 4: add apostrophe before 5 double consonants at initial position
+    #         unless start of the word
+    - pattern: "(?<=\\p{Hangul})([ᄁᄄᄈᄍᄊ])"
+      result: "'\\1"
+    # Note 4: (only method 1) same but with 4 aspirated
+    #- pattern: "(?<=\\p{Hangul})([ᄏᄐᄑᄎ])"
+    #  result: "'\\1"
+
+    # Consonants differing between method1 and method2
+    - pattern: "[ᄀᆨ]"
+      result: "g"
+    - pattern: "[ᄏᆿ]"
+      result: "k"
+    - pattern: "[ᄁᆩ]"
+      result: "gg"
+    - pattern: "[ᄃᆮ]"
+      result: "d"
+    - pattern: "[ᄐᇀ]"
+      result: "t"
+    - pattern: "[ᄄퟍ]"
+      result: "dd"
+    - pattern: "[ᄇᆸ]"
+      result: "b"
+    - pattern: "[ᄑᇁ]"
+      result: "p"
+    - pattern: "[ᄈퟦ]"
+      result: "bb"
+    - pattern: "[ᄌᆽ]"
+      result: "j"
+    - pattern: "[ᄎᆾ]"
+      result: "c"
+    - pattern: "[ᄍퟹ]"
+      result: "jj"
+    # End
+
+    # Composite differing consonants (cons. https://en.wikipedia.org/wiki/ISO/TR_11941 )
+    - pattern: "[ᆪ]"
+      result: "gs"
+    - pattern: "[ꥤ]" # D. R at the beginning of a syllable
+      result: "rg"
+    - pattern: "[ᆰ]"
+      result: "lg"
+    - pattern: "[ᆴ]"
+      result: "lt"
+    - pattern: "[ꥩ]" # D. R at the beginning of a syllable
+      result: "rb"
+    - pattern: "[ᆲ]"
+      result: "lb"
+    - pattern: "[ᆵ]"
+      result: "lp"
+    - pattern: "[ᅜᆬ]"
+      result: "nj"
+    - pattern: "[ᄡᆹ]"
+      result: "bs"
+    # End
+
+    # Other consonants
+    - pattern: "[ᄉᆺ]"
+      result: "s"
+    - pattern: "[ᄊᆻ]"
+      result: "ss"
+    - pattern: "[ᄒᇂ]"
+      result: "h"
+    - pattern: "[ᄂᆫ]"
+      result: "n"
+    - pattern: "[ᄅ]" # D. R at the beginning of a syllable.
+      result: "r"
+    - pattern: "[ᆯ]"
+      result: "l"
+    - pattern: "[ᄆᆷ]"
+      result: "m"
+    # End
+
+    # Other composite consonants (cons. https://en.wikipedia.org/wiki/ISO/TR_11941 )
+    - pattern: "[ꥬ]" # D. R at the beginning of a syllable
+      result: "rs"
+    - pattern: "[ᆳ]"
+      result: "ls"
+    - pattern: "[ꥨ]" # D. R at the beginning of a syllable
+      result: "rm"
+    - pattern: "[ᆱ]"
+      result: "lm"
+    - pattern: "[ᄚ]" # D. R at the beginning of a syllable
+      result: "rh"
+    - pattern: "[ᆶ]"
+      result: "lh"
+    - pattern: "[ᅝᆭ]"
+      result: "nh"
+    # End
+
+    # Vowels
+    - pattern: "ᅡ"
+      result: "a"
+    - pattern: "ᅥ"
+      result: "eo"
+    - pattern: "ᅩ"
+      result: "o"
+    - pattern: "ᅮ"
+      result: "u"
+    - pattern: "ᅳ"
+      result: "eu"
+    - pattern: "ᅵ"
+      result: "i"
+    - pattern: "ᅢ"
+      result: "ae"
+    - pattern: "ᅦ"
+      result: "e"
+    - pattern: "ᅬ"
+      result: "oe"
+    - pattern: "ᅣ"
+      result: "ya"
+    - pattern: "ᅧ"
+      result: "yeo"
+    - pattern: "ᅭ"
+      result: "yo"
+    - pattern: "ᅲ"
+      result: "yu"
+    - pattern: "ᅤ"
+      result: "yae"
+    - pattern: "ᅨ"
+      result: "ye"
+    - pattern: "ᅪ"
+      result: "wa"
+    - pattern: "ᅯ"
+      result: "weo"
+    - pattern: "ᅱ"
+      result: "wi"
+    - pattern: "ᅫ"
+      result: "wae"
+    - pattern: "ᅰ"
+      result: "we"
+    - pattern: "ᅴ"
+      result: "yi"
+    # End
+
+    # Remove space added
+    - pattern: "^ "
+      result: ""
+    - pattern: " $"
+      result: ""
+
+  characters:
+  # This is based on Jamo
+
+  dictionary:
+  #

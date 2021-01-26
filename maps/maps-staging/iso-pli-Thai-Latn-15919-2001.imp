@@ -1,0 +1,51 @@
+metadata {
+  authority_id: iso
+  id: 15919-2001
+  language: iso-639-2:pli
+  source_script: Thai
+  destination_script: Latn
+  name: "Information and documentation — Transliteration of Devanagari and related Indic scripts into Latin characters"
+  url: https://www.chatranjali.fr/Scripts/Standards/ISO15919.pdf
+  creation_date: 2001
+  adoption_date: 2001
+  description: |
+    Script conversion is often required for documents such as historical and literary texts, geographical texts (including
+    maps and atlases), bibliographies, catalogues, lists and passports (and other identification documents).
+  
+    Text in Devanagari script or other Indic scripts sometimes needs to be shown in Latin script, where users, or
+    equipment that they are using, cannot read or write the text
+  
+    This International Standard applies to transliteration of Devanagari, and to Indic scripts related to Devanagari,
+    independent of the period in which it is or was used.
+  
+  notes:
+  
+    - All transliterations made using this International Standard shall be case-insensitive.
+    - If a character in an Indic script is defined in such a way as to be equivalent to another character in any
+      script, where the second character has a transliteration in this International Standard, then the first character shall
+      be transliterated in the same way as the second character.
+}
+
+tests {
+  test "โย กปฺปโกฏีหิปิ อปฺปเมยฺยํ;", "oy kp–̥pokṭīh̄ipi xp–̥pemy–̥ẙ;"
+  test "ตตฺถ ตํ วณฺณยิสฺสํ วินยนฺติ วุตฺตตฺตา วินโย ตาว ววตฺถเปตพฺโพฯ เตเนตํ วุจฺจติ", "tt–̥t̄h t̊ wṇ–̥ṇyis̄–̥s̄̊ winyn–̥ti wut–̥tt–̥tā winoy tāw wwt–̥t̄heptph–̥ophǂ etent̊ wuc–̥cti"
+  test "วุตฺตํ เยน ยทา ยสฺมา, ธาริตํ เยน จาภตํ; ยตฺถปฺปติฏฺฐิตเจตเมตํ วตฺวา วิธิํ ตโตฯ", "wut–̥t̊ eyn ythā ys̄–̥mā, ṭhārit̊ eyn cāp̣ht̊; yt–̥t̄hp–̥ptiṭ–̥ṭ̄hitectemt̊ wt–̥wā wiṭhi̊ totǂ"
+  test "เตนาติอาทิปาฐสฺส, อตฺถํ นานปฺปการโต; ทสฺสยนฺโต กริสฺสามิ, วินยสฺสตฺถวณฺณนนฺติฯ", "etnātixāthipāṭ̄hs̄–̥s̄, xt–̥t̄h̊ nānp–̥pkārot; ths̄–̥s̄yn–̥ot kris̄–̥s̄āmi, winys̄–̥s̄t–̥t̄hwṇ–̥ṇnn–̥tiǂ"
+  test "ยํนูนาหํ ธมฺมญฺจ วินยญฺจ สงฺคาเยยฺยํ, ยถยิทํ สาสนํ อทฺธนิยํ อสฺส จิรฏฺฐิติกํฯ", "ẙnūnāh̄̊ ṭhm–̥mỵ–̥c winyỵ–̥c s̄ng–̥khāeyy–̥ẙ, yt̄hyith̊ s̄ās̄n̊ xth–̥ṭhniẙ xs̄–̥s̄ cirṭ–̥ṭ̄hitik̊ǂ"
+  test "ธาเรสฺสสิ ปน เม ตฺวํ, กสฺสป, สาณานิ ปํสุกูลานิ นิพฺพสนานี’ติ วตฺวา จีวเร สาธารณปริโภเคน เจว", "ṭhāers̄–̥s̄s̄i pn em t–̥ẘ, ks̄–̥s̄p, s̄āṇāni p̊s̄ukūlāni niph–̥phs̄nānī’ti wt–̥wā cīwer s̄āṭhārṇpriop̣hekhn ecw"
+  test "อถ โข อายสฺมา มหากสฺสโป ภิกฺขู อามนฺเตสิ", "xt̄h ok̄h xāys̄–̥mā mh̄āks̄–̥s̄op p̣hik–̥k̄hū xāmn–̥ets̄i"
+  test "อกาโล โข, มาณวก, อตฺถิ เม อชฺช เภสชฺชมตฺตา ปีตา, อปฺเปว นาม สฺเวปิ อุปสงฺกเมยฺยามา", "xkāol ok̄h, māṇwk, xt–̥t̄hi em xch–̥ch ep̣hs̄ch–̥chmt–̥tā pītā, xp–̥epw nām s̄–̥ewpi xups̄ng–̥kemy–̥yāmā"
+  test "สฺเว สนฺนิปาโต, น โข ปน เมตํ ปติรูปํ ยฺวาหํ เสกฺโข สมาโน สนฺนิปาตํ คจฺเฉยฺย", "s̄–̥ew s̄n–̥nipāot, n ok̄h pn emt̊ ptirūp̊ y–̥wāh̄̊ es̄k–̥ok̄h s̄māon s̄n–̥nipāt̊ khc–̥ec̄hy–̥y"
+  test "สุณาตุ เม, ภนฺเต, สงฺโฆฯ ยทิ สงฺฆสฺส ปตฺตกลฺลํ, อหํ อายสฺมตา มหากสฺสเปน วินยํ ปุฏฺโฐ วิสฺสชฺเชยฺย", "s̄uṇātu em, p̣hn–̥et, s̄ng–̥oḳhǂ ythi s̄ng–̥ḳhs̄–̥s̄ pt–̥tkl–̥l̊, xh̄̊ xāys̄–̥mtā mh̄āks̄–̥s̄epn winẙ puṭ–̥oṭ̄h wis̄–̥s̄ch–̥echy–̥y"
+  test "สุณาตุ เม, อาวุโส, สงฺโฆฯ ยทิ สงฺฆสฺส ปตฺตกลฺลํ, อหํ อานนฺทํ ธมฺมํ ปุจฺเฉยฺย", "s̄uṇātu em, xāwuos̄, s̄ng–̥oḳhǂ ythi s̄ng–̥ḳhs̄–̥s̄ pt–̥tkl–̥l̊, xh̄̊ xānn–̥th̊ ṭhm–̥m̊ puc–̥ec̄hy–̥y"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+
+    inherit: 'iso-tha-Thai-Latn-11940-1998'

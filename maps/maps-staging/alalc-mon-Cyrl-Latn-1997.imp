@@ -1,0 +1,161 @@
+metadata {
+  authority_id: alalc
+  id: 1997
+  language: iso-639-2:mon
+  source_script: Cyrl
+  destination_script: Latn
+  name: Transliteration of Cyrillic Khalkha
+  url: https://collab.its.virginia.edu/wiki/tibetan-script/Transliteration%20Schemes%20Mongolian%20Cyrillic%20Script.html
+  creation_date:
+  confirmation_date:
+  description: |
+    In Mongolia, the Khalkha dialect, currently written in both Cyrillic and traditional Mongolian script
+    (and at times in Latin for social networking), is predominant, while in Inner Mongolia, the language
+    is dialectally more diverse and is written in the traditional Mongolian script.
+}
+
+tests {
+  test "Эрдэнэт Сум", "Êrdênêt Sum"
+  test "Эрдэнэт", "Êrdênêt"
+  test "Эрдэнэ", "Êrdênê"
+  test "Шивээговь Сум", "Shivêêgovi Sum"
+  test "Шивээговь", "Shivêêgovi"
+  test "Шарынгол Сум", "Sharyngol Sum"
+  test "Шарынгол", "Sharyngol"
+  test "Цагааннуур", "Tsagaannuur"
+  test "Хонгор Сум", "Khongor Sum"
+  test "Хонгор", "Khongor"
+  test "Хайлаастай", "Khaĭlaastaĭ"
+  test "Түнэл Сум", "Tünêl Sum"
+  test "Түнэл", "Tünêl"
+  test "Сүхбаатар", "Sükhbaatar"
+  test "Сүмбэр Сум", "Sümbêr Sum"
+  test "Сүмбэр", "Sümbêr"
+  test "Сайншанд Сум", "Saĭnshand Sum"
+  test "Сайншанд", "Saĭnshand"
+  test "Орхон Сум", "Orkhon Sum"
+  test "Орхон", "Orkhon"
+  test "Нарст", "Narst"
+  test "Мөрөн Сум", "Mörön Sum"
+  test "Мөрөн", "Mörön"
+  test "Зүүнхөвөө", "Züünkhövöö"
+  test "Жаргалант Сум", "Zhargalant Sum"
+  test "Жаргалант", "Zhargalant"
+  test "Дархан Сум", "Darkhan Sum"
+  test "Даланзадгад Сум", "Dalanzadgad Sum"
+  test "Даланзадгад", "Dalanzadgad"
+  test "Давст Сум", "Davst Sum"
+  test "Давст", "Davst"
+  test "Говьсүмбэр Сум", "Govisümbêr Sum"
+  test "Говь", "Govi"
+  test "Буга", "Buga"
+  test "Бор-Өндөр Сум", "Bor-Öndör Sum"
+  test "Бор-Өндөр", "Bor-Öndör"
+  test "Баянхонгор", "Baiankhongor"
+  test "Баянтал", "Baiantal"
+  test "Баяндэлгэр Сум", "Baiandêlgêr Sum"
+  test "Баяндэлгэр", "Baiandêlgêr"
+  test "Баян-Өндөр Сум", "Baian-Öndör Sum"
+  test "Баруун-Урт Сум", "Baruun-Urt Sum"
+  test "Баруун-Урт", "Baruun-Urt"
+  test "Архуст", "Arkhust"
+  test "Арвайхээр Сум", "Arvaĭkhêêr Sum"
+  test "Арвайхээр", "Arvaĭkhêêr"
+  test "Есөнбулаг Сум", "Esönbulag Sum"
+  test "Ерөө Сум", "Eröö Sum"
+  test "Есөнзүйл Сум", "Esönzüĭl Sum"
+  test "Ноён Сум", "Noën Sum"
+  test "Родник Балянгийн-Булак", "Rodnik Baliangiĭn-Bulak"
+  test "Замын-Үүд Сум", "Zamyn-Üüd Sum"
+  test "Адаацаг Сум", "Adaatsag Sum"
+  test "Чандмань Сум", "Chandmani Sum"
+  test "Хяргас Сум", "Khiargas Sum"
+  test "Еэвэн, ерөөл", "Eêvên, erööl"
+  test "Ёроол, оёдол", "Ërool, oëdol"
+  test "Пуужин, апарат", "Puuzhin, aparat"
+  test "Фото, фонд", "Foto, fond"
+  test "Щедрин, щорс", "Shchedrin, shchors"
+  test "Оръё, суръя, гаръя", "Or“ë, sur“ia, gar“ia"
+  test "Юм, юүдэн", "Ium, iuüdên"
+  test "Ямар, ядуу, ая", "Iamar, iaduu, aia"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+
+  characters:
+    "А": "A"      # \u0410
+    "Б": "B"      # \u0411
+    "В": "V"      # \u0412
+    "Г": "G"      # \u0413
+    "Д": "D"      # \u0414
+    "Е": "E"      # \u0415
+    "Ё": "Ë"      # \u0401
+    "Ж": "Zh"     # \u0416
+    "З": "Z"      # \u0417
+    "И": "I"      # \u0418
+    "Й": "Ĭ"      # \u0419
+    "К": "K"      # \u041a
+    "Л": "L"      # \u041b
+    "М": "M"      # \u041c
+    "Н": "N"      # \u041d
+    "О": "O"      # \u041e
+    "Ө": "Ö"      # \u04e8
+    "П": "P"      # \u041f
+    "Р": "R"      # \u0420
+    "С": "S"      # \u0421
+    "Т": "T"      # \u0422
+    "У": "U"      # \u0423
+    "Ү": "Ü"      # \u04ae
+    "Ф": "F"      # \u0424
+    "Х": "Kh"     # \u0425
+    "Ц": "Ts"     # \u0426
+    "Ч": "Ch"     # \u0427
+    "Ш": "Sh"     # \u0428
+    "Щ": "Shch"   # \u0429
+    "Ъ": "“"      # \u042a
+    "Ы": "Y"      # \u042b
+    "Ь": "I"      # \u042c
+    "Э": "Ê"      # \u042d
+    "Ю": "Iu"     # \u042e
+    "Я": "Ia"     # \u042f
+    "а": "a"      # \u0430
+    "б": "b"      # \u0431
+    "в": "v"      # \u0432
+    "г": "g"      # \u0433
+    "д": "d"      # \u0434
+    "е": "e"      # \u0435
+    "ё": "ë"      # \u0451
+    "ж": "zh"     # \u0436
+    "з": "z"      # \u0437
+    "и": "i"      # \u0438
+    "й": "ĭ"      # \u0439
+    "к": "k"      # \u043a
+    "л": "l"      # \u043b
+    "м": "m"      # \u043c
+    "н": "n"      # \u043d
+    "о": "o"      # \u043e
+    "ө": "ö"      # \u04e9
+    "п": "p"      # \u043f
+    "р": "r"      # \u0440
+    "с": "s"      # \u0441
+    "т": "t"      # \u0442
+    "у": "u"      # \u0443
+    "ү": "ü"      # \u04af
+    "ф": "f"      # \u0444
+    "х": "kh"     # \u0445
+    "ц": "ts"     # \u0446
+    "ч": "ch"     # \u0447
+    "ш": "sh"     # \u0448
+    "щ": "shch"   # \u0449
+    "ъ": "“"      # \u044a
+    "ы": "y"      # \u044b
+    "ь": "i"      # \u044c
+    "э": "ê"      # \u044d
+    "ю": "iu"     # \u044e
+    "я": "ia"     # \u044f

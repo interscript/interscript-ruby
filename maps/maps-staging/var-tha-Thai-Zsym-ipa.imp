@@ -1,0 +1,298 @@
+metadata {
+  authority_id: var
+  id: phonemic
+  language: iso-639-2:tha
+  source_script: Thai
+  destination_script: Zsym
+  name: Phonemic Thai to IPA
+  url:
+  creation_date:
+  adoption_date:
+  description:
+    This maps phonemic Thai to IPA.
+  
+  notes: |
+}
+
+tests {
+  test "คฺวาม-วาว", "kʰwaːm˧.waːw˧"
+  test "ที่-เปิด-ขวด", "tʰiː˥˩.pɤːt̚˨˩.kʰua̯t̚˨˩"
+  test "พื้น-หฺลัง", "pʰɯːn˦˥.laŋ˩˩˦"
+  test "สม-ชาย", "som˩˩˦.t͡ɕʰaːj˧"
+  test "อ็่อน-ค่อ", "ʔɔn˨˩.kʰɔː˥˩"
+  test "โค-ระ-ยอ", "kʰoː˧.ra˦˥.jɔː˧"
+  test "ไล่-ออก", "laj˥˩.ʔɔːk̚˨˩"
+  test "ไส้-เลื่อน", "saj˥˩.lɯa̯n˥˩"
+  test "ไอ-กฺรน", "ʔaj˧.kron˧"
+  test "ไอ-ซี-ยู", "ʔaj˧.siː˧.juː˧"
+  test "ไอ๊ส-แลน", "ʔajs˦˥.lɛːn˧"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  title-case: false
+  word_separator: " "
+
+  rules:
+    # Cluster Onsets:   กขคดตทบปผพฟสห
+    # Cluster Onsets in groups:
+    # CO - High  ขผสห
+    # CO - Mid   กดตบป
+    # CO - Low   คทพฟ
+    # All Onsets:       กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษสหฬอฮ
+    # High Consonants:  ขฃฉฐถผฝศษสห
+    # Mid Consonants:   กจฎฏดตบปอ
+    # Low Consonants:   คฅฆงชซฌญฑฒณทธนพฟภมยรลวฬฮ
+    # Tone:             [\u0304\u0e48-\u0e4B] 0: 0304  1: 0E48  2: 0E49  3: 0E4A  4: 0E4B
+    # Vowels right before tone marks:    [\u0e31\u0e33-\u0e39]
+
+    # Handle Consonantal อ, which can never be part of a consonant cluster
+    # in phonemic Thai
+    - pattern: "(^| |-|[เแไใโ])(อ)(\u0e47|[\u0e31\u0e33-\u0e39])?([\u0304\u0e48-\u0e4b])?([^ -]*)"
+      result:  "\\1\\2–\\3\\5_M\\4"
+
+    # Handle Consonantal ยว
+    - pattern: "(^| |-|[เแไใโ])([ยว])(\u0e47|[\u0e31\u0e33-\u0e39])?([\u0304\u0e48-\u0e4b])?([^ -]*)"
+      result:  "\\1\\2–\\3\\5_L\\4"
+
+    - pattern: "(^| |-|[เแไใโ])([ขผสห]\u0e3a[ยว])(\u0e47|[\u0e31\u0e33-\u0e39]\u0e47?)?([\u0304\u0e48-\u0e4b])?([^ -]*)"
+      result:  "\\1\\2–\\3\\5_H\\4"
+    - pattern: "(^| |-|[เแไใโ])([คทพฟ]\u0e3a[ยว])(\u0e47|[\u0e31\u0e33-\u0e39]\u0e47?)?([\u0304\u0e48-\u0e4b])?([^ -]*)"
+      result:  "\\1\\2–\\3\\5_L\\4"
+    - pattern: "(^| |-|[เแไใโ])([กดตบป]\u0e3a[ยว])(\u0e47|[\u0e31\u0e33-\u0e39]\u0e47?)?([\u0304\u0e48-\u0e4b])?([^ -]*)"
+      result:  "\\1\\2–\\3\\5_M\\4"
+
+    # Move tones to the end of the syllable
+    - pattern: "(^| |-|[เแไใโ])([ขผสห]\u0e3a[กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมรลศษสหฬอฮ]|[ขฃฉฐถผฝศษสห])(\u0e47|[\u0e31\u0e33-\u0e39]\u0e47?)?([\u0304\u0e48-\u0e4b])?([^- \u0e3a]*)(?= |-|$)"
+      result:  "\\1\\2–\\3\\5_H\\4"
+    - pattern: "(^| |-|[เแไใโ])([กดตบป]\u0e3a[กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมรลศษสหฬฮ]|[กจฎฏดตบป])(\u0e47|[\u0e31\u0e33-\u0e39]\u0e47?)?([\u0304\u0e48-\u0e4b])?([^- \u0e3a]*)(?= |-|$)"
+      result:  "\\1\\2–\\3\\5_M\\4"
+    - pattern: "(^| |-|[เแไใโ])([คทพฟ]\u0e3a[กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมรลศษสหฬอฮ]|[คฅฆงชซฌญฑฒณทธนพฟภมรลฬฮ])(\u0e47|[\u0e31\u0e33-\u0e39]\u0e47?)?([\u0304\u0e48-\u0e4b])?([^- \u0e3a]*)(?= |-|$)"
+      result:  "\\1\\2–\\3\\5_L\\4"
+
+    # If ว is followed by another vowel, than it is actually part of the cluster
+    - pattern: "(^| |-|[เแไใโ])([ขผสหกดตบปคทพฟ])–([วรล])([าอำะ\u0e31\u0e33-\u0e39]\u0e47?)([\u0304\u0e48-\u0e4b])?([^ -]*_[HML])"
+      result:  "\\1\\2\\3–\\4\\6\\5"
+
+    - pattern: "([เแไใโ])([ขผสหกดตบปคทพฟ])–([วรล])([าอำะ\u0e31\u0e33-\u0e39]?\u0e47?)([\u0304\u0e48-\u0e4b])?([คฅฆกขฃพภบปฟฌฑฒทธจฎฏดตฐถศษสชมญณนรลฬง]+_[HML])"
+      result:  "\\1\\2\\3–\\4\\6\\5"
+
+    # Move preceding vowels to the right position
+    - pattern: "(^| |-|[เแไใโ])([เแไใโ])([ปคฟตดผทพกขบหส]\u0e3a?[กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษสหฬอฮ])"
+      result:  "\\1\\3\\2"
+    - pattern: "(^| |-|[เแไใโ])([เแไใโ])([กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษสหฬอฮ])"
+      result:  "\\1\\3\\2"
+
+    # Add inherit vowel if there is nothing between the onset and final consonants
+    - pattern: "([กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษสหฬอฮ])(–)([คฅฆกขฃพฟภบปชฌฑฒทธจฎฏดตฐถศษสมญณนรลฬง]_)"
+      result: "\\1โ\\2ะ\\3"
+
+    # Add inherit vowel for single letters
+    - pattern: "(^| |-|\u0e3a)([ก-ฮ])–(?=_[HML])"
+      result: "\\1\\2–ะ"
+
+    #Change tones to correct tone values
+    # IPA Tones:        0 ˧ , 1 ˨˩ , 2 ˥˩, 3 ˦˥, 4 ˩˩˦
+
+    - pattern: "_[HM]\u0e48"
+      result: '˨˩'
+    - pattern: "_[HM]\u0e49"
+      result: '˥˩'
+    - pattern: "_[HML]\u0e4a"
+      result: '˦˥'
+    - pattern: "_[HML]\u0e4b"
+      result: '˩˩˦'
+    - pattern: "_L\u0e48"
+      result: '˥˩'
+    - pattern: "_L\u0e49"
+      result: '˦˥'
+    - pattern: "_[HML]\u0304"
+      result: '˧'
+
+    # Syllables ending in –ะ (U+0E30), –ิ (U+0E34), –ึ (U+0E36), –ุ (U+0E38)
+    # are dead syllables and follow a different set of tone rules
+    # The combination เ–ิ is an exception.
+
+    - pattern : "([^เ]–\u0e34)_[HM]"
+      result: "\\1˨˩"
+    - pattern : "([^เ]–\u0e34)_L"
+      result: "\\1˦˥"
+    - pattern : "([\u0e30\u0e36\u0e38])_[HM]"
+      result: "\\1˨˩"
+    - pattern: "([\u0e30\u0e36\u0e38])_L"
+      result: "\\1˦˥"
+
+    # Syllables with stop finals
+    - pattern: "([ะคกขฃพฟภบปชฌฑฒทธจฎฏดตฐถศษส]ส?)_[HM]"
+      result: "\\1˨˩"
+    - pattern: "([^เ]–\u0e34[คฅฆกขฃพฟภบปชฌฑฒทธจฎฏดตฐถศษส]ส?)_L"
+      result: "\\1˦˥"
+    - pattern: "([\u0e30\u0e31\u0e36\u0e38\u0e47][คฅฆกขฃพฟภบปชฌฑฒทธจฎฏดตฐถศษส]ส?)_L"
+      result: "\\1˦˥"
+    - pattern: "(\u0e47อ[คฅฆกขฃพฟภบปชฌฑฒทธจฎฏดตฐถศษส]ส?)_L"
+      result: "\\1˦˥"
+    - pattern: "((?<=[^มนง])[คฅฆกขฃพฟภบปชฌฑฒทธจฎฏดตฐถศษส]ส?)_L"
+      result: "\\1˥˩"
+
+    # Assign the default tones if no tone mark is present.
+    - pattern: "_[ML]"
+      result: '˧'
+    - pattern: "_H"
+      result: '˩˩˦'
+
+    # Remove tone-marking unpronounced ห
+    - pattern: "ห?\u0e3a"
+      result: ''
+
+  postrules:
+    # If a syllable ends with a short vowel, the vowel is sometimes
+    # followed by glottal constriction. On Wiktionary, this is
+    # sometimes transcribed as ʔ, but usage has been inconsistent.
+    # This glottal stop is not phonemic and is not written in most
+    # existing transcription systems. Therefore all syllable-final
+    # ʔ will be removed from Wiktionary data.
+    #
+    # - pattern: "([aieuoɯɔɛɤ])(?=[˩˨˧˦˥]*( |$))"
+    #   result: "\\1ʔ"
+
+    # Remove unprocessed short vowel marks
+    - pattern: "็"
+      result: ""
+
+    # Using . instead of - as syllable delimiter in IPA
+    - pattern: "-"
+      result: "."
+
+  characters:
+    # Part 1
+    "–ิว": "iw"
+    "เ–็ว": "ew"
+    "เ–ว": "eːw"
+    "แ–็ว": "ɛw"
+    "แ–ว": "ɛːw"
+    "โ–ว": "oːw"
+    "เ–ียว": "ia̯w"
+
+    # Part 2
+    "–ุย": "uj"
+    "โ–ย": "oːj"
+    "–อย": "ɔːj"
+    "เ–ย": "ɤːj"
+    "เ–ือย": "ɯa̯j"
+    "–วย": "ua̯j"
+
+    # Part 3
+    "เ–ียะ": "ia̯"
+    "เ–ีย": "ia̯"
+    "เ–ือะ": "ɯa̯"
+    "เ–ือ": "ɯa̯"
+    "–ัวะ": "ua̯"
+    "–ัว": "ua̯"
+    "–ว": "ua̯"
+    "ไ–ย": "aj"
+    "ใ–": "aj"
+    "ไ–": "aj"
+    "–ัย": "aj"
+    "–าย": "aːj"
+    "เ–า": "aw"
+    "–าว": "aːw"
+
+    # Part 4
+    "–ะ": "a"
+    "–ั": "a"
+    "–า": "aː"
+    "รร": "an"
+    "–ำ": "am"
+    "–ิ": "i"
+    "–ี": "iː"
+    "–ึ": "ɯ"
+    "–ือ": "ɯː"
+    "–ื": "ɯː"
+    "–ุ": "u"
+    "–ู": "uː"
+    "เ–ะ": "e"
+    "เ–็": "e"
+    "เ–": "eː"
+    "แ–ะ": "ɛ"
+    "แ–็": "ɛ"
+    "แ–": "ɛː"
+    "โ–ะ": "o"
+    "โ–": "oː"
+    "เ–าะ": "ɔ"
+    "–็อ": "ɔ"
+    "–อ": "ɔː"
+    "เ–็อ": "ɤ"
+    "เ–อะ": "ɤ"
+    "เ–ิ็": "ɤ"
+    "เ–ิ": "ɤː"
+    "เ–อ": "ɤː"
+
+    # FINAL CONSONANTS
+    "[คฅฆกขฃ](?=ส?[˩˨˧˦˥])": "k̚"
+    "[พภบป](?=[˩˨˧˦˥])": "p̚"
+    "ฟ(?=[˩˨˧˦˥])": "f"
+    "[ฌฑฒทธจฎฏดตฐถ](?=[˩˨˧˦˥])": "t̚"
+    "[ศษส](?=[˩˨˧˦˥])": "s"
+    "ช(?=[˩˨˧˦˥])": "t͡ɕʰ"
+    "ม(?=[˩˨˧˦˥])": "m"
+    "[ญณนร](?=[˩˨˧˦˥])": "n"
+    "[ลฬ](?=[˩˨˧˦˥])": "l"
+    "ง(?=[˩˨˧˦˥])": "ŋ"
+
+    # ​ONSET CONSONANTS
+
+    "ก": "k"
+    "ข": "kʰ"
+    "ฃ": "kʰ"
+    "ค": "kʰ"
+    "ฅ": "kʰ"
+    "ฆ": "kʰ"
+    "ง": "ŋ"
+    "จ": "t͡ɕ"
+    "ฉ": "t͡ɕʰ"
+    "ช": "t͡ɕʰ"
+    "ซ": "s"
+    "ฌ": "t͡ɕʰ"
+    "ญ": "j"
+    "ฎ": "d"
+    "ฏ": "t"
+    "ฐ": "tʰ"
+    "ฑ": "tʰ"
+    "ฒ": "tʰ"
+    "ณ": "n"
+    "ด": "d"
+    "ต": "t"
+    "ถ": "tʰ"
+    "ท": "tʰ"
+    "ธ": "tʰ"
+    "น": "n"
+    "บ": "b"
+    "ป": "p"
+    "ผ": "pʰ"
+    "ฝ": "f"
+    "พ": "pʰ"
+    "ฟ": "f"
+    "ภ": "pʰ"
+    "ม": "m"
+    "ย": "j"
+    "ร": "r"
+    "ฤ": "rɯ"
+    "ฤๅ": "rɯː"
+    "ล": "l"
+    "ฦ": "lɯ"
+    "ฦๅ": "lɯː"
+    "ว": "w"
+    "ศ": "s"
+    "ษ": "s"
+    "ส": "s"
+    "ห": "h"
+    "ฬ": "l"
+    "อ": "ʔ"
+    "ฮ": "h"
+
+  dictionary:

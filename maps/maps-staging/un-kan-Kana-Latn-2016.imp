@@ -1,0 +1,244 @@
+metadata {
+  authority_id: ungegn
+  id: 2016
+  language: iso-639-2:kan
+  source_script: Kana
+  destination_script: Latn
+  name: REPORT ON THE CURRENT STATUS OF UNITED NATIONS ROMANIZATION SYSTEMS FOR GEOGRAPHICAL NAMES -- Kannada Romanization, 1972
+  url: https://www.eki.ee/wgrs/rom1_kn.pdf
+  creation_date: 1972
+  confirmation_date: 2016
+  description: |
+    The United Nations recommended system was approved in 1972 (II/11) and amended in 1977
+    (III/12), based on a report prepared by D. N. Sharma. The tables and their corrections were
+    published in volume II of the conference reports
+  
+    There is no evidence of the use of the system either in India or in international cartographic
+    products.
+  
+    Kannada uses an alphasyllabic script whereby each character represents a syllable rather than
+    one sound. Vowels and diphthongs are marked in two ways: as independent characters (used
+    syllable-initially) and in an abbreviated form, to denote vowels after consonants. The
+    romanization table is unambiguous. The system is mostly reversible but there may exist some
+    ambiguities in the romanization of vowels (independent vs. abbreviated characters) and
+    consonants (combinations with subscript consonants vs. character sequences).
+  
+  notes:
+    - |
+      While most consonants have a diacritic in the upper right corner of the character (like ಕ),
+      some do not, e.g. ಖ kha, ಜ ja, ನ na, ಬ ba, ಲ la.
+    - |
+      Combinations with r as the first component are written by adding a special symbol after the
+      second consonant: ರ್ಗ rga.
+}
+
+tests {
+  test "ಕರ್ಣಾಟಕ", "karṇāṭaka"
+  test "ಬೆಂಗಳೂರು", "bĕṁgaḷūru"
+  test "ಮಹಾರಾಷ್ಟ್ರದ ಯಾವುದೇ ಪ್ರಕರಣದ ತನಿಖೆಗೆ ಇನ್ನು ಸಿಬಿಐ ಪಡೆಯಬೇಕು ಅನುಮತಿ", "mahārāṣhṭrada yāvude prakaraṇada tanikhĕgĕ innu sibiai paḍĕyabeku anumati"
+  test "ಹರಕು ಬಾಯಿ: ಈಶ್ವರಪ್ಪಗೆ ಶಾಸಕ ಯತ್ನಾಳ ತಿರುಗೇಟು", "haraku bāyi: īshvarappagĕ shāsaka yatnāḷa tirugeṭu"
+  test "ಹಾಥರಸ್‌ ಪ್ರಕರಣ: ೨೯ರಂದು ರಾಷ್ಟ್ರವ್ಯಾಪಿ ಪ್ರತಿಭಟನೆಗೆ ಮಹಿಳಾ ಸಂಘಟನೆಗಳ ಕರೆ", "hātharas prakaraṇa: 29raṁdu rāṣhṭravyāpi pratibhaṭanĕgĕ mahiḷā saṁghaṭanĕgaḷa karĕ"
+  test "ಪೊಲೀಸ್‌ ಮಕ್ಕಳ ಶಾಲೆ ಮುಚ್ಚುವ ಯತ್ನಕ್ಕೆ ಹೊರಟ್ಟಿ ತೀವ್ರ ವಿರೋಧ", "pŏlīs makkaḷa shālĕ muchchuva yatnakkĕ hŏraṭṭi tīvra virodha"
+  test "ಅಮೆರಿಕ ಅಧ್ಯಕ್ಷೀಯ ಚುನಾವಣೆ: ಟ್ರಂಪ್‌–ಬೈಡನ್‌ ಅಂತಿಮ ಮುಖಾಮುಖಿಗೆ ವೇದಿಕೆ ಸಿದ್ಧ", "amĕrika adhyakṣhīya chunāvaṇĕ: ṭraṁp–baiḍan aṁtima mukhāmukhigĕ vedikĕ siddha"
+  test "ಅಂಜನಾದ್ರಿ ಆಂಜನೇಯನ ದರ್ಶನ ಪಡೆದ ಪವರ್ ಸ್ಟಾರ್ ಪುನೀತ್ ರಾಜ್ ಕುಮಾರ್", "aṁjanādri āṁjaneyana darshana paḍĕda pavar sṭār punīt rāj kumār"
+  test "ಇನ್ನು ಹಿಂದೂ ದೇವಸ್ಥಾನದ ಧಾರ್ಮಿಕ ಕಾರ್ಯದಲ್ಲಿ ಭಾಗಿಯಾಗಿದ್ದಕ್ಕೆ ಮೋಯಿದ್ದೀನ್ ಬಾವಾಗೆ ಬೆದರಿಕೆ ಒಡ್ಡಲಾಗಿದೆ", "innu hiṁdū devasthānada dhārmika kāryadalli bhāgiyāgiddakkĕ moyiddīn bāvāgĕ bĕdarikĕ ŏḍḍalāgidĕ"
+  test "ಇದು ಮೋದಿ ದೇಶ - ದನ ತಿಂದು ಹೋದ್ರೆ ಹುಷಾರ್ : ದೇಗುಲಕ್ಕೆ ಹೋಗಿದ್ದ ಬಾವಾಗೆ ಬೆದರಿಕೆ", "idu modi desha - dana tiṁdu hodrĕ huṣhār : degulakkĕ hogidda bāvāgĕ bĕdarikĕ"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+
+  rules:
+    # to cover diacritic and vowel less consonants
+    - pattern: ([ಕ]=?)(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
+      result:  'k'
+    - pattern: ([ಖ]=?)(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
+      result:  'kh'
+    - pattern: ([ಗ]=?)(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
+      result:  'g'
+    - pattern: ([ಘ]=?)(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
+      result:  'gh'
+    - pattern: ([ಙ]=?)(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
+      result:  'ṅ'
+    - pattern: ([ಚ]=?)(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
+      result:  'ch'
+    - pattern: ([ಛ]=?)(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
+      result:  'chh'
+    - pattern: ([ಜ]=?)(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
+      result:  'j'
+    - pattern: ([ಝ]=?)(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
+      result:  'jh'
+    - pattern: ([ಞ]=?)(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
+      result:  'ñ'
+    - pattern: ([ಟ]=?)(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
+      result:  'ṭ'
+    - pattern: ([ಠ]=?)(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
+      result:  'ṭh'
+    - pattern: ([ಡ]=?)(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
+      result:  'ḍ'
+    - pattern: ([ಢ]=?)(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
+      result:  'ḍh'
+    - pattern: ([ಣ]=?)(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
+      result:  'ṇ'
+    - pattern: ([ತ]=?)(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
+      result:  't'
+    - pattern: ([ಥ]=?)(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
+      result:  'th'
+    - pattern: ([ದ]=?)(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
+      result:  'd'
+    - pattern: ([ಧ]=?)(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
+      result:  'dh'
+    - pattern: ([ನ]=?)(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
+      result:  'n'
+    - pattern: ([ಪ]=?)(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
+      result:  'p'
+    - pattern: ([ಫ]=?)(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
+      result:  'ph'
+    - pattern: ([ಬ]=?)(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
+      result:  'b'
+    - pattern: ([ಭ]=?)(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
+      result:  'bh'
+    - pattern: ([ಮ]=?)(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
+      result:  'm'
+    - pattern: ([ಯ]=?)(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
+      result:  'y'
+    - pattern: ([ರ]=?)(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
+      result:  'r'
+    - pattern: ([ಲ]=?)(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
+      result:  'l'
+    - pattern: ([ಳ]=?)(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
+      result:  'ḷ'
+    - pattern: ([ವ]=?)(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
+      result:  'v'
+    - pattern: ([ಶ]=?)(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
+      result:  'sh'
+    - pattern: ([ಷ]=?)(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
+      result:  'ṣh'
+    - pattern: ([ಸ]=?)(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
+      result:  's'
+    - pattern: ([ಹ]=?)(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
+      result:  'h'
+
+  characters:
+    'ಅ': 'a'
+    'ಆ': 'ā'
+    'ಇ': 'i'
+    'ಈ': 'ī'
+    'ಉ': 'u'
+    'ಊ': 'ū'
+    'ಋ': 'ṛ'
+
+    'ಎ': 'ĕ'
+    'ಏ': 'e'
+    'ಐ': 'ai'
+
+    'ಒ': 'ŏ'
+    'ಓ': 'o'
+    'ಔ': 'au'
+
+    # Gutturals
+    'ಕ': 'ka'
+    'ಖ': 'kha'
+    'ಗ': 'ga'
+    'ಘ': 'gha'
+    'ಙ': 'ṅa'
+
+    # Palatals
+    'ಚ': 'cha'
+    'ಛ': 'chha'
+    'ಜ': 'ja'
+    'ಝ': 'jha'
+    'ಞ': 'ña'
+
+    # Cerebrals
+    'ಟ': 'ṭa'
+    'ಠ': 'ṭha'
+    'ಡ': 'ḍa'
+    'ಢ': 'ḍha'
+    'ಣ': 'ṇa'
+
+    # Dentals
+    'ತ': 'ta'
+    'ಥ': 'tha'
+    'ದ': 'da'
+    'ಧ': 'dha'
+    'ನ': 'na'
+
+    # Labials
+    'ಪ': 'pa'
+    'ಫ': 'pha'
+    'ಬ': 'ba'
+    'ಭ': 'bha'
+    'ಮ': 'ma'
+
+    # Semivowels
+    'ಯ': 'ya'
+    'ರ': 'ra'
+    'ಲ': 'la'
+    'ಳ': 'ḷa'
+
+
+    'ವ': 'va'
+
+    # Sibilants
+    'ಶ': 'sha'
+    'ಷ': 'ṣha'
+    'ಸ': 'sa'
+
+
+    # Aspirate
+    'ಹ': 'ha'
+
+
+    # Bisarga
+    'ಃ': 'ḥ'
+
+    # Anusvāra
+    'ಂ': 'ṁ'
+
+    '\u0cbc': '' #nukta
+
+    # Medials # Needed for connecting constants
+    'ಾ': "ā"
+    'ಿ': "i"
+    'ೀ': "ī"
+    'ು': "u"
+    'ೂ': "ū"
+    'ೃ': "ṛ"
+
+
+    'ೆ': "ĕ"
+    'ೇ': "e"
+    'ೈ': "ai"
+
+
+    'ೊ': 'ŏ'
+    'ೋ': 'o'
+    'ೌ': 'au'
+
+
+    '्': ''
+    '़': ''
+    '್': '' # used for pronounciation without vowel
+    "‍": '' # no need for zero with joiner
+    "‌": '' # no need for zero with non joiner
+
+
+
+    # Digits
+
+    '೦': '0'
+    '೧': '1'
+    '೨': '2'
+    '೩': '3'
+    '೪': '4'
+    '೫': '5'
+    '೬': '6'
+    '೭': '7'
+    '೮': '8'
+    '೯': '9'

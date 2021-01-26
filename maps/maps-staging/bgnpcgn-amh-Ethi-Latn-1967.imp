@@ -1,0 +1,475 @@
+metadata {
+  authority_id: bgnpcgn
+  id: 1967
+  language: iso-639-2:amh
+  source_script: Ethi
+  destination_script: Latn
+  name: BGN/PCGN Romanization System -- Amharic (1967)
+  url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/693663/ROMANIZATION_OF_AMHARIC.pdf
+  creation_date: 1967
+  description: |
+    Amharic is the principal and official language of Ethiopia. The BGN/PCGN system for Amharic was designed for use in romanizing names written in the Amharic alphabet. The Roman letters and letter combinations shown as equivalents to the Amharic characters reflect modern Amharic pronunciation.
+  
+  notes:
+    - 1. The 6th-order characters should be romanized either with or without the letter i, depending on pronunciation.
+  
+    - 2. For documentation purposes, the characters romanized with h in rows 1, 3, 13, and 18 may, instead, be romanized with h, ḥ, ḫ, and ẖ, respectively; the characters both romanized with s in rows 5 and 7 may, instead, be romanized with š and s, respectively; and the characters both romanized with ts’ in rows 30 and 31 may, instead, be romanized with ts’ and ts’, respectively.
+  
+    - 3. When the character ና in row 14 is known to represent the Amharic word meaning ‘and’, its romanization (na) should always be separated from the preceding and following words by spaces and should never be capitalized, e.g., Raya na K’obo.
+  
+    - 4. The vowel characters in row 16 should be romanized ā, u, ī, a, ē, i, and o initially and ’ā, ’u, ’ī, ’a, ’ē, ’i, and ’o in all other positions.
+  
+    - 5. When the character የ in row 23 is known to represent the Amharic preposition, its romanization (Ye) should begin with an upper-case letter and written together with the following word, which should also begin with an upper-case letter, e.g., YeWiha Shet’.
+  
+    - |
+      6. An inventory of letter-diacritic combinations, with their Unicode encoding, in addition to the unmodified letters of the basic Roman script is:
+  
+      All apostrophes appearing in romanization are U+2019, except as they appear in row 20, which are U+2018.
+  
+      Ā (U+0100) ā (U+0101)
+      Ī (U+012A) ī (U+012B)
+      Ē (U+0112) ē (U+0113)
+  
+    - 7.The Romanization column shows only lowercase forms but, when romanizing, uppercase and lowercase Roman letters as appropriate should be used.
+}
+
+tests {
+  test "የዜግነት ክብር በ ኢትዮጵያችን ጸንቶ", "yezēgnet kbr be ītyop’yachn ts’ento"
+  test "ታየ ሕዝባዊነት ዳር እስከዳር በርቶ", "taye hzbawīnet dar iskedar berto"
+  test "ለሰላም ለፍትህ ለሕዝቦች ነጻነት", "leselam lefth lehzboch nets’anet"
+  test "በእኩልነት በፍቅር ቆመናል ባንድነት", "beikulnet befk’r k’omenal bandnet"
+  test "መሠረተ ፅኑ ሰብዕናን ያልሻርን", "meserete ts’nu seb‘nan yalsharn"
+  test "ሕዝቦች ነን ለሥራ በሥራ የኖርን", "hzboch nen lesra besra yenorn"
+  test "ድንቅ የባህል መድረክ ያኩሪ ቅርስ ባለቤት", "dnk’ yebahl medrek yakurī k’rs balebēt"
+  test "የተፈጥሮ ጸጋ የጀግና ሕዝብ እናት", "yetefet’ro ts’ega yejegna hzb inat"
+  test "እንጠብቅሻለን አለብን አደራ", "int’ebk’shalen ālebn ādera"
+  test "ኢትዮጵያችን ኑሪ እኛም ባንቺ እንኩራ", "ītyop’yachn nurī inyam banchī inkura"
+  test "ቋንቋ የድምጽ፣ የምልክት ወይም የምስል ቅንብር ሆኖ", "k’wank’wa yedmts’፣ yemlkt weym yemsl k’nbr hono"
+  test "ለማሰብ ወይም የታሰበን ሃሳብ ለሌላ ለማስተላለፍ የሚረዳ መሳሪያ ነው", "lemaseb weym yetaseben hasab lelēla lemastelalef yemīreda mesarīya new"
+  test "በአጭሩ ቋንቋ የምልክቶች ስርዓትና እኒህን ምልክቶች ለማቀናበር", "beāch’ru k’wank’wa yemlktoch sr‘atna inīhn mlktoch lemak’enaber"
+  test "የሚያስፈልጉ ህጎች ጥንቅር ነው። ቋንቋወችን ለመፈረጅ እንዲሁም", "yemīyasfelgu hgoch t’nk’r new። k’wank’wawechn lemeferej indīhum"
+  test "ለምክፈል የሚያስችሉ መስፈርቶችን ለማስቀመጥ ባለው ችግር", "lemkfel yemīyaschlu mesfertochn lemask’emet’ balew chgr"
+  test "ምክንያት በአሁኑ ሰዓት በርግጠኝነት ስንት ቋንቋ በዓለም ላይ", "mknyat beāhunu se‘at bergt’enynet snt k’wank’wa be‘alem lay"
+  test "እንዳለ ማወቅ አስቸጋሪ ነው", "indale mawek’ āschegarī new"
+  test "አሰላ", "āsela"
+  test "አሶሳ", "āsosa"
+  test "አንኮበር", "ānkober"
+  test "አክሱም", "āksum"
+  test "አዋሳ", "āwasa"
+  test "አዲስ ዘመን (ከተማ)", "ādīs zemen (ketema)"
+  test "አዲግራት", "ādīgrat"
+  test "አዳማ", "ādama"
+  test "ደምበጫ", "dembech’a"
+  test "ደርባ", "derba"
+  test "ደብረ ማርቆስ", "debre mark’os"
+  test "ደብረ ብርሃን", "debre brhan"
+  test "ደብረ ታቦር (ከተማ)", "debre tabor (ketema)"
+  test "ደብረ ዘይት", "debre zeyt"
+  test "ደገሃቡር", "degehabur"
+  test "ወልቂጤ", "welk’īt’ē"
+  test "ወልወል", "welwel"
+  test "ወልደያ", "weldeya"
+  test "ናይሎ ሳህራን", "naylo sahran"
+  test "አኙዋክኛ", "ānyuwaknya"
+  test "ኡዱክኛ", "uduknya"
+  test "ኦፓኛ", "opanya"
+  test "ጉምዝኛ", "gumznya"
+  test "አፋርኛ", "āfarnya"
+  test "አላባኛ", "ālabanya"
+  test "አርቦርኛ", "ārbornya"
+  test "ባይሶኛ", "baysonya"
+  test "ቡሳኛ", "busanya"
+  test "ራስ ዓሊ (ትልቁ) ፬", "ras ‘alī (tlk’u) 4"
+  test "ራስ ዓሊጋዝ ፭", "ras ‘alīgaz 5"
+  test "ራስ ዐሥራትና ፮", "ras ‘āsratna 6"
+  test "ራስ ጉግሣ ፳፩", "ras gugsa 21"
+  test "ራስ ይማም ፪", "ras ymam 2"
+  test "ራስ ማርዬ ፫", "ras maryē 3"
+  test "ራስ ዶሪ ፫ ወር", "ras dorī 3 wer"
+  test "ራስ ዓሊ (ትንሹ) ፳", "ras ‘alī (tnshu) 20"
+  test "ዓፄ ቴዎድሮስ ፲፩", "‘ats’ē tēwodros 11"
+  test "ዳግማዊ ዓጼ ተክለ ጊዮርጊስ ፫", "dagmawī ‘ats’ē tekle gīyorgīs 3"
+  test "ዓፄ ዮሐንስ ፲፩", "‘ats’ē yohāns 11"
+  test "ዳግማዊ ዓጼ ምኒልክ ፳፩", "dagmawī ‘ats’ē mnīlk 21"
+  test "ልጅ ኢያሱ ፫", "lj īyasu 3"
+  test "ንግሥት ዘውዲቱ ፲፩", "ngst zewdītu 11"
+  test "ቀዳማዊ ኃይለ ሥላሴ", "k’edamawī hayle slasē"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  word_separator: " "
+  title_case: false
+  characters:
+    "\u1200": "hā" # ሀ
+    "\u1201": "hu" # ሁ
+    "\u1202": "hī" # ሂ
+    "\u1203": "ha" # ሃ
+    "\u1204": "hē" # ሄ
+    "\u1205":      # ህ
+      - "h"
+      - "hi"
+    "\u1206": "ho" # ሆ
+    "\u1208": "le" # ለ
+    "\u1209": "lu" # ሉ
+    "\u120a": "lī" # ሊ
+    "\u120b": "la" # ላ
+    "\u120c": "lē" # ሌ
+    "\u120d":      # ል
+      - "l"
+      - "li"
+    "\u120e": "lo"  # ሎ
+    "\u120f": "lwa" # ሏ
+    "\u1210": "hā"  # ሐ
+    "\u1211": "hu"  # ሑ
+    "\u1212": "hī"  # ሒ
+    "\u1213": "ha"  # ሓ
+    "\u1214": "hē"  # ሔ
+    "\u1215":       # ሕ
+      - "h"
+      - "hi"
+    "\u1216": "ho" # ሖ
+    "\u1218": "me" # መ
+    "\u1219": "mu" # ሙ
+    "\u121a": "mī" # ሚ
+    "\u121b": "ma" # ማ
+    "\u121c": "mē" # ሜ
+    "\u121d":      # ም
+      - "m"
+      - "mi"
+    "\u121e": "mo"  # ሞ
+    "\u121f": "mwa" # ሟ
+    "\u1220": "se"  # ሠ
+    "\u1221": "su"  # ሡ
+    "\u1222": "sī"  # ሢ
+    "\u1223": "sa"  # ሣ
+    "\u1224": "sē"  # ሤ
+    "\u1225":       # ሥ
+      - "s"
+      - "si"
+    "\u1226": "so" # ሦ
+    "\u1228": "re" # ረ
+    "\u1229": "ru" # ሩ
+    "\u122a": "rī" # ሪ
+    "\u122b": "ra" # ራ
+    "\u122c": "rē" # ሬ
+    "\u122d":      # ር
+      - "r"
+      - "ri"
+    "\u122e": "ro"  # ሮ
+    "\u122f": "rwa" # ሯ
+    "\u1230": "se"  # ሰ
+    "\u1231": "su"  # ሱ
+    "\u1232": "sī"  # ሲ
+    "\u1233": "sa"  # ሳ
+    "\u1234": "sē"  # ሴ
+    "\u1235":       # ስ
+      - "s"
+      - "si"
+    "\u1236": "so"  # ሶ
+    "\u1237": "swa" # ሷ
+    "\u1238": "she" # ሸ
+    "\u1239": "shu" # ሹ
+    "\u123a": "shī" # ሺ
+    "\u123b": "sha" # ሻ
+    "\u123c": "shē" # ሼ
+    "\u123d":       # ሽ
+      - "sh"
+      - "shi"
+    "\u123e": "sho"  # ሾ
+    "\u123f": "shwa" # ሿ
+    "\u1240": "k’e"  # ቀ
+    "\u1241": "k’u"  # ቁ
+    "\u1242": "k’ī"  # ቂ
+    "\u1243": "k’a"  # ቃ
+    "\u1244": "k’ē"  # ቄ
+    "\u1245":        # ቅ
+      - "k’"
+      - "k’i"
+    "\u1246": "k’o"  # ቆ
+    "\u1248": "k’o"  # ቈ
+    "\u124b": "k’wa" # ቋ
+    "\u1260": "be"   # በ
+    "\u1261": "bu"   # ቡ
+    "\u1262": "bī"   # ቢ
+    "\u1263": "ba"   # ባ
+    "\u1264": "bē"   # ቤ
+    "\u1265":        # ብ
+      - "b"
+      - "bi"
+    "\u1266": "bo"  # ቦ
+    "\u1267": "bwa" # ቧ
+    "\u1270": "te"  # ተ
+    "\u1271": "tu"  # ቱ
+    "\u1272": "tī"  # ቲ
+    "\u1273": "ta"  # ታ
+    "\u1274": "tē"  # ቴ
+    "\u1275":       # ት
+      - "t"
+      - "ti"
+    "\u1276": "to"  # ቶ
+    "\u1277": "twa" # ቷ
+    "\u1278": "che" # ቸ
+    "\u1279": "chu" # ቹ
+    "\u127a": "chī" # ቺ
+    "\u127b": "cha" # ቻ
+    "\u127c": "chē" # ቼ
+    "\u127d":       # ች
+      - "ch"
+      - "chi"
+    "\u127e": "cho"  # ቾ
+    "\u127f": "chwa" # ቿ
+    "\u1280": "hā"   # ኀ
+    "\u1281": "hu"   # ኁ
+    "\u1282": "hī"   # ኂ
+    "\u1283": "ha"   # ኃ
+    "\u1284": "hē"   # ኄ
+    "\u1285":        # ኅ
+      - "h"
+      - "hi"
+    "\u1286": "ho"   # ኆ
+    "\u1288": "ho"   # ኈ
+    "\u128b": "hwa"  # ኋ
+    "\u1290": "ne"   # ነ
+    "\u1291": "nu"   # ኑ
+    "\u1292": "nī"   # ኒ
+    "\u1293": "na"   # ና
+    "\u1294": "nē"   # ኔ
+    "\u1295":        # ን
+      - "n"
+      - "ni"
+    "\u1296": "no"   # ኖ
+    "\u1297": "nwa"  # ኗ
+    "\u1298": "nye"  # ኘ
+    "\u1299": "nyu"  # ኙ
+    "\u129a": "nyī"  # ኚ
+    "\u129b": "nya"  # ኛ
+    "\u129c": "nyē"  # ኜ
+    "\u129d":        # ኝ
+      - "ny"
+      - "nyi"
+    "\u129e": "nyo"  # ኞ
+    "\u129f": "nywa" # ኟ
+    "\u12a0":        # አ
+      - "ā"
+      - "’ā"
+    "\u12a1":        # ኡ
+      - "u"
+      - "’u"
+    "\u12a2":        # ኢ
+      - "ī"
+      - "’ī"
+    "\u12a3":        # ኣ
+      - "a"
+      - "’a"
+    "\u12a4":        # ኤ
+      - "ē"
+      - "’ē"
+    "\u12a5":        # እ
+      - "i"
+      - "’i"
+    "\u12a6":        # ኦ
+      - "o"
+      - "’o"
+    "\u12a8": "ke" # ከ
+    "\u12a9": "ku" # ኩ
+    "\u12aa": "kī" # ኪ
+    "\u12ab": "ka" # ካ
+    "\u12ac": "kē" # ኬ
+    "\u12ad":      # ክ
+      - "k"
+      - "ki"
+    "\u12ae": "ko"  # ኮ
+    "\u12b0": "ko"  # ኰ
+    "\u12b3": "kwa" # ኳ
+    "\u12b8": "he"  # ኸ
+    "\u12b9": "hu"  # ኹ
+    "\u12ba": "hī"  # ኺ
+    "\u12bb": "ha"  # ኻ
+    "\u12bc": "hē"  # ኼ
+    "\u12bd":       # ኽ
+      - "h"
+      - "hi"
+    "\u12be": "ho" # ኾ
+    "\u12c0": "ho" # ዀ
+    "\u12c8": "we" # ወ
+    "\u12c9": "wu" # ዉ
+    "\u12ca": "wī" # ዊ
+    "\u12cb": "wa" # ዋ
+    "\u12cc": "wē" # ዌ
+    "\u12cd":      # ው
+      - "w"
+      - "wi"
+    "\u12ce": "wo" # ዎ
+    "\u12d0": "‘ā" # ዐ
+    "\u12d1": "‘u" # ዑ
+    "\u12d2": "‘ī" # ዒ
+    "\u12d3": "‘a" # ዓ
+    "\u12d4": "‘ē" # ዔ
+    "\u12d5":      # ዕ
+      - "‘"
+      - "‘i"
+    "\u12d6": "‘o" # ዖ
+    "\u12d8": "ze" # ዘ
+    "\u12d9": "zu" # ዙ
+    "\u12da": "zī" # ዚ
+    "\u12db": "za" # ዛ
+    "\u12dc": "zē" # ዜ
+    "\u12dd":      # ዝ
+      - "z"
+      - "zi"
+    "\u12de": "zo"  # ዞ
+    "\u12df": "zwa" # ዟ
+    "\u12e0": "zhe" # ዠ
+    "\u12e1": "zhu" # ዡ
+    "\u12e2": "zhī" # ዢ
+    "\u12e3": "zha" # ዣ
+    "\u12e4": "zhē" # ዤ
+    "\u12e5":       # ዥ
+      - "zh"
+      - "zhi"
+    "\u12e6": "zho"  # ዦ
+    "\u12e7": "zhwa" # ዧ
+    "\u12e8": "ye"   # የ
+    "\u12e9": "yu"   # ዩ
+    "\u12ea": "yī"   # ዪ
+    "\u12eb": "ya"   # ያ
+    "\u12ec": "yē"   # ዬ
+    "\u12ed":        # ይ
+      - "y"
+      - "yi"
+    "\u12ee": "yo" # ዮ
+    "\u12f0": "de" # ደ
+    "\u12f1": "du" # ዱ
+    "\u12f2": "dī" # ዲ
+    "\u12f3": "da" # ዳ
+    "\u12f4": "dē" # ዴ
+    "\u12f5":      # ድ
+      - "d"
+      - "di"
+    "\u12f6": "do"  # ዶ
+    "\u12f7": "dwa" # ዷ
+    "\u1300": "je"  # ጀ
+    "\u1301": "ju"  # ጁ
+    "\u1302": "jī"  # ጂ
+    "\u1303": "ja"  # ጃ
+    "\u1304": "jē"  # ጄ
+    "\u1305":       # ጅ
+      - "j"
+      - "ji"
+    "\u1306": "jo"  # ጆ
+    "\u1307": "jwa" # ጇ
+    "\u1308": "ge"  # ገ
+    "\u1309": "gu"  # ጉ
+    "\u130a": "gī"  # ጊ
+    "\u130b": "ga"  # ጋ
+    "\u130c": "gē"  # ጌ
+    "\u130d":       # ግ
+      - "g"
+      - "gi"
+    "\u130e": "go"  # ጎ
+    "\u1310": "go"  # ጐ
+    "\u1313": "gwa" # ጓ
+    "\u1320": "t’e" # ጠ
+    "\u1321": "t’u" # ጡ
+    "\u1322": "t’ī" # ጢ
+    "\u1323": "t’a" # ጣ
+    "\u1324": "t’ē" # ጤ
+    "\u1325":       # ጥ
+      - "t’"
+      - "t’i"
+    "\u1326": "t’o"  # ጦ
+    "\u1327": "t’wa" # ጧ
+    "\u1328": "ch’e" # ጨ
+    "\u1329": "ch’u" # ጩ
+    "\u132a": "ch’ī" # ጪ
+    "\u132b": "ch’a" # ጫ
+    "\u132c": "ch’ē" # ጬ
+    "\u132d":        # ጭ
+      - "ch’"
+      - "ch’i"
+    "\u132e": "ch’o"  # ጮ
+    "\u132f": "ch’wa" # ጯ
+    "\u1330": "p’e"   # ጰ
+    "\u1331": "p’u"   # ጱ
+    "\u1332": "p’ī"   # ጲ
+    "\u1333": "p’a"   # ጳ
+    "\u1334": "p’ē"   # ጴ
+    "\u1335":  # ጵ
+      - "p’"
+      - "p’i"
+    "\u1336": "p’o"  # ጶ
+    "\u1338": "ts’e" # ጸ
+    "\u1339": "ts’u" # ጹ
+    "\u133a": "ts’ī" # ጺ
+    "\u133b": "ts’a" # ጻ
+    "\u133c": "ts’ē" # ጼ
+    "\u133d":        # ጽ
+      - "ts’"
+      - "ts’i"
+    "\u133e": "ts’o" # ጾ
+    "\u1340": "ts’e" # ፀ
+    "\u1341": "ts’u" # ፁ
+    "\u1342": "ts’ī" # ፂ
+    "\u1343": "ts’a" # ፃ
+    "\u1344": "ts’ē" # ፄ
+    "\u1345":        # ፅ
+      - "ts’"
+      - "ts’i"
+    "\u1346": "ts’o"  # ፆ
+    "\u133f": "ts’wa" # ጿ
+    "\u1348": "fe"    # ፈ
+    "\u1349": "fu"    # ፉ
+    "\u134a": "fī"    # ፊ
+    "\u134b": "fa"    # ፋ
+    "\u134c": "fē"    # ፌ
+    "\u134d":         # ፍ
+      - "f"
+      - "fi"
+    "\u134e": "fo"  # ፎ
+    "\u134f": "fwa" # ፏ
+    "\u1350": "pe"  # ፐ
+    "\u1351": "pu"  # ፑ
+    "\u1352": "pī"  # ፒ
+    "\u1353": "pa"  # ፓ
+    "\u1354": "pē"  # ፔ
+    "\u1355":       # ፕ
+      - "p"
+      - "pi"
+    "\u1356": "po" # ፖ
+    "\u1268": "ve" # ቨ
+    "\u1269": "vu" # ቩ
+    "\u126a": "vī" # ቪ
+    "\u126b": "va" # ቫ
+    "\u126c": "vē" # ቬ
+    "\u126d":      # ቭ
+      - "v"
+      - "vi"
+    "\u126e": "vo" # ቮ
+
+    "\u1369": "1"    # ፩
+    "\u136a": "2"    # ፪
+    "\u136b": "3"    # ፫
+    "\u136c": "4"    # ፬
+    "\u136d": "5"    # ፭
+    "\u136e": "6"    # ፮
+    "\u136f": "7"    # ፯
+    "\u1370": "8"    # ፰
+    "\u1371": "9"    # ፱
+    "\u1372": "10"   # ፲
+    "\u1372\u1369": "11"   # ፲፩
+    "\u1373": "20"   # ፳
+    "\u1373\u1369": "21"   # ፳፩
+    "\u1374": "30"   # ፴
+    "\u1375": "40"   # ፵
+    "\u1376": "50"   # ፶
+    "\u1377": "60"   # ፷
+    "\u1378": "70"   # ፸
+    "\u1379": "80"   # ፹
+    "\u137a": "90"   # ፺
+    "\u137b": "100"  # ፻

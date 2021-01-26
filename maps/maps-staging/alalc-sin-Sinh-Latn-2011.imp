@@ -1,0 +1,63 @@
+metadata {
+  authority_id: alalc
+  id: 2011
+  language: iso-639-2:sin
+  source_script: Sinh
+  destination_script: Latn
+  name: Sinhalese Romanization, 2011
+  url: https://www.loc.gov/catdir/cpso/romanization/sinhales.pdf
+  creation_date: 2011
+  description: |
+    ALA-LC Romanization table for Sinhalese
+  
+  
+  notes:
+  
+    - Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for
+      vowels following a consonant can be found in grammars; no distinction between the two is
+      made in transliteration.
+  
+    - |
+      The vowel a is implicit after all consonants and consonant clusters and is supplied in
+      transliteration, with the following exceptions:
+  
+      a) when another vowel is indicated by its appropriate sign; and
+      b) when the absence of any vowel is indicated by the sign ් called virāma.
+  
+    - |
+      Exceptions: Anusvāra is transliterated by:
+  
+      a) ṅ before gutturals,
+      b) ñ before palatals,
+      c) ṇ before cerebrals,
+      d) n before dentals, and
+      e) m before labials.
+  
+    - |
+      Exceptions:
+      a) when saññaka represents a nasal, it is romanized according to the rule for anusvāra.
+      b) when saññaka is combined with an aspirated consonant, the combination is romanized as a non-aspirated, followed by an aspirated consonant.
+}
+
+tests {
+  test "හිටපු අග්‍රාමාත්‍ය රනිල් වික්‍රමසිංහ අප්‍රේල් 21 ප්‍රහාරය සම්බන්ධයෙන් විමර්ශනය කරන ජනාධිපති පරීක්ෂණ කොමිසම හමුවේ දෙවෙනි දිනටත් සාක්ෂි ලබාදීමට පැමිණෙයි", "hiṭapu agrāmātya ranil vikramasiṃha aprēl 21 prahāraya sambanandhayen vimarśanaya karana janādhipati parīkṣaṇa komisama hamuvē deveni dinaṭat sākṣi labādīmaṭa pămiṇeyi"
+  test "පෑලියගොඩ මත්ස්‍ය තොග වෙළෙදපොළට පිවිසෙන පිවිසුම් මාර්ගය පුළුල් කර සංවර්ධනයට පියවර - මහාමාර්ග අමාත්‍ය ජොන්ස්ටන් ප්‍රනාන්දු", "pâliyagoḍa matsya toga veḷedapoḷaṭa pivisena pivisum māraṅgaya puḷul kara saṃvarandhanayaṭa piyavara - mahāmāraṅga amātya jonsaṇṭan pranānandu"
+  test "මව්බිමටත් රට වැසියන්ටත් ආශිර්වාද කරමින් වි⁣ශේෂ ආගමික වැඩසටහන් මාලාවක්", "mavbimaṭat raṭa văsiyanaṇṭat āśirvāda karamin vi⁣śēṣa āgamika văḍasaṭahan mālāvak"
+  test "මිනුවන්ගොඩ කොරෝනා පොකුරින් තවත් ආසාදිතයින් 49 දෙනකු හඳුනා ගෙන", "minuvanaṅgoḍa korōnā pokurin tavat āsāditayin 49 denaku handunā gena"
+  test "ඉරණවිල වෙරළේ නාඳුනන ධීවර යාත‍්‍රා දෙකක්", "iraṇavila veraḷē nāndunana dhīvara yātarā dekak"
+  test "මඩකලපුව මංගලාරාමේ හාමුදුරුවන්ට මරණ තර්ජන - ආරක්ෂාවත් අඩුකරලා", "maḍakalapuva maṃgalārāmē hāmuduruvanaṇṭa maraṇa tarañjana - ārakṣāvat aḍukaralā"
+  test "හොරට කහ කුඩු හැදූ දෙදෙනෙක් බඩුත් එක්ක දැලේ", "horaṭa kaha kuḍu hădū dedenek baḍut ekaṅka dălē"
+  test "ඉංගිරියේ ජලභීතිකාව වැළඳුනු නරියෙකු තෙදිනක මෙහෙයුමකින් අල්ලා ගනී", "iṃgiriyē jalabhītikāva văḷandunu nariyeku tedinaka meheyumakin allā ganī"
+  test "බෞද්ධ දර්ශනයට අනුව අපි උපයන ධනය බුද්ධිමත් ලෙස විසර්ජනය කරන්නේ කෙසේ ද?", "baudandha darśanayaṭa anuva api upayana dhanaya budandhimat lesa visarañjanaya karanannē kesē da?"
+  test "ඉන්දීය ජාතිකයන් සමග එක්වන මන්නාරමේ ධීවරයන්ට අනතුරු අගවයි", "inandīya jātikayan samaga ekvana manannāramē dhīvarayanaṇṭa anaturu agavayi"
+  test "තේ නැවත වගාවට පෙර පස පුනරුත්ථාපනයට කෙටි මග", "tē năvata vagāvaṭa pera pasa punarutanthāpanayaṭa keṭi maga"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  inherit: 'alalc-sin-Sinh-Latn-1997'

@@ -1,0 +1,314 @@
+metadata {
+  authority_id: bgnpcgn
+  id: 2007
+  language: iso-639-3:prs 
+  # prs stands for Dari (https://iso639-3.sil.org/code/prs&_ga=GA1.2.2054538372.1574092823)
+  source_script: Arab
+  destination_script: Latn
+  name: TRANSLITERATION SYSTEM FOR PERSIAN BGN/PCGN 1958 System
+  url: https://github.com/interscript/interscript/files/5180821/BGN_Romanization_Guide_1964_persian_1958.pdf
+  creation_date: 1958
+  confirmation_date: 2017-11
+  description: |
+    The BGN/PCGN 1958 System for the Persian alphabet was
+    adopted by the BGN in 1946 and by the PCGN In 1958. It Is
+    used for the romanization of standard geographic names in
+    Iran.
+    The Persian alphabet is the same as the Arabic alphabet
+    except for the addition of four consonant symbols for
+    sounds which do not occur in Arabic. Therefore, the same
+    conversion values are used for the Persian alphabet as for
+    the Arabic alphabet wherever phonetically valid. Where
+    letters common to the two alphabets have different
+    pronunciation in the two languages, conversion values
+    reflecting the Persian pronunciation are provided in the
+    Persian system.
+    It may be noted that neither the system of pointing nor the
+    conversion values for vowels and diphthongs are the same
+    for Persian as for Arabic.
+    Persian presents the same problems of vowel pointing as
+    Arabic in that the short vowel symbols necessary for the
+    proper rendering of short vowels, long vowels, and
+    diphthongs are almost always omitted from written Persian.
+    It follows that, in order to produce transliter- tions in
+    terms of standard written Persian, the transliterator must
+    be able to identify the words used in names and must know
+    their standard written Persian spelling, their proper vowel
+    pointing, and how to eliminate pecularities due to
+    dialectical variation.
+    The notes and special rules explain details of
+    transliteration not stated in the tables.
+  
+  notes:
+    - |
+      1)The Persian writing system, in its generally used form,
+      employs only the symbols found in Table I, and the alef maddeh
+      (آ) of Table II. The symbols in column 1 of Table II are
+      traditional auxiliary symbols used by Persians only
+      sporadically to indicate the exact reading of a given word.
+      In the case of i, ū, ey and ow, a choice of symbology
+      exists, one system adhering to the Arabic tradition, the
+      other being a modification of it. Likewise, there are two
+      ways of writing alef maq§ureh. The BGN/PCGN transliteration
+      system presupposes forms fully pointed with the Persian
+      symbols represented in Table II, though these are omitted
+      from the examples given below.
+  
+    - 2) Alef ( أ ) occurs with the following uses
+      a. Initially, it indicates that the word begins with a vowel or
+      diphthong, and the alef itself is not transliterated, e.g.,
+      انجيرة Anjīreh, ايواني Eyvānī
+      b. Initially with maddeh ( آ ),it indicates ā, e.g., آبادان Ābādān.
+      c. Medially and finally. it represents ā, e.g., e.g., آبادان Ābādān,
+       توكا Tūkā.
+      d.	With hamzeh. See Note 5.
+  
+  
+    - 3) Where special considerations are paramount, the sub-dot
+      may be used in place of the cedilla
+  
+    - 4) The two-letter symbols kh, zh, sh, and gh are convenient
+      for use and easily comprehensible. The infrequent sequences
+      of kāf, ze, sīn, and gāf followed by he can be unequivocally
+      transliterated for bibliographical purposes by the use of a
+      slant line (“shilling,” “solidus") to separate true h from
+      a preceding k, z, s, or	g; that is,	kh represents khe, but
+      k/h stands for kāf followed by he.
+  
+    - 5) Hamzeh (ء)	is	not regarded as a letter of the Persian
+      alphabet, but as a diacritic mark, and as such is not
+      always expressed in actual writing. In fully pointed words,
+      however, it appears in several graphic forms, standing
+      alone or written in conjunction with alef, vav, or ye (the
+      ye in this instance being undotted). All these forms are
+      transliterated simply with the apostrophe in the form
+      resembling a small raised figure 9 (’)	,e.g., جزء Joz’
+      صفراء şafrā’, مأخذ ma’khaz̄, مؤتمن mu’taman, پائين pā’īn Occasionally a word may
+      appear pointed according to the strict Arabic tradition so
+      as to indicate an initial hamzeh. This initial hamzeh is
+      never transliterated, but only the vowel which it carries,
+      e.g., •Jfi , whether pointed	or	0	.	is "transliterated
+      simply Anjireh.	' Hamzeh is also sometimes written over
+      final he or ye to represent the -ye form of the eg&feh, cf.
+      Note 8.
+  
+    - 6) Alef maddeh is used initially to indicate ā, e.g., آبادان Ābādān
+      Noninitially it indicates ’ā in words of Arabic origin,
+      and must be so transliterated, e.g., قرآن Qor’ān, مآب ma’āb
+  
+    - 7) Tashdid ( ّ) indicates doubling of the consonant over which
+      it is written and is represented in transliteration by writing
+      the consonant twice, e.g محمّد Mohammad The sequence kasreh ye ye
+      is transliterated īy.In names of Arabic origin containing the
+      definite article, the vowel of the article is transliterated according
+      to its Persian pronunciation and the lam, when followed by a “sun letter”
+      (t, s̄, d, z̄, r, s, sh, ẕ, ţ, z̧, ţ, z̧, l, n) is assimilated. The article
+      is written in lower case and separate from the preceding and following word,
+      e.g., Zeyn od Din, but *£4 . Zeyn ed Dīn. Cf. Special Rule 1.
+  
+    - 8) The relational (ezafeh) suffix	is	transliterated -e after final consonants
+      (except for silent h). After silent h and after vowels, it is transliterated
+      -ye. It is usually not expressed in Persian writing after a consonant
+      (kasreh being understood), e.g., كوهِ مَرغٌوب Kuh-e Marghūb. After final alef or vav
+      it is written with ye (ي), e.g., بايِ آب	Pa-ye Ab,	جويِ آس Jū-ye Ās.	After	ye (ي)
+      and silent he it is written as hamzeh over the letter, e.g., دَهَانهٴ مَمبَر Dahāneh-ye Mambar,
+      سَلَيٴ بُذٌرگ Salasi-ye Bozorrg.
+  
+  
+  
+    -  1.	In Persian names of Arabic origin, the word division
+      used for transliterating Arabic will obtain, except that
+      names ending in the word Allah will be written solid and
+      the a of Allah will be replaced by o, e.g.,	The Arabic
+      definite article when not subject to assimilation will be
+      written al in name-initial position but usually, ol
+      elsewhere, e.g., Al JJal but 2u ol Faqar. Cf. Note 7 above.
+  
+    - 2. In Persian names in general, in sequences of name
+      elements pronounced as a single unit, division into
+      separate words will be made after Persian letters written
+      in the word final form. (But see the Rule immediately
+      below.)
+  
+    - 3. The word abad which occurs very frequently at
+      the end of place names will be written solid with the
+      preceding word; e.g., Allahabad, not Allah Abad.
+  
+    - 4. Persian derivational endings such as vand and Turkish and other
+      endings such as lar, li and lu will be written solid with
+      the preceding word, whether so written in Persian script or
+      not.
+  
+    - 5. The letter he, when used in Turkish fashion for
+      word internal e, will be transliterated eh as usual but
+      will be written solid with the remainder of the word.
+  
+    - 6. Kheplus vdv followed by long vowel or khe plus vdv followed
+      by gammeh will be rendered khv although the v is not
+      pronounced.
+}
+
+tests {
+  test "اَنجِيرة", "Anjīreh"
+  test "اِيْوَانِي", "Eyvānī"
+  test "آبادان", "Ābādān"
+  test "تُوكا", "Tūkā"
+  test "آبادان", "Ābādān"
+  test "قُرآن", "Qor’ān"
+  test "مَآب", "Ma’āb"
+  test "مُحَمَّد", "Moḩammad"
+  test "كُوهِ مَرغُوب", "Kūh-e Marghūb"
+  test "پَايِ آب", "Pā-ye Āb"
+  test "جُويِ آس", "Jū-ye Ās"
+  test "دَهَانِهٴ مَمبَر", "Dahāneh-ye Mambar"
+  test "سَلَسِيٴ بُذُرگ", "Salasī-ye Boz̄org"
+  test "عَبداللَّه", "‘Abdollāh"
+  test "ذُو الفَقَار", "Z̄ū ol Faqār"
+  test "اللَّه آبَاد", "Allāhābād"
+  test "اِيران", "Īrān"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  postrules:
+    - pattern: (?<=\b)(?<!\b[‘|’|'|-])[\u0061-\uFFFF]
+      result: "upcase"
+
+    - pattern: " Ol"
+      result: " ol"
+
+  characters:
+
+    '\s\u0622\u0628\u064E\u0627\u062F' : 'ābād' # Special Rule 3
+
+    '\u064e(?=\u0629)' : '' # َ fatha followed by ta' marboota
+    '\u064e(?=a[h|t])' : '' # َ fatha followed by ta' marboota, handling different order of conversion
+
+    # pointing
+    '\u064e' : 'a' # َ fatha
+    '\u0650' : 'e' # ِ kasra
+    '\u064f' : 'o' # ُ damma
+    '\u064e\u0627' : 'ā'  # ـَا fatha followed by ا
+    '\u0649\u0670' : 'á' # ىٰ
+    '\u0622' : '’ā'  # آ
+    '\b\u0622' : 'ā'  # آ
+    '\u0650[\u064a|\u06cc]' : 'ī' # ـِي kasra followed by ي
+    # '\u0650\u06cc' : 'ī' # ـِي kasra followed by ي
+    '\u064f\u0648' : 'ū'  # ـُو damma followed by و
+    '\u064e[\u064a|\u06cc]\u0652' : 'ey'  # ـَيْ
+    '\u0650[\u064a|\u06cc]\u0652' : 'ey'  # ـِيْ
+    '\u064e\u0648' : 'ow'  # ـَو
+    '\u0652' : ''  # ْ sokoon
+    '\u0650\u064a\u0651' : 'īy'  # ـِيّ
+    '[\u0654|\u0674]' : '-e' # ٴ ezafeh
+    '(?<=[\u064a|\u0647])[\u0654|\u0674]' : '-ye' # ٴ ezafeh
+    '\u0650\b' : '-e' # ِ kasra
+    '[\u064a|\u06cc]\u0650\b' : '-ye' # ِ kasra
+    # shadda
+
+    '\u0628\u0651' : 'bb'  # ب
+    '\u062a\u0651' : 'tt'  # ت
+    '\u062b\u0651' : 's̄s̄'  # ث
+    '\u062c\u0651' : 'jj'  # ج
+    '\u062d\u0651' : 'ḩḩ' # ح
+    '\u062e\u0651' : 'kh'  # خ
+    '\u062f\u0651' : 'dd'  # د
+    '\u0630\u0651' : 'z̄z̄'  # ذ
+    '\u0631\u0651' : 'rr'  # ر
+    '\u0632\u0651' : 'zz'  # ز
+    '\u0633\u0651' : 'ss'  # س
+    '\u0634\u0651' : 'sh'  # ش
+    '\u0635\u0651' : 'şş'  # ص
+    '\u0636\u0651' : 'ẕẕ'  # ض
+    '\u0637\u0651' : 'ţţ'  # ط
+    '\u0638\u0651' : 'z̧z̧'  # ظ
+    '\u063a\u0651' : 'gh'  # غ
+    '\u0641\u0651' : 'ff'  # ف
+    '\u0642\u0651' : 'qq'  # ق
+    '\u0643\u0651' : 'kk'  # ك
+    '\u0644\u0651' : 'll'  # ل
+    '\u0645\u0651' : 'mm'  # م
+    '\u0646\u0651' : 'nn'  # ن
+    '\u0647\u0651' : 'hh'  # ه
+    '\u0648\u0651' : 'vv'  # و
+    '\u064a\u0651' : 'yy'  # ي
+
+    '\u0659': 'ê'
+
+    # ta' marboota
+    '\u0629' : 'eh'
+
+    '\b\u0627\u0644' : 'al '  # ال
+    '\s\b\u0627\u0644' : ' ol '  # ال #special Rule 1
+    '\ufdf2': 'Allāh' # See note 5
+    '\u0627\u0644\u0644\u0651\u064e\u0647' : "Allāh"
+    '(?<!\b)\u0627\u0644\u0644\u0651\u064e\u0647' : "ollāh" # Special Rule 1
+    # '\uFE8E' : ''  # ﺎ
+
+    # Sun letters
+    '\b\u0627\u0644\u062a' : 'at t'  # الت
+    '\b\u0627\u0644\u062b' : 'as̄ s̄'  # الث
+    '\b\u0627\u0644\u062f' : 'ad d' # الد
+    '\b\u0627\u0644\u0630' : 'az̄ z̄'  # الذ
+    '\b\u0627\u0644\u0631' : 'ar r' # الر
+    '\b\u0627\u0644\u0632' : 'az z'  # الز
+    '\b\u0627\u0644\u0633' : 'as s' # الس
+    '\b\u0627\u0644\u0634' : 'ash sh' # الش
+    '\b\u0627\u0644\u0635' : 'aş ş'  # الص
+    '\b\u0627\u0644\u0636' : 'aẕ ẕ'  # الض
+    '\b\u0627\u0644\u0637' : 'aţ ţ'  # الط
+    '\b\u0627\u0644\u0638' : 'az̧ z̧' # الظ
+    '\b\u0627\u0644\u0644' : 'al l'  # الل
+    '\b\u0627\u0644\u0646' : 'an n'  # الن
+
+
+    '\u0621': '’' # ء
+    '\u0626': '’' # ئ
+
+    '\u0623' : ''  # أ
+    '\u0625' : ''    # إ
+    '\u0627' : 'ā'  # ا
+    '\b\u0627' : ''  # ا
+
+    # consonant characters
+
+    '\u0628' : 'b'  # ب
+    '\u067E' : 'p' # پ
+    '\u062a' : 't'  # ت
+    '\u062B' : 's̄'   # ث
+    '\u062c' : 'j'  # ج
+    '\u0686' : 'ch'  # ‫چ‬
+    '\u062d' : 'ḩ' # ح
+    '\u062e' : 'kh'  # خ
+    '\u062f' : 'd'  # د
+    '\u0630' : 'z̄'  # ذ
+    '\u0631' : 'r'  # ر
+    '\u0632' : 'z'  # ز
+    '\u0698' : 'zh'  # ‫ژ‬
+    '\u0633' : 's'  # س
+    '\u0634' : 'sh'  # ش
+    '\u0635' : 'ş'  # ص
+    '\u0636' : 'ẕ'  # ض
+    '\u0637' : 'ţ'  # ط
+    '\u0638' : 'z̧'  # ظ
+    '\u0639' : '‘'  # ع
+    '\u063a' : 'gh'  # غ
+    '\u0641' : 'f'  # ف
+    '\u0642' : 'q'  # ق
+    '\u0643' : 'k'  # ك
+    '\u06A9' : 'k' # ک
+    '\u06AF' : 'g' # ‫گ‬
+    '\u0644' : 'l'  # ل
+    '\u0645' : 'm'  # م
+    '\u0646' : 'n'  # ن
+    '\u0647' : 'h'  # ه
+    '\u0648' : 'v'  # و
+    '\u064a' : 'y'  # ي
+    '\u0649' : 'y'  # ي
+    '\u06D0' : 'ē'   # ې
+    '\u06CD' : 'êy'  # ‫ۍ‬

@@ -1,0 +1,225 @@
+metadata {
+  authority_id: un
+  id: 1972
+  language: iso-639-2:guj
+  source_script: Gujr
+  destination_script: Latn
+  name: REPORT ON THE CURRENT STATUS OF UNITED NATIONS ROMANIZATION SYSTEMS FOR GEOGRAPHICAL NAMES --Gujarati Romanization Version 4.0
+  url: https://www.eki.ee/wgrs/rom1_gu.htm
+  creation_date: 1972
+  confirmation_date: 2016
+  description: |
+    The United Nations recommended system was approved in 1972 (II/11) and amended in 1977 (III/12),
+    based on a report prepared by D. N. Sharma. The tables and their corrections were published in
+    volume II of the conference reports.
+  
+    There is no evidence of the use of the system either in India or in international cartographic products.
+  
+    Gujarati (Gujarātī) uses an alphasyllabic script whereby each character represents a syllable
+    rather than one sound. Vowels and diphthongs are marked in two ways: as independent characters
+    (used syllable-initially) and in an abbreviated form, to denote vowels after consonants.
+    The romanization table is unambiguous but the user would have to recognize many ligatures not
+    given in the original table. For two vowel letters (e/ĕ, o/ŏ) there is uncertainty as to the
+    conditions in which either of the two variants is to be used. The system is mostly reversible
+    but there exist some ambiguities in the romanization of vowels (independent vs. abbreviated characters)
+    and consonants (ligatures vs. character sequences).
+  
+    References
+  
+    Second United Nations Conference on the Standardization of Geographical Names. London, 10–31 May 1972.
+    Vol. II. Technical papers. United Nations. New York 1974, pp. 134–135.
+  
+    Third United Nations Conference on the Standardization of Geographical Names.
+    Athens, 17 August – 7 September 1977. Vol. II, Technical papers, pp. 393 etc.
+  
+  notes:
+  
+    - |
+      Exception of ી : જી jī.
+    - |
+      Exception of ૂ : રૂ rū.
+    - |
+      ્‌ indicates pronunciation without a vowel.
+}
+
+tests {
+  test "અમિત શાહનો કોરોના રિપોર્ટ ૨ ઓગસ્ટે પોઝિટિવ આવ્યો હતો, ત્યારથી તેમનું સ્વાસ્થ્ય સારું નથી", "amita shāhanŏ kŏrŏnā ripŏrṭa 2 ŏgasṭĕ pŏjhiṭiva āvyŏ hatŏ, tyārathī tĕmanuṁ svāsthya sāruṁ nathī"
+  test "મેદાંતા હોસ્પિટલમાં તેમનો ઇલાજ ચાલી રહ્યો હતો", "mĕdāṁtā hŏspiṭalamāṁ tĕmanŏ ilāja chālī rahyŏ hatŏ"
+  test "ભારતના વિશ્વનાથન આનંદે શેનયાનમાં પહેલો ફિડે શતરંજ વિશ્વ કપ જીત્યો", "bhāratanā vishvanāthana ānaṁdĕ shĕnayānamāṁ pahĕlŏ fiḍĕ shataraṁja vishva kapa jītyŏ"
+  test "ભારતીય વડા પ્રધાન જવાહરલાલ નેહરુએ ૪૦ લાખ હિન્દુઓ અને મુસલમાનોના પારસ્પરિક સ્થાનાંતરણનું સૂચન આપ્યું", "bhāratīya vaḍā pradhāna javāharalāla nĕharuĕ 40 lākha hinduŏ anĕ musalamānŏnā pārasparika sthānāṁtaraṇanuṁ sūchana āpyuṁ"
+  test "લિબિયાના એલ અજિજિયામાં ધરતી પર સૌથી વધુ તાપમાન નોંધાયું. એ વખતે છાયામાં નોંધવામાં આવેલું તાપમાન ૫૮ ડિગ્રી સેલ્સિયસ હતું.", "libiyānā ĕla ajijiyāmāṁ dharatī para sauthī vadhu tāpamāna nŏṁdhāyuṁ. ĕ vakhatĕ chhāyāmāṁ nŏṁdhavāmāṁ āvĕluṁ tāpamāna 58 ḍigrī sĕlsiyasa hatuṁ."
+  test "પ્રથમ વિશ્વયુદ્ધઃ જર્મની અને ફ્રાન્સ વચ્ચે એસ્નેની લડાઈ શરૂ થઈ હતી", "prathama vishvayuddhaḥ jarmanī anĕ frānsa vachchĕ ĕsnĕnī laḍāī sharū thaī hatī"
+  test "એન્ગ્લો-મિસ્ત્ર યુદ્ધઃ તેલ અલ કેબિરનું યુદ્ધ લડવામાં આવ્યું હતું.", "ĕnglŏ-mistra yuddhaḥ tĕla ala kĕbiranuṁ yuddha laḍavāmāṁ āvyuṁ hatuṁ."
+  test "પુરાવા ન હતા, એ જ કારણે કેસ ચાલ્યો નહીં, પણ તેમને નજરકેદ રાખવામાં આવ્યા", "purāvā na hatā, ĕ ja kāraṇĕ kĕsa chālyŏ nahīṁ, paṇa tĕmanĕ najarakĕda rākhavāmāṁ āvyā"
+  test "સરદાર પટેલે નક્કી કર્યું હતું કે કાશ્મીર ભારતનો હિસ્સો બનશે; ૯૧ વર્ષ પહેલાં લાહોર જેલમાં ભૂખહડતાળ દરમિયાન શહીદ થયા હતા જતીન દાસ", "saradāra paṭĕlĕ nakkī karyuṁ hatuṁ kĕ kāshmīra bhāratanŏ hissŏ banashĕ; 91 varṣha pahĕlāṁ lāhŏra jĕlamāṁ bhūkhahaḍatāḷa daramiyāna shahīda thayā hatā jatīna dāsa"
+  test "કોરોના પ્રોટોકોલ વચ્ચે આજે મેડિકલ પ્રવેશ પરીક્ષા લેવાશેઃ એન્ટ્રી ટચ ફ્રી રહેશે, એડમિટ કાર્ડ બાર કોડથી ચેક થશે", "kŏrŏnā prŏṭŏkŏla vachchĕ ājĕ mĕḍikala pravĕsha parīkṣhā lĕvāshĕḥ ĕnṭrī ṭacha frī rahĕshĕ, ĕḍamiṭa kārḍa bāra kŏḍathī chĕka thashĕ"
+  test "અલ્ ક઼`ઇદ્ માં હવામાન", "al ka`id māṁ havāmāna"
+  test "મંત્રાલય તથા ખ઼.ય ના વિ૨ષ્ઠ અધિકા૨ીઓ ઉપસ્થિત ૨હ્યા હતા", "maṁtrālaya tathā kha.ya nā vi2ṣhṭha adhikā2īŏ upasthita 2hyā hatā"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+
+  rules:
+    - pattern: ([ક]=?)(?=[\u0abe\u0abf\u0ac0\u0ac1\u0ac2\u0ac3\u0ac5\u0ac7\u0ac8\u0ac9\u0acb\u0acc\u0acd])
+      result: 'k'
+    - pattern: ([ખ]=?)(?=[\u0abe\u0abf\u0ac0\u0ac1\u0ac2\u0ac3\u0ac5\u0ac7\u0ac8\u0ac9\u0acb\u0acc\u0acd])
+      result: 'kh'
+    - pattern: ([ગ]=?)(?=[\u0abe\u0abf\u0ac0\u0ac1\u0ac2\u0ac3\u0ac5\u0ac7\u0ac8\u0ac9\u0acb\u0acc\u0acd])
+      result: 'g'
+    - pattern: ([ઘ]=?)(?=[\u0abe\u0abf\u0ac0\u0ac1\u0ac2\u0ac3\u0ac5\u0ac7\u0ac8\u0ac9\u0acb\u0acc\u0acd])
+      result: 'gh'
+    - pattern: ([ઙ]=?)(?=[\u0abe\u0abf\u0ac0\u0ac1\u0ac2\u0ac3\u0ac5\u0ac7\u0ac8\u0ac9\u0acb\u0acc\u0acd])
+      result: 'ṅ'
+    - pattern: ([ચ]=?)(?=[\u0abe\u0abf\u0ac0\u0ac1\u0ac2\u0ac3\u0ac5\u0ac7\u0ac8\u0ac9\u0acb\u0acc\u0acd])
+      result: 'ch'
+    - pattern: ([છ]=?)(?=[\u0abe\u0abf\u0ac0\u0ac1\u0ac2\u0ac3\u0ac5\u0ac7\u0ac8\u0ac9\u0acb\u0acc\u0acd])
+      result: 'chh'
+    - pattern: ([જ]=?)(?=[\u0abe\u0abf\u0ac0\u0ac1\u0ac2\u0ac3\u0ac5\u0ac7\u0ac8\u0ac9\u0acb\u0acc\u0acd])
+      result: 'j'
+    - pattern: ([ઝ]=?)(?=[\u0abe\u0abf\u0ac0\u0ac1\u0ac2\u0ac3\u0ac5\u0ac7\u0ac8\u0ac9\u0acb\u0acc\u0acd])
+      result: 'jh'
+    - pattern: ([ઞ]=?)(?=[\u0abe\u0abf\u0ac0\u0ac1\u0ac2\u0ac3\u0ac5\u0ac7\u0ac8\u0ac9\u0acb\u0acc\u0acd])
+      result: 'ñ'
+    - pattern: ([ટ]=?)(?=[\u0abe\u0abf\u0ac0\u0ac1\u0ac2\u0ac3\u0ac5\u0ac7\u0ac8\u0ac9\u0acb\u0acc\u0acd])
+      result: 'ṭ'
+    - pattern: ([ઠ]=?)(?=[\u0abe\u0abf\u0ac0\u0ac1\u0ac2\u0ac3\u0ac5\u0ac7\u0ac8\u0ac9\u0acb\u0acc\u0acd])
+      result: 'ṭh'
+    - pattern: ([ડ]=?)(?=[\u0abe\u0abf\u0ac0\u0ac1\u0ac2\u0ac3\u0ac5\u0ac7\u0ac8\u0ac9\u0acb\u0acc\u0acd])
+      result: 'ḍ'
+    - pattern: ([ઢ]=?)(?=[\u0abe\u0abf\u0ac0\u0ac1\u0ac2\u0ac3\u0ac5\u0ac7\u0ac8\u0ac9\u0acb\u0acc\u0acd])
+      result: 'ḍh'
+    - pattern: ([ણ]=?)(?=[\u0abe\u0abf\u0ac0\u0ac1\u0ac2\u0ac3\u0ac5\u0ac7\u0ac8\u0ac9\u0acb\u0acc\u0acd])
+      result: 'ṇ'
+    - pattern: ([ત]=?)(?=[\u0abe\u0abf\u0ac0\u0ac1\u0ac2\u0ac3\u0ac5\u0ac7\u0ac8\u0ac9\u0acb\u0acc\u0acd])
+      result: 't'
+    - pattern: ([થ]=?)(?=[\u0abe\u0abf\u0ac0\u0ac1\u0ac2\u0ac3\u0ac5\u0ac7\u0ac8\u0ac9\u0acb\u0acc\u0acd])
+      result: 'th'
+    - pattern: ([દ]=?)(?=[\u0abe\u0abf\u0ac0\u0ac1\u0ac2\u0ac3\u0ac5\u0ac7\u0ac8\u0ac9\u0acb\u0acc\u0acd])
+      result: 'd'
+    - pattern: ([ધ]=?)(?=[\u0abe\u0abf\u0ac0\u0ac1\u0ac2\u0ac3\u0ac5\u0ac7\u0ac8\u0ac9\u0acb\u0acc\u0acd])
+      result: 'dh'
+    - pattern: ([ન]=?)(?=[\u0abe\u0abf\u0ac0\u0ac1\u0ac2\u0ac3\u0ac5\u0ac7\u0ac8\u0ac9\u0acb\u0acc\u0acd])
+      result: 'n'
+    - pattern: ([પ]=?)(?=[\u0abe\u0abf\u0ac0\u0ac1\u0ac2\u0ac3\u0ac5\u0ac7\u0ac8\u0ac9\u0acb\u0acc\u0acd])
+      result: 'p'
+    - pattern: ([ફ]=?)(?=[\u0abe\u0abf\u0ac0\u0ac1\u0ac2\u0ac3\u0ac5\u0ac7\u0ac8\u0ac9\u0acb\u0acc\u0acd])
+      result: 'f'
+    - pattern: ([બ]=?)(?=[\u0abe\u0abf\u0ac0\u0ac1\u0ac2\u0ac3\u0ac5\u0ac7\u0ac8\u0ac9\u0acb\u0acc\u0acd])
+      result: 'b'
+    - pattern: ([ભ]=?)(?=[\u0abe\u0abf\u0ac0\u0ac1\u0ac2\u0ac3\u0ac5\u0ac7\u0ac8\u0ac9\u0acb\u0acc\u0acd])
+      result: 'bh'
+    - pattern: ([મ]=?)(?=[\u0abe\u0abf\u0ac0\u0ac1\u0ac2\u0ac3\u0ac5\u0ac7\u0ac8\u0ac9\u0acb\u0acc\u0acd])
+      result: 'm'
+    - pattern: ([ય]=?)(?=[\u0abe\u0abf\u0ac0\u0ac1\u0ac2\u0ac3\u0ac5\u0ac7\u0ac8\u0ac9\u0acb\u0acc\u0acd])
+      result: 'y'
+    - pattern: ([ર]=?)(?=[\u0abe\u0abf\u0ac0\u0ac1\u0ac2\u0ac3\u0ac5\u0ac7\u0ac8\u0ac9\u0acb\u0acc\u0acd])
+      result: 'r'
+    - pattern: ([લ]=?)(?=[\u0abe\u0abf\u0ac0\u0ac1\u0ac2\u0ac3\u0ac5\u0ac7\u0ac8\u0ac9\u0acb\u0acc\u0acd])
+      result: 'l'
+    - pattern: ([વ]=?)(?=[\u0abe\u0abf\u0ac0\u0ac1\u0ac2\u0ac3\u0ac5\u0ac7\u0ac8\u0ac9\u0acb\u0acc\u0acd])
+      result: 'v'
+    - pattern: ([શ]=?)(?=[\u0abe\u0abf\u0ac0\u0ac1\u0ac2\u0ac3\u0ac5\u0ac7\u0ac8\u0ac9\u0acb\u0acc\u0acd])
+      result: 'sh'
+    - pattern: ([ષ]=?)(?=[\u0abe\u0abf\u0ac0\u0ac1\u0ac2\u0ac3\u0ac5\u0ac7\u0ac8\u0ac9\u0acb\u0acc\u0acd])
+      result: 'ṣh'
+    - pattern: ([સ]=?)(?=[\u0abe\u0abf\u0ac0\u0ac1\u0ac2\u0ac3\u0ac5\u0ac7\u0ac8\u0ac9\u0acb\u0acc\u0acd])
+      result: 's'
+    - pattern: ([હ]=?)(?=[\u0abe\u0abf\u0ac0\u0ac1\u0ac2\u0ac3\u0ac5\u0ac7\u0ac8\u0ac9\u0acb\u0acc\u0acd])
+      result: 'h'
+    - pattern: ([ળ]=?)(?=[\u0abe\u0abf\u0ac0\u0ac1\u0ac2\u0ac3\u0ac5\u0ac7\u0ac8\u0ac9\u0acb\u0acc\u0acd])
+      result: 'ḷ'
+
+  characters:
+    # I. Independent vowel characters
+    'અ': 'a'
+    'આ': 'ā'
+    'ઇ': 'i'
+    'ઈ': 'ī'
+    'ઉ': 'u'
+    'ઊ': 'ū'
+    'ઋ': 'ṛ'
+    'ઍ': 'e'
+    'એ': 'ĕ'
+    'ઐ': 'ai'
+    'ઑ': 'o'
+    'ઓ': 'ŏ'
+    'ઔ': 'au'
+
+    # II. Abbreviated vowel characters
+    'ા': 'ā'
+    'િ': 'i'
+    'ી': 'ī'
+    'ુ': 'u'
+    'ૂ': 'ū'
+    'ૃ': 'ṛ'
+    'ૅ': 'e'
+    'ે': 'ĕ'
+    'ૈ': 'ai'
+    'ૉ': 'o'
+    'ો': 'ŏ'
+    'ૌ': 'au'
+
+    # III. Other symbols
+    'ઃ': 'ḥ'
+    'ં': 'ṁ'
+    'ઁ': 'm̐'
+    '્': ''
+
+    # IV. Consonant characters
+    'ક': 'ka'
+    'ખ': 'kha'
+    'ગ': 'ga'
+    'ઘ': 'gha'
+    'ઙ': 'ṅa'
+    'ચ': 'cha'
+    'છ': 'chha'
+    'જ': 'ja'
+    'ઝ': 'jha'
+    'ઞ': 'ña'
+    'ટ': 'ṭa'
+    'ઠ': 'ṭha'
+    'ડ': 'ḍa'
+    'ઢ': 'ḍha'
+    'ણ': 'ṇa'
+    'ત': 'ta'
+    'થ': 'tha'
+    'દ': 'da'
+    'ધ': 'dha'
+    'ન': 'na'
+    'પ': 'pa'
+    'ફ': 'fa'
+    'બ': 'ba'
+    'ભ': 'bha'
+    'મ': 'ma'
+    'ય': 'ya'
+    'ર': 'ra'
+    'લ': 'la'
+    'વ': 'va'
+    'શ': 'sha'
+    'ષ': 'ṣha'
+    'સ': 'sa'
+    'હ': 'ha'
+    'ળ': 'ḷa'
+
+    # digits
+    '૦': '0'
+    '૧': '1'
+    '૨': '2'
+    '૩': '3'
+    '૪': '4'
+    '૫': '5'
+    '૬': '6'
+    '૭': '7'
+    '૮': '8'
+    '૯': '9'
+
+    '઼': ''
+    '।': '.'
+    '\u09CD': '' # Used for joining
+    "‍": ''# Used for joining

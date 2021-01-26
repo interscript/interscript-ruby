@@ -1,0 +1,23 @@
+metadata {
+  authority_id: alalc
+  id: 2011
+  language: iso-639-2:ukr
+  source_script: Cyrl
+  destination_script: Latn
+  name: ALA-LC Romanization System 1997
+  url: https://www.loc.gov/catdir/cpso/romanization/ukrainia.pdf
+  creation_date: 2011
+  
+  notes:
+    - The z͡h ligature is necessary to distinguish ж from the combination зг.
+    - The t͡s ligature is necessary to distinguish ц from the combination тс.
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  inherit: alalc-ukr-Cyrl-Latn-1997

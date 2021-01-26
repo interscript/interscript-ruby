@@ -1,0 +1,38 @@
+metadata {
+  authority_id: gki
+  id: 1992
+  language: iso-639-2:bel
+  source_script: Cyrl
+  destination_script: Latn
+  name: Byelorussian National Cartographic Authority 1992-3 System (based on GOST 1983)
+  url: https://unstats.un.org/unsd/geoinfo/UNGEGN/docs/7th-uncsgn-docs/econf/7th_UNCSGN_econf.91_3_Add1.pdf
+  creation_date: 1992
+}
+
+tests {
+  test "Сямашкі", "Sjamaški"
+  # "Syamashki" in GNDB `bel_Cyrl2Latn_GBO_1992`, but that is clearly bgnpcgn-ukr-Cyrl-Latn-1965
+  test "Старадворцы", "Staradvorcy"
+  # "Staradvortsy" in GNDB `bel_Cyrl2Latn_GBO_1992`, but that is clearly bgnpcgn-ukr-Cyrl-Latn-1965
+  test "Канюхі", "Kanjuhi"
+  # "Kanyukhi" in GNDB `bel_Cyrl2Latn_GBO_1992`, but that is clearly bgnpcgn-ukr-Cyrl-Latn-1965
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  inherit: gost-rus-Cyrl-Latn-16876-71-1983
+
+  characters:
+    '\u0406' : 'I'  # І
+    '\u0456' : 'i'  # і
+
+    '\u0413' : 'G'  # Г
+    '\u0433' : 'g'  # г
+
+    '\U040E' : 'Ŭ'  # Ў
+    '\u045E' : 'ŭ'  # ў

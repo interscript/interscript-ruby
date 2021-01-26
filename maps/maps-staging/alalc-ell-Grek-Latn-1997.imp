@@ -1,0 +1,137 @@
+metadata {
+  authority_id: alalc
+  id: 1997
+  language: iso-639-2:ell
+  source_script: Grek
+  destination_script: Latn
+  name: Greek Romanization, 1997
+  url: http://catdir.loc.gov/catdir/cpso/romanization/greek.pdf
+  creation_date: 1997
+  description: |
+    ALA-LC Romanization table for Greek
+  
+  notes:
+    - Applies to texts after 1453 (Modern Greek)
+    - This table presupposes monotonic accentuation; rough breathings are accordingly not addressed.
+    - The diphthong definition for upsilon is taken from the 2010 version
+    - Generalised gramma digraph rule to capitals
+}
+
+tests {
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  # https://en.wikipedia.org/wiki/Romanization_of_Greek
+  rules:
+    - pattern: (?<=[ΑαΕεΟοΗηΩω])\u03A5    # Υ (after Α, Ε, Ο, Η, Ω)
+      result: U
+    - pattern: (?<=[ΑαΕεΟοΗηΩω])\u03C5    # υ (after Α, Ε, Ο, Η, Ω)
+      result: u
+    - pattern: (?<=[ΑαΕεΟοΗηΩω])\u03CD    # ύ (after Α, Ε, Ο, Η, Ω)
+      result: u
+    - pattern: \u03A5(?=[Ιιί])        # Υ (before Ι)
+      result: U
+    - pattern: \u03C5(?=[Ιιί])        # Υ (before Ι)
+      result: u
+    - pattern: \u0393(?=[γΓκΚξΞχΧ])    # Γ (before Γ, Κ, Ξ, Χ)
+      result: N
+    - pattern: \u03B3(?=[γΓκΚξΞχΧ])    # γ (before Γ, Κ, Ξ, Χ)
+      result: n
+    - pattern: (?<=\b)\u039D\u03A4    # ΝΤ
+      result: Ḏ
+    - pattern: (?<=\b)\u039D\u03C4    # Ντ
+      result: Ḏ
+    - pattern: (?<=\b)\u03BD\u03C4    # ντ
+      result: ḏ
+    - pattern: (?<=\b)\u039C\u03A0    # ΜΠ
+      result: B
+    - pattern: (?<=\b)\u039C\u03C0    # Μπ
+      result: B
+    - pattern: (?<=\b)\u03BC\u03C0    # μπ
+      result: b
+    - pattern: \u037E   # ;
+      result: "?"
+    - pattern: \u003B   # ;
+      result: "?"
+
+  characters:
+    "\u0027": ""
+    "\u0386": "A"  # Ά
+    "\u0391": "A"  # Α
+    "\u0392": "V"  # Β
+    "\u0393": "G"  # Γ
+    "\u0394": "D"  # Δ
+    "\u0395": "E"  # Ε
+    "\u0396": "Z"  # Ζ
+    "\u0397": "Ē"  # Η
+    "\u0398": "Th" # Θ
+    "\u0399": "I"  # Ι
+    "\u039A": "K"  # Κ
+    "\u039B": "L"  # Λ
+    "\u039C": "M"  # Μ
+    "\u039D": "N"  # Ν
+    "\u039E": "X"  # Ξ
+    "\u039F": "O"  # Ο
+    "\u03A0": "P"  # Π
+    "\u03A1": "R"  # Ρ
+    "\u03A3": "S"  # Σ
+    "\u03A4": "T"  # Τ
+    "\u03A5": "Y"  # Υ
+    "\u03A6": "Ph" # Φ
+    "\u03A7": "Ch" # Χ
+    "\u03A8": "Ps" # Ψ
+    "\u03A9": "Ō"  # Ω
+    "\u0388": "E"  # Έ
+    "\u0389": "Ē"  # Ή
+    "\u038A": "I"  # Ί
+    "\u038C": "O"  # Ό
+    "\u038E": "Y"  # Ύ
+    "\u038F": "Ō"  # Ώ
+    "\u03AA": "I"  # Ϊ
+    "\u03AB": "Y"  # Ϋ
+
+    "\u03AC": "a"  # ά
+    "\u03B1": "a"  # α
+    "\u03B2": "v"  # β
+    "\u03B3": "g"  # γ
+    "\u03B4": "d"  # δ
+    "\u03B5": "e"  # ε
+    "\u03B6": "z"  # ζ
+    "\u03B7": "ē"  # η
+    "\u03B8": "th" # θ
+    "\u03B9": "i"  # ι
+    "\u03BA": "k"  # κ
+    "\u03BB": "l"  # λ
+    "\u03BC": "m"  # μ
+    "\u03BD": "n"  # ν
+    "\u03BE": "x"  # ξ
+    "\u03BF": "o"  # ο
+    "\u03C0": "p"  # π
+    "\u03C1": "r"  # ρ
+    "\u03C3": "s"  # σ
+    "\u03C2": "s"  # ς
+    "\u03C4": "t"  # τ
+    "\u03C5": "y"  # υ
+    "\u03C6": "ph" # φ
+    "\u03C7": "ch" # χ
+    "\u03C8": "ps" # ψ
+    "\u03C9": "ō"  # ω
+    "\u03AD": "e"  # έ
+    "\u03AE": "ē"  # ή
+    "\u03AF": "i"  # ί
+    "\u03CC": "o"  # ό
+    "\u03CD": "y"  # ύ
+    "\u03CE": "ō"  # ώ
+    "\u03CA": "i"  # ϊ
+    "\u03CB": "y"  # ϋ
+    "\u0390": "i"  # ΐ
+    "\u03B0": "y"  # ΰ
+
+    "\u0387": ";"   # ·
+    "\u00B7": ";"   # ·

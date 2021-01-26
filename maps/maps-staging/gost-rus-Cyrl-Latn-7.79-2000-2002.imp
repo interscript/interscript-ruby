@@ -1,0 +1,132 @@
+metadata {
+  authority_id: gost
+  id: 2002
+  language: iso-639-2:rus
+  source_script: Cyrl
+  destination_script: Latn
+  name: GOST 7.79-2000 System of standards for information, librarianship and publishing. Rules for transliteration of Cyrillic letters in the Latin alphabet
+  url: https://gostexpert.ru/gost/gost-7.79-2000
+  creation_date: 2002
+  confirmation_date: 2002-02-12
+  adoption_date: 2002-02-12
+  description: |
+    This standard applies to the rules of transliteration by means of the Latin alphabet of individual letters,
+    words, expressions, as well as related texts in languages ​​whose writing is based on the Cyrillic alphabet.
+    The rules in accordance with this standard are applied wherever it is required to provide an unambiguous
+    representation of the Cyril text in Latin letters and the possibility of algorithmic recovery of the text
+    in the original Cyrillic notation, in particular when transferring documents over computer networks.
+    This standard does not apply to the rules for the transmission of the sound appearance of words written in
+    Cyrillic in Latin letters.
+}
+
+tests {
+  test "адрес", "adres"
+  test "баба", "baba"
+  test "вы", "vy"
+  test "голова", "golova"
+  test "да", "da"
+  test "еда", "eda"
+  test "ёлка", "ëlka"
+  test "журнал", "žurnal"
+  test "звезда", "zvezda"
+  test "книга", "kniga"
+  test "первый", "pervyj"
+  test "как", "kak"
+  test "липа", "lipa"
+  test "муж", "muž"
+  test "нижний", "nižnij"
+  test "общество", "obŝestvo"
+  test "пара", "para"
+  test "рыба", "ryba"
+  test "сестра", "sestra"
+  test "товарищ", "tovariŝ"
+  test "утро", "utro"
+  test "физика", "fizika"
+  test "химический", "himičeskij"
+  test "центр", "centr"
+  test "часы", "časy"
+  test "школа", "škola"
+  test "щит", "ŝit"
+  test "съезд", "s\"ezd"
+  test "был", "byl"
+  test "альбом", "al´bom"
+  test "это", "èto"
+  test "южный", "ûžnyj"
+  test "яма", "âma"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  characters:
+    '\u0410' : 'A'  # A
+    '\u0411' : 'B'  # Б
+    '\u0412' : 'V'  # B
+    '\u0413' : 'G'  # Г
+    '\u0414' : 'D'  # Д
+    '\u0415' : 'E'  # Е
+    '\u0401' : "\u00CB" # Ё
+    '\u0416' : 'Ž'  # Ж
+    '\u0417' : 'Z'  # З
+    '\u0418' : "I"  # И
+    '\u0419' : 'J'  # Й
+    '\u041A' : 'K'  # К
+    '\u041B' : 'L'  # Л
+    '\u041C' : 'M'  # М
+    '\u041D' : 'N'  # Н
+    '\u041E' : 'O'  # О
+    '\u041F' : 'P'  # П
+    '\u0420' : 'R'  # Р
+    '\u0421' : 'S'  # С
+    '\u0422' : 'T'  # Т
+    '\u0423' : 'U'  # У
+    '\u0424' : 'F'  # Ф
+    '\u0425' : 'H'  # Х
+    '\u0426' : 'C'  # Ц
+    '\u0427' : 'Č'  # Ч
+    '\u0428' : 'Š'  # Ш
+    '\u0429' : 'Ŝ'  # Щ
+    '\u042a' : '"'  # Ъ
+    '\u042B' : 'Y'  # Ы
+    '\u042C' : "\u00B4" # Ь => ’
+    '\u042D' : "E\u0300" # Э => È
+    '\u042E' : 'Û' # Ю
+    '\u042F' : 'Â' # Я
+
+    '\u0430' : 'a'  # а
+    '\u0431' : 'b'  # б
+    '\u0432' : 'v'  # в
+    '\u0433' : 'g'  # г
+    '\u0434' : 'd'  # д
+    '\u0435' : 'e'  # е
+    '\u0451' : "\u00EB" # ё
+    '\u0436' : 'ž'  # ж
+    '\u0437' : 'z'  # з
+    '\u0438' : 'i'  # и
+    '\u0439' : 'j'  # й
+    '\u043A' : 'k'  # к
+    '\u043B' : 'l'  # л
+    '\u043C' : 'm'  # м
+    '\u043D' : 'n'  # н
+    '\u043E' : 'o'  # о
+    '\u043F' : 'p'  # п
+    '\u0440' : 'r'  # р
+    '\u0441' : 's'  # с
+    '\u0442' : 't'  # т
+    '\u0443' : 'u'  # у
+    '\u0444' : 'f'  # ф
+    '\u0445' : 'h'  # х
+    '\u0446' : 'c'  # ц
+    '\u0447' : 'č'  # ч
+    '\u0448' : 'š'  # ш
+    '\u0449' : 'ŝ'  # щ
+    '\u044A' : '"'  # ъ
+    '\u044B' : 'y'  # ы
+    '\u044C' : "\u00B4" # ь => ’
+    '\u044D' : "e\u0300" # э => è
+    '\u044E' : 'û' # ю
+    '\u044F' : 'â' # я

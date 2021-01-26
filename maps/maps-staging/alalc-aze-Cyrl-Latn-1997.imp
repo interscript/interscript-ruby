@@ -1,0 +1,99 @@
+metadata {
+  authority_id: alalc
+  id: 1997
+  language: iso-639-2:aze
+  source_script: Cyrl
+  destination_script: Latn
+  name: ALA-LC Romanization Table -- Azerbaijani (1997)
+  url: https://transliteration.eki.ee/pdf/Azerbaijani.pdf
+  creation_date: 1997
+  description: |
+    ALA-LC Romanization Tables: Transliteration Schemes for Non-Roman Scripts. Randal K. Berry (ed.). Library of Congress, 1997.
+  
+  notes:
+    - "Ј ј replaced Й й in 1959 (Roman: y; ISO 9: j; ALA-LC: ĭ)."
+}
+
+tests {
+  # from internet
+  test "Азәрбајҹан дили", "Azărbaı̐jan dili"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  characters:
+    '\u0410': 'A'       # А
+    '\u0411': 'B'       # Б
+    '\u0412': 'V'       # В
+    '\u0413': 'G'       # Г
+    '\u0492': 'Gh'      # Ғ
+    '\u0414': 'D'       # Д
+    '\u0415': 'E'       # Е
+    '\u04D8': "A\u0306" # Ә
+    '\u0416': 'Zh'      # Ж
+    '\u0417': 'Z'       # З
+    '\u0418': 'I'       # И
+    '\u042B': 'Y'       # Ы
+    '\u0408': "I\u0310" # Ј
+    '\u0419': 'Y'       # Й note[1]
+    '\u0419': 'Y'       # Й
+    '\u041A': 'K'       # К
+    '\u049C': "G\u0307" # Ҝ
+    '\u041B': 'L'       # Л
+    '\u041C': 'M'       # М
+    '\u041D': 'N'       # Н
+    '\u041E': 'O'       # О
+    '\u04E8': "O\u0307" # Ө
+    '\u041F': 'P'       # П
+    '\u0420': 'R'       # Р
+    '\u0421': 'S'       # С
+    '\u0422': 'T'       # Т
+    '\u0423': 'U'       # У
+    '\u04AE': "U\u0307" # Ү
+    '\u0424': 'F'       # Ф
+    '\u0425': 'Kh'      # Х
+    '\u04BA': "H\u0307" # Һ
+    '\u0427': 'Ch'      # Ч
+    '\u04B8': 'J'       # Ҹ
+    '\u0428': 'Sh'      # Ш
+
+    '\u0430': 'a'       # а
+    '\u0431': 'b'       # б
+    '\u0432': 'v'       # в
+    '\u0433': 'g'       # г
+    '\u0493': 'gh'      # ғ
+    '\u0434': 'd'       # д
+    '\u0435': 'e'       # e
+    '\u04D9': "a\u0306" # ә
+    '\u0436': 'zh'      # ж
+    '\u0437': 'z'       # з
+    '\u0438': 'i'       # и
+    '\u044B': 'y'       # ы
+    '\u0458': "\u0131\u0310" # ј
+    '\u0439': 'y'       # й note[1]
+    '\u043A': 'k'       # к
+    '\u049D': "g\u0307" # ҝ
+    '\u043B': 'l'       # л
+    '\u043C': 'm'       # м
+    '\u043D': 'n'       # н
+    '\u043E': 'o'       # о
+    '\u04E9': "o\u0307" # ө
+    '\u043F': 'p'       # п
+    '\u0440': 'r'       # р
+    '\u0441': 's'       # с
+    '\u0442': 't'       # т
+    '\u0443': 'u'       # у
+    '\u04AF': "u\u0307" # ү
+    '\u0444': 'f'       # ф
+    '\u0445': 'kh'      # х
+    '\u04BB': "h\u0307" # һ
+    '\u0447': 'ch'      # ч
+    '\u04B9': 'j'       # ҹ
+    '\u0448': 'sh'      # ш
+
+    '\u2019': '\u2019'

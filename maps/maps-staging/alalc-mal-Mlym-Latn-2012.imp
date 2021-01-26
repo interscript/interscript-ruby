@@ -1,0 +1,66 @@
+metadata {
+  authority_id: alalc
+  id: 2012
+  language: iso-639-2:mal
+  source_script: Mlym
+  destination_script: Latn
+  name: Malayalam Romanization, 2012
+  url: https://www.loc.gov/catdir/cpso/romanization/malayalam.pdf
+  creation_date: 2012
+  description: |
+    ALA-LC Romanization table for Malayalam
+  
+  
+  notes:
+  
+    - Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for
+      vowels following a consonant can be found in grammars; no distinction between the two is
+      made in transliteration.
+  
+    - When  ് is used in combination with the vowel u (ഉ്), the combination is also transliterated ȧ.
+  
+    - |
+      The vowel a is implicit after all consonants and consonant clusters and is supplied in transliteration, with the following exceptions:
+      a) when another vowel is indicated by its appropriate sign
+      b) when the absence of any vowel is indicated by the superscript sign  ് (also used for the vowel ȧ); and
+      c) when the following modified consonantal forms are used:
+        ൿ  k
+        ൻ  n
+        ൾ  ḷ
+        ൺ  ṇ
+        ൽ  l
+        ർ   r
+    - When റ റ appears as a subscript in a cluster (റ്റ), it is transliterated ta.
+  
+    - |
+      Exception: Anusvāra is transliterated by:
+  
+      a) ṅ before gutturals,
+      b) ñ before palatals,
+      c) ṇ before cerebrals,
+      d) n before dentals, and
+      e) m before labials.
+}
+
+tests {
+  test "ബാർ കോഴ ആവിയായി; മകൻ മാണിയെ വ്യക്തിഹത്യ നടത്തിയവരുടെ കൂടാരത്തിൽ", "bār kōḻa āviyāyi; makan māṇiye vŭyakŭtihatŭya naṭatŭtiyavaruṭe kūṭāratŭtil"
+  test "മിഷൻ ശക്തി, ഓപറേഷൻ ശക്തി'; മുഖം മിനുക്കാൻ സ്ത്രീസുരക്ഷാ പദ്ധതികളുമായി", "miṣan śakŭti, ōpaṟēṣan śakŭti'; mukhaṃ minukŭkān sŭtŭrīsurakŭṣā padŭdhatikaḷumāyi"
+  test "സംസ്ഥാനത്ത് ബുധനാഴ്ച 6,244 പേര്‍ക്ക് കോവിഡ്; ൫൭൪൫ പേര്‍ക്ക് രോഗം സമ", "saṃsŭthānatŭtŭ budhanāḻŭca 6,244 pērŭkŭkŭ kōvid̂ŭ; 5745 pērŭkŭkŭ rēāgaṃ sama"
+  test "ശബരിമല തീര്‍ഥാടനം: സ്‌പെഷല്‍ കമ്മീഷ്ണറുടെ റിപ്പോര്‍ട്ട് ഹൈകോടതിയില്‍", "śabarimala tīrŭthāṭanaṃ: sŭpeṣalŭ kamŭmīṣŭṇaṟuṭe ṟipŭpōrŭṭŭṭŭ haikōṭatiyilŭ"
+  test "സജ്‌ന ഷാജിക്ക് ഐക്യദാര്‍ഢ്യവുമായി സന്തോഷ് കീഴാറ്റൂര്‍ ബിരിയാണി വില്‍ക്കും", "sajŭna ṣājikŭkŭ aikŭyadārŭḍhŭyavumāyi sanŭtōṣŭ kīḻāṟŭṟūrŭ biriyāṇi vilŭkŭkuṃ"
+  test "ആനപ്പുറത്തിരുന്ന് യോഗാഭ്യാസത്തിനിടെ ബാബ രാംദേവ് നിലത്തുവീണു", "ānapŭpuṟatŭtirunŭnŭ yēāgābhŭyāsatŭtiniṭe bāba rāṃdēvŭ nilatŭtuvīṇu"
+  test "സാധാരണക്കാരെൻറ ദീപാവലി നിങ്ങളുടെ കൈയിൽ; മൊറട്ടോറിയം കേസിൽ കേന്ദ്രത്തോട് സുപ്രീംകോടതി", "sādhāraṇakŭkārenṟa dīpāvali niṅŭṅaḷuṭe kaiyil; meāṟaṭŭṭēāṟiyaṃ kēsil kēnŭdŭratŭtēāṭŭ supŭrīṃkēāṭati"
+  test "മാണി ഉണ്ടായിരുന്നെങ്കിൽ ഇത്തരമൊരു തീരുമാനം എടുക്കില്ല, ഈ രാഷ്ട്രീയ വഞ്ചന അദ്ദേഹത്തിന്‍റെ ആത്മാവ് പൊറുക്കില്ല", "māṇi uṇŭṭāyirunŭneṅŭkil itŭtaramoru tīrumānaṃ eṭukŭkilŭla, ī rāṣŭṭŭrīya vañŭcana adŭdēhatŭtinŭṟe ātŭmāvŭ poṟukŭkilŭla"
+  test "ധാർമികത വിളമ്പണ്ട, എം.പി, എം.എൽ.എ സ്ഥാനങ്ങൾ രാജിവെക്കൂ എന്ന് ജോസ് കെ. മാണിയോട് ഷാഫി", "dhārmikata viḷamŭpaṇŭṭa, eṃ.pi, eṃ.el.e sŭthānaṅŭṅaḷ rājivekŭkū enŭnŭ jōsŭ ke. māṇiyōṭŭ ṣāphi"
+  test "ഞങ്ങൾ ബോക്സിൽ നിന്നും ഒന്നും ഒഴിവാക്കില്ല; ആപ്പിളിനെ ട്രോളി ഷവോമി", "ñaṅŭṅaḷ bēākŭsil ninŭnuṃ onŭnuṃ oḻivākŭkilŭla; āpŭpiḷine ṭŭrēāḷi ṣavēāmi"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+
+  inherit: 'alalc-mal-Mlym-Latn-1997'

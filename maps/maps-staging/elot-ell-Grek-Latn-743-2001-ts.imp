@@ -1,0 +1,30 @@
+metadata {
+  authority_id: elot
+  id: 2001-ts
+  language: iso-639-2:ell
+  source_script: Grek
+  destination_script: Latn
+  name: ELOT 743:2001
+  url: https://docplayer.gr/docview/18/849832/
+  #file=/storage/18/849832/849832.pdf
+  creation_date: 2001
+  description: |
+    Reversible transliteration standard, ELOT
+  
+  notes:
+    - Transcription standard (reversible): Clause 3.1, Table 2
+}
+
+tests {
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  character_separator: ""
+  word_separator: " "
+  inherit: "iso-ell-Grek-Latn-843-1997-t2"

@@ -1,0 +1,123 @@
+metadata {
+  authority_id: alalc
+  id: 1997
+  language: iso-639-2:ukr
+  source_script: Cyrl
+  destination_script: Latn
+  name: ALA-LC Romanization System 1997
+  url: http://catdir.loc.gov/catdir/cpso/romanization/ukrainia.pdf
+  creation_date: 1997
+  description: |
+    The ALA-LC Romanization Tables, published by the American Library Association (1885)
+    and Library of Congress (1905). Used to represent bibliographic information by US and
+    Canadian libraries, by the British Library since 1975,[3] and in North American publications.
+    The latest 1997 revision is very similar to the 1905 version.
+  
+  notes:
+    - The z͡h ligature is necessary to distinguish ж from the combination зг.
+    - The t͡s ligature is necessary to distinguish ц from the combination тс.
+}
+
+tests {
+  test "Автономна Республіка Крим", "Avtonomna Respublika Krym"
+  test "Висунь", "Vysunʹ"
+  test "Долинське", "Dolynsʹke"
+  test "Дубище", "Dubyshche"
+  test "Єнакієве", "I͡enakii͡eve"
+  test "Зупиночний Пункт Мокіївці", "Zupynochnyĭ Punkt Mokiïvt͡si"
+  test "Іванівщина", "Ivanivshchyna"
+  test "Киликиїв", "Kylykyïv"
+  test "Кожанка", "Koz͡hanka"
+  test "Краснянка", "Krasni͡anka"
+  test "Краснівка", "Krasnivka"
+  test "Мале Микільське", "Male Mykilʹsʹke"
+  test "Маломиколаївка", "Malomykolaïvka"
+  test "Нове Село", "Nove Selo"
+  test "Новопавлівка", "Novopavlivka"
+  test "Новошичі", "Novoshychi"
+  test "Новоєфремівка", "Novoi͡efremivka"
+  test "Одеська Область", "Odesʹka Oblastʹ"
+  test "Орлівське", "Orlivsʹke"
+  test "Раневичі", "Ranevychi"
+  test "Рокувата", "Rokuvata"
+  test "Рудаєве", "Rudai͡eve"
+  test "Сахнівці", "Sakhnivt͡si"
+  test "Тернівка", "Ternivka"
+  test "Турбівка", "Turbivka"
+  test "Херсонська Область", "Khersonsʹka Oblastʹ"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  characters:
+    "\u0410": "A"        # А
+    "\u0411": "B"        # Б
+    "\u0412": "V"        # В
+    "\u0413": "H"        # Г
+    "\u0490": "G"        # Ґ
+    "\u0414": "D"        # Д
+    "\u0415": "E"        # Е
+    "\u0404": "I\u0361e" # Є -> I͡e
+    "\u0416": "Z\u0361h" # Ж -> Z͡h
+    "\u0417": "Z"        # З
+    "\u0418": "Y"        # И
+    "\u0406": "I"        # І
+    "\u0407": "I\u0308"  # Ї -> Ï
+    "\u0419": "I\u0306"  # Й -> Ĭ
+    "\u041a": "K"        # К
+    "\u041b": "L"        # Л
+    "\u041c": "M"        # М
+    "\u041d": "N"        # Н
+    "\u041e": "O"        # О
+    "\u041f": "P"        # П
+    "\u0420": "R"        # Р
+    "\u0421": "S"        # С
+    "\u0422": "T"        # Т
+    "\u0423": "U"        # У
+    "\u0424": "F"        # Ф
+    "\u0425": "Kh"       # Х
+    "\u0426": "T\u0361s" # Ц -> T͡s
+    "\u0427": "Ch"       # Ч
+    "\u0428": "Sh"       # Ш
+    "\u0429": "Shch"     # Щ
+    "\u042e": "I\u0361u" # Ю -> I͡u
+    "\u042f": "I\u0361a" # Я -> I͡a
+    "\u042c": "\u02B9"   # Ь -> ʹ
+    "\u0430": "a"        # а
+    "\u0431": "b"        # б
+    "\u0432": "v"        # в
+    "\u0433": "h"        # г
+    "\u0491": "g"        # ґ
+    "\u0434": "d"        # д
+    "\u0435": "e"        # е
+    "\u0454": "i\u0361e" # є -> i͡e
+    "\u0436": "z\u0361h" # ж -> z͡h
+    "\u0437": "z"        # з
+    "\u0438": "y"        # и
+    "\u0456": "i"        # і
+    "\u0457": "i\u0308"  # ї -> ï
+    "\u0439": "i\u0306"  # й -> ĭ
+    "\u043a": "k"        # к
+    "\u043b": "l"        # л
+    "\u043c": "m"        # м
+    "\u043d": "n"        # н
+    "\u043e": "o"        # о
+    "\u043f": "p"        # п
+    "\u0440": "r"        # р
+    "\u0441": "s"        # с
+    "\u0442": "t"        # т
+    "\u0443": "u"        # у
+    "\u0444": "f"        # ф
+    "\u0445": "kh"       # х
+    "\u0446": "t\u0361s" # ц -> t͡s
+    "\u0447": "ch"       # ч
+    "\u0448": "sh"       # ш
+    "\u0449": "shch"     # щ
+    "\u044e": "i\u0361u" # ю -> i͡u
+    "\u044f": "i\u0361a" # я -> i͡a
+    "\u044c": "\u02B9"   # Ь -> ʹ

@@ -1,0 +1,187 @@
+metadata {
+  authority_id: var
+  id: lessing
+  language: iso-639-2:mon
+  source_script: Mong
+  destination_script: Latn
+  name: Transliteration Systems for Uyghur-Mongolian or Vertical or Old Script
+  url: https://collab.its.virginia.edu/wiki/tibetan-script/Transliteration%20Schemes%20for%20Mongolian%20Vertical%20Script.html
+  creation_date:
+  description: |
+    The only system for the Mongolian vertical script which is used commonly throughout
+    Mongolian studies worldwide is the Vladimirtsov-Mostaert system (V-M). The only
+    dictionary using this system is in an appendix to Antoine Mostaert’s Dictionnaire
+    ordos. Thus the Harvard Journal of Asiatic Studies specifies, “please use the written
+    Mongolian appendix to Antoine Mostaert’s Dictionnaire ordos. However, the V-M system
+    has many difficult diacriticals and non-Latin characters that constitute a significant
+    problem for editors and thus is difficult to recommend.
+  
+  notes:
+    - A separated final form of vowels a or e is common, and can appear at the end
+      of a word, word stem, or suffix. This form rexuires a final-shaped preceding
+      consonant and an inter-word gap in between. The vowels themselves appear as ᠎ᠠ,
+      and with consonants as ‍ᠬ᠎ᠠ q‑a, ‍ᠷ᠎ᠠ r‑a/r‑e, etc. This gap can be transliterated
+      with a hyphen. In digital typesetting, these forms are triggered by inserting
+      a U+180E ᠎ MONGOLIAN VOWEL SEPARATOR (HTML &#6158; · MVS) between the consonant
+      and vowel.
+    - All case suffixes, as well as any plural suffixes consisting of one or two
+      syllables are likewise separated by a preceding and hyphen-transliterated gap.
+      In digital typesetting, this gap is represented by a U+202F   NARROW NO-BREAK SPACE
+      (HTML &#8239; · NNBSP). A maximum of two case suffixes can be added to a stem.
+      Single-letter vowel suffixes appear with the final-shaped forms of a/e, i, or u/ü,
+      as in ᠭᠠᠵᠠᠷ ᠠ γaǰar‑a 'to the country' and ᠡᠳᠦᠷ ᠡ edür‑e 'on the day', or ᠤᠯᠤᠰ ᠢ ulus‑i
+      'the state' etc. Multi-letter suffixes most often start with an initial- (consonants),
+      medial- (vowels), or variant-shaped form.
+}
+
+tests {
+  test "ᠬᠥᠬᠡᠬᠣᠲᠠ", "køkexota" # Хөх хот
+  test "ᠣᠷᠳᠣᠰ ᠬᠣᠲᠠ", "ordos xota" # Ордос хот
+  test "ᠪᠠᠶᠠᠨᠨᠠᠭᠤᠷ ᠬᠣᠲᠠ", "bajannaγur xota" # Баяннуур хот
+  test "ᠤᠯᠠᠭᠠᠨᠬᠣᠲᠠ", "ulaγanxota" # Улаан хот
+  test "ᠬᠣᠣᠯᠢᠠ ᠭᠣᠤᠯ ᠬᠣᠲᠠ", "xoolia γoul xota" # Хоолингол хот
+  test "ᠡᠷᠢᠶᠡᠨ ᠬᠣᠲᠠ", "erijen xota" #  Эрээн хот
+  test "ᠷᠠᠰᠢᠶᠠᠨ ᠬᠣᠲᠠ", "rasijan xota" # Рашаан хот
+  test "ᠪᠠᠭᠠᠷᠢᠨ ᠪᠠᠷᠠᠭᠤᠨ ᠬᠣᠰᠢᠭᠤ", "baγarin baraγun xosiγu" # Баарин баруун хошуу
+  test "ᠪᠠᠭᠠᠷᠢᠨ ᠵᠡᠭᠦᠨ ᠬᠣᠰᠢᠭᠤ", "baγarin zegyn xosiγu" # Баарин зүүн хошуу
+  test "ᠲᠦᠩᠯᠢᠶᠣᠤ ᠬᠣᠲᠠ", "tynglijou xota" # Байшинт хот
+  test "ᠰᠢᠯᠢ ᠶᠢᠨ ᠬᠣᠲᠠ", "sili-jin xota" # Шилийн хот
+  test "ᠬᠣᠷᠢᠨ ᠭᠡᠷ ᠰᠢᠶᠠᠨ", "xorin ger sijan" # Horinger County
+  test "ᠤᠳᠠ ᠲᠣᠭᠣᠷᠢᠭ", "uda toγoriγ" # Уда тойрог
+  test "ᠦᠬᠠᠢ ᠬᠣᠲᠠ", "yxai xota" # Үхай хот
+  test "ᠬᠠᠶᠢᠨᠠᠨ ᠲᠣᠭᠣᠷᠢᠭ", "xainan toγoriγ" # Hainan District
+  test "ᠬᠠᠶᠢᠷᠤᠪ ᠤᠨ ᠲᠣᠬᠣᠢ ᠲᠣᠭᠣᠷᠢᠭ", "xairub-un toxoi toγoriγ" # Haibowan District
+  test "ᠤᠯᠠᠭᠠᠨᠴᠠᠪ ᠬᠣᠲᠠ", "ulaγancab xota" # Улаанцав хот
+  test "ᠵᠢᠨᠢᠩ ᠲᠣᠭᠣᠷᠢᠭ", "zining toγoriγ" # Жинин тойрог
+  test "ᠹᠸᠩᠵᠸᠡ ᠬᠣᠲᠠ", "fvngzve xota" # Фенжень хот
+  test "ᠱᠠᠩᠳᠤ ᠰᠢᠶᠠᠨ", "šangdu sijan" # Шанду шянь
+  test "ᠯᠢᠶᠠᠩᠴᠠᠩ ᠰᠢᠶᠠᠨ", "lijangcang sijan" # Liangcheng County
+  test "ᠴᠠᠬᠠᠷ ᠪᠠᠷᠠᠭᠤᠨ ᠭᠠᠷᠤᠨ ᠡᠮᠦᠨᠡᠳᠦ ᠬᠣᠰᠢᠭᠤ", "caxar baraγun γarun emynedy xosiγu" # Цахар баруун гарын өмнөд хошуу
+  test "ᠴᠠᠬᠠᠷ ᠪᠠᠷᠠᠭᠤᠨ ᠭᠠᠷᠤᠨ ᠳᠤᠮᠳᠠᠳᠤ ᠬᠣᠰᠢᠭᠤ", "caxar baraγun γarun dumdadu xosiγu" # Цахар баруун гарын дундад хошуу
+  test "ᠴᠠᠬᠠᠷ ᠪᠠᠷᠠᠭᠤᠨ ᠭᠠᠷᠤᠨ ᠬᠣᠶᠢᠲᠤ ᠬᠣᠰᠢᠭᠤ", "caxar baraγun γarun xoitu xosiγu" # Цахар баруун гарын хойд хошуу
+  test "ᠳᠥᠷᠪᠡᠳ ᠬᠣᠰᠢᠭᠤ", "dørbed xosiγu" # Дөрвөд хошуу
+  test "ᠪᠤᠭᠤᠲᠤ ᠬᠣᠲᠠ", "buγutu xota" # Бугaт хот
+  test "ᠬᠥᠨᠳᠡᠯᠡᠨ ᠲᠣᠭᠣᠷᠢᠭ", "køndelen toγoriγ" # Hondlon District
+  test "ᠴᠢᠩᠱᠠᠨ ᠲᠣᠭᠣᠷᠢᠭ", "cingšan toγoriγ" # Qingshan District
+  test "ᠰᠢᠭᠤᠶᠢᠲᠤ ᠲᠣᠭᠣᠷᠢᠭ", "siγuitu toγoriγ" # Шигуай тойрог
+  test "ᠵᠢᠦ ᠶᠤᠸᠠᠨ ᠲᠣᠭᠣᠷᠢᠭ", "ziy juvan toγoriγ" # Jiuyuan District
+  test "ᠭᠦᠶᠠᠩ ᠰᠢᠶᠠᠨ", "gyjang sijan" # Guyang County
+  test "ᠲᠦᠮᠡᠳ ᠵᠡᠭᠦᠨ ᠬᠣᠰᠢᠭᠤ", "tymed zegyn xosiγu" # Түмэд Зүүн хошуу
+  test "ᠲᠦᠮᠡᠳ ᠪᠠᠷᠠᠭᠤᠨ ᠬᠣᠰᠢᠭᠤ", "tymed baraγun xosiγu" # Түмэд Баруун хошуу
+  test "ᠳᠠᠷᠬᠠᠨ ᠮᠤᠤᠮᠢᠩᠭ᠋ᠠᠨ ᠬᠣᠯᠪᠣᠭᠠᠲᠤ ᠬᠣᠰᠢᠭᠤ", "darxan muumingγ᠋an xolboγatu xosiγu" # Darhan Muminggan United Banner
+  test "ᠬᠡᠰᠢᠭᠲᠡᠨ ᠬᠣᠰᠢᠭᠤ", "kesiγten xosiγu" # Hexigten Banner
+  test "ᠰᠢᠨ᠎ᠡ ᠪᠠᠷᠭᠤ ᠵᠡᠭᠦᠨ ᠬᠣᠰᠢᠭᠤ", "sin-e barγu zegyn xosiγu" # New Barag Left Banner
+  test "ᠰᠢᠨ᠎ᠡ ᠪᠠᠷᠭᠤ ᠪᠠᠷᠠᠭᠤᠨ ᠬᠣᠰᠢᠭᠤ", "sin-e barγu baraγun xosiγu" # New Barag Right Banner
+  test "ᠣᠲᠣᠭ ᠬᠣᠰᠢᠭᠤ", "otoγ xosiγu" # Otog Banner
+  test "ᠳᠠᠯᠠᠳ ᠬᠣᠰᠢᠭᠤ", "dalad xosiγu" # Dalad Banner
+  test "ᠵᠡᠭᠦᠨᠭᠠᠷ ᠬᠣᠰᠢᠭᠤ", "zegynγar xosiγu" # Jungar Banner
+  test "ᠣᠲᠣᠭ ᠤᠨ ᠡᠮᠦᠨᠡᠳᠦ ᠬᠣᠰᠢᠭᠤ", "otoγ-un emynedy xosiγu" # Otog Front Banner 
+  test "ᠬᠠᠩᠭᠢᠨ ᠬᠣᠰᠢᠭᠤ", "xangγin xosiγu" # Hanggin Banner
+  test "ᠦᠦᠰᠢᠨ ᠬᠣᠰᠢᠭᠤ", "yysin xosiγu" # Uxin Banner
+  test "ᠡᠵᠢᠨ ᠬᠣᠷᠣᠭ᠎ᠠ ᠬᠣᠰᠢᠭᠤ", "ezin xoroγ-a xosiγu" # Эзэн Хороо хошуу
+  test "ᠵᠠᠯᠠᠨ ᠠᠢ᠌ᠯ ᠬᠣᠲᠠ", "zalan ai᠌l xota" # Жалан-Айл хот
+  test "ᠶᠠᠭᠰᠢ ᠬᠣᠲᠠ", "jaγsi xota" # Ягши хот
+  test "ᠮᠠᠨᠵᠤᠤᠷ ᠬᠣᠲᠠ", "manzuur xota" # Манжуур хот
+  test "ᠬᠠᠶᠢᠯᠠᠷ ᠲᠣᠭᠣᠷᠢᠭ", "xailar toγoriγ" # Хайлаар тойрог
+  test "ᠬᠣᠷᠴᠢᠨ ᠲᠣᠭᠣᠷᠢᠭ", "xorcin toγoriγ" # Horqin District
+  test "ᠺᠠᠶᠢᠯᠦ ᠰᠢᠶᠠᠨ", "kaily sijan" # Kailu County
+  test "ᠬᠦᠷᠢᠶ᠎ᠡ ᠬᠣᠰᠢᠭᠤ", "kyrij-e xosiγu" # Hure Banner
+  test "ᠨᠠᠢᠮᠠᠨ ᠬᠣᠰᠢᠭᠤ", "naiman xosiγu" # Naiman Banner
+  test "ᠵᠠᠷᠤᠳ ᠬᠣᠰᠢᠭᠤ", "zarud xosiγu" # Jarud Banner
+  test "ᠬᠣᠷᠴᠢᠨ ᠪᠠᠷᠠᠭᠤᠨ ᠭᠠᠷᠤᠨ ᠳᠤᠮᠳᠠᠳᠤ ᠬᠣᠰᠢᠭᠤ", "xorcin baraγun γarun dumdadu xosiγu" # Хорчин Баруун Гарын Дундад Хошуу
+  test "ᠬᠣᠷᠴᠢᠨ ᠵᠡᠭᠦᠨ ᠭᠠᠷᠤᠨ ᠳᠤᠮᠳᠠᠳᠤ ᠬᠣᠰᠢᠭᠤ", "xorcin zegyn γarun dumdadu xosiγu" # Horqin Left Middle Banner
+  test "ᠬᠣᠷᠴᠢᠨ ᠵᠡᠭᠦᠨ ᠭᠠᠷᠤᠨ ᠬᠣᠶᠢᠲᠤ ᠬᠣᠰᠢᠭᠤ", "xorcin zegyn γarun xoitu xosiγu" # Horqin Left Rear Banner
+  test "ᠤᠯᠠᠭᠠᠨᠬᠠᠳᠠ ᠬᠣᠲᠠ", "ulaγanxada xota" # Улаанхад хот
+  test "ᠰᠡᠷᠡᠴᠢ", "sereci" # Salaqi
+  test "ᠭᠡᠭᠡᠨ ᠭᠣᠤᠯ ᠬᠣᠲᠠ", "gegen γoul xota" # Гэгээнгол хот
+  test "ᠠᠯᠠᠱᠠ ᠵᠡᠭᠦᠨ ᠬᠣᠰᠢᠭᠤ", "alaša zegyn xosiγu" # Alxa Left Banner
+  test "ᠠᠯᠠᠱᠠ ᠪᠠᠷᠠᠭᠤᠨ ᠬᠣᠰᠢᠭᠤ", "alaša baraγun xosiγu" # Alxa Right Banner # Alaša Baraγun xosiγu
+  test "ᠡᠵᠡᠨ᠎ᠡ ᠬᠣᠰᠢᠭᠤ", "ezen-e xosiγu" # Ejin Banner
+  test "ᠬᠥᠪᠡᠭᠡᠲᠦ ᠰᠢᠷ᠎ᠠ ᠬᠣᠰᠢᠭᠤ", "købegety sir-a xosiγu" # Хөвөөт Шар хошуу
+  test "ᠦᠶᠤᠸᠠᠨ ᠰᠢᠶᠠᠨ", "yjuvan sijan" # Үюань шянь
+  test "ᠦᠴᠤᠸᠠᠨ ᠰᠢᠶᠠᠨ", "ycuvan sijan" # Wuchuan County
+  test "ᠲᠦᠴᠢᠤᠸᠠᠨ ᠰᠢᠶᠠᠨ", "tyciuvan sijan" # Тучуань шянь
+  test "ᠯᠢᠨᠰᠢ ᠰᠢᠶᠠᠨ", "linsi sijan" # Linxi County
+  test "ᠬᠠᠷᠠᠴᠢᠨ ᠬᠣᠰᠢᠭᠤ", "xaracin xosiγu" # Harqin Banner
+  test "ᠠᠤᠬᠠᠨ ᠬᠣᠰᠢᠭᠤ", "auxan xosiγu" # Aohan Banner
+  test "ᠬᠣᠳᠣᠩ ᠠᠷᠠᠳ ᠤᠨ ᠲᠣᠭᠣᠷᠢᠭ", "xodong arad-un toγoriγ" # Huimin District
+  test "ᠰᠠᠶᠢᠬᠠᠨ ᠲᠣᠭᠣᠷᠢᠭ", "saixan toγoriγ" # Saihan District
+  test "ᠰᠢᠨ᠎ᠡ ᠬᠣᠲᠠ ᠲᠣᠭᠣᠷᠢᠭ", "sin-e xota toγoriγ" # Xincheng District
+  test "ᠬᠠᠶᠢᠷᠤᠪ ᠤᠨ ᠲᠣᠬᠣᠢ ᠲᠣᠭᠣᠷᠢᠭ", "xairub-un toxoi toγoriγ" # Haibowan (Hairibin Tohoi) District
+  test "ᠰᠦᠩ ᠱᠠᠨ ᠲᠣᠭᠣᠷᠢᠭ", "syng šan toγoriγ" # Songshan District
+  test "ᠬᠦᠩ ᠱᠠᠨ ᠲᠣᠭᠣᠷᠢᠭ", "kyng šan toγoriγ" # Hongshan District
+  test "ᠠᠷᠤᠨ ᠬᠣᠰᠢᠭᠤ", "arun xosiγu" # Арун хошуу
+  test "ᠶᠤᠸᠠᠨ ᠪᠣᠣ ᠱᠠᠨ ᠲᠣᠭᠣᠷᠢᠭ", "juvan boo šan toγoriγ" # Юаньбаошань тойрог
+  test "ᠰᠢᠯᠤᠭᠤᠨ ᠬᠥᠪᠡᠭᠡᠲᠦ ᠴᠠᠭᠠᠨ ᠬᠣᠰᠢᠭᠤ", "siluγun købegety caγan xosiγu" # Шулуун Хөвөөт Цагаан хошуу
+  test "ᠰᠢᠯᠤᠭᠤᠨ ᠬᠥᠬᠡ ᠬᠣᠰᠢᠭᠤ", "siluγun køke xosiγu" # Шулуун хөх хошуу
+  test "ᠤᠷᠠᠳ ᠤᠨ ᠳᠤᠮᠳᠠᠳᠤ ᠬᠣᠰᠢᠭᠤ", "urad-un dumdadu xosiγu" # Урадын Дундад Хошуу
+  test "ᠤᠷᠠᠳ ᠤᠨ ᠡᠮᠦᠨᠡᠳᠦ ᠬᠣᠰᠢᠭᠤ", "urad-un emynedy xosiγu" # Урадын Өмнөд Хошуу
+  test "ᠲᠣᠭᠲᠠᠬᠤ ᠰᠢᠶᠠᠨ", "toγtaxu sijan" # Тогтох шянь
+  test "ᠰᠥᠨᠡᠳ ᠵᠡᠭᠦᠨ ᠬᠣᠰᠢᠭᠤ", "søned zegyn xosiγu" # Sonid Left Banner
+  test "ᠰᠥᠨᠡᠳ ᠪᠠᠷᠠᠭᠤᠨ ᠬᠣᠰᠢᠭᠤ", "søned baraγun xosiγu" # Sonid Right Banner
+  test "ᠣᠩᠨᠢᠭᠤᠳ ᠬᠣᠰᠢᠭᠤ", "ongniγud xosiγu" # Ongniud Banner
+  test "ᠵᠠᠯᠠᠢᠳ ᠬᠣᠰᠢᠭᠤ", "zalaid xosiγu" # Jalaid Banner
+  test "ᠬᠠᠩᠭᠢᠨ ᠬᠣᠶᠢᠲᠤ ᠬᠣᠰᠢᠭᠤ", "xangγin xoitu xosiγu" # Hanggin Rear Banner
+  test "ᠵᠡᠭᠦᠨ ᠤᠵᠤᠮᠤᠴᠢᠨ ᠬᠣᠰᠢᠭᠤ", "zegyn uzumucin xosiγu" # East Ujimqin Banner
+  test "ᠠᠷᠤ ᠬᠣᠷᠴᠢᠨ ᠬᠣᠰᠢᠭᠤ", "aru xorcin xosiγu" # Ar Horqin Banner
+  test "ᠠᠪᠠᠭ᠎ᠠ ᠬᠣᠰᠢᠭᠤ", "abaγ-a xosiγu" # Abag Banner
+  test "ᠪᠤᠷᠢᠶᠠᠳ", "burijad" # Буриад
+  test "ᠤᠯᠠᠭᠠᠨᠪᠠᠭᠠᠲᠤᠷ", "ulaγanbaγatur" # Улаанбаатар
+  test "ᠴᠢᠩᠭᠢᠰ ᠬᠠᠭᠠᠨ", "cingγis xaγan" # Чингис Хаан
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  rules:
+    - pattern: \u182c(\u1821|u1822|\u1825|\u1826)
+      result: "k\\1"
+    - pattern: \u182d(\u1821|u1822|\u1825|\u1826)
+      result: "g\\1"
+    - pattern: \u1820\u1836\u1822
+      result: "ai"
+    - pattern: \u1821\u1836\u1822
+      result: "ei"
+    - pattern: \u1823\u1836\u1822
+      result: "oi"
+    - pattern: \u1824\u1836\u1822
+      result: "ui"
+
+  characters:
+    "ᠠ": "a"      # \u1820
+    "ᠡ": "e"      # \u1821
+    "ᠢ": "i"      # \u1822
+    "ᠣ": "o"      # \u1823
+    "ᠤ": "u"      # \u1824
+    "ᠥ": "ø"     # \u1825
+    "ᠦ": "y"     # \u1826
+    "ᠨ": "n"      # \u1828
+    "ᠩ": "ng"     # \u1829
+    "ᠬ": "x"      # \u182c
+    "ᠭ": "γ"      # \u182d
+    "ᠪ": "b"      # \u182a
+    "ᠫ": "p"      # \u182b
+    "ᠹ": "f"      # \u1839
+    "ᠰ": "s"      # \u1830
+    "ᠱ": "š"      # \u1831
+    "ᠲ": "t"      # \u1832
+    "ᠳ": "d"      # \u1833
+    "ᠯ": "l"      # \u182f
+    "ᠮ": "m"      # \u182e
+    "ᠴ": "c"      # \u1834
+    "ᠵ": "z"      # \u1835
+    "ᠶ": "j"      # \u1836
+    "ᠺ": "k"      # \u183a
+    "ᠷ": "r"      # \u1837
+    "ᠸ": "v"      # \u1838
+    "ᠾ": "h"     # \u183e
+    "᠁": "..."   # \u1801
+    "᠂": ","      # \u1802
+    "᠃": "."      # \u1803
+    "᠄": ":"      # \u1804
+    "\u180e": "-" # MVS
+    "\u202f": "-" # NNBSP

@@ -1,0 +1,198 @@
+metadata {
+  authority_id: elot
+  id: 1982-tl
+  language: iso-639-2:ell
+  source_script: Grek
+  destination_script: Latn
+  name: ELOT 743:1982 (transliteration)
+  url:
+  creation_date: 1982
+  description: |
+    ELOT 743:1982 transliteration table for Greek
+  
+  notes:
+    - This was the intended system in ELOT 743:1982 for transliteration, as is apparent from un-ell-Grek-Latn-1987-tl and iso-ell-Grek-Latn-843-1997-t2, and ELOT 743:2001, Annex B; but the reversible character diacritics are missing from the currently available document, and the document does not indicate what there was supposed to be.
+    - "\"Transliteration\" as used in this specification and its inheritors refers to reversible transliteration, as distinct from \"transcription\", which is a simpler transliteration and which is intended for default use."
+}
+
+tests {
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  # https://en.wikipedia.org/wiki/Romanization_of_Greek
+  rules:
+    - pattern: (?<=[ΑαΕεΗη])\u03A5(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])    # Υ (after Α, Ε, Η)
+      result: F̱
+    - pattern: (?<=[ΑαΕεΗη])\u03A5(?=\b)    # Υ (after Α, Ε, Η)
+      result: F̱
+    - pattern: (?<=[ΑαΕεΗη])\u03C5(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])    # υ (after Α, Ε, Η)
+      result: f̱
+    - pattern: (?<=[ΑαΕεΗη])\u03C5(?=\b)    # υ (after Α, Ε, Η)
+      result: f̱
+    - pattern: (?<=[ΑαΕεΗη])\u03A5(?![θΘκΚξΞπΠσΣςτΤφΦχΧψΨ]|\b)    # Υ (after Α, Ε, Η)
+      result: V̱
+    - pattern: (?<=[ΑαΕεΗη])\u03C5(?![θΘκΚξΞπΠσΣςτΤφΦχΧψΨ]|\b)    # υ (after Α, Ε, Η)
+      result: v̱
+    - pattern: \u0391\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])    # Αύ
+      result: Áf̱
+    - pattern: \u0391\u03CD(?=\b)    # Αύ
+      result: Áf̱
+    - pattern: \u0391\u03CD(?![θΘκΚξΞπΠσΣςτΤφΦχΧψΨ]|\b)    # Αύ
+      result: Áv̱
+    - pattern: \u03B1\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])    # Αύ
+      result: áf̱
+    - pattern: \u03B1\u03CD(?=\b)    # Αύ
+      result: áf̱
+    - pattern: \u03B1\u03CD(?![θΘκΚξΞπΠσΣςτΤφΦχΧψΨ]|\b)    # Αύ
+      result: áv̱
+    - pattern: \u0395\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])    # Εύ
+      result: Éf̱
+    - pattern: \u0395\u03CD(?=\b)    # Εύ
+      result: Éf̱
+    - pattern: \u0395\u03CD(?![θΘκΚξΞπΠσΣςτΤφΦχΧψΨ]|\b)    # Εύ
+      result: Év̱
+    - pattern: \u03B5\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])    # Εύ
+      result: éf̱
+    - pattern: \u03B5\u03CD(?=\b)    # Εύ
+      result: éf̱
+    - pattern: \u03B5\u03CD(?![θΘκΚξΞπΠσΣςτΤφΦχΧψΨ]|\b)    # Εύ
+      result: év̱
+    - pattern: \u0397\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])    # Εύ
+      result: Í̱f̱
+    - pattern: \u0397\u03CD(?=\b)    # Εύ
+      result: Í̱f̱
+    - pattern: \u0397\u03CD(?![θΘκΚξΞπΠσΣςτΤφΦχΧψΨ]|\b)    # Εύ
+      result: Í̱v̱
+    - pattern: \u03B7\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])    # Εύ
+      result: í̱f̱
+    - pattern: \u03B7\u03CD(?=\b)    # Εύ
+      result: í̱f̱
+    - pattern: \u03B7\u03CD(?![θΘκΚξΞπΠσΣςτΤφΦχΧψΨ]|\b)    # Εύ
+      result: í̱v̱
+    - pattern: (?<=[Οο])\u03A5    # Υ (after Ο)
+      result: U
+    - pattern: (?<=[Οο])\u03C5    # υ (after Ο)
+      result: u
+    - pattern: (?<=[Οο])\u03CD    # ύ (after Ο)
+      result: ú
+    - pattern: (?<=[ΆάΈέΉήΌό])\u03A5    # Άυ, Έυ, Ήυ, Όυ
+      result: Υ
+    - pattern: (?<=[ΆάΈέΉήΌό])\u03C5    # Άυ, Έυ, Ήυ, Όυ
+      result: y
+    - pattern: \u0393(?=[ξΞχΧ])    # Γ (before Γ, Ξ, Χ)
+      result: Ṉ
+    - pattern: \u03B3(?=[ξΞχΧ])    # γ (before Γ, Ξ, Χ)
+      result: ṉ
+    - pattern: \u0393[Γγ]    # Γ (before Γ)
+      result: Ṉg
+    - pattern: \u03B3\u03B3    # γ (before Γ)
+      result: ṉg
+    - pattern: \u0393[Κκ]    # Γ (before Κ)
+      result: Gk
+    - pattern: \u03B3[Κκ]    # γ (before Κ)
+      result: gk
+    - pattern: (?<=\b)\u039C[πΠ]    # ΜΠ (initially)
+      result: B
+    - pattern: (?<=\b)\u03BC[πΠ]    # μπ (initially)
+      result: b
+    - pattern: \u039C[πΠ](?=\b)    # ΜΠ (finally)
+      result: B
+    - pattern: \u03BC[πΠ](?=\b)    # μπ (finally)
+      result: b
+    - pattern: (?<!\b)\u039C[πΠ]    # ΜΠ (medially)
+      result: Mp
+    - pattern: (?<!\b)\u03BC[πΠ]    # μπ (medially)
+      result: mp
+    - pattern: \u037E   # ;
+      result: "?"
+    - pattern: \u003B   # ;
+      result: "?"
+
+  characters:
+    "\u0027": ""
+    "\u0386": "Á"  # Ά
+    "\u0391": "A"  # Α
+    "\u0392": "V"  # Β
+    "\u0393": "G"  # Γ
+    "\u0394": "D"  # Δ
+    "\u0395": "E"  # Ε
+    "\u0395\u03AA": "Εï"  # ΕΪ
+    "\u0395\u03CA": "Εï"  # Εϊ
+    "\u0388\u03CA": "Éï"  # Έϊ
+    "\u0388\u03CA": "Éï"  # Έι
+    "\u0396": "Z"  # Ζ
+    "\u0397": "I̱"  # Η
+    "\u0398": "Th" # Θ
+    "\u0399": "I"  # Ι
+    "\u039A": "K"  # Κ
+    "\u039B": "L"  # Λ
+    "\u039C": "M"  # Μ
+    "\u039D": "N"  # Ν
+    "\u039E": "X"  # Ξ
+    "\u039F": "O"  # Ο
+    "\u03A0": "P"  # Π
+    "\u03A1": "R"  # Ρ
+    "\u03A3": "S"  # Σ
+    "\u03A4": "T"  # Τ
+    "\u03A5": "Y"  # Υ
+    "\u03A6": "F" # Φ
+    "\u03A7": "Ch" # Χ
+    "\u03A8": "Ps" # Ψ
+    "\u03A9": "O̱"  # Ω
+    "\u0388": "É"  # Έ
+    "\u0389": "Í̱"  # Ή
+    "\u038A": "Í"  # Ί
+    "\u038C": "Ó"  # Ό
+    "\u038E": "Ý"  # Ύ
+    "\u038F": "Ó̱"  # Ώ
+    "\u03AA": "Ï"  # Ϊ
+    "\u03AB": "Ÿ"  # Ϋ
+
+    "\u03AC": "á"  # ά
+    "\u03B1": "a"  # α
+    "\u03B2": "v"  # β
+    "\u03B3": "g"  # γ
+    "\u03B4": "d"  # δ
+    "\u03B5": "e"  # ε
+    "\u03B5\u03CA": "eï"  # εϊ
+    "\u03AD\u03CA": "éï"  # έϊ
+    "\u03AD\u03B9": "éï"  # έι
+    "\u03B6": "z"  # ζ
+    "\u03B7": "i̱"  # η
+    "\u03B8": "th" # θ
+    "\u03B9": "i"  # ι
+    "\u03BA": "k"  # κ
+    "\u03BB": "l"  # λ
+    "\u03BC": "m"  # μ
+    "\u03BD": "n"  # ν
+    "\u03BE": "x"  # ξ
+    "\u03BF": "o"  # ο
+    "\u03C0": "p"  # π
+    "\u03C1": "r"  # ρ
+    "\u03C3": "s"  # σ
+    "\u03C2": "s"  # ς
+    "\u03C4": "t"  # τ
+    "\u03C5": "y"  # υ
+    "\u03C6": "f" # φ
+    "\u03C7": "ch" # χ
+    "\u03C8": "ps" # ψ
+    "\u03C9": "o̱"  # ω
+    "\u03AD": "é"  # έ
+    "\u03AE": "í̱"  # ή
+    "\u03AF": "í"  # ί
+    "\u03CC": "ó"  # ό
+    "\u03CD": "ý"  # ύ
+    "\u03CE": "ó̱"  # ώ
+    "\u03CA": "ï"  # ϊ
+    "\u03CB": "ÿ"  # ϋ
+    "\u0390": "ḯ"  # ΐ
+    "\u03B0": "ÿ́"  # ΰ
+
+    "\u0387": ";"   # ·
+    "\u00B7": ";"   # ·

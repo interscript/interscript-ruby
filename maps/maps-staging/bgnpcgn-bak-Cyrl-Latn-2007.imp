@@ -1,0 +1,176 @@
+metadata {
+  authority_id: bgnpcgn
+  id: 2007
+  language: iso-639-2:rus
+  source_script: Cyrl
+  destination_script: Latn
+  name: BASHKIR TABLE OF CORRESPONDENCES CYRILLIC-ROMAN BGN/PCGN 2007 Agreement
+  url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/829203/TABLE_OF_CORRESPONDENCES__FOR_BASHKIR.pdf
+  creation_date: 2007
+  confirmation_date: 2019
+  description: |
+    Bashkir is an official language within Respublika Bashkortostan, one of the
+    republics of the Russian Federation. It will normally be encountered in Cyrillic script, in
+    which case it should be romanized by means of the Cyrillic-Roman table of
+    correspondences given below
+  
+  notes:
+    - The letter w is used word initially and before a vowel. # 'and' or 'or' ?
+    - The letter sequence ye is used word initially and before a vowel. # 'and' or 'or' ?
+    - The letter w is used between or after vowels.
+    - The letter w is used after e, u, ö and ə.
+    - |
+      An inventory of letter-diacritic combinations, with their Unicode encoding,
+      in addition to the unmodified letters of the basic Roman script is:
+        Ğ (U+011E) ğ (U+011F)
+        Ź (U+0179) ź (U+017A)
+        Ë (U+00CB) ë (U+00EB)
+        Ñ (U+00D1) ñ (U+00F1)
+        Ö (U+00D6) ö (U+00F6)
+        Ś (U+015A) ś (U+015B)
+        Ü (U+00DC) ü (U+00FC)
+        Ç (U+00C7) ç (U+00E7)
+        Ş (U+015E) ş (U+015F)
+        Ə (U+018F) ə (U+0259)
+    - |
+      The Roman-script columns show only lowercase forms but, when applying the table,
+      uppercase and lowercase Roman letters as appropriate should be used.
+}
+
+tests {
+  # adopted http://www.eki.ee/knab/lat/kblba.pdf
+  test "Васйылға", "Wasyılğa"
+  test "Еҙем", "Yeźem"
+  test "Раевка", "Raevka"
+  test "Сәйетҡол", "Səyetqol"
+  test "Ауырғазы", "Awırğazı"
+  test "Бурһыҡтау", "Burhıqtaw"
+  test "Мәләүез", "Mələwez"
+  test "Ҡыҙылъяр", "Qıźılyar"
+  # adopted https://en.wikipedia.org/wiki/Bashkir_language#Grammar
+  test "кемдең", "kemdeñ"
+  test "кем", "kem"
+  test "был", "bıl"
+  test "ошо", "oşo"
+  test "быларҙың", "bılarźıñ"
+  test "һеҙҙән", "heźźən"
+  test "һин", "hin"
+  test "һеҙҙең", "heźźeñ"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  rules:
+    # note[1]
+    - pattern: \b\u0412(?=[АаЕеЁёИиОоӨөУуҮЫыЭэӘәЮюЯя])
+      result: "W"
+    - pattern: \b\u0432(?=[АаЕеЁёИиОоӨөУуҮЫыЭэӘәЮюЯя])
+      result: "w"
+    # note[2]
+    - pattern: \b\u0415
+      result: "Ye"
+    - pattern: \b\u0435
+      result: "ye"
+    - pattern: (?=\b)\u0415(?<=[АаЕеЁёИиОоӨөУуҮЫыЭэӘәЮюЯя])
+      result: "Ye"
+    - pattern: (?=\b)\u0435(?<=[АаЕеЁёИиОоӨөУуҮЫыЭэӘәЮюЯя])
+      result: "ye"
+
+    # note[3] # note[4]
+    - pattern: (?<=[АаЕеЁёИиОоӨөУуҮЫыЭэӘәЮюЯя])[\u0423\u04AE]
+      result: W
+    - pattern: (?<=[АаЕеЁёИиОоӨөУуҮЫыЭэӘәЮюЯя])[\u0443\u04AF]
+      result: w
+
+
+  characters:
+    '\u0410': 'A'      # А
+    '\u0411': 'B'      # Б note[1]
+    '\u0412': 'V'      # В
+    '\u0413': 'G'      # Г
+    '\u0492': "\u011E" # Ғ
+    '\u0414': 'D'      # Д
+    '\u0498': "\u0179" # Ҙ
+    '\u0415': 'E'      # Е note[2]
+    '\u0401': 'Ë'      # Ё
+    '\u0416': 'J'      # Ж
+    '\u0417': 'Z'      # З
+    '\u0418': 'I'      # И
+    '\u0419': 'Y'      # Й
+    '\u041A': 'K'      # К
+    '\u04A0': 'Q'      # Ҡ
+    '\u041B': 'L'      # Л
+    '\u041C': 'M'      # М
+    '\u041D': 'N'      # Н
+    '\u04A2': 'Ñ'      # Ң
+    '\u041E': 'O'      # О
+    '\u04E8': "Ö"      # Ө
+    '\u041F': 'P'      # П
+    '\u0420': 'R'      # Р
+    '\u0421': 'S'      # С
+    '\u04AA': 'Ś'      # Ҫ
+    '\u0422': 'T'      # Т
+    '\u0423': 'U'      # У
+    '\u04AE': 'Ü'      # Ү note[3]
+    '\u0424': 'F'      # Ф
+    '\u0425': 'X'      # Х
+    '\u04BA': 'H'      # Һ
+    '\u0426': 'Ts'     # Ц
+    '\u0427': 'Ç'      # Ч
+    '\u0428': 'Ş'      # Ш
+    '\u0429': 'ŞÇ'     # Щ
+    '\u042A': ''       # Ъ
+    '\u042B': 'I'      # Ы
+    '\u042C': ''       # Ь
+    '\u042D': 'E'      # Э
+    '\u04D8': "\u018F" # Ә
+    '\u042E': 'Yu'     # Ю
+    '\u042F': 'Ya'     # Я
+
+    '\u0430': 'a'      # а
+    '\u0431': 'b'      # б
+    '\u0432': 'v'      # в note[1]
+    '\u0433': 'g'      # г
+    '\u0493': "\u011F" # ғ
+    '\u0434': 'd'      # д
+    '\u0499': 'ź'      # ҙ
+    '\u0435': 'e'      # e note[2]
+    '\u0451': 'yo'     # ё
+    '\u0436': 'j'      # ж
+    '\u0437': 'z'      # з
+    '\u0438': 'i'      # и
+    '\u0439': 'y'      # й
+    '\u043A': 'k'      # к
+    '\u04A1': 'q'      # ҡ
+    '\u043B': 'l'      # л
+    '\u043C': 'm'      # м
+    '\u043D': 'n'      # н
+    '\u04A3': 'ñ'      # ң
+    '\u043E': 'o'      # о
+    '\u04E9': "\u00F6" # ө
+    '\u043F': 'p'      # п
+    '\u0440': 'r'      # р
+    '\u0441': 's'      # с
+    '\u04AB': 'ś'      # ҫ
+    '\u0442': 't'      # т
+    '\u0443': 'u'      # у
+    "\u04AF": 'ü'      # ү note[3]
+    '\u0444': 'f'      # ф
+    '\u0445': 'x'      # х
+    '\u04BB': 'h'      # һ
+    '\u0446': 'ts'     # ц
+    '\u0447': 'ç'      # ч
+    '\u0448': 'ş'      # ш
+    '\u0449': 'şç'     # щ
+    '\u044A': ''       # ъ
+    '\u044B': "\u0131" # ы
+    '\u044C': ''       # ь
+    '\u044D': 'e'      # э
+    '\u04D9': "\u0259" # ә
+    '\u044E': 'yu'     # ю
+    '\u044F': 'ya'     # я

@@ -1,0 +1,171 @@
+metadata {
+  authority_id: un
+  id: general-2013
+  language: iso-639-2:mon
+  source_script: Mong
+  destination_script: Latn
+  name: Mongolian Romanization in China, Version 4.0 (general)
+  url: http://www.eki.ee/wgrs/rom1_mnc.htm
+  creation_date: 2013-09
+  description: |
+    The United Nations resolution III/8 in 1977 recognized the Scheme for
+    a Chinese Phonetic Alphabet (Pinyin) as China’s official Roman alphabet
+    scheme and recommended the alphabet as the international system for the
+    romanization of Chinese geographical names. In China Mongolian
+    geographical names are transcribed directly from the Mongolian script
+    into Pinyin. The scheme was published in Toponymic Guidelines for Map
+    and Other Editors: China, 1982.
+  
+    The system is used in China and in international cartographic
+    products.
+  
+    Mongolian uses a vertical script. Transcription of Mongolian names is
+    made from their proper pronunciation based on the written form of the
+    Mongolian language and Qahar vernacular, with Zhenglan as its
+    representative pronunciation. Due to the complex nature of the script
+    the romanization scheme is not reversible, e.g. the name of the city
+    Hohhot is written ᠬᠥᠬᠡᠬᠣᠲᠠ but may be transliterated as kökeqota.
+  
+  notes:
+    - The long and short Mongolian vowels are not distinguished in the
+      spelling for general use, but in recording the pronunciation of
+      place-names, the long vowel is represented by duplication.
+    - Where two Roman equivalents are given, the second (in brackets) is
+      used for recording the pronunciation of place-names while the first
+      form is for general use.
+    - In the table only word-initial character variants are shown.
+      Depending on the position in the word many variants of the characters
+      are used as well as some ligatures. These features are not covered here.
+    - For technical reasons the characters of the Mongolian script are
+      turned 90˚ anti-clockwise.
+  
+  implementation_notes:
+    - A separated final form of vowels a or e is common, and can appear at the end
+      of a word, word stem, or suffix. This form requires a final-shaped preceding
+      consonant and an inter-word gap in between. The vowels themselves appear as ᠎ᠠ,
+      and with consonants as ‍ᠬ᠎ᠠ q‑a, ‍ᠷ᠎ᠠ r‑a/r‑e, etc. This gap can be transliterated
+      with a hyphen. In digital typesetting, these forms are triggered by inserting
+      a U+180E ᠎ MONGOLIAN VOWEL SEPARATOR (HTML &#6158; · MVS) between the consonant
+      and vowel.
+    - All case suffixes, as well as any plural suffixes consisting of one or two
+      syllables are likewise separated by a preceding and hyphen-transliterated gap.
+      In digital typesetting, this gap is represented by a U+202F   NARROW NO-BREAK SPACE
+      (HTML &#8239; · NNBSP). A maximum of two case suffixes can be added to a stem.
+      Single-letter vowel suffixes appear with the final-shaped forms of a/e, i, or u/ü,
+      as in ᠭᠠᠵᠠᠷ ᠠ γaǰar‑a 'to the country' and ᠡᠳᠦᠷ ᠡ edür‑e 'on the day', or ᠤᠯᠤᠰ ᠢ ulus‑i
+      'the state' etc. Multi-letter suffixes most often start with an initial- (consonants),
+      medial- (vowels), or variant-shaped form.
+}
+
+tests {
+  test "ᠣᠷᠳᠣᠰ ᠬᠣᠲᠠ", "ordos hota" # Ордос хот
+  test "ᠪᠠᠶᠠᠨᠨᠠᠭᠤᠷ ᠬᠣᠲᠠ", "bayannagur hota" # Баяннуур хот
+  test "ᠤᠯᠠᠭᠠᠨᠬᠣᠲᠠ", "ulaganhota" # Улаан хот
+  test "ᠬᠣᠣᠯᠢᠠ ᠭᠣᠤᠯ ᠬᠣᠲᠠ", "hoolia goul hota" # Хоолингол хот
+  test "ᠡᠷᠢᠶᠡᠨ ᠬᠣᠲᠠ", "eriyen hota" #  Эрээн хот
+  test "ᠷᠠᠰᠢᠶᠠᠨ ᠬᠣᠲᠠ", "rasiyan hota" # Рашаан хот
+  test "ᠪᠠᠭᠠᠷᠢᠨ ᠪᠠᠷᠠᠭᠤᠨ ᠬᠣᠰᠢᠭᠤ", "bagarin baragun hosigu" # Баарин баруун хошуу
+  test "ᠪᠠᠭᠠᠷᠢᠨ ᠵᠡᠭᠦᠨ ᠬᠣᠰᠢᠭᠤ", "bagarin jegun hosigu" # Баарин зүүн хошуу
+  test "ᠲᠦᠩᠯᠢᠶᠣᠤ ᠬᠣᠲᠠ", "tungliyou hota" # Байшинт хот
+  test "ᠰᠢᠯᠢ ᠶᠢᠨ ᠬᠣᠲᠠ", "sili-yin hota" # Шилийн хот
+  test "ᠬᠣᠷᠢᠨ ᠭᠡᠷ ᠰᠢᠶᠠᠨ", "horin ger siyan" # Horinger County
+  test "ᠤᠳᠠ ᠲᠣᠭᠣᠷᠢᠭ", "uda togorig" # Уда тойрог
+  test "ᠦᠬᠠᠢ ᠬᠣᠲᠠ", "uhai hota" # Үхай хот
+  test "ᠬᠠᠶᠢᠨᠠᠨ ᠲᠣᠭᠣᠷᠢᠭ", "hayinan togorig" # Hainan District
+  test "ᠬᠠᠶᠢᠷᠤᠪ ᠤᠨ ᠲᠣᠬᠣᠢ ᠲᠣᠭᠣᠷᠢᠭ", "hayirub-un tohoi togorig" # Haibowan District
+  test "ᠤᠯᠠᠭᠠᠨᠴᠠᠪ ᠬᠣᠲᠠ", "ulaganqab hota" # Улаанцав хот
+  test "ᠵᠢᠨᠢᠩ ᠲᠣᠭᠣᠷᠢᠭ", "jining togorig" # Жинин тойрог
+  test "ᠹᠸᠩᠵᠸᠡ ᠬᠣᠲᠠ", "fwngjwe hota" # Фенжень хот
+  test "ᠵᠦᠸᠧᠽᠢ ᠰᠢᠶᠠᠨ", "juwezi siyan" # Zhuozi County
+  test "ᠬᠤᠸᠠᠳᠧ ᠰᠢᠶᠠᠨ", "huwade siyan" # Huade County
+  test "ᠱᠠᠩᠳᠤ ᠰᠢᠶᠠᠨ", "xangdu siyan" # Шанду шянь
+  test "ᠰᠢᠩᠾᠧ ᠰᠢᠶᠠᠨ", "singhe siyan" # Шинхэ шянь
+  test "ᠯᠢᠶᠠᠩᠴᠠᠩ ᠰᠢᠶᠠᠨ", "liyangqang siyan" # Liangcheng County
+  test "ᠴᠠᠬᠠᠷ ᠪᠠᠷᠠᠭᠤᠨ ᠭᠠᠷᠤᠨ ᠡᠮᠦᠨᠡᠳᠦ ᠬᠣᠰᠢᠭᠤ", "qahar baragun garun emunedu hosigu" # Цахар баруун гарын өмнөд хошуу
+  test "ᠴᠠᠬᠠᠷ ᠪᠠᠷᠠᠭᠤᠨ ᠭᠠᠷᠤᠨ ᠳᠤᠮᠳᠠᠳᠤ ᠬᠣᠰᠢᠭᠤ", "qahar baragun garun dumdadu hosigu" # Цахар баруун гарын дундад хошуу
+  test "ᠴᠠᠬᠠᠷ ᠪᠠᠷᠠᠭᠤᠨ ᠭᠠᠷᠤᠨ ᠬᠣᠶᠢᠲᠤ ᠬᠣᠰᠢᠭᠤ", "qahar baragun garun hoyitu hosigu" # Цахар баруун гарын хойд хошуу
+  test "ᠳᠥᠷᠪᠡᠳ ᠬᠣᠰᠢᠭᠤ", "dorbed hosigu" # Дөрвөд хошуу
+  test "ᠪᠤᠭᠤᠲᠤ ᠬᠣᠲᠠ", "bugutu hota" # Бугaт хот
+  test "ᠬᠥᠨᠳᠡᠯᠡᠨ ᠲᠣᠭᠣᠷᠢᠭ", "hondelen togorig" # Hondlon District
+  test "ᠳᠦᠩᠾᠧ ᠲᠣᠭᠣᠷᠢᠭ", "dunghe togorig" # Donghe District
+  test "ᠴᠢᠩᠱᠠᠨ ᠲᠣᠭᠣᠷᠢᠭ", "qingxan togorig" # Qingshan District
+  test "ᠰᠢᠭᠤᠶᠢᠲᠤ ᠲᠣᠭᠣᠷᠢᠭ", "siguyitu togorig" # Шигуай тойрог
+  test "ᠵᠢᠦ ᠶᠤᠸᠠᠨ ᠲᠣᠭᠣᠷᠢᠭ", "jiu yuwan togorig" # Jiuyuan District
+  test "ᠭᠦᠶᠠᠩ ᠰᠢᠶᠠᠨ", "guyang siyan" # Guyang County
+  test "ᠲᠦᠮᠡᠳ ᠵᠡᠭᠦᠨ ᠬᠣᠰᠢᠭᠤ", "tumed jegun hosigu" # Түмэд Зүүн хошуу
+  test "ᠲᠦᠮᠡᠳ ᠪᠠᠷᠠᠭᠤᠨ ᠬᠣᠰᠢᠭᠤ", "tumed baragun hosigu" # Түмэд Баруун хошуу
+  test "ᠳᠠᠷᠬᠠᠨ ᠮᠤᠤᠮᠢᠩᠭ᠋ᠠᠨ ᠬᠣᠯᠪᠣᠭᠠᠲᠤ ᠬᠣᠰᠢᠭᠤ", "darhan muumingg᠋an holbogatu hosigu" # Darhan Muminggan United Banner
+  test "ᠬᠡᠰᠢᠭᠲᠡᠨ ᠬᠣᠰᠢᠭᠤ", "hesigten hosigu" # Hexigten Banner
+  test "ᠰᠢᠨ᠎ᠡ ᠪᠠᠷᠭᠤ ᠵᠡᠭᠦᠨ ᠬᠣᠰᠢᠭᠤ", "sin-e bargu jegun hosigu" # New Barag Left Banner
+  test "ᠰᠢᠨ᠎ᠡ ᠪᠠᠷᠭᠤ ᠪᠠᠷᠠᠭᠤᠨ ᠬᠣᠰᠢᠭᠤ", "sin-e bargu baragun hosigu" # New Barag Right Banner
+  test "ᠣᠲᠣᠭ ᠬᠣᠰᠢᠭᠤ", "otog hosigu" # Otog Banner
+  test "ᠳ᠋ᠦᠩᠱᠧᠩ ᠲᠣᠭᠣᠷᠢᠭ", "d᠋ungxeng togorig" # Dongsheng District
+  test "ᠳᠠᠯᠠᠳ ᠬᠣᠰᠢᠭᠤ", "dalad hosigu" # Dalad Banner
+  test "ᠵᠡᠭᠦᠨᠭᠠᠷ ᠬᠣᠰᠢᠭᠤ", "jegungar hosigu" # Jungar Banner
+  test "ᠣᠲᠣᠭ ᠤᠨ ᠡᠮᠦᠨᠡᠳᠦ ᠬᠣᠰᠢᠭᠤ", "otog-un emunedu hosigu" # Otog Front Banner
+  test "ᠬᠠᠩᠭᠢᠨ ᠬᠣᠰᠢᠭᠤ", "hanggin hosigu" # Hanggin Banner
+  test "ᠦᠦᠰᠢᠨ ᠬᠣᠰᠢᠭᠤ", "uusin hosigu" # Uxin Banner
+  test "ᠡᠵᠢᠨ ᠬᠣᠷᠣᠭ᠎ᠠ ᠬᠣᠰᠢᠭᠤ", "ejin horog-a hosigu" # Эзэн Хороо хошуу
+  test "ᠵᠠᠯᠠᠨ ᠠᠢ᠌ᠯ ᠬᠣᠲᠠ", "jalan ai᠌l hota" # Жалан-Айл хот
+  test "ᠶᠠᠭᠰᠢ ᠬᠣᠲᠠ", "yagsi hota" # Ягши хот
+  test "ᠮᠠᠨᠵᠤᠤᠷ ᠬᠣᠲᠠ", "manjuur hota" # Манжуур хот
+  test "ᠬᠠᠶᠢᠯᠠᠷ ᠲᠣᠭᠣᠷᠢᠭ", "hayilar togorig" # Хайлаар тойрог
+  test "ᠬᠣᠷᠴᠢᠨ ᠲᠣᠭᠣᠷᠢᠭ", "horqin togorig" # Horqin District
+  test "ᠺᠠᠶᠢᠯᠦ ᠰᠢᠶᠠᠨ", "kayilu siyan" # Kailu County
+  test "ᠬᠦᠷᠢᠶ᠎ᠡ ᠬᠣᠰᠢᠭᠤ", "huriy-e hosigu" # Hure Banner
+  test "ᠨᠠᠢᠮᠠᠨ ᠬᠣᠰᠢᠭᠤ", "naiman hosigu" # Naiman Banner
+  test "ᠵᠠᠷᠤᠳ ᠬᠣᠰᠢᠭᠤ", "jarud hosigu" # Jarud Banner
+  test "ᠬᠣᠷᠴᠢᠨ ᠪᠠᠷᠠᠭᠤᠨ ᠭᠠᠷᠤᠨ ᠳᠤᠮᠳᠠᠳᠤ ᠬᠣᠰᠢᠭᠤ", "horqin baragun garun dumdadu hosigu" # Хорчин Баруун Гарын Дундад Хошуу
+  test "ᠬᠣᠷᠴᠢᠨ ᠵᠡᠭᠦᠨ ᠭᠠᠷᠤᠨ ᠳᠤᠮᠳᠠᠳᠤ ᠬᠣᠰᠢᠭᠤ", "horqin jegun garun dumdadu hosigu" # Horqin Left Middle Banner
+  test "ᠬᠣᠷᠴᠢᠨ ᠵᠡᠭᠦᠨ ᠭᠠᠷᠤᠨ ᠬᠣᠶᠢᠲᠤ ᠬᠣᠰᠢᠭᠤ", "horqin jegun garun hoyitu hosigu" # Horqin Left Rear Banner
+  test "ᠤᠯᠠᠭᠠᠨᠬᠠᠳᠠ ᠬᠣᠲᠠ", "ulaganhada hota" # Улаанхад хот
+  test "ᠰᠡᠷᠡᠴᠢ", "sereqi" # Salaqi
+  test "ᠭᠡᠭᠡᠨ ᠭᠣᠤᠯ ᠬᠣᠲᠠ", "gegen goul hota" # Гэгээнгол хот
+  test "ᠠᠯᠠᠱᠠ ᠵᠡᠭᠦᠨ ᠬᠣᠰᠢᠭᠤ", "alaxa jegun hosigu" # Alxa Left Banner
+  test "ᠠᠯᠠᠱᠠ ᠪᠠᠷᠠᠭᠤᠨ ᠬᠣᠰᠢᠭᠤ", "alaxa baragun hosigu" # Alxa Right Banner
+  test "ᠡᠵᠡᠨ᠎ᠡ ᠬᠣᠰᠢᠭᠤ", "ejen-e hosigu" # Ejin Banner
+  test "ᠬᠥᠪᠡᠭᠡᠲᠦ ᠰᠢᠷ᠎ᠠ ᠬᠣᠰᠢᠭᠤ", "hobegetu sir-a hosigu" # Хөвөөт Шар хошуу
+  test "ᠦᠶᠤᠸᠠᠨ ᠰᠢᠶᠠᠨ", "uyuwan siyan" # Үюань шянь
+  test "ᠦᠴᠤᠸᠠᠨ ᠰᠢᠶᠠᠨ", "uquwan siyan" # Wuchuan County
+  test "ᠲᠦᠴᠢᠤᠸᠠᠨ ᠰᠢᠶᠠᠨ", "tuqiuwan siyan" # Тучуань шянь
+  test "ᠨᠢᠩᠴᠧᠩ ᠰᠢᠶᠠᠨ", "ningqeng siyan" # Ningcheng County
+  test "ᠯᠢᠨᠰᠢ ᠰᠢᠶᠠᠨ", "linsi siyan" # Linxi County
+  test "ᠯᠢᠨᠾᠧ ᠲᠣᠭᠣᠷᠢᠭ", "linhe togorig" # Linhe
+  test "ᠬᠠᠷᠠᠴᠢᠨ ᠬᠣᠰᠢᠭᠤ", "haraqin hosigu" # Harqin Banner
+  test "ᠳ᠋ᠧᠩᠺᠧᠦ ᠰᠢᠶᠠᠨ", "d᠋engkeu siyan" # Dengkou County
+  test "ᠠᠤᠬᠠᠨ ᠬᠣᠰᠢᠭᠤ", "auhan hosigu" # Aohan Banner
+  test "ᠴᠢᠩ ᠱᠦᠢ ᠾᠧ ᠰᠢᠶᠠᠨ", "qing xui he siyan" # Qingshuihe County
+  test "ᠬᠣᠳᠣᠩ ᠠᠷᠠᠳ ᠤᠨ ᠲᠣᠭᠣᠷᠢᠭ", "hodong arad-un togorig" # Huimin District
+  test "ᠰᠠᠶᠢᠬᠠᠨ ᠲᠣᠭᠣᠷᠢᠭ", "sayihan togorig" # Saihan District
+  test "ᠰᠢᠨ᠎ᠡ ᠬᠣᠲᠠ ᠲᠣᠭᠣᠷᠢᠭ", "sin-e hota togorig" # Xincheng District
+  test "ᠬᠠᠶᠢᠷᠤᠪ ᠤᠨ ᠲᠣᠬᠣᠢ ᠲᠣᠭᠣᠷᠢᠭ", "hayirub-un tohoi togorig" # Haibowan (Hairibin Tohoi) District
+  test "ᠰᠦᠩ ᠱᠠᠨ ᠲᠣᠭᠣᠷᠢᠭ", "sung xan togorig" # Songshan District
+  test "ᠬᠦᠩ ᠱᠠᠨ ᠲᠣᠭᠣᠷᠢᠭ", "hung xan togorig" # Hongshan District
+  test "ᠠᠷᠤᠨ ᠬᠣᠰᠢᠭᠤ", "arun hosigu" # Арун хошуу
+  test "ᠶᠤᠸᠠᠨ ᠪᠣᠣ ᠱᠠᠨ ᠲᠣᠭᠣᠷᠢᠭ", "yuwan boo xan togorig" # Юаньбаошань тойрог
+  test "ᠰᠢᠯᠤᠭᠤᠨ ᠬᠥᠪᠡᠭᠡᠲᠦ ᠴᠠᠭᠠᠨ ᠬᠣᠰᠢᠭᠤ", "silugun hobegetu qagan hosigu" # Шулуун Хөвөөт Цагаан хошуу
+  test "ᠰᠢᠯᠤᠭᠤᠨ ᠬᠥᠬᠡ ᠬᠣᠰᠢᠭᠤ", "silugun hohe hosigu" # Шулуун хөх хошуу
+  test "ᠤᠷᠠᠳ ᠤᠨ ᠳᠤᠮᠳᠠᠳᠤ ᠬᠣᠰᠢᠭᠤ", "urad-un dumdadu hosigu" # Урадын Дундад Хошуу
+  test "ᠤᠷᠠᠳ ᠤᠨ ᠡᠮᠦᠨᠡᠳᠦ ᠬᠣᠰᠢᠭᠤ", "urad-un emunedu hosigu" # Урадын Өмнөд Хошуу
+  test "ᠲᠣᠭᠲᠠᠬᠤ ᠰᠢᠶᠠᠨ", "togtahu siyan" # Тогтох шянь
+  test "ᠲᠠᠶᠢᠫᠤᠰᠧ ᠬᠣᠰᠢᠭᠤ", "tayipuse hosigu" # Тайвас хошуу
+  test "ᠰᠥᠨᠡᠳ ᠵᠡᠭᠦᠨ ᠬᠣᠰᠢᠭᠤ", "soned jegun hosigu" # Sonid Left Banner
+  test "ᠰᠥᠨᠡᠳ ᠪᠠᠷᠠᠭᠤᠨ ᠬᠣᠰᠢᠭᠤ", "soned baragun hosigu" # Sonid Right Banner
+  test "ᠣᠩᠨᠢᠭᠤᠳ ᠬᠣᠰᠢᠭᠤ", "ongnigud hosigu" # Ongniud Banner
+  test "ᠵᠠᠯᠠᠢᠳ ᠬᠣᠰᠢᠭᠤ", "jalaid hosigu" # Jalaid Banner
+  test "ᠬᠠᠩᠭᠢᠨ ᠬᠣᠶᠢᠲᠤ ᠬᠣᠰᠢᠭᠤ", "hanggin hoyitu hosigu" # Hanggin Rear Banner
+  test "ᠵᠡᠭᠦᠨ ᠤᠵᠤᠮᠤᠴᠢᠨ ᠬᠣᠰᠢᠭᠤ", "jegun ujumuqin hosigu" # East Ujimqin Banner
+  test "ᠠᠷᠤ ᠬᠣᠷᠴᠢᠨ ᠬᠣᠰᠢᠭᠤ", "aru horqin hosigu" # Ar Horqin Banner
+  test "ᠠᠪᠠᠭ᠎ᠠ ᠬᠣᠰᠢᠭᠤ", "abag-a hosigu" # Abag Banner
+  test "ᠪᠤᠷᠢᠶᠠᠳ", "buriyad" # Буриад
+  test "ᠤᠯᠠᠭᠠᠨᠪᠠᠭᠠᠲᠤᠷ", "ulaganbagatur" # Улаанбаатар
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  inherit: sasm-mon-Mong-Latn-general-1978

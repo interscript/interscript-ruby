@@ -1,0 +1,181 @@
+metadata {
+  authority_id: bgnpcgn
+  id: 2008
+  language: iso-639-2:che
+  source_script: Cyrl
+  destination_script: Latn
+  name: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/835782/TABLE_OF_CORRESPONDENCES_FOR_CHECHEN.pdf
+  creation_date: 2008
+  confirmation_date: 2019-07
+  description: |
+    Chechen is an official language within Chechnya, one of the republics of the Russian Federation.
+    It will normally be encountered in Cyrillic script, in which case it should be romanized by means of
+    the Cyrillic-Roman table of correspondences given below.
+  
+  notes:
+    - The letter ə is used to represent short a; a is used for long a.
+    - Ye is used word- and syllable-initially. This Cyrillic letter may be encountered as the ligature ie in Chechen-Roman sources.
+    - This character occurs only in loan words.
+    - q in the combination ккх (qq) and q̇in the combination ккъ (q̇q̇)
+    - ŋ when preceding vowel is nasalized.
+    - This Cyrillic letter may be encountered as the ligature ꭣ [U+AB63] or the diphthong oa in Chechen Roman sources.
+    - Unless in the combinations гӀ, кӀ, пӀ, тӀ, хӀ, цӀ and чӀ.
+    - |
+      An inventory of letter-diacritic combinations, with their Unicode encoding, in addition to the
+      unmodified letters of the basic Roman script is:
+  
+      All apostrophes appearing in romanization are U+2019
+  
+          Ə (U+018F)       ə (U+0259)
+          Ä (U+00C4)       ä (U+00E4)
+          Ġ (U+0047+0307)  ġ (U+0067+0307)
+          Z̵ (U+005A+0335)  z̵ (U+007A+0335)
+          Q̇ (U+0051+0307)  q̇ (U+0071+0307)
+          Ŋ (U+014A)       ŋ (U+014B)
+          Ö (U+00D6)       ö (U+00F6)
+          Ü (U+00DC)       ü (U+00FC)
+          Ẋ (U+0058+0307)  ẋ (U+0078+0307)
+          Ċ (U+0043+0307)  ċ (U0063+0307)
+          Ç (U+00C7)       ç (U+00E7)
+          Ç̇ (U+00C7+0307)  ç̇ (U+00E7+0307)
+          Ş (U+015E)       ş (U+015F)
+  
+    - The Roman-script columns show only lowercase forms but, when applying the table, uppercase and lowercase Roman letters as appropriate should be used
+}
+
+tests {
+  test "кӏант", "khant"
+  test "зуда", "zuda"
+  test "пхьагал", "pẋagal"
+  test "наж", "naz̵"
+  test "мангал", "mangal"
+  test "Ӏаж", "Jaz̵"
+  test "Нохчийн Википеди", "Noxçiyn Vikipedi"
+  test "сагӏадаккхар", "saġadaqqar"
+  test "йеза", "yeza"
+  test "еара", "yeara"
+  test "елха", "yelxa"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  rules:
+    # note[2]
+    - pattern: (?<!\b\u2019)\b\u0415 # Е in initial position -> Ye
+      result: Ye
+    - pattern: (?<!\b\u2019)\b\u0435 # е in initial position -> ye
+      result: ye
+    # note[4]
+    - pattern: \u043A\u043A\u0445
+      result: qq
+    - pattern: \u043A\u043A\u042A
+      result: q̇q̇
+    - pattern: \u041A\u041A\u0445
+      result: QQ
+    - pattern: \u041A\u041A\u042A
+      result: Q̇Q̇
+
+  characters:
+    '\u0410'        : ['A', 'Ə']        # А note[1]
+    '\u0410\u044C'  : "A\u0308"         # Аь -> Ä
+    '\u0411'        : 'B'               # Б
+    '\u0412'        : 'V'               # В
+    '\u0413'        : 'G'               # Г
+    '\u0413\u04C0'  : "G\u0307"         # ГӀ -> Ġ
+    '\u0414'        : 'D'               # Д
+    '\u0415'        : 'E'               # Е note[2]
+    '\u0401'        : 'Yo'              # Ё note[3]
+    '\u0416'        : "Z\u0335"         # Ж -> Ƶ
+    '\u0417'        : 'Z'               # З
+    '\u0418'        : 'I'               # И
+    '\u042B'        : 'Y'               # Й
+    '\u041A'        : 'K'               # К note[4]
+    '\u041A\u0445'  : 'Q'               # Кх note[4]
+    '\u041A\u044A'  : "Q\u0307"         # Къ -> Q̇ note[4]
+    '\u041A\u04C0'  : 'Kh'              # КӀ note[4]
+    '\u041B'        : 'L'               # Л
+    '\u041C'        : 'M'               # М
+    '\u041D'        : ['N', 'Ŋ']        # Н note[5]
+    '\u041E'        : 'O'               # О note[6]
+    '\u041E\u044C'  : "O\u0308"         # Оь -> Ö
+    '\u041F'        : 'P'               # П
+    '\u041F\u04C0'  : 'Ph'              # ПӀ
+    '\u0420'        : 'R'               # Р
+    '\u0421'        : 'S'               # С
+    '\u0422'        : 'T'               # Т
+    '\u0422\u04C0'  : 'Th'              # TӀ
+    '\u0423'        : 'U'               # У
+    '\u0423\u044C'  : "U\u0308"         # Уь -> Ü
+    '\u0424'        : 'F'               # Ф
+    '\u0425'        : 'X'               # Х
+    '\u0425\u044C'  : "X\u0307"         # Хь -> Ẋ
+    '\u0425\u04C0'  : "H"               # ХӀ
+    '\u04B8'        : 'C'               # Ц
+    '\u04B8\u04C0'  : "C\u0307"         # ЦӀ -> Ċ
+    '\u0427'        : "C\u0327"         # Ч -> Ç
+    '\u0427\u04C0'  : "\u00C7\u0307"    # ЧӀ -> Ç̇
+    '\u0428'        : "S\u0327"         # Ш -> Ş
+    '\u0429'        : "S\u0327C\u0327"  # Щ -> ŞÇ note[3]
+    '\u042A'        : "’"               # Ъ note[3]
+    '\u042B'        : "Y"               # Ы
+    '\u042C'        : ""                # Ь note[3]
+    '\u042D'        : "E"               # Э
+    '\u042E'        : "Yu"              # Ю
+    '\u042E\u044C'  : "Yu\u0308"        # Юь -> Yü
+    '\u042F'        : "Ya"              # Я
+    '\u042F\u044C'  : "Ya\u0308"        # Яь -> Yä
+    '\u04C0'        : "J"               # Ӏ note[7]
+
+    '\u0430'        : ['a', 'ə']        # а note[1]
+    '\u0430\u044C'  : "a\u0308"         # аь -> ä
+    '\u0431'        : 'b'               # б
+    '\u0432'        : 'v'               # в
+    '\u0433'        : 'g'               # г
+    '\u0433\u04CF'  : "g\u0307"         # гӏ -> ġ
+    '\u0434'        : 'd'               # д
+    '\u0435'        : 'e'               # е note[2]
+    '\u0451'        : 'yo'              # ё note[3]
+    '\u0436'        : "z\u0335"         # ж -> ƶ
+    '\u0437'        : 'z'               # з
+    '\u0438'        : 'i'               # и
+    '\u0439'        : 'y'               # й
+    '\u043A'        : 'k'               # к note[4]
+    '\u043A\u0445'  : 'q'               # кх note[4]
+    '\u043A\u044A'  : "q\u0307"         # къ -> q̇ note[4]
+    '\u043A\u04CF'  : 'kh'              # кӏ note[4]
+    '\u043B'        : 'l'               # л
+    '\u043C'        : 'm'               # м
+    '\u043D'        : ['n', 'ŋ']        # н note[5]
+    '\u043E'        : 'o'               # о note[6]
+    '\u043E\u044C'  : "o\u0308"         # оь -> ö
+    '\u043F'        : 'p'               # п
+    '\u0440'        : 'r'               # р
+    '\u0441'        : 's'               # с
+    '\u0442'        : 't'               # т
+    '\u0442\u04CF'  : 'th'              # тӏ
+    '\u0443'        : 'u'               # у
+    '\u0443\u044C'  : "u\u0308"         # Уь -> ü
+    '\u0444'        : 'f'               # ф
+    '\u0445'        : 'x'               # х
+    '\u0445\u044C'  : "x\u0307"         # хь -> ẋ
+    '\u0445\u04CF'  : "h"               # хӏ
+    '\u04B9'        : 'c'               # ц
+    '\u04B9\u04CF'  : "с\u0307"         # цӏ -> ċ
+    '\u0447'        : "c\u0327"         # ч -> ç
+    '\u0447\u04CF'  : "c\u00E7\u0307"   # чӏ -> ç̇
+    '\u0448'        : "s\u0327"         # ш -> ş
+    '\u0449'        : "s\u0327c\u0327"  # щ -> şç note[3]
+    '\u044A'        : "’"               # ъ note[3]
+    '\u044B'        : "y"               # ы
+    '\u044C'        : ''                # ь note[3]
+    '\u044D'        : "e"               # э
+    '\u044E'        : "yu"              # ю
+    '\u044E'        : "yu\u0308"        # юь -> yü
+    '\u044F'        : "ya"              # я
+    '\u044F'        : "ya\u0308"        # яь -> yä
+    '\u04CF'        : "j"               # ӏ note[7]

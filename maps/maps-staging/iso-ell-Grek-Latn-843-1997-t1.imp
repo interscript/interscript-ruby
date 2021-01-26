@@ -1,0 +1,126 @@
+metadata {
+  authority_id: iso
+  id: 1997
+  language: iso-639-2:ell
+  source_script: Grek
+  destination_script: Latn
+  name: "ISO 843:1997 Information and documentation — Conversion of Greek characters into Latin characters"
+  url: https://www.iso.org/standard/5215.html
+  creation_date: 1997
+  description: |
+    Establishes a system for the transliteration and/or transcription 
+    of Greek characters into Latin characters. This system applies to
+    the characters of the Greek script, independent of the period in
+    which it is or was used, i.e. scripts from all periods of Classic
+    or Modern Greek. Replaces ISO/R 843.
+  
+  notes:
+    - Transliteration of Greek into Latin: Type 1, Clause 3 Table 1
+    - Equivalent to elot-ell-Grek-Latn-743-2001-ts, the transliteration table of ELOT 743:2001
+    - Assuming that ou, au, eu transliterations are only intended for historical diphthongs /u, av, ev/, and that όυ, άυ, έυ are not to be transliterated as ou, au, eu
+    - Introduced casing to digamma and lunate sigma. (Casing was late introduction to character sets for those characters)
+}
+
+tests {
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  # https://en.wikipedia.org/wiki/Romanization_of_Greek
+  rules:
+    - pattern: (?<=[ΑαΕεΟο])\u03A5    # Υ (after Α, Ε, Η)
+      result: U
+    - pattern: (?<=[ΑαΕεΟο])\u03C5    # υ (after Α, Ε, Η)
+      result: u
+    - pattern: (?<=[ΑαΕεΟο])\u03CD    # ύ (after Ο)
+      result: ú
+    - pattern: \u037E   # ;
+      result: "?"
+    - pattern: \u003B   # ;
+      result: "?"
+
+  characters:
+    "\u0027": ""
+    "\u0386": "Á"  # Ά
+    "\u0391": "A"  # Α
+    "\u0392": "V"  # Β
+    "\u0393": "G"  # Γ
+    "\u0394": "D"  # Δ
+    "\u0395": "E"  # Ε
+    "\u0396": "Z"  # Ζ
+    "\u0397": "Ī"  # Η
+    "\u0398": "Th" # Θ
+    "\u0399": "I"  # Ι
+    "\u039A": "K"  # Κ
+    "\u039B": "L"  # Λ
+    "\u039C": "M"  # Μ
+    "\u039D": "N"  # Ν
+    "\u039E": "X"  # Ξ
+    "\u039F": "O"  # Ο
+    "\u03A0": "P"  # Π
+    "\u03A1": "R"  # Ρ
+    "\u03A3": "S"  # Σ
+    "\u03A4": "T"  # Τ
+    "\u03A5": "Y"  # Υ
+    "\u03A6": "F" # Φ
+    "\u03A7": "Ch" # Χ
+    "\u03A8": "Ps" # Ψ
+    "\u03A9": "Ō"  # Ω
+    "\u0388": "É"  # Έ
+    "\u0389": "Ī́"  # Ή
+    "\u038A": "Í"  # Ί
+    "\u038C": "Ó"  # Ό
+    "\u038E": "Ý"  # Ύ
+    "\u038F": "Ṓ"  # Ώ
+    "\u03AA": "Ï"  # Ϊ
+    "\u03AB": "Ÿ"  # Ϋ
+
+    "\u03AC": "á"  # ά
+    "\u03B1": "a"  # α
+    "\u03B2": "v"  # β
+    "\u03B3": "g"  # γ
+    "\u03B4": "d"  # δ
+    "\u03B5": "e"  # ε
+    "\u03B6": "z"  # ζ
+    "\u03B7": "ī"  # η
+    "\u03B8": "th" # θ
+    "\u03B9": "i"  # ι
+    "\u03BA": "k"  # κ
+    "\u03BB": "l"  # λ
+    "\u03BC": "m"  # μ
+    "\u03BD": "n"  # ν
+    "\u03BE": "x"  # ξ
+    "\u03BF": "o"  # ο
+    "\u03C0": "p"  # π
+    "\u03C1": "r"  # ρ
+    "\u03C3": "s"  # σ
+    "\u03C2": "s"  # ς
+    "\u03C4": "t"  # τ
+    "\u03C5": "y"  # υ
+    "\u03C6": "f" # φ
+    "\u03C7": "ch" # χ
+    "\u03C8": "ps" # ψ
+    "\u03C9": "ō"  # ω
+    "\u03AD": "é"  # έ
+    "\u03AE": "ī́"  # ή
+    "\u03AF": "í"  # ί
+    "\u03CC": "ó"  # ό
+    "\u03CD": "ý"  # ύ
+    "\u03CE": "ṓ"  # ώ
+    "\u03CA": "ï"  # ϊ
+    "\u03CB": "ÿ"  # ϋ
+    "\u0390": "ḯ"  # ΐ
+    "\u03B0": "ÿ́"  # ΰ
+
+    "\u03DC": "W"   # Ϝ
+    "\u03DD": "w"   # ϝ
+    "\u03F2": "s"   # ϲ
+    "\u03F9": "S"   # Ϲ
+
+    "\u0387": ";"   # ·
+    "\u00B7": ";"   # ·

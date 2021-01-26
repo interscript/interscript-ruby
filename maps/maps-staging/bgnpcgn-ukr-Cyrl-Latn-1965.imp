@@ -1,0 +1,137 @@
+metadata {
+  authority_id: bgnpcgn
+  id: 1965
+  language: iso-639-2:ukr
+  source_script: Cyrl
+  destination_script: Latn
+  name: BGN/PCGN 1965 System
+  url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/816788/ROMANIZATION_OF_UKRAINIAN.pdf
+  creation_date: 1947
+  confirmation_date: 2019-06
+  description: |
+    The BGN/PCGN system for Ukrainian was designed for use in romanizing
+    names written in the Ukrainian alphabet. The Ukrainian alphabet
+    contains five characters not present in the Russian alphabet: ґ, є, і,
+    ї, and ’.
+  
+  notes:
+    - The character sequences з г, к г, с г, т с and ц г and may be romanized z∙h, k∙h, s∙h, t∙s and ts∙h in order to differentiate those romanizations from the digraphs zh, kh, sh, ts, and the letter sequence tsh, which are used to render the characters ж, x, ц, ш, and the character sequence тш.
+    - All apostrophes appearing in romanization are Unicode encoding 2019.
+    - The Roman‐script columns show only lowercase forms but, when applying the table, uppercase and lowercase Roman letters as appropriate should be used.
+}
+
+tests {
+  test "Авдіївська Міськрада", "Avdiyivs’ka Mis’krada"
+  test "Бабаї", "Babayi"
+  test "Віленька", "Vilen’ka"
+  test "Гагарінський Район", "Haharins’kyy Rayon"
+  test "Довбушева Криниця", "Dovbusheva Krynytsya"
+  test "Дідівщина", "Didivshchyna"
+  test "Економічна", "Ekonomichna"
+  test "Єфросинівка", "Yefrosynivka"
+  test "Жигуліна Роща", "Zhyhulina Roshcha"
+  test "Загір’я", "Zahir”ya"
+  test "З’єднувальний Канал", "Z”yednuval’nyy Kanal"
+  test "Ивахи", "Yvakhy"
+  test "Івано-Франківська Міськрада", "Ivano-Frankivs’ka Mis’krada"
+  test "Їжаківка", "Yizhakivka"
+  test "Йосиповичі", "Yosypovychi"
+  test "Кабичівка", "Kabychivka"
+  test "Лазуровий Провулок", "Lazurovyy Provulok"
+  test "Мала Сейдеминуха", "Mala Seydemynukha"
+  test "Нагірний", "Nahirnyy"
+  test "Овер’янівське Озеро", "Over”yanivs’ke Ozero"
+  test "Павлопільське Водосховище", "Pavlopil’s’ke Vodoskhovyshche"
+  test "Приґородний", "Prygorodnyy"
+  test "Радгосп Правда", "Radhosp Pravda"
+  test "Садово-Хрустальненський", "Sadovo-Khrustal’nens’kyy"
+  test "Таратутине", "Taratutyne"
+  test "Улу-Узень", "Ulu-Uzen’"
+  test "Христофорівка", "Khrystoforivka"
+  test "Центральна Вулиця", "Tsentral’na Vulytsya"
+  test "Чайковичі", "Chaykovychi"
+  test "Шалаші", "Shalashi"
+  test "Щербинівка", "Shcherbynivka"
+  test "Южноукраїнська Міськрада", "Yuzhnoukrayins’ka Mis’krada"
+  test "Ясениця", "Yasenytsya"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  rules:
+    - pattern: \b\u2019\b # ’ in the middle of a word -> ”
+      result: "\u201d"
+
+  characters:
+    "\u0430": 'a'
+    "\u0431": 'b'
+    "\u0432": 'v'
+    "\u0433": 'h'
+    "\u0434": 'd'
+    "\u0435": 'e'
+    "\u0436": 'zh'
+    "\u0437": 'z'
+    "\u0438": 'y'
+    "\u0439": 'y'
+    "\u043a": 'k'
+    "\u043b": 'l'
+    "\u043c": 'm'
+    "\u043d": 'n'
+    "\u043e": 'o'
+    "\u043f": 'p'
+    "\u0440": 'r'
+    "\u0441": 's'
+    "\u0442": 't'
+    "\u0443": 'u'
+    "\u0444": 'f'
+    "\u0445": 'kh'
+    "\u0446": 'ts'
+    "\u0447": 'ch'
+    "\u0448": 'sh'
+    "\u0449": 'shch'
+    "\u044c": "\u2019"
+    "\u044e": 'yu'
+    "\u044f": 'ya'
+    "\u0454": 'ye'
+    "\u0456": 'i'
+    "\u0457": 'yi'
+    "\u0491": 'g'
+    "\ufeff": ' '
+    "\u0404": 'Ye'
+    "\u0406": 'I'
+    "\u0407": 'Yi'
+    "\u0410": 'A'
+    "\u0411": 'B'
+    "\u0412": 'V'
+    "\u0413": 'H'
+    "\u0414": 'D'
+    "\u0415": 'E'
+    "\u0416": 'Zh'
+    "\u0417": 'Z'
+    "\u0418": 'Y'
+    "\u0419": 'Y'
+    "\u041a": 'K'
+    "\u041b": 'L'
+    "\u041c": 'M'
+    "\u041d": 'N'
+    "\u041e": 'O'
+    "\u041f": 'P'
+    "\u0420": 'R'
+    "\u0421": 'S'
+    "\u0422": 'T'
+    "\u0423": 'U'
+    "\u0424": 'F'
+    "\u0425": 'Kh'
+    "\u0426": 'Ts'
+    "\u0427": 'Ch'
+    "\u0428": 'Sh'
+    "\u0429": 'Shch'
+    "\u042c": "\u2019"
+    "\u042e": 'Yu'
+    "\u042f": 'Ya'
+    "\u0490": 'G'

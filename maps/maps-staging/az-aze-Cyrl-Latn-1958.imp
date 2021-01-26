@@ -1,0 +1,45 @@
+metadata {
+  authority_id: az
+  id: 1958
+  language: iso-639-2:aze
+  source_script: Cyrl
+  destination_script: Latn
+  url: https://omniglot.com/writing/azeri.htm
+  creation_date: 1958
+  description: |
+    In 1939 Joseph Stalin ordered the Cyrillic alphabet to be used by Azeri speakers in the Soviet Union.
+  
+  notes:
+    - In 1947, the letter Цц was excluded from the alphabet. Previously, it was used for Russian borrowings
+    - In 1958, the letters Ээ, Юю, Яя were eliminated, and the letter Йй was replaced by Јј
+}
+
+tests {
+  test "Юя", "Юя"
+  # from internet
+  test "Азәрбајҹан әлифбасы", "Azərbaycan əlifbası"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  inherit: az-aze-Cyrl-Latn-1939
+
+  characters:
+    "\u0408": "Y"  # Ј note[2]
+    "\u0419": ~    # Й note[2]
+    "\u0426": ~    # Ц note[1]
+    "\u042D": ~    # Э note[2]
+    "\u042E": ~    # Ю note[2]
+    "\u042F": ~    # Я note[2]
+
+    "\u0458": "y"  # ј note[2]
+    "\u0439": ~    # й note[2]
+    "\u0446": ~    # ц note[1]
+    "\u044D": ~    # э note[2]
+    "\u044E": ~    # ю note[2]
+    "\u044F": ~    # я note[2]

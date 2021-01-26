@@ -1,0 +1,312 @@
+metadata {
+  authority_id: ungegn
+  id: 2016
+  language: iso-639-2:hin
+  source_script: Deva
+  destination_script: Latn
+  name: REPORT ON THE CURRENT STATUS OF UNITED NATIONS ROMANIZATION SYSTEMS FOR GEOGRAPHICAL NAMES -- Hindi Romanization, 1972
+  url: https://www.eki.ee/wgrs/rom1_hi.pdf
+  creation_date: 1972
+  confirmation_date: 2016
+  description: |
+    The United Nations recommended system was approved in 1972 (II/11) and amended in 1977
+    (III/12), based on a report prepared by D. N. Sharma. The tables and their corrections were
+    published in volume II of the conference reports.
+  
+    There is no evidence of the use of the system either in India or in international cartographic
+    products. It was stated in 1987 that the appropriate resolution had not been implemented in
+    India and the Hunterian system was still in use in large-scale mapping
+  
+    Hindi uses the alphasyllabic script Devanāgarī whereby each character represents a syllable
+    rather than one sound. Vowels and diphthongs are marked in two ways: as independent
+    characters (used syllable-initially) and in an abbreviated form, to denote vowels after
+    consonants. The romanization table is unambiguous but the user would have to recognize
+    many ligatures not given in the original table (only three are given). The system is mostly
+    reversible but there may exist some ambiguities in the romanization of vowels (independent
+    vs. abbreviated characters) and consonants
+  
+  notes:
+    - |
+      It is recommended that the vowel अ (a) should always be romanized except when it ends a
+      name. If a name ends with a consonant, the consonant should carry a sub-macron. Such
+      cases, however, will be very rare. For example, कानपुर Kānapur (not Kānapura), जगत्
+      Jagat.
+    - |
+      If each letter of a digraph or any two parts of a trigraph has a distinct independent sound
+      then it should be indicated by a hyphen, thus d-h.
+      
+    ######################################## Additional Note ############################################################
+    #    It is recommended that the vowel अ (a) should always be romanized except when it ends a                        #
+    #    name. In the scheme we are not yet able to detect a name. Analysing language pattern and the example           #
+    #    we found that actually when a word ends with a consonant it should be transliterated without the vowel in it.  #
+    #    so we are applying this rule as if a word ends with a consonant, in this case we are removing the ending 'a'.  #
+    #####################################################################################################################
+}
+
+tests {
+  test "दिल्ली", "dillī"
+  test "भारत", "bhārat"
+  test "परिपक्क", "paripakk"
+  test "जगत्", "jagat"
+  test "संख्या", "saṁkhyā"
+  test "गंभीर मरीजों के मामले में भारत दूसरे नंबर पर", "gaṁbhīr marījoṁ ke māmale meṁ bhārat dūsare naṁbar par"
+  test "कोरोना अपडेट्स", "koronā apaḍeṭs"
+  test "सीडीसी चीफ का बयान अहम", "sīḍīsī chīph kā bayān aham"
+  test "गूगल प्ले स्टोर पर पेटीएम की वापसी", "gūgal ple sṭor par peṭīem kī vāpasī"
+  test "भारत में गैंबलिंग की इजाजत नहीं", "bhārat meṁ gaiṁbaliṁg kī ijājat nahīṁ"
+  test "कोरोना वैक्सीन मुद्दे पर घिरे राष्ट्रपति; जो बाइडेन बोले- मुझे और देश को वैज्ञानिकों पर भरोसा है, डोनाल्ड ट्रम्प पर नहीं", "koronā vaiksīn mudde par ghire rāṣhṭrapati; jo bāiḍen bole- mujhe aur desh ko vaijñānikoṁ par bharosā hai, ḍonālḍ ṭramp par nahīṁ"
+  test "गूगल की कार्रवाई पर पेटीएम ने कहा था कि ऐप को अस्थायी तौर पर प्ले-स्टोर से हटाया गया है, आपके पैसे सुरक्षित हैं", "gūgal kī kārravāī par peṭīem ne kahā thā ki aip ko asthāyī taur par ple-sṭor se haṭāyā gayā hai, āpake paise surakṣhit haiṁ"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+
+  rules:
+    - pattern: (([क]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([क])(?=\b))
+      result:  'k'
+    - pattern: (([ख]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ख])(?=\b))
+      result:  'kh'
+    - pattern: (([ग]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ग])(?=\b))
+      result:  'g'
+    - pattern: (([घ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([घ])(?=\b))
+      result:  'gh'
+    - pattern: (([ङ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ङ])(?=\b))
+      result:  'ṅ'
+    - pattern: (([च]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([च])(?=\b))
+      result:  'ch'
+    - pattern: (([छ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([छ])(?=\b))
+      result:  'chh'
+    - pattern: (([ज]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ज])(?=\b))
+      result:  'j'
+    - pattern: (([झ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([झ])(?=\b))
+      result:  'jh'
+    - pattern: (([ञ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ञ])(?=\b))
+      result:  'ñ'
+    - pattern: (([ट]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ट])(?=\b))
+      result:  'ṭ'
+    - pattern: (([ठ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ठ])(?=\b))
+      result:  'ṭh'
+    - pattern: (([ड]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ड])(?=\b))
+      result:  'ḍ'
+    - pattern: (([ढ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ढ])(?=\b))
+      result:  'ḍh'
+    - pattern: (([ण]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ण])(?=\b))
+      result:  'ṇ'
+    - pattern: (([त]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([त])(?=\b))
+      result:  't'
+    - pattern: (([थ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([थ])(?=\b))
+      result:  'th'
+    - pattern: (([द]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([द])(?=\b))
+      result:  'd'
+    - pattern: (([ध]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ध])(?=\b))
+      result:  'dh'
+    - pattern: (([न]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([न])(?=\b))
+      result:  'n'
+    - pattern: (([प]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([प])(?=\b))
+      result:  'p'
+    - pattern: (([फ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([फ])(?=\b))
+      result:  'ph'
+    - pattern: (([ब]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ब])(?=\b))
+      result:  'b'
+    - pattern: (([भ]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([भ])(?=\b))
+      result:  'bh'
+    - pattern: (([म]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([म])(?=\b))
+      result:  'm'
+    - pattern: (([य]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([य])(?=\b))
+      result:  'y'
+    - pattern: (([र]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([र])(?=\b))
+      result:  'r'
+    - pattern: (([ल]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ल])(?=\b))
+      result:  'l'
+    - pattern: (([व]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([व])(?=\b))
+      result:  'v'
+    - pattern: (([श]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([श])(?=\b))
+      result:  'sh'
+    - pattern: (([ष]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ष])(?=\b))
+      result:  'ṣh'
+    - pattern: (([स]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([स])(?=\b))
+      result:  's'
+    - pattern: (([क़]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([क़])(?=\b))
+      result:  'q'
+    - pattern: (([ख़]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ख़])(?=\b))
+      result:  'ḳh'
+    - pattern: (([ग़]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ग़])(?=\b))
+      result:  'g'
+    - pattern: (([ज़]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ज़])(?=\b))
+      result:  'z'
+    - pattern: (([ड़]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ड़])(?=\b))
+      result:  'ṙ'
+    - pattern: (([ढ़]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ढ़])(?=\b))
+      result:  'ṙh'
+    - pattern: (([फ़]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([फ़])(?=\b))
+      result:  'f'
+    - pattern: (([ह]=?)(?=[\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d]))|(([ह])(?=\b))
+      result:  'h'
+
+  characters:
+
+    # I. Independent vowel characters
+    'अ': 'a'
+    'आ': 'ā'
+    'इ': 'i'
+    'ई': 'ī'
+    'उ': 'u'
+    'ऊ': 'ū'
+    'ऋ': 'ṛ'
+    'ॠ': 'ṝ'
+    'ऌ': 'l̤'
+    'ए': 'e'
+    'ऐ': 'ai'
+    'ओ': 'o'
+    'औ': 'au'
+
+    # II. Abbreviated vowel characters
+
+    'ा': "ā"    # का
+    'ॉ': "ā̆ "   #  additional mark: कॉ
+    'ि': "i"    # कि i
+    'ी': "ī"    # की
+    'ु': "u"    # कु
+    'ू': "ū"    # कू
+    'ृ': "ṛ"    # कृ
+    'े': "e"    # के
+    'ै': "ai"   # कै
+    'ो': "o"    # को
+    'ौ': "au"   # कौ
+
+
+    # Consonants (see Note 1)
+
+    # Gutturals
+    'क': 'ka'
+    'ख': 'kha'
+    'ग': 'ga'
+    'घ': 'gha'
+    'ङ': 'ṅa'
+
+    # Palatals
+    'च': 'cha'
+    'छ': 'chha'
+    'ज': 'ja'
+    'झ': 'jha'
+    'ञ': 'ña'
+
+    # Cerebrals
+    'ट': 'ṭa'
+    'ठ': 'ṭha'
+    'ड': 'ḍa'
+    'ढ': 'ḍha'
+    'ण': 'ṇa'
+
+    # Dentals
+    'त': 'ta'
+    'थ': 'tha'
+    'द': 'da'
+    'ध': 'dha'
+    'न': 'na'
+
+    # Labials
+    'प': 'pa'
+    'फ': 'pha'
+    'ब': 'ba'
+    'भ': 'bha'
+    'म': 'ma'
+
+    # Semivowels
+    'य': 'ya'
+    'र': 'ra'
+    'ल': 'la'
+    'व': 'va'
+
+    # Sibilants
+    'श': 'sha'
+    'ष': 'ṣha'
+    'स': 'sa'
+
+    # Dotted variants
+    'क़': 'qa'
+    'ख़': 'ḳha'
+    'ग़': 'ġa'
+    'ज़': 'za'
+    'ड़': 'ṙa'
+    'ढ़': 'ṙha'
+    'फ़': 'fa'
+
+
+    # Aspirate
+    'ह': 'ha'
+
+    # Anusvāra
+    'ं': 'ṁ'
+
+    # Anunāsika
+    'ँ': 'm̐'
+
+    # halanta
+    '्': ''
+
+    # bisharga
+    'ः' : 'ḥ'
+
+    #V. Ligatures(To cover all Ligatures at unicode)
+    #  Implemnting Pronunciation without a vowel: क् k.
+
+    # Gutturals
+    'क्': 'k'
+    'ख्': 'kh'
+    'ग्': 'g'
+    'घ्': 'gh'
+    'ङ्': 'ṅ'
+
+    # Palatals
+    'च्': 'ch'
+    'छ्': 'chh'
+    'ज्': 'j'
+    'झ्': 'jh'
+    'ञ्': 'ñ'
+
+    # Cerebrals
+    'ट्': 'ṭ'
+    'ठ्': 'ṭh'
+    'ड्': 'ḍ'
+    'ढ्': 'ḍh'
+    'ण्': 'ṇ'
+
+    # Dentals
+    'त्': 't'
+    'थ्': 'th'
+    'द्': 'd'
+    'ध्': 'dh'
+    'न्': 'n'
+
+    # Labials
+    'प्': 'p'
+    'फ्': 'ph'
+    'ब्': 'b'
+    'भ्': 'bh'
+    'म्': 'm'
+
+    # Semivowels
+    'य्': 'y'
+    'र्': 'r'
+    'ल्': 'l'
+    'व्': 'v'
+
+    # Sibilants
+    'श्': 'sh'
+    'ष्': 'ṣh'
+    'स्': 's'
+
+    # Dotted variants
+    'क़्': 'q'
+    'ख़्': 'ḳh'
+    'ग़्': 'ġ'
+    'ज़्': 'z'
+    'ड़्': 'ṙ'
+    'ढ़्': 'ṙh'
+    'फ़्': 'f'

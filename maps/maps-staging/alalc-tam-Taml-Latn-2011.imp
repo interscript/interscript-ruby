@@ -1,0 +1,51 @@
+metadata {
+  authority_id: alalc
+  id: 2011
+  language: iso-639-2:tam
+  source_script: Taml
+  destination_script: Latn
+  name: Tamil Romanization, 2011
+  url: https://www.loc.gov/catdir/cpso/romanization/tamil.pdf
+  creation_date: 2011
+  description: |
+    ALA-LC Romanization table for Tamil
+  
+  notes:
+  
+    - Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for
+      vowels following a consonant can be found in grammars; no distinction between the two is
+      made in transliteration.
+  
+    - |
+      The vowel a is implicit after all consonants and consonant clusters and is supplied in
+      transliteration, with the following exceptions:
+  
+      a) when another vowel is indicated by its appropriate sign; and
+      b) when the absence of any vowel is indicated by the superscript dot ( ் ) called puḷḷi.
+  
+    - This letter has the same form as the vowel sign for ā appearing after a consonant.  Where ambiguity arises, it is written.
+}
+
+tests {
+  test "மலையாள நடிகர் சங்கத்திலிருந்து நடிகை பார்வதி திடீர் விலகல்.", "malaiyāḷa naṭikar caṅkattiliruntu naṭikai pārvati tiṭīr vilakal."
+  test "சச்சின் டெண்டுல்கரை அலுவலக உதவியாளராக நியமிப்பீர்களா?", "cacciṉ ṭeṇṭulkarai aluvalaka utaviyāḷarāka niyamippīrkaḷā?"
+  test "அமீரகத்தில் தொலைநோக்கி இல்லாமல் நாளை பார்க்கலாம்", "amīrakattil tolainōkki illāmal nāḷai pārkkalām"
+  test "லடாக் யூனியன் பிரதேசம் இந்தியா சட்டவிரோதமாக நிறுவிய ஒரு பகுதி- சீனா மீண்டும் பிடிவாதம்", "laṭāk yūṉiyaṉ piratēcam intiyā caṭṭavirōtamāka niṟuviya oru pakuti- cīṉā mīṇṭum piṭivātam"
+  test "பாலியல் குற்றங்களில் ஈடுபடுவோருக்கு மரண தண்டனை புதிய சட்டம்", "pāliyal kuṟṟaṅkaḷil īṭupaṭuvōrukku maraṇa taṇṭaṉai putiya caṭṭam"
+  test "புதுடெல்லி", "putuṭelli"
+  test "அப்படி விளம்பரத்தில என்ன இருக்கு...?", "appaṭi viḷamparattila eṉṉa irukku...?"
+  test "பூமிக்கும், செவ்வாய் கிரகத்துக்கும் இடையிலான அதிகபட்ச தூரம் ௪௦ கோடியே ௧௩ லட்சம் கி.மீ தொலைவு ஆகும்.", "pūmikkum, cevvāy kirakattukkum iṭaiyilāṉa atikapaṭca tūram 40 kōṭiyē 13 laṭcam ki.mī tolaivu ākum."
+  test "அமீரகத்தில் செவ்வாய் கிரகம் குறித்த ஆய்வில் ஈடுபடுவோர் மற்றும் வானியல் நிபுணர்களுக்கு இது ஒரு நல்ல வாய்ப்பாக அமையும்.", "amīrakattil cevvāy kirakam kuṟitta āyvil īṭupaṭuvōr maṟṟum vāṉiyal nipuṇarkaḷukku itu oru nalla vāyppāka amaiyum."
+  test "நள்ளிரவு நேரமாக இருந்தால் நமது தலைக்கு மேலே காணலாம். காலை நேரத்தில் மேற்கு மற்றும் தென்மேற்கு திசையில் செவ்வாய் கிரகத்தை பார்க்கலாம்.", "naḷḷiravu nēramāka iruntāl namatu talaikku mēlē kāṇalām. kālai nērattil mēṟku maṟṟum teṉmēṟku ticaiyil cevvāy kirakattai pārkkalām."
+  test "வெறும் கண்ணால் பார்க்கும்போது புள்ளியாக ஆரஞ்சு நிறத்தில் பிரகாசமாக தெரியும்.", "veṟum kaṇṇāl pārkkumpōtu puḷḷiyāka ārañcu niṟattil pirakācamāka teriyum."
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+
+  inherit: 'alalc-tam-Taml-Latn-1997'

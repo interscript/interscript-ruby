@@ -1,0 +1,76 @@
+metadata {
+  authority_id: odni
+  id: 2015
+  language: iso-639-2:kat
+  source_script: Geor
+  destination_script: Latn
+  name: Office of the Director Of National Intelligence Georgian Personal Names 2015, ICS 630-01 Annex E
+  
+  # url:
+  source: ICS 630-01, Annex E
+  creation_date: 2015
+  confirmation_date: 2015
+  description: |
+    This system is the Intelligence Community standard for the transliteration of Georgian names that
+    will be applied to all final written reports and products for IC consumers. It is not intended to
+    eliminate variations of a name that can contribute forensic information. Rather, it is to provide an
+    IC standard Romanized (English) transliteration from Georgian that can then be linked to forensic
+    information in ways that will help identify the referent of the name.
+  
+  notes:
+}
+
+tests {
+  test "ბაყაყი", "baqaqi"
+  test "ძროხა", "dzrokha"
+  test "ჰაერი", "haeri"
+  test "ჟოლო", "zholo"
+  test "ჯართი", "jarti"
+  test "ღრმაღელე", "ghrmaghele"
+  test "ზვიად გამსახურდია", "zviad gamsakhurdia"
+  test "ედუარდ შევარდნაძე", "eduard shevardnadze"
+  test "მიხეილ სააკაშვილი", "mikheil saakashvili"
+  test "გიორგი მარგველაშვილი", "giorgi margvelashvili"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  characters:
+    '\u10d0' : 'a' # ა
+    '\u10d1' : 'b' # ბ
+    '\u10d2' : 'g' # გ
+    '\u10d3' : 'd' # დ
+    '\u10d4' : 'e' # ე
+    '\u10d5' : 'v' # ვ
+    '\u10d6' : 'z' # ზ
+    '\u10d7' : 't' # თ
+    '\u10d8' : 'i' # ი
+    '\u10d9' : 'k' # კ
+    '\u10da' : 'l' # ლ
+    '\u10db' : 'm' # მ
+    '\u10dc' : 'n' # ნ
+    '\u10dd' : 'o' # ო
+    '\u10de' : 'p' # პ
+    '\u10df' : 'zh' # ჟ
+    '\u10e0' : 'r' # რ
+    '\u10e1' : 's' # ს
+    '\u10e2' : 't' # ტ
+    '\u10e3' : 'u' # უ
+    '\u10e4' : 'p' # ფ
+    '\u10e5' : 'k' # ქ
+    '\u10e6' : 'gh' # ღ
+    '\u10e7' : 'q' # ყ
+    '\u10e8' : 'sh' # შ
+    '\u10e9' : 'ch' # ჩ
+    '\u10ea' : 'ts' # ც
+    '\u10eb' : 'dz' # ძ
+    '\u10ec' : 'ts' # წ
+    '\u10ed' : 'ch' # ჭ
+    '\u10ee' : 'kh' # ხ
+    '\u10ef' : 'j' # ჯ
+    '\u10f0' : 'h' # ჰ

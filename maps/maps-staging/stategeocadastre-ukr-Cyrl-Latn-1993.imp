@@ -1,0 +1,182 @@
+metadata {
+  authority_id: stategeocadastre
+  id: 1993
+  language: iso-639-2:ukr
+  source_script: Cyrl
+  destination_script: Latn
+  name: PROVISIONAL RULES OF REPRODUCING LETTERS OF THE UKRAINIAN ALPHABET WITH LATIN (ENGLISH) CHARACTERS
+  url: https://unstats.un.org/unsd/geoinfo/UNGEGN/docs/17th-gegn-docs/17th_gegn_WP73.pdf
+  creation_date: 1993
+  description: |
+    These Rules are intended for Romanized transliteration of Ukrainian
+    geographic names in international cartographic editions.
+  
+    Geographic names of Russia, Byelorussia, Bulgaria and other states
+    using the Cyrillic alphabet are transliterated according to rules
+    accepted in those states.
+  
+    These Rules come into effect from the moment of their approval by
+    the Main Administration of Geodesy, Cartography and Cadastre and
+    will be effective until the introduction of a State standard of
+    Ukraine regulating the Romanized transliteration of the Ukrainian
+    alphabet.
+  
+  notes:
+    - No apostrophe (’) is used in transliteration, the combination "ьо" is transliterated as "io"
+    - Use of capitals in Latin version of Ukrainian geographic names correspond to the Ukrainian spelling
+    - Generics geographical terms standing before or after a name in full or abbreviated form are transliterated
+    - Romanized versions of complex and compound Ukrainian toponyms (one word, hyphenated or separate words) will follow the Ukrainian spelling
+    - In indexes of Romanized geographical names entries must be arranged in the order of the Latin (English) alphabet
+    - Geographic names of Russia, Byelorussia, Bulgaria and other states using the Cyrillic alphabet are transliterated according to rules accepted in those states.
+    - "Ed: There seems to be a mistake in the source document. 'ц' should be replaced with ts instead 'tz'."
+}
+
+tests {
+  test "Кам’янка", "Kamianka" # note[1]
+  test "Сьомаки", "Siomaky" # note[1]
+  test "Усть-Чорна", "Ust’-Chorna" # note[2]
+  test "Чорне море", "Chorne more" # note[2]
+  test "оз. Сиваш", "oz. Syvash" # note[3]
+  test "Кримський канал", "Kryms’kyi kanal" # note[3] # ! Example had typo in original document "Krums’kyi kanal"
+  test "Гола Пристань", "Hola Prystan’"
+  test "Корсунь Шевченківський", "Korsun’ Shevchenkivs’kyi"
+  test "Верхньодніпровськ", "Verkhniodniprovs’k"
+  test "Варва", "Varva"
+  test "Броди", "Brody"
+  test "Верховина", "Verkhovyna"
+  test "Глухів", "Hlukhiv"
+  test "Великий", "Velykyi"
+  test "Ґрунь(гора)", "Grun’(hora)"
+  test "Димер", "Dymer"
+  test "Срібне", "Sribne"
+  test "Євпаторія", "Yevpatoriia"
+  test "Єнакієве", "Yenakiieve"
+  test "Жолква", "Zholkva"
+  test "Затока", "Zatoka"
+  test "Житомир", "Zhytomyr"
+  test "Інгул", "Inhul"
+  test "Зміїв", "Zmiïv"
+  test "Йосипівка", "Yosypivka"
+  test "Стрий", "Stryi"
+  test "Калуш", "Kalush"
+  test "Лубни", "Lubny"
+  test "Миколаїв", "Mykolaïv"
+  test "Ніжин", "Nizhyn"
+  test "Острог", "Ostroh"
+  test "Печеніги", "Pechenihy"
+  test "Рівне", "Rivne"
+  test "Сарата", "Sarata"
+  test "Тячів", "Tiachiv"
+  test "Узин", "Uzyn"
+  test "Форос", "Foros"
+  test "Харків", "Kharkiv"
+  test "Цюрупінськ", "Tsiurupins’k"
+  test "Черемош", "Cheremosh"
+  test "Шацьк", "Shats’k"
+  test "Щорс", "Shchors"
+  test "Хмельницький", "Khmel’nyts’kyi" # ! Example had typo in original document "Khmel’nyts’ky"
+  test "Юрівка", "Yurivka"
+  test "Любеч", "Liubech"
+  test "Ялта", "Yalta"
+  test "Ясіня", "Yasinia"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  rules:
+    - pattern: (?<!\b\u2019)\b\u0404 # Є in initial position -> Ye
+      result: Ye
+    - pattern: (?<!\b\u2019)\b\u0454 # є in initial position -> ye
+      result: ye
+    - pattern: (?<!\b\u2019)\b\u0419 # Й in initial position -> Y
+      result: "Y"
+    - pattern: (?<!\b\u2019)\b\u0419 # й in initial position -> y
+      result: "y"
+    - pattern: (?<!\b\u2019)\b\u042e # Ю in initial position -> Yu
+      result: Yu
+    - pattern: (?<!\b\u2019)\b\u044e # ю in initial position -> yu
+      result: yu
+    - pattern: (?<!\b\u2019)\b\u042f # Я in initial position -> Ya
+      result: Ya
+    - pattern: (?<!\b\u2019)\b\u044f # я in initial position -> ya
+      result: ya
+    # note[1]
+    - pattern: \b\u2019\b # remove ’
+      result: ""
+    - pattern: \u042c\u041e
+      result: "IO"
+    - pattern: \u044c\u043e
+      result: "io"
+
+  characters:
+    "\u0410": "A"        # А
+    "\u0411": "B"        # Б
+    "\u0412": "V"        # В
+    "\u0413": "H"        # Г
+    "\u0490": "G"        # Ґ
+    "\u0414": "D"        # Д
+    "\u0415": "E"        # Е
+    "\u0404": "Ie"       # Є
+    "\u0416": "Zh"       # Ж
+    "\u0417": "Z"        # З
+    "\u0418": "Y"        # И
+    "\u0406": "I"        # І
+    "\u0407": "I\u0308"  # Ї
+    "\u0419": "I"        # Й
+    "\u041a": "K"        # К
+    "\u041b": "L"        # Л
+    "\u041c": "M"        # М
+    "\u041d": "N"        # Н
+    "\u041e": "O"        # О
+    "\u041f": "P"        # П
+    "\u0420": "R"        # Р
+    "\u0421": "S"        # С
+    "\u0422": "T"        # Т
+    "\u0423": "U"        # У
+    "\u0424": "F"        # Ф
+    "\u0425": "Kh"       # Х
+    "\u0426": "Ts"       # Ц note[7]
+    "\u0427": "Ch"       # Ч
+    "\u0428": "Sh"       # Ш
+    "\u0429": "Shch"     # Щ
+    "\u042c": "\u2019"   # Ь
+    "\u042e": "Iu"       # Ю
+    "\u042f": "Ia"       # Я
+    "\u0430": "a"        # а
+    "\u0431": "b"        # б
+    "\u0432": "v"        # в
+    "\u0433": "h"        # г
+    "\u0491": "g"        # ґ
+    "\u0434": "d"        # д
+    "\u0435": "e"        # е
+    "\u0454": "ie"       # є
+    "\u0436": "zh"       # ж
+    "\u0437": "z"        # з
+    "\u0438": "y"        # и
+    "\u0456": "i"        # і
+    "\u0457": "i"        # ї
+    "\u0439": "i"        # й
+    "\u043a": "k"        # к
+    "\u043b": "l"        # л
+    "\u043c": "m"        # м
+    "\u043d": "n"        # н
+    "\u043e": "o"        # о
+    "\u043f": "p"        # п
+    "\u0440": "r"        # р
+    "\u0441": "s"        # с
+    "\u0442": "t"        # т
+    "\u0443": "u"        # у
+    "\u0444": "f"        # ф
+    "\u0445": "kh"       # х
+    "\u0446": "ts"       # ц note[7]
+    "\u0447": "ch"       # ч
+    "\u0448": "sh"       # ш
+    "\u0449": "shch"     # щ
+    "\u044e": "iu"       # ю
+    "\u044f": "ia"       # я
+    "\u044c": "\u2019"   # ь

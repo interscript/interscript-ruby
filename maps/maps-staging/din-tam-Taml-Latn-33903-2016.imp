@@ -1,0 +1,208 @@
+metadata {
+  authority_id: din
+  id: 33903-2016
+  language: iso-639-2:tam
+  source_script: Taml
+  destination_script: Latn
+  name: "DIN 33903:2016-02: Information und Dokumentation - Umschrift Tamil"
+  url: https://www.beuth.de/de/norm/din-33903/247150527
+  creation_date: 2018
+  description: |
+    This standard specifies the transcription of the letters of the
+    Tamil alphabet in Latin letters. It is based on international
+    standards as well as on the preprint of the alphabetical tables,
+    which were published in 1976 with the introduction of the rules for
+    alphabetical cataloging. It can be used in all areas, but in
+    particular the aim is to standardize the library and publication
+    area.
+  
+  notes:
+    - |
+      Since the Tamil script is a syllabic script, the consonant -a inherent in the transliteration is always written, even in the final.
+  
+    - |
+      A point above the consonant, the so-called "pulli", means in Tamil that the inherent -a is omitted:
+        கார்த்திகேயன் kārttikēyaṉ
+    - |
+      Tamil has no anusvara; in contrast to other South Asian scripts, the class nasal is always written.
+    - |
+      Tamil also has no ligatures.
+}
+
+tests {
+  test "கார்த்திகேயன்", "kārttikēyaṉ"
+  test "௲", "1000"
+  test "இளைஞர்களின் உறுதியான மனநிலையை பிரதிபலிக்கிறது: நீட் தேர்வில் ௮௫-௯௦ சதவீத மாணவர்கள் பங்கேற்பு - ரமேஷ் பொக்ரியால்", "iḷaiñarkaḷiṉ uṟutiyāṉa maṉanilaiyai piratipalikkiṟatu: nīṭ tērvil 85-90 catavīta māṇavarkaḷ paṅkēṟpu - ramēṣ pokriyāl"
+  test "நாடாளுமன்றத்தில் 4 மசோதாக்களை எதிர்க்க காங்கிரஸ் முடிவு - ஜெயராம் ரமேஷ்", "nāṭāḷumaṉṟattil 4 macōtākkaḷai etirkka kāṅkiras muṭivu - jeyarām ramēṣ"
+  test "கர்நாடகாவில் மேலும் 9,894 பேருக்கு கொரோனா தொற்று உறுதி", "karnāṭakāvil mēlum 9,894 pērukku korōṉā toṟṟu uṟuti"
+  test "ஐதராபாத்துக்கு கைகொடுக்குமா அதிரடி?", "aitarāpāttukku kaikoṭukkumā atiraṭi?"
+  test "அமெரிக்க ஓபன் டென்னிஸ்: இறுதிப்போட்டியில் டொமினிக்-ஸ்வெரேவ்", "amerikka ōpaṉ ṭeṉṉis: iṟutippōṭṭiyil ṭomiṉik-sverēv"
+  test "ஐ.பி.எல். கிரிக்கெட்டில் களம் இறங்கும் அமெரிக்க வீரர்", "ai.pi.el. kirikkeṭṭil kaḷam iṟaṅkum amerikka vīrar"
+  test "அமெரிக்க ஓபன் டென்னிஸ்; நவோமி ஒசாகா சாம்பியன் பட்டம் வென்றார்", "amerikka ōpaṉ ṭeṉṉis; navōmi ocākā cāmpiyaṉ paṭṭam veṉṟār"
+  test "புதிய கல்விக்கொள்கைக்கு எதிர்ப்பு: முன்னாள் துணைவேந்தர்கள் 20 பேர் பிரதமருக்கு கடிதம்", "putiya kalvikkoḷkaikku etirppu: muṉṉāḷ tuṇaivēntarkaḷ 20 pēr piratamarukku kaṭitam"
+  test "இந்த ஆண்டு ஐ.பி.எல். கோப்பையை எந்த அணி வெல்லும்? - கெவின் பீட்டர்சன் கணிப்பு", "inta āṇṭu ai.pi.el. kōppaiyai enta aṇi vellum? - keviṉ pīṭṭarcaṉ kaṇippu"
+  test "இந்திய எண்ணெய் கப்பலில் தீ: விபத்து குறித்த எச்சரிக்கையை கப்பல் அதிகாரிகள் புறக்கணித்தனர் - இலங்கை கோர்ட்டு தகவல்", "intiya eṇṇey kappalil tī: vipattu kuṟitta eccarikkaiyai kappal atikārikaḷ puṟakkaṇittaṉar - ilaṅkai kōrṭṭu takaval"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+
+  rules:
+    - pattern: ([க]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
+      result: 'k'
+    - pattern: ([ங]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
+      result: 'ṅ'
+    - pattern: ([ச]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
+      result: 'c'
+    - pattern: ([ஞ]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
+      result: 'ñ'
+    - pattern: ([ட]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
+      result: 'ṭ'
+    - pattern: ([ண]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
+      result: 'ṇ'
+    - pattern: ([த]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
+      result: 't'
+    - pattern: ([ந]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
+      result: 'n'
+    - pattern: ([ப]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
+      result: 'p'
+    - pattern: ([ம]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
+      result: 'm'
+    - pattern: ([ய]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
+      result: 'y'
+    - pattern: ([ர]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
+      result: 'r'
+    - pattern: ([ல]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
+      result: 'l'
+    - pattern: ([ள]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
+      result: 'ḷ'
+    - pattern: ([ழ]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
+      result: 'ḻ'
+    - pattern: ([வ]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
+      result: 'v'
+    - pattern: ([ற]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
+      result: 'ṟ'
+    - pattern: ([ன]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
+      result: 'ṉ'
+    - pattern: ([ஜ]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
+      result: 'j'
+    - pattern: ([ஶ]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
+      result: 'ś'
+    - pattern: ([ஷ]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
+      result: 'ṣ'
+    - pattern: ([ஸ]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
+      result: 's'
+    - pattern: ([ஹ]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
+      result: 'h'
+
+  characters:
+    'அ': 'a'
+    'ஆ': 'ā'
+    'ா': 'ā'
+
+    'இ': 'i'
+    'ி': 'i'
+
+    'ஈ': 'ī'
+    'ீ': 'ī'
+
+    'உ': 'u'
+    'ு': 'u'
+
+    'ஊ': 'ū'
+    'ூ': 'ū'
+
+    'ெ': "e"
+    'எ': 'e'
+
+    'ே': "ē"
+    'ஏ': 'ē'
+
+    'ஐ': 'ai'
+    'ை': "ai"
+
+    'ஒ': 'o'
+    'ொ': 'o'
+
+    'ோ': 'ō'
+    'ஓ': 'ō'
+
+    'ஔ': 'au'
+    'ௌ': 'au'
+
+    'க்': 'k'
+    'ங்': 'ṅ'
+    'ச்': 'c'
+    'ஞ்': 'ñ'
+    'ட்':  'ṭ'
+    'ண்':  'ṇ'
+    'த்': 't'
+    'ந்':  'n'
+    'ப்': 'p'
+    'ம்': 'm'
+    'ய்': 'y'
+    'ர்': 'r'
+    'ல்': 'l'
+    'ள்': 'ḷ'
+    'ழ்': 'ḻ'
+    'வ்': 'v'
+    'ற்': 'ṟ'
+    'ன்': 'ṉ'
+    'ஜ்': 'j'
+
+    'ஶ்': 'ś'
+    'ஷ்': 'ṣ'
+    'ஸ்': 's'
+    'ஹ்': 'h'
+
+
+    'க': 'ka'
+    'ங': 'ṅa'
+    'ஃ': 'ḵ'
+    'ச': 'ca'
+    'ஞ': 'ña'
+    'ட': 'ṭa'
+    'ண': 'ṇa'
+    'த': 'ta'
+    'ந': 'na'
+    'ப': 'pa'
+    'ம': 'ma'
+    'ய': 'ya'
+    'ர': 'ra'
+    'ல': 'la'
+    'ள': 'ḷa'
+    'ழ': 'ḻa'
+    'வ': 'va'
+    'ற': 'ṟa'
+    'ன': 'ṉa'
+    'ஜ': 'ja'
+    'ஶ': 'śa'
+    'ஷ': 'ṣa'
+    'ஸ': 'sa'
+    'ஹ': 'ha'
+
+    # Digits
+    '௧': '1'
+    '௨': '2'
+    '௩': '3'
+    '௪': '4'
+    '௫': '5'
+    '௬': '6'
+    '௭': '7'
+    '௮': '8'
+    '௯': '9'
+    '௦': '0'
+    '௰': '10'
+    '௱': '100'
+    '௲': '1000'
+
+
+
+
+    "‍": '' # no need for zero with joiner
+    "‌": '' # no need for zero with non joiner

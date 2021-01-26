@@ -1,0 +1,248 @@
+metadata {
+  authority_id: alalc
+  id: 1997
+  language: iso-639-2:ben
+  source_script: Beng
+  destination_script: Latn
+  name: Bengali Romanization, 1997
+  url: http://catdir.loc.gov/catdir/cpso/romanization/bengali.pdf
+  creation_date: 1997
+  description: |
+    ALA-LC Romanization table for Bengali
+  
+  notes:
+  
+    - Only the vowel forms that appear at the beginning of a syllable are
+      listed; the forms used for vowels following a consonant can be found in
+      grammars; no distinction between the two is made in transliteration.
+  
+    - |
+      The vowel a is implicit after all consonants and consonant clusters
+      and is supplied in transliteration, with the following exceptions:
+  
+      a) when another vowel is indicated by its appropriate sign; and
+      b) when the absence of any vowel is indicated by the subscript symbol ( ্ )
+        called hasanta or birāma.
+  
+    - ব is used both as a labial and as a semivowel. When it occurs as the
+      second or subsequent consonant of a consonant cluster, it is
+      transliterated va. When ব is doubled, it is transliterated bba.
+  
+    - Candrabindu before guttural, palatal, cerebral, and dental occlusives
+      is transliterated n̐. Before labials, sibilants, semivowels, the
+      aspirate, vowels, and in final position it is transliterated m̐.
+  
+    - When doubled, abagraha is transliterated by two apostrophes ( ’’ ).
+}
+
+tests {
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+
+  rules:
+    #rule II
+    - pattern: ([ক]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'k'
+    - pattern: ([খ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'kh'
+    - pattern: ([গ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'g'
+    - pattern: ([ঘ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'gh'
+    - pattern: ([ঙ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'ṅ'
+    - pattern: ([চ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'c'
+    - pattern: ([ছ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'ch'
+    - pattern: ([জ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'j'
+    - pattern: ([ঝ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'jh'
+    - pattern: ([ঞ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'ñ'
+    - pattern: ([ট]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'ṭ'
+    - pattern: ([ঠ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'ṭh'
+    - pattern: ([ড]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'ḍ'
+    - pattern: ([ড়]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'ṛ'
+    - pattern: ([ড়]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'ṛ'
+    - pattern: ([ঢ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'ḍh'
+    - pattern: ([ঢ়]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'ṛh'
+    - pattern: ([ণ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'ṇ'
+    - pattern: ([ত]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 't'
+    - pattern: ([ৎ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'ṯ'
+    - pattern: ([থ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'th'
+    - pattern: ([দ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'd'
+    - pattern: ([ধ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'dh'
+    - pattern: ([ন]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'n'
+    - pattern: ([প]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'p'
+    - pattern: ([ফ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'ph'
+    - pattern: ([ব]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'b'
+    - pattern: ([ভ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'bh'
+    - pattern: ([ম]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'm'
+    - pattern: ([য]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'y'
+    - pattern: ([য়]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'ẏ'
+    - pattern: ([য়]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'ẏ'
+    - pattern: ([র]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'r'
+    - pattern: ([ল]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'l'
+    - pattern: ([শ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'ś'
+    - pattern: ([ষ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'sh'
+    - pattern: ([স]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 's'
+    - pattern: ([হ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
+      result: 'h'
+
+    # Rule III
+    - pattern: ([ବ]=?)(?=[\u09AC])
+      result:  'bba'
+    # Rule V
+    - pattern: \u0981(?=[কখগঘঙচছজঝঞটঠডডঢঢণতৎথদধন])
+      result: "m̐"
+    - pattern: (?<=)\u0b01(?=\b)
+      result: "m̐"
+
+  characters:
+
+    # Vowels and Diphthongs
+
+    'অ': 'a'
+    'আ': 'ā'
+    'ই': 'i'
+    'ঈ': 'ī'
+    'উ': 'u'
+    'ঊ': 'ū'
+    'এ': 'e'
+    'ঐ': 'ai'
+    'ও': 'o'
+    'ঔ': 'au'
+    'ঋ': 'ṛ'
+    'ৠ': 'ṝ'
+    'ঌ': 'ḹ'
+
+    # Consonants
+    # Gutturals
+    'ক': 'ka'
+    'খ': 'kha'
+    'গ': 'ga'
+    'ঘ': 'gha'
+    'ঙ': 'ṅa'
+
+    # Palatals
+    'চ': 'ca'
+    'ছ': 'cha'
+    'জ': 'ja'
+    'ঝ': 'jha'
+    'ঞ': 'ña'
+
+    # Cerebrals
+    'ট': 'ṭa'
+    'ঠ': 'ṭha'
+    'ড': 'ḍa'
+    'ড়': 'ṛa'
+    'ড়': 'ṛa'
+    'ঢ': 'ḍha'
+    'ঢ়': 'ṛha'
+    'ণ': 'ṇa'
+
+    # Dentals
+    'ত': 'ta'
+    'ৎ': 'ṯa'
+    'থ': 'tha'
+    'দ': 'da'
+    'ধ': 'dha'
+    'ন': 'na'
+
+    # Labials
+    'প': 'pa'
+    'ফ': 'pha'
+    'ব': 'ba' # see Note 3
+    'ভ': 'bha'
+    'ম': 'ma'
+
+    # Semivowels
+    'য': 'ya'
+    'য়': 'ẏa'
+    'য়': 'ẏa'
+    'র': 'ra'
+    'ল': 'la'
+
+    # Sibilants
+    'শ': 'śa'
+    'ষ': 'sha'
+    'স': 'sa'
+
+    # Aspirate
+    'হ': 'ha'
+
+    # Anusvāra
+    'ং': 'ṃ'
+
+    # Bisarga
+    'ঃ': 'ḥ'
+
+    # Candrabindu (anunāsika)
+    '\u0981': 'n̐'
+
+    # Abagraha (see Note 5)
+    'ऽ': '’' # (apostrophe)
+
+
+    # Medials # Needed for connecting constants
+
+    '\u09be': 'ā'
+    '\u09bf': 'i'
+    '\u09c0': 'ī'
+    '\u09c1': 'u'
+    '\u09c2': 'ū'
+    '\u09c3': 'ṛ'
+    '\u09c7': 'e'
+    '\u09c8': 'ai'
+    '\u09cb': 'o'
+    '\u09cc': 'au'
+    '\u09cd': ''
+
+    #Numbers
+
+    '০': '0'
+    '১': '1'
+    '২': '2'
+    '৩': '3'
+    '৪': '4'
+    '৫': '5'
+    '৬': '6'
+    '৭': '7'
+    '৮': '8'
+    '৯': '9'

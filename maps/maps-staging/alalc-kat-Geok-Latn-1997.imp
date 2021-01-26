@@ -1,0 +1,109 @@
+metadata {
+  authority_id: alalc
+  id: 1997
+  language: iso-639-2:kat
+  source_script: Geok
+  destination_script: Latn
+  name: ALA-LC Georgian System (1997)
+  url: https://www.loc.gov/catdir/cpso/romanization/georgian.pdf
+  creation_date: 1997
+  confirmation_date: 1997
+  description: |
+    Values are shown for the Khutsuri alphabet.
+  
+  notes:
+}
+
+tests {
+  test "ႼႨႢႬႨ", "CIGNI"
+  test "ⴜⴈⴂⴌⴈ", "cigni"
+  test "ႱႭႪႭႫႭႬ", "SOLOMON"
+  test "ⴑⴍⴊⴍⴋⴍⴌ", "solomon"
+  test "ႠႡႰႠჀႠႫ", "ABRAHAM"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  characters:
+    '\u10a0' : 'A' # Ⴀ
+    '\u10a1' : 'B' # Ⴁ
+    '\u10a2' : 'G' # Ⴂ
+    '\u10a3' : 'D' # Ⴃ
+    '\u10a4' : 'E' # Ⴄ
+    '\u10a5' : 'V' # Ⴅ
+    '\u10a6' : 'Z' # Ⴆ
+    '\u10a7' : 'Tʻ' # Ⴇ
+    '\u10a8' : 'I' # Ⴈ
+    '\u10a9' : 'K' # Ⴉ
+    '\u10aa' : 'L' # Ⴊ
+    '\u10ab' : 'M' # Ⴋ
+    '\u10ac' : 'N' # Ⴌ
+    '\u10ad' : 'O' # Ⴍ
+    '\u10ae' : 'P' # Ⴎ
+    '\u10af' : 'Ž' # Ⴏ
+    '\u10b0' : 'R' # Ⴐ
+    '\u10b1' : 'S' # Ⴑ
+    '\u10b2' : 'T' # Ⴒ
+    '\u10b3' : 'U' # Ⴓ
+    '\u10b4' : 'Pʻ' # Ⴔ
+    '\u10b5' : 'Kʻ' # Ⴕ
+    '\u10b6' : 'Ġ' # Ⴖ
+    '\u10b7' : 'Q' # Ⴗ
+    '\u10b8' : 'Š' # Ⴘ
+    '\u10b9' : 'Čʻ' # Ⴙ
+    '\u10ba' : 'Cʻ' # Ⴚ
+    '\u10bb' : 'Ż' # Ⴛ
+    '\u10bc' : 'C' # Ⴜ
+    '\u10bd' : 'Č' # Ⴝ
+    '\u10be' : 'X' # Ⴞ
+    '\u10bf' : 'J' # Ⴟ
+    '\u10c0' : 'H' # Ⴠ
+    '\u10c1' : 'Ē' # Ⴡ
+    '\u10c2' : 'Y' # Ⴢ
+    '\u10c3' : 'W' # Ⴣ
+    '\u10c4' : 'X̣' # Ⴤ
+    '\u10c5' : 'Ō' # Ⴥ
+
+    '\u2d00' : 'a' # ⴀ
+    '\u2d01' : 'b' # ⴁ
+    '\u2d02' : 'g' # ⴂ
+    '\u2d03' : 'd' # ⴃ
+    '\u2d04' : 'e' # ⴄ
+    '\u2d05' : 'v' # ⴅ
+    '\u2d06' : 'z' # ⴆ
+    '\u2d07' : 'tʻ' # ⴇ
+    '\u2d08' : 'i' # ⴈ
+    '\u2d09' : 'k' # ⴉ
+    '\u2d0a' : 'l' # ⴊ
+    '\u2d0b' : 'm' # ⴋ
+    '\u2d0c' : 'n' # ⴌ
+    '\u2d0d' : 'o' # ⴍ
+    '\u2d0e' : 'p' # ⴎ
+    '\u2d0f' : 'ž' # ⴏ
+    '\u2d10' : 'r' # ⴐ
+    '\u2d11' : 's' # ⴑ
+    '\u2d12' : 't' # ⴒ
+    '\u2d13' : 'u' # ⴓ
+    '\u2d14' : 'pʻ' # ⴔ
+    '\u2d15' : 'kʻ' # ⴕ
+    '\u2d16' : 'ġ' # ⴖ
+    '\u2d17' : 'q' # ⴗ
+    '\u2d18' : 'š' # ⴘ
+    '\u2d19' : 'čʻ' # ⴙ
+    '\u2d1a' : 'cʻ' # ⴚ
+    '\u2d1b' : 'ż' # ⴛ
+    '\u2d1c' : 'c' # ⴜ
+    '\u2d1d' : 'č' # ⴝ
+    '\u2d1e' : 'x' # ⴞ
+    '\u2d1f' : 'j' # ⴟ
+    '\u2d20' : 'h' # ⴠ
+    '\u2d21' : 'ē' # ⴡ
+    '\u2d22' : 'y' # ⴢ
+    '\u2d23' : 'w' # ⴣ
+    '\u2d24' : 'x̣' # ⴤ
+    '\u2d25' : 'ō' # ⴥ

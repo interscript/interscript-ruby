@@ -1,0 +1,269 @@
+metadata {
+  authority_id: un
+  id: 1987-phonetic
+  language: iso-639-2:ell
+  source_script: Grek
+  destination_script: Latn
+  name: UNGEGN Greek v1.0, Fifth United Nations Conference on the Standardization of Geographical Names. Writing Systems and Guides to Pronunciation Romanization > Conversion of the Greek alphabet into Latin characters. Paper submitted by Greece and Cyprus.
+  url: http://www.eki.ee/wgrs/rom1_el.htm
+  creation_date: 1987
+  description: |
+    UNGEGN Romanization table for Greek: Phonetic transcription
+  
+  
+  notes:
+    - Also included in ISO 843:1997, Annex B, Column 5, and ELOT 743:1982, column 5.
+    - Corrected obvious errors, which occur every time the table has reappeared: χ > x, x > ks, oï > oi.
+    - The vowels are taken from the specification, but some are controversial: /ɑ ɛ/ but /o/.
+    - Stress is not indicated. (To do so in IPA would require syllabification in preprocessing, since stress is positioned at syllable breaks)
+    - Followed specification in treating final μπ as b, but final ντ as nd. That distinction is dubious. (In ELOT 743:1982, both d and nd are erroneously marked as initial, and no final is given.)
+    - τζ is not correctly transcribed as dz: fixed
+    - not reducing geminated consonants: fixed
+}
+
+tests {
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  downcase: True
+
+  # https://en.wikipedia.org/wiki/Romanization_of_Greek
+  rules:
+    - pattern: (?<=[ΑαΕεΗη])\u03A5(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])    # Υ (after Α, Ε, Η)
+      result: f
+    - pattern: (?<=[ΑαΕεΗη])\u03A5(?=\b)    # Υ (after Α, Ε, Η)
+      result: f
+    - pattern: (?<=[ΑαΕεΗη])\u03C5(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])    # υ (after Α, Ε, Η)
+      result: f
+    - pattern: (?<=[ΑαΕεΗη])\u03C5(?=\b)    # υ (after Α, Ε, Η)
+      result: f
+    - pattern: (?<=[ΑαΕεΗη])\u03A5    # Υ (after Α, Ε, Η)
+      result: v
+    - pattern: (?<=[ΑαΕεΗη])\u03C5    # υ (after Α, Ε, Η)
+      result: v
+    - pattern: \u0391\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])    # Αύ
+      result: ɑf
+    - pattern: \u0391\u03CD(?=\b)    # Αύ
+      result: ɑf
+    - pattern: \u0391\u03CD    # Αύ
+      result: ɑv
+    - pattern: \u03B1\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])    # Αύ
+      result: ɑf
+    - pattern: \u03B1\u03CD(?=\b)    # Αύ
+      result: ɑf
+    - pattern: \u03B1\u03CD    # Αύ
+      result: ɑv
+    - pattern: \u0395\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])    # Εύ
+      result: ɛf
+    - pattern: \u0395\u03CD(?=\b)    # Εύ
+      result: ɛf
+    - pattern: \u0395\u03CD    # Εύ
+      result: ɛv
+    - pattern: \u03B5\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])    # Εύ
+      result: ɛf
+    - pattern: \u03B5\u03CD(?=\b)    # Εύ
+      result: ɛf
+    - pattern: \u03B5\u03CD    # Εύ
+      result: ɛv
+    - pattern: \u0397\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])    # Εύ
+      result: if
+    - pattern: \u0397\u03CD(?=\b)    # Εύ
+      result: if
+    - pattern: \u0397\u03CD    # Εύ
+      result: iv
+    - pattern: \u03B7\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])    # Εύ
+      result: if
+    - pattern: \u03B7\u03CD(?=\b)    # Εύ
+      result: if
+    - pattern: \u03B7\u03CD    # Εύ
+      result: iv
+    - pattern: \u039F[υΥύ]    # Υ (after Ο)
+      result: u
+    - pattern: \u03BF[υΥύ]    # υ (after Ο)
+      result: u
+    - pattern: (?<=[ΆάΈέΉήΌό])\u03A5    # Άυ, Έυ, Ήυ, Όυ
+      result: i
+    - pattern: (?<=[ΆάΈέΉήΌό])\u03C5    # Άυ, Έυ, Ήυ, Όυ
+      result: i
+    - pattern: \u0393(?=[ξΞχΧ])    # Γ (before Γ, Ξ, Χ)
+      result: n
+    - pattern: \u03B3(?=[ξΞχΧ])    # γ (before Γ, Ξ, Χ)
+      result: n
+    - pattern: (?<!\b)\u0393[Γγ]    # Γ (before Γ)
+      result: ŋɡ
+    - pattern: (?<!\b)\u03B3\u03B3    # γ (before Γ)
+      result: ŋɡ
+    - pattern: (?<!\b)\u0393[Κκ]    # Γ (before Κ)
+      result: ŋɡ
+    - pattern: (?<!\b)\u03B3[Κκ]    # γ (before Κ)
+      result: ŋɡ
+    - pattern: (?<=\b)\u0393[Γγ]    # Γ (before Γ)
+      result: ɡ
+    - pattern: (?<=\b)\u03B3\u03B3    # γ (before Γ)
+      result: ɡ
+    - pattern: (?<=\b)\u0393[Κκ]    # Γ (before Κ)
+      result: ɡ
+    - pattern: (?<=\b)\u03B3[Κκ]    # γ (before Κ)
+      result: ɡ
+    - pattern: (?<=\b)\u039C[πΠ]    # ΜΠ (initially)
+      result: b
+    - pattern: (?<=\b)\u03BC[πΠ]    # μπ (initially)
+      result: b
+    - pattern: \u039C[πΠ](?=\b)    # ΜΠ (finally)
+      result: b
+    - pattern: \u03BC[πΠ](?=\b)    # μπ (finally)
+      result: b
+    - pattern: (?<!\b)\u039C[πΠ](?!\b)    # ΜΠ (medially)
+      result: mb
+    - pattern: (?<!\b)\u03BC[πΠ](?!\b)    # μπ (medially)
+      result: mb
+    - pattern: (?<=\b)[Νν][ττ]  # Ντ (initial)
+      result: d
+    - pattern: (?<!\b)[Νν][ττ]  # Ντ (medial, final)
+      result: nd
+    - pattern: \u03A3(?=[ΒβΓγΔδΖζΛλΜμΝνΡρ])  # Σ (before voiced consonants)
+      result: z
+    - pattern: \u03C3(?=[ΒβΓγΔδΖζΛλΜμΝνΡρ])  # Σ (before voiced consonants)
+      result: z
+    - pattern: \u0391[Ιιί] # Αι
+      result: ɛ
+    - pattern: \u03B1[Ιιί] # αι
+      result: ɛ
+    - pattern: \u03A5[Ιιί] # Υι
+      result: i
+    - pattern: \u03C5[Ιιί] # υι
+      result: i
+    - pattern: \u0395[Ιιί] # Ει
+      result: i
+    - pattern: \u03B5[Ιιί] # ει
+      result: i
+    - pattern: \u039F[Ιιί] # Οι
+      result: i
+    - pattern: \u03BF[Ιιί] # οι
+      result: i
+    - pattern: \u03A4[ζΖ] # Τζ
+      result: dz
+    - pattern: \u03c4[ζΖ] # Τζ
+      result: dz
+    - pattern: \u037E   # ;
+      result: "?"
+    - pattern: \u003B   # ;
+      result: "?"
+
+  characters:
+    "\u0027": ""
+    "\u0386": "ɑ"  # Ά
+    "\u0391": "ɑ"  # Α
+    "\u0392": "v"  # Β
+    "\u0393": "ɣ"  # Γ
+    "\u0394": "ð"  # Δ
+    "\u0395": "ɛ"  # Ε
+    "\u0395\u03AA": "ɛi"  # ΕΪ
+    "\u0395\u03CA": "ɛi"  # Εϊ
+    "\u0388\u03CA": "ɛi"  # Έϊ
+    "\u0396": "z"  # Ζ
+    "\u0397": "i"  # Η
+    "\u0398": "θ" # Θ
+    "\u0399": "i"  # Ι
+    "\u039A": "k"  # Κ
+    "\u039B": "l"  # Λ
+    "\u039C": "m"  # Μ
+    "\u039D": "n"  # Ν
+    "\u039E": "ks"  # Ξ
+    "\u039F": "o"  # Ο
+    "\u03A0": "p"  # Π
+    "\u03A1": "r"  # Ρ
+    "\u03A3": "s"  # Σ
+    "\u03A4": "t"  # Τ
+    "\u03A5": "i"  # Υ
+    "\u03A6": "f" # Φ
+    "\u03A7": "x" # Χ
+    "\u03A8": "ps" # Ψ
+    "\u03A9": "o"  # Ω
+    "\u0388": "ɛ"  # Έ
+    "\u0389": "i"  # Ή
+    "\u038A": "i"  # Ί
+    "\u038C": "o"  # Ό
+    "\u038E": "i"  # Ύ
+    "\u038F": "o"  # Ώ
+    "\u03AA": "i"  # Ϊ
+    "\u03AB": "i"  # Ϋ
+
+    "\u03AC": "ɑ"  # ά
+    "\u03B1": "ɑ"  # α
+    "\u03B2": "v"  # β
+    "\u03B3": "ɣ"  # γ
+    "\u03B4": "ð"  # δ
+    "\u03B5": "ɛ"  # ε
+    "\u03B5\u03CA": "ɛi"  # εϊ
+    "\u03AD\u03CA": "ɛi"  # έϊ
+    "\u03AD\u03B9": "ɛi"  # έι
+    "\u03B6": "z"  # ζ
+    "\u03B7": "i"  # η
+    #"\u03B8": "θ" # θ
+    "\u03B9": "i"  # ι
+    "\u03BA": "k"  # κ
+    "\u03BB": "l"  # λ
+    "\u03BC": "m"  # μ
+    "\u03BD": "n"  # ν
+    "\u03BE": "ks"  # ξ
+    "\u03BF": "o"  # ο
+    "\u03C0": "p"  # π
+    "\u03C1": "r"  # ρ
+    "\u03C3": "s"  # σ
+    "\u03C2": "s"  # ς
+    "\u03C4": "t"  # τ
+    "\u03C5": "i"  # υ
+    "\u03C6": "f" # φ
+    "\u03C7": "x" # χ
+    "\u03C8": "ps" # ψ
+    "\u03C9": "o"  # ω
+    "\u03AD": "ɛ"  # έ
+    "\u03AE": "i"  # ή
+    "\u03AF": "i"  # ί
+    "\u03CC": "o"  # ό
+    "\u03CD": "i"  # ύ
+    "\u03CE": "o"  # ώ
+    "\u03CA": "i"  # ϊ
+    "\u03CB": "i"  # ϋ
+    "\u0390": "i"  # ΐ
+    "\u03B0": "i"  # ΰ
+
+    "\u0387": ";"   # ·
+    "\u00B7": ";"   # ·
+
+  postrules:
+    - pattern: vv
+      result: "v"
+    - pattern: ðð
+      result: "ð"
+    - pattern: zz
+      result: "z"
+    - pattern: θθ
+      result: "θ"
+    - pattern: kk
+      result: "k"
+    - pattern: ll
+      result: "l"
+    - pattern: mm
+      result: "m"
+    - pattern: nn
+      result: "n"
+    - pattern: pp
+      result: "p"
+    - pattern: rr
+      result: "r"
+    - pattern: ss
+      result: "s"
+    - pattern: tt
+      result: "t"
+    - pattern: ff
+      result: "f"
+    - pattern: xx
+      result: "x"

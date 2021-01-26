@@ -1,0 +1,241 @@
+metadata {
+  authority_id: ungegn
+  id: 1972
+  language: iso-639-2:ori
+  source_script: Orya
+  destination_script: Latn
+  name: REPORT ON THE CURRENT STATUS OF UNITED NATIONS ROMANIZATION SYSTEMS FOR GEOGRAPHICAL NAMES -- Oriya Romanization, 1972
+  url: http://www.eki.ee/wgrs/v2_2/rom1_or.pdf
+  creation_date: 1972
+  confirmation_date: 2003
+  description: |
+    The United Nations recommended system was approved in 1972 (II/11), based on a report
+    prepared by D. N. Sharma. The note on the system was published in volume II of the
+    conference reports.
+  
+    There is no evidence of the use of the system either in India or in international cartographic
+    products.
+  
+    Oriya uses an alphasyllabic script whereby each character represents a syllable rather than one sound.
+    Vowels and diphthongs are marked in two ways: as independent characters (used syllable-initially) and in an
+    abbreviated form, to denote vowels after consonants. The romanization table is unambiguous. The system is mostly
+    reversible but there may exist some ambiguities in the romanization of vowels (independent vs. abbreviated characters)
+    and consonants (combinations with subscript consonants vs. character sequences).
+  
+  notes:
+    - Combinations with r as the first component are written with a special superscript symbol, e.g. ର୍କ rka.
+}
+
+tests {
+  test "ର୍କ", "rka"
+  test "ଓଡ଼ିଆ", "oṙiā"
+  test "ଓଡ଼ିଶା", "oṙishā"
+  test "ଭୁବନେଶ୍ୱର", "bhubaneshvara"
+  test "ଆଇପିଏଲ୍‌-୧୩: ଦିଲ୍ଲୀ କ୍ୟାପିଟାଲ୍ସକୁ ୮୮ ରନ୍‌ ପରାସ୍ତ କଲା ସନରାଇଜର୍ସ ହାଇଦ୍ରାବାଦ", "āipiel-13: dillī kyāpiṭālsaku 88 ran parāsta kalā sanarāijarsa hāidrābāda"
+  test "ପ୍ରେମ ସମ୍ପର୍କରେ ଭଟ୍ଟା: ରାଗରେ ପ୍ରେମିକାର ତଣ୍ଟି କାଟି ନିଜେ ବିଷ ପିଇଲା ପ୍ରେମିକ", "prema samparkare bhaṭṭā: rāgare premikāra taṇṭi kāṭi nije biṣha piilā premika"
+  test "ପ୍ରେମ ସମ୍ପର୍କରେ ଭଟ୍ଟା: ରାଗରେ ପ୍ରେମିକାର ତଣ୍ଟି କାଟି ନିଜେ ବିଷ ପିଇଲା ପ୍ରେମିକ", "prema samparkare bhaṭṭā: rāgare premikāra taṇṭi kāṭi nije biṣha piilā premika"
+  test "ହୋଟେଲ, ଲଜ୍‌ରେ ରୁମ୍‌ ମିଳୁନି: ନେତା‌ଙ୍କ ନାଁରେ ଆଗୁଆ ହୋଇଯାଇଛି ବୁକିଂ", "heāṭela, lajre rum miḷuni: netāṅka nāmre āguā heāiỵāichhhi bukiṃ"
+  test "ପର୍ଯ୍ୟଟକମାନଙ୍କ ନିମନ୍ତେ ନଭେମ୍ବର ୧ରୁ ଖୋଲିବ ଶିମିଳିପାଳ ଅଭୟାରଣ୍ୟ", "parỵyaṭakamānaṅka nimante nabhembara 1ru kholiba shimiḷipāḷa abhayāraṇya"
+  test "ପାରିବାରିକ ଅଶାନ୍ତିର କରୁଣ ପରିଣତି: କୂଅକୁ ଡେଇଁଲେ ମା’-ଝିଅ, ଝିଅ ମୃତ", "pāribārika ashāntira karuṇa pariṇati: kūaku ḍeimle mā’-jhia, jhia mṛta"
+  test "‘ଭ୍ରଷ୍ଟାଚାରର ବଂଶବାଦ’ ଏବେ ସାଜିଛି ଦେଶ ପାଇଁ ନୂଆ ସମସ୍ୟା; ପ୍ରଧାନମନ୍ତ୍ରୀ ମୋଦୀ", "‘bhraṣhṭāchārara baṃshabāda’ ebe sājichhhi desha pāim nūā samasyā; pradhānamantrī modī"
+  test "ପାହାଡ଼ି ଇଲାକାବାସୀଙ୍କ ଆଶାର ବତୀ ‘ପାର୍ବତୀ’", "pāhāṙi ilākābāsīṅka āshāra batī ‘pārbatī’"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+
+  rules:
+    - pattern: ([କ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   'k'
+    - pattern: ([ଖ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   'kh'
+    - pattern: ([ଗ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   'g'
+    - pattern: ([ଘ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   'gh'
+    - pattern: ([ଙ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   'ṅ'
+    - pattern: ([ଚ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   'ch'
+    - pattern: ([ଛ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   'chhh'
+    - pattern: ([ଜ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   'j'
+    - pattern: ([ଝ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   'jh'
+    - pattern: ([ଞ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   'ñ'
+    - pattern: ([ଟ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   'ṭ'
+    - pattern: ([ଠ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   'ṭh'
+    - pattern: ([ଡ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   'ḍ'
+    - pattern: ([ଡ଼]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   'ṙ'
+    - pattern: ([ଢ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   'ḍh'
+    - pattern: ([ଢ଼]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   'ṙh'
+    - pattern: ([ଣ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   'ṇ'
+    - pattern: ([ତ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   't'
+    - pattern: ([ଥ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   'th'
+    - pattern: ([ଦ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   'd'
+    - pattern: ([ଧ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   'dh'
+    - pattern: ([ନ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   'n'
+    - pattern: ([ପ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   'p'
+    - pattern: ([ଫ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   'ph'
+    - pattern: ([ବ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   'b'
+    - pattern: ([ଭ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   'bh'
+    - pattern: ([ମ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   'm'
+    - pattern: ([ଯ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   'ỵ'
+    - pattern: ([ୟ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   'y'
+    - pattern: ([ର]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   'r'
+    - pattern: ([ଲ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   'l'
+    - pattern: ([ଳ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   'ḷ'
+    - pattern: ([ଶ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   'sh'
+    - pattern: ([ଷ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   'ṣh'
+    - pattern: ([ସ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   's'
+    - pattern: ([ହ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   'h'
+    - pattern: ([କ୍ଷ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
+      result:   'kṣh'
+
+  characters:
+    'ଅ': 'a'
+    'ଆ': 'ā'
+    'ଇ': 'i'
+    'ଈ': 'ī'
+    'ଉ': 'u'
+    'ଊ': 'ū'
+    'ଋ': 'ṛ'
+    'ୠ': 'ṝ'
+    'ଌ': 'ḻ'
+    'ଏ': 'e'
+    'ଐ': 'ai'
+    'ଓ': 'o'
+    'ୱ': 'va'
+    'ଔ': 'au'
+
+    # II. Consonants
+    # Gutturals
+    'କ': 'ka'
+    'ଖ': 'kha'
+    'ଗ': 'ga'
+    'ଘ': 'gha'
+    'ଙ': 'ṅa'
+
+    # Palatals
+    'ଚ': 'cha'
+    'ଛ': 'chha'
+    'ଜ': 'ja'
+    'ଝ': 'jha'
+    'ଞ': 'ña'
+
+    # Cerebrals
+    'ଟ':  'ṭa'
+    'ଠ':  'ṭha'
+    'ଡ':  'ḍa'
+    'ଡ଼':  'ṙa'
+    'ଢ':  'ḍha'
+    'ଢ଼':  'ṙha'
+    'ଣ':  'ṇa'
+
+    # Dentals
+    'ତ': 'ta'
+    'ଥ': 'tha'
+    'ଦ': 'da'
+    'ଧ': 'dha'
+    'ନ': 'na'
+
+    # Labials
+    'ପ': 'pa'
+    'ଫ': 'pha'
+    'ବ': 'ba'
+    'ଭ': 'bha'
+    'ମ': 'ma'
+
+    # Semivowels
+    'ଯ': 'ỵa'
+    'ୟ': 'ya'
+    'ର': 'ra'
+    'ଲ': 'la'
+    'ଳ': 'ḷa'
+
+    # Sibilants
+    'ଶ': 'sha'
+    'ଷ': 'ṣha'
+    'ସ': 'sa'
+
+
+    # Aspirate
+    'ହ': 'ha'
+
+    'କ୍ଷ': 'kṣha'
+
+    # Chandrabindu
+    'ଁ': 'm'
+
+    # Bisarga
+    'ଃ': 'ḥ'
+
+    # Anusvāra
+    'ଂ': 'ṃ'
+
+    # Medials # Needed for connecting constants
+
+    'ା': 'ā'
+    'ି': 'i'
+    'ୀ': 'ī'
+    'ୁ': 'u'
+    'ୂ': 'ū'
+    'ୃ': 'ṛ'
+    'େ': 'e'
+    'ୈ': 'ai'
+    'ୋ': 'o'
+    'ୌ': 'au'
+
+    '्': ''
+    '୍': ''
+    '़': ''
+    '଼': ''
+    '।': '.'
+    "‍": ''# Used for joining
+    "‌": ''# Used for non joining
+
+    # Numbers
+
+    '୦': '0'
+    '୧': '1'
+    '୨': '2'
+    '୩': '3'
+    '୪': '4'
+    '୫': '5'
+    '୬': '6'
+    '୭': '7'
+    '୮': '8'
+    '୯': '9'

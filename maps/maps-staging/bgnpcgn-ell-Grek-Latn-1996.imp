@@ -1,0 +1,26 @@
+metadata {
+  authority_id: bgnpcgn
+  id: 1996
+  language: iso-639-2:ell
+  source_script: Grek
+  destination_script: Latn
+  name: BGN/PCGN 1996 System
+  url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/693694/ROMANIZATION_OF_GREEK.pdf
+  creation_date: 1996
+  description: |
+    BGN/PCGN Romanization table for Greek
+  
+  notes:
+    - Identical to ELOT 743:1982, which is also adopted as ISO 843:1997 and by UNGEGN
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  character_separator: ""
+  word_separator: " "
+  inherit: "elot-ell-Grek-Latn-743-1982-ts"

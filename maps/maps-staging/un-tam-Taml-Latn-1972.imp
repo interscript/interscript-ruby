@@ -1,0 +1,192 @@
+metadata {
+  authority_id: un
+  id: 1972
+  language: iso-639-2:tam
+  source_script: Gujr
+  destination_script: Taml
+  name: REPORT ON THE CURRENT STATUS OF UNITED NATIONS ROMANIZATION SYSTEMS FOR GEOGRAPHICAL NAMES --Tamil Romanization Version 4.0
+  url: https://www.eki.ee/wgrs/rom1_ta.htm
+  creation_date: 1972
+  confirmation_date: 2016
+  description: |
+    The United Nations recommended system was approved in 1972 (II/11) and amended in 1977 (III/12), based on a report prepared by
+    D. N. Sharma. The tables and their corrections were published in volume II of the conference reports.
+  
+    There is no evidence of the use of the system either in India, Sri Lanka or in international cartographic products.
+  
+    Tamil uses an alphasyllabic script whereby each character represents a syllable rather than one sound. Vowels and diphthongs
+    are marked in two ways: as independent characters (used syllable-initially) and in an abbreviated form, to denote vowels after
+    consonants. The romanization table is unambiguous. The system is on the whole reversible.
+  
+  notes:
+  
+    - |
+      ஜி Variation: டி ṭi.
+    - |
+      ஜீ Variation: டீ ṭī.
+    - |
+      ஜு Variations: கு ku, ஙு ṅu, சு chu, ஞு ñu, டு ṭu, ணு ṇu, து tu, நு nu, பு pu, மு mu, யு yu, ரு ru, லு lu, etc.
+    - |
+      ஜூ Variations: கூ kū, ஙூ ṅū, சூ chū, ஞூ ñū, டூ ṭū, ணூ ṇū, தூ tū, நூ nū, பூ pū, மூ mū, etc.
+    - |
+      ஃ Absent in the original table.
+    - |
+      ் Pronunciation without a vowel: க் k.
+    - |
+      ஜ, ஶ, ஸ, ன Characters borrowed from the Grantha script.
+    - |
+      ஸ Special syllable character: ஸ்ரீ srī.
+}
+
+tests {
+  test "அழிந்து போன நகரத்தில் , தொலைந்து போன நான்", "al̮intu poṉa nakarattil , tŏlaintu poṉa nāṉ"
+  test "முதன் முதலாக - மை ஃபர்ஸ்ட் சோலோ ட்ராவல்", "mutaṉ mutalāka - mai ḥparsṭ cholo ṭrāval"
+  test "வாழ்க்கையில் அவன் போன முதல் சோலோ டிரிப் அது தான்.", "vāl̮kkaiyil avaṉ poṉa mutal cholo ṭirip atu tāṉ."
+  test "ஸ்கூல் ப்ரெண்ட் கார்த்திக் வீட்டுக்கு போய்ட்டு", "skūl prĕṇṭ kārttik vīṭṭukku poyṭṭu"
+  test "நாசா வெளியிட்ட வெடிக்கும் நட்சத்திரத்தின் வீடியோ", "nāchā vĕḷiyiṭṭa vĕṭikkum naṭchattirattiṉ vīṭiyo"
+  test "டார்பிடோவை ஏவ உதவும் சூப்பர்சானிக் ஏவுகணையான ஸ்மார்ட் சோதனை வெற்றி", "ṭārpiṭovai eva utavum chūpparchāṉik evukaṇaiyāṉa smārṭ chotaṉai vĕṟṟi"
+  test "இந்த ஆண்டு மருத்துவத்துக்கான நோபல் பரிசு பெறுபவர்களின் பெயர்கள் அறிவிப்பு", "inta āṇṭu maruttuvattukkāṉa nopal parichu pĕṟupavarkaḷiṉ pĕyarkaḷ aṟivippu"
+  test "மல்லையா விவகாரம்: பிரிட்டன் அரசின் நடவடிக்கைகள் தங்களுக்கு தெரியவில்லை - மத்திய அரசு தகவல்", "mallaiyā vivakāram: piriṭṭaṉ arachiṉ naṭavaṭikkaikaḷ taṅkaḷukku tĕriyavillai - mattiya arachu takaval"
+  test "ஆலோசனைக்குப் பிறகு தேனியில் இருந்து சென்னை புறப்பட்டார் துணை முதலமைச்சர் பன்னீர்செல்வம்", "ālochaṉaikkup piṟaku teṉiyil iruntu chĕṉṉai puṟappaṭṭār tuṇai mutalamaichchar paṉṉīrchĕlvam"
+  test "இன்று தான் பேரன் பிறந்தநாள் முடிந்து ஃப்ரீ ஆகி இருக்கிறேன்", "iṉṟu tāṉ peraṉ piṟantanāḷ muṭintu ḥprī āki irukkiṟeṉ"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+
+  rules:
+    - pattern: ([க]=?)(?=[\u0bbe\u0bbf\u0bc0\u0bc1\u0bc2\u0bc6\u0bc7\u0bc8\u0bca\u0bcb\u0bcc\u25cc\u0bcd])
+      result:  'k'
+    - pattern: ([ங]=?)(?=[\u0bbe\u0bbf\u0bc0\u0bc1\u0bc2\u0bc6\u0bc7\u0bc8\u0bca\u0bcb\u0bcc\u25cc\u0bcd])
+      result:  'ṅ'
+    - pattern: ([ச]=?)(?=[\u0bbe\u0bbf\u0bc0\u0bc1\u0bc2\u0bc6\u0bc7\u0bc8\u0bca\u0bcb\u0bcc\u25cc\u0bcd])
+      result:  'ch'
+    - pattern: ([ஞ]=?)(?=[\u0bbe\u0bbf\u0bc0\u0bc1\u0bc2\u0bc6\u0bc7\u0bc8\u0bca\u0bcb\u0bcc\u25cc\u0bcd])
+      result:  'ñ'
+    - pattern: ([ட]=?)(?=[\u0bbe\u0bbf\u0bc0\u0bc1\u0bc2\u0bc6\u0bc7\u0bc8\u0bca\u0bcb\u0bcc\u25cc\u0bcd])
+      result:  'ṭ'
+    - pattern: ([ண]=?)(?=[\u0bbe\u0bbf\u0bc0\u0bc1\u0bc2\u0bc6\u0bc7\u0bc8\u0bca\u0bcb\u0bcc\u25cc\u0bcd])
+      result:  'ṇ'
+    - pattern: ([த]=?)(?=[\u0bbe\u0bbf\u0bc0\u0bc1\u0bc2\u0bc6\u0bc7\u0bc8\u0bca\u0bcb\u0bcc\u25cc\u0bcd])
+      result:  't'
+    - pattern: ([ந]=?)(?=[\u0bbe\u0bbf\u0bc0\u0bc1\u0bc2\u0bc6\u0bc7\u0bc8\u0bca\u0bcb\u0bcc\u25cc\u0bcd])
+      result:  'n'
+    - pattern: ([ப]=?)(?=[\u0bbe\u0bbf\u0bc0\u0bc1\u0bc2\u0bc6\u0bc7\u0bc8\u0bca\u0bcb\u0bcc\u25cc\u0bcd])
+      result:  'p'
+    - pattern: ([ம]=?)(?=[\u0bbe\u0bbf\u0bc0\u0bc1\u0bc2\u0bc6\u0bc7\u0bc8\u0bca\u0bcb\u0bcc\u25cc\u0bcd])
+      result:  'm'
+    - pattern: ([ய]=?)(?=[\u0bbe\u0bbf\u0bc0\u0bc1\u0bc2\u0bc6\u0bc7\u0bc8\u0bca\u0bcb\u0bcc\u25cc\u0bcd])
+      result:  'y'
+    - pattern: ([ர]=?)(?=[\u0bbe\u0bbf\u0bc0\u0bc1\u0bc2\u0bc6\u0bc7\u0bc8\u0bca\u0bcb\u0bcc\u25cc\u0bcd])
+      result:  'r'
+    - pattern: ([ல]=?)(?=[\u0bbe\u0bbf\u0bc0\u0bc1\u0bc2\u0bc6\u0bc7\u0bc8\u0bca\u0bcb\u0bcc\u25cc\u0bcd])
+      result:  'l'
+    - pattern: ([வ]=?)(?=[\u0bbe\u0bbf\u0bc0\u0bc1\u0bc2\u0bc6\u0bc7\u0bc8\u0bca\u0bcb\u0bcc\u25cc\u0bcd])
+      result:  'v'
+    - pattern: ([ழ]=?)(?=[\u0bbe\u0bbf\u0bc0\u0bc1\u0bc2\u0bc6\u0bc7\u0bc8\u0bca\u0bcb\u0bcc\u25cc\u0bcd])
+      result:  'l̮'
+    - pattern: ([ள]=?)(?=[\u0bbe\u0bbf\u0bc0\u0bc1\u0bc2\u0bc6\u0bc7\u0bc8\u0bca\u0bcb\u0bcc\u25cc\u0bcd])
+      result:  'ḷ'
+    - pattern: ([ற]=?)(?=[\u0bbe\u0bbf\u0bc0\u0bc1\u0bc2\u0bc6\u0bc7\u0bc8\u0bca\u0bcb\u0bcc\u25cc\u0bcd])
+      result:  'ṟ'
+    - pattern: ([ன]=?)(?=[\u0bbe\u0bbf\u0bc0\u0bc1\u0bc2\u0bc6\u0bc7\u0bc8\u0bca\u0bcb\u0bcc\u25cc\u0bcd])
+      result:  'ṉ'
+    - pattern: ([ஜ]=?)(?=[\u0bbe\u0bbf\u0bc0\u0bc1\u0bc2\u0bc6\u0bc7\u0bc8\u0bca\u0bcb\u0bcc\u25cc\u0bcd])
+      result:  'j'
+    - pattern: ([ஶ]=?)(?=[\u0bbe\u0bbf\u0bc0\u0bc1\u0bc2\u0bc6\u0bc7\u0bc8\u0bca\u0bcb\u0bcc\u25cc\u0bcd])
+      result:  'sh'
+    - pattern: ([ஷ]=?)(?=[\u0bbe\u0bbf\u0bc0\u0bc1\u0bc2\u0bc6\u0bc7\u0bc8\u0bca\u0bcb\u0bcc\u25cc\u0bcd])
+      result:  'ṣh'
+    - pattern: ([ஸ]=?)(?=[\u0bbe\u0bbf\u0bc0\u0bc1\u0bc2\u0bc6\u0bc7\u0bc8\u0bca\u0bcb\u0bcc\u25cc\u0bcd])
+      result:  's'
+    - pattern: ([ஹ]=?)(?=[\u0bbe\u0bbf\u0bc0\u0bc1\u0bc2\u0bc6\u0bc7\u0bc8\u0bca\u0bcb\u0bcc\u25cc\u0bcd])
+      result:  'h'
+
+
+  characters:
+    'அ': 'a'
+    'ஆ': 'ā'
+    'ா': 'ā'
+
+    'இ': 'i'
+    'ி': 'i'
+
+    'ஈ': 'ī'
+    'ீ': 'ī'
+
+    'உ': 'u'
+    'ு': 'u'
+
+    'ஊ': 'ū'
+    'ூ': 'ū'
+
+    'ெ': "ĕ"
+    'எ': 'ĕ'
+
+    'ே': "e"
+    'ஏ': 'e'
+
+    'ஐ': 'ai'
+    'ை': "ai"
+
+    'ஒ': 'ŏ'
+    'ொ': 'ŏ'
+
+    'ோ': 'o'
+    'ஓ': 'o'
+
+    'ஔ': 'au'
+    'ௌ': 'au'
+
+    'ஃ': 'ḥ'
+    '்': ''
+
+    'க': 'ka'
+    'ங': 'ṅa'
+    'ச': 'cha'
+    'ஞ': 'ña'
+    'ட': 'ṭa'
+    'ண': 'ṇa'
+    'த': 'ta'
+    'ந': 'na'
+    'ப': 'pa'
+    'ம': 'ma'
+    'ய': 'ya'
+    'ர': 'ra'
+    'ல': 'la'
+    'வ': 'va'
+    'ழ': 'l̮a'
+    'ள': 'ḷa'
+    'ற': 'ṟa'
+    'ன': 'ṉa'
+    'ஜ': 'ja'
+    'ஶ': 'sha'
+    'ஷ': 'ṣha'
+    'ஸ': 'sa'
+    'ஹ': 'ha'
+    'க்ஷ': 'kṣha'
+    'ற்ற': 'ṟṟa'
+    'ன்ற': 'ṉṟa'
+
+    # Digits
+    '௧': '1'
+    '௨': '2'
+    '௩': '3'
+    '௪': '4'
+    '௫': '5'
+    '௬': '6'
+    '௭': '7'
+    '௮': '8'
+    '௯': '9'
+    '௦': '0'
+    '௰': '10'
+    '௱': '100'
+    '௲': '1000'
+
+    "‍": '' # no need for zero with joiner
+    "‌": '' # no need for zero with non joiner

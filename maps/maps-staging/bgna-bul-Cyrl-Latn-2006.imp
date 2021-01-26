@@ -1,0 +1,119 @@
+metadata {
+  authority_id: bgna
+  id: 2006
+  language: iso-639-2:bul
+  source_script: Cyrl
+  destination_script: Latn
+  name: Republic of Bulgaria system for transliteration of Bulgarian geographical names with Roman letters
+  creation_date: 2006
+  adoption_date: 2006-10-26
+}
+
+tests {
+  test "нунатак Абрит", "nunatak Abrit"
+  test "връх Академия", "vrah Akademiya"
+  test "връх Ами Буе", "vrah Ami Bue"
+  test "нос Айтос", "nos Aytos"
+  test "залив Баба Тонка", "zaliv Baba Tonka"
+  test "Балабански камък", "Balabanski kamak"
+  test "Бедечки поток", "Bedechki potok"
+  test "нос Бяга", "nos Byaga"
+  test "остров Качо", "ostrov Kacho" # wiki ostrov Cacho
+  test "Чакъров остров", "Chakarov ostrov"
+  test "връх Дъбник", "vrah Dabnik"
+  test "залив Десислава", "zaliv Desislava"
+  test "ледник Джераси", "lednik Dzherasi"
+  test "Джегова скала", "Dzhegova skala"
+  test "Нунатак Едуард", "Nunatak Eduard"
+  test "Елховска седловина", "Elhovska sedlovina"
+  test "ледник Етър", "lednik Etar"
+  test "нунатак Филип Тотю", "nunatak Filip Totyu"
+  test "ледник Габаре", "lednik Gabare"
+  test "риф Гергини", "rif Gergini"
+  test "Гяуров връх", "Gyaurov vrah"
+  test "Гуцалски рид", "Gutsalski rid" # not found
+  test "Хараламбиев остров", "Haralambiev ostrov"
+  test "връх Ичера", "vrah Ichera"
+  test "полуостров Йоан Павел II", "poluostrov Yoan Pavel II"
+  test "нос Иван Александър", "nos Ivan Aleksandar"
+  test "нос Иречек", "nos Irechek"
+  test "нос Кърджали", "nos Kardzhali"
+  test "седловина Кърнаре", "sedlovina Karnare"
+  test "нунатак Керсеблепт", "nunatak Kerseblept"
+  test "Кондофрейски възвишения", "Kondofreyski vazvisheniya"
+  test "Костинбродски проход", "Kostinbrodski prohod"
+  test "връх Кожух", "vrah Kozhuh"
+  test "Кукерски нунатаци", "Kukerski nunatatsi"
+  test "залив Лазурен бряг", "zaliv Lazuren bryag"
+  test "връх Лудогорие", "vrah Ludogorie"
+  test "Лютибродски скали", "Lyutibrodski skali"
+  test "Масларов нунатак", "Maslarov nunatak"
+  test "Михневски връх", "Mihnevski vrah"
+  test "рид Митино", "rid Mitino"
+  test "езеро Наяда", "ezero Nayada"
+  test "нос Никюп", "nos Nikyup"
+  test "рид Оборище", "rid Oborishte"
+  test "залив Олуша", "zaliv Olusha"
+  test "Оряховски възвишения", "Oryahovski vazvisheniya"
+  test "нунатак Памидово", "nunatak Pamidovo"
+  test "връх Парангалица", "vrah Parangalitsa"
+  test "Първомайски провлак", "Parvomayski provlak"
+  test "ледник Патлейна", "lednik Patleyna"
+  test "полуостров Перник", "poluostrov Pernik"
+  test "връх Петко Войвода", "vrah Petko Voyvoda"
+  test "остров Фанагория", "ostrov Fanagoriya"
+  test "нос Плас", "nos Plas"
+  test "Пресиянов рид", "Presiyanov rid"
+  test "връх Принсипе де Астуриас", "vrah Prinsipe de Asturias" # wiki: vrah Príncipe de Asturias
+  test "нунатак Ръченица", "nunatak Rachenitsa"
+  test "връх Райна Княгиня", "vrah Rayna Knyaginya"
+  test "Рид Ръжана", "Rid Razhana"
+  test "връх Ригс", "vrah Rigs"
+  test "остров Рогулят", "ostrov Rogulyat"
+  test "ледник Сабазий", "lednik Sabaziy"
+  test "ледник Съединение", "lednik Saedinenie"
+  test "нунатак Сенокос", "nunatak Senokos"
+  test "Сейдолски камък", "Seydolski kamak"
+  test "ледник Щерна", "lednik Shterna"
+  test "връх Шишман", "vrah Shishman"
+  test "ледник Сигмен", "lednik Sigmen"
+  test "Седловина Синитово", "Sedlovina Sinitovo"
+  test "Ледник Скаплизо", "Lednik Skaplizo"
+  test "залив Слънчев бряг", "zaliv Slanchev bryag"
+  test "остров Соатрис", "ostrov Soatris"
+  test "планина Софийски Университет", "planina Sofiyski Universitet"
+  test "ледник Сребърна", "lednik Srebarna"
+  test "Средногорски възвишения", "Srednogorski vazvisheniya"
+  test "Св. Евтимиев камък", "Sv. Evtimiev kamak"
+  test "база Св. Климент Охридски", "baza Sv. Kliment Ohridski"
+  test "връх Стъргел", "vrah Stargel"
+  test "нунатак Сторгозия", "nunatak Storgoziya" # nunatak Storgozia according to wiki
+  test "нунатак Сурвакари", "nunatak Survakari"
+  test "ледник Световрачене", "lednik Svetovrachene"
+  test "остров Теменуга", "ostrov Temenuga"
+  test "Тракийски възвишения", "Trakiyski vazvisheniya"
+  test "хълм Цамблак", "halm Tsamblak"
+  test "ледник Урдовиза", "lednik Urdoviza"
+  test "остров Вълчедръм", "ostrov Valchedram"
+  test "острови Вардим", "ostrovi Vardim"
+  test "Владигеров проток", "Vladigerov protok"
+  test "ледник Ябланица", "lednik Yablanitsa"
+  test "залив Ямфорина", "zaliv Yamforina"
+  test "Йовков нос", "Yovkov nos"
+  test "рид Заберново", "rid Zabernovo"
+  test "ледник Збелсурд", "lednik Zbelsurd"
+  test "Жефарович камък", "Zhefarovich kamak"
+  test "връх Зиези", "vrah Ziezi"
+  test "залив Златни пясъци", "zaliv Zlatni pyasatsi"
+  test "ледник Злокучене", "lednik Zlokuchene"
+  test "проток Злогош", "protok Zlogosh"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  inherit: apcbg-bul-Cyrl-Latn-1995

@@ -1,0 +1,57 @@
+metadata {
+  authority_id: bgnpcgn
+  id: 1962
+  language: iso-639-2:srp
+  source_script: Cyrl
+  destination_script: Latn
+  name: TRANSLITERATION OF SERBIAN CYRILLIC
+  creation_date: 1962
+  confirmation_date: 1962
+  description: |
+    Serbo-Croatian, the official national language of Yugoslavia, is a single literary language.
+    In Serbian areas it is written in the cyrillic (Serbian) alphabet, while in Croatian areas it is
+    written in the roman (Croatian) alphabet.
+    Both the BGN and PCGN use the standard Croation equivalents for fomanizing the Serbian cyrillic
+    alphabet whenether romanized names are not available.
+  
+  notes:
+    - The digraph dj(Dj) will occasionally be found as the Croatian equivalent of ђ(Ђ),
+      but the use of dj should be limited to those instances where it is found in roman sources.
+}
+
+tests {
+  test "Шупља Стена", "Šuplja Stena"
+  test "Чукарица", "Čukarica"
+  test "Црна Трава", "Crna Trava"
+  test "Херцег Нови", "Herceg Novi"
+  test "Улцињ", "Ulcinj"
+  test "Ужице", "Užice"
+  test "Тресаначка Река", "Tresanačka Reka"
+  test "Сјеница", "Sjenica"
+  test "Рожаје", "Rožaje"
+  test "Пљевља", "Pljevlja"
+  test "Оџаци", "Odžaci"
+  test "Никшић", "Nikšić"
+  test "Медвеђа", "Medveđa"
+  test "Лозница", "Loznica"
+  test "Књажевац", "Knjaževac"
+  test "Зрењанин", "Zrenjanin"
+  test "Житорађа", "Žitorađa"
+  test "Ервеник", "Ervenik"
+  test "Доње Љупче", "Donje Ljupče"
+  test "Гусиње", "Gusinje"
+  test "ГУСИЊЕ", "GUSINJE"
+  test "Врњачка Бања", "Vrnjačka Banja"
+  test "Бијело Поље", "Bijelo Polje"
+  test "Алибунар", "Alibunar"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  inherit: bgnpcgn-srp-Cyrl-Latn-2005
+  postrules:

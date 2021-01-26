@@ -1,0 +1,61 @@
+metadata {
+  authority_id: un
+  id: 1998
+  language: iso-639-2:ukr
+  source_script: Cyrl
+  destination_script: Latn
+  name: ROMANIZATION SYSTEM FOR BELARUSIAN, RUSSIAN AND UKRAINIAN CYRILLIC
+  url: https://unstats.un.org/unsd/geoinfo/UNGEGN/docs/7th-uncsgn-docs/econf/7th_UNCSGN_econf.91_3_Add1.pdf
+  creation_date: 1998
+}
+
+tests {
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  inherit: gost-rus-Cyrl-Latn-16876-71-1983
+
+  characters:
+    '\u0413' : 'H'  # Г
+    '\u0490' : 'G'  # Ґ
+    '\u0404' : 'Ye' # Є
+    '\u0416' : 'Zh' # Ж
+    '\u0418' : 'Y'  # И
+    '\u0419' : 'Y'  # Й
+    '\u0406' : 'I'  # І
+    '\u0407' : 'Yi' # Ї
+    '\u0425' : 'Kh' # Х
+    '\u0426' : 'Ts' # Ц
+    '\u0427' : 'Ch' # Ч
+    '\u0428' : 'Sh' # Ш
+    '\u0429' : 'Shch' # Щ
+    '\u042C' : '' # Ь
+    '\u042E' : 'yu' # Ю
+    '\u042F' : 'ya' # Я
+    '\u042D' : 'E'  # Э
+
+    '\u0433' : 'h'  # г
+    '\u0491' : 'g'  # ґ
+    '\u0454' : 'ye' # є
+    '\u0436' : 'zh' # ж
+    '\u0438' : 'y'  # и
+    '\u0439' : 'y'  # й
+    '\u0456' : 'i'  # і
+    '\u0457' : 'yi' # ї
+    '\u0445' : 'kh' # х
+    '\u0446' : 'ts' # ц
+    '\u0447' : 'ch' # ч
+    '\u0448' : 'sh' # ш
+    '\u0449' : 'shch' # щ
+    '\u044C' : ''   # ь
+    '\u044E' : 'yu' # ю
+    '\u044F' : 'ya' # я
+    '\u044D' : 'e'  # э
+
+    '\u0027' : '"'  # '

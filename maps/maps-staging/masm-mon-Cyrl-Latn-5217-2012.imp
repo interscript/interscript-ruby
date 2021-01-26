@@ -1,0 +1,136 @@
+metadata {
+  authority_id: masm
+  id: 2012
+  language: iso-639-2:mon
+  source_script: Cyrl
+  destination_script: Latn
+  name: Transliteration of Mongolian Cyrillic characters into Latin
+  url: http://estandard.gov.mn/standard/reader/4635
+  creation_date:
+  confirmation_date: 2012-02
+  description: |
+    The standard MNS 5217:2012 is a standard of the Mongolian Agency for Standardization and Metrology
+    for transliteration from Cyrillic Mongolian in Latin alphabet. It repeats and supplements the previous
+    standard dating from 2003 (MNS 5217:2003).
+  
+    This standard differs from the ISO 9 system for Cyrillic adopted by Russia, Armenia, Azerbaijan,
+    Belarus, Kazakhstan, Kyrgyzstan, Uzbekistan, Tajikistan and Turkmenistan.
+}
+
+tests {
+  test "Аварга, халбага, аав", "Avarga, khalbaga, aav"
+  test "Бага, самбар", "Baga, sambar"
+  test "Аварга, вагон, сав", "Avarga, vagon, sav"
+  test "Газар, гэрээ, хэрэг", "Gazar, geree, khereg"
+  test "Дадлага, ахмад", "Dadlaga, akhmad"
+  test "Еэвэн, ерөөл", "Yeeven, yerööl"
+  test "Ёроол, оёдол", "Yorool, oyodol"
+  test "Жуулчин, ажил, Жон", "Juulchin, ajil, Jon"
+  test "Зам, азарга, бааз", "Zam, azarga, baaz"
+  test "Кино, километр, академи", "Kino, kilomyetr, akadyemi" # Kino, kilometr, akademi - Provided sample is wrong
+  test "Ишиг, бичиг, хань", "Ishig, bichig, khani"
+  test "Ийм, ээжийн", "Iim, eejiin"
+  test "Лам, алаг, мал", "Lam, alag, mal"
+  test "Мал, хамар, нам", "Mal, khamar, nam"
+  test "Нар, хана, үнэн", "Nar, khana, ünen"
+  test "Орон, боловсрол, тооно", "Oron, bolovsrol, toono"
+  test "Өдөр, өнөөдөр, өөрөөсөө", "Ödör, önöödör, ööröösöö"
+  test "Пуужин, апарат", "Puujin, aparat"
+  test "Рашаан, радио, сар", "Rashaan, radio, sar"
+  test "Сар, асар, эцэс", "Sar, asar, etses"
+  test "Тамга, татлага", "Tamga, tatlaga"
+  test "Уран, нуруу", "Uran, nuruu"
+  test "Үнэн, түргэн, тэргүүн", "Ünen, türgen, tergüün"
+  test "Фото, фонд", "Foto, fond"
+  test "Хавар, нөхөр, эх", "Khavar, nökhör, ekh"
+  test "Цацаг, цэцэг", "Tsatsag, tsetseg"
+  test "Чимэг, чадал, ач", "Chimeg, chadal, ach"
+  test "Шашин, ааш", "Shashin, aash"
+  test "Щедрин, щорс", "Shyedrin, shors" # Shedrin, Shors - Provided sample is wrong
+  test "Оръё, суръя, гаръя", "Oriyo, suriya, gariya"
+  test "Хааны, ахын", "Khaany, akhyn"
+  test "Харь, барь", "Khari, bari"
+  test "Эзэн, энэ, эмээл", "Ezen, ene, emeel"
+  test "Юм, юүдэн", "Yum, yuüden"
+  test "Ямар, ядуу, ая", "Yamar, yaduu, aya"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+
+  characters:
+    "А": "A"      # \u0410
+    "Б": "B"      # \u0411
+    "В": "V"      # \u0412
+    "Г": "G"      # \u0413
+    "Д": "D"      # \u0414
+    "Е": "Ye"     # \u0415
+    "Ё": "Yo"     # \u0401
+    "Ж": "J"      # \u0416
+    "З": "Z"      # \u0417
+    "И": "I"      # \u0418
+    "Й": "I"      # \u0419
+    "К": "K"      # \u041a
+    "Л": "L"      # \u041b
+    "М": "M"      # \u041c
+    "Н": "N"      # \u041d
+    "О": "O"      # \u041e
+    "Ө": "Ö"      # \u04e8
+    "П": "P"      # \u041f
+    "Р": "R"      # \u0420
+    "С": "S"      # \u0421
+    "Т": "T"      # \u0422
+    "У": "U"      # \u0423
+    "Ү": "Ü"      # \u04ae
+    "Ф": "F"      # \u0424
+    "Х": "Kh"     # \u0425
+    "Ц": "Ts"     # \u0426
+    "Ч": "Ch"     # \u0427
+    "Ш": "Sh"     # \u0428
+    "Щ": "Sh"     # \u0429
+    "Ъ": "I"      # \u042a
+    "Ы": "Y"      # \u042b
+    "Ь": "I"      # \u042c
+    "Э": "E"      # \u042d
+    "Ю": "Yu"     # \u042e
+    "Я": "Ya"     # \u042f
+    "а": "a"      # \u0430
+    "б": "b"      # \u0431
+    "в": "v"      # \u0432
+    "г": "g"      # \u0433
+    "д": "d"      # \u0434
+    "е": "ye"     # \u0435
+    "ё": "yo"     # \u0451
+    "ж": "j"      # \u0436
+    "з": "z"      # \u0437
+    "и": "i"      # \u0438
+    "й": "i"      # \u0439
+    "к": "k"      # \u043a
+    "л": "l"      # \u043b
+    "м": "m"      # \u043c
+    "н": "n"      # \u043d
+    "о": "o"      # \u043e
+    "ө": "ö"      # \u04e9
+    "п": "p"      # \u043f
+    "р": "r"      # \u0440
+    "с": "s"      # \u0441
+    "т": "t"      # \u0442
+    "у": "u"      # \u0443
+    "ү": "ü"      # \u04af
+    "ф": "f"      # \u0444
+    "х": "kh"     # \u0445
+    "ц": "ts"     # \u0446
+    "ч": "ch"     # \u0447
+    "ш": "sh"     # \u0448
+    "щ": "sh"     # \u0449
+    "ъ": "i"      # \u044a
+    "ы": "y"      # \u044b
+    "ь": "i"      # \u044c
+    "э": "e"      # \u044d
+    "ю": "yu"     # \u044e
+    "я": "ya"     # \u044f

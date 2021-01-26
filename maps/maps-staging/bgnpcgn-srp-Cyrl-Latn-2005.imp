@@ -1,0 +1,150 @@
+metadata {
+  authority_id: bgnpcgn
+  id: 2005
+  language: iso-639-2:srp
+  source_script: Cyrl
+  destination_script: Latn
+  name: ROMANIZATION OF SERBIAN, BGN/PCGN 2005 System
+  url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/816783/TABLE_OF_CORRESPONDENCES_FOR_SERBIAN.pdf
+  creation_date: 2005
+  confirmation_date: 2019-06
+  description: |
+    The tabulation below reflects the Serbian Cyrillic alphabet and the standard Roman script equivalents
+    used in both Serbia and Montenegro.
+  
+  notes:
+    - The Serbian Cyrillic lowercase italic Д may sometimes be seen as g.
+      There is no specific Unicode encoding for this variant form so a comparable character
+      has been used here for illustrative purposes.
+  
+    - The digraph dj(Dj) will occasionally be found as an alternative form of đ(Đ).
+  
+    - The Serbian Cyrillic lowercase italic П may sometimes be seen as ӣ.
+      There is no specific Unicode encoding for this variant form so a comparable character
+      has been used here for illustrative purposes.
+  
+    - The Serbian Cyrillic lowercase italic Т may sometimes be seen as w.
+      There is no specific Unicode encoding for this variant form so a comparable character
+      has been used here for illustrative purposes.
+  
+    - |
+      An inventory of letter-diacritic combinations, with their Unicode encoding,
+      in addition to the unmodified letters of the basic Roman script is:
+      | Đ (U+0110)   | đ (U+0111)   |
+      | Ž (U+017D)   | ž (U+017E)   |
+      | Lj (U+01C8)* | lj (U+01C9)* |
+      | Ć (U+0106)   | ć (U+0107)   |
+      | Dž (U+01C5)* | dž (U+01C6)* |
+      | Š (U+0160)   | š (U+0161)   |
+      * Note that these characters can also be reproduced with individual letters (e.g. l+j).
+  
+    - The Roman-script columns show only lowercase forms but, when applying the table,
+      uppercase and lowercase Roman letters as appropriate should be used.
+}
+
+tests {
+  test "Шупља Стена", "Šuplja Stena"
+  test "Чукарица", "Čukarica"
+  test "Црна Трава", "Crna Trava"
+  test "Херцег Нови", "Herceg Novi"
+  test "Улцињ", "Ulcinj"
+  test "Ужице", "Užice"
+  test "Тресаначка Река", "Tresanačka Reka"
+  test "Сјеница", "Sjenica"
+  test "Рожаје", "Rožaje"
+  test "Пљевља", "Pljevlja"
+  test "Оџаци", "Odžaci"
+  test "Никшић", "Nikšić"
+  test "Медвеђа", "Medveđa"
+  test "Лозница", "Loznica"
+  test "Књажевац", "Knjaževac"
+  test "Зрењанин", "Zrenjanin"
+  test "Житорађа", "Žitorađa"
+  test "Ервеник", "Ervenik"
+  test "Доње Љупче", "Donje Ljupče"
+  test "Гусиње", "Gusinje"
+  test "ГУСИЊЕ", "GUSINJE"
+  test "Врњачка Бања", "Vrnjačka Banja"
+  test "Бијело Поље", "Bijelo Polje"
+  test "Алибунар", "Alibunar"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  postrules:
+    #LJ
+    - pattern: "((?<=[[:upper:]])Lj(?=[[:upper:]])?|(?<=[[:upper:]])?Lj(?=[[:upper:]]))"
+      result: "LJ"
+    #NJ
+    - pattern: "((?<=[[:upper:]])Nj(?=[[:upper:]])?|(?<=[[:upper:]])?Nj(?=[[:upper:]]))"
+      result: "NJ"
+    #DŽ
+    - pattern: "((?<=[[:upper:]])Dž(?=[[:upper:]])?|(?<=[[:upper:]])?Dž(?=[[:upper:]]))"
+      result: "DŽ"
+
+  characters:
+    "\u0410": "A"
+    "\u0411": "B"
+    "\u0412": "V"
+    "\u0413": "G"
+    "\u0414": "D"
+    "\u0402": "\u0110" # Đ
+    "\u0415": "E"
+    "\u0416": "\u005a\u030c" # Ž
+    "\u0417": "Z"
+    "\u0418": "I"
+    "\u0408": "J"
+    "\u041A": "K"
+    "\u041B": "L"
+    "\u0409": "Lj"
+    "\u041C": "M"
+    "\u041D": "N"
+    "\u040A": "Nj"
+    "\u041E": "O"
+    "\u041F": "P"
+    "\u0420": "R"
+    "\u0421": "S"
+    "\u0422": "T"
+    "\u040B": "\u0043\u0301" # Ć
+    "\u0423": "U"
+    "\u0424": "F"
+    "\u0425": "H"
+    "\u0426": "C"
+    "\u0427": "\u0043\u030c" # Č
+    "\u040F": "D\u007a\u030c" # Dž
+    "\u0428": "\u0053\u030c" # Š
+    "\u0430": "a"
+    "\u0431": "b"
+    "\u0432": "v"
+    "\u0433": "g"
+    "\u0434": "d"
+    "\u0452": "\u0111" # đ
+    "\u0435": "e"
+    "\u0436": "\u007a\u030c" # ž
+    "\u0437": "z"
+    "\u0438": "i"
+    "\u0458": "j"
+    "\u043A": "k"
+    "\u043B": "l"
+    "\u0459": "lj"
+    "\u043C": "m"
+    "\u043D": "n"
+    "\u045A": "nj"
+    "\u043E": "o"
+    "\u043F": "p"
+    "\u0440": "r"
+    "\u0441": "s"
+    "\u0442": "t"
+    "\u045B": "\u0063\u0301" # ć́
+    "\u0443": "u"
+    "\u0444": "f"
+    "\u0445": "h"
+    "\u0446": "c"
+    "\u0447": "\u0063\u030c" # č
+    "\u045F": "d\u007a\u030c" # dž
+    "\u0448": "\u0073\u030c" # š

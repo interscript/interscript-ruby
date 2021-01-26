@@ -1,0 +1,214 @@
+metadata {
+  authority_id: bgnpcgn
+  id: 1962
+  language: iso-639-2:ell
+  source_script: Grek
+  destination_script: Latn
+  name: BGN/PCGN 1962 System
+  url: https://github.com/riboseinc/interscript/files/4225556/BGN_Romanization_Guide_1962_greek.pdf
+  creation_date: 1962
+  description: |
+    BGN/PCGN Romanization table for Greek
+  
+  notes:
+    - Original specification is for polytonic Greek; this has been adapted for monotonic Greek
+    - The treatment of έι in https://transliteration.eki.ee/pdf/Greek.pdf is incorrect; although
+      not explicitly discussed in the original specification, έι is phonetically equivalent to
+      έϊ, and is to be transliterated as eï, not í (like εί). The same applies to other diphthongs
+      accented on the first syllable.
+}
+
+tests {
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  # https://en.wikipedia.org/wiki/Romanization_of_Greek
+  rules:
+    - pattern: (?<=[ΑαΕεΗη])\u03A5    # Υ (after Α, Ε, Η)
+      result: V
+    - pattern: (?<=[ΑαΕεΗη])\u03C5    # υ (after Α, Ε, Η)
+      result: v
+    - pattern: (?<=[Οο])\u03A5    # Υ (after Ο)
+      result: U
+    - pattern: (?<=[Οο])\u03C5    # υ (after Ο)
+      result: u
+    - pattern: (?<=[Οο])\u03CD    # ύ (after Ο)
+      result: ú
+    - pattern: \u03A5[Ιιί]        # ΥΙ
+      result: I
+    - pattern: \u03C5[Ιιί]        # υι
+      result: i
+    - pattern: \u03A5[ί]        # ΥΙ
+      result: Í
+    - pattern: \u03C5[ί]        # υι
+      result: í
+    - pattern: \u0393(?=[ξΞχΧ])    # Γ (before Γ, Ξ, Χ)
+      result: N
+    - pattern: \u03B3(?=[ξΞχΧ])    # γ (before Γ, Ξ, Χ)
+      result: n
+    - pattern: \u0393[Γγ]    # Γ (before Γ, Ξ, Χ)
+      result: Ng
+    - pattern: \u03B3\u03B3    # γ (before Γ, Ξ, Χ)
+      result: ng
+    - pattern: (?<=\b)\u0393[Κκ]    # Γ (before Κ initially)
+      result: G
+    - pattern: (?<=\b)\u03B3[Κκ]    # γ (before Κ initially)
+      result: g
+    - pattern: (?<!\b)\u0393[Κκ]    # Γ (before Κ medially)
+      result: Ng
+    - pattern: (?<!\b)\u03B3[Κκ]    # γ (before Κ medially)
+      result: ng
+    - pattern: \u0393(?=[ΕεέΗηήΙιίΥυύ])    # Γ (before front vowels)
+      result: Y
+    - pattern: \u03B3(?=[ΕεέΗηήΙιίΥυύ])    # γ (before front vowels)
+      result: y
+    - pattern: \u0393(?=[Oo][Ιιί])    # Γ (before front vowels)
+      result: Y
+    - pattern: \u03B3(?=[Oo][Ιιί])    # γ (before front vowels)
+      result: y
+    - pattern: (?<=\b)\u039D[τΤ]    # ΝΤ (initially)
+      result: D
+    - pattern: (?<=\b)\u03BD[τΤ]    # ντ (initially)
+      result: d
+    - pattern: \u039D[τΤ][ζΖ]    # ΝΤΖ
+      result: NTZ
+    - pattern: \u03BD[τΤ][ζΖ]    # ντζ
+      result: ntz
+    - pattern: (?<!\b)\u039D[τΤ]    # ΝΤ (medially)
+      result: Nd
+    - pattern: (?<!\b)\u03BD[τΤ]    # ντ (medially)
+      result: nd
+    - pattern: (?<=\b)\u039C[πΠ]    # ΜΠ (initially)
+      result: B
+    - pattern: (?<=\b)\u03BC[πΠ]    # μπ (initially)
+      result: b
+    - pattern: \u039C[πΠ]    # ΜΠ (medially)
+      result: Mb
+    - pattern: \u03BC[πΠ]    # μπ (medially)
+      result: mb
+    - pattern: (?<=[νΝ])\u0394(?=[ρΡ])    # νδρ
+      result: d
+    - pattern: (?<=[νΝ])\u03B4(?=[ρΡ])    # νδρ
+      result: d
+    - pattern: (?<=[ΑΆαά])\u0395    # ΑΕ
+      result: Ë
+    - pattern: (?<=[ΑΆαά])\u03B5    # αε
+      result: ë
+    - pattern: (?<=[ΑΆαά])\u03AD    # αέ
+      result: ë́
+    - pattern: (?<=[ΩΏωώ])\u039F    # ΩΟ
+      result: Ö
+    - pattern: (?<=[ΩΏωώ])\u03BF    # ωο
+      result: ö
+    - pattern: (?<=[ΩΏωώ])\u03CC    # ωό
+      result: ö́
+    - pattern: (?<=[ΑΆαάΟΌοό])\u0397    # ΑΗ, ΟΗ
+      result: Ï
+    - pattern: (?<=[ΑΆαάΟΌοό])\u03B7    # αη, οη
+      result: ï
+    - pattern: (?<=[ΑΆαάΟΌοό])\u03AE    # αή, οή
+      result: ḯ
+    - pattern: \u037E   # ;
+      result: "?"
+    - pattern: \u003B   # ;
+      result: "?"
+
+  characters:
+    "\u0027": ""
+    "\u0386": "Á"  # Ά
+    "\u0391": "A"  # Α
+    "\u0392": "V"  # Β
+    "\u0393": "G"  # Γ
+    "\u0394": "Dh"  # Δ
+    "\u0395": "E"  # Ε
+    "\u0395\u0399": "I"  # ΕΙ
+    "\u0395\u03B9": "I"  # Ει
+    "\u0395\u03AF": "Í"  # Εί
+    "\u0395\u03AA": "Εï"  # ΕΪ
+    "\u0395\u03CA": "Εï"  # Εϊ
+    "\u0388\u03CA": "Éï"  # Έϊ
+    "\u0388\u03CA": "Éï"  # Έι
+    "\u0391\u03CD": "Áv"  # Αύ
+    "\u0395\u03CD": "Év"  # Εύ
+    "\u0397\u03CD": "Ív"  # Ηύ
+    "\u0396": "Z"  # Ζ
+    "\u0397": "I"  # Η
+    "\u0398": "Th" # Θ
+    "\u0399": "I"  # Ι
+    "\u039A": "K"  # Κ
+    "\u039B": "L"  # Λ
+    "\u039C": "M"  # Μ
+    "\u039D": "N"  # Ν
+    "\u039E": "X"  # Ξ
+    "\u039F": "O"  # Ο
+    "\u03A0": "P"  # Π
+    "\u03A1": "R"  # Ρ
+    "\u03A3": "S"  # Σ
+    "\u03A4": "T"  # Τ
+    "\u03A5": "I"  # Υ
+    "\u03A6": "F" # Φ
+    "\u03A7": "Kh" # Χ
+    "\u03A8": "Ps" # Ψ
+    "\u03A9": "O"  # Ω
+    "\u0388": "É"  # Έ
+    "\u0389": "Í"  # Ή
+    "\u038A": "Í"  # Ί
+    "\u038C": "Ó"  # Ό
+    "\u038E": "Í"  # Ύ
+    "\u038F": "Ó"  # Ώ
+    "\u03AA": "Ï"  # Ϊ
+    "\u03AB": "Ï"  # Ϋ
+
+    "\u03AC": "á"  # ά
+    "\u03B1": "a"  # α
+    "\u03B2": "v"  # β
+    "\u03B3": "g"  # γ
+    "\u03B4": "dh"  # δ
+    "\u03B5": "e"  # ε
+    "\u03B5\u03B9": "i"  # ει
+    "\u03B5\u03AF": "í"  # εί
+    "\u03B5\u03CA": "eï"  # εϊ
+    "\u03AD\u03CA": "éï"  # έϊ
+    "\u03AD\u03B9": "éï"  # έι
+    "\u03B1\u03CD": "áv"  # αύ
+    "\u03B5\u03CD": "év"  # εύ
+    "\u03B7\u03CD": "ív"  # ηύ
+    "\u03B6": "z"  # ζ
+    "\u03B7": "i"  # η
+    "\u03B8": "th" # θ
+    "\u03B9": "i"  # ι
+    "\u03BA": "k"  # κ
+    "\u03BB": "l"  # λ
+    "\u03BC": "m"  # μ
+    "\u03BD": "n"  # ν
+    "\u03BE": "x"  # ξ
+    "\u03BF": "o"  # ο
+    "\u03C0": "p"  # π
+    "\u03C1": "r"  # ρ
+    "\u03C3": "s"  # σ
+    "\u03C2": "s"  # ς
+    "\u03C4": "t"  # τ
+    "\u03C5": "i"  # υ
+    "\u03C6": "f" # φ
+    "\u03C7": "kh" # χ
+    "\u03C8": "ps" # ψ
+    "\u03C9": "o"  # ω
+    "\u03AD": "é"  # έ
+    "\u03AE": "í"  # ή
+    "\u03AF": "í"  # ί
+    "\u03CC": "ó"  # ό
+    "\u03CD": "í"  # ύ
+    "\u03CE": "ó"  # ώ
+    "\u03CA": "ï"  # ϊ
+    "\u03CB": "ï"  # ϋ
+    "\u0390": "ḯ"  # ΐ
+    "\u03B0": "ḯ"  # ΰ
+
+    "\u0387": ";"   # ·
+    "\u00B7": ";"   # ·

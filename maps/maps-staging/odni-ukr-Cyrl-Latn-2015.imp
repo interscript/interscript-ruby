@@ -1,0 +1,137 @@
+metadata {
+  authority_id: odni
+  id: 2015
+  language: iso-639-2:ukr
+  source_script: Cyrl
+  destination_script: Latn
+  name: Office of the Director Of National Intelligence Ukrainian Personal Names 2004 System, ICS 630-01 Annex M
+  
+  # url:
+  source: ICS 630-01, Annex M
+  creation_date: 2015
+  confirmation_date: 2015
+  description: |
+    This system is the Intelligence Community (IC) standard for the
+    transliteration of Ukrainian names that will be applied to all final
+    written reports and products for IC consumers. It is not intended to
+    eliminate variations of a name that can contribute forensic
+    information. Rather, it is to provide an IC standard Romanized
+    (English) transliteration from Ukrainian that can then be linked to
+    forensic information in ways that will help identify the referent of
+    the name.
+}
+
+tests {
+  test "Андрій", "Andriy"
+  test "Борисенко", "Borysenko"
+  test "Володимир", "Volodymyr"
+  test "Богдан", "Bohdan"
+  test "Згурський", "Zhurskyy"
+  test "Дмитро", "Dmytro"
+  test "Олег", "Oleh"
+  test "Гаєвич", "Hayevych"
+  test "Жанна", "Zhanna"
+  test "Казимирчук", "Kazymyrchuk"
+  test "Михайленко", "Mykhaylenko"
+  test "Іващенко", "Ivashchenko"
+  test "Олексій", "Oleksiy"
+  test "Коваленко", "Kovalenko"
+  test "Леонід", "Leonid"
+  test "Маринич", "Marynych"
+  test "Наталія", "Nataliya"
+  test "Онищенко", "Onyshchenko"
+  test "Петро", "Petro"
+  test "Рибчинський", "Rybchynskyy"
+  test "Соломія", "Solomiya"
+  test "Троць", "Trots"
+  test "Уляна", "Ulyana"
+  test "Філіпчук", "Filipchuk"
+  test "Христина", "Khrystyna"
+  test "Стеценко", "Stetsenko"
+  test "Шевченко", "Shevchenko"
+  test "Гаращенко", "Harashchenko"
+  test "Юрій", "Yuriy"
+  test "Ярошенко", "Yaroshenko"
+  test "Костянтин", "Kostyantyn"
+  test "Новофедорівка", "Novofedorivka"
+  test "Гуляйгородок", "Hulyayhorodok"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  rules:
+    - pattern: \b\u2019\b # remove ’
+      result: ""
+
+  characters:
+    "\u0410": "A"        # А
+    "\u0411": "B"        # Б
+    "\u0412": "V"        # В
+    "\u0413": "H"        # Г
+    "\u0490": "G"        # Ґ
+    "\u0414": "D"        # Д
+    "\u0415": "E"        # Е
+    "\u0404": "Ye"       # Є
+    "\u0416": "Zh"       # Ж
+    "\u0417": "Z"        # З
+    "\u0418": "Y"        # И
+    "\u0406": "I"        # І
+    "\u0407": "Yi"       # Ї
+    "\u0419": "Y"        # Й
+    "\u041a": "K"        # К
+    "\u041b": "L"        # Л
+    "\u041c": "M"        # М
+    "\u041d": "N"        # Н
+    "\u041e": "O"        # О
+    "\u041f": "P"        # П
+    "\u0420": "R"        # Р
+    "\u0421": "S"        # С
+    "\u0422": "T"        # Т
+    "\u0423": "U"        # У
+    "\u0424": "F"        # Ф
+    "\u0425": "Kh"       # Х
+    "\u0426": "Ts"       # Ц
+    "\u0427": "Ch"       # Ч
+    "\u0428": "Sh"       # Ш
+    "\u0429": "Shch"     # Щ
+    "\u042e": "Yu"       # Ю
+    "\u042f": "Ya"       # Я
+    "\u042c": ""         # Ь
+    "\u0430": "a"        # а
+    "\u0431": "b"        # б
+    "\u0432": "v"        # в
+    "\u0433": "h"        # г
+    "\u0491": "g"        # ґ
+    "\u0434": "d"        # д
+    "\u0435": "e"        # е
+    "\u0454": "ye"       # є
+    "\u0436": "zh"       # ж
+    "\u0437": "z"        # з
+    "\u0438": "y"        # и
+    "\u0456": "i"        # і
+    "\u0457": "yi"       # ї
+    "\u0439": "y"        # й
+    "\u043a": "k"        # к
+    "\u043b": "l"        # л
+    "\u043c": "m"        # м
+    "\u043d": "n"        # н
+    "\u043e": "o"        # о
+    "\u043f": "p"        # п
+    "\u0440": "r"        # р
+    "\u0441": "s"        # с
+    "\u0442": "t"        # т
+    "\u0443": "u"        # у
+    "\u0444": "f"        # ф
+    "\u0445": "kh"       # х
+    "\u0446": "ts"       # ц
+    "\u0447": "ch"       # ч
+    "\u0448": "sh"       # ш
+    "\u0449": "shch"     # щ
+    "\u044e": "yu"       # ю
+    "\u044f": "ya"       # я
+    "\u044c": ""         # Ь

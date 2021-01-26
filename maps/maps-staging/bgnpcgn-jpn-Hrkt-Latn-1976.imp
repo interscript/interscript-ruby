@@ -1,0 +1,191 @@
+metadata {
+  authority_id: bgnpcgn
+  id: 1930
+  language: iso-639-2:jpn
+  source_script: Hrkt
+  destination_script: Latn
+  name: Japanese Kana Modified Hepburn 1930 System
+  url:
+  creation_date:
+  adoption_date:
+  description:
+  
+  notes:
+    - Segmentation needs to be done before using this map
+    - Note 5 in the specification states that when identical repeating vowels
+      belong to different kanji characters, they shall be romanized
+      individually and an apostrophe (’) shall be placed between the vowels.
+      However since this is a map from Kana to Hepburn, there is no way to
+      implement this feature.
+    - The documentation did not specify how the hyphen should be used.
+}
+
+tests {
+  test "てがた-からみでん", "Tegata-karamiden"
+  test "てがた-すみよしちょう", "Tegata-sumiyoshichō"
+  test "さいのはま", "Sainohama"
+  test "てがた-たなか", "Tegata-tanaka"
+  test "ほりおでん", "Horioden"
+  test "そえがわ", "Soegawa"
+  test "ふねがさわ", "Funegasawa"
+  test "とくまんだて", "Tokumandate"
+  test "たてない", "Tatenai"
+  test "つるがさき", "Tsurugasaki"
+  test "しもやつせ", "Shimoyatsuse"
+  test "かみやつせ", "Kamiyatsuse"
+  test "しんとうだ", "Shintōda"
+  test "かじのめ", "Kajinome"
+  test "まえぎ", "Maegi"
+  test "くろさわ やま", "Kurosawa Yama"
+  test "いちのさわ がわ", "Ichinosawa Gawa"
+  test "はちやまえ", "Hachiyamae"
+  test "やち", "Yachi"
+  test "たてぬま", "Tatenuma"
+  test "しらはま", "Shirahama"
+  test "けせんまち", "Kesenmachi"
+  test "けいだい-かわら", "Keidai-kawara"
+  test "いしやました", "Ishiyamashita"
+  test "なえひら-やち", "Naehira-yachi"
+  test "とみの", "Tomino"
+  test "あらや-たかみまち", "Araya-takamimachi"
+  test "ながた", "Nagata"
+  test "とどろき おんせん", "Todoroki Onsen"
+  test "かしわぎはら", "Kashiwagihara"
+  test "とやけもり やま", "Toyakemori Yama"
+  test "なかさい", "Nakasai"
+  test "たけした", "Takeshita"
+  test "みと", "Mito"
+  test "みなみなかさと", "Minaminakasato"
+  test "みずおし", "Mizuoshi"
+  test "なかさと", "Nakasato"
+  test "しんかりば", "Shinkariba"
+  test "しんかみぬま", "Shinkaminuma"
+  test "しんばし", "Shinbashi"
+  test "りくぜんやました えき", "Rikuzen’yamashita Eki"
+  test "うしじまにし", "Ushijimanishi"
+  test "はまえば", "Hamaeba"
+  test "ぬまむかい", "Numamukai"
+  test "さんげんやち", "Sangen’yachi"
+  test "にけんやち", "Niken’yachi"
+  test "やちなか", "Yachinaka"
+  test "なす がわ", "Nasu Gawa"
+  test "おおはらはま", "Ōharahama"
+  test "うるご がわ", "Urugo Gawa"
+  test "なかばせ", "Nakabase"
+  test "うと えき", "Uto Eki"
+  test "みずまち", "Mizumachi"
+  test "ごんげんどう", "Gongendō"
+  test "いとひさ", "Itohisa"
+  test "あらおい", "Araoi"
+  test "わんめ", "Wanme"
+  test "かじろ", "Kajiro"
+  test "みやばら", "Miyabara"
+  test "いまどみ", "Imadomi"
+  test "かいほ", "Kaiho"
+  test "かいほ ぼえん", "Kaiho Boen"
+  test "ひきだ", "Hikida"
+  test "あさい-こむかい", "Asai-komukai"
+  test "こうざか", "Kōzaka"
+  test "こうふうだい", "Kōfūdai"
+  test "たての", "Tateno"
+  test "センター", "Sentā"
+  test "フィリピン", "Firipin"
+  test "ヴィオリン", "Viorin"
+  test "クォーター", "Kwōtā"
+  test "パッチリ", "Patchiri"
+  test "ぽっぽっや", "Poppoyya"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  character_separator: ""
+  word_separator: " "
+  title_case: True
+  inherit: var-jpn-Hrkt-Latn-hepburn-1954
+
+  characters:
+    # Rare sounds, Table 2 & 4
+
+    "くぁ": "kwa"
+    "クァ": "kwa"
+    "ぐぁ": "gwa"
+    "グァ": "gwa"
+    "くぃ": "kwi"
+    "クィ": "kwi"
+    "ぐぃ": "gwa"
+    "グィ": "gwa"
+    "きぇ": "kye"
+    "キェ": "kye"
+    "ぎぇ": "gye"
+    "ギェ": "gye"
+    "くぇ": "kwe"
+    "クェ": "kwe"
+    "ぐぇ": "gwe"
+    "グェ": "gwe"
+    "くぉ": "kwo"
+    "クォ": "kwo"
+    "ぐぉ": "gwo"
+    "グォ": "gwo"
+    "しぇ": "she"
+    "シェ": "she"
+    "じぇ": "je"
+    "ジェ": "je"
+    "つぁ": "tsa"
+    "ツァ": "tsa"
+    "てぃ": "ti"
+    "ティ": "ti"
+    "でぃ": "di"
+    "ディ": "di"
+    "てゅ": "tyu"
+    "テュ": "tyu"
+    "でゅ": "dyu"
+    "デュ": "dyu"
+    "とゅ": "tu"
+    "トュ": "tu"
+    "どゅ": "du"
+    "ドュ": "du"
+    "ちぇ": "che"
+    "チェ": "che"
+    "ぢぇ": "je"
+    "ヂェ": "je"
+    "つぇ": "tse"
+    "ツェ": "tse"
+    "つぉ": "tso"
+    "ツォ": "tso"
+    "にぇ": "nye"
+    "ニェ": "nye"
+    "ふぁ": "fa"
+    "ファ": "fa"
+    "ふぃ": "fi"
+    "フィ": "fi"
+    "ふぇ": "fe"
+    "フェ": "fe"
+    "ふぉ": "fo"
+    "フォ": "fo"
+    "みぇ": "mye"
+    "ミェ": "mye"
+    "ぃぇ": "ye"
+    "ィェ": "ye"
+    "りぇ": "rye"
+    "リェ": "rye"
+    "ゔぁ": "va"
+    "ヴァ": "va"
+    "うぃ": "wi"
+    "ウィ": "wi"
+    "ゔぃ": "vi"
+    "ヴィ": "vi"
+    "うぇ": "we"
+    "ウェ": "we"
+    "ゔぇ": "ve"
+    "ヴェ": "ve"
+    "うぉ": "wo"
+    "ウォ": "wo"
+    "ゔぉ": "vo"
+    "ヴォ": "vo"
+    "ゔ": "vu"
+    "ヴ": "vu"

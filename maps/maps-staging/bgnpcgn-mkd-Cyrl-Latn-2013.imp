@@ -1,0 +1,165 @@
+metadata {
+  authority_id: bgnpcgn
+  id: 2013
+  language: iso-639-2:mkd
+  source_script: Cyrl
+  destination_script: Latn
+  name: Makedonian Romanization, BGN/PCGN 2013 System
+  url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/811514/ROMANIZATION_OF_MACEDONIAN.pdf
+  creation_date: 2013
+  description: |
+    Macedonian was officially established as a written language in Yugoslavia during
+    World War II and is now the official language of North Macedonia.
+    This romanization system replaces the BGN/PCGN 1981 agreement and adheres
+    to the most widely-accepted standardization of Macedonian orthography.
+  
+  notes:
+    - The Macedonian Cyrillic lowercase italic Д may sometimes be seen as g.
+      There is no specific Unicode encoding for this variant form so a comparable character
+      has been used here for illustrative purposes.
+    - The Macedonian Cyrillic lowercase italic Ѓ may sometimes be seen as ī.
+      There is no specific Unicode encoding for this variant form so a comparable character
+      has been used here for illustrative purposes.
+    - The Macedonian Cyrillic lowercase italic П may sometimes be seen as ū.
+      There is no specific Unicode encoding for this variant form so a comparable character
+      has been used here for illustrative purposes.
+    - The Macedonian Cyrillic lowercase italic Т may sometimes be seen as w̄.
+      There is no specific Unicode encoding for this variant form so a comparable character
+      has been used here for illustrative purposes.
+    - |
+      An inventory of letter-diacritic combinations, with their Unicode encoding,
+      in addition to the unmodified letters of the basic Roman script is:
+      | Ǵ (U+01F4)   | ǵ (U+01F5)   |
+      | Ž (U+017D)   | ž (U+017E)   |
+      | Dz (U+01F2)* | dz (U+01F3)* |
+      | Lj (U+01C8)* | lj (U+01C9)* |
+      | Nj (U+01CB)* | nj(U+01CC)*  |
+      | Ḱ (U+IE30)   | ḱ (U+IE31)   |
+      | Č (U+010C)   | č (U+010D)   |
+      | Dž (U+01C5)* | dž (U+01C6)* |
+      | Š (U+0160)   | š (U+0161)   |
+      * Note that these characters can also be reproduced with individual letters (e.g. l+j).
+    - The Romanization column shows only lowercase forms but, when romanizing,
+      uppercase and lowercase Roman letters as appropriate should be used.
+}
+
+tests {
+  test "Ѓенови Ливаѓе", "Ǵenovi Livaǵe"
+  test "ЛУЃЕ луѓе", "LUǴE luǵe"
+  test "ЅВЕЗДА ѕвезда Ѕвезда", "DZVEZDA dzvezda Dzvezda"
+  test "Јабежица", "Jabežica"
+  test "Љиќен и Бард", "Ljiḱen i Bard"
+  test "Ќамилов Чукар", "Ḱamilov Čukar"
+  test "Џавидин Кајнак", "Džavidin Kajnak"
+  test "Џамалџи", "Džamaldži"
+  test "Џибра Гури и Зи", "Džibra Guri i Zi"
+  test "Абазова Куќарица", "Abazova Kuḱarica"
+  test "Баба Анѓина Маала", "Baba Anǵina Maala"
+  test "Ваљановец", "Valjanovec"
+  test "Галал Једи Дереш", "Galal Jedi Dereš"
+  test "Дванаесет Клајнци", "Dvanaeset Klajnci"
+  test "Електродистрибуција Струга", "Elektrodistribucija Struga"
+  test "Железничка Станица Рајко Жинзифов", "Železnička Stanica Rajko Žinzifov"
+  test "Заедничко Речиште", "Zaedničko Rečište"
+  test "Испраена Плоча", "Ispraena Ploča"
+  test "Казнено-Поправна Установа Идризово", "Kazneno-Popravna Ustanova Idrizovo"
+  test "Лази и Зејнелит", "Lazi i Zejnelit"
+  test "Мавровско Езеро", "Mavrovsko Ezero"
+  test "Национален Парк Галичица", "Nacionalen Park Galičica"
+  test "Одморалиште Свети Стефан", "Odmoralište Sveti Stefan"
+  test "Планинарски Дом Караџица", "Planinarski Dom Karadžica"
+  test "Раса е Лисењит", "Rasa e Lisenjit"
+  test "Скочивирска Клисура", "Skočivirska Klisura"
+  test "Термо-електроцентрала Неготино", "Termo-elektrocentrala Negotino"
+  test "Узуновско Бресје", "Uzunovsko Bresje"
+  test "Фабрика Југохром", "Fabrika Jugohrom"
+  test "Хидроелектрана Сапунџица", "Hidroelektrana Sapundžica"
+  test "Цветковско Рамниште", "Cvetkovsko Ramnište"
+  test "Чалтанова Пештера", "Čaltanova Peštera"
+  test "Шкемби Вишнејц", "Škembi Višnejc"
+}
+
+__END__
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove the
+# __END__ marker and this comment and move the converted map to 'maps/'
+# directory. Please also take note that the maps-staging directory will
+# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+
+  postrules:
+    # DZ
+    - pattern: "((?<=[[:upper:]])Dz(?=[[:upper:]])?|(?<=[[:upper:]])?Dz(?=[[:upper:]]))"
+      result: "DZ"
+    #LJ
+    - pattern: "((?<=[[:upper:]])Lj(?=[[:upper:]])?|(?<=[[:upper:]])?Lj(?=[[:upper:]]))"
+      result: "LJ"
+    #NJ
+    - pattern: "((?<=[[:upper:]])Nj(?=[[:upper:]])?|(?<=[[:upper:]])?Nj(?=[[:upper:]]))"
+      result: "NJ"
+    #DŽ
+    - pattern: "((?<=[[:upper:]])Dž(?=[[:upper:]])?|(?<=[[:upper:]])?Dž(?=[[:upper:]]))"
+      result: "DŽ"
+
+  characters:
+    "\u0410": "A"
+    "\u0411": "B"
+    "\u0412": "V"
+    "\u0413": "G"
+    "\u0414": "D"
+    "\u0403": "\u01F4" # Ǵ
+    "\u0415": "E"
+    "\u0416": "\u005a\u030c" # Ž
+    "\u0417": "Z"
+    "\u0405": "Dz"
+    "\u0418": "I"
+    "\u0408": "J"
+    "\u041A": "K"
+    "\u041B": "L"
+    "\u0409": "Lj"
+    "\u041C": "M"
+    "\u041D": "N"
+    "\u040A": "Nj"
+    "\u041E": "O"
+    "\u041F": "P"
+    "\u0420": "R"
+    "\u0421": "S"
+    "\u0422": "T"
+    "\u040C": "\u004b\u0301" # Ḱ
+    "\u0423": "U"
+    "\u0424": "F"
+    "\u0425": "H"
+    "\u0426": "C"
+    "\u0427": "\u0043\u030c" # Č
+    "\u040F": "D\u007a\u030c" # Dž
+    "\u0428": "\u0053\u030c" # Š
+    "\u0430": "a"
+    "\u0431": "b"
+    "\u0432": "v"
+    "\u0433": "g"
+    "\u0434": "d"
+    "\u0453": "\u01F5" # ǵ
+    "\u0435": "e"
+    "\u0436": "\u007a\u030c" # ž
+    "\u0437": "z"
+    "\u0455": "dz"
+    "\u0438": "i"
+    "\u0458": "j"
+    "\u043A": "k"
+    "\u043B": "l"
+    "\u0459": "lj"
+    "\u043C": "m"
+    "\u043D": "n"
+    "\u045A": "nj"
+    "\u043E": "o"
+    "\u043F": "p"
+    "\u0440": "r"
+    "\u0441": "s"
+    "\u0442": "t"
+    "\u045C": "\u1E31" # ḱ
+    "\u0443": "u"
+    "\u0444": "f"
+    "\u0445": "h"
+    "\u0446": "c"
+    "\u0447": "\u0063\u030c" # č
+    "\u045F": "d\u007a\u030c" # dž
+    "\u0448": "\u0073\u030c" # š
