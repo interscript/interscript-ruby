@@ -371,6 +371,22 @@ stage {
 An alias item references an alias. For example `map.other_map.alias_from_other_map`
 or simply `a_local_alias_or_an_alias_from_imported_library`.
 
+=== `capture` and `ref` items
+
+Sometimes there may be a need to reference a group from input inside output (or
+input too). People who know regular expressions are familiar with expressions of
+some form of `replace /(a)/, '[\1]'`. Interscript supports this kind of syntax:
+
+[source,ruby]
+----
+stage {
+  sub capture(any("abc")), "["+ref(1)+"]"
+}
+----
+
+When ran against a string `"abcde"`, this stage will produce an output of
+`"[a][b][c]de"`.
+
 == Ending notes
 
 This document described everything Interscript currently supports, but it is

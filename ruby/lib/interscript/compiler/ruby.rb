@@ -123,8 +123,23 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
     when Interscript::Node::Item::Group
       if target == :par
         raise NotImplementedError, "Can't concatenate in parallel mode yet"
-      else
+      elsif target == :str
+        i.children.map { |j| compile_item(j, doc, target) }.join("+")
+      elsif target == :re
         i.children.map { |j| compile_item(j, doc, target) }.join
+      end
+    when Interscript::Node::Item::CaptureGroup
+      if target != :re
+        raise ArgumentError, "Can't use a CaptureGroup in a #{target} context"
+      end
+      "(" + compile_item(i.data, doc, target) + ")"
+    when Interscript::Node::Item::CaptureRef
+      if target == :par
+        raise ArgumentError, "Can't use CaptureRef in parallel mode"
+      elsif target == :re
+        "\\#{i.id}"
+      elsif target == :str
+        "\"\\\\#{i.id}\""
       end
     when Interscript::Node::Item::Any
       if target == :str

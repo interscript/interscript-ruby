@@ -1,4 +1,4 @@
-class Interscript::Node::Item::String  < Interscript::Node::Item
+class Interscript::Node::Item::String < Interscript::Node::Item
   attr_accessor :data
   def initialize data
     self.data = data

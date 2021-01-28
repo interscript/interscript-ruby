@@ -102,6 +102,16 @@ class Interscript::Interpreter < Interscript::Compiler
         else
           i.children.map { |j| build_item(j, target, doc) }.join
         end
+      when Interscript::Node::Item::CaptureGroup
+        if target != :re
+          raise ArgumentError, "Can't use a CaptureGroup in a #{target} context"
+        end
+        "(" + build_item(i.data, target, doc) + ")"
+      when Interscript::Node::Item::CaptureRef
+        if target == :par
+          raise ArgumentError, "Can't use CaptureRef in parallel mode"
+        end
+        "\\#{i.id}"
       when Interscript::Node::Item::Any
         if target == :str
           raise ArgumentError, "Can't use Any in a string context" # A linter could find this!

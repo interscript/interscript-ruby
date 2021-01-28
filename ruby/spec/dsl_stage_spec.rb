@@ -215,6 +215,38 @@ RSpec.describe Interscript::DSL::Stage do
           end
         end
 
+        context "#capture" do
+          it "captures a string and allows to reference it" do
+            s = stage {
+              sub capture("a"), "-"+ref(1)+"-"
+            }
+            expect(s.("bab")).to eq("b-a-b")
+            expect(s.("baab")).to eq("b-a--a-b")
+          end
+
+          it "captures multiple strings" do
+            s = stage {
+              sub capture("a")+capture("b"), ref(2)+ref(1)
+            }
+            expect(s.("mmabmm")).to eq("mmbamm")
+          end
+
+          it "allows for any to be used inside a captured string" do
+            s = stage {
+              sub capture(any("abc")), "["+ref(1)+"]"
+            }
+            expect(s.("abcde")).to eq("[a][b][c]de")
+          end
+
+          it "allows for #ref to be used in from part" do
+            s = stage {
+              sub capture("a")+ref(1), "X"
+            }
+            expect(s.("xax")).to eq("xax")
+            expect(s.("xaax")).to eq("xXx")
+          end
+        end
+
         context "concatenation" do
           it "concatenates aliases with strings both ways" do
             s = stage {

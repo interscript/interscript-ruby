@@ -16,13 +16,25 @@ module Interscript::DSL::Items
     Interscript::Node::Item::Any.new(*chars)
   end
 
-  # Implementation of `map[:x]`
+  # (...)
+  def capture(expr)
+    puts "capture(#{expr.inspect}) from #{self.inspect}" if $DEBUG
+    Interscript::Node::Item::CaptureGroup.new(expr)
+  end
+
+  # \1
+  def ref(int)
+    puts "ref(#{int.inspect}) from #{self.inspect}" if $DEBUG
+    Interscript::Node::Item::CaptureRef.new(int)
+  end
+
+  # Implementation of `map.x`
   def map; Interscript::DSL::Items::Maps; end
 
-  # Implementation of `stage[:x]`
+  # Implementation of `stage.x`
   def stage; Stages.new; end
 
-  # Implementation of `map[:x]`
+  # Implementation of `map.x`
   module Maps
     class << self
       # Select a remote map
@@ -34,22 +46,22 @@ module Interscript::DSL::Items
     end
   end
 
-  # Implementation of `map[:x][:alias]` and `map[:x].stage[:stage]`
+  # Implementation of `map.x.aliasname` and `map.x.stage.stagename`
   class Map
     def initialize name; @name = name; end
 
-    # Implementation of `map[:x][:alias]`
+    # Implementation of `map.x.aliasname`
     def [] alias_name
       Symbol === alias_name or raise TypeError, "An alias name must be a Symbol, not #{alias_name.class}"
       Interscript::Node::Item::Alias.new(alias_name, map: @name)
     end
     alias method_missing []
 
-    # Implementation of `map[:x].stage[:stage]`
+    # Implementation of `map.x.stage.stagename`
     def stage; Stages.new(@name); end
   end
 
-  # Implementation of `map[:x].stage[:stage]` and `stage[:stage]`
+  # Implementation of `map.x.stage.stagename` and `stage.stagename`
   class Stages
     def initialize map=nil; @map = map; end
 
