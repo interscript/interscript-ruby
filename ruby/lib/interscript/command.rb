@@ -21,7 +21,7 @@ module Interscript
     desc 'list', 'Prints allowed transliteration systems'
     def list
       Interscript.maps(load_path: true).each do |path|
-        puts File.basename path, '.imp'
+        puts path
       end
     end
   end

@@ -74,9 +74,9 @@ module Interscript
       end
       @map_aliases
     end
-    
+
     # List all possible maps to use
-    def maps(load_path: false, select: "*")
+    def maps(basename: true, load_path: false, select: "*")
       if load_path
         paths = Interscript.load_path
       else
@@ -85,7 +85,13 @@ module Interscript
 
       paths.map do |i|
         Dir["#{i}/#{select}.imp"]
-      end.flatten
+      end.flatten.yield_self do |i|
+        if basename
+          i.map { |j| File.basename(j, ".imp") }
+        else
+          i
+        end
+      end
     end
   end
 end

@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
 
 require 'bundler/setup'
+$LOAD_PATH << "#{__dir__}/../lib"
 load "#{__dir__}/../exe/interscript"

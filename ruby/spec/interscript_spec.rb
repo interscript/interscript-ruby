@@ -2,7 +2,7 @@ require "timeout"
 
 cache = {}
 mask = ENV["TRANSLIT_SYSTEM"] || "*"
-maps = Interscript.maps(select: mask)
+maps = Interscript.maps(basename: false, select: mask)
 
 # Precache can be used to compare interpreter to compiler performance
 if ENV.include? "PRECACHE"
@@ -23,7 +23,8 @@ RSpec.describe Interscript do
 
             if system.tests && system.tests.data
               system.tests.data.each do |from,expected|
-                it "test for #{from}" do
+                testname = from[0...300].gsub("\n", " / ")
+                it "test for #{testname}" do
                   Timeout::timeout(5) do
                     result = Interscript.transliterate(system_name, from, cache, compiler: compiler)
                     expect(result).to eq(expected)

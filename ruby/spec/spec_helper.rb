@@ -37,6 +37,7 @@ RSpec.configure do |config|
   end
 
   def each_compiler &block
+    # Use ENV to select compilers?
     compilers = [
       Interscript::Interpreter,
       Interscript::Compiler::Ruby
@@ -58,7 +59,7 @@ module Interscript::DSL
   class << self
     alias original_parse parse
     def parse(map_name)
-      if $documents[map_name]
+      if $documents && $documents[map_name]
         $documents[map_name]
       else
         original_parse(map_name)
