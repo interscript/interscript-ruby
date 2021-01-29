@@ -7,7 +7,11 @@ class Interscript::Node::Item::Alias < Interscript::Node::Item
   end
 
   def max_length
-    raise NotImplementedError, "max_length not implemented for alias"
+    raise NotImplementedError, "#max_length not implemented for alias"
+  end
+
+  def first_string
+    self
   end
 
   def to_hash

@@ -49,6 +49,20 @@ RSpec.describe Interscript::DSL::Stage do
           }
           expect(s.("abcda abcda abada")).to eq("Abcda abcda abAdA")
         end
+
+        it "handles characters inside BMP" do
+          s = stage {
+            sub "\u1234", "\u1235"
+          }
+          expect(s.("\u1234")).to eq("\u1235")
+        end
+
+        it "handles characters outside BMP" do
+          s = stage {
+            sub "\u{12345}", "\u{12346}"
+          }
+          expect(s.("\u{12345}")).to eq("\u{12346}")
+        end
       end
 
       context "#parallel" do
@@ -78,6 +92,16 @@ RSpec.describe Interscript::DSL::Stage do
           }
           expect(s.("Cameroon")).to eq("CXmXroon")
           expect(s.("ABfghiabcd")).to eq("ZYYYYXXXX")
+        end
+
+        it "prefers the first given replacement" do
+          s = stage {
+            parallel {
+              sub any("ab"), "X"
+              sub any("ab"), "Y"
+            }
+          }
+          expect(s.("abbacus")).to eq("XXXXcus")
         end
       end
 
@@ -245,6 +269,18 @@ RSpec.describe Interscript::DSL::Stage do
             expect(s.("xax")).to eq("xax")
             expect(s.("xaax")).to eq("xXx")
           end
+
+          it "can be aliased" do
+            s = document {
+              aliases {
+                def_alias maybe_dash, capture(any(["-", ""]))
+              }
+              stage {
+                sub "a"+maybe_dash+"b", "X"+ref(1)+"Y"
+              }
+            }
+            expect(s.("abca-b-cabc")).to eq("XYcX-Y-cXYc")
+          end
         end
 
         context "concatenation" do
@@ -322,6 +358,53 @@ RSpec.describe Interscript::DSL::Stage do
               }
             }
             expect(s.("Route 404")).to eq("Route 500")
+          end
+        end
+
+        context "multiple versions of replacement" do
+          it "works with any" do
+            s = stage {
+              sub any("ab"), any("XY")
+            }
+            expect(s.("abbacus")).to eq("XXXXcus")
+          end
+
+          it "works with any + concatenation" do
+            s = stage {
+              sub any("ab"), "["+any("XY")+"]"
+            }
+            expect(s.("abbacus")).to eq("[X][X][X][X]cus")
+          end
+
+          it "works with any(any())" do
+            s = stage {
+              sub any("ab"), any([any("XY"), "Z"])
+            }
+            expect(s.("abbacus")).to eq("XXXXcus")
+          end
+
+          it "works with references" do
+            s = stage {
+              sub capture(any("a".."s")), any(["["+ref(1)+"]", "other"])
+            }
+            expect(s.("abbacus")).to eq("[a][b][b][a][c]u[s]")
+          end
+
+          it "works with stdlib aliases" do
+            s = stage {
+              sub any("ab"), any([none, space])
+            }
+            expect(s.("abbacus")).to eq("cus")
+          end
+
+          it "works with parallel" do
+            s = stage {
+              parallel {
+                sub any("ab"), any("XY")
+                sub any("ef"), any("ZT")
+              }
+            }
+            expect(s.("abcdefgh")).to eq("XXcdZZgh")
           end
         end
       end

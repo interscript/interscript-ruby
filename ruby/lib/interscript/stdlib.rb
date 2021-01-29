@@ -22,6 +22,7 @@ class Interscript::Stdlib
 
   @treecache = {}
 
+  # hash can be either a hash or a hash-like array
   def self.parallel_replace_compile_tree(hash)
     hh = hash.hash
     if @treecache[hh]
@@ -38,7 +39,7 @@ class Interscript::Stdlib
             branch = branch[c.ord]
           end
           branch[chars.last.ord] ||= {}
-          branch[chars.last.ord][nil] = to
+          branch[chars.last.ord][nil] ||= to
         end
       end
       @treecache[hh] = tree

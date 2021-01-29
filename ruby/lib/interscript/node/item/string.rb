@@ -13,8 +13,14 @@ class Interscript::Node::Item::String < Interscript::Node::Item
     self.data.length
   end
 
+  def first_string
+    self.data
+  end
+
   def + other
-    if Interscript::Node::Item::String === self &&
+    if self.data == ""
+      Interscript::Node::Item.try_convert(other)
+    elsif Interscript::Node::Item::String === self &&
       (Interscript::Node::Item::String === other || ::String === other)
 
       other = Interscript::Node::Item.try_convert(other)

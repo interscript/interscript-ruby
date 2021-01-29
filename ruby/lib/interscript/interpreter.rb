@@ -21,7 +21,7 @@ class Interscript::Interpreter < Interscript::Compiler
         if r.cached_tree
           @str = Interscript::Stdlib.parallel_replace_tree(@str, r.cached_tree)
         else
-          h = {}
+          a = []
           r.children.each do |i|
             raise ArgumentError, "Can't parallelize #{i.class}" unless Interscript::Node::Rule::Sub === i
             raise ArgumentError, "Can't parallelize rules with :before" if i.before
@@ -29,9 +29,9 @@ class Interscript::Interpreter < Interscript::Compiler
             raise ArgumentError, "Can't parallelize rules with :not_before" if i.not_before
             raise ArgumentError, "Can't parallelize rules with :not_after" if i.not_after
 
-            h[build_item(i.from, :par)] = build_item(i.to, :par)
+            a << [build_item(i.from, :par), build_item(i.to, :parstr)]
           end
-          r.cached_tree = Interscript::Stdlib.parallel_replace_compile_tree(h)
+          r.cached_tree = Interscript::Stdlib.parallel_replace_compile_tree(a)
           @str = Interscript::Stdlib.parallel_replace_tree(@str, r.cached_tree)
         end
       when Interscript::Node::Group
@@ -73,6 +73,10 @@ class Interscript::Interpreter < Interscript::Compiler
     end
 
     def build_item i, target=nil, doc=@map
+      i = i.first_string if %i[str parstr].include? target
+      i = Interscript::Node::Item.try_convert(i)
+      target = :par if target == :parstr
+
       out = case i
       when Interscript::Node::Item::Alias
         if i.map
@@ -103,7 +107,7 @@ class Interscript::Interpreter < Interscript::Compiler
           i.children.map { |j| build_item(j, target, doc) }.join
         end
       when Interscript::Node::Item::CaptureGroup
-        if target != :re
+        if target == :par
           raise ArgumentError, "Can't use a CaptureGroup in a #{target} context"
         end
         "(" + build_item(i.data, target, doc) + ")"
@@ -114,7 +118,8 @@ class Interscript::Interpreter < Interscript::Compiler
         "\\#{i.id}"
       when Interscript::Node::Item::Any
         if target == :str
-          raise ArgumentError, "Can't use Any in a string context" # A linter could find this!
+          # We may never reach this point
+          raise ArgumentError, "Can't use Any in a string context"
         elsif target == :par
           i.data.map(&:data)
         elsif target == :re

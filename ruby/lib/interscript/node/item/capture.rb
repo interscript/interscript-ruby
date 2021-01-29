@@ -7,6 +7,10 @@ class Interscript::Node::Item::CaptureGroup < Interscript::Node::Item
     @data = data
   end
 
+  def first_string
+    data.first_string
+  end
+
   def to_hash
     { :class => self.class.to_s,
       :data => self.data.to_hash }
@@ -19,6 +23,10 @@ class Interscript::Node::Item::CaptureRef < Interscript::Node::Item
 
   def initialize(id)
     @id = id
+  end
+
+  def first_string
+    self
   end
 
   def to_hash

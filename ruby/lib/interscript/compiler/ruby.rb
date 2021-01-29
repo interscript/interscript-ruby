@@ -36,7 +36,7 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
         end
       end
     when Interscript::Node::Group::Parallel
-      h = {}
+      a = []
       r.children.each do |i|
         raise ArgumentError, "Can't parallelize #{i.class}" unless Interscript::Node::Rule::Sub === i
         raise ArgumentError, "Can't parallelize rules with :before" if i.before
@@ -44,14 +44,14 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
         raise ArgumentError, "Can't parallelize rules with :not_before" if i.not_before
         raise ArgumentError, "Can't parallelize rules with :not_after" if i.not_after
 
-        h[compile_item(i.from, map, :par)] = compile_item(i.to, map, :par)
+        a << [compile_item(i.from, map, :par), compile_item(i.to, map, :parstr)]
       end
-      hh = h.hash.abs
-      unless @parallel_trees.include? hh
-        tree = Interscript::Stdlib.parallel_replace_compile_tree(h)
-        @parallel_trees[hh] = tree
+      ah = a.hash.abs
+      unless @parallel_trees.include? ah
+        tree = Interscript::Stdlib.parallel_replace_compile_tree(a)
+        @parallel_trees[ah] = tree
       end
-      c += "s = Interscript::Stdlib.parallel_replace_tree(s, Interscript::Maps::Cache::PTREE_#{hh})\n"
+      c += "s = Interscript::Stdlib.parallel_replace_tree(s, Interscript::Maps::Cache::PTREE_#{ah})\n"
     when Interscript::Node::Rule::Sub
       from = Regexp.new(build_regexp(r, map)).inspect
       to = compile_item(r.to, map, :str)
@@ -88,6 +88,10 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
   end
 
   def compile_item i, doc=@map, target=nil
+    i = i.first_string if %i[str parstr].include? target
+    i = Interscript::Node::Item.try_convert(i)
+    target = :par if target == :parstr
+
     out = case i
     when Interscript::Node::Item::Alias
       if i.map
@@ -114,7 +118,8 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
       end
     when Interscript::Node::Item::String
       if target == :str
-        "\"#{i.data}\""
+        # Replace \1 with \\1, this is weird, but it works!
+        i.data.gsub("\\", "\\\\\\\\").inspect
       elsif target == :par
         i.data
       elsif target == :re

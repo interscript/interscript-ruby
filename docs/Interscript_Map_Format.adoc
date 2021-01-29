@@ -260,6 +260,21 @@ stage {
 }
 ----
 
+==== Multiple replacements
+
+In various maps there was a need to document multiple replacements. Let's suppose
+our character set has a character "a" that can be transliterated to any of the
+forms "X", "Y" or "Z". As of now, it means that "a" is always translated to "X",
+as it came first. In the future it will be possible to execute such a map in
+reverse as well.
+
+[source,ruby]
+----
+stage {
+  sub "a", any("XYZ")
+}
+----
+
 === `parallel` block
 
 A parallel block can be defined as a subsection of a `stage` part. It indicates

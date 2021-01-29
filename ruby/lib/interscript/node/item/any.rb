@@ -20,6 +20,17 @@ class Interscript::Node::Item::Any < Interscript::Node::Item
     end
   end
 
+  def first_string
+    case @value
+    when Array
+      value.first.first_string
+    when ::String
+      value[0]
+    when Range
+      value.begin
+    end
+  end
+
   def max_length
     self.data.map(&:max_length).max
   end
