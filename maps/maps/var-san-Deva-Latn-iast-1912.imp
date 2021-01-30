@@ -11,7 +11,7 @@ metadata {
     The International Alphabet of Sanskrit Transliteration (IAST) is the academic standard for the romanisation
     of Sanskrit. IAST is the de facto standard used in printed publications, like books, magazines, and electronic
     texts with Unicode fonts. It is based on a standard established by the Congress of Orientalists at Athens in 1912.
-  
+
     The International Alphabet of Sanskrit Transliteration (IAST) is a transliteration scheme that allows the lossless
     romanisation of Indic scripts[citation needed] as employed by Sanskrit and related Indic languages. It is based on a
     scheme that emerged during the nineteenth century from suggestions by Charles Trevelyan, William Jones, Monier
@@ -19,7 +19,7 @@ metadata {
     in September 1894.IAST makes it possible for the reader to read the Indic text unambiguously, exactly as if it were
     in the original Indic script. It is this faithfulness to the original scripts that accounts for its continuing popularity
     amongst scholars.
-  
+
   notes:
 }
 
@@ -36,23 +36,14 @@ tests {
   test "अच्छेद्योऽयमदाह्योऽयमक्लेद्योऽशोष्य एव च ", "acachaedayao’yamadaāhayao’yamakalaedayao’śaoṣaya eva ca "
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
 
 stage {
 
   # CHARACTERS
   parallel {
-    
+
     # I. Vowels and Diphthongs (see Note 1)
-    
+
     sub "अ", "a"
     sub "आ", "ā"
     sub "इ", "i"
@@ -67,7 +58,7 @@ stage {
     sub "ऐ", "ai"
     sub "ओ", "o"
     sub "औ", "au"
-    
+
     # II. Consonants (see Note 2)
     # Gutturals
     sub "क", "ka"
@@ -75,65 +66,65 @@ stage {
     sub "ग", "ga"
     sub "घ", "gha"
     sub "ङ", "ṅa"
-    
+
     # Palatals
     sub "च", "ca"
     sub "छ", "cha"
     sub "ज", "ja"
     sub "झ", "jha"
     sub "ञ", "ña"
-    
+
     # Cerebrals
     sub "ट", "ṭa"
     sub "ठ", "ṭha"
     sub "ड", "ḍa"
     sub "ढ", "ḍha"
     sub "ण", "ṇa"
-    
+
     # Dentals
     sub "त", "ta"
     sub "थ", "tha"
     sub "द", "da"
     sub "ध", "dha"
     sub "न", "na"
-    
+
     # Labials
     sub "प", "pa"
     sub "फ", "pha"
     sub "ब", "ba"
     sub "भ", "bha"
     sub "म", "ma"
-    
+
     # Semivowels
     sub "य", "ya"
     sub "र", "ra"
     sub "ल", "la"
     sub "व", "va"
-    
+
     # Sibilants
     sub "श", "śa"
     sub "ष", "ṣa"
     sub "स", "sa"
-    
+
     # Aspirate
     sub "ह", "ha"
-    
+
     # Anusvāra
     sub "ं", "ṃ"
     sub "अं", "ṃ"
-    
+
     # Bisarga
     sub "ः", "ḥ"
     sub "अः", "ḥ"
-    
+
     # Anunāsika
     sub "ँ", "m̐"
     sub "अँ", "m̐"
-    
+
     # Abagraha
     sub "ऽ", "’" # (apostrophe)
-    
-    
+
+
     # Medials # Needed for connecting constants
     sub "ा", "ā"
     sub "ि", "i"
@@ -152,5 +143,5 @@ stage {
     sub "‍", "" # Used for joining
   }
 
+  compose
 }
-
