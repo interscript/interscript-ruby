@@ -297,6 +297,8 @@ old_maps.shuffle.each do |old_map|
           else
             vvv = "any(" + vv.inspect + ")"
           end
+        elsif vv.class == NilClass
+          vvv = "none"
         end
 
         # This worked due to use of regexps... it should remove 1 slash.

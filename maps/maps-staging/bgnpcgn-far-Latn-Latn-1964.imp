@@ -38,8 +38,8 @@ stage {
 
   # CHARACTERS
   parallel {
-    sub "Þ", nil # Þ translitarion removed
-    sub "þ", nil # þ translitarion removed
+    sub "Þ", none # Þ translitarion removed
+    sub "þ", none # þ translitarion removed
   }
 
 }
