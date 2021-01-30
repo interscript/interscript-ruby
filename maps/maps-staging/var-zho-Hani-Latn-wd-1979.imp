@@ -27557,5 +27557,6 @@ stage {
     sub "䀹", "shan"
   }
 
-  title_case}
+  title_case
+}
 

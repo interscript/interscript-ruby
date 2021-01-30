@@ -1,0 +1,43 @@
+metadata {
+  authority_id: bgnpcgn
+  id: 2009
+  language: iso-639-2:kat
+  source_script: Geor
+  destination_script: Latn
+  name: ROMANIZATION OF GEORGIAN; Georgia 2011 national system; BGN/PCGN 2009 Agreement
+  url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/810202/ROMANIZATION_OF_GEORGIAN.pdf
+  creation_date: 2009
+  confirmation_date: 2011
+  description: |
+    This romanization system corresponds to that devised in 2002 by the
+    State Department of Geodesy and Cartography of Georgia and the
+    Institute of Linguistics of the Georgian Academy of Sciences, and
+    approved by Presidential Decree 109 of 24 February 2011. It represents
+    the Mkhedruli alphabet, as presently used in Georgia. This system was
+    adopted by BGN and PCGN in 2009, superseding the BGN/PCGN system of
+    1981.
+  
+  notes:
+    - This system denotes ejective (glottalised) consonants by means of
+      an apostrophe. The BGN/PCGN 1981 system instead used the apostrophe to
+      denote aspirated consonants (letters 8, 21, 22, 26 & 27).
+    - The Romanization columns show only lowercase forms but, when
+      romanizing, uppercase and lowercase Roman letters as appropriate should
+      be used.
+}
+
+tests {
+  test "თბილისი", "tbilisi"
+  test "მეღვინეთუხუცესი", "meghvinetukhutsesi"
+  test "ჭიანჭველა", "ch’ianch’vela"
+  test "ბაყაყი", "baq’aq’i"
+}
+
+dependency "ggg-kat-Geor-Latn-2002", as: georlatn
+
+stage {
+
+  run map.georlatn.stage.main
+
+}
+

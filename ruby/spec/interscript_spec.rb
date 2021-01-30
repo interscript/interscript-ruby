@@ -21,7 +21,7 @@ RSpec.describe Interscript do
           begin
             system = Interscript.parse(system_name)
 
-            if system.tests && system.tests.data
+            if system.tests && system.tests.data && system.tests.data.length > 0
               system.tests.data.each do |from,expected|
                 testname = from[0...300].gsub("\n", " / ")
                 it "test for #{testname}" do

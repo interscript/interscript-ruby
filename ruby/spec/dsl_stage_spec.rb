@@ -401,11 +401,12 @@ RSpec.describe Interscript::DSL::Stage do
           it "works with parallel" do
             s = stage {
               parallel {
-                sub any("ab"), any("XY")
+                sub any("ab"), any(["XA", "YB"])
+                sub "d", any(["88", "99", "00"])
                 sub any("ef"), any("ZT")
               }
             }
-            expect(s.("abcdefgh")).to eq("XXcdZZgh")
+            expect(s.("abcdefgh")).to eq("XAXAc88ZZgh")
           end
         end
       end

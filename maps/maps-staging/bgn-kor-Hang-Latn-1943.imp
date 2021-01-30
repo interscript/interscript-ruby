@@ -36,5 +36,6 @@ stage {
 
   run map.hanglatn.stage.main
 
-  title_case}
+  title_case
+}
 

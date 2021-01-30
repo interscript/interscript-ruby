@@ -13,7 +13,7 @@ old_maps = Dir["../../interscript/maps/*.yaml"]
 ex_maps = Dir["../maps/maps/*.imp"]
 ex_map_names = ex_maps.map { |i| File.basename(i, ".imp") }
 
-old_maps.shuffle.each do |old_map|
+old_maps.each do |old_map|
   old_map_name = File.basename(old_map, ".yaml")
 
   if ex_map_names.include? old_map_name
@@ -345,8 +345,8 @@ old_maps.shuffle.each do |old_map|
     efini.()
   end
 
-  new << "  title_case" if title_case
-  new << "  downcase" if downcase
+  new << "  title_case\n" if title_case
+  new << "  downcase\n" if downcase
 
   new << "}\n\n"
 

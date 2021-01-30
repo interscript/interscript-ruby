@@ -3,7 +3,6 @@ class Interscript::Node::Rule::Sub < Interscript::Node::Rule
   attr_accessor :before, :not_before, :after, :not_after
 
   def initialize from, to, before: nil, not_before: nil, after: nil, not_after: nil
-
     self.from = Interscript::Node::Item.try_convert from
     self.to = Interscript::Node::Item.try_convert to
 

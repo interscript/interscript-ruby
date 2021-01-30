@@ -540,5 +540,6 @@ stage {
     # This is based on Jamo
   }
 
-  title_case}
+  title_case
+}
 

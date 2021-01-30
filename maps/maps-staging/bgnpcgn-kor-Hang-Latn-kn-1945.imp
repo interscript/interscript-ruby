@@ -180,5 +180,6 @@ stage {
   sub "^ ", ""
   sub " $", ""
 
-  title_case}
+  title_case
+}
 

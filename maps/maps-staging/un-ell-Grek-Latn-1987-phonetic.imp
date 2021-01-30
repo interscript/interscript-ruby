@@ -443,5 +443,6 @@ stage {
   sub "ff", "f"
   sub "xx", "x"
 
-  downcase}
+  downcase
+}
 

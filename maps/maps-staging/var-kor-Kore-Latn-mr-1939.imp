@@ -42,5 +42,6 @@ stage {
   run map.korehang.stage.main
   run map.hanglatn.stage.main
 
-  title_case}
+  title_case
+}
 
