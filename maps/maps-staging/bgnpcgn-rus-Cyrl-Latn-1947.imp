@@ -72,136 +72,121 @@ tests {
   test "ШЧ шч Шч шЧ", "SH·CH sh·ch Sh·ch sh·Ch"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  rules:
-    - pattern: (?<=[АаЕеЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\u0401 # Ё after a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь
-      result: "Y\u00eb"
-    - pattern: (?<=[АаЕеЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\u0451 # ё after a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь
-      result: "y\u00eb"
-    - pattern: (?<=[АаЕеЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\u0415 # Е after a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь
-      result: "Y\u0415"
-    - pattern: \b\u0415 # Е initially
-      result: "Y\u0435"
-    - pattern: (?<=[АаЕеЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\u0435 # е after a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь
-      result: "y\u0435"
-    - pattern: \b\u0435 # е initially
-      result: "y\u0435"
-    - pattern: (?<=[АаЕеЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\u0401 # Ё after a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь
-      result: "Y\u00eb"
-    - pattern: \b\u0401
-      result: "Y\u00eb"
-    - pattern: (?<=[АаЕеЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\u0451 # ё after a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь
-      result: "y\u00eb"
-    - pattern: \b\u0451
-      result: "y\u00eb"
-    - pattern: \u0419(?=[АаУуЫыЭэ]) # Й before а, у, ы, or э
-      result: "Y\u00b7"
-    - pattern: \u0439(?=[АаУуЫыЭэ]) # й before а, у, ы, or э
-      result: "y\u00b7"
-    - pattern: (?<=[АаЕеЁёИиОоУуЫыЭэЮюЯя])\u042b(?=[АаУуЫыЭэ]) # Ы after any vowel character and before а, у, ы, or э
-      result: "\u00b7Y\u00b7"
-    - pattern: (?<=[АаЕеЁёИиОоУуЫыЭэЮюЯя])\u044b(?=[АаУуЫыЭэ]) # ы after any vowel character and before а, у, ы, or э
-      result: "\u00b7y\u00b7"
-    - pattern: \u042b(?=[АаУуЫыЭэ]) # Ы before а, у, ы, or э
-      result: "Ы\u00b7"
-    - pattern: \u044b(?=[АаУуЫыЭэ]) # ы before а, у, ы, or э
-      result: "ы\u00b7"
-    - pattern: (?<=[Оо])\u042b # Ы after о
-      result: "\u00b7Y"
-    - pattern: (?<=[Оо])\u044b # ы after о
-      result: "\u00b7y"
-    - pattern: \b\u0401
-      result: "Y\u00eb"
-    - pattern: \b\u0451
-      result: "y\u00eb"
-    - pattern: (?<=[БбВвГгДдЖжЗзКкЛлМмНнПпРрСсТтФфХхЦцЧчШшЩщ])\u042d # Э after any consonant character except й
-      result: "\u00b7E"
-    - pattern: (?<=[БбВвГгДдЖжЗзКкЛлМмНнПпРрСсТтФфХхЦцЧчШшЩщ])\u044d # э after any consonant character except й
-      result: "\u00b7e"
-    - pattern: (Т|т)(С|с) # тс => t·s
-      result: "\\1\u00b7\\2"
-    - pattern: (Ш|ш)(Ч|ч) # шч => sh·ch
-      result: "\\1\u00b7\\2"
+stage {
 
-  postrules:
+  # RULES
+  sub "(?<=[АаЕеЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\\u0401", "Yë" # Ё after a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь
+  sub "(?<=[АаЕеЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\\u0451", "yë" # ё after a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь
+  sub "(?<=[АаЕеЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\\u0415", "YЕ" # Е after a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь
+  sub "\\b\\u0415", "Yе" # Е initially
+  sub "(?<=[АаЕеЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\\u0435", "yе" # е after a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь
+  sub "\\b\\u0435", "yе" # е initially
+  sub "(?<=[АаЕеЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\\u0401", "Yë" # Ё after a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь
+  sub "\\b\\u0401", "Yë"
+  sub "(?<=[АаЕеЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\\u0451", "yë" # ё after a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь
+  sub "\\b\\u0451", "yë"
+  sub "\\u0419(?=[АаУуЫыЭэ])", "Y·" # Й before а, у, ы, or э
+  sub "\\u0439(?=[АаУуЫыЭэ])", "y·" # й before а, у, ы, or э
+  sub "(?<=[АаЕеЁёИиОоУуЫыЭэЮюЯя])\\u042b(?=[АаУуЫыЭэ])", "·Y·" # Ы after any vowel character and before а, у, ы, or э
+  sub "(?<=[АаЕеЁёИиОоУуЫыЭэЮюЯя])\\u044b(?=[АаУуЫыЭэ])", "·y·" # ы after any vowel character and before а, у, ы, or э
+  sub "\\u042b(?=[АаУуЫыЭэ])", "Ы·" # Ы before а, у, ы, or э
+  sub "\\u044b(?=[АаУуЫыЭэ])", "ы·" # ы before а, у, ы, or э
+  sub "(?<=[Оо])\\u042b", "·Y" # Ы after о
+  sub "(?<=[Оо])\\u044b", "·y" # ы after о
+  sub "\\b\\u0401", "Yë"
+  sub "\\b\\u0451", "yë"
+  sub "(?<=[БбВвГгДдЖжЗзКкЛлМмНнПпРрСсТтФфХхЦцЧчШшЩщ])\\u042d", "·E" # Э after any consonant character except й
+  sub "(?<=[БбВвГгДдЖжЗзКкЛлМмНнПпРрСсТтФфХхЦцЧчШшЩщ])\\u044d", "·e" # э after any consonant character except й
+  sub "(Т|т)(С|с)", "\\1·\\2" # тс => t·s
+  sub "(Ш|ш)(Ч|ч)", "\\1·\\2" # шч => sh·ch
+  
 
-    #YE
-    - pattern: "((?<=[[:upper:]])Ye(?=[[:upper:]])?|(?<=[[:upper:]])?Ye(?=[[:upper:]]))"
-      result: "YE"
-    #YË
-    - pattern: "((?<=[[:upper:]])Yë(?=[[:upper:]])?|(?<=[[:upper:]])?Yë(?=[[:upper:]]))"
-      result: "YË"
+  # POSTRULES
+  
+  #YE
+  sub "((?<=[[:upper:]])Ye(?=[[:upper:]])?|(?<=[[:upper:]])?Ye(?=[[:upper:]]))", "YE"
+  #YË
+  sub "((?<=[[:upper:]])Yë(?=[[:upper:]])?|(?<=[[:upper:]])?Yë(?=[[:upper:]]))", "YË"
+  
 
-  characters:
-    "\u0410": "A"
-    "\u0411": "B"
-    "\u0412": "V"
-    "\u0413": "G"
-    "\u0414": "D"
-    "\u0415": "E"
-    "\u0401": "\u00cb" # Ё
-    "\u0416": "Zh"
-    "\u0417": "Z"
-    "\u0418": "I"
-    "\u0419": "Y"
-    "\u041a": "K"
-    "\u041b": "L"
-    "\u041c": "M"
-    "\u041d": "N"
-    "\u041e": "O"
-    "\u041f": "P"
-    "\u0420": "R"
-    "\u0421": "S"
-    "\u0422": "T"
-    "\u0423": "U"
-    "\u0424": "F"
-    "\u0425": "Kh"
-    "\u0426": "Ts"
-    "\u0427": "Ch"
-    "\u0428": "Sh"
-    "\u0429": "Shch"
-    "\u042a": "\"" # Ъ
-    "\u042b": "Y"
-    "\u042c": "\u2019" # Ь => ’
-    "\u042d": "E"
-    "\u042e": "Yu"
-    "\u042f": "Ya"
-    "\u0430": "a"
-    "\u0431": "b"
-    "\u0432": "v"
-    "\u0433": "g"
-    "\u0434": "d"
-    "\u0435": "e"
-    "\u0451": "\u00eb" # ё
-    "\u0436": "zh"
-    "\u0437": "z"
-    "\u0438": "i"
-    "\u0439": "y"
-    "\u043a": "k"
-    "\u043b": "l"
-    "\u043c": "m"
-    "\u043d": "n"
-    "\u043e": "o"
-    "\u043f": "p"
-    "\u0440": "r"
-    "\u0441": "s"
-    "\u0442": "t"
-    "\u0443": "u"
-    "\u0444": "f"
-    "\u0445": "kh"
-    "\u0446": "ts"
-    "\u0447": "ch"
-    "\u0448": "sh"
-    "\u0449": "shch"
-    "\u044a": "\"" # ъ
-    "\u044b": "y"
-    "\u044c": "\u2019" # ь => ’
-    "\u044d": "e"
-    "\u044e": "yu"
-    "\u044f": "ya"
+  # CHARACTERS
+  parallel {
+    sub "А", "A"
+    sub "Б", "B"
+    sub "В", "V"
+    sub "Г", "G"
+    sub "Д", "D"
+    sub "Е", "E"
+    sub "Ё", "Ë" # Ё
+    sub "Ж", "Zh"
+    sub "З", "Z"
+    sub "И", "I"
+    sub "Й", "Y"
+    sub "К", "K"
+    sub "Л", "L"
+    sub "М", "M"
+    sub "Н", "N"
+    sub "О", "O"
+    sub "П", "P"
+    sub "Р", "R"
+    sub "С", "S"
+    sub "Т", "T"
+    sub "У", "U"
+    sub "Ф", "F"
+    sub "Х", "Kh"
+    sub "Ц", "Ts"
+    sub "Ч", "Ch"
+    sub "Ш", "Sh"
+    sub "Щ", "Shch"
+    sub "Ъ", "\"" # Ъ
+    sub "Ы", "Y"
+    sub "Ь", "’" # Ь => ’
+    sub "Э", "E"
+    sub "Ю", "Yu"
+    sub "Я", "Ya"
+    sub "а", "a"
+    sub "б", "b"
+    sub "в", "v"
+    sub "г", "g"
+    sub "д", "d"
+    sub "е", "e"
+    sub "ё", "ë" # ё
+    sub "ж", "zh"
+    sub "з", "z"
+    sub "и", "i"
+    sub "й", "y"
+    sub "к", "k"
+    sub "л", "l"
+    sub "м", "m"
+    sub "н", "n"
+    sub "о", "o"
+    sub "п", "p"
+    sub "р", "r"
+    sub "с", "s"
+    sub "т", "t"
+    sub "у", "u"
+    sub "ф", "f"
+    sub "х", "kh"
+    sub "ц", "ts"
+    sub "ч", "ch"
+    sub "ш", "sh"
+    sub "щ", "shch"
+    sub "ъ", "\"" # ъ
+    sub "ы", "y"
+    sub "ь", "’" # ь => ’
+    sub "э", "e"
+    sub "ю", "yu"
+    sub "я", "ya"
+  }
+
+}
+

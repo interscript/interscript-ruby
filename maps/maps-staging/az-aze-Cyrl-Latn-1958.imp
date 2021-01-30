@@ -21,26 +21,38 @@ tests {
   test "Бүтүн инсанлар ләјагәт вә һүгугларына ҝөрә азад бәрабәр доғулурлар.\nОнларын шүурлары вә виҹданлары вар вә бир-бирләринә мүнасибәтдә гардашлыг руһунда давранмалыдырлар.", "Bütün insanlar ləyaqət və hüquqlarına görə azad bərabər doğulurlar.\nOnların şüurları və vicdanları var və bir-birlərinə münasibətdə qardaşlıq ruhunda davranmalıdırlar.\n"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  inherit: az-aze-Cyrl-Latn-1939
+dependency "az-aze-Cyrl-Latn-1939", as: cyrllatn
 
-  characters:
-    "\u0408": "Y"  # Ј note[2]
-    "\u0419": ~    # Й note[2]
-    "\u0426": ~    # Ц note[1]
-    "\u042D": ~    # Э note[2]
-    "\u042E": ~    # Ю note[2]
-    "\u042F": ~    # Я note[2]
 
-    "\u0458": "y"  # ј note[2]
-    "\u0439": ~    # й note[2]
-    "\u0446": ~    # ц note[1]
-    "\u044D": ~    # э note[2]
-    "\u044E": ~    # ю note[2]
-    "\u044F": ~    # я note[2]
+stage {
+
+  run map.cyrllatn.stage.main
+
+  # CHARACTERS
+  parallel {
+    sub "Ј", "Y" # Ј note[2]
+    sub "Й", nil # Й note[2]
+    sub "Ц", nil # Ц note[1]
+    sub "Э", nil # Э note[2]
+    sub "Ю", nil # Ю note[2]
+    sub "Я", nil # Я note[2]
+    
+    sub "ј", "y" # ј note[2]
+    sub "й", nil # й note[2]
+    sub "ц", nil # ц note[1]
+    sub "э", nil # э note[2]
+    sub "ю", nil # ю note[2]
+    sub "я", nil # я note[2]
+  }
+
+}
+

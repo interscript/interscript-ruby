@@ -66,28 +66,33 @@ tests {
   test "ччччч", "ch"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  inherit: bgnpcgn-bul-Cyrl-Latn-2013
+dependency "bgnpcgn-bul-Cyrl-Latn-2013", as: cyrllatn
 
-  rules:
-    # note[1]
-    - pattern: "(.)\\1{1,}"
-      result: "\\1"
 
-    - pattern: \u042C# # Ь
-      result: "Y"
+stage {
 
-    - pattern: \u042A # Ъ
-      result: "A"
+  run map.cyrllatn.stage.main
 
-    - pattern: \u044C # ь
-      result: "y"
+  # RULES
+  # note[1]
+  sub "(.)\\1{1,}", "\\1"
+  
+  sub "\\u042C", "Y" # # Ь
+  
+  sub "\\u042A", "A" # Ъ
+  
+  sub "\\u044C", "y" # ь
+  
+  sub "\\u044A", "a" # ъ
 
-    - pattern: \u044A # ъ
-      result: "a"
+}
+

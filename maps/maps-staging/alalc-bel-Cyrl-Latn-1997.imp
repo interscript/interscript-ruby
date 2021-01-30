@@ -35,84 +35,93 @@ tests {
   test "Інстытут Культуры", "Instytut Kulʹtury"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  characters:
+stage {
+
+  # CHARACTERS
+  parallel {
     # Apostrophes
-    '\u00B4' : '' # official english Apostrophe
-    '\u02BC' : ''
-    '\u0027' : '' # from belarussian keyboard
-
+    sub "\u00B4", "" # official english Apostrophe
+    sub "\u02BC", ""
+    sub "\u0027", "" # from belarussian keyboard
+    
     # Characters
-    '\u0410' : 'A'  # A
-    '\u0411' : 'B'  # Б
-    '\u0412' : 'V'  # B
-    '\u0413' : 'H'  # Г
-    '\u0490' : 'G'  # Ґ
-    '\u0414' : 'D'  # Д
-    '\u0415' : 'E'  # Е
-    '\u0401' : "I\u0361O" # Ё : I͡O
-    '\u0416' : "Z\u0361H" # Ж : Z͡H
-    '\u0417' : 'Z'  # З
-    '\u0406' : 'I'  # І
-    '\u0419' : "\u012C" # Й : Ĭ
-    '\u041A' : 'K'  # К
-    '\u041B' : 'L'  # Л
-    '\u041C' : 'M'  # М
-    '\u041D' : 'N'  # Н
-    '\u041E' : 'O'  # О
-    '\u041F' : 'P'  # П
-    '\u0420' : 'R'  # Р
-    '\u0421' : 'S'  # С
-    '\u0422' : 'T'  # Т
-    '\u0423' : 'U'  # У
-    '\U040E' : "\u016C" # Ў : Ŭ
-    '\u0424' : 'F'  # Ф
-    '\u0425' : 'Kh' # Х
-    '\u0426' : 'Ts' # Ц
-    '\u0427' : 'Ch' # Ч
-    '\u0428' : 'Sh' # Ш
-    '\u042B' : 'Y'  # Ы
-    '\u042C' : "\u02B9" # Ь : ʹ
-    '\u042D' : "\u0116" # Э : Ė
-    '\u042E' : "I\u0361U" # Ю : I͡U
-    '\u042F' : "I\u0361A" # Я : I͡A
+    sub "\u0410", "A" # A
+    sub "\u0411", "B" # Б
+    sub "\u0412", "V" # B
+    sub "\u0413", "H" # Г
+    sub "\u0490", "G" # Ґ
+    sub "\u0414", "D" # Д
+    sub "\u0415", "E" # Е
+    sub "\u0401", "I͡O" # Ё : I͡O
+    sub "\u0416", "Z͡H" # Ж : Z͡H
+    sub "\u0417", "Z" # З
+    sub "\u0406", "I" # І
+    sub "\u0419", "Ĭ" # Й : Ĭ
+    sub "\u041A", "K" # К
+    sub "\u041B", "L" # Л
+    sub "\u041C", "M" # М
+    sub "\u041D", "N" # Н
+    sub "\u041E", "O" # О
+    sub "\u041F", "P" # П
+    sub "\u0420", "R" # Р
+    sub "\u0421", "S" # С
+    sub "\u0422", "T" # Т
+    sub "\u0423", "U" # У
+    sub "\\U040E", "Ŭ" # Ў : Ŭ
+    sub "\u0424", "F" # Ф
+    sub "\u0425", "Kh" # Х
+    sub "\u0426", "Ts" # Ц
+    sub "\u0427", "Ch" # Ч
+    sub "\u0428", "Sh" # Ш
+    sub "\u042B", "Y" # Ы
+    sub "\u042C", "ʹ" # Ь : ʹ
+    sub "\u042D", "Ė" # Э : Ė
+    sub "\u042E", "I͡U" # Ю : I͡U
+    sub "\u042F", "I͡A" # Я : I͡A
+    
+    sub "\u0430", "a" # а
+    sub "\u0431", "b" # б
+    sub "\u0432", "v" # в
+    sub "\u0433", "h" # г
+    sub "\u0491", "g" # ґ
+    sub "\u0434", "d" # д
+    sub "\u0435", "e" # е
+    sub "\u0451", "i͡o" # ё : i͡o
+    sub "\u0436", "z͡h" # ж : z͡h
+    sub "\u0437", "z" # з
+    sub "\u0456", "i" # і
+    sub "\u0439", "ĭ" # й : ĭ
+    sub "\u043A", "k" # к
+    sub "\u043B", "l" # л
+    sub "\u043C", "m" # м
+    sub "\u043D", "n" # н
+    sub "\u043E", "o" # о
+    sub "\u043F", "p" # п
+    sub "\u0440", "r" # р
+    sub "\u0441", "s" # с
+    sub "\u0442", "t" # т
+    sub "\u0443", "u" # у
+    sub "\u045E", "ŭ" # ў : ŭ
+    sub "\u0444", "f" # ф
+    sub "\u0445", "kh" # х
+    sub "\u0446", "ts" # Ц
+    sub "\u0447", "ch" # ч
+    sub "\u0448", "sh" # ш
+    sub "\u044B", "y" # ы
+    sub "\u044C", "ʹ" # ь : ʹ
+    sub "\u044D", "ė" # э : ė
+    sub "\u044E", "i͡u" # ю : i͡u
+    sub "\u044F", "i͡a" # я : i͡a
+  }
 
-    '\u0430' : 'a'  # а
-    '\u0431' : 'b'  # б
-    '\u0432' : 'v'  # в
-    '\u0433' : 'h'  # г
-    '\u0491' : 'g'  # ґ
-    '\u0434' : 'd'  # д
-    '\u0435' : 'e'  # е
-    '\u0451' : "i\u0361o" # ё : i͡o
-    '\u0436' : "z\u0361h" # ж : z͡h
-    '\u0437' : 'z'  # з
-    '\u0456' : 'i'  # і
-    '\u0439' : "\u012D"  # й : ĭ
-    '\u043A' : 'k'  # к
-    '\u043B' : 'l'  # л
-    '\u043C' : 'm'  # м
-    '\u043D' : 'n'  # н
-    '\u043E' : 'o'  # о
-    '\u043F' : 'p'  # п
-    '\u0440' : 'r'  # р
-    '\u0441' : 's'  # с
-    '\u0442' : 't'  # т
-    '\u0443' : 'u'  # у
-    '\u045E' : "\u016D"  # ў : ŭ
-    '\u0444' : 'f'  # ф
-    '\u0445' : 'kh' # х
-    '\u0446' : 'ts' # Ц
-    '\u0447' : 'ch' # ч
-    '\u0448' : 'sh' # ш
-    '\u044B' : 'y'  # ы
-    '\u044C' : "\u02B9"  # ь : ʹ
-    '\u044D' : "\u0117"  # э : ė
-    '\u044E' : "i\u0361u" # ю : i͡u
-    '\u044F' : "i\u0361a" # я : i͡a
+}
+

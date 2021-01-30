@@ -247,50 +247,59 @@ tests {
   test "ᠤᠯᠠᠭᠠᠨᠪᠠᠭᠠᠲᠤᠷ", "ulaganbagatur" # Улаанбаатар
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
 
-  characters:
-    "ᠠ": "a"      # \u1820
-    "ᠪ": "b"      # \u182a
-    "ᠼ": "c"      # \u183c
-    "ᠲ": "d"      # \u1832
-    "ᠳ": "d"      # \u1833
-    "ᠡ": "e"      # \u1821
-    "ᠹ": "f"      # \u1839
-    "ᠭ": "g"      # \u182d
-    "ᠺ": "g"      # \u183a
-    "ᠬ": "h"      # \u182c
-    "ᠾ": "h"     # \u183e
-    "ᠢ": "i"     # \u1822
-    "ᠵ": "j"      # \u1835
-    "ᠺ": "k"      # \u183a
-    "ᠯ": "l"      # \u182f
-    "ᠮ": "m"      # \u182e
-    "ᠨ": "n"      # \u1828
-    "ᠥ": "o"     # \u1825
-    "ᠫ": "p"      # \u182b
-    "ᠴ": "q"      # \u1834
-    "ᠷ": "r"      # \u1837
-    "ᠰ": "s"      # \u1830
-    "ᠲ": "t"      # \u1832
-    "ᠦ": "u"     # \u1826
-    "ᠸ": "w"      # \u1838
-    "ᠱ": "x"      # \u1831
-    "ᠶ": "y"      # \u1836
-    "ᠽ": "z"      # \u183d
-    "ᠣ": "o"      # \u1823
-      # - "o"     # General use
-      # - "ô"     # For place names
-    "ᠤ": "u"      # \u1824
-      # - "u"     # General use
-      # - "û"     # For place names
-    "ᠧ": "e"     # \u1827
-    "ᠩ": "ng"     # \u1829
-    "\u180e": "-" # MVS
-    "\u202f": "-" # NNBSP
+stage {
+
+  # CHARACTERS
+  parallel {
+    sub "ᠠ", "a" # \u1820
+    sub "ᠪ", "b" # \u182a
+    sub "ᠼ", "c" # \u183c
+    sub "ᠲ", "d" # \u1832
+    sub "ᠳ", "d" # \u1833
+    sub "ᠡ", "e" # \u1821
+    sub "ᠹ", "f" # \u1839
+    sub "ᠭ", "g" # \u182d
+    sub "ᠺ", "g" # \u183a
+    sub "ᠬ", "h" # \u182c
+    sub "ᠾ", "h" # \u183e
+    sub "ᠢ", "i" # \u1822
+    sub "ᠵ", "j" # \u1835
+    sub "ᠺ", "k" # \u183a
+    sub "ᠯ", "l" # \u182f
+    sub "ᠮ", "m" # \u182e
+    sub "ᠨ", "n" # \u1828
+    sub "ᠥ", "o" # \u1825
+    sub "ᠫ", "p" # \u182b
+    sub "ᠴ", "q" # \u1834
+    sub "ᠷ", "r" # \u1837
+    sub "ᠰ", "s" # \u1830
+    sub "ᠲ", "t" # \u1832
+    sub "ᠦ", "u" # \u1826
+    sub "ᠸ", "w" # \u1838
+    sub "ᠱ", "x" # \u1831
+    sub "ᠶ", "y" # \u1836
+    sub "ᠽ", "z" # \u183d
+    sub "ᠣ", "o" # \u1823
+    # - "o"     # General use
+    # - "ô"     # For place names
+    sub "ᠤ", "u" # \u1824
+    # - "u"     # General use
+    # - "û"     # For place names
+    sub "ᠧ", "e" # \u1827
+    sub "ᠩ", "ng" # \u1829
+    sub "᠎", "-" # MVS
+    sub " ", "-" # NNBSP
+  }
+
+}
+

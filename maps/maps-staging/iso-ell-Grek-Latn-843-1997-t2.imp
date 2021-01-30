@@ -23,21 +23,31 @@ tests {
   test "Ένα πράμα μόνον με παρακίνησε κι εμένα να γράψω ότι τούτην την πατρίδα την έχομεν όλοι μαζί, και σοφοί κι αμαθείς και πλούσιοι και φτωχοί και πολιτικοί και στρατιωτικοί και οι πλέον μικρότεροι άνθρωποι· όσοι αγωνιστήκαμεν, αναλόγως ο καθείς, έχομεν να ζήσομεν εδώ. Το λοιπόν δουλέψαμεν όλοι μαζί, να την φυλάμεν κι όλοι μαζί και να μην λέγει ούτε ο δυνατός «εγώ» ούτε ο αδύνατος. Ξέρετε πότε να λέγει ο καθείς «εγώ»; Όταν αγωνιστεί μόνος του και φκιάσει ή χαλάσει, να λέγει «εγώ»· όταν όμως αγωνίζονται πολλοί και φκιάνουν, τότε να λένε «εμείς». Είμαστε εις το «εμείς» κι όχι εις το «εγώ». Και εις το εξής να μάθομεν γνώση, αν θέλομεν να φκιάσομεν χωριόν, να ζήσομεν όλοι μαζί.\n\nΓιάννης Μακρυγιάννης.\n", "Éna práma mónon me parakínise ki eména na grápso óti toútin tin patrída tin échomen óloi mazí, kai sofoí ki amatheís kai ploúsioi kai ftochoí kai politikoí kai stratiotikoí kai oi pléon mikróteroi ánthropoi; ósoi agonistíkamen, analógos o katheís, échomen na zísomen edó. To loipón doulépsamen óloi mazí, na tin fylámen ki óloi mazí kai na min légei oúte o dynatós «egó» oúte o adýnatos. Xérete póte na légei o katheís «egó»? Ótan agonisteí mónos tou kai fkiásei í chalásei, na légei «egó»; ótan ómos agonízontai polloí kai fkiánoun, tóte na léne «emeís». Eímaste eis to «emeís» ki óchi eis to «egó». Kai eis to exís na máthomen gnósi, an thélomen na fkiásomen chorión, na zísomen óloi mazí.\n\nGiánnis Makrygiánnis.\n"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  character_separator: ""
-  word_separator: " "
-  inherit: "elot-ell-Grek-Latn-743-1982-ts"
+dependency "elot-ell-Grek-Latn-743-1982-ts", as: greklatn
 
-  characters:
-    "\u03DC": "W"   # Ϝ
-    "\u03DD": "w"   # ϝ
-    "\u03F2": "s"   # ϲ
-    "\u03F9": "S"   # Ϲ
-    "\u03F3": "j"
-    "\u037F": "j"
+
+stage {
+
+  run map.greklatn.stage.main
+
+  # CHARACTERS
+  parallel {
+    sub "Ϝ", "W" # Ϝ
+    sub "ϝ", "w" # ϝ
+    sub "ϲ", "s" # ϲ
+    sub "Ϲ", "S" # Ϲ
+    sub "ϳ", "j"
+    sub "Ϳ", "j"
+  }
+
+}
+

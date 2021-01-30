@@ -35,25 +35,33 @@ tests {
   test "ぎゃあ", "gyâ"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  inherit: mext-jpn-Hrkt-Latn-1954
+dependency "mext-jpn-Hrkt-Latn-1954", as: hrktlatn
 
-  rules:
-    # Remove morpheme boundary marker after sokuon っ/ッ
-    - pattern: "([っッ])•"
-      result: "\\1"
 
-  postrules:
-    # Remove morpheme boundary marker
-    - pattern: "•"
-      result: ""
+stage {
 
-    # Use ’ instead of '
-    - pattern: "'"
-      result: "’"
+  run map.hrktlatn.stage.main
+
+  # RULES
+  # Remove morpheme boundary marker after sokuon っ/ッ
+  sub "([っッ])•", "\\1"
+  
+
+  # POSTRULES
+  # Remove morpheme boundary marker
+  sub "•", ""
+  
+  # Use ’ instead of '
+  sub "'", "’"
+
+}
+

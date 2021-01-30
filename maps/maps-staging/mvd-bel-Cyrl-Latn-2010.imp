@@ -35,30 +35,39 @@ tests {
   test "МІХАІЛ", "MIKHAIL"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  inherit: "mvd-bel-Cyrl-Latn-2008"
+dependency "mvd-bel-Cyrl-Latn-2008", as: cyrllatn
 
-  rules:
-    # note[5]
-    - pattern: (?<=[ЗзЛлНнСсЦц])\u044C # ь after consonants
-      result: "\\1"
-    - pattern: (?<=[ЗзЛлНнСсЦц])\u02B9 # Ь after consonants
-      result: "\\1"
-    # Й at end
-    - pattern: (?<=[ЕеЁёЫыЮюЯя])\u0419$ # Я after vowels
-      result: ""
-    - pattern: (?<=[ЕеЁёЫыЮюЯя])\u0439$ # я after vowels
-      result: ""
 
-  characters:
-    '\u0413' : 'H'  # Г
-    '\u0433' : 'h'  # г
+stage {
 
-    '\u042C' : ''  # Ь
-    '\u044C' : ''  # ь
+  run map.cyrllatn.stage.main
+
+  # RULES
+  # note[5]
+  sub "(?<=[ЗзЛлНнСсЦц])\\u044C", "\\1" # ь after consonants
+  sub "(?<=[ЗзЛлНнСсЦц])\\u02B9", "\\1" # Ь after consonants
+  # Й at end
+  sub "(?<=[ЕеЁёЫыЮюЯя])\\u0419$", "" # Я after vowels
+  sub "(?<=[ЕеЁёЫыЮюЯя])\\u0439$", "" # я after vowels
+  
+
+  # CHARACTERS
+  parallel {
+    sub "\u0413", "H" # Г
+    sub "\u0433", "h" # г
+    
+    sub "\u042C", "" # Ь
+    sub "\u044C", "" # ь
+  }
+
+}
+

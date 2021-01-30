@@ -111,186 +111,195 @@ tests {
   #   expected: Marw
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  postrules:
-    - pattern: (?<=\b)(?<!\b[‘|’|'])[\u0061-\uFFFF]
-      result: "upcase"
+stage {
 
-  characters:
+  # POSTRULES
+  sub "(?<=\\b)(?<!\\b[‘|’|'])[\\u0061-\\uFFFF]", "upcase"
+  
 
+  # CHARACTERS
+  parallel {
+    
     # consonant characters
-
-    '\u0628' : 'b'  # ب
-    '\u067E' : 'p'  # پ
-    '\u062a' : 't'  # ت
-    '\u0679' : 'ṭ'  # see note 8 ٹ
-    '\u067C' : 'ṭ'  # see note 8 ټ
-    '\u062B' : 't͟h'  # see note 8 ث
-    '\u067F' : 't͟h'  # see note 8 ٿ
-    '\u062c' : 'j'  # ج
-    '\u0686' : 'ch' # ‫چ‬
-    '\u062d' : 'ḩ'  # ح
-    '\u062e' : 'kh' # خ
-    '\u062f' : 'd'  # د
-    '\u0688' : 'ḍ'  # ڈ
-    '\u0689' : 'ḍ'  # ‫ډ‬
-    '\u0630' : 'd͟h' # ذ
-    '\u0631' : 'r'  # ر
-    '\u0691' : 'ṛ'  # see note 8 ڑ
-    '\u0693' : 'ṛ'  # see note 8 ړ
-    '\u0632' : 'z'  # ز
-    '\u0698' : 'zh' # ‫ژ‬
-    '\u0633' : 's'  # س
-    '\u0634' : 'sh' # ش
-    '\u0635' : 'ş'  # ص
-    '\u0636' : 'ẕ'  # ض
-    '\u0637' : 'ţ'  # ط
-    '\u0638' : 'z̧'  # ظ
-    '\u0639' : '‘'  # ع
-    '\u063a' : 'gh' # غ
-    '\u0641' : 'f'  # ف
-    '\u0642' : 'q'  # ق
-    '\u0643' : 'k'  # ك
-    '\u06A9' : 'k'  # ک
-    '\u06AF' : 'g'  # ‫گ‬
-    '\u0644' : 'l'  # ل
-    '\u0645' : 'm'  # م
-    '\u0646' : 'n'  # ن
-    '\u06BA' : 'ñ'  # ں
-    '\u0648' : 'w'  # و
-    '\u0647' : 'h'  # ه
-    '\u06C1' : 'h'
-    '\u06BE' : 'h'
-    '\u0621' : '’'  # ء
-    '\u0626' : '’'  # ئ
-    '\u0649' : 'y'  # ي
-    '\u064A' : 'y'  # ي
-
-
+    
+    sub "\u0628", "b" # ب
+    sub "\u067E", "p" # پ
+    sub "\u062a", "t" # ت
+    sub "\u0679", "ṭ" # see note 8 ٹ
+    sub "\u067C", "ṭ" # see note 8 ټ
+    sub "\u062B", "t͟h" # see note 8 ث
+    sub "\u067F", "t͟h" # see note 8 ٿ
+    sub "\u062c", "j" # ج
+    sub "\u0686", "ch" # ‫چ‬
+    sub "\u062d", "ḩ" # ح
+    sub "\u062e", "kh" # خ
+    sub "\u062f", "d" # د
+    sub "\u0688", "ḍ" # ڈ
+    sub "\u0689", "ḍ" # ‫ډ‬
+    sub "\u0630", "d͟h" # ذ
+    sub "\u0631", "r" # ر
+    sub "\u0691", "ṛ" # see note 8 ڑ
+    sub "\u0693", "ṛ" # see note 8 ړ
+    sub "\u0632", "z" # ز
+    sub "\u0698", "zh" # ‫ژ‬
+    sub "\u0633", "s" # س
+    sub "\u0634", "sh" # ش
+    sub "\u0635", "ş" # ص
+    sub "\u0636", "ẕ" # ض
+    sub "\u0637", "ţ" # ط
+    sub "\u0638", "z̧" # ظ
+    sub "\u0639", "‘" # ع
+    sub "\u063a", "gh" # غ
+    sub "\u0641", "f" # ف
+    sub "\u0642", "q" # ق
+    sub "\u0643", "k" # ك
+    sub "\u06A9", "k" # ک
+    sub "\u06AF", "g" # ‫گ‬
+    sub "\u0644", "l" # ل
+    sub "\u0645", "m" # م
+    sub "\u0646", "n" # ن
+    sub "\u06BA", "ñ" # ں
+    sub "\u0648", "w" # و
+    sub "\u0647", "h" # ه
+    sub "\u06C1", "h"
+    sub "\u06BE", "h"
+    sub "\u0621", "’" # ء
+    sub "\u0626", "’" # ئ
+    sub "\u0649", "y" # ي
+    sub "\u064A", "y" # ي
+    
+    
     # Aspiration is only contrastive in Eastern Baluchi
-    '\u0628\u06BE' : 'bh'
-
+    sub "\u0628\u06BE", "bh"
+    
     # Aspiration is only contrastive in Eastern Baluchi
-    '\u067E\u06BE' : 'ph'
-
+    sub "\u067E\u06BE", "ph"
+    
     # Aspiration is only contrastive in Eastern Baluchi.
     # Apostrophe distinguishes from fricative /th/.
-    '\u062A\u06BE' : 'th’'
-
+    sub "\u062A\u06BE", "th’"
+    
     # Aspiration is only contrastive in Eastern Baluchi
-    '\u0679\u06BE' : 'ṭh'
-
+    sub "\u0679\u06BE", "ṭh"
+    
     # Aspiration is only contrastive in Eastern Baluchi
-    '\u062C\u06BE' : 'jh'
-
+    sub "\u062C\u06BE", "jh"
+    
     # Aspiration is only contrastive in Eastern Baluchi
-    '\u0686\u06BE' : 'chh'
-
+    sub "\u0686\u06BE", "chh"
+    
     # Aspiration is only contrastive in Eastern Baluchi.
     # Apostrophe distinguishes from fricative /dh/
-    '\u062D\u06BE' : 'dh’'
-
+    sub "\u062D\u06BE", "dh’"
+    
     # Aspiration is only contrastive in Eastern Baluchi
-    '\u0688\u06BE' : 'ḍh'
-
+    sub "\u0688\u06BE", "ḍh"
+    
     # Aspiration is only contrastive in Eastern Baluchi
-    '\u0631\u06BE' : '\u1E5B\u0068'
-
+    sub "\u0631\u06BE", "\\u1E5B\\u0068"
+    
     # Aspiration is only contrastive in Eastern Baluchi.
     # Apostrophe distinguishes from fricative /kh/
-    '\u06A9\u06BE' : 'kh’'
-
+    sub "\u06A9\u06BE", "kh’"
+    
     # Aspiration is only contrastive in Eastern Baluchi.
     # Apostrophe distinguishes from fricative /gh/
-    '\u06AF\u06BE' : 'gh’'  #
-    '\u0644\u0627' : 'lā'  #
-    '\u06A9\u0627' : 'kā'  #
-    '\u06AF\u0627' : 'gā'  #
-    '\u06A9\u0644' : 'kl'  #
-    '\u06AF\u0644' : 'gl'  #
-
+    sub "\u06AF\u06BE", "gh’" #
+    sub "\u0644\u0627", "lā" #
+    sub "\u06A9\u0627", "kā" #
+    sub "\u06AF\u0627", "gā" #
+    sub "\u06A9\u0644", "kl" #
+    sub "\u06AF\u0644", "gl" #
+    
     # Vowels, Diphthongs, and Diacritical Marks
-    '\u0650\u0649' : 'ī'  # ـِي
-    '\u0650' : 'i'  #  ِ
-    '\u06D2' : 'e'  # ـے
-    '\b\u0627' : ''  # ا
-    '\u0627' : 'ā'  # ا
-    '\u0622' : 'ā'  # آ
-    '\u064E' : 'a'  #  َ
-    '\u0648' : 'o'  # و
-    '\u064F' : 'u'  #  ُ
-    '\u064F\u0648' : 'ū'  #  ـُو
-    '\u064E\u06D2' : 'ay'  #  ـَي
-    '\u064E\u0648' : 'aw'  # ـَو
-    '\u0652' : ''  # Not Romanized
-    '\u0670' : 'á'  #
-
-    '\u0628\u0651' : 'bb'  # ب
-    '\u067E\u0651' : 'pp'  # پ
-    '\u062a\u0651' : 'tt'  # ت
-    '\u0679\u0651' : 'ṭṭ'  # see note 8 ٹ
-    '\u067C\u0651' : 'ṭṭ'  # see note 8 ټ
-    '\u062B\u0651' : 't͟ht͟h'  # see note 8 ث
-    '\u067F\u0651' : 't͟ht͟h'  # see note 8 ٿ
-    '\u062c\u0651' : 'jj'  # ج
-    '\u0686\u0651' : 'chch' # ‫چ‬
-    '\u062d\u0651' : 'ḩḩ'  # ح
-    '\u062e\u0651' : 'khkh' # خ
-    '\u062f\u0651' : 'dd'  # د
-    '\u0688\u0651' : 'ḍḍ'  # ڈ
-    '\u0689\u0651' : 'ḍḍ'  # ‫ډ‬
-    '\u0630\u0651' : 'd͟hd͟h' # ذ
-    '\u0631\u0651' : 'rr'  # ر
-    '\u0691\u0651' : 'ṛṛ'  # see note 8 ڑ
-    '\u0693\u0651' : 'ṛṛ'  # see note 8 ړ
-    '\u0632\u0651' : 'zz'  # ز
-    '\u0698\u0651' : 'zhzh' # ‫ژ‬
-    '\u0633\u0651' : 'ss'  # س
-    '\u0634\u0651' : 'shsh' # ش
-    '\u0635\u0651' : 'şş'  # ص
-    '\u0636\u0651' : 'ẕẕ'  # ض
-    '\u0637\u0651' : 'ţţ'  # ط
-    '\u0638\u0651' : 'z̧z̧'  # ظ
-    '\u0639\u0651' : '‘‘'  # ع
-    '\u063a\u0651' : 'ghgh' # غ
-    '\u0641\u0651' : 'ff'  # ف
-    '\u0642\u0651' : 'qq'  # ق
-    '\u0643\u0651' : 'kk'  # ك
-    '\u06A9\u0651' : 'kk'  # ک
-    '\u06AF\u0651' : 'gg'  # ‫گ‬
-    '\u0644\u0651' : 'll'  # ل
-    '\u0645\u0651' : 'mm'  # م
-    '\u0646\u0651' : 'nn'  # ن
-    '\u06BA\u0651' : 'ññ'  # ں
-    '\u0648\u0651' : 'ww'  # و
-    '\u0647\u0651' : 'hh'  # ه
-    '\u06C1\u0651' : 'hh'
-    '\u06BE\u0651' : 'hh'
-    '\u0621\u0651' : '’’'  # ء
-    '\u0626\u0651' : '’’'  # ئ
-    '\u0649\u0651' : 'yy'  # ي
-
-    '\u0621\u064E' : '-ā'  # see note 4
-    '\u0621\u0650' : '-ay'  # see note 4
-
+    sub "\u0650\u0649", "ī" # ـِي
+    sub "\u0650", "i" #  ِ
+    sub "\u06D2", "e" # ـے
+    sub "\\b\u0627", "" # ا
+    sub "\u0627", "ā" # ا
+    sub "\u0622", "ā" # آ
+    sub "\u064E", "a" #  َ
+    sub "\u0648", "o" # و
+    sub "\u064F", "u" #  ُ
+    sub "\u064F\u0648", "ū" #  ـُو
+    sub "\u064E\u06D2", "ay" #  ـَي
+    sub "\u064E\u0648", "aw" # ـَو
+    sub "\u0652", "" # Not Romanized
+    sub "\u0670", "á" #
+    
+    sub "\u0628\u0651", "bb" # ب
+    sub "\u067E\u0651", "pp" # پ
+    sub "\u062a\u0651", "tt" # ت
+    sub "\u0679\u0651", "ṭṭ" # see note 8 ٹ
+    sub "\u067C\u0651", "ṭṭ" # see note 8 ټ
+    sub "\u062B\u0651", "t͟ht͟h" # see note 8 ث
+    sub "\u067F\u0651", "t͟ht͟h" # see note 8 ٿ
+    sub "\u062c\u0651", "jj" # ج
+    sub "\u0686\u0651", "chch" # ‫چ‬
+    sub "\u062d\u0651", "ḩḩ" # ح
+    sub "\u062e\u0651", "khkh" # خ
+    sub "\u062f\u0651", "dd" # د
+    sub "\u0688\u0651", "ḍḍ" # ڈ
+    sub "\u0689\u0651", "ḍḍ" # ‫ډ‬
+    sub "\u0630\u0651", "d͟hd͟h" # ذ
+    sub "\u0631\u0651", "rr" # ر
+    sub "\u0691\u0651", "ṛṛ" # see note 8 ڑ
+    sub "\u0693\u0651", "ṛṛ" # see note 8 ړ
+    sub "\u0632\u0651", "zz" # ز
+    sub "\u0698\u0651", "zhzh" # ‫ژ‬
+    sub "\u0633\u0651", "ss" # س
+    sub "\u0634\u0651", "shsh" # ش
+    sub "\u0635\u0651", "şş" # ص
+    sub "\u0636\u0651", "ẕẕ" # ض
+    sub "\u0637\u0651", "ţţ" # ط
+    sub "\u0638\u0651", "z̧z̧" # ظ
+    sub "\u0639\u0651", "‘‘" # ع
+    sub "\u063a\u0651", "ghgh" # غ
+    sub "\u0641\u0651", "ff" # ف
+    sub "\u0642\u0651", "qq" # ق
+    sub "\u0643\u0651", "kk" # ك
+    sub "\u06A9\u0651", "kk" # ک
+    sub "\u06AF\u0651", "gg" # ‫گ‬
+    sub "\u0644\u0651", "ll" # ل
+    sub "\u0645\u0651", "mm" # م
+    sub "\u0646\u0651", "nn" # ن
+    sub "\u06BA\u0651", "ññ" # ں
+    sub "\u0648\u0651", "ww" # و
+    sub "\u0647\u0651", "hh" # ه
+    sub "\u06C1\u0651", "hh"
+    sub "\u06BE\u0651", "hh"
+    sub "\u0621\u0651", "’’" # ء
+    sub "\u0626\u0651", "’’" # ئ
+    sub "\u0649\u0651", "yy" # ي
+    
+    sub "\u0621\u064E", "-ā" # see note 4
+    sub "\u0621\u0650", "-ay" # see note 4
+    
     # Numerals
-    '۰' : '0'
-    '۱' : '1'
-    '۲' : '2'
-    '۳' : '3'
-    '۴' : '4'
-    '۵' : '5'
-    '۶' : '6'
-    '۷' : '7'
-    '۸' : '8'
-    '۹' : '9'
+    sub "۰", "0"
+    sub "۱", "1"
+    sub "۲", "2"
+    sub "۳", "3"
+    sub "۴", "4"
+    sub "۵", "5"
+    sub "۶", "6"
+    sub "۷", "7"
+    sub "۸", "8"
+    sub "۹", "9"
     # Although Perso-Arabic script is written from right to
     # left, numerical expressions, e.g. ۸۶۹۱ → 1968, are
     # written from left to right. A comma is inserted into
     # longer sequences, either after thousands, millions,     etc.
+  }
+
+}
+

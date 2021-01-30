@@ -22,88 +22,97 @@ tests {
   test "ႠႡႰႠჀႠႫ", "ABRAHAM"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  characters:
-    '\u10a0' : 'A' # Ⴀ
-    '\u10a1' : 'B' # Ⴁ
-    '\u10a2' : 'G' # Ⴂ
-    '\u10a3' : 'D' # Ⴃ
-    '\u10a4' : 'E' # Ⴄ
-    '\u10a5' : 'V' # Ⴅ
-    '\u10a6' : 'Z' # Ⴆ
-    '\u10a7' : 'Tʻ' # Ⴇ
-    '\u10a8' : 'I' # Ⴈ
-    '\u10a9' : 'K' # Ⴉ
-    '\u10aa' : 'L' # Ⴊ
-    '\u10ab' : 'M' # Ⴋ
-    '\u10ac' : 'N' # Ⴌ
-    '\u10ad' : 'O' # Ⴍ
-    '\u10ae' : 'P' # Ⴎ
-    '\u10af' : 'Ž' # Ⴏ
-    '\u10b0' : 'R' # Ⴐ
-    '\u10b1' : 'S' # Ⴑ
-    '\u10b2' : 'T' # Ⴒ
-    '\u10b3' : 'U' # Ⴓ
-    '\u10b4' : 'Pʻ' # Ⴔ
-    '\u10b5' : 'Kʻ' # Ⴕ
-    '\u10b6' : 'Ġ' # Ⴖ
-    '\u10b7' : 'Q' # Ⴗ
-    '\u10b8' : 'Š' # Ⴘ
-    '\u10b9' : 'Čʻ' # Ⴙ
-    '\u10ba' : 'Cʻ' # Ⴚ
-    '\u10bb' : 'Ż' # Ⴛ
-    '\u10bc' : 'C' # Ⴜ
-    '\u10bd' : 'Č' # Ⴝ
-    '\u10be' : 'X' # Ⴞ
-    '\u10bf' : 'J' # Ⴟ
-    '\u10c0' : 'H' # Ⴠ
-    '\u10c1' : 'Ē' # Ⴡ
-    '\u10c2' : 'Y' # Ⴢ
-    '\u10c3' : 'W' # Ⴣ
-    '\u10c4' : 'X̣' # Ⴤ
-    '\u10c5' : 'Ō' # Ⴥ
+stage {
 
-    '\u2d00' : 'a' # ⴀ
-    '\u2d01' : 'b' # ⴁ
-    '\u2d02' : 'g' # ⴂ
-    '\u2d03' : 'd' # ⴃ
-    '\u2d04' : 'e' # ⴄ
-    '\u2d05' : 'v' # ⴅ
-    '\u2d06' : 'z' # ⴆ
-    '\u2d07' : 'tʻ' # ⴇ
-    '\u2d08' : 'i' # ⴈ
-    '\u2d09' : 'k' # ⴉ
-    '\u2d0a' : 'l' # ⴊ
-    '\u2d0b' : 'm' # ⴋ
-    '\u2d0c' : 'n' # ⴌ
-    '\u2d0d' : 'o' # ⴍ
-    '\u2d0e' : 'p' # ⴎ
-    '\u2d0f' : 'ž' # ⴏ
-    '\u2d10' : 'r' # ⴐ
-    '\u2d11' : 's' # ⴑ
-    '\u2d12' : 't' # ⴒ
-    '\u2d13' : 'u' # ⴓ
-    '\u2d14' : 'pʻ' # ⴔ
-    '\u2d15' : 'kʻ' # ⴕ
-    '\u2d16' : 'ġ' # ⴖ
-    '\u2d17' : 'q' # ⴗ
-    '\u2d18' : 'š' # ⴘ
-    '\u2d19' : 'čʻ' # ⴙ
-    '\u2d1a' : 'cʻ' # ⴚ
-    '\u2d1b' : 'ż' # ⴛ
-    '\u2d1c' : 'c' # ⴜ
-    '\u2d1d' : 'č' # ⴝ
-    '\u2d1e' : 'x' # ⴞ
-    '\u2d1f' : 'j' # ⴟ
-    '\u2d20' : 'h' # ⴠ
-    '\u2d21' : 'ē' # ⴡ
-    '\u2d22' : 'y' # ⴢ
-    '\u2d23' : 'w' # ⴣ
-    '\u2d24' : 'x̣' # ⴤ
-    '\u2d25' : 'ō' # ⴥ
+  # CHARACTERS
+  parallel {
+    sub "\u10a0", "A" # Ⴀ
+    sub "\u10a1", "B" # Ⴁ
+    sub "\u10a2", "G" # Ⴂ
+    sub "\u10a3", "D" # Ⴃ
+    sub "\u10a4", "E" # Ⴄ
+    sub "\u10a5", "V" # Ⴅ
+    sub "\u10a6", "Z" # Ⴆ
+    sub "\u10a7", "Tʻ" # Ⴇ
+    sub "\u10a8", "I" # Ⴈ
+    sub "\u10a9", "K" # Ⴉ
+    sub "\u10aa", "L" # Ⴊ
+    sub "\u10ab", "M" # Ⴋ
+    sub "\u10ac", "N" # Ⴌ
+    sub "\u10ad", "O" # Ⴍ
+    sub "\u10ae", "P" # Ⴎ
+    sub "\u10af", "Ž" # Ⴏ
+    sub "\u10b0", "R" # Ⴐ
+    sub "\u10b1", "S" # Ⴑ
+    sub "\u10b2", "T" # Ⴒ
+    sub "\u10b3", "U" # Ⴓ
+    sub "\u10b4", "Pʻ" # Ⴔ
+    sub "\u10b5", "Kʻ" # Ⴕ
+    sub "\u10b6", "Ġ" # Ⴖ
+    sub "\u10b7", "Q" # Ⴗ
+    sub "\u10b8", "Š" # Ⴘ
+    sub "\u10b9", "Čʻ" # Ⴙ
+    sub "\u10ba", "Cʻ" # Ⴚ
+    sub "\u10bb", "Ż" # Ⴛ
+    sub "\u10bc", "C" # Ⴜ
+    sub "\u10bd", "Č" # Ⴝ
+    sub "\u10be", "X" # Ⴞ
+    sub "\u10bf", "J" # Ⴟ
+    sub "\u10c0", "H" # Ⴠ
+    sub "\u10c1", "Ē" # Ⴡ
+    sub "\u10c2", "Y" # Ⴢ
+    sub "\u10c3", "W" # Ⴣ
+    sub "\u10c4", "X̣" # Ⴤ
+    sub "\u10c5", "Ō" # Ⴥ
+    
+    sub "\u2d00", "a" # ⴀ
+    sub "\u2d01", "b" # ⴁ
+    sub "\u2d02", "g" # ⴂ
+    sub "\u2d03", "d" # ⴃ
+    sub "\u2d04", "e" # ⴄ
+    sub "\u2d05", "v" # ⴅ
+    sub "\u2d06", "z" # ⴆ
+    sub "\u2d07", "tʻ" # ⴇ
+    sub "\u2d08", "i" # ⴈ
+    sub "\u2d09", "k" # ⴉ
+    sub "\u2d0a", "l" # ⴊ
+    sub "\u2d0b", "m" # ⴋ
+    sub "\u2d0c", "n" # ⴌ
+    sub "\u2d0d", "o" # ⴍ
+    sub "\u2d0e", "p" # ⴎ
+    sub "\u2d0f", "ž" # ⴏ
+    sub "\u2d10", "r" # ⴐ
+    sub "\u2d11", "s" # ⴑ
+    sub "\u2d12", "t" # ⴒ
+    sub "\u2d13", "u" # ⴓ
+    sub "\u2d14", "pʻ" # ⴔ
+    sub "\u2d15", "kʻ" # ⴕ
+    sub "\u2d16", "ġ" # ⴖ
+    sub "\u2d17", "q" # ⴗ
+    sub "\u2d18", "š" # ⴘ
+    sub "\u2d19", "čʻ" # ⴙ
+    sub "\u2d1a", "cʻ" # ⴚ
+    sub "\u2d1b", "ż" # ⴛ
+    sub "\u2d1c", "c" # ⴜ
+    sub "\u2d1d", "č" # ⴝ
+    sub "\u2d1e", "x" # ⴞ
+    sub "\u2d1f", "j" # ⴟ
+    sub "\u2d20", "h" # ⴠ
+    sub "\u2d21", "ē" # ⴡ
+    sub "\u2d22", "y" # ⴢ
+    sub "\u2d23", "w" # ⴣ
+    sub "\u2d24", "x̣" # ⴤ
+    sub "\u2d25", "ō" # ⴥ
+  }
+
+}
+

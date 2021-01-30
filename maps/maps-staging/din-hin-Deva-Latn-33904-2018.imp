@@ -61,39 +61,51 @@ tests {
   test "०१९८", "0198"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
 
-  inherit: din-san-Deva-Latn-33904-2018
+dependency "din-san-Deva-Latn-33904-2018", as: devalatn
 
-  characters:
 
-    'ॲ': 'ê'
-    'ऑ': 'ô'
+stage {
 
+  run map.devalatn.stage.main
+
+  # CHARACTERS
+  parallel {
+    
+    sub "ॲ", "ê"
+    sub "ऑ", "ô"
+    
     # Dotted variants
-    'क़': 'ḵa'
-    'ख़': 'ḵha'
-    'ग़': 'g̲a' # \u0067 + \u0332
-    'ज़': 'j̲a' # \u006a + \u0332
-    'ड़': 'ṙa'
-    'ढ़': 'ṙha'
-    'फ़': 'p̲ha' # \u0070 + \u0332
-    'स़': 's̲a' # \u0073 + \u0332
-    'ह़': 'h̲a' # \u0068 + \u0332
-
+    sub "क़", "ḵa"
+    sub "ख़", "ḵha"
+    sub "ग़", "g̲a" # \u0067 + \u0332
+    sub "ज़", "j̲a" # \u006a + \u0332
+    sub "ड़", "ṙa"
+    sub "ढ़", "ṙha"
+    sub "फ़", "p̲ha" # \u0070 + \u0332
+    sub "स़", "s̲a" # \u0073 + \u0332
+    sub "ह़", "h̲a" # \u0068 + \u0332
+    
     # Dotted variants Virāma
-    'क़्': 'ḵ'
-    'ख़्': 'ḵh'
-    'ग़्': 'g̲' # \u0067 + \u0332
-    'ज़्': 'j̲' # \u006a + \u0332
-    'ड़्': 'ṙ'
-    'ढ़्': 'ṙh'
-    'फ़्': 'p̲h' # \u0070 + \u0332
-    'स़्': 's̲' # \u0073 + \u0332
-    'ह़्': 'h̲' # \u0068 + \u0332
+    sub "क़्", "ḵ"
+    sub "ख़्", "ḵh"
+    sub "ग़्", "g̲" # \u0067 + \u0332
+    sub "ज़्", "j̲" # \u006a + \u0332
+    sub "ड़्", "ṙ"
+    sub "ढ़्", "ṙh"
+    sub "फ़्", "p̲h" # \u0070 + \u0332
+    sub "स़्", "s̲" # \u0073 + \u0332
+    sub "ह़्", "h̲" # \u0068 + \u0332
+  }
+
+}
+

@@ -32,65 +32,76 @@ tests {
   #   expected: "pak-lat"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
+
+
+stage {
+
+  # RULES
+  sub "[˩˨˧˦˥]", ""
+  
+
+  # POSTRULES
+  sub "\\.", ""
+  
+
+  # CHARACTERS
+  parallel {
+    
+  }
+
+  # DICTIONARY
+  parallel {
+    
+    sub "̯", ""
+    sub "̚", ""
+    
+    sub "ʔ", ""
+    sub "ː", ""
+    
+    sub "t͡ɕʰ", "ch"
+    sub "t͡ɕ", "čh"
+    sub "ŋ", "ng"
+    sub "j", "y"
+    sub "ɔ", "o̦"
+    sub "ɤ", "œ"
+    sub "ɛ", "æ"
+    sub "ɯ", "ư"
+    sub "ʰ", "h"
+    
+    sub "aːw", "ao"
+    sub "aw", "ao"
+    sub "a̯w", "ao"
+    sub "eːw", "eo"
+    sub "ew", "eo"
+    sub "ɛːw", "aeo"
+    sub "ɛw", "æo"
+    sub "iːw", "iu"
+    sub "iw", "iu"
+    
+    sub "aːj", "ai"
+    sub "aj", "ai"
+    sub "a̯j", "ai"
+    sub "ɔːj", "o̦i"
+    sub "ɔj", "o̦i"
+    sub "oːj", "oi"
+    sub "oj", "oi"
+    sub "ɤːj", "œi"
+    sub "ɤj", "œi"
+    sub "uːj", "ui"
+    sub "uj", "ui"
+  }
+
+}
 
 # This map is chained and probably depends on seq2seq:
 # chain: ["var-tha-Thai-Thai-phonemic" ,"var-tha-Thai-Zsym-ipa"]
+# transcription: 
 
-  title-case: false
-  word_separator: " "
-
-  rules:
-    - pattern: '[˩˨˧˦˥]'
-      result : ''
-
-  postrules:
-    - pattern: '\.'
-      result:  ''
-
-  characters:
-
-  dictionary:
-
-    '̯': ''
-    '̚': ''
-
-    'ʔ': ''
-    'ː': ''
-
-    't͡ɕʰ': 'ch'
-    't͡ɕ': 'čh'
-    'ŋ': 'ng'
-    'j': 'y'
-    'ɔ': 'o̦'
-    'ɤ': 'œ'
-    'ɛ': 'æ'
-    'ɯ': 'ư'
-    'ʰ': 'h'
-
-    'aːw': 'ao'
-    'aw': 'ao'
-    'a̯w': 'ao'
-    'eːw': 'eo'
-    'ew': 'eo'
-    'ɛːw': 'aeo'
-    'ɛw': 'æo'
-    'iːw': 'iu'
-    'iw': 'iu'
-
-    'aːj': 'ai'
-    'aj': 'ai'
-    'a̯j': 'ai'
-    'ɔːj': 'o̦i'
-    'ɔj': 'o̦i'
-    'oːj': 'oi'
-    'oj': 'oi'
-    'ɤːj': 'œi'
-    'ɤj': 'œi'
-    'uːj': 'ui'
-    'uj': 'ui'

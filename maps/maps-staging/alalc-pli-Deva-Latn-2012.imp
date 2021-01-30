@@ -42,102 +42,108 @@ tests {
   test "अनुञ्‍ञातोम्हि किर मातापितूहि अगारस्मा अनगारियं पब्बज्‍जाया’’ति, हट्ठो उदग्गो पाणिना गत्तानि परिपुञ्छन्तो वुट्ठासि", "anauñañaātaomahai kaira maātaāpaitaūhai agaārasamaā anagaāraiyaṃ pababajajaāyaā’’tai, haṭaṭhao udagagao paāṇainaā gatataānai paraipauñachanatao vauṭaṭhaāsai"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
 
-  rules:
-    # note[3]
-    - pattern: \u0902(?=[कखगघङ])
-      result: ṅ
-    - pattern: \u0902(?=[चछजझञ])
-      result: ñ
-    - pattern: \u0902(?=[टठडढण])
-      result: ṇ
-    - pattern: \u0902(?=[तथदधन])
-      result: n
+stage {
 
-  characters:
+  # RULES
+  # note[3]
+  sub "\\u0902(?=[कखगघङ])", "ṅ"
+  sub "\\u0902(?=[चछजझञ])", "ñ"
+  sub "\\u0902(?=[टठडढण])", "ṇ"
+  sub "\\u0902(?=[तथदधन])", "n"
+  
 
+  # CHARACTERS
+  parallel {
+    
     # I. Vowels and Diphthongs (see Note 1)
-
-    'अ': 'a'
-    'आ': 'ā'
-    'इ': 'i'
-    'ई': 'ī'
-    'उ': 'u'
-    'ऊ': 'ū'
-    'ए': 'e'
-    'ओ': 'o'
-
+    
+    sub "अ", "a"
+    sub "आ", "ā"
+    sub "इ", "i"
+    sub "ई", "ī"
+    sub "उ", "u"
+    sub "ऊ", "ū"
+    sub "ए", "e"
+    sub "ओ", "o"
+    
     # II. Consonants (see Note 2)
     # Gutturals
-    'क': 'ka'
-    'ख': 'kha'
-    'ग': 'ga'
-    'घ': 'gha'
-    'ङ': 'ṅa'
-
+    sub "क", "ka"
+    sub "ख", "kha"
+    sub "ग", "ga"
+    sub "घ", "gha"
+    sub "ङ", "ṅa"
+    
     # Palatals
-    'च': 'ca'
-    'छ': 'cha'
-    'ज': 'ja'
-    'झ': 'jha'
-    'ञ': 'ña'
-
+    sub "च", "ca"
+    sub "छ", "cha"
+    sub "ज", "ja"
+    sub "झ", "jha"
+    sub "ञ", "ña"
+    
     # Cerebrals
-    'ट': 'ṭa'
-    'ठ': 'ṭha'
-    'ड': 'ḍa'
-    'ढ': 'ḍha'
-    'ण': 'ṇa'
-
+    sub "ट", "ṭa"
+    sub "ठ", "ṭha"
+    sub "ड", "ḍa"
+    sub "ढ", "ḍha"
+    sub "ण", "ṇa"
+    
     # Dentals
-    'त': 'ta'
-    'थ': 'tha'
-    'द': 'da'
-    'ध': 'dha'
-    'न': 'na'
-
+    sub "त", "ta"
+    sub "थ", "tha"
+    sub "द", "da"
+    sub "ध", "dha"
+    sub "न", "na"
+    
     # Labials
-    'प': 'pa'
-    'फ': 'pha'
-    'ब': 'ba'
-    'भ': 'bha'
-    'म': 'ma'
-
+    sub "प", "pa"
+    sub "फ", "pha"
+    sub "ब", "ba"
+    sub "भ", "bha"
+    sub "म", "ma"
+    
     # Semivowels
-    'य': 'ya'
-    'र': 'ra'
-    'ल': 'la'
-    'ळ': 'ḻa'
-    'व': 'va'
-
+    sub "य", "ya"
+    sub "र", "ra"
+    sub "ल", "la"
+    sub "ळ", "ḻa"
+    sub "व", "va"
+    
     # Sibilants
-    'श': 'śa'
-    'ष': 'ṣa'
-    'स': 'sa'
-
+    sub "श", "śa"
+    sub "ष", "ṣa"
+    sub "स", "sa"
+    
     # Aspirate
-    'ह': 'ha'
-
+    sub "ह", "ha"
+    
     # Visagga
-    'ः': 'ḥ'
-
+    sub "ः", "ḥ"
+    
     # Niggahīta/Anusvāra
-    'ं': 'ṃ'
-
+    sub "ं", "ṃ"
+    
     # Medials # Needed for connecting constants
-    'ा': "ā"
-    'ि': "i"
-    'ी': "ī"
-    'ु': "u"
-    'ू': "ū"
-    'े': "e"
-    'ो': "o"
-    '्': ""
-    '‍': ''# Used for joining
+    sub "ा", "ā"
+    sub "ि", "i"
+    sub "ी", "ī"
+    sub "ु", "u"
+    sub "ू", "ū"
+    sub "े", "e"
+    sub "ो", "o"
+    sub "्", ""
+    sub "‍", "" # Used for joining
+  }
+
+}
+

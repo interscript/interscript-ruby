@@ -37,135 +37,140 @@ tests {
   test "ಕೆಲವು ತಿಂಗಳಿಂದ ರಷ್ಯಾ ದೇಶದ ಏನಾಟೊಲಿ ಇವ್ಯಾನಿಶಿನ್‌ ಮತ್ತು ಇವಾನ್‌ ವ್ಯಾಗನರ್‌ ಹಾಗೂ ಅಮೆರಿಕಾದ ಕ್ರಿಸ್‌ ಕ್ಯಾಸಿಡಿ ಈ ಉಪಗ್ರಹದಲ್ಲಿ ವಾಸಿಸುತ್ತಿದ್ದಾರೆ", "kelvu tiṅgḷind rṣyā dēśd ēnāṭeūli ivyāniśin mttu ivān vyāgnr hāgū amerikād kris kyāsiḍi ī upgrhdlli vāsisuttiddāre"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
 
-  rules:
-    # note
-    - pattern: \u0C82(?=[ಕಖಗಘಙ])
-      result: ṅ
-    - pattern: \u0C82(?=[ಚಛಜಝಞ])
-      result: ñ
-    - pattern: \u0C82(?=[ಟಠಡಢಣ])
-      result: ṇ
-    - pattern: \u0C82(?=[ತಥದಧನ])
-      result: n
-    - pattern: \u0C82(?=[ಪಫಬಭಮ])
-      result: m
+stage {
 
-  characters:
-    'ಅ': 'a'
-    'ಆ': 'ā'
-    'ಇ': 'i'
-    'ಈ': 'ī'
-    'ಉ': 'u'
-    'ಊ': 'ū'
-    'ಋ': 'ṛ'
-    'ಌ': 'ḻ'
+  # RULES
+  # note
+  sub "\\u0C82(?=[ಕಖಗಘಙ])", "ṅ"
+  sub "\\u0C82(?=[ಚಛಜಝಞ])", "ñ"
+  sub "\\u0C82(?=[ಟಠಡಢಣ])", "ṇ"
+  sub "\\u0C82(?=[ತಥದಧನ])", "n"
+  sub "\\u0C82(?=[ಪಫಬಭಮ])", "m"
+  
 
-    'ಎ': 'e'
-    'ಏ': 'ē'
-    'ಐ': 'ai'
-
-    'ಒ': 'o'
-    'ಓ': 'ŏ'
-    'ಔ': 'au'
-
+  # CHARACTERS
+  parallel {
+    sub "ಅ", "a"
+    sub "ಆ", "ā"
+    sub "ಇ", "i"
+    sub "ಈ", "ī"
+    sub "ಉ", "u"
+    sub "ಊ", "ū"
+    sub "ಋ", "ṛ"
+    sub "ಌ", "ḻ"
+    
+    sub "ಎ", "e"
+    sub "ಏ", "ē"
+    sub "ಐ", "ai"
+    
+    sub "ಒ", "o"
+    sub "ಓ", "ŏ"
+    sub "ಔ", "au"
+    
     # II. Consonants (see Note 2)
     # Gutturals
-    'ಕ': 'k'
-    'ಖ': 'kh'
-    'ಗ': 'g'
-    'ಘ': 'gh'
-    'ಙ': 'ṅ'
-
+    sub "ಕ", "k"
+    sub "ಖ", "kh"
+    sub "ಗ", "g"
+    sub "ಘ", "gh"
+    sub "ಙ", "ṅ"
+    
     # Palatals
-    'ಚ': 'c'
-    'ಛ': 'ch'
-    'ಜ': 'j'
-    'ಝ': 'jh'
-    'ಞ': 'ñ'
-
+    sub "ಚ", "c"
+    sub "ಛ", "ch"
+    sub "ಜ", "j"
+    sub "ಝ", "jh"
+    sub "ಞ", "ñ"
+    
     # Cerebrals
-    'ಟ': 'ṭ'
-    'ಠ': 'ṭh'
-    'ಡ': 'ḍ'
-    'ಢ': 'ḍh'
-    'ಣ': 'ṇ'
-
+    sub "ಟ", "ṭ"
+    sub "ಠ", "ṭh"
+    sub "ಡ", "ḍ"
+    sub "ಢ", "ḍh"
+    sub "ಣ", "ṇ"
+    
     # Dentals
-    'ತ': 't'
-    'ಥ': 'th'
-    'ದ': 'd'
-    'ಧ': 'dh'
-    'ನ': 'n'
-
+    sub "ತ", "t"
+    sub "ಥ", "th"
+    sub "ದ", "d"
+    sub "ಧ", "dh"
+    sub "ನ", "n"
+    
     # Labials
-    'ಪ': 'p'
-    'ಫ': 'ph'
-    'ಬ': 'b'
-    'ಭ': 'bh'
-    'ಮ': 'm'
-
+    sub "ಪ", "p"
+    sub "ಫ", "ph"
+    sub "ಬ", "b"
+    sub "ಭ", "bh"
+    sub "ಮ", "m"
+    
     # Semivowels
-    'ಯ': 'y'
-    'ರ': 'r'
-    'ಱ': 'ṟ'
-    'ಲ': 'l'
-    'ಳ': 'ḷ'
- #   'ऴ': 'ẕ'
-
-
-    'ವ': 'v'
-
+    sub "ಯ", "y"
+    sub "ರ", "r"
+    sub "ಱ", "ṟ"
+    sub "ಲ", "l"
+    sub "ಳ", "ḷ"
+    #   'ऴ': 'ẕ'
+    
+    
+    sub "ವ", "v"
+    
     # Sibilants
-    'ಶ': 'ś'
-    'ಷ': 'ṣ'
-    'ಸ': 's'
-
-
+    sub "ಶ", "ś"
+    sub "ಷ", "ṣ"
+    sub "ಸ", "s"
+    
+    
     # Aspirate
-    'ಹ': 'h'
-
-
+    sub "ಹ", "h"
+    
+    
     # Chandrabindu
-    '\u0C80': 'm'
-    '\u0C81': 'm'
-
+    sub "\u0C80", "m"
+    sub "\u0C81", "m"
+    
     # Bisarga
-    'ಃ': 'ḥ'
-
+    sub "ಃ", "ḥ"
+    
     # Anusvāra
-    'ಂ': 'ṃ'
-
-    '$಼': '' #nukta
-
+    sub "ಂ", "ṃ"
+    
+    sub "$಼", "" #nukta
+    
     # Medials # Needed for connecting constants
-    'ಾ': "ā"
-    'ಿ': "i"
-    'ೀ': "ī"
-    'ು': "u"
-    'ೂ': "ū"
-    'ೃ': "ṛ"
-    'ೄ': "ṛr"
+    sub "ಾ", "ā"
+    sub "ಿ", "i"
+    sub "ೀ", "ī"
+    sub "ು", "u"
+    sub "ೂ", "ū"
+    sub "ೃ", "ṛ"
+    sub "ೄ", "ṛr"
+    
+    
+    sub "ೆ", "e"
+    sub "ೇ", "ē"
+    sub "ೈ", "ai"
+    
+    
+    sub "ೊ", "o"
+    sub "ೋ", "ō"
+    sub "ೌ", "au"
+    
+    sub "्", ""
+    sub "़", ""
+    sub "್", ""
+    sub "‍", "" # no need for zero with joiner
+    sub "‌", "" # no need for zero with non joiner
+  }
 
+}
 
-    'ೆ': "e"
-    'ೇ': "ē"
-    'ೈ': "ai"
-
-
-    'ೊ': 'o'
-    'ೋ': 'ō'
-    'ೌ': 'au'
-
-    '्': ''
-    '़': ''
-    '್': ''
-    "‍": '' # no need for zero with joiner
-    "‌": '' # no need for zero with non joiner

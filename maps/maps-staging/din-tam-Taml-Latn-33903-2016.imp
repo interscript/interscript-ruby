@@ -44,165 +44,152 @@ tests {
   test "இந்திய எண்ணெய் கப்பலில் தீ: விபத்து குறித்த எச்சரிக்கையை கப்பல் அதிகாரிகள் புறக்கணித்தனர் - இலங்கை கோர்ட்டு தகவல்", "intiya eṇṇey kappalil tī: vipattu kuṟitta eccarikkaiyai kappal atikārikaḷ puṟakkaṇittaṉar - ilaṅkai kōrṭṭu takaval"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
 
-  rules:
-    - pattern: ([க]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
-      result: 'k'
-    - pattern: ([ங]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
-      result: 'ṅ'
-    - pattern: ([ச]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
-      result: 'c'
-    - pattern: ([ஞ]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
-      result: 'ñ'
-    - pattern: ([ட]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
-      result: 'ṭ'
-    - pattern: ([ண]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
-      result: 'ṇ'
-    - pattern: ([த]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
-      result: 't'
-    - pattern: ([ந]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
-      result: 'n'
-    - pattern: ([ப]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
-      result: 'p'
-    - pattern: ([ம]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
-      result: 'm'
-    - pattern: ([ய]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
-      result: 'y'
-    - pattern: ([ர]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
-      result: 'r'
-    - pattern: ([ல]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
-      result: 'l'
-    - pattern: ([ள]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
-      result: 'ḷ'
-    - pattern: ([ழ]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
-      result: 'ḻ'
-    - pattern: ([வ]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
-      result: 'v'
-    - pattern: ([ற]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
-      result: 'ṟ'
-    - pattern: ([ன]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
-      result: 'ṉ'
-    - pattern: ([ஜ]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
-      result: 'j'
-    - pattern: ([ஶ]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
-      result: 'ś'
-    - pattern: ([ஷ]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
-      result: 'ṣ'
-    - pattern: ([ஸ]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
-      result: 's'
-    - pattern: ([ஹ]=?)(?=[\u0BBE\u0BBF\u0BC0\u0BC1\u0BC2\u0BC6\u0BC7\u0BC8\u0BCA\u0BCB\u0BCC\u094B\u094C])
-      result: 'h'
+stage {
 
-  characters:
-    'அ': 'a'
-    'ஆ': 'ā'
-    'ா': 'ā'
+  # RULES
+  sub "([க]=?)(?=[\\u0BBE\\u0BBF\\u0BC0\\u0BC1\\u0BC2\\u0BC6\\u0BC7\\u0BC8\\u0BCA\\u0BCB\\u0BCC\\u094B\\u094C])", "k"
+  sub "([ங]=?)(?=[\\u0BBE\\u0BBF\\u0BC0\\u0BC1\\u0BC2\\u0BC6\\u0BC7\\u0BC8\\u0BCA\\u0BCB\\u0BCC\\u094B\\u094C])", "ṅ"
+  sub "([ச]=?)(?=[\\u0BBE\\u0BBF\\u0BC0\\u0BC1\\u0BC2\\u0BC6\\u0BC7\\u0BC8\\u0BCA\\u0BCB\\u0BCC\\u094B\\u094C])", "c"
+  sub "([ஞ]=?)(?=[\\u0BBE\\u0BBF\\u0BC0\\u0BC1\\u0BC2\\u0BC6\\u0BC7\\u0BC8\\u0BCA\\u0BCB\\u0BCC\\u094B\\u094C])", "ñ"
+  sub "([ட]=?)(?=[\\u0BBE\\u0BBF\\u0BC0\\u0BC1\\u0BC2\\u0BC6\\u0BC7\\u0BC8\\u0BCA\\u0BCB\\u0BCC\\u094B\\u094C])", "ṭ"
+  sub "([ண]=?)(?=[\\u0BBE\\u0BBF\\u0BC0\\u0BC1\\u0BC2\\u0BC6\\u0BC7\\u0BC8\\u0BCA\\u0BCB\\u0BCC\\u094B\\u094C])", "ṇ"
+  sub "([த]=?)(?=[\\u0BBE\\u0BBF\\u0BC0\\u0BC1\\u0BC2\\u0BC6\\u0BC7\\u0BC8\\u0BCA\\u0BCB\\u0BCC\\u094B\\u094C])", "t"
+  sub "([ந]=?)(?=[\\u0BBE\\u0BBF\\u0BC0\\u0BC1\\u0BC2\\u0BC6\\u0BC7\\u0BC8\\u0BCA\\u0BCB\\u0BCC\\u094B\\u094C])", "n"
+  sub "([ப]=?)(?=[\\u0BBE\\u0BBF\\u0BC0\\u0BC1\\u0BC2\\u0BC6\\u0BC7\\u0BC8\\u0BCA\\u0BCB\\u0BCC\\u094B\\u094C])", "p"
+  sub "([ம]=?)(?=[\\u0BBE\\u0BBF\\u0BC0\\u0BC1\\u0BC2\\u0BC6\\u0BC7\\u0BC8\\u0BCA\\u0BCB\\u0BCC\\u094B\\u094C])", "m"
+  sub "([ய]=?)(?=[\\u0BBE\\u0BBF\\u0BC0\\u0BC1\\u0BC2\\u0BC6\\u0BC7\\u0BC8\\u0BCA\\u0BCB\\u0BCC\\u094B\\u094C])", "y"
+  sub "([ர]=?)(?=[\\u0BBE\\u0BBF\\u0BC0\\u0BC1\\u0BC2\\u0BC6\\u0BC7\\u0BC8\\u0BCA\\u0BCB\\u0BCC\\u094B\\u094C])", "r"
+  sub "([ல]=?)(?=[\\u0BBE\\u0BBF\\u0BC0\\u0BC1\\u0BC2\\u0BC6\\u0BC7\\u0BC8\\u0BCA\\u0BCB\\u0BCC\\u094B\\u094C])", "l"
+  sub "([ள]=?)(?=[\\u0BBE\\u0BBF\\u0BC0\\u0BC1\\u0BC2\\u0BC6\\u0BC7\\u0BC8\\u0BCA\\u0BCB\\u0BCC\\u094B\\u094C])", "ḷ"
+  sub "([ழ]=?)(?=[\\u0BBE\\u0BBF\\u0BC0\\u0BC1\\u0BC2\\u0BC6\\u0BC7\\u0BC8\\u0BCA\\u0BCB\\u0BCC\\u094B\\u094C])", "ḻ"
+  sub "([வ]=?)(?=[\\u0BBE\\u0BBF\\u0BC0\\u0BC1\\u0BC2\\u0BC6\\u0BC7\\u0BC8\\u0BCA\\u0BCB\\u0BCC\\u094B\\u094C])", "v"
+  sub "([ற]=?)(?=[\\u0BBE\\u0BBF\\u0BC0\\u0BC1\\u0BC2\\u0BC6\\u0BC7\\u0BC8\\u0BCA\\u0BCB\\u0BCC\\u094B\\u094C])", "ṟ"
+  sub "([ன]=?)(?=[\\u0BBE\\u0BBF\\u0BC0\\u0BC1\\u0BC2\\u0BC6\\u0BC7\\u0BC8\\u0BCA\\u0BCB\\u0BCC\\u094B\\u094C])", "ṉ"
+  sub "([ஜ]=?)(?=[\\u0BBE\\u0BBF\\u0BC0\\u0BC1\\u0BC2\\u0BC6\\u0BC7\\u0BC8\\u0BCA\\u0BCB\\u0BCC\\u094B\\u094C])", "j"
+  sub "([ஶ]=?)(?=[\\u0BBE\\u0BBF\\u0BC0\\u0BC1\\u0BC2\\u0BC6\\u0BC7\\u0BC8\\u0BCA\\u0BCB\\u0BCC\\u094B\\u094C])", "ś"
+  sub "([ஷ]=?)(?=[\\u0BBE\\u0BBF\\u0BC0\\u0BC1\\u0BC2\\u0BC6\\u0BC7\\u0BC8\\u0BCA\\u0BCB\\u0BCC\\u094B\\u094C])", "ṣ"
+  sub "([ஸ]=?)(?=[\\u0BBE\\u0BBF\\u0BC0\\u0BC1\\u0BC2\\u0BC6\\u0BC7\\u0BC8\\u0BCA\\u0BCB\\u0BCC\\u094B\\u094C])", "s"
+  sub "([ஹ]=?)(?=[\\u0BBE\\u0BBF\\u0BC0\\u0BC1\\u0BC2\\u0BC6\\u0BC7\\u0BC8\\u0BCA\\u0BCB\\u0BCC\\u094B\\u094C])", "h"
+  
 
-    'இ': 'i'
-    'ி': 'i'
-
-    'ஈ': 'ī'
-    'ீ': 'ī'
-
-    'உ': 'u'
-    'ு': 'u'
-
-    'ஊ': 'ū'
-    'ூ': 'ū'
-
-    'ெ': "e"
-    'எ': 'e'
-
-    'ே': "ē"
-    'ஏ': 'ē'
-
-    'ஐ': 'ai'
-    'ை': "ai"
-
-    'ஒ': 'o'
-    'ொ': 'o'
-
-    'ோ': 'ō'
-    'ஓ': 'ō'
-
-    'ஔ': 'au'
-    'ௌ': 'au'
-
-    'க்': 'k'
-    'ங்': 'ṅ'
-    'ச்': 'c'
-    'ஞ்': 'ñ'
-    'ட்':  'ṭ'
-    'ண்':  'ṇ'
-    'த்': 't'
-    'ந்':  'n'
-    'ப்': 'p'
-    'ம்': 'm'
-    'ய்': 'y'
-    'ர்': 'r'
-    'ல்': 'l'
-    'ள்': 'ḷ'
-    'ழ்': 'ḻ'
-    'வ்': 'v'
-    'ற்': 'ṟ'
-    'ன்': 'ṉ'
-    'ஜ்': 'j'
-
-    'ஶ்': 'ś'
-    'ஷ்': 'ṣ'
-    'ஸ்': 's'
-    'ஹ்': 'h'
-
-
-    'க': 'ka'
-    'ங': 'ṅa'
-    'ஃ': 'ḵ'
-    'ச': 'ca'
-    'ஞ': 'ña'
-    'ட': 'ṭa'
-    'ண': 'ṇa'
-    'த': 'ta'
-    'ந': 'na'
-    'ப': 'pa'
-    'ம': 'ma'
-    'ய': 'ya'
-    'ர': 'ra'
-    'ல': 'la'
-    'ள': 'ḷa'
-    'ழ': 'ḻa'
-    'வ': 'va'
-    'ற': 'ṟa'
-    'ன': 'ṉa'
-    'ஜ': 'ja'
-    'ஶ': 'śa'
-    'ஷ': 'ṣa'
-    'ஸ': 'sa'
-    'ஹ': 'ha'
-
+  # CHARACTERS
+  parallel {
+    sub "அ", "a"
+    sub "ஆ", "ā"
+    sub "ா", "ā"
+    
+    sub "இ", "i"
+    sub "ி", "i"
+    
+    sub "ஈ", "ī"
+    sub "ீ", "ī"
+    
+    sub "உ", "u"
+    sub "ு", "u"
+    
+    sub "ஊ", "ū"
+    sub "ூ", "ū"
+    
+    sub "ெ", "e"
+    sub "எ", "e"
+    
+    sub "ே", "ē"
+    sub "ஏ", "ē"
+    
+    sub "ஐ", "ai"
+    sub "ை", "ai"
+    
+    sub "ஒ", "o"
+    sub "ொ", "o"
+    
+    sub "ோ", "ō"
+    sub "ஓ", "ō"
+    
+    sub "ஔ", "au"
+    sub "ௌ", "au"
+    
+    sub "க்", "k"
+    sub "ங்", "ṅ"
+    sub "ச்", "c"
+    sub "ஞ்", "ñ"
+    sub "ட்", "ṭ"
+    sub "ண்", "ṇ"
+    sub "த்", "t"
+    sub "ந்", "n"
+    sub "ப்", "p"
+    sub "ம்", "m"
+    sub "ய்", "y"
+    sub "ர்", "r"
+    sub "ல்", "l"
+    sub "ள்", "ḷ"
+    sub "ழ்", "ḻ"
+    sub "வ்", "v"
+    sub "ற்", "ṟ"
+    sub "ன்", "ṉ"
+    sub "ஜ்", "j"
+    
+    sub "ஶ்", "ś"
+    sub "ஷ்", "ṣ"
+    sub "ஸ்", "s"
+    sub "ஹ்", "h"
+    
+    
+    sub "க", "ka"
+    sub "ங", "ṅa"
+    sub "ஃ", "ḵ"
+    sub "ச", "ca"
+    sub "ஞ", "ña"
+    sub "ட", "ṭa"
+    sub "ண", "ṇa"
+    sub "த", "ta"
+    sub "ந", "na"
+    sub "ப", "pa"
+    sub "ம", "ma"
+    sub "ய", "ya"
+    sub "ர", "ra"
+    sub "ல", "la"
+    sub "ள", "ḷa"
+    sub "ழ", "ḻa"
+    sub "வ", "va"
+    sub "ற", "ṟa"
+    sub "ன", "ṉa"
+    sub "ஜ", "ja"
+    sub "ஶ", "śa"
+    sub "ஷ", "ṣa"
+    sub "ஸ", "sa"
+    sub "ஹ", "ha"
+    
     # Digits
-    '௧': '1'
-    '௨': '2'
-    '௩': '3'
-    '௪': '4'
-    '௫': '5'
-    '௬': '6'
-    '௭': '7'
-    '௮': '8'
-    '௯': '9'
-    '௦': '0'
-    '௰': '10'
-    '௱': '100'
-    '௲': '1000'
+    sub "௧", "1"
+    sub "௨", "2"
+    sub "௩", "3"
+    sub "௪", "4"
+    sub "௫", "5"
+    sub "௬", "6"
+    sub "௭", "7"
+    sub "௮", "8"
+    sub "௯", "9"
+    sub "௦", "0"
+    sub "௰", "10"
+    sub "௱", "100"
+    sub "௲", "1000"
+    
+    
+    
+    
+    sub "‍", "" # no need for zero with joiner
+    sub "‌", "" # no need for zero with non joiner
+  }
 
+}
 
-
-
-    "‍": '' # no need for zero with joiner
-    "‌": '' # no need for zero with non joiner

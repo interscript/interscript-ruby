@@ -100,120 +100,85 @@ tests {
   test "문암 오-동", "Munam O-dong"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  character_separator: ""
-  word_separator: " "
-  title_case: True
-  inherit: [var-kor-Hang-Latn-mr-1939]
+dependency "var-kor-Hang-Latn-mr-1939", as: hanglatn
 
-  rules:
-    # Add Zero-width White-space U+200B after spaces (i.e. before word boundaries)
-    # So that the word-initial conversion rules will be blocked.
-    - pattern: "^"
-      result: "\u200B"
-    - pattern: "(?<= )"
-      result: "\u200B"
 
-    # convert numbers to space + Hangul
-    - pattern: "([^0-9 ])(?=[0-9])"
-      result: "\\1 "
-    - pattern: "1"
-      result: "일"
-    - pattern: "2"
-      result: "이"
-    - pattern: "3"
-      result: "삼"
-    - pattern: "4"
-      result: "사"
-    - pattern: "5"
-      result: "오"
-    - pattern: "6"
-      result: "육"
-    - pattern: "7"
-      result: "칠"
-    - pattern: "8"
-      result: "팔"
-    - pattern: "9"
-      result: "구"
+stage {
 
-    # This is a logic to add hyphen in front of generics
-    # - pattern: "(?<=.)(구역|동|리|도|고개|골|로동자구|사무소|초등학교|중학교|고등학교|강|포|령|역|봉|사|천|교|제|저수지|소류지|재|못|말|면|암|교회|촌|병원|바위|공원|섬|우체국|대학교|보건소|굴|치|대교|지구|폭포|해수욕장|휴게소|중고교|읍|보건진료소|마을|톨게이트|대학|시장|경찰서|학교)$" #to be expanded
-    #   result: "-\\1"
+  run map.hanglatn.stage.main
 
-  postrules:
+  # RULES
+  # Add Zero-width White-space U+200B after spaces (i.e. before word boundaries)
+  # So that the word-initial conversion rules will be blocked.
+  sub "^", "​"
+  sub "(?<= )", "​"
+  
+  # convert numbers to space + Hangul
+  sub "([^0-9 ])(?=[0-9])", "\\1 "
+  sub "1", "일"
+  sub "2", "이"
+  sub "3", "삼"
+  sub "4", "사"
+  sub "5", "오"
+  sub "6", "육"
+  sub "7", "칠"
+  sub "8", "팔"
+  sub "9", "구"
+  
+  # This is a logic to add hyphen in front of generics
+  # - pattern: "(?<=.)(구역|동|리|도|고개|골|로동자구|사무소|초등학교|중학교|고등학교|강|포|령|역|봉|사|천|교|제|저수지|소류지|재|못|말|면|암|교회|촌|병원|바위|공원|섬|우체국|대학교|보건소|굴|치|대교|지구|폭포|해수욕장|휴게소|중고교|읍|보건진료소|마을|톨게이트|대학|시장|경찰서|학교)$" #to be expanded
+  #   result: "-\\1"
+  
 
-    # Add space to the two ends of the string for easier word boundary handling
-    - pattern: "^"
-      result: " "
-    - pattern: "$"
-      result: " "
+  # POSTRULES
+  
+  # Add space to the two ends of the string for easier word boundary handling
+  sub "^", " "
+  sub "$", " "
+  
+  # Initial rules in the inherited map were blocked, so that
+  # this set of updated rules (with the onset rules removed) will be used instead.
+  sub "​", ""
+  
+  sub "(?<= )ᄀ", "k" # HANGUL CHOSEONG KIYEOK
+  sub "(?<= )ᄂ", "n" # HANGUL CHOSEONG NIEUN
+  sub "(?<= )ᄃ(?=[ᅵᅣᅤᅧᅨᅭᅲ])", "ch" # HANGUL CHOSEONG TIEUT # T -> Ch before yotized vowels
+  sub "(?<= )ᄃ", "t" # HANGUL CHOSEONG TIEUT
+  sub "(?<= )ᄅ", "r" # HANGUL CHOSEONG RIEUL
+  sub "(?<= )ᄆ", "m" # HANGUL CHOSEONG MIEUM
+  sub "(?<= )ᄇ", "p" # HANGUL CHOSEONG PIEUP
+  sub "(?<= )ᄉ(?=ᅱ)", "sh" # HANGUL CHOSEONG SIOS
+  sub "(?<= )ᄉ", "s" # HANGUL CHOSEONG SIOS
+  sub "(?<= )ᄋ", "" # HANGUL CHOSEONG IEUNG
+  sub "(?<= )ᄌ", "ch" # HANGUL CHOSEONG CIEUC
+  sub "(?<= )ᄎ", "ch’" # HANGUL CHOSEONG CHIEUCH
+  sub "(?<= )ᄏ", "k’" # HANGUL CHOSEONG KHIEUKH
+  sub "(?<= )ᄐ(?=[ᅵᅣᅤᅧᅨᅭᅲ])", "ch’" # HANGUL CHOSEONG THIEUTH + YOTIZED VOWELS
+  sub "(?<= )ᄐ", "t’" # HANGUL CHOSEONG THIEUTH
+  sub "(?<= )ᄑ", "p’" # HANGUL CHOSEONG PHIEUPH
+  sub "(?<= )ᄒ", "h" # HANGUL CHOSEONG HIEUH
+  sub "(?<= )ᄁ", "kk" # HANGUL CHOSEONG SSANGKIYEOK
+  sub "(?<= )ᄭ", "kk" # HANGUL CHOSEONG SIOS-KIYEOK
+  sub "(?<= )ᄄ", "tt" # HANGUL CHOSEONG SSANGTIEUT
+  sub "(?<= )ᄯ", "tt" # HANGUL CHOSEONG SIOS-TIEUT
+  sub "(?<= )ᄈ", "pp" # HANGUL CHOSEONG SSANGPIEUP
+  sub "(?<= )ᄲ", "pp" # HANGUL CHOSEONG SIOS-PIEUP
+  sub "(?<= )ᄊ", "ss" # HANGUL CHOSEONG SSANGSIOS
+  sub "(?<= )ᄍ", "tch" # HANGUL CHOSEONG SSANGCIEUC
+  sub "(?<= )ᄶ", "tch" # HANGUL CHOSEONG SIOS-CIEUC
+  
+  # Remove space added
+  sub "^ ", ""
+  sub " $", ""
 
-    # Initial rules in the inherited map were blocked, so that
-    # this set of updated rules (with the onset rules removed) will be used instead.
-    - pattern: "\u200B"
-      result: ""
+  title_case}
 
-    - pattern: "(?<= )ᄀ"
-      result: "k" # HANGUL CHOSEONG KIYEOK
-    - pattern: "(?<= )ᄂ"
-      result: "n" # HANGUL CHOSEONG NIEUN
-    - pattern: "(?<= )ᄃ(?=[ᅵᅣᅤᅧᅨᅭᅲ])"
-      result: "ch" # HANGUL CHOSEONG TIEUT # T -> Ch before yotized vowels
-    - pattern: "(?<= )ᄃ"
-      result: "t" # HANGUL CHOSEONG TIEUT
-    - pattern: "(?<= )ᄅ"
-      result: "r" # HANGUL CHOSEONG RIEUL
-    - pattern: "(?<= )ᄆ"
-      result: "m" # HANGUL CHOSEONG MIEUM
-    - pattern: "(?<= )ᄇ"
-      result: "p" # HANGUL CHOSEONG PIEUP
-    - pattern: "(?<= )ᄉ(?=ᅱ)"
-      result: "sh" # HANGUL CHOSEONG SIOS
-    - pattern: "(?<= )ᄉ"
-      result: "s" # HANGUL CHOSEONG SIOS
-    - pattern: "(?<= )ᄋ"
-      result: "" # HANGUL CHOSEONG IEUNG
-    - pattern: "(?<= )ᄌ"
-      result: "ch" # HANGUL CHOSEONG CIEUC
-    - pattern: "(?<= )ᄎ"
-      result: "ch’" # HANGUL CHOSEONG CHIEUCH
-    - pattern: "(?<= )ᄏ"
-      result: "k’" # HANGUL CHOSEONG KHIEUKH
-    - pattern: "(?<= )ᄐ(?=[ᅵᅣᅤᅧᅨᅭᅲ])"
-      result: "ch’" # HANGUL CHOSEONG THIEUTH + YOTIZED VOWELS
-    - pattern: "(?<= )ᄐ"
-      result: "t’" # HANGUL CHOSEONG THIEUTH
-    - pattern: "(?<= )ᄑ"
-      result: "p’" # HANGUL CHOSEONG PHIEUPH
-    - pattern: "(?<= )ᄒ"
-      result: "h" # HANGUL CHOSEONG HIEUH
-    - pattern: "(?<= )ᄁ"
-      result: "kk" # HANGUL CHOSEONG SSANGKIYEOK
-    - pattern: "(?<= )ᄭ"
-      result: "kk" # HANGUL CHOSEONG SIOS-KIYEOK
-    - pattern: "(?<= )ᄄ"
-      result: "tt" # HANGUL CHOSEONG SSANGTIEUT
-    - pattern: "(?<= )ᄯ"
-      result: "tt" # HANGUL CHOSEONG SIOS-TIEUT
-    - pattern: "(?<= )ᄈ"
-      result: "pp" # HANGUL CHOSEONG SSANGPIEUP
-    - pattern: "(?<= )ᄲ"
-      result: "pp" # HANGUL CHOSEONG SIOS-PIEUP
-    - pattern: "(?<= )ᄊ"
-      result: "ss" # HANGUL CHOSEONG SSANGSIOS
-    - pattern: "(?<= )ᄍ"
-      result: "tch" # HANGUL CHOSEONG SSANGCIEUC
-    - pattern: "(?<= )ᄶ"
-      result: "tch" # HANGUL CHOSEONG SIOS-CIEUC
-
-    # Remove space added
-    - pattern: "^ "
-      result: ""
-    - pattern: " $"
-      result: ""

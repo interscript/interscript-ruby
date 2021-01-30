@@ -52,11 +52,20 @@ tests {
   test "कतिपय सन्दर्भ र राजनीतिक रूपमा फाइदा हुने कुरामा कवि घिमिरेले गर्ने गरेको टिप्पणी पनि नेपाली लेखकमाझ आलोचित हुन्थ्यो", "katipay sandarbh r rājanītik rūpamā phāidā hune kurāmā kavi ghimirele garne gareko ṭippaṇī pani nepālī lekhakamājh ālochit hunthyo"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  inherit: un-nep-Deva-Latn-1972
+dependency "un-nep-Deva-Latn-1972", as: devalatn
+
+stage {
+
+  run map.devalatn.stage.main
+
+}
+

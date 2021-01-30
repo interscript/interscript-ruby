@@ -145,76 +145,85 @@ tests {
   test "حسن عبد اللہ", "hasn ebd allah"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
 
-  characters:
+stage {
 
+  # CHARACTERS
+  parallel {
+    
+    
+    sub "\u0622", "a" # ARABIC ALEF W/MADDA ABOVE
+    sub "\u0627", "a" # or u ARABIC ALEF
+    sub "\u06cc", "i" # or ai or u ARABIC LETTER WAW
+    sub "\u0648", "i" # or o,au ARABIC LETTER FARSI YEH
+    sub "\u06d2", "e" # ARABIC LETTER YEH BARREE
+    sub "\u0650", "e" # ARABIC ARABIC KASRA
+    sub "\u0639", "e" # ARABIC LETTER AIN
+    sub "\u06c1", "ah" # ARABIC LETTER HEH GOAL
+    sub "\u062d", "ha" # ARABIC LETTER HAH
+    sub "\u0648\u0670", "a" # ARABIC LETTER FARSI YEH + ARABIC LETTER SUPERSCRIPT ALEF
+    sub "\u0670", "a" # ARABIC LETTER SUPERSCRIPT ALEF
+    sub "\u0627\u0650", "i" # ARABIC ALEF + ARABIC KASRA
+    sub "\u0639\u0650", "i" # ARABIC LETTER AIN + ARABIC KASRA
+    sub "\u064f", "i" # ARABIC DAMMA
+    sub "\u06d3", "i" #  ARABIC LETTER YEH BARREE WITH HAMZA ABOVE
+    sub "\u06c2", "-e" #  ARABIC LETTER HEH GOAL WITH HAMZA ABOVE
+    sub "\u06c1\u0650", "o" #  ARABIC LETTER YEH  WITH HAMZA ABOVE
+    sub "\u0624", "au" #  ARABIC LETTER WAW WITH HAMZA ABOVE
+    
+    
+    
+    sub "\u06a9", "k" #   ARABIC LETTER KEHEH
+    sub "\u0642", "q" #   ARABIC LETTER QAF
+    sub "\u062e", "kh" #   ARABIC LETTER KHAH
+    sub "\u06af", "g" #   ARABIC LETTER GAF
+    sub "\u063a", "gh" #   ARABIC LETTER GHAIN
+    sub "\u0686", "ch" #   ARABIC LETTER TCHEH
+    sub "\u062c", "j" #   Arabic Letter Jeem
+    
+    sub "\u0632", "z" #   Arabic Letter ZAIN
+    sub "\u0630", "z" #   Arabic Letter THAL
+    sub "\u0636", "z" #   Arabic Letter DAD
+    sub "\u0638", "z" #   Arabic Letter ZAH
+    sub "\u0698", "zh" #   Arabic Letter JEH
+    
+    
+    sub "\u0679", "t" #   ARABIC LETTER TTEH
+    sub "\u0688", "d" #   Arabic Letter DDAL
+    sub "\u062f", "d" #   Arabic Letter DAL
+    sub "\u0691", "r" #   Arabic Letter RREH
+    sub "\u062a", "t" #   Arabic Letter TEH
+    sub "\u0637", "t" #   Arabic Letter TAH
+    sub "\u0646", "n" #   Arabic Letter NOON
+    sub "\u06ba", "n" #   Arabic Letter NOON GHUNNA
+    
+    
+    sub "\u067e", "p" #   Arabic Letter PE
+    sub "\u0641", "f" #   Arabic Letter FEH
+    sub "\u0628", "b" #   Arabic Letter BEH
+    sub "\u0645", "m" #   Arabic Letter MEEM
+    sub "\u0631", "r" #   Arabic Letter REH
+    sub "\u0644", "l" #   Arabic Letter LAM
+    sub "\u0634", "sh" #   Arabic Letter SHEEN
+    sub "\u0633", "s" #   Arabic Letter SHEEN
+    sub "\u062b", "s" #   Arabic Letter THEH
+    sub "\u0635", "s" #   Arabic Letter SAD
+    sub "\u0621", "" #   Arabic Letter HAMZA
+    sub "\u06be", "s" #   Arabic Letter HEH DOACHASHMEE
+    sub "\u064b", "n" #   Arabic Letter FATHATAN
+    sub "\u064e", "n" #   Arabic sign FATHATAN
+    sub "\u0652", "" #   Arabic Letter SUKUN
+    sub "\u0651", "" #   Arabic Letter SHADDA
+  }
 
-    '\u0622': 'a' # ARABIC ALEF W/MADDA ABOVE
-    '\u0627': 'a' # or u ARABIC ALEF
-    '\u06cc': 'i' # or ai or u ARABIC LETTER WAW
-    '\u0648': 'i' # or o,au ARABIC LETTER FARSI YEH
-    '\u06d2': 'e' # ARABIC LETTER YEH BARREE
-    '\u0650': 'e' # ARABIC ARABIC KASRA
-    '\u0639': 'e' # ARABIC LETTER AIN
-    '\u06c1': 'ah' # ARABIC LETTER HEH GOAL
-    '\u062d': 'ha' # ARABIC LETTER HAH
-    '\u0648\u0670': 'a' # ARABIC LETTER FARSI YEH + ARABIC LETTER SUPERSCRIPT ALEF
-    '\u0670': 'a' # ARABIC LETTER SUPERSCRIPT ALEF
-    '\u0627\u0650': 'i' # ARABIC ALEF + ARABIC KASRA
-    '\u0639\u0650': 'i' # ARABIC LETTER AIN + ARABIC KASRA
-    '\u064f': 'i' # ARABIC DAMMA
-    '\u06d3': 'i' #  ARABIC LETTER YEH BARREE WITH HAMZA ABOVE
-    '\u06c2': '-e' #  ARABIC LETTER HEH GOAL WITH HAMZA ABOVE
-    '\u06c1\u0650': 'o' #  ARABIC LETTER YEH  WITH HAMZA ABOVE
-    '\u0624': 'au' #  ARABIC LETTER WAW WITH HAMZA ABOVE
+}
 
-
-
-    '\u06a9': 'k' #   ARABIC LETTER KEHEH
-    '\u0642': 'q' #   ARABIC LETTER QAF
-    '\u062e': 'kh' #   ARABIC LETTER KHAH
-    '\u06af': 'g' #   ARABIC LETTER GAF
-    '\u063a': 'gh' #   ARABIC LETTER GHAIN
-    '\u0686': 'ch' #   ARABIC LETTER TCHEH
-    '\u062c': 'j' #   Arabic Letter Jeem
-
-    '\u0632': 'z' #   Arabic Letter ZAIN
-    '\u0630': 'z' #   Arabic Letter THAL
-    '\u0636': 'z' #   Arabic Letter DAD
-    '\u0638': 'z' #   Arabic Letter ZAH
-    '\u0698': 'zh' #   Arabic Letter JEH
-
-
-    '\u0679': 't' #   ARABIC LETTER TTEH
-    '\u0688': 'd' #   Arabic Letter DDAL
-    '\u062f': 'd' #   Arabic Letter DAL
-    '\u0691': 'r' #   Arabic Letter RREH
-    '\u062a': 't' #   Arabic Letter TEH
-    '\u0637': 't' #   Arabic Letter TAH
-    '\u0646': 'n' #   Arabic Letter NOON
-    '\u06ba': 'n' #   Arabic Letter NOON GHUNNA
-
-
-    '\u067e': 'p' #   Arabic Letter PE
-    '\u0641': 'f' #   Arabic Letter FEH
-    '\u0628': 'b' #   Arabic Letter BEH
-    '\u0645': 'm' #   Arabic Letter MEEM
-    '\u0631': 'r' #   Arabic Letter REH
-    '\u0644': 'l' #   Arabic Letter LAM
-    '\u0634': 'sh' #   Arabic Letter SHEEN
-    '\u0633': 's' #   Arabic Letter SHEEN
-    '\u062b': 's' #   Arabic Letter THEH
-    '\u0635': 's' #   Arabic Letter SAD
-    '\u0621': '' #   Arabic Letter HAMZA
-    '\u06be': 's' #   Arabic Letter HEH DOACHASHMEE
-    '\u064b': 'n' #   Arabic Letter FATHATAN
-    '\u064e': 'n' #   Arabic sign FATHATAN
-    '\u0652': '' #   Arabic Letter SUKUN
-    '\u0651': '' #   Arabic Letter SHADDA

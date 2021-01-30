@@ -51,132 +51,138 @@ tests {
   test "२५६८७५४४६४४६१६११", "2568754464461611"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
 
-  rules:
-    # note[3]
-    - pattern: \u0902(?=[कखगघङ])
-      result: ṅ
-    - pattern: \u0902(?=[चछजझञ])
-      result: ñ
-    - pattern: \u0902(?=[टठडढण])
-      result: ṇ
-    - pattern: \u0902(?=[तथदधन])
-      result: n
+stage {
 
-  characters:
+  # RULES
+  # note[3]
+  sub "\\u0902(?=[कखगघङ])", "ṅ"
+  sub "\\u0902(?=[चछजझञ])", "ñ"
+  sub "\\u0902(?=[टठडढण])", "ṇ"
+  sub "\\u0902(?=[तथदधन])", "n"
+  
 
+  # CHARACTERS
+  parallel {
+    
     # I. Vowels and Diphthongs (see Note 1)
-
-    'अ': 'a'
-    'आ': 'ā'
-    'इ': 'i'
-    'ई': 'ī'
-    'उ': 'u'
-    'ऊ': 'ū'
-    'ऋ': 'ṛ'
-    'ॠ': 'ṝ'
-    'ऌ': 'ḹ'
+    
+    sub "अ", "a"
+    sub "आ", "ā"
+    sub "इ", "i"
+    sub "ई", "ī"
+    sub "उ", "u"
+    sub "ऊ", "ū"
+    sub "ऋ", "ṛ"
+    sub "ॠ", "ṝ"
+    sub "ऌ", "ḹ"
     #'ॳ': 'ĕ'
-    'ए': 'e'
-    'ॲ': 'ê'
+    sub "ए", "e"
+    sub "ॲ", "ê"
     #'अै': 'ai'
-    'ऐ': 'ai'
+    sub "ऐ", "ai"
     #'ऒ': 'ŏ'
-    'ओ': 'o'
-    'ऑ': 'ô'
-    'औ': 'ău'
-
+    sub "ओ", "o"
+    sub "ऑ", "ô"
+    sub "औ", "ău"
+    
     # II. Consonants
     # Gutturals
-    'क': 'ka'
-    'ख': 'kha'
-    'ग': 'ga'
-    'घ': 'gha'
-    'ङ': 'ṅa'
-
+    sub "क", "ka"
+    sub "ख", "kha"
+    sub "ग", "ga"
+    sub "घ", "gha"
+    sub "ङ", "ṅa"
+    
     # Palatals
-    'च': 'ca'
-    'छ': 'cha'
-    'ज': 'ja'
-    'झ': 'jha'
-    'ञ': 'ña'
-
+    sub "च", "ca"
+    sub "छ", "cha"
+    sub "ज", "ja"
+    sub "झ", "jha"
+    sub "ञ", "ña"
+    
     # Cerebrals
-    'ट': 'ṭa'
-    'ठ': 'ṭha'
-    'ड': 'ḍa'
+    sub "ट", "ṭa"
+    sub "ठ", "ṭha"
+    sub "ड", "ḍa"
     #'ड़': 'ṛa'
-    'ढ': 'ḍha'
+    sub "ढ", "ḍha"
     #'ढ़': 'ṛha'
-    'ण': 'ṇa'
-
+    sub "ण", "ṇa"
+    
     # Dentals
-    'त': 'ta'
-    'थ': 'tha'
-    'द': 'da'
-    'ध': 'dha'
-    'न': 'na'
-
+    sub "त", "ta"
+    sub "थ", "tha"
+    sub "द", "da"
+    sub "ध", "dha"
+    sub "न", "na"
+    
     # Labials
-    'प': 'pa'
-    'फ': 'pha'
-    'ब': 'ba'
-    'भ': 'bha'
-    'म': 'ma'
-
+    sub "प", "pa"
+    sub "फ", "pha"
+    sub "ब", "ba"
+    sub "भ", "bha"
+    sub "म", "ma"
+    
     # Semivowels
-    'य': 'ya'
-    'र': 'ra'
-    'ल': 'la'
-    'ळ': 'la'
-    'व': 'va'
-
+    sub "य", "ya"
+    sub "र", "ra"
+    sub "ल", "la"
+    sub "ळ", "la"
+    sub "व", "va"
+    
     # Sibilants
-    'श': 'śa'
-    'ष': 'sha'
-    'स': 'sa'
-
+    sub "श", "śa"
+    sub "ष", "sha"
+    sub "स", "sa"
+    
     # Aspirate
-    'ह': 'ha'
-
+    sub "ह", "ha"
+    
     # Anusvāra
-    'ं': 'm'
-
+    sub "ं", "m"
+    
     # Bisarga
-    'ः ': 'ḥ'
-
+    sub "ः ", "ḥ"
+    
     # Abagraha
-    'ऽ': '’' # (apostrophe)
-
+    sub "ऽ", "’" # (apostrophe)
+    
     # Medials # Needed for connecting constants
-    'ा': "ā"
-    'ि': "i"
-    'ी': "ī"
-    'ु': "u"
-    'ू': "ū"
-    'ृ': "ṛi"
-    'ॄ': "rī"
-    'े': "e"
-    'ो': "o"
-    'ौ': "au"
-    '्': ''
-
+    sub "ा", "ā"
+    sub "ि", "i"
+    sub "ी", "ī"
+    sub "ु", "u"
+    sub "ू", "ū"
+    sub "ृ", "ṛi"
+    sub "ॄ", "rī"
+    sub "े", "e"
+    sub "ो", "o"
+    sub "ौ", "au"
+    sub "्", ""
+    
     # digits
+    
+    sub "०", "0"
+    sub "१", "1"
+    sub "२", "2"
+    sub "३", "3"
+    sub "४", "4"
+    sub "५", "5"
+    sub "६", "6"
+    sub "७", "7"
+    sub "८", "8"
+    sub "९", "9"
+  }
 
-    '०': '0'
-    '१': '1'
-    '२': '2'
-    '३': '3'
-    '४': '4'
-    '५': '5'
-    '६': '6'
-    '७': '7'
-    '८': '8'
-    '९': '9'
+}
+

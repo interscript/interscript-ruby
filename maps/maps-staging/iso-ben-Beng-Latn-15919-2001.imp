@@ -61,111 +61,120 @@ tests {
   test "তবে, নিয়মিত মুখগুলোর মধ্যে দলে নেই মেসির দুই ‘প্রিয় বন্ধু’ পিএসজির মিডফিল্ডার আনহেল দি মারিয়া ও ম্যানচেস্টার সিটির সার্জিও আগুয়েরো", "tabae, naiẏamaita maukhagaulaora madhayae dalae naei maesaira daui ‘paraiẏa banadhau’ paiesajaira maiḍaphailaḍaāra ānahaela dai maāraiẏaā o mayaānacaesaṭaāra saiṭaira saārajaio āgauẏaerao"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  characters:
+stage {
 
+  # CHARACTERS
+  parallel {
+    
     #vowel characters
-
-    'অ': 'a'
-    'আ': 'ā'
-    'ই': 'i'
-    'ঈ': 'ī'
-    'উ': 'u'
-    'ঊ': 'ū'
-    'ঋ': 'ṛ'
-    'ৠ': 'ṝ'
-    'ঌ': 'ḻ'
-    'ৡ': 'ḹ'
-    'এ': 'e'
-    'ঐ': 'ai'
-    'ও': 'o'
-    'ঔ': 'au'
-
-    'া': 'ā'
-    'ি': 'i'
-    'ী': 'ī'
-    'ু': 'u'
-    'ূ': 'ū'
-    'ৃ': 'ṛ'
-    'ৄ': 'ṝ'
-    'ৢ': 'ḻ'
-    'ৣ': 'ḹ'
-    'ে': 'e'
-    'ৈ': 'ai'
-    'ো': 'o'
-    'ৌ': 'au'
-
-
-    'ং':	'ṁ'
-    'ঁ':	'm̐'
-    'ঃ':	'ḥ'
-
+    
+    sub "অ", "a"
+    sub "আ", "ā"
+    sub "ই", "i"
+    sub "ঈ", "ī"
+    sub "উ", "u"
+    sub "ঊ", "ū"
+    sub "ঋ", "ṛ"
+    sub "ৠ", "ṝ"
+    sub "ঌ", "ḻ"
+    sub "ৡ", "ḹ"
+    sub "এ", "e"
+    sub "ঐ", "ai"
+    sub "ও", "o"
+    sub "ঔ", "au"
+    
+    sub "া", "ā"
+    sub "ি", "i"
+    sub "ী", "ī"
+    sub "ু", "u"
+    sub "ূ", "ū"
+    sub "ৃ", "ṛ"
+    sub "ৄ", "ṝ"
+    sub "ৢ", "ḻ"
+    sub "ৣ", "ḹ"
+    sub "ে", "e"
+    sub "ৈ", "ai"
+    sub "ো", "o"
+    sub "ৌ", "au"
+    
+    
+    sub "ং", "ṁ"
+    sub "ঁ", "m̐"
+    sub "ঃ", "ḥ"
+    
     # Consonant characters
-
-    'ক': 'ka'
-    'খ': 'kha'
-    'গ': 'ga'
-    'ঘ': 'gha'
-    'ঙ': 'ṅa'
-    'চ': 'ca'
-    'ছ': 'cha'
-    'জ': 'ja'
-    'ঝ': 'jha'
-    'ঞ': 'ña'
-    'ট': 'ṭa'
-    'ঠ': 'ṭha'
-    'ড': 'ḍa'
-    'ঢ': 'ḍha'
-    'ণ': 'ṇa'
-    'ত': 'ta'
-    'থ': 'tha'
-    'দ': 'da'
-    'ধ': 'dha'
-    'ন': 'na'
-    'প': 'pa'
-    'ফ': 'pha'
-    'ব': 'ba'
-    'ভ': 'bha'
-    'ম': 'ma'
-    'য': 'ya'
-    'র': 'ra'
-    'ল': 'la'
-    'শ': 'śa'
-    'ষ': 'ṣa'
-    'স': 'sa'
-    'হ': 'ha'
-
-    'ড়': 'ṙa'
-    'ঢ়': 'ṙha'
-    'য়': 'ẏa'
-
-
+    
+    sub "ক", "ka"
+    sub "খ", "kha"
+    sub "গ", "ga"
+    sub "ঘ", "gha"
+    sub "ঙ", "ṅa"
+    sub "চ", "ca"
+    sub "ছ", "cha"
+    sub "জ", "ja"
+    sub "ঝ", "jha"
+    sub "ঞ", "ña"
+    sub "ট", "ṭa"
+    sub "ঠ", "ṭha"
+    sub "ড", "ḍa"
+    sub "ঢ", "ḍha"
+    sub "ণ", "ṇa"
+    sub "ত", "ta"
+    sub "থ", "tha"
+    sub "দ", "da"
+    sub "ধ", "dha"
+    sub "ন", "na"
+    sub "প", "pa"
+    sub "ফ", "pha"
+    sub "ব", "ba"
+    sub "ভ", "bha"
+    sub "ম", "ma"
+    sub "য", "ya"
+    sub "র", "ra"
+    sub "ল", "la"
+    sub "শ", "śa"
+    sub "ষ", "ṣa"
+    sub "স", "sa"
+    sub "হ", "ha"
+    
+    sub "ড়", "ṙa"
+    sub "ঢ়", "ṙha"
+    sub "য়", "ẏa"
+    
+    
     # for semivowel rule no. 5
+    
+    sub "যঁ", "m̐ya"
+    sub "রঁ", "m̐ra"
+    sub "লঁ", "m̐la"
+    sub "বঁ", "m̐va"
+    
+    sub "ৎ", "t"
+    sub "্", ""
+    
+    
+    # numbers
+    
+    sub "১", "1"
+    sub "২", "2"
+    sub "৩", "3"
+    sub "৪", "4"
+    sub "৫", "5"
+    sub "৬", "6"
+    sub "৭", "7"
+    sub "৮", "8"
+    sub "৯", "9"
+    sub "০", "0"
+  }
 
-    'যঁ': 'm̐ya'
-    'রঁ': 'm̐ra'
-    'লঁ': 'm̐la'
-    'বঁ': 'm̐va'
+}
 
-    'ৎ': 't'
-    '্': ''
-
-
-   # numbers
-
-    '১': '1' 
-    '২': '2'
-    '৩': '3'
-    '৪': '4'
-    '৫': '5'
-    '৬': '6'
-    '৭': '7'
-    '৮': '8'
-    '৯': '9'
-    '০': '0'

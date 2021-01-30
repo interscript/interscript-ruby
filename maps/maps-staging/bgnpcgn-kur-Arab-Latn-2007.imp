@@ -163,85 +163,88 @@ tests {
   test "لەكوردِستانێ", "Le Kurdistanê"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  postrules:
-    - pattern: (?<=\b)(?<!\b[‘|’|'])[\u0061-\uFFFF]
-      result: "upcase"
+stage {
 
-  characters:
+  # POSTRULES
+  sub "(?<=\\b)(?<!\\b[‘|’|'])[\\u0061-\\uFFFF]", "upcase"
+  
 
-    '\u0650' : 'i' # ِ kasra special rule 2
-    '\u0644\u06d5' : 'le ' # special rule 7
-    '\u0628\u06d5' : 'be ' # special rule 7
+  # CHARACTERS
+  parallel {
+    
+    sub "\u0650", "i" # ِ kasra special rule 2
+    sub "\u0644\u06d5", "le " # special rule 7
+    sub "\u0628\u06d5", "be " # special rule 7
     # Note 1
-    '\u0621' : '’' # ء
-    '\u0624' : '’' # ؤ
-    '\u0626' : '’' # ئ
-
-    "(?<=[\u0621|\u0628|\u067E|\u062A|\u062C|\u0686|\u062D|\u062E|\u062F|\u0631|\u0695|\u0632|\u0698|\u0633|\u0634|\u0635|\u0636|\u0637|\u0639|\u063A|\u0341|\u06A8|\u0642|\u06A9|\u0643|\u06AF|\u0644|\u06B5|\u0645|\u0646|\u0648|\u0647|\u064A])\u0648" : 'u' # special note 4/5
-    "(?<=[\u0621|\u0628|\u067E|\u062A|\u062C|\u0686|\u062D|\u062E|\u062F|\u0631|\u0695|\u0632|\u0698|\u0633|\u0634|\u0635|\u0636|\u0637|\u0639|\u063A|\u0341|\u06A8|\u0642|\u06A9|\u0643|\u06AF|\u0644|\u06B5|\u0645|\u0646|\u0648|\u0647|\u064A])\u064A" : 'î' # special note 4/5
-    '\u0621': '’' # ء (see note 1 and 7)
-    '\u0628': 'b'  # ب
-    '\u067E': 'p'  # پ
-    '\u062A': 't'  # ت (see note 2)
-    '\u062C': 'c'  # ج
-    '\u0686': # چ (see notes 3 and 7)
-      - 'ch'
-      - 'ç'
-    '\u062D': 'ḧ'  # ح
-    '\u062E': 'x'  # خ
-    '\u062F': 'd'  # د
-    '\u0631': 'r'  # ر
-    '\u0695': 'ṟ'  # ڕ (Formerly written ڒ ڔ or رر according to typeface available; may vary on older sources. See note 7.)
-    '\u0632': 'z'  # ز (see note 2)
-    '\u0698': 'j'  # ژ
-    '\u0633': 's'  # س (see note 2)
-    '\u0634': # ش (see notes 3 and 7)
-      - 'sh'
-      - 'ş'
-    '\u0635': 'ṣ'  # ص (see notes 2 and 7)
-    '\u0636': 'ḍ'  # ض (see notes 2 and 7)
-    '\u0637': 'ṭ'  # ط  (see notes 2 and 7)
-    '\u0639': '‘'  # ع  (see note 7)
-    '\u063A': # غ (see notes 3 and 7)
-      - 'gh'
-      - 'ẍ'
-    '\u0341': 'f'  # ف
-    '\u06A8': 'v'  # ڨ  (see note 4)
-    '\u0642': 'q'  # ق
-    '\u06A9': 'k'  # ك
-    '\u0643': 'k'  # ك
-    '\u06AF': 'g'  # گ
-    '\u0644': 'l'  # ل
-    '\u06B5': 'ł'  # ڵ  (Formerly written ڶ according to type available; may vary on older sources. See note 7)
-    '\u0645': 'm'  # م
-    '\u0646': 'n'  # ن
-    '\u0648': 'w'  # و  (see note 4)
-    '\u0647': 'h'  # ه  (see note 5)
-    '\u064A': 'y'  # ي
-
+    sub "\u0621", "’" # ء
+    sub "\u0624", "’" # ؤ
+    sub "\u0626", "’" # ئ
+    
+    sub "(?<=[ء|ب|پ|ت|ج|چ|ح|خ|د|ر|ڕ|ز|ژ|س|ش|ص|ض|ط|ع|غ|́|ڨ|ق|ک|ك|گ|ل|ڵ|م|ن|و|ه|ي])و", "u" # special note 4/5
+    sub "(?<=[ء|ب|پ|ت|ج|چ|ح|خ|د|ر|ڕ|ز|ژ|س|ش|ص|ض|ط|ع|غ|́|ڨ|ق|ک|ك|گ|ل|ڵ|م|ن|و|ه|ي])ي", "î" # special note 4/5
+    sub "\u0621", "’" # ء (see note 1 and 7)
+    sub "\u0628", "b" # ب
+    sub "\u067E", "p" # پ
+    sub "\u062A", "t" # ت (see note 2)
+    sub "\u062C", "c" # ج
+    sub "\u0686", any(["ch", "ç"]) # چ (see notes 3 and 7)
+    sub "\u062D", "ḧ" # ح
+    sub "\u062E", "x" # خ
+    sub "\u062F", "d" # د
+    sub "\u0631", "r" # ر
+    sub "\u0695", "ṟ" # ڕ (Formerly written ڒ ڔ or رر according to typeface available; may vary on older sources. See note 7.)
+    sub "\u0632", "z" # ز (see note 2)
+    sub "\u0698", "j" # ژ
+    sub "\u0633", "s" # س (see note 2)
+    sub "\u0634", any(["sh", "ş"]) # ش (see notes 3 and 7)
+    sub "\u0635", "ṣ" # ص (see notes 2 and 7)
+    sub "\u0636", "ḍ" # ض (see notes 2 and 7)
+    sub "\u0637", "ṭ" # ط  (see notes 2 and 7)
+    sub "\u0639", "‘" # ع  (see note 7)
+    sub "\u063A", any(["gh", "ẍ"]) # غ (see notes 3 and 7)
+    sub "\u0341", "f" # ف
+    sub "\u06A8", "v" # ڨ  (see note 4)
+    sub "\u0642", "q" # ق
+    sub "\u06A9", "k" # ك
+    sub "\u0643", "k" # ك
+    sub "\u06AF", "g" # گ
+    sub "\u0644", "l" # ل
+    sub "\u06B5", "ł" # ڵ  (Formerly written ڶ according to type available; may vary on older sources. See note 7)
+    sub "\u0645", "m" # م
+    sub "\u0646", "n" # ن
+    sub "\u0648", "w" # و  (see note 4)
+    sub "\u0647", "h" # ه  (see note 5)
+    sub "\u064A", "y" # ي
+    
     # VOWELS
-    '\u0647\b': 'e' # See notes 1 and 5
-    '\u06D5': 'e' # See notes 1 and 5
-    '\u0626\u06D5': 'e' # See notes 1 and 5
-    '\u0627': 'a' # See note 1
-    '\u0626\u0627': 'a' # See note 1
-    '\u064A': 'î' # See notes 1, 6 and 7
-    '\u0626\u064A': 'î' # See notes 1, 6 and 7
-    '\u0626': 'i'
-    '\u06CE': 'ê' # See note 7
-    '\u0626\u06CE': 'ê' # See note 7
-    '\u0648': 'u'
-    '\u0626\u0648': 'u'
-    '\u0648\u0648': 'û' # See note 7
-    '\u0626\u0648\u0648': 'û' # See note 7
-    '\u06C6': 'o'
-    '\u0626\u06C6': 'o'
-    '\u0648': 'ö' # Rare; previously written وي . See note 7
-    '\u06CA': 'ü' # Only appearing in some dialects and only in old sources. Often equated to /û/ (row 7 above). Sometimes written يو See note 7.
+    sub "\u0647\\b", "e" # See notes 1 and 5
+    sub "\u06D5", "e" # See notes 1 and 5
+    sub "\u0626\u06D5", "e" # See notes 1 and 5
+    sub "\u0627", "a" # See note 1
+    sub "\u0626\u0627", "a" # See note 1
+    sub "\u064A", "î" # See notes 1, 6 and 7
+    sub "\u0626\u064A", "î" # See notes 1, 6 and 7
+    sub "\u0626", "i"
+    sub "\u06CE", "ê" # See note 7
+    sub "\u0626\u06CE", "ê" # See note 7
+    sub "\u0648", "u"
+    sub "\u0626\u0648", "u"
+    sub "\u0648\u0648", "û" # See note 7
+    sub "\u0626\u0648\u0648", "û" # See note 7
+    sub "\u06C6", "o"
+    sub "\u0626\u06C6", "o"
+    sub "\u0648", "ö" # Rare; previously written وي . See note 7
+    sub "\u06CA", "ü" # Only appearing in some dialects and only in old sources. Often equated to /û/ (row 7 above). Sometimes written يو See note 7.
+  }
+
+}
+

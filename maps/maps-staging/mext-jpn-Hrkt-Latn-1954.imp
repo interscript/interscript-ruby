@@ -53,357 +53,360 @@ tests {
   test "ゴッホ", "gohho"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  rules:
-    - pattern: "([んン])(?=[あいうえおやゆよアイウエオヤユヨ])"
-      result: "\\1'"
+stage {
 
-  postrules:
-    # Handling of っ/ッ
-    #
-    # The kana っ/ッ is a geminate marker.
-    # When followed by a consonant, repeat the first letter of
-    # the following syllable.
-    #
-    # If っ/ッ is not followed by a consonant, then it is usually
-    # phonetically realised as an abrupt stop or shorterning of
-    # the previous syllable. There is no documented or commonly
-    # accepted way to transliterate this sound.
+  # RULES
+  sub "([んン])(?=[あいうえおやゆよアイウエオヤユヨ])", "\\1'"
+  
 
-    - pattern: "[っッ]([BbCcDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz])" # っ or ッ folloved by consonant
-      result: "\\1\\1"
-    - pattern: "[っッ]" # drop all other っッ.
-      result: ""
+  # POSTRULES
+  # Handling of っ/ッ
+  #
+  # The kana っ/ッ is a geminate marker.
+  # When followed by a consonant, repeat the first letter of
+  # the following syllable.
+  #
+  # If っ/ッ is not followed by a consonant, then it is usually
+  # phonetically realised as an abrupt stop or shorterning of
+  # the previous syllable. There is no documented or commonly
+  # accepted way to transliterate this sound.
+  
+  sub "[っッ]([BbCcDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz])", "\\1\\1" # っ or ッ folloved by consonant
+  sub "[っッ]", "" # drop all other っッ.
+  
+  sub "a[ーa]", "â"
+  sub "i[ーi]", "î"
+  sub "u[ーu]", "û"
+  sub "e[ーe]", "ê"
+  sub "o[ーo]", "ô"
+  
 
-    - pattern: "a[ーa]"
-      result: "â"
-    - pattern: "i[ーi]"
-      result: "î"
-    - pattern: "u[ーu]"
-      result: "û"
-    - pattern: "e[ーe]"
-      result: "ê"
-    - pattern: "o[ーo]"
-      result: "ô"
-
-  characters:
-    "あ": "a"
-    "い": "i"
-    "う": "u"
-    "え": "e"
-    "お": "o"
-
+  # CHARACTERS
+  parallel {
+    sub "あ", "a"
+    sub "い", "i"
+    sub "う", "u"
+    sub "え", "e"
+    sub "お", "o"
+    
     # Long vowels, note 4
-    "おう": "ô"
-
-
-    "か": "ka"
-    "き": "ki"
-    "く": "ku"
-    "け": "ke"
-    "こ": "ko"
-    "きゃ": "kya"
-    "きゅ": "kyu"
-    "きょ": "kyo"
-    "きょう": "kyô"
-    "こう": "kô"
-
-    "さ": "sa"
-    "し": "si"
-    "す": "su"
-    "せ": "se"
-    "そ": "so"
-    "しゃ": "sya"
-    "しゅ": "syu"
-    "しょ": "syo"
-    "しょう": "syô"
-    "そう": "sô"
-
-    "た": "ta"
-    "ち": "ti"
-    "つ": "tu"
-    "て": "te"
-    "と": "to"
-    "ちゃ": "tya"
-    "ちゅ": "tyu"
-    "ちょ": "tyo"
-    "ちょう": "tyô"
-    "とう": "tô"
-
-    "な": "na"
-    "に": "ni"
-    "ぬ": "nu"
-    "ね": "ne"
-    "の": "no"
-    "にゃ": "nya"
-    "にゅ": "nyu"
-    "にょ": "nyo"
-    "にょう": "nyô"
-    "のう": "nô"
-
-    "は": "ha"
-    "ひ": "hi"
-    "ふ": "hu"
-    "へ": "he"
-    "ほ": "ho"
-    "ひゃ": "hya"
-    "ひゅ": "hyu"
-    "ひょ": "hyo"
-    "ひょう": "hyô"
-    "ほう": "hô"
-
-    "ま": "ma"
-    "み": "mi"
-    "む": "mu"
-    "め": "me"
-    "も": "mo"
-    "みゃ": "mya"
-    "みゅ": "myu"
-    "みょ": "myo"
-    "みょう": "myô"
-    "もう": "mô"
-
-    "や": "ya"
-    "ゆ": "yu"
-    "よ": "yo"
-    "よう": "yô"
-
-    "ら": "ra"
-    "り": "ri"
-    "る": "ru"
-    "れ": "re"
-    "ろ": "ro"
-    "りゃ": "rya"
-    "りゅ": "ryu"
-    "りょ": "ryo"
-    "りょう": "ryô"
-    "ろう": "rô"
-
-    "わ": "wa"
-    "を": "o"
-
-    "が": "ga"
-    "ぎ": "gi"
-    "ぐ": "gu"
-    "げ": "ge"
-    "ご": "go"
-    "ぎゃ": "gya"
-    "ぎゅ": "gyu"
-    "ぎょ": "gyo"
-    "ぎゅう": "gyû"
-    "ぎょう": "gyô"
-    "ごう": "gô"
-
-    "ざ": "za"
-    "じ": "zi"
-    "ず": "zu"
-    "ぜ": "ze"
-    "ぞ": "zo"
-    "じゃ": "zya"
-    "じゅ": "zyu"
-    "じょ": "zyo"
-    "じょう": "zyô"
-    "ぞう": "zô"
-
-
-    "だ": "da"
-    "ぢ": "zi"
-    "づ": "zu"
-    "で": "de"
-    "ど": "do"
-    "ぢゃ": "zya"
-    "ぢゅ": "zyu"
-    "ぢょ": "zyo"
-    "ぢょう": "zyô"
-    "どう": "dô"
-
-    "ば": "ba"
-    "び": "bi"
-    "ぶ": "bu"
-    "べ": "be"
-    "ぼ": "bo"
-    "びゃ": "bya"
-    "びゅ": "byu"
-    "びょ": "byo"
-    "びょう": "byô"
-    "ぼう": "bô"
-
-    "ぱ": "pa"
-    "ぴ": "pi"
-    "ぷ": "pu"
-    "ぺ": "pe"
-    "ぽ": "po"
-    "ぴゃ": "pya"
-    "ぴゅ": "pyu"
-    "ぴょ": "pyo"
-    "ぴょう": "pyô"
-    "ぽう": "pô"
-
-    "ん": "n" # See note 2
-
-
+    sub "おう", "ô"
+    
+    
+    sub "か", "ka"
+    sub "き", "ki"
+    sub "く", "ku"
+    sub "け", "ke"
+    sub "こ", "ko"
+    sub "きゃ", "kya"
+    sub "きゅ", "kyu"
+    sub "きょ", "kyo"
+    sub "きょう", "kyô"
+    sub "こう", "kô"
+    
+    sub "さ", "sa"
+    sub "し", "si"
+    sub "す", "su"
+    sub "せ", "se"
+    sub "そ", "so"
+    sub "しゃ", "sya"
+    sub "しゅ", "syu"
+    sub "しょ", "syo"
+    sub "しょう", "syô"
+    sub "そう", "sô"
+    
+    sub "た", "ta"
+    sub "ち", "ti"
+    sub "つ", "tu"
+    sub "て", "te"
+    sub "と", "to"
+    sub "ちゃ", "tya"
+    sub "ちゅ", "tyu"
+    sub "ちょ", "tyo"
+    sub "ちょう", "tyô"
+    sub "とう", "tô"
+    
+    sub "な", "na"
+    sub "に", "ni"
+    sub "ぬ", "nu"
+    sub "ね", "ne"
+    sub "の", "no"
+    sub "にゃ", "nya"
+    sub "にゅ", "nyu"
+    sub "にょ", "nyo"
+    sub "にょう", "nyô"
+    sub "のう", "nô"
+    
+    sub "は", "ha"
+    sub "ひ", "hi"
+    sub "ふ", "hu"
+    sub "へ", "he"
+    sub "ほ", "ho"
+    sub "ひゃ", "hya"
+    sub "ひゅ", "hyu"
+    sub "ひょ", "hyo"
+    sub "ひょう", "hyô"
+    sub "ほう", "hô"
+    
+    sub "ま", "ma"
+    sub "み", "mi"
+    sub "む", "mu"
+    sub "め", "me"
+    sub "も", "mo"
+    sub "みゃ", "mya"
+    sub "みゅ", "myu"
+    sub "みょ", "myo"
+    sub "みょう", "myô"
+    sub "もう", "mô"
+    
+    sub "や", "ya"
+    sub "ゆ", "yu"
+    sub "よ", "yo"
+    sub "よう", "yô"
+    
+    sub "ら", "ra"
+    sub "り", "ri"
+    sub "る", "ru"
+    sub "れ", "re"
+    sub "ろ", "ro"
+    sub "りゃ", "rya"
+    sub "りゅ", "ryu"
+    sub "りょ", "ryo"
+    sub "りょう", "ryô"
+    sub "ろう", "rô"
+    
+    sub "わ", "wa"
+    sub "を", "o"
+    
+    sub "が", "ga"
+    sub "ぎ", "gi"
+    sub "ぐ", "gu"
+    sub "げ", "ge"
+    sub "ご", "go"
+    sub "ぎゃ", "gya"
+    sub "ぎゅ", "gyu"
+    sub "ぎょ", "gyo"
+    sub "ぎゅう", "gyû"
+    sub "ぎょう", "gyô"
+    sub "ごう", "gô"
+    
+    sub "ざ", "za"
+    sub "じ", "zi"
+    sub "ず", "zu"
+    sub "ぜ", "ze"
+    sub "ぞ", "zo"
+    sub "じゃ", "zya"
+    sub "じゅ", "zyu"
+    sub "じょ", "zyo"
+    sub "じょう", "zyô"
+    sub "ぞう", "zô"
+    
+    
+    sub "だ", "da"
+    sub "ぢ", "zi"
+    sub "づ", "zu"
+    sub "で", "de"
+    sub "ど", "do"
+    sub "ぢゃ", "zya"
+    sub "ぢゅ", "zyu"
+    sub "ぢょ", "zyo"
+    sub "ぢょう", "zyô"
+    sub "どう", "dô"
+    
+    sub "ば", "ba"
+    sub "び", "bi"
+    sub "ぶ", "bu"
+    sub "べ", "be"
+    sub "ぼ", "bo"
+    sub "びゃ", "bya"
+    sub "びゅ", "byu"
+    sub "びょ", "byo"
+    sub "びょう", "byô"
+    sub "ぼう", "bô"
+    
+    sub "ぱ", "pa"
+    sub "ぴ", "pi"
+    sub "ぷ", "pu"
+    sub "ぺ", "pe"
+    sub "ぽ", "po"
+    sub "ぴゃ", "pya"
+    sub "ぴゅ", "pyu"
+    sub "ぴょ", "pyo"
+    sub "ぴょう", "pyô"
+    sub "ぽう", "pô"
+    
+    sub "ん", "n" # See note 2
+    
+    
     # Note 3. つまる音は、最初の子音字を重ねて表わす。
     # Handled by postrules
-
+    
     # Katakana
-
-    "ア": "a"
-    "イ": "i"
-    "ウ": "u"
-    "エ": "e"
-    "オ": "o"
-
+    
+    sub "ア", "a"
+    sub "イ", "i"
+    sub "ウ", "u"
+    sub "エ", "e"
+    sub "オ", "o"
+    
     # Long vowels, note 4
-    "オウ": "ô"
-
-    "カ": "ka"
-    "キ": "ki"
-    "ク": "ku"
-    "ケ": "ke"
-    "コ": "ko"
-    "キャ": "kya"
-    "キュ": "kyu"
-    "キョ": "kyo"
-    "キョウ": "kyô"
-    "コウ": "kô"
-
-    "サ": "sa"
-    "シ": "si"
-    "ス": "su"
-    "セ": "se"
-    "ソ": "so"
-    "シャ": "sya"
-    "シュ": "syu"
-    "ショ": "syo"
-    "ショウ": "syô"
-    "ソウ": "sô"
-
-    "タ": "ta"
-    "チ": "ti"
-    "ツ": "tu"
-    "テ": "te"
-    "ト": "to"
-    "チャ": "tya"
-    "チュ": "tyu"
-    "チョ": "tyo"
-    "チョウ": "tyô"
-    "トウ": "tô"
-
-    "ナ": "na"
-    "ニ": "ni"
-    "ヌ": "nu"
-    "ネ": "ne"
-    "ノ": "no"
-    "ニャ": "nya"
-    "ニュ": "nyu"
-    "ニョ": "nyo"
-    "ニョウ": "nyô"
-    "ノウ": "nô"
-
-    "ハ": "ha"
-    "ヒ": "hi"
-    "フ": "hu"
-    "ヘ": "he"
-    "ホ": "ho"
-    "ヒャ": "hya"
-    "ヒュ": "hyu"
-    "ヒョ": "hyo"
-    "ヒョウ": "hyô"
-    "ホウ": "hô"
-
-    "マ": "ma"
-    "ミ": "mi"
-    "ム": "mu"
-    "メ": "me"
-    "モ": "mo"
-    "ミャ": "mya"
-    "ミュ": "myu"
-    "ミョ": "myo"
-    "ミョウ": "myô"
-    "モウ": "mô"
-
-    "ヤ": "ya"
-    "ユ": "yu"
-    "ヨ": "yo"
-    "ヨウ": "yô"
-
-    "ラ": "ra"
-    "リ": "ri"
-    "ル": "ru"
-    "レ": "re"
-    "ロ": "ro"
-    "リャ": "rya"
-    "リュ": "ryu"
-    "リョ": "ryo"
-    "リョウ": "ryô"
-    "ロウ": "rô"
-
-    "ワ": "wa"
-    "ヲ": "o"
-
-    "ガ": "ga"
-    "ギ": "gi"
-    "グ": "gu"
-    "ゲ": "ge"
-    "ゴ": "go"
-    "ギャ": "gya"
-    "ギュ": "gyu"
-    "ギョ": "gyo"
-    "ギョウ": "gyô"
-    "ゴウ": "gô"
-
-    "ザ": "za"
-    "ジ": "zi"
-    "ズ": "zu"
-    "ゼ": "ze"
-    "ゾ": "zo"
-    "ジャ": "zya"
-    "ジュ": "zyu"
-    "ジョ": "zyo"
-    "ジョウ": "zyô"
-    "ゾウ": "zô"
-
-    "ダ": "da"
-    "ヂ": "zi"
-    "ヅ": "zu"
-    "デ": "de"
-    "ド": "do"
-    "ヂャ": "zya"
-    "ヂュ": "zyu"
-    "ヂョ": "zyo"
-    "ヂョウ": "zyô"
-    "ドウ": "dô"
-
-    "バ": "ba"
-    "ビ": "bi"
-    "ブ": "bu"
-    "ベ": "be"
-    "ボ": "bo"
-    "ビャ": "bya"
-    "ビュ": "byu"
-    "ビョ": "byo"
-    "ビョウ": "byô"
-    "ボウ": "bô"
-
-    "パ": "pa"
-    "ピ": "pi"
-    "プ": "pu"
-    "ペ": "pe"
-    "ポ": "po"
-    "ピャ": "pya"
-    "ピュ": "pyu"
-    "ピョ": "pyo"
-    "ピョウ": "pyô"
-    "ポウ": "pô"
-
-    "ン": "n" # See note 1
-
-
+    sub "オウ", "ô"
+    
+    sub "カ", "ka"
+    sub "キ", "ki"
+    sub "ク", "ku"
+    sub "ケ", "ke"
+    sub "コ", "ko"
+    sub "キャ", "kya"
+    sub "キュ", "kyu"
+    sub "キョ", "kyo"
+    sub "キョウ", "kyô"
+    sub "コウ", "kô"
+    
+    sub "サ", "sa"
+    sub "シ", "si"
+    sub "ス", "su"
+    sub "セ", "se"
+    sub "ソ", "so"
+    sub "シャ", "sya"
+    sub "シュ", "syu"
+    sub "ショ", "syo"
+    sub "ショウ", "syô"
+    sub "ソウ", "sô"
+    
+    sub "タ", "ta"
+    sub "チ", "ti"
+    sub "ツ", "tu"
+    sub "テ", "te"
+    sub "ト", "to"
+    sub "チャ", "tya"
+    sub "チュ", "tyu"
+    sub "チョ", "tyo"
+    sub "チョウ", "tyô"
+    sub "トウ", "tô"
+    
+    sub "ナ", "na"
+    sub "ニ", "ni"
+    sub "ヌ", "nu"
+    sub "ネ", "ne"
+    sub "ノ", "no"
+    sub "ニャ", "nya"
+    sub "ニュ", "nyu"
+    sub "ニョ", "nyo"
+    sub "ニョウ", "nyô"
+    sub "ノウ", "nô"
+    
+    sub "ハ", "ha"
+    sub "ヒ", "hi"
+    sub "フ", "hu"
+    sub "ヘ", "he"
+    sub "ホ", "ho"
+    sub "ヒャ", "hya"
+    sub "ヒュ", "hyu"
+    sub "ヒョ", "hyo"
+    sub "ヒョウ", "hyô"
+    sub "ホウ", "hô"
+    
+    sub "マ", "ma"
+    sub "ミ", "mi"
+    sub "ム", "mu"
+    sub "メ", "me"
+    sub "モ", "mo"
+    sub "ミャ", "mya"
+    sub "ミュ", "myu"
+    sub "ミョ", "myo"
+    sub "ミョウ", "myô"
+    sub "モウ", "mô"
+    
+    sub "ヤ", "ya"
+    sub "ユ", "yu"
+    sub "ヨ", "yo"
+    sub "ヨウ", "yô"
+    
+    sub "ラ", "ra"
+    sub "リ", "ri"
+    sub "ル", "ru"
+    sub "レ", "re"
+    sub "ロ", "ro"
+    sub "リャ", "rya"
+    sub "リュ", "ryu"
+    sub "リョ", "ryo"
+    sub "リョウ", "ryô"
+    sub "ロウ", "rô"
+    
+    sub "ワ", "wa"
+    sub "ヲ", "o"
+    
+    sub "ガ", "ga"
+    sub "ギ", "gi"
+    sub "グ", "gu"
+    sub "ゲ", "ge"
+    sub "ゴ", "go"
+    sub "ギャ", "gya"
+    sub "ギュ", "gyu"
+    sub "ギョ", "gyo"
+    sub "ギョウ", "gyô"
+    sub "ゴウ", "gô"
+    
+    sub "ザ", "za"
+    sub "ジ", "zi"
+    sub "ズ", "zu"
+    sub "ゼ", "ze"
+    sub "ゾ", "zo"
+    sub "ジャ", "zya"
+    sub "ジュ", "zyu"
+    sub "ジョ", "zyo"
+    sub "ジョウ", "zyô"
+    sub "ゾウ", "zô"
+    
+    sub "ダ", "da"
+    sub "ヂ", "zi"
+    sub "ヅ", "zu"
+    sub "デ", "de"
+    sub "ド", "do"
+    sub "ヂャ", "zya"
+    sub "ヂュ", "zyu"
+    sub "ヂョ", "zyo"
+    sub "ヂョウ", "zyô"
+    sub "ドウ", "dô"
+    
+    sub "バ", "ba"
+    sub "ビ", "bi"
+    sub "ブ", "bu"
+    sub "ベ", "be"
+    sub "ボ", "bo"
+    sub "ビャ", "bya"
+    sub "ビュ", "byu"
+    sub "ビョ", "byo"
+    sub "ビョウ", "byô"
+    sub "ボウ", "bô"
+    
+    sub "パ", "pa"
+    sub "ピ", "pi"
+    sub "プ", "pu"
+    sub "ペ", "pe"
+    sub "ポ", "po"
+    sub "ピャ", "pya"
+    sub "ピュ", "pyu"
+    sub "ピョ", "pyo"
+    sub "ピョウ", "pyô"
+    sub "ポウ", "pô"
+    
+    sub "ン", "n" # See note 1
+    
+    
     # Note 3. つまる音は、最初の子音字を重ねて表わす。
     # Handled by postrules
+  }
+
+}
+

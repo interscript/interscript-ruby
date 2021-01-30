@@ -66,12 +66,21 @@ tests {
   test "गूगल की कार्रवाई पर पेटीएम ने कहा था कि ऐप को अस्थायी तौर पर प्ले-स्टोर से हटाया गया है, आपके पैसे सुरक्षित हैं", "gaūgala kaī kaāraravaāī para paeṭaīema nae kahaā thaā kai aipa kao asathaāyaī taaura para palae-saṭaora sae haṭaāyaā gayaā haai, āpakae paaisae saurakaṣaita haaiṁ"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
 
-  inherit: iso-san-Deva-Latn-15919-2001
+dependency "iso-san-Deva-Latn-15919-2001", as: devalatn
+
+stage {
+
+  run map.devalatn.stage.main
+
+}
+

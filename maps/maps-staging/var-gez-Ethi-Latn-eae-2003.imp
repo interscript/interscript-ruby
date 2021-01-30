@@ -44,11 +44,20 @@ tests {
   test "ወርእየ እግዚአብሔር ኵሎ ዘገብረ ከመ ጥቀ ሠናይ ወኮነ ሌሊተ ወጸብሐ ወኮነ ሳድስተ ዕለተ", "wärəʾəyä ʾəgəziʾabəḥerə kʷəlo zägäbərä kämä ṭəqä śänayə wäkonä lelitä wäṣäbəḥa wäkonä sadəsətä ʿəlätä"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  inherit: 'var-amh-Ethi-Latn-eae-2003'
+dependency "var-amh-Ethi-Latn-eae-2003", as: ethilatn
+
+stage {
+
+  run map.ethilatn.stage.main
+
+}
+

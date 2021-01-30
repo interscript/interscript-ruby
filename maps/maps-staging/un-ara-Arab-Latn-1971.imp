@@ -76,63 +76,71 @@ tests {
   test "شَرم الشَيْخ", "S͟harm as͟h S͟hayk͟h"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  inherit: "un-ara-Arab-Latn-2017"
-  map:
-  postrules:
-    - pattern : ' At͟h T͟h'  # الث
-      result: ' at͟h T͟h'
-    - pattern : ' Ad͟h D͟h'  # الذ
-      result: ' ad͟h D͟h'
-    - pattern : ' As͟h S͟h' # الش
-      result: ' as͟h S͟h'
-    - pattern : ' Az͟h Z͟h' # الظ
-      result: ' az͟h Z͟h'
-  characters:
+dependency "un-ara-Arab-Latn-2017", as: arablatn
 
+stage {
+
+  run map.arablatn.stage.main
+
+  # POSTRULES
+  sub " At͟h T͟h", " at͟h T͟h" # الث
+  sub " Ad͟h D͟h", " ad͟h D͟h" # الذ
+  sub " As͟h S͟h", " as͟h S͟h" # الش
+  sub " Az͟h Z͟h", " az͟h Z͟h" # الظ
+
+  # CHARACTERS
+  parallel {
+    
     # sun letters
-    '\b\u0627\u0644\u062b' : 'at͟h t͟h'  # الث
-    '\b\u0627\u0644\u0630' : 'ad͟h d͟h'  # الذ
-    '\b\u0627\u0644\u0634' : 'as͟h s͟h' # الش
-    '\b\u0627\u0644\u0638' : 'az͟h z͟h' # الظ
-
+    sub "\\b\u0627\u0644\u062b", "at͟h t͟h" # الث
+    sub "\\b\u0627\u0644\u0630", "ad͟h d͟h" # الذ
+    sub "\\b\u0627\u0644\u0634", "as͟h s͟h" # الش
+    sub "\\b\u0627\u0644\u0638", "az͟h z͟h" # الظ
+    
     # shadda
-    '\u062e\u0651' : 'k͟hk͟h'  # خ
-    '\u0630\u0651' : 'd͟hd͟h'  # ذ
-    '\u0634\u0651' : 's͟h'  # ش
-    '\u0638\u0651' : 'z͟hz͟h'  # ظ
-    '\u063a\u0651' : 'g͟hg͟h'  # غ
+    sub "\u062e\u0651", "k͟hk͟h" # خ
+    sub "\u0630\u0651", "d͟hd͟h" # ذ
+    sub "\u0634\u0651", "s͟h" # ش
+    sub "\u0638\u0651", "z͟hz͟h" # ظ
+    sub "\u063a\u0651", "g͟hg͟h" # غ
+    
+    sub "\u062b", "t͟h" # ث
+    sub "\ufe9b", "t͟h" # ﺛ
+    sub "\ufe9c", "t͟h" # ﺜ
+    sub "\ufe9a", "t͟h" # ﺚ
+    
+    sub "\u062e", "k͟h" # خ
+    sub "\ufea7", "k͟h" # ﺧ
+    sub "\ufea8", "k͟h" # ﺨ
+    sub "\ufea6", "k͟h" # ﺦ
+    
+    sub "\u063a", "g͟h" # غ
+    sub "\ufecf", "g͟h" # ﻏ
+    sub "\ufed0", "g͟h" # ﻐ
+    sub "\ufece", "g͟h" # ﻎ
+    
+    sub "\u0630", "d͟h" # ذ
+    sub "\ufeac", "d͟h" # ﺬ
+    
+    sub "\u0634", "s͟h" # ش
+    sub "\ufeb7", "s͟h" # ﺷ
+    sub "\ufeb8", "s͟h" # ﺸ
+    sub "\ufeb6", "s͟h" # ﺶ
+    
+    sub "\u0638", "z͟h" # ظ
+    sub "\ufec7", "z͟h" # ﻇ
+    sub "\ufec8", "z͟h" # ﻈ
+    sub "\ufec6", "z͟h" # ﻆ
+  }
 
-    '\u062b' : 't͟h'  # ث
-    '\ufe9b' : 't͟h'  # ﺛ
-    '\ufe9c' : 't͟h'  # ﺜ
-    '\ufe9a' : 't͟h'  # ﺚ
+}
 
-    '\u062e' : 'k͟h'  # خ
-    '\ufea7' : 'k͟h'  # ﺧ
-    '\ufea8' : 'k͟h'  # ﺨ
-    '\ufea6' : 'k͟h'  # ﺦ
-
-    '\u063a' : 'g͟h'  # غ
-    '\ufecf' : 'g͟h'  # ﻏ
-    '\ufed0' : 'g͟h'  # ﻐ
-    '\ufece' : 'g͟h'  # ﻎ
-
-    '\u0630' : 'd͟h'  # ذ
-    '\ufeac' : 'd͟h'  # ﺬ
-
-    '\u0634' : 's͟h'  # ش
-    '\ufeb7' : 's͟h'  # ﺷ
-    '\ufeb8' : 's͟h'  # ﺸ
-    '\ufeb6' : 's͟h'  # ﺶ
-
-    '\u0638' : 'z͟h'  # ظ
-    '\ufec7' : 'z͟h'  # ﻇ
-    '\ufec8' : 'z͟h'  # ﻈ
-    '\ufec6' : 'z͟h'  # ﻆ

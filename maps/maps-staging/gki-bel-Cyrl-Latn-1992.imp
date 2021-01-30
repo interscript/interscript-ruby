@@ -18,21 +18,33 @@ tests {
   # "Kanyukhi" in GNDB `bel_Cyrl2Latn_GBO_1992`, but that is clearly bgnpcgn-ukr-Cyrl-Latn-1965
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  inherit: gost-rus-Cyrl-Latn-16876-71-1983
+dependency "gost-rus-Cyrl-Latn-16876-71-1983", as: cyrllatn
 
-  characters:
-    '\u0406' : 'I'  # І
-    '\u0456' : 'i'  # і
 
-    '\u0413' : 'G'  # Г
-    '\u0433' : 'g'  # г
+stage {
 
-    '\U040E' : 'Ŭ'  # Ў
-    '\u045E' : 'ŭ'  # ў
+  run map.cyrllatn.stage.main
+
+  # CHARACTERS
+  parallel {
+    sub "\u0406", "I" # І
+    sub "\u0456", "i" # і
+    
+    sub "\u0413", "G" # Г
+    sub "\u0433", "g" # г
+    
+    sub "\\U040E", "Ŭ" # Ў
+    sub "\u045E", "ŭ" # ў
+  }
+
+}
+

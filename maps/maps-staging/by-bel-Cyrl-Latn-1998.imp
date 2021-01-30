@@ -64,69 +64,64 @@ tests {
   test "Вязынка", "Viazynka"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  inherit: gost-rus-Cyrl-Latn-16876-71-1983
+dependency "gost-rus-Cyrl-Latn-16876-71-1983", as: cyrllatn
 
-  rules:
-    - pattern: (?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\u0415 # Е after consonants
-      result: IE
-    - pattern: (?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\u0435 # е after consonants
-      result: ie
-    - pattern: (?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\u0401 # Ё after consonants
-      result: IO
-    - pattern: (?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\u0451 # ё after consonants
-      result: io
-    - pattern: (?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\u042E # Ю after consonants
-      result: IU
-    - pattern: (?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\u044E # ю after consonants
-      result: iu
-    - pattern: (?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\u042F # Я after consonants
-      result: IA
-    - pattern: (?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\u044F # я after consonants
-      result: ia
-    - pattern: \u0417\u042C # ЗЬ
-      result: "\u0179"
-    - pattern: \u0437\u044C # зь
-      result: "\u017A"
-    - pattern: \u041B\u042C # ЛЬ
-      result: "\u0139"
-    - pattern: \u043B\u044C # ль
-      result: "\u013A"
-    - pattern: \u0421\u042C # СЬ
-      result: "\u015A"
-    - pattern: \u0441\u044C # сь
-      result: "\u015B"
-    - pattern: \u0426\u042C # ЦЬ
-      result: "\u0106"
-    - pattern: \u0446\u044C # ць
-      result: "\u0107"
-    - pattern: \u041D\u042C # НЬ
-      result: "\u0143"
-    - pattern: \u043D\u044C # нь
-      result: "\u0144"
-  characters:
-    '\u0406' : 'I'  # І
-    '\u0413' : 'H'  # Г
-    '\u0415' : 'Je' # Е
-    '\u0401' : 'Jo' # Ё
-    '\U040E' : 'Ŭ'  # Ў
-    '\u0425' : 'Ch' # Х
-    '\u042C' : ''   # Ь
-    '\u042D' : 'E'  # Э
 
-    '\u0433' : 'h'  # г
-    '\u0456' : 'i'  # і
-    '\u0435' : 'je' # е
-    '\u0451' : 'jo' # ё
-    '\u045E' : 'ŭ'  # ў
-    '\u0445' : 'ch' # х
-    '\u044C' : ''   # ь
-    '\u044D' : 'e'  # э
+stage {
 
-    '\u0027' : ''   # '
+  run map.cyrllatn.stage.main
+
+  # RULES
+  sub "(?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\\u0415", "IE" # Е after consonants
+  sub "(?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\\u0435", "ie" # е after consonants
+  sub "(?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\\u0401", "IO" # Ё after consonants
+  sub "(?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\\u0451", "io" # ё after consonants
+  sub "(?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\\u042E", "IU" # Ю after consonants
+  sub "(?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\\u044E", "iu" # ю after consonants
+  sub "(?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\\u042F", "IA" # Я after consonants
+  sub "(?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\\u044F", "ia" # я after consonants
+  sub "\\u0417\\u042C", "Ź" # ЗЬ
+  sub "\\u0437\\u044C", "ź" # зь
+  sub "\\u041B\\u042C", "Ĺ" # ЛЬ
+  sub "\\u043B\\u044C", "ĺ" # ль
+  sub "\\u0421\\u042C", "Ś" # СЬ
+  sub "\\u0441\\u044C", "ś" # сь
+  sub "\\u0426\\u042C", "Ć" # ЦЬ
+  sub "\\u0446\\u044C", "ć" # ць
+  sub "\\u041D\\u042C", "Ń" # НЬ
+  sub "\\u043D\\u044C", "ń" # нь
+
+  # CHARACTERS
+  parallel {
+    sub "\u0406", "I" # І
+    sub "\u0413", "H" # Г
+    sub "\u0415", "Je" # Е
+    sub "\u0401", "Jo" # Ё
+    sub "\\U040E", "Ŭ" # Ў
+    sub "\u0425", "Ch" # Х
+    sub "\u042C", "" # Ь
+    sub "\u042D", "E" # Э
+    
+    sub "\u0433", "h" # г
+    sub "\u0456", "i" # і
+    sub "\u0435", "je" # е
+    sub "\u0451", "jo" # ё
+    sub "\u045E", "ŭ" # ў
+    sub "\u0445", "ch" # х
+    sub "\u044C", "" # ь
+    sub "\u044D", "e" # э
+    
+    sub "\u0027", "" # '
+  }
+
+}
+

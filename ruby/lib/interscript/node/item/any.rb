@@ -23,7 +23,7 @@ class Interscript::Node::Item::Any < Interscript::Node::Item
   def first_string
     case @value
     when Array
-      value.first.first_string
+      Interscript::Node::Item.try_convert(value.first).first_string
     when ::String
       value[0]
     when Range

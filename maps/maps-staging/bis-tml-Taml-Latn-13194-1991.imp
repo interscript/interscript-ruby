@@ -37,118 +37,123 @@ tests {
   test "இந்திய எண்ணெய் கப்பலில் தீ: விபத்து குறித்த எச்சரிக்கையை கப்பல் அதிகாரிகள் புறக்கணித்தனர் - இலங்கை கோர்ட்டு தகவல்", "intiy eṇṇey kpplil tī: vipttu kuṟitt eccrikkaiyai kppl atikārikḷ puṟkkṇittṉr - ilṅkai kōrṭṭu tkvl"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
 
-  rules:
-    # note
-    - pattern: \u0B82(?=[கங])
-      result: ṅ
-    - pattern: \u0B82(?=[சஜஞ])
-      result: ñ
-    - pattern: \u0B82(?=[டண])
-      result: ṇ
-    - pattern: \u0B82(?=[தநன])
-      result: n
-    - pattern: \u0B82(?=[பம])
-      result: m
+stage {
 
-  characters:
-    'அ': 'a'
-    'ஆ': 'ā'
-    'இ': 'i'
-    'ஈ': 'ī'
-    'உ': 'u'
-    'ஊ': 'ū'
+  # RULES
+  # note
+  sub "\\u0B82(?=[கங])", "ṅ"
+  sub "\\u0B82(?=[சஜஞ])", "ñ"
+  sub "\\u0B82(?=[டண])", "ṇ"
+  sub "\\u0B82(?=[தநன])", "n"
+  sub "\\u0B82(?=[பம])", "m"
+  
 
-    'எ': 'e'
-    'ஏ': 'ē'
-    'ஐ': 'ai'
-
-    'ஒ': 'o'
-    'ஓ': 'ŏ'
-    'ஔ': 'au'
-
+  # CHARACTERS
+  parallel {
+    sub "அ", "a"
+    sub "ஆ", "ā"
+    sub "இ", "i"
+    sub "ஈ", "ī"
+    sub "உ", "u"
+    sub "ஊ", "ū"
+    
+    sub "எ", "e"
+    sub "ஏ", "ē"
+    sub "ஐ", "ai"
+    
+    sub "ஒ", "o"
+    sub "ஓ", "ŏ"
+    sub "ஔ", "au"
+    
     # II. Consonants (see Note 2)
     # Gutturals
-    'க': 'k'
-    'ங': 'ṅ'
-
+    sub "க", "k"
+    sub "ங", "ṅ"
+    
     # Palatals
-    'ச': 'c'
-    'ஜ': 'j'
-    'ஞ': 'ñ'
-
+    sub "ச", "c"
+    sub "ஜ", "j"
+    sub "ஞ", "ñ"
+    
     # Cerebrals
-    'ட':  'ṭ'
-    'ண':  'ṇ'
-
+    sub "ட", "ṭ"
+    sub "ண", "ṇ"
+    
     # Dentals
-    'த': 't'
-    'ந':  'n'
-    'ன': 'ṉ'
-
+    sub "த", "t"
+    sub "ந", "n"
+    sub "ன", "ṉ"
+    
     # Labials
-    'ப': 'p'
-    'ம': 'm'
-
+    sub "ப", "p"
+    sub "ம", "m"
+    
     # Semivowels
-    'ய': 'y'
-    'ர': 'r'
-    'ற': 'ṟ'
-    'ல': 'l'
-    'ள': 'ḷ'
-    'ழ': 'ẕ'
-
-
+    sub "ய", "y"
+    sub "ர", "r"
+    sub "ற", "ṟ"
+    sub "ல", "l"
+    sub "ள", "ḷ"
+    sub "ழ", "ẕ"
+    
+    
     # Sibilants
-    'வ': 'v'
-    'ஶ': 'ś'
-    'ஷ': 'ṣ'
-    'ஸ': 's'
-
-
+    sub "வ", "v"
+    sub "ஶ", "ś"
+    sub "ஷ", "ṣ"
+    sub "ஸ", "s"
+    
+    
     # Aspirate
-    'ஹ': 'h'
-
-
+    sub "ஹ", "h"
+    
+    
     # Bisarga
-    'ஃ': 'ḥ'
-
+    sub "ஃ", "ḥ"
+    
     # Anusvāra
-    'ஂ': 'ṃ'
-
+    sub "ஂ", "ṃ"
+    
     # Medials # Needed for connecting constants
+    
+    sub "ா", "ā"
+    sub "ி", "i"
+    sub "ீ", "ī"
+    sub "ு", "u"
+    sub "ூ", "ū"
+    
+    sub "ൃ", "ṛ"
+    sub "ൄ", "ṝ"
+    
+    
+    sub "ெ", "e"
+    sub "ே", "ē"
+    sub "ை", "ai"
+    sub "ொ", "o"
+    sub "ோ", "ō"
+    sub "ௌ", "au"
+    
+    
+    sub "ൺ", "n"
+    sub "ൻ", "ṇ"
+    
+    sub "्", ""
+    sub "്", ""
+    sub "்", ""
+    sub "ൗ", ""
+    sub "‍", "" # no need for zero with joiner
+    sub "‌", "" # no need for zero with non joiner
+  }
 
-    'ா': 'ā'
-    'ி': 'i'
-    'ீ': 'ī'
-    'ு': 'u'
-    'ூ': 'ū'
+}
 
-    'ൃ': "ṛ"
-    'ൄ': "ṝ"
-
-
-    'ெ': "e"
-    'ே': "ē"
-    'ை': "ai"
-    'ொ': 'o'
-    'ோ': 'ō'
-    'ௌ': 'au'
-
-
-    'ൺ': 'n'
-    'ൻ': 'ṇ'
-
-    '्': ''
-    '്': ''
-    '்': ''
-    'ൗ': ''
-    "‍": '' # no need for zero with joiner
-    "‌": '' # no need for zero with non joiner

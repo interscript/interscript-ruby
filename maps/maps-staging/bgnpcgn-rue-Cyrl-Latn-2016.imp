@@ -52,82 +52,91 @@ tests {
   test "пастырї", "pastyrji"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  characters:
-    "\u0410": "A"             # А
-    "\u0411": "B"             # Б
-    "\u0412": "V"             # В
-    "\u0413": "H"             # Г
-    "\u0414": "D"             # Д
-    "\u0415": "E"             # Е
-    "\u0404": "Je"            # Є
-    "\u0401": "Jo"            # Ё
-    "\u0416": "\u017D"        # Ж => Ž note[2]
-    "\u0417": "Z"             # З
-    "\u0418": "Y"             # И
-    "\u0406": "I"             # І
-    "\u042b": "Y"             # Ы
-    "\u0407": "Ji"            # Ї
-    "\u0419": "J"             # Й
-    "\u041a": "K"             # К
-    "\u041b": "L"             # Л
-    "\u041c": "M"             # М
-    "\u041d": "N"             # Н
-    "\u041e": "O"             # О
-    "\u041f": "P"             # П
-    "\u0420": "R"             # Р
-    "\u0421": "S"             # С
-    "\u0422": "T"             # Т
-    "\u0423": "U"             # У
-    "\u0424": "F"             # Ф
-    "\u0425": "Ch"            # Х
-    "\u0426": "C"             # Ц
-    "\u0427": "\u010C"        # Ч => Č note[2]
-    "\u0428": "\u0160"        # Ш => Š note[2]
-    "\u0429": "\u0160\u010C"  # Щ => ŠČ
-    "\u042e": "Yu"            # Ю
-    "\u042f": "Ya"            # Я
-    "\u042c": "\u0027"        # Ь => '
-    "\u042a": "\u0027"        # Ъ => '
+stage {
 
-    "\u0430": "a"             # а
-    "\u0431": "b"             # б
-    "\u0432": "v"             # в
-    "\u0433": "g"             # г
-    "\u0434": "d"             # д
-    "\u0435": "e"             # е
-    "\u0454": "je"            # є
-    "\u0451": "jo"            # ё
-    "\u0436": "\u017E"        # ж => ž note[2]
-    "\u0437": "z"             # з
-    "\u0438": "y"             # и
-    "\u0456": "i"             # і
-    "\u044b": "y"             # ы
-    "\u0457": "ji"            # ї
-    "\u0439": "j"             # й
-    "\u043a": "k"             # к
-    "\u043b": "l"             # л
-    "\u043c": "m"             # м
-    "\u043d": "n"             # н
-    "\u043e": "o"             # о
-    "\u043f": "p"             # п
-    "\u0440": "r"             # р
-    "\u0441": "s"             # с
-    "\u0442": "t"             # т
-    "\u0443": "u"             # у
-    "\u0444": "f"             # ф
-    "\u0445": "ch"            # х
-    "\u0446": "c"             # ц
-    "\u0447": "\u010D"        # ч => č note[2]
-    "\u0448": "\u0161"        # ш => š note[2]
-    "\u0449": "\u0161\u010D"  # щ => šč
-    "\u044e": "yu"            # ю
-    "\u044f": "ya"            # я
-    "\u044c": "\u0027"        # ь => '
-    "\u044a": "\u0027"        # ъ => '
+  # CHARACTERS
+  parallel {
+    sub "А", "A" # А
+    sub "Б", "B" # Б
+    sub "В", "V" # В
+    sub "Г", "H" # Г
+    sub "Д", "D" # Д
+    sub "Е", "E" # Е
+    sub "Є", "Je" # Є
+    sub "Ё", "Jo" # Ё
+    sub "Ж", "Ž" # Ж => Ž note[2]
+    sub "З", "Z" # З
+    sub "И", "Y" # И
+    sub "І", "I" # І
+    sub "Ы", "Y" # Ы
+    sub "Ї", "Ji" # Ї
+    sub "Й", "J" # Й
+    sub "К", "K" # К
+    sub "Л", "L" # Л
+    sub "М", "M" # М
+    sub "Н", "N" # Н
+    sub "О", "O" # О
+    sub "П", "P" # П
+    sub "Р", "R" # Р
+    sub "С", "S" # С
+    sub "Т", "T" # Т
+    sub "У", "U" # У
+    sub "Ф", "F" # Ф
+    sub "Х", "Ch" # Х
+    sub "Ц", "C" # Ц
+    sub "Ч", "Č" # Ч => Č note[2]
+    sub "Ш", "Š" # Ш => Š note[2]
+    sub "Щ", "ŠČ" # Щ => ŠČ
+    sub "Ю", "Yu" # Ю
+    sub "Я", "Ya" # Я
+    sub "Ь", "'" # Ь => '
+    sub "Ъ", "'" # Ъ => '
+    
+    sub "а", "a" # а
+    sub "б", "b" # б
+    sub "в", "v" # в
+    sub "г", "g" # г
+    sub "д", "d" # д
+    sub "е", "e" # е
+    sub "є", "je" # є
+    sub "ё", "jo" # ё
+    sub "ж", "ž" # ж => ž note[2]
+    sub "з", "z" # з
+    sub "и", "y" # и
+    sub "і", "i" # і
+    sub "ы", "y" # ы
+    sub "ї", "ji" # ї
+    sub "й", "j" # й
+    sub "к", "k" # к
+    sub "л", "l" # л
+    sub "м", "m" # м
+    sub "н", "n" # н
+    sub "о", "o" # о
+    sub "п", "p" # п
+    sub "р", "r" # р
+    sub "с", "s" # с
+    sub "т", "t" # т
+    sub "у", "u" # у
+    sub "ф", "f" # ф
+    sub "х", "ch" # х
+    sub "ц", "c" # ц
+    sub "ч", "č" # ч => č note[2]
+    sub "ш", "š" # ш => š note[2]
+    sub "щ", "šč" # щ => šč
+    sub "ю", "yu" # ю
+    sub "я", "ya" # я
+    sub "ь", "'" # ь => '
+    sub "ъ", "'" # ъ => '
+  }
+
+}
+

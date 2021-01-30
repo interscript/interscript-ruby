@@ -62,152 +62,161 @@ tests {
   test "අත්‌ථි ඛ්‌වෙස, බ්‍රාහ්‌මණ, පරියායො යෙන මං පරියායෙන සම්‌මා වදමානො වදෙය්‍", "atathai khavaesa, baraāhamaṇa, paraiyaāyao yaena maṁ paraiyaāyaena samamaā vadamaānao vadaeya"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
 
 
-  characters:
+stage {
 
-    'අ': 'a'
-    'ආ': 'ā'
-    'ඇ': 'æ'
-    'ඈ': 'ǣ'
-    'ඉ': 'i'
-    'ඊ': 'ī'
-    'උ': 'u'
-    'ඌ': 'ū'
-    'ඍ': 'ṛ'
-    'ඎ': 'ṝ'
-    'ඏ': 'ḻ'
-    'ඐ': 'ḹ'
-    'එ': 'e'
-    'ඒ': 'ē'
-    'ඓ': 'ai'
-    'ඔ': 'o'
-    'ඕ': 'ō'
-    'ඖ': 'au'
-
-    'ා': 'ā'
-    'ැ': 'æ'
-    'ෑ': 'ǣ'
-    'ි': 'i'
-    'ී': 'ī'
-    'ු': 'u'
-    'ූ': 'ū'
-    'ෘ': 'ṛ'
-    'ෲ': 'ṝ'
-    'ෟ': 'ḻ'
-    'ෳ': 'ḹ'
-    'ෙ': 'e'
-    'ේ': 'ē'
-    'ෛ': 'ai'
-    'ො': 'o'
-    'ෝ': 'ō'
-    'ෞ': 'au'
-
-
+  # CHARACTERS
+  parallel {
+    
+    sub "අ", "a"
+    sub "ආ", "ā"
+    sub "ඇ", "æ"
+    sub "ඈ", "ǣ"
+    sub "ඉ", "i"
+    sub "ඊ", "ī"
+    sub "උ", "u"
+    sub "ඌ", "ū"
+    sub "ඍ", "ṛ"
+    sub "ඎ", "ṝ"
+    sub "ඏ", "ḻ"
+    sub "ඐ", "ḹ"
+    sub "එ", "e"
+    sub "ඒ", "ē"
+    sub "ඓ", "ai"
+    sub "ඔ", "o"
+    sub "ඕ", "ō"
+    sub "ඖ", "au"
+    
+    sub "ා", "ā"
+    sub "ැ", "æ"
+    sub "ෑ", "ǣ"
+    sub "ි", "i"
+    sub "ී", "ī"
+    sub "ු", "u"
+    sub "ූ", "ū"
+    sub "ෘ", "ṛ"
+    sub "ෲ", "ṝ"
+    sub "ෟ", "ḻ"
+    sub "ෳ", "ḹ"
+    sub "ෙ", "e"
+    sub "ේ", "ē"
+    sub "ෛ", "ai"
+    sub "ො", "o"
+    sub "ෝ", "ō"
+    sub "ෞ", "au"
+    
+    
     # II. Consonants (see Note 2)
     # Gutturals  క ఖ గ ఘ ఙ
-    'ක': 'ka'
-    'ඛ': 'kha'
-    'ග': 'ga'
-    'ඝ': 'gha'
-    'ඞ': 'ṅa'
-    'ඟ': 'ṅga'
-
+    sub "ක", "ka"
+    sub "ඛ", "kha"
+    sub "ග", "ga"
+    sub "ඝ", "gha"
+    sub "ඞ", "ṅa"
+    sub "ඟ", "ṅga"
+    
     # Palatals చ ఛ జ ఝ ఞ
-    'ච': 'ca'
-    'ඡ': 'cha'
-    'ජ': 'ja'
-    'ඣ': 'jha'
-    'ඤ': 'ña'
-    'ඦ': 'ñja'
-
-
+    sub "ච", "ca"
+    sub "ඡ", "cha"
+    sub "ජ", "ja"
+    sub "ඣ", "jha"
+    sub "ඤ", "ña"
+    sub "ඦ", "ñja"
+    
+    
     # Cerebrals ట ఠ డ ఢ ణ
-    'ට':  'ṭa'
-    'ඨ':  'ṭha'
-    'ඩ':  'ḍa'
-    'ඪ':  'ḍha'
-    'ණ':  'ṇa'
-    'ඬ':  'ṇḍa'
-
+    sub "ට", "ṭa"
+    sub "ඨ", "ṭha"
+    sub "ඩ", "ḍa"
+    sub "ඪ", "ḍha"
+    sub "ණ", "ṇa"
+    sub "ඬ", "ṇḍa"
+    
     # Dentals త థ ద ధ న
-    'ත': 'ta'
-    'ථ': 'tha'
-    'ද': 'da'
-    'ධ': 'dha'
-    'න': 'na'
-    'ඳ': 'nda'
-
+    sub "ත", "ta"
+    sub "ථ", "tha"
+    sub "ද", "da"
+    sub "ධ", "dha"
+    sub "න", "na"
+    sub "ඳ", "nda"
+    
     # Labials ప ఫ బ భ మ
-    'ප': 'pa'
-    'ඵ': 'pha'
-    'බ': 'ba'
-    'භ': 'bha'
-    'ම': 'ma'
-    'ඹ': 'mba'
-
+    sub "ප", "pa"
+    sub "ඵ", "pha"
+    sub "බ", "ba"
+    sub "භ", "bha"
+    sub "ම", "ma"
+    sub "ඹ", "mba"
+    
     # Semivowels య ర ల వ
-    'ය': 'ya'
-    'ර': 'ra'
-    'ල': 'la'
-    'ළ': 'ḷa'
-    'ව': 'va'
-
+    sub "ය", "ya"
+    sub "ර", "ra"
+    sub "ල", "la"
+    sub "ළ", "ḷa"
+    sub "ව", "va"
+    
     # Sibilants శ ష స హ
-    'ශ': 'śa'
-    'ෂ': 'ṣa'
-    'ස': 'sa'
-
-
-
+    sub "ශ", "śa"
+    sub "ෂ", "ṣa"
+    sub "ස", "sa"
+    
+    
+    
     # Aspirate
-    'හ': 'ha'
-
-    'ෆ': 'fa'
-
+    sub "හ", "ha"
+    
+    sub "ෆ", "fa"
+    
     # Chandrabindu
-    'ઁ': 'm̐'
-
+    sub "ઁ", "m̐"
+    
     # Bisarga
-    'ඃ': 'ḥ'
-
+    sub "ඃ", "ḥ"
+    
     # Anusvāra
-    'ං': 'ṁ'
-
-
+    sub "ං", "ṁ"
+    
+    
     # numbers
-
-    '\u0DE6': '0'
-    '\u0DE7': '1'
-    '\u0DE8': '2'
-    '\u0DE9': '3'
-    '\u0DEA': '4'
-    '\u0DEB': '5'
-    '\u0DEC': '6'
-    '\u0DED': '7'
-    '\u0DEE': '8'
-    '\u0DEF': '9'
-
-
+    
+    sub "\u0DE6", "0"
+    sub "\u0DE7", "1"
+    sub "\u0DE8", "2"
+    sub "\u0DE9", "3"
+    sub "\u0DEA", "4"
+    sub "\u0DEB", "5"
+    sub "\u0DEC", "6"
+    sub "\u0DED", "7"
+    sub "\u0DEE", "8"
+    sub "\u0DEF", "9"
+    
+    
     # semivowel chandrabindu rule
-
+    
     # Semivowels య ర ల వ
-    'යઁ': 'm̐ya'
-    'රઁ': 'm̐ra'
-    'ලઁ': 'm̐la'
-    'ළઁ': 'm̐ḷa'
-    'වઁ': 'm̐va'
+    sub "යઁ", "m̐ya"
+    sub "රઁ", "m̐ra"
+    sub "ලઁ", "m̐la"
+    sub "ළઁ", "m̐ḷa"
+    sub "වઁ", "m̐va"
+    
+    
+    
+    sub "\u09CD", "" # Used for joining
+    sub "‍", "" # Used for joining
+    sub "‌", "" # Used for non joining
+    sub "්", "" # virama
+  }
 
+}
 
-
-    '\u09CD': '' # Used for joining
-    "‍": ''# Used for joining
-    "‌": ''# Used for non joining
-    "්": '' # virama

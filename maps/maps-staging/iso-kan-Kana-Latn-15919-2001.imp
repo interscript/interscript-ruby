@@ -61,153 +61,162 @@ tests {
   test "೧೮೧೪೦", "18140"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
 
-  characters:
-    'ಅ': 'a'
-    'ಆ': 'ā'
-    'ಇ': 'i'
-    'ಈ': 'ī'
-    'ಉ': 'u'
-    'ಊ': 'ū'
-    'ಋ': 'ṛ'
-    'ೠ': "ṝ"
-    'ಌ': 'ḻ'
-    'ೡ': 'ḹ'
-    'ಎ': 'e'
-    'ಏ': 'ē'
-    'ಐ': 'ai'
+stage {
 
-    'ಒ': 'o'
-    'ಓ': 'ō'
-    'ಔ': 'au'
-
+  # CHARACTERS
+  parallel {
+    sub "ಅ", "a"
+    sub "ಆ", "ā"
+    sub "ಇ", "i"
+    sub "ಈ", "ī"
+    sub "ಉ", "u"
+    sub "ಊ", "ū"
+    sub "ಋ", "ṛ"
+    sub "ೠ", "ṝ"
+    sub "ಌ", "ḻ"
+    sub "ೡ", "ḹ"
+    sub "ಎ", "e"
+    sub "ಏ", "ē"
+    sub "ಐ", "ai"
+    
+    sub "ಒ", "o"
+    sub "ಓ", "ō"
+    sub "ಔ", "au"
+    
     # II. Consonants (see Note 2)
     # Gutturals
-    'ಕ': 'ka'
-    'ಖ': 'kha'
-    'ಗ': 'ga'
-    'ಘ': 'gha'
-    'ಙ': 'ṅa'
-
+    sub "ಕ", "ka"
+    sub "ಖ", "kha"
+    sub "ಗ", "ga"
+    sub "ಘ", "gha"
+    sub "ಙ", "ṅa"
+    
     # Palatals
-    'ಚ': 'ca'
-    'ಛ': 'cha'
-    'ಜ': 'ja'
-    'ಝ': 'jha'
-    'ಞ': 'ña'
-
+    sub "ಚ", "ca"
+    sub "ಛ", "cha"
+    sub "ಜ", "ja"
+    sub "ಝ", "jha"
+    sub "ಞ", "ña"
+    
     # Cerebrals
-    'ಟ': 'ṭa'
-    'ಠ': 'ṭha'
-    'ಡ': 'ḍa'
-    'ಢ': 'ḍha'
-    'ಣ': 'ṇa'
-
+    sub "ಟ", "ṭa"
+    sub "ಠ", "ṭha"
+    sub "ಡ", "ḍa"
+    sub "ಢ", "ḍha"
+    sub "ಣ", "ṇa"
+    
     # Dentals
-    'ತ': 'ta'
-    'ಥ': 'tha'
-    'ದ': 'da'
-    'ಧ': 'dha'
-    'ನ': 'na'
-
+    sub "ತ", "ta"
+    sub "ಥ", "tha"
+    sub "ದ", "da"
+    sub "ಧ", "dha"
+    sub "ನ", "na"
+    
     # Labials
-    'ಪ': 'pa'
-    'ಫ': 'pha'
-    'ಬ': 'ba'
-    'ಭ': 'bha'
-    'ಮ': 'ma'
-
+    sub "ಪ", "pa"
+    sub "ಫ", "pha"
+    sub "ಬ", "ba"
+    sub "ಭ", "bha"
+    sub "ಮ", "ma"
+    
     # Semivowels
-    'ಯ': 'ya'
-    'ರ': 'ra'
-    'ಱ': 'ṟa'
-    'ಲ': 'la'
-    'ಳ': 'ḷa'
-    'ವ': 'va'
-
+    sub "ಯ", "ya"
+    sub "ರ", "ra"
+    sub "ಱ", "ṟa"
+    sub "ಲ", "la"
+    sub "ಳ", "ḷa"
+    sub "ವ", "va"
+    
     # Sibilants
-    'ಶ': 'śa'
-    'ಷ': 'ṣa'
-    'ಸ': 'sa'
-
-
+    sub "ಶ", "śa"
+    sub "ಷ", "ṣa"
+    sub "ಸ", "sa"
+    
+    
     # Aspirate
-    'ಹ': 'ha'
-
-    'ಜ಼': 'za'
-    'ಫ಼': 'fa'
-
+    sub "ಹ", "ha"
+    
+    sub "ಜ಼", "za"
+    sub "ಫ಼", "fa"
+    
     # Bisarga
-    'ಃ': 'ḥ'
-
-    'ೱ': 'ẖ'
-    'ೲ': 'ḫ'
-
-
+    sub "ಃ", "ḥ"
+    
+    sub "ೱ", "ẖ"
+    sub "ೲ", "ḫ"
+    
+    
     # candrabindu
-    '\u0C80': 'm̐'
-    '\u0C81': 'm̐'
-
+    sub "\u0C80", "m̐"
+    sub "\u0C81", "m̐"
+    
     # Abagraha
-    'ಽ': ':’' # (apostrophe)
-
+    sub "ಽ", ":’" # (apostrophe)
+    
     # Anusvāra
-    'ಂ': 'ṁ'
-
-    '಼': '' #nukta
-
+    sub "ಂ", "ṁ"
+    
+    sub "಼", "" #nukta
+    
     # Medials # Needed for connecting constants
-    'ಾ': "ā"
-    'ಿ': "i"
-    'ೀ': "ī"
-    'ು': "u"
-    'ೂ': "ū"
-
-    'ೃ': "ṛ"
-    'ೄ': "ṝ"
-    ' ೢ': 'ḷ'
-    ' ೣ': 'ḹ'
-
-    'ೆ': "e"
-    'ೇ': "ē"
-    'ೈ': "ai"
-
-
-    'ೊ': 'o'
-    'ೋ': 'ō'
-    'ೌ': 'au'
-
-    '्': ''
-    '़': ''
-    '್': ''
-    "‍": '' # no need for zero with joiner
-    "‌": '' # no need for zero with non joiner ': 'ya'
-
-
+    sub "ಾ", "ā"
+    sub "ಿ", "i"
+    sub "ೀ", "ī"
+    sub "ು", "u"
+    sub "ೂ", "ū"
+    
+    sub "ೃ", "ṛ"
+    sub "ೄ", "ṝ"
+    sub " ೢ", "ḷ"
+    sub " ೣ", "ḹ"
+    
+    sub "ೆ", "e"
+    sub "ೇ", "ē"
+    sub "ೈ", "ai"
+    
+    
+    sub "ೊ", "o"
+    sub "ೋ", "ō"
+    sub "ೌ", "au"
+    
+    sub "्", ""
+    sub "़", ""
+    sub "್", ""
+    sub "‍", "" # no need for zero with joiner
+    sub "‌", "" # no need for zero with non joiner ': 'ya'
+    
+    
     # for semivowel rule no. 5
-    'ಯಀ': 'm̐ya'
-    'ರಀ': 'm̐ra'
-    'ಱಀ': 'm̐ṟa'
-    'ಲಀ': 'm̐la'
-    'ಳಀ': 'm̐ḷa'
-    'ವಀ': 'm̐va'
-
+    sub "ಯಀ", "m̐ya"
+    sub "ರಀ", "m̐ra"
+    sub "ಱಀ", "m̐ṟa"
+    sub "ಲಀ", "m̐la"
+    sub "ಳಀ", "m̐ḷa"
+    sub "ವಀ", "m̐va"
+    
     # numbers
+    
+    sub "೧", "1"
+    sub "೨", "2"
+    sub "೩", "3"
+    sub "೪", "4"
+    sub "೫", "5"
+    sub "೬", "6"
+    sub "೭", "7"
+    sub "೮", "8"
+    sub "೯", "9"
+    sub "೦", "0"
+  }
 
-    '೧': '1'
-    '೨': '2'
-    '೩': '3'
-    '೪': '4'
-    '೫': '5'
-    '೬': '6'
-    '೭': '7'
-    '೮': '8'
-    '೯': '9'
-    '೦': '0'
+}
+

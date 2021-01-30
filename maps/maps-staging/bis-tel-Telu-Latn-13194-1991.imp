@@ -37,134 +37,139 @@ tests {
   test "మరో వైపు ఎన్టీఆర్‌, రామ్‌చరణ్‌ కలిసి ట్రిపుల్‌ ఆర్‌ సినిమాలో నటిస్తున్నారు", "mrŏ vaipu enṭīār, rāmcrṇ klisi ṭripul ār sinimālŏ nṭistunnāru"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
 
-  rules:
-    # note
-    - pattern: \u0C02(?=[కఖగఘఙ])
-      result: ṅ
-    - pattern: \u0C02(?=[చఛజఝఞ])
-      result: ñ
-    - pattern: \u0C02(?=[టఠడఢణ])
-      result: ṇ
-    - pattern: \u0C02(?=[తథదధన])
-      result: n
-    - pattern: \u0C02(?=[పఫబభమ])
-      result: m
+stage {
 
+  # RULES
+  # note
+  sub "\\u0C02(?=[కఖగఘఙ])", "ṅ"
+  sub "\\u0C02(?=[చఛజఝఞ])", "ñ"
+  sub "\\u0C02(?=[టఠడఢణ])", "ṇ"
+  sub "\\u0C02(?=[తథదధన])", "n"
+  sub "\\u0C02(?=[పఫబభమ])", "m"
+  
+  
 
-  characters:
-    'అ': 'a'
-    'ఆ': 'ā'
-    'ఇ': 'i'
-    'ఈ': 'ī'
-    'ఉ': 'u'
-    'ఊ': 'ū'
-    'ఋ': 'ṛ'
-    'ఌ': 'ḻ'
-    'ౡ': 'ḻ'
-    'ఎ': 'e'
-    'ఏ': 'ē'
-    'ఐ': 'ai'
-    'ఒ': 'o'
-    'ఓ': 'ŏ'
-    'ఔ': 'au'
-
+  # CHARACTERS
+  parallel {
+    sub "అ", "a"
+    sub "ఆ", "ā"
+    sub "ఇ", "i"
+    sub "ఈ", "ī"
+    sub "ఉ", "u"
+    sub "ఊ", "ū"
+    sub "ఋ", "ṛ"
+    sub "ఌ", "ḻ"
+    sub "ౡ", "ḻ"
+    sub "ఎ", "e"
+    sub "ఏ", "ē"
+    sub "ఐ", "ai"
+    sub "ఒ", "o"
+    sub "ఓ", "ŏ"
+    sub "ఔ", "au"
+    
     # II. Consonants (see Note 2)
     # Gutturals  క ఖ గ ఘ ఙ
-    'క': 'k'
-    'ఖ': 'kh'
-    'గ': 'g'
-    'ఘ': 'gh'
-    'ఙ': 'ṅ'
-
+    sub "క", "k"
+    sub "ఖ", "kh"
+    sub "గ", "g"
+    sub "ఘ", "gh"
+    sub "ఙ", "ṅ"
+    
     # Palatals చ ఛ జ ఝ ఞ
-    'చ': 'c'
-    'ఛ': 'ch'
-    'జ': 'j'
-    'ఝ': 'jh'
-    'ఞ': 'ñ'
-
+    sub "చ", "c"
+    sub "ఛ", "ch"
+    sub "జ", "j"
+    sub "ఝ", "jh"
+    sub "ఞ", "ñ"
+    
     # Cerebrals ట ఠ డ ఢ ణ
-    'ట':  'ṭ'
-    'ఠ':  'ṭh'
-    'డ':  'ḍ'
-    'ఢ':  'ḍh'
-    'ణ':  'ṇ'
-
+    sub "ట", "ṭ"
+    sub "ఠ", "ṭh"
+    sub "డ", "ḍ"
+    sub "ఢ", "ḍh"
+    sub "ణ", "ṇ"
+    
     # Dentals త థ ద ధ న
-    'త': 't'
+    sub "త", "t"
     #'ৎ': 't'
-    'థ': 'th'
-    'ద': 'd'
-    'ధ': 'dh'
-    'న': 'n'
-
+    sub "థ", "th"
+    sub "ద", "d"
+    sub "ధ", "dh"
+    sub "న", "n"
+    
     # Labials ప ఫ బ భ మ
-    'ప': 'p'
-    'ఫ': 'ph'
-    'బ': 'b'
-    'భ': 'bh'
-    'మ': 'm'
-
+    sub "ప", "p"
+    sub "ఫ", "ph"
+    sub "బ", "b"
+    sub "భ", "bh"
+    sub "మ", "m"
+    
     # Semivowels య ర ల వ
-    'య': 'y'
-    'ర': 'r'
-    'ఱ': 'ṛ'
-    'ల': 'l'
-    'ళ': 'ḷ'
-    'వ': 'v'
-
+    sub "య", "y"
+    sub "ర", "r"
+    sub "ఱ", "ṛ"
+    sub "ల", "l"
+    sub "ళ", "ḷ"
+    sub "వ", "v"
+    
     # Sibilants శ ష స హ
-    'శ': 'ś'
-    'ష': 'ṣ'
-    'స': 's'
-
-
-
+    sub "శ", "ś"
+    sub "ష", "ṣ"
+    sub "స", "s"
+    
+    
+    
     # Aspirate
-    'హ': 'h'
-
-
-    'క్ష': 'kṣa'
-
-
+    sub "హ", "h"
+    
+    
+    sub "క్ష", "kṣa"
+    
+    
     # Chandrabindu
-    'ঁ': 'm'
-
+    sub "ঁ", "m"
+    
     # Bisarga
-    'ః': 'ḥ'
-
+    sub "ః", "ḥ"
+    
     # Anusvāra
-    'ం': 'ṃ'
-
+    sub "ం", "ṃ"
+    
     # Medials # Needed for connecting constants
+    
+    sub "ా", "ā"
+    sub "ి", "i"
+    sub "ీ", "ī"
+    sub "ు", "u"
+    sub "ూ", "ū"
+    sub "ృ", "ṛ"
+    sub "ె", "e"
+    sub "ే", "ē"
+    sub "ై", "ai"
+    sub "ొ", "o"
+    sub "ో", "ŏ"
+    sub "ౌ", "au"
+    sub "\u09CD", "" # Used for joining
+    
+    
+    sub "\u0c4d", "" #verma sign for halanta
+    sub "ౕ\t", ""
+    sub "ౖ\t", ""
+    sub "्", ""
+    sub "़", ""
+    sub "‍", "" # Used for joining
+    sub "‌", "" # Used for non joining
+  }
 
-    'ా': 'ā'
-    'ి': 'i'
-    'ీ': 'ī'
-    'ు': 'u'
-    'ూ': 'ū'
-    'ృ': 'ṛ'
-    'ె': 'e'
-    'ే': 'ē'
-    'ై': 'ai'
-    'ొ': 'o'
-    'ో': 'ŏ'
-    'ౌ': 'au'
-    '\u09CD': '' # Used for joining
+}
 
-
-    '\u0c4d': '' #verma sign for halanta
-    'ౕ	': ''
-    'ౖ	': ''
-    '्': ''
-    '़': ''
-    "‍": ''# Used for joining
-    "‌": ''# Used for non joining

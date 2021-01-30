@@ -89,67 +89,77 @@ tests {
   test "เขียว", "khiao"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
+
+
+stage {
+
+  # RULES
+  sub "[˩˨˧˦˥]", ""
+  sub "^", "."
+  
+
+  # POSTRULES
+  sub "\\.", ""
+  
+
+  # CHARACTERS
+  parallel {
+    
+  }
+
+  # DICTIONARY
+  parallel {
+    
+    sub "̯", ""
+    sub "̚", ""
+    
+    sub "ʔ", ""
+    sub "ː", ""
+    
+    sub "t͡ɕʰ", "ch"
+    sub "t͡ɕ", "ch"
+    sub "ŋ", "ng"
+    sub "j", "y"
+    sub "ɔ", "o"
+    sub "ɤ", "oe"
+    sub "ɛ", "ae"
+    sub "ɯ", "ue" # New spelling, was u in 1968
+    sub "ʰ", "h"
+    
+    sub "aːw", "ao"
+    sub "aw", "ao"
+    sub "a̯w", "ao" # New spelling, was eu in 1968
+    sub "eːw", "eo"
+    sub "ew", "eo"
+    sub "ɛːw", "aeo"
+    sub "ɛw", "aeo"
+    sub "iːw", "io" # New spelling, was iu in 1968
+    sub "iw", "io" # New spelling, was iu in 1968
+    
+    sub "aːj", "ai"
+    sub "aj", "ai"
+    sub "a̯j", "ai"
+    sub "ɔːj", "oi"
+    sub "ɔj", "oi"
+    sub "oːj", "oi"
+    sub "oj", "oi"
+    sub "ɤːj", "oei"
+    sub "ɤj", "oei"
+    sub "uːj", "ui"
+    sub "uj", "ui"
+  }
+
+}
 
 # This map is chained and probably depends on seq2seq:
 # chain: ["var-tha-Thai-Thai-phonemic" ,"var-tha-Thai-Zsym-ipa"]
+# transcription: 
 
-  title-case: false
-  word_separator: " "
-
-  rules:
-    - pattern: '[˩˨˧˦˥]'
-      result : ''
-    - pattern: '^'
-      result: '.'
-
-  postrules:
-    - pattern: '\.'
-      result:  ''
-
-  characters:
-
-  dictionary:
-
-    '̯': ''
-    '̚': ''
-
-    'ʔ': ''
-    'ː': ''
-
-    't͡ɕʰ': 'ch'
-    't͡ɕ': 'ch'
-    'ŋ': 'ng'
-    'j': 'y'
-    'ɔ': 'o'
-    'ɤ': 'oe'
-    'ɛ': 'ae'
-    'ɯ': 'ue' # New spelling, was u in 1968
-    'ʰ': 'h'
-
-    'aːw': 'ao'
-    'aw': 'ao'
-    'a̯w': 'ao' # New spelling, was eu in 1968
-    'eːw': 'eo'
-    'ew': 'eo'
-    'ɛːw': 'aeo'
-    'ɛw': 'aeo'
-    'iːw': 'io' # New spelling, was iu in 1968
-    'iw': 'io' # New spelling, was iu in 1968
-
-    'aːj': 'ai'
-    'aj': 'ai'
-    'a̯j': 'ai'
-    'ɔːj': 'oi'
-    'ɔj': 'oi'
-    'oːj': 'oi'
-    'oj': 'oi'
-    'ɤːj': 'oei'
-    'ɤj': 'oei'
-    'uːj': 'ui'
-    'uj': 'ui'

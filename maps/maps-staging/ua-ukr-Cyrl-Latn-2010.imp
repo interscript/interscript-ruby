@@ -102,25 +102,36 @@ tests {
   test "Розгон", "Rozghon"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  inherit: ua-ukr-Cyrl-Latn-1996
+dependency "ua-ukr-Cyrl-Latn-1996", as: cyrllatn
 
-  rules:
-    - pattern: \u0027
-      result: ""
-    - pattern: \u2019
-      result: ""
 
-  characters:
-    "\u0429": 'Shch' # Щ
-    "\u0449": 'shch' # щ
-    "\u044c": ''     # Ь ->
-    "\u042c": ''     # ь ->
-    "\u0027": ''     # ' ->
-    "\u2019": ''     # ’ ->
+stage {
+
+  run map.cyrllatn.stage.main
+
+  # RULES
+  sub "\\u0027", ""
+  sub "\\u2019", ""
+  
+
+  # CHARACTERS
+  parallel {
+    sub "Щ", "Shch" # Щ
+    sub "щ", "shch" # щ
+    sub "ь", "" # Ь ->
+    sub "Ь", "" # ь ->
+    sub "'", "" # ' ->
+    sub "’", "" # ’ ->
+  }
+
+}
+

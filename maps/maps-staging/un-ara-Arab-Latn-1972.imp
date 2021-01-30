@@ -99,55 +99,65 @@ tests {
   test "الشارِقة", "Ash Shāriqah"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  inherit: "un-ara-Arab-Latn-2017"
-  postrules:
-    - pattern : ' Aş Ş'  # الص
-      result: ' aş Ş'
-    - pattern : ' Aḑ Ḑ'  # الض
-      result: ' aḑ Ḑ'
-    - pattern : ' Aţ Ţ'  # الط
-      result: ' aţ Ţ'
+dependency "un-ara-Arab-Latn-2017", as: arablatn
 
-  characters:
+stage {
 
-    '\b\u0627\u0644\u0635' : 'aş ş'  # الص
-    '\b\u0627\u0644\u0636' : 'aḑ ḑ'  # الض
-    '\b\u0627\u0644\u0637' : 'aţ ţ'  # الط
+  run map.arablatn.stage.main
 
-    '\u062d\u0651' : 'ḩḩ'  # ح
-    '\u0635\u0651' : 'şş'  # ص
-    '\u0636\u0651' : 'ḑḑ'  # ض
-    '\u0637\u0651' : 'ţţ'  # ط
-    '\u0638\u0651' : 'z̧z̧'  # ظ
+  # POSTRULES
+  sub " Aş Ş", " aş Ş" # الص
+  sub " Aḑ Ḑ", " aḑ Ḑ" # الض
+  sub " Aţ Ţ", " aţ Ţ" # الط
+  
 
-    '\u062d' : 'ḩ' # ح
-    '\ufea3' : 'ḩ' # ﺣ
-    '\ufea4' : 'ḩ' # ﺤ
-    '\ufea2' : 'ḩ' # ﺢ
+  # CHARACTERS
+  parallel {
+    
+    sub "\\b\u0627\u0644\u0635", "aş ş" # الص
+    sub "\\b\u0627\u0644\u0636", "aḑ ḑ" # الض
+    sub "\\b\u0627\u0644\u0637", "aţ ţ" # الط
+    
+    sub "\u062d\u0651", "ḩḩ" # ح
+    sub "\u0635\u0651", "şş" # ص
+    sub "\u0636\u0651", "ḑḑ" # ض
+    sub "\u0637\u0651", "ţţ" # ط
+    sub "\u0638\u0651", "z̧z̧" # ظ
+    
+    sub "\u062d", "ḩ" # ح
+    sub "\ufea3", "ḩ" # ﺣ
+    sub "\ufea4", "ḩ" # ﺤ
+    sub "\ufea2", "ḩ" # ﺢ
+    
+    sub "\u0635", "ş" # ص
+    sub "\ufebb", "ş" # ﺻ
+    sub "\ufebc", "ş" # ﺼ
+    sub "\ufeba", "ş" # ﺺ
+    
+    sub "\u0636", "ḑ" # ض
+    sub "\ufebf", "ḑ" # ﺿ
+    sub "\ufec0", "ḑ" # ﻀ
+    sub "\ufebe", "ḑ" # ﺾ
+    
+    sub "\u0637", "ţ" # ط
+    sub "\ufec3", "ţ" # ﻃ
+    sub "\ufec4", "ţ" # ﻄ
+    sub "\ufec2", "ţ" # ﻂ
+    
+    sub "\u0638", "z̧" # ظ
+    sub "\ufec7", "z̧" # ﻇ
+    sub "\ufec8", "z̧" # ﻈ
+    sub "\ufec6", "z̧" # ﻆ
+  }
 
-    '\u0635' : 'ş'  # ص
-    '\ufebb' : 'ş'  # ﺻ
-    '\ufebc' : 'ş'  # ﺼ
-    '\ufeba' : 'ş'  # ﺺ
+}
 
-    '\u0636' : 'ḑ'  # ض
-    '\ufebf' : 'ḑ'  # ﺿ
-    '\ufec0' : 'ḑ'  # ﻀ
-    '\ufebe' : 'ḑ'  # ﺾ
-
-    '\u0637' : 'ţ'  # ط
-    '\ufec3' : 'ţ'  # ﻃ
-    '\ufec4' : 'ţ'  # ﻄ
-    '\ufec2' : 'ţ'  # ﻂ
-
-    '\u0638' : 'z̧'  # ظ
-    '\ufec7' : 'z̧'  # ﻇ
-    '\ufec8' : 'z̧'  # ﻈ
-    '\ufec6' : 'z̧'  # ﻆ

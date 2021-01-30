@@ -27,15 +27,24 @@ tests {
   test "Þakka", "Thakka"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  characters:
-    "\u00D0": "Dh" # Ð
-    "\u00F0": "dh" # ð
-    "\u00DE": "Th" # Þ
-    "\u00FE": "th" # þ
+stage {
+
+  # CHARACTERS
+  parallel {
+    sub "Ð", "Dh" # Ð
+    sub "ð", "dh" # ð
+    sub "Þ", "Th" # Þ
+    sub "þ", "th" # þ
+  }
+
+}
+

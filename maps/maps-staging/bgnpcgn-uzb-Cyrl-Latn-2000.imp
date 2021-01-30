@@ -38,35 +38,46 @@ tests {
   test "ПАПАПАЧУКА Респект!", "PAPAPACHUKA Respekt!"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  inherit: bgnpcgn-uzb-Cyrl-Latn-1979
+dependency "bgnpcgn-uzb-Cyrl-Latn-1979", as: cyrllatn
 
-  rules:
-    # note[1]
-    - pattern: (?<=[АаЕеЁёИиОоУуЭэЮюЯяЙйЬь])\u0415
-      result: Ye
-    - pattern: (?<=[АаЕеЁёИиОоУуЭэЮюЯяЙйЬь])\u0435
-      result: ye
 
-  characters:
-    '\u0412': 'V'        # В
-    '\u0492': "G\u2018"  # Ғ
-    '\u0416': 'J'        # Ж
-    '\u040E': "O\u2018"  # Ў
-    '\u0425': 'X'        # Х
-    '\u042a': "\u2019"   # Ъ note[2]
-    '\u042c': "\u2019"   # Ь note[2]
+stage {
 
-    '\u0432': 'w'        # в
-    '\u0493': "g\u2018"  # ғ
-    '\u0436': 'j'        # ж
-    '\u045E': "o\u2018"  # ў
-    '\u0445': 'x'        # х
-    '\u044a': "\u2019"   # ъ note[2]
-    '\u044c': "\u2019"   # ь note[2]
+  run map.cyrllatn.stage.main
+
+  # RULES
+  # note[1]
+  sub "(?<=[АаЕеЁёИиОоУуЭэЮюЯяЙйЬь])\\u0415", "Ye"
+  sub "(?<=[АаЕеЁёИиОоУуЭэЮюЯяЙйЬь])\\u0435", "ye"
+  
+
+  # CHARACTERS
+  parallel {
+    sub "\u0412", "V" # В
+    sub "\u0492", "G‘" # Ғ
+    sub "\u0416", "J" # Ж
+    sub "\u040E", "O‘" # Ў
+    sub "\u0425", "X" # Х
+    sub "\u042a", "’" # Ъ note[2]
+    sub "\u042c", "’" # Ь note[2]
+    
+    sub "\u0432", "w" # в
+    sub "\u0493", "g‘" # ғ
+    sub "\u0436", "j" # ж
+    sub "\u045E", "o‘" # ў
+    sub "\u0445", "x" # х
+    sub "\u044a", "’" # ъ note[2]
+    sub "\u044c", "’" # ь note[2]
+  }
+
+}
+

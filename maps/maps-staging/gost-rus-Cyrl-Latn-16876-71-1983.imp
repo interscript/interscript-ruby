@@ -78,78 +78,87 @@ tests {
   test "Яя", "Jaja"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  characters:
-    '\u0410' : 'A'  # A
-    '\u0411' : 'B'  # Б
-    '\u0412' : 'V'  # B
-    '\u0413' : 'G'  # Г
-    '\u0414' : 'D'  # Д
-    '\u0415' : 'E'  # Е
-    '\u0401' : "\u00CB" # Ё
-    '\u0416' : 'Ž'  # Ж
-    '\u0417' : 'Z'  # З
-    '\u0418' : "I"  # И
-    '\u0419' : 'J'  # Й
-    '\u041A' : 'K'  # К
-    '\u041B' : 'L'  # Л
-    '\u041C' : 'M'  # М
-    '\u041D' : 'N'  # Н
-    '\u041E' : 'O'  # О
-    '\u041F' : 'P'  # П
-    '\u0420' : 'R'  # Р
-    '\u0421' : 'S'  # С
-    '\u0422' : 'T'  # Т
-    '\u0423' : 'U'  # У
-    '\u0424' : 'F'  # Ф
-    '\u0425' : 'H'  # Х
-    '\u0426' : 'C'  # Ц
-    '\u0427' : 'Č'  # Ч
-    '\u0428' : 'Š'  # Ш
-    '\u0429' : 'Šč' # Щ
-    '\u042a' : '"'  # Ъ
-    '\u042B' : 'Y'  # Ы
-    '\u042C' : "\u00B4" # Ь => ’
-    '\u042D' : "E\u0300" # Э => È
-    '\u042E' : 'Ju' # Ю
-    '\u042F' : 'Ja' # Я
+stage {
 
-    '\u0430' : 'a'  # а
-    '\u0431' : 'b'  # б
-    '\u0432' : 'v'  # в
-    '\u0433' : 'g'  # г
-    '\u0434' : 'd'  # д
-    '\u0435' : 'e'  # е
-    '\u0451' : "\u00EB" # ё
-    '\u0436' : 'ž'  # ж
-    '\u0437' : 'z'  # з
-    '\u0438' : 'i'  # и
-    '\u0439' : 'j'  # й
-    '\u043A' : 'k'  # к
-    '\u043B' : 'l'  # л
-    '\u043C' : 'm'  # м
-    '\u043D' : 'n'  # н
-    '\u043E' : 'o'  # о
-    '\u043F' : 'p'  # п
-    '\u0440' : 'r'  # р
-    '\u0441' : 's'  # с
-    '\u0442' : 't'  # т
-    '\u0443' : 'u'  # у
-    '\u0444' : 'f'  # ф
-    '\u0445' : 'h'  # х
-    '\u0446' : 'c'  # ц
-    '\u0447' : 'č'  # ч
-    '\u0448' : 'š'  # ш
-    '\u0449' : 'šč' # щ
-    '\u044A' : '"'  # ъ
-    '\u044B' : 'y'  # ы
-    '\u044C' : "\u00B4" # ь => ’
-    '\u044D' : "e\u0300" # э => è
-    '\u044E' : 'ju' # ю
-    '\u044F' : 'ja' # я
+  # CHARACTERS
+  parallel {
+    sub "\u0410", "A" # A
+    sub "\u0411", "B" # Б
+    sub "\u0412", "V" # B
+    sub "\u0413", "G" # Г
+    sub "\u0414", "D" # Д
+    sub "\u0415", "E" # Е
+    sub "\u0401", "Ë" # Ё
+    sub "\u0416", "Ž" # Ж
+    sub "\u0417", "Z" # З
+    sub "\u0418", "I" # И
+    sub "\u0419", "J" # Й
+    sub "\u041A", "K" # К
+    sub "\u041B", "L" # Л
+    sub "\u041C", "M" # М
+    sub "\u041D", "N" # Н
+    sub "\u041E", "O" # О
+    sub "\u041F", "P" # П
+    sub "\u0420", "R" # Р
+    sub "\u0421", "S" # С
+    sub "\u0422", "T" # Т
+    sub "\u0423", "U" # У
+    sub "\u0424", "F" # Ф
+    sub "\u0425", "H" # Х
+    sub "\u0426", "C" # Ц
+    sub "\u0427", "Č" # Ч
+    sub "\u0428", "Š" # Ш
+    sub "\u0429", "Šč" # Щ
+    sub "\u042a", "\"" # Ъ
+    sub "\u042B", "Y" # Ы
+    sub "\u042C", "´" # Ь => ’
+    sub "\u042D", "È" # Э => È
+    sub "\u042E", "Ju" # Ю
+    sub "\u042F", "Ja" # Я
+    
+    sub "\u0430", "a" # а
+    sub "\u0431", "b" # б
+    sub "\u0432", "v" # в
+    sub "\u0433", "g" # г
+    sub "\u0434", "d" # д
+    sub "\u0435", "e" # е
+    sub "\u0451", "ë" # ё
+    sub "\u0436", "ž" # ж
+    sub "\u0437", "z" # з
+    sub "\u0438", "i" # и
+    sub "\u0439", "j" # й
+    sub "\u043A", "k" # к
+    sub "\u043B", "l" # л
+    sub "\u043C", "m" # м
+    sub "\u043D", "n" # н
+    sub "\u043E", "o" # о
+    sub "\u043F", "p" # п
+    sub "\u0440", "r" # р
+    sub "\u0441", "s" # с
+    sub "\u0442", "t" # т
+    sub "\u0443", "u" # у
+    sub "\u0444", "f" # ф
+    sub "\u0445", "h" # х
+    sub "\u0446", "c" # ц
+    sub "\u0447", "č" # ч
+    sub "\u0448", "š" # ш
+    sub "\u0449", "šč" # щ
+    sub "\u044A", "\"" # ъ
+    sub "\u044B", "y" # ы
+    sub "\u044C", "´" # ь => ’
+    sub "\u044D", "è" # э => è
+    sub "\u044E", "ju" # ю
+    sub "\u044F", "ja" # я
+  }
+
+}
+

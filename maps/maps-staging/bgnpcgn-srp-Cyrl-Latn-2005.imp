@@ -69,82 +69,89 @@ tests {
   test "Алибунар", "Alibunar"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  postrules:
-    #LJ
-    - pattern: "((?<=[[:upper:]])Lj(?=[[:upper:]])?|(?<=[[:upper:]])?Lj(?=[[:upper:]]))"
-      result: "LJ"
-    #NJ
-    - pattern: "((?<=[[:upper:]])Nj(?=[[:upper:]])?|(?<=[[:upper:]])?Nj(?=[[:upper:]]))"
-      result: "NJ"
-    #DŽ
-    - pattern: "((?<=[[:upper:]])Dž(?=[[:upper:]])?|(?<=[[:upper:]])?Dž(?=[[:upper:]]))"
-      result: "DŽ"
+stage {
 
-  characters:
-    "\u0410": "A"
-    "\u0411": "B"
-    "\u0412": "V"
-    "\u0413": "G"
-    "\u0414": "D"
-    "\u0402": "\u0110" # Đ
-    "\u0415": "E"
-    "\u0416": "\u005a\u030c" # Ž
-    "\u0417": "Z"
-    "\u0418": "I"
-    "\u0408": "J"
-    "\u041A": "K"
-    "\u041B": "L"
-    "\u0409": "Lj"
-    "\u041C": "M"
-    "\u041D": "N"
-    "\u040A": "Nj"
-    "\u041E": "O"
-    "\u041F": "P"
-    "\u0420": "R"
-    "\u0421": "S"
-    "\u0422": "T"
-    "\u040B": "\u0043\u0301" # Ć
-    "\u0423": "U"
-    "\u0424": "F"
-    "\u0425": "H"
-    "\u0426": "C"
-    "\u0427": "\u0043\u030c" # Č
-    "\u040F": "D\u007a\u030c" # Dž
-    "\u0428": "\u0053\u030c" # Š
-    "\u0430": "a"
-    "\u0431": "b"
-    "\u0432": "v"
-    "\u0433": "g"
-    "\u0434": "d"
-    "\u0452": "\u0111" # đ
-    "\u0435": "e"
-    "\u0436": "\u007a\u030c" # ž
-    "\u0437": "z"
-    "\u0438": "i"
-    "\u0458": "j"
-    "\u043A": "k"
-    "\u043B": "l"
-    "\u0459": "lj"
-    "\u043C": "m"
-    "\u043D": "n"
-    "\u045A": "nj"
-    "\u043E": "o"
-    "\u043F": "p"
-    "\u0440": "r"
-    "\u0441": "s"
-    "\u0442": "t"
-    "\u045B": "\u0063\u0301" # ć́
-    "\u0443": "u"
-    "\u0444": "f"
-    "\u0445": "h"
-    "\u0446": "c"
-    "\u0447": "\u0063\u030c" # č
-    "\u045F": "d\u007a\u030c" # dž
-    "\u0448": "\u0073\u030c" # š
+  # POSTRULES
+  #LJ
+  sub "((?<=[[:upper:]])Lj(?=[[:upper:]])?|(?<=[[:upper:]])?Lj(?=[[:upper:]]))", "LJ"
+  #NJ
+  sub "((?<=[[:upper:]])Nj(?=[[:upper:]])?|(?<=[[:upper:]])?Nj(?=[[:upper:]]))", "NJ"
+  #DŽ
+  sub "((?<=[[:upper:]])Dž(?=[[:upper:]])?|(?<=[[:upper:]])?Dž(?=[[:upper:]]))", "DŽ"
+  
+
+  # CHARACTERS
+  parallel {
+    sub "А", "A"
+    sub "Б", "B"
+    sub "В", "V"
+    sub "Г", "G"
+    sub "Д", "D"
+    sub "Ђ", "Đ" # Đ
+    sub "Е", "E"
+    sub "Ж", "Ž" # Ž
+    sub "З", "Z"
+    sub "И", "I"
+    sub "Ј", "J"
+    sub "К", "K"
+    sub "Л", "L"
+    sub "Љ", "Lj"
+    sub "М", "M"
+    sub "Н", "N"
+    sub "Њ", "Nj"
+    sub "О", "O"
+    sub "П", "P"
+    sub "Р", "R"
+    sub "С", "S"
+    sub "Т", "T"
+    sub "Ћ", "Ć" # Ć
+    sub "У", "U"
+    sub "Ф", "F"
+    sub "Х", "H"
+    sub "Ц", "C"
+    sub "Ч", "Č" # Č
+    sub "Џ", "Dž" # Dž
+    sub "Ш", "Š" # Š
+    sub "а", "a"
+    sub "б", "b"
+    sub "в", "v"
+    sub "г", "g"
+    sub "д", "d"
+    sub "ђ", "đ" # đ
+    sub "е", "e"
+    sub "ж", "ž" # ž
+    sub "з", "z"
+    sub "и", "i"
+    sub "ј", "j"
+    sub "к", "k"
+    sub "л", "l"
+    sub "љ", "lj"
+    sub "м", "m"
+    sub "н", "n"
+    sub "њ", "nj"
+    sub "о", "o"
+    sub "п", "p"
+    sub "р", "r"
+    sub "с", "s"
+    sub "т", "t"
+    sub "ћ", "ć" # ć́
+    sub "у", "u"
+    sub "ф", "f"
+    sub "х", "h"
+    sub "ц", "c"
+    sub "ч", "č" # č
+    sub "џ", "dž" # dž
+    sub "ш", "š" # š
+  }
+
+}
+

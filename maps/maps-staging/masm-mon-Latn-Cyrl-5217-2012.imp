@@ -69,103 +69,103 @@ tests {
   test "uu, üü, yuu, yuü", "уу, үү, юу, юү"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  rules:
-    - pattern: "ii"
-      result: "\u0438\u0439"
-    - pattern: "Ii"
-      result: "\u0418\u0439"
-    - pattern: "ai"
-      result: "\u0430\u0439"
-    - pattern: "Ai"
-      result: "\u0410\u0439"
-    - pattern: "ei"
-      result: "\u044d\u0439"
-    - pattern: "Ei"
-      result: "\u042d\u0439"
-    - pattern: "oi"
-      result: "\u043e\u0439"
-    - pattern: "Oi"
-      result: "\u041e\u0439"
-    - pattern: "üi"
-      result: "\u04af\u0439"
-    - pattern: "Üi"
-      result: "\u04ae\u0439"
+stage {
 
-  characters:
-    "A": "А"     # \u0410
-    "B": "Б"     # \u0411
-    "V": "В"     # \u0412
-    "G": "Г"     # \u0413
-    "D": "Д"     # \u0414
-    "Ye": "Е"    # \u0415
-    "Yo": "Ё"    # \u0401
-    "J": "Ж"     # \u0416
-    "Z": "З"     # \u0417
-    "I": "Й"     # \u0419
-    "K": "К"     # \u041a
-    "L": "Л"     # \u041b
-    "M": "М"     # \u041c
-    "N": "Н"     # \u041d
-    "O": "О"     # \u041e
-    "Ö": "Ө"     # \u04e8
-    "P": "П"     # \u041f
-    "R": "Р"     # \u0420
-    "S": "С"     # \u0421
-    "T": "Т"     # \u0422
-    "U": "У"     # \u0423
-    "Ü": "Ү"     # \u04ae
-    "F": "Ф"     # \u0424
-    "Kh": "Х"    # \u0425
-    "Ts": "Ц"    # \u0426
-    "Ch": "Ч"    # \u0427
-    "Sh": "Щ"    # \u0429
-    "Sh": "Ш"    # \u0428
-    "I": "Ъ"     # \u042a
-    "Y": "Ы"     # \u042b
-    "I": "Ь"     # \u042c
-    "I": "И"     # \u0418
-    "E": "Э"     # \u042d
-    "Yu": "Ю"    # \u042e
-    "Ya": "Я"    # \u042f
-    "a": "а"     # \u0430
-    "b": "б"     # \u0431
-    "v": "в"     # \u0432
-    "g": "г"     # \u0433
-    "d": "д"     # \u0434
-    "ye": "е"    # \u0435
-    "yo": "ё"    # \u0451
-    "j": "ж"     # \u0436
-    "z": "з"     # \u0437
-    "i": "й"     # \u0439
-    "k": "к"     # \u043a
-    "l": "л"     # \u043b
-    "m": "м"     # \u043c
-    "n": "н"     # \u043d
-    "o": "о"     # \u043e
-    "ö": "ө"     # \u04e9
-    "p": "п"     # \u043f
-    "r": "р"     # \u0440
-    "s": "с"     # \u0441
-    "t": "т"     # \u0442
-    "u": "у"     # \u0443
-    "ü": "ү"     # \u04af
-    "f": "ф"     # \u0444
-    "kh": "х"    # \u0445
-    "ts": "ц"    # \u0446
-    "ch": "ч"    # \u0447
-    "sh": "щ"    # \u0449
-    "sh": "ш"    # \u0448
-    "i": "ъ"     # \u044a
-    "y": "ы"     # \u044b
-    "i": "ь"     # \u044c
-    "i": "и"     # \u0438
-    "e": "э"     # \u044d
-    "yu": "ю"    # \u044e
-    "ya": "я"    # \u044f
+  # RULES
+  sub "ii", "ий"
+  sub "Ii", "Ий"
+  sub "ai", "ай"
+  sub "Ai", "Ай"
+  sub "ei", "эй"
+  sub "Ei", "Эй"
+  sub "oi", "ой"
+  sub "Oi", "Ой"
+  sub "üi", "үй"
+  sub "Üi", "Үй"
+  
+
+  # CHARACTERS
+  parallel {
+    sub "A", "А" # \u0410
+    sub "B", "Б" # \u0411
+    sub "V", "В" # \u0412
+    sub "G", "Г" # \u0413
+    sub "D", "Д" # \u0414
+    sub "Ye", "Е" # \u0415
+    sub "Yo", "Ё" # \u0401
+    sub "J", "Ж" # \u0416
+    sub "Z", "З" # \u0417
+    sub "I", "Й" # \u0419
+    sub "K", "К" # \u041a
+    sub "L", "Л" # \u041b
+    sub "M", "М" # \u041c
+    sub "N", "Н" # \u041d
+    sub "O", "О" # \u041e
+    sub "Ö", "Ө" # \u04e8
+    sub "P", "П" # \u041f
+    sub "R", "Р" # \u0420
+    sub "S", "С" # \u0421
+    sub "T", "Т" # \u0422
+    sub "U", "У" # \u0423
+    sub "Ü", "Ү" # \u04ae
+    sub "F", "Ф" # \u0424
+    sub "Kh", "Х" # \u0425
+    sub "Ts", "Ц" # \u0426
+    sub "Ch", "Ч" # \u0427
+    sub "Sh", "Щ" # \u0429
+    sub "Sh", "Ш" # \u0428
+    sub "I", "Ъ" # \u042a
+    sub "Y", "Ы" # \u042b
+    sub "I", "Ь" # \u042c
+    sub "I", "И" # \u0418
+    sub "E", "Э" # \u042d
+    sub "Yu", "Ю" # \u042e
+    sub "Ya", "Я" # \u042f
+    sub "a", "а" # \u0430
+    sub "b", "б" # \u0431
+    sub "v", "в" # \u0432
+    sub "g", "г" # \u0433
+    sub "d", "д" # \u0434
+    sub "ye", "е" # \u0435
+    sub "yo", "ё" # \u0451
+    sub "j", "ж" # \u0436
+    sub "z", "з" # \u0437
+    sub "i", "й" # \u0439
+    sub "k", "к" # \u043a
+    sub "l", "л" # \u043b
+    sub "m", "м" # \u043c
+    sub "n", "н" # \u043d
+    sub "o", "о" # \u043e
+    sub "ö", "ө" # \u04e9
+    sub "p", "п" # \u043f
+    sub "r", "р" # \u0440
+    sub "s", "с" # \u0441
+    sub "t", "т" # \u0442
+    sub "u", "у" # \u0443
+    sub "ü", "ү" # \u04af
+    sub "f", "ф" # \u0444
+    sub "kh", "х" # \u0445
+    sub "ts", "ц" # \u0446
+    sub "ch", "ч" # \u0447
+    sub "sh", "щ" # \u0449
+    sub "sh", "ш" # \u0448
+    sub "i", "ъ" # \u044a
+    sub "y", "ы" # \u044b
+    sub "i", "ь" # \u044c
+    sub "i", "и" # \u0438
+    sub "e", "э" # \u044d
+    sub "yu", "ю" # \u044e
+    sub "ya", "я" # \u044f
+  }
+
+}
+

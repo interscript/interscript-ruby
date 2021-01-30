@@ -223,113 +223,117 @@ tests {
   test "قَيُّوم", "Qayyum"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  # inherit: bgnpcgn-prs-Arab-Latn-2007
-  postrules:
-    - pattern: (?<=\b)(?<!\b[‘|’|'])[\u0061-\uFFFF]
-      result: "upcase"
-    # don't capitalize defined article in the middle of a sentence
-    - pattern : ' Al-'  # الن
-      result: ' al-'
-  characters:
+# inherit: bgnpcgn-prs-Arab-Latn-2007
+stage {
 
-    '\u0650': 'i' # ِ kasra
-    '\u064f': 'u' # ُ damma
+  # POSTRULES
+  sub "(?<=\\b)(?<!\\b[‘|’|'])[\\u0061-\\uFFFF]", "upcase"
+  # don't capitalize defined article in the middle of a sentence
+  sub " Al-", " al-" # الن
 
-    '\u0650\b' : '-e' # ِ kasra
-
-    '\u0652' : ''  # ْ sokoon
-    '\u0659': 'ê'
-
+  # CHARACTERS
+  parallel {
+    
+    sub "\u0650", "i" # ِ kasra
+    sub "\u064f", "u" # ُ damma
+    
+    sub "\u0650\\b", "-e" # ِ kasra
+    
+    sub "\u0652", "" # ْ sokoon
+    sub "\u0659", "ê"
+    
     # Sun letters
-    '\u064f?\s?\u0627\u0644\u062f[\u064a|\u0649]\u0646' : 'uddin' # الدين
-
-    '\u0626': 'êy' # ئ
-
-    '\u0628' : 'b'  # ب
-    '\u067E' : 'p' # پ
-    '[\u062a|\u067C|\u0637]' : 't'  # ت/ټ/ط
-    '\u062c' : 'j'  # ج
-    '\u0686' : 'ch'  # ‫چ‬
-    '\u0681' : 'dz' # ‫ځ‬
-    '\u0685' : 'ts' # ‫څ
-    '[\u062d|\u0647]' : 'h' # ح/ه
-    '\u062e' : 'kh'  # خ
-    '[\u062f|\u0689]' : 'd'  # د/ډ‬
-    '[\u0631|\u0693]' : 'r'  # ر/ړ
-    '[\u0630|\u0632|\u0636|\u0638]' : 'z'  # ذ/ز/ض/ظ
-    '[\u0696|\u0698]' : 'zh'  # ‫ژ‬/ږ
-    '[\u062B|\u0633|\u0635]' : 's'  # س/ث/ص
-    '[\u0634|\u069A]' : 'sh'  # ښ/ش
-    '[\u0621|\u0639]' : ''  # ع/ء
-    '\u063a' : 'gh'  # غ
-    '\u0641' : 'f'  # ف
-    '\u0642' : 'q'  # ق
-    '\u0643' : 'k'  # ك
-    '\u06A9' : 'k' # ک
-    '[\u06AF|\u06AB]' : 'g' # ‫گ‬/ګ
-
-    '\u0644' : 'l'  # ل
-    '\u0645' : 'm'  # م
-    '[\u0646|\u06BC]' : 'n'  # ن/ڼ
-    '\u0648' : 'w'  # و
-    '\u064a' : 'y'  # ي
-    '\u0649' : 'y'  # ي
-
-    '\u064e\u0627?' : 'a' # َ fatha
-    '\u0650':
-      - 'i'
-      - 'e'
-    '\u064f':  # ُ damma
-      - 'u'
-      - 'o'
-    '\u0622' : 'a' # آ
-    '\u0627' : 'a' # ا
-    '\u0648' : 'o' # و
-    '\u064e\u0648\u0652' : 'aw'  # ـَوْ
-    '\u064f\u0648' : 'u' # ـُو
-    '\u064e\u064a' : 'ai' # ـي
-    '\u0650[\u064a|\u0649]' : 'i'
-    '\u06D0' : 'e'   # ې
-    '\u06CD' : 'ey'  # ‫ۍ
-    '\u06CC' : 'a'   # ‫ی‬
-    '\u064e\u06CC[\u0647|\u0627]' : 'aya' # َيا / َيه
-    '\u0650\u06CC[\u0647|\u0627]' : 'ia' # ِيا /ِيه
-    '\u0652\u06CC\u0627' : 'ya' # ْيا
-    '[\u06D0|\u06D2]\b' : 'ey' # ‫ے‬ / ‫ې‬
-    '\u0648\u064A\b' : 'oy' # ‫وي‬
-    '\u064f\u0648\u064A\b' : 'uy' # ُوي
-    '\u0623' : ''  # أ
-
+    sub "\u064f?\\s?\u0627\u0644\u062f[\u064a|\u0649]\u0646", "uddin" # الدين
+    
+    sub "\u0626", "êy" # ئ
+    
+    sub "\u0628", "b" # ب
+    sub "\u067E", "p" # پ
+    sub "[\u062a|\u067C|\u0637]", "t" # ت/ټ/ط
+    sub "\u062c", "j" # ج
+    sub "\u0686", "ch" # ‫چ‬
+    sub "\u0681", "dz" # ‫ځ‬
+    sub "\u0685", "ts" # ‫څ
+    sub "[\u062d|\u0647]", "h" # ح/ه
+    sub "\u062e", "kh" # خ
+    sub "[\u062f|\u0689]", "d" # د/ډ‬
+    sub "[\u0631|\u0693]", "r" # ر/ړ
+    sub "[\u0630|\u0632|\u0636|\u0638]", "z" # ذ/ز/ض/ظ
+    sub "[\u0696|\u0698]", "zh" # ‫ژ‬/ږ
+    sub "[\u062B|\u0633|\u0635]", "s" # س/ث/ص
+    sub "[\u0634|\u069A]", "sh" # ښ/ش
+    sub "[\u0621|\u0639]", "" # ع/ء
+    sub "\u063a", "gh" # غ
+    sub "\u0641", "f" # ف
+    sub "\u0642", "q" # ق
+    sub "\u0643", "k" # ك
+    sub "\u06A9", "k" # ک
+    sub "[\u06AF|\u06AB]", "g" # ‫گ‬/ګ
+    
+    sub "\u0644", "l" # ل
+    sub "\u0645", "m" # م
+    sub "[\u0646|\u06BC]", "n" # ن/ڼ
+    sub "\u0648", "w" # و
+    sub "\u064a", "y" # ي
+    sub "\u0649", "y" # ي
+    
+    sub "\u064e\u0627?", "a" # َ fatha
+    sub "\u0650", any("ie")
+    sub "\u064f", any("uo") # ُ damma
+    sub "\u0622", "a" # آ
+    sub "\u0627", "a" # ا
+    sub "\u0648", "o" # و
+    sub "\u064e\u0648\u0652", "aw" # ـَوْ
+    sub "\u064f\u0648", "u" # ـُو
+    sub "\u064e\u064a", "ai" # ـي
+    sub "\u0650[\u064a|\u0649]", "i"
+    sub "\u06D0", "e" # ې
+    sub "\u06CD", "ey" # ‫ۍ
+    sub "\u06CC", "a" # ‫ی‬
+    sub "\u064e\u06CC[\u0647|\u0627]", "aya" # َيا / َيه
+    sub "\u0650\u06CC[\u0647|\u0627]", "ia" # ِيا /ِيه
+    sub "\u0652\u06CC\u0627", "ya" # ْيا
+    sub "[\u06D0|\u06D2]\\b", "ey" # ‫ے‬ / ‫ې‬
+    sub "\u0648\u064A\\b", "oy" # ‫وي‬
+    sub "\u064f\u0648\u064A\\b", "uy" # ُوي
+    sub "\u0623", "" # أ
+    
     # Double consonants
-    '\u0628\u0651' : 'bb'  # ب
-    '\u067E\u0651' : 'pp' # پ
-    '[\u062a|\u067C|\u0637]\u0651' : 'tt'  # ت/ټ/ط
-    '\u062c\u0651' : 'jj'  # ج
-    '[\u062d|\u0647]\u0651' : 'hh' # ح/ه
-    '[\u062f|\u0689]\u0651' : 'dd'  # د/ډ‬
-    '[\u0631|\u0693]\u0651' : 'rr'  # ر/ړ
-    '[\u0630|\u0632|\u0636|\u0638]\u0651' : 'zz'  # ذ/ز/ض/ظ
-    '[\u062B|\u0633|\u0635]\u0651' : 'ss'  # س/ث/ص
-    '\u0641\u0651' : 'ff'  # ف
-    '\u0642\u0651' : 'qq'  # ق
-    '\u0643\u0651' : 'kk'  # ك
-    '\u06A9\u0651' : 'kk' # ک
-    '[\u06AF|\u06AB]\u0651' : 'gg' # ‫گ‬/ګ
-    '\u0644\u0651' : 'll'  # ل
-    '\u0645\u0651' : 'mm'  # م
-    '[\u0646|\u06BC]\u0651' : 'nn'  # ن/ڼ
-    '\u0648\u0651' : 'ww'  # و
-    '\u064a\u0651' : 'yy'  # ي
-    '\u0649\u0651' : 'yy'  # ي
+    sub "\u0628\u0651", "bb" # ب
+    sub "\u067E\u0651", "pp" # پ
+    sub "[\u062a|\u067C|\u0637]\u0651", "tt" # ت/ټ/ط
+    sub "\u062c\u0651", "jj" # ج
+    sub "[\u062d|\u0647]\u0651", "hh" # ح/ه
+    sub "[\u062f|\u0689]\u0651", "dd" # د/ډ‬
+    sub "[\u0631|\u0693]\u0651", "rr" # ر/ړ
+    sub "[\u0630|\u0632|\u0636|\u0638]\u0651", "zz" # ذ/ز/ض/ظ
+    sub "[\u062B|\u0633|\u0635]\u0651", "ss" # س/ث/ص
+    sub "\u0641\u0651", "ff" # ف
+    sub "\u0642\u0651", "qq" # ق
+    sub "\u0643\u0651", "kk" # ك
+    sub "\u06A9\u0651", "kk" # ک
+    sub "[\u06AF|\u06AB]\u0651", "gg" # ‫گ‬/ګ
+    sub "\u0644\u0651", "ll" # ل
+    sub "\u0645\u0651", "mm" # م
+    sub "[\u0646|\u06BC]\u0651", "nn" # ن/ڼ
+    sub "\u0648\u0651", "ww" # و
+    sub "\u064a\u0651", "yy" # ي
+    sub "\u0649\u0651", "yy" # ي
+    
+    sub "(?<=\\s)\\b\u0627\u0644", "al-" # ال
+    sub "\\s?\u0627\u0644\u0644\u0651\u064e\u0647", "ullah"
+    
+    sub "\u0624\u0648", "u"
+  }
 
-    '(?<=\s)\b\u0627\u0644' : 'al-'  # ال
-    '\s?\u0627\u0644\u0644\u0651\u064e\u0647': 'ullah'
+}
 
-    '\u0624\u0648' : u

@@ -166,755 +166,426 @@ tests {
   test "긂기다", "kŭmgida"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  character_separator: ""
-  word_separator: " "
-  title_case: False
-  inherit: var-kor-Hang-Hang-jamo
+dependency "var-kor-Hang-Hang-jamo", as: hanghang
 
-  rules:
 
-  postrules:
+stage {
 
-    # Add space to the two ends of the string for easier word boundary handling
-    - pattern: "^"
-      result: " "
-    - pattern: "$"
-      result: " "
+  run map.hanghang.stage.main
 
-    # HANGUL JONGSEONG SSANGKIYEOK
-    - pattern: "ᆩ(-?)ᄋ"
-      result: "ᆨ\\1ᄁ"
-    - pattern: "ᆩ(-?)"
-      result: "ᆨ\\1"
+  # RULES
+  
 
-    # HANGUL JONGSEONG SSANGKIYEOK
-    - pattern: "ᆪ(-?)ᄋ"
-      result: "ᆨ\\1ᄉ"
-    - pattern: "ᆪ(-?)"
-      result: "ᆨ\\1"
+  # POSTRULES
+  
+  # Add space to the two ends of the string for easier word boundary handling
+  sub "^", " "
+  sub "$", " "
+  
+  # HANGUL JONGSEONG SSANGKIYEOK
+  sub "ᆩ(-?)ᄋ", "ᆨ\\1ᄁ"
+  sub "ᆩ(-?)", "ᆨ\\1"
+  
+  # HANGUL JONGSEONG SSANGKIYEOK
+  sub "ᆪ(-?)ᄋ", "ᆨ\\1ᄉ"
+  sub "ᆪ(-?)", "ᆨ\\1"
+  
+  # HANGUL JONGSEONG NIEUN-CIEUC
+  sub "ᆬ(-?)ᄋ", "ᆫ\\1ᄌ"
+  sub "ᆬ(-?)", "ᆫ\\1"
+  
+  # HANGUL JONGSEONG NIEUN-CIEUC
+  sub "ᆭ(-?)ᄀ", "ᆫ\\1ᄏ"
+  sub "ᆭ(-?)ᄃ", "ᆫ\\1ᄐ"
+  sub "ᆭ(-?)ᄇ", "ᆫ\\1ᄑ"
+  sub "ᆭ(-?)ᄌ", "ᆫ\\1ᄎ"
+  sub "ᆭ(-?)", "ᆫ\\1"
+  
+  # HANGUL JONGSEONG TIEUT
+  sub "ᆮ(-?)(?=[ᄀᄁᄂᄃᄄᄅᄆᄇᄈᄉᄊᄌᄍᄎᄏᄐᄑᄒ])", "ᆺ\\1"
+  
+  # HANGUL JONGSEONG RIEUL-SIOS
+  sub "ᆳ(-?)ᄋ", "ᆯ\\1ᄉ"
+  sub "ᆳ(-?)", "ᆯ\\1"
+  
+  # HANGUL JONGSEONG RIEUL-THIEUTH
+  sub "ᆴ(-?)ᄋ", "ᆯ\\1ᄐ"
+  sub "ᆴ(-?)", "ᆯ\\1"
+  
+  # HANGUL JONGSEONG RIEUL-PHIEUPH
+  sub "ᆵ(-?)ᄋ", "ᆯ\\1ᄑ"
+  sub "ᆵ(-?)(?=[ᄃᄄᄐ])", "ᆯ\\1"
+  sub "ᆵ(-?)", "ᄇ\\1"
+  
+  # HANGUL JONGSEONG RIEUL-HIEUH
+  sub "ᆶ(-?)ᄀ", "ᆯ\\1ᄏ"
+  sub "ᆶ(-?)ᄃ", "ᆯ\\1ᄐ"
+  sub "ᆶ(-?)ᄇ", "ᆯ\\1ᄑ"
+  sub "ᆶ(-?)ᄌ", "ᆯ\\1ᄎ"
+  sub "ᆶ(-?)", "ᆯ\\1"
+  
+  # HANGUL JONGSEONG PIEUP-SIOS
+  sub "ᆹ(-?)ᄋ", "ᄇ\\1ᄉ"
+  sub "ᆹ(-?)", "ᄇ\\1"
+  
+  # HANGUL JONGSEONG SSANG-SIOS
+  sub "ᆻ(-?)ᄋ", "ᆺ\\1ᄊ"
+  sub "ᆻ(-?)", "ᆺ\\1"
+  
+  # HANGUL JONGSEONG CIEUC
+  sub "ᆽ(-?)ᄋ", "ᆺ\\1ᄌ"
+  sub "ᆽ(-?)", "ᆺ\\1"
+  
+  # HANGUL JONGSEONG CHIEUCH
+  sub "ᆾ(-?)ᄋ", "ᆺ\\1ᄎ"
+  sub "ᆾ(-?)", "ᆺ\\1"
+  
+  # HANGUL JONGSEONG KHIEUKH
+  sub "ᆿ(-?)ᄋ", "ᆨ\\1ᄏ"
+  sub "ᆿ(-?)", "ᆨ\\1"
+  
+  # HANGUL JONGSEONG THIEUTH
+  sub "ᇀ(-?)ᄋ", "ᆺ\\1ᄐ"
+  sub "ᇀ(-?)", "ᆺ\\1"
+  
+  # HANGUL JONGSEONG PHIEUPH
+  sub "ᇁ(-?)ᄋ", "ᆸ\\1ᄑ"
+  sub "ᇁ(-?)", "ᆸ\\1"
+  
+  # HANGUL JONGSEONG HIEUH
+  sub "ᇂ(-?)ᄀ", "\\1ᄏ"
+  sub "ᇂ(-?)ᄃ", "\\1ᄐ"
+  sub "ᇂ(-?)ᄇ", "\\1ᄑ"
+  sub "ᇂ(-?)ᄌ", "\\1ᄎ"
+  sub "ᇂ(-?)", "\\1"
+  
+  # From Unicode Chart
+  # https://github.com/unicode-org/cldr/blob/master/common/transforms/Korean-Latin-BGN.xml
+  
+  sub "ᆮ(-?)ᄋ", "\\1d" # HANGUL JONGSEONG TIEUT + CHOSEONG IEUNG
+  
+  sub "ᆨ(-?)ᄀ", "k\\1k" # HANGUL JONGSEONG KIYEOK + CHOSEONG KIYEOK
+  sub "ᆨ(-?)ᄂ", "ng\\1n" # HANGUL JONGSEONG KIYEOK + CHOSEONG NIEUN
+  sub "ᆨ(-?)ᄃ(?=[ᅵᅣᅤᅧᅨᅭᅲ])", "k\\1ch" # HANGUL JONGSEONG KIYEOK + CHOSEONG TIEUT + YOTIZED VOWELS
+  sub "ᆨ(-?)ᄃ", "k\\1t" # HANGUL JONGSEONG KIYEOK + CHOSEONG TIEUT
+  sub "ᆨ(-?)ᄅ", "ng\\1n" # HANGUL JONGSEONG KIYEOK + CHOSEONG RIEUL
+  sub "ᆨ(-?)ᄆ", "ng\\1m" # HANGUL JONGSEONG KIYEOK + CHOSEONG MIEUM
+  sub "ᆨ(-?)ᄇ", "k\\1p" # HANGUL JONGSEONG KIYEOK + CHOSEONG PIEUP
+  sub "ᆨ(-?)ᄉ", "k\\1s" # HANGUL JONGSEONG KIYEOK + CHOSEONG SIOS
+  sub "ᆨ(-?)ᄋ", "\\1g" # HANGUL JONGSEONG KIYEOK + CHOSEONG IEUNG
+  sub "ᆨ(-?)ᄌ", "k\\1ch" # HANGUL JONGSEONG KIYEOK + CHOSEONG CIEUC
+  sub "ᆨ(-?)ᄎ", "k\\1ch’" # HANGUL JONGSEONG KIYEOK + CHOSEONG CHIEUCH
+  sub "ᆨ(-?)ᄏ", "k\\1k’" # HANGUL JONGSEONG KIYEOK + CHOSEONG KHIEUKH
+  sub "ᆨ(-?)ᄐ(?=[ᅵᅣᅤᅧᅨᅭᅲ])", "k\\1ch’" # HANGUL JONGSEONG KIYEOK + CHOSEONG THIEUTH + YOTIZED VOWELS
+  sub "ᆨ(-?)ᄐ", "k\\1t’" # HANGUL JONGSEONG KIYEOK + CHOSEONG THIEUTH
+  sub "ᆨ(-?)ᄑ", "k\\1p’" # HANGUL JONGSEONG KIYEOK + CHOSEONG PHIEUPH
+  sub "ᆨ(-?)ᄒ", "k\\1h" # HANGUL JONGSEONG KIYEOK + CHOSEONG HIEUH
+  sub "ᆨ(-?)ᄁ", "k\\1k" # HANGUL JONGSEONG KIYEOK + CHOSEONG SSANGKIYEOK
+  sub "ᆨ(-?)ᄄ", "k\\1tt" # HANGUL JONGSEONG KIYEOK + CHOSEONG SSANGTIEUT
+  sub "ᆨ(-?)ᄈ", "k\\1pp" # HANGUL JONGSEONG KIYEOK + CHOSEONG SSANGPIEUP
+  sub "ᆨ(-?)ᄊ", "k\\1ss" # HANGUL JONGSEONG KIYEOK + CHOSEONG SSANGSIOS
+  sub "ᆨ(-?)ᄍ", "k\\1tch" # HANGUL JONGSEONG KIYEOK + CHOSEONG SSANGCIEUC
+  sub "ᆫᄀ", "n’g" # HANGUL JONGSEONG NIEUN + CHOSEONG KIYEOK
+  sub "ᆫ(-)ᄀ", "n\\1g" # HANGUL JONGSEONG NIEUN + CHOSEONG KIYEOK
+  sub "ᆫ(-?)ᄂ", "n\\1n" # HANGUL JONGSEONG NIEUN + CHOSEONG NIEUN
+  sub "ᆫ(-?)ᄃ(?=[ᅵᅣᅤᅧᅨᅭᅲ])", "n\\1j" # HANGUL JONGSEONG NIEUN + CHOSEONG TIEUT + YOTIZED VOWELS
+  sub "ᆫ(-?)ᄃ", "n\\1d" # HANGUL JONGSEONG NIEUN + CHOSEONG TIEUT
+  sub "ᆫ(-?)ᄅ", "l\\1l" # HANGUL JONGSEONG NIEUN + CHOSEONG RIEUL
+  sub "ᆫ(-?)ᄆ", "n\\1m" # HANGUL JONGSEONG NIEUN + CHOSEONG MIEUM
+  sub "ᆫ(-?)ᄇ", "n\\1b" # HANGUL JONGSEONG NIEUN + CHOSEONG PIEUP
+  sub "ᆫ(-?)ᄉ", "n\\1s" # HANGUL JONGSEONG NIEUN + CHOSEONG SIOS
+  sub "ᆫ(-?)ᄋ", "n\\1" # HANGUL JONGSEONG NIEUN + CHOSEONG IEUNG
+  sub "ᆫ(-?)ᄌ", "n\\1j" # HANGUL JONGSEONG NIEUN + CHOSEONG CIEUC
+  sub "ᆫ(-?)ᄎ", "n\\1ch’" # HANGUL JONGSEONG NIEUN + CHOSEONG CHIEUCH
+  sub "ᆫ(-?)ᄏ", "n\\1k’" # HANGUL JONGSEONG NIEUN + CHOSEONG KHIEUKH
+  sub "ᆫ(-?)ᄐ(?=[ᅵᅣᅤᅧᅨᅭᅲ])", "n\\1ch’" # HANGUL JONGSEONG NIEUN + CHOSEONG THIEUTH + YOTIZED VOWELS
+  sub "ᆫ(-?)ᄐ", "n\\1t’" # HANGUL JONGSEONG NIEUN + CHOSEONG THIEUTH
+  sub "ᆫ(-?)ᄑ", "n\\1p’" # HANGUL JONGSEONG NIEUN + CHOSEONG PHIEUPH
+  sub "ᆫ(-?)ᄒ", "n\\1h" # HANGUL JONGSEONG NIEUN + CHOSEONG HIEUH
+  sub "ᆫ(-?)ᄁ", "n\\1kk" # HANGUL JONGSEONG NIEUN + CHOSEONG SSANGKIYEOK
+  sub "ᆫ(-?)ᄄ", "n\\1tt" # HANGUL JONGSEONG NIEUN + CHOSEONG SSANGTIEUT
+  sub "ᆫ(-?)ᄈ", "n\\1pp" # HANGUL JONGSEONG NIEUN + CHOSEONG SSANGPIEUP
+  sub "ᆫ(-?)ᄊ", "n\\1ss" # HANGUL JONGSEONG NIEUN + CHOSEONG SSANGSIOS
+  sub "ᆫ(-?)ᄍ", "n\\1tch" # HANGUL JONGSEONG NIEUN + CHOSEONG SSANGCIEUC
+  sub "ᆯ(-?)ᄀ", "l\\1g" # HANGUL JONGSEONG RIEUL + CHOSEONG KIYEOK
+  sub "ᆯ(-?)ᄂ", "l\\1l" # HANGUL JONGSEONG RIEUL + CHOSEONG NIEUN
+  sub "ᆯ(-?)ᄃ(?=[ᅵᅣᅤᅧᅨᅭᅲ])", "l\\1ch" # HANGUL JONGSEONG RIEUL + CHOSEONG TIEUT + YOTIZED VOWELS
+  sub "ᆯ(-?)ᄃ", "l\\1t" # HANGUL JONGSEONG RIEUL + CHOSEONG TIEUT
+  sub "ᆯ(-?)ᄅ", "l\\1l" # HANGUL JONGSEONG RIEUL + CHOSEONG RIEUL
+  sub "ᆯ(-?)ᄆ", "l\\1m" # HANGUL JONGSEONG RIEUL + CHOSEONG MIEUM
+  sub "ᆯ(-?)ᄇ", "l\\1b" # HANGUL JONGSEONG RIEUL + CHOSEONG PIEUP
+  sub "ᆯ(-?)ᄉ", "l\\1s" # HANGUL JONGSEONG RIEUL + CHOSEONG SIOS
+  sub "ᆯ(-?)ᄋ", "\\1r" # HANGUL JONGSEONG RIEUL + CHOSEONG IEUNG
+  sub "ᆯ(-?)ᄌ", "l\\1ch" # HANGUL JONGSEONG RIEUL + CHOSEONG CIEUC
+  sub "ᆯ(-?)ᄎ", "l\\1ch’" # HANGUL JONGSEONG RIEUL + CHOSEONG CHIEUCH
+  sub "ᆯ(-?)ᄏ", "l\\1k’" # HANGUL JONGSEONG RIEUL + CHOSEONG KHIEUKH
+  sub "ᆯ(-?)ᄐ(?=[ᅵᅣᅤᅧᅨᅭᅲ])", "l\\1ch’" # HANGUL JONGSEONG RIEUL + CHOSEONG THIEUTH + YOTIZED VOWELS
+  sub "ᆯ(-?)ᄐ", "l\\1t’" # HANGUL JONGSEONG RIEUL + CHOSEONG THIEUTH
+  sub "ᆯ(-?)ᄑ", "l\\1p’" # HANGUL JONGSEONG RIEUL + CHOSEONG PHIEUPH
+  sub "ᆯ(-?)ᄒ", "r\\1h" # HANGUL JONGSEONG RIEUL + CHOSEONG HIEUH
+  sub "ᆯ(-?)ᄁ", "l\\1kk" # HANGUL JONGSEONG RIEUL + CHOSEONG SSANGKIYEOK
+  sub "ᆯ(-?)ᄄ", "l\\1tt" # HANGUL JONGSEONG RIEUL + CHOSEONG SSANGTIEUT
+  sub "ᆯ(-?)ᄈ", "l\\1pp" # HANGUL JONGSEONG RIEUL + CHOSEONG SSANGPIEUP
+  sub "ᆯ(-?)ᄊ", "l\\1ss" # HANGUL JONGSEONG RIEUL + CHOSEONG SSANGSIOS
+  sub "ᆯ(-?)ᄍ", "l\\1tch" # HANGUL JONGSEONG RIEUL + CHOSEONG SSANGCIEUC
+  sub "ᆷ(-?)ᄀ", "m\\1g" # HANGUL JONGSEONG MIEUM + CHOSEONG KIYEOK
+  sub "ᆷ(-?)ᄂ", "m\\1n" # HANGUL JONGSEONG MIEUM + CHOSEONG NIEUN
+  sub "ᆷ(-?)ᄃ(?=[ᅵᅣᅤᅧᅨᅭᅲ])", "m\\1j" # HANGUL JONGSEONG MIEUM + CHOSEONG TIEUT + YOTIZED VOWELS
+  sub "ᆷ(-?)ᄃ", "m\\1d" # HANGUL JONGSEONG MIEUM + CHOSEONG TIEUT
+  sub "ᆷ(-?)ᄅ", "m\\1n" # HANGUL JONGSEONG MIEUM + CHOSEONG RIEUL
+  sub "ᆷ(-?)ᄆ", "m\\1m" # HANGUL JONGSEONG MIEUM + CHOSEONG MIEUM
+  sub "ᆷ(-?)ᄇ", "m\\1b" # HANGUL JONGSEONG MIEUM + CHOSEONG PIEUP
+  sub "ᆷ(-?)ᄉ", "m\\1s" # HANGUL JONGSEONG MIEUM + CHOSEONG SIOS
+  sub "ᆷ(-?)ᄋ", "m\\1" # HANGUL JONGSEONG MIEUM + CHOSEONG IEUNG
+  sub "ᆷ(-?)ᄌ", "m\\1j" # HANGUL JONGSEONG MIEUM + CHOSEONG CIEUC
+  sub "ᆷ(-?)ᄎ", "m\\1ch’" # HANGUL JONGSEONG MIEUM + CHOSEONG CHIEUCH
+  sub "ᆷ(-?)ᄏ", "m\\1k’" # HANGUL JONGSEONG MIEUM + CHOSEONG KHIEUKH
+  sub "ᆷ(-?)ᄐ(?=[ᅵᅣᅤᅧᅨᅭᅲ])", "m\\1ch’" # HANGUL JONGSEONG MIEUM + CHOSEONG THIEUTH + YOTIZED VOWELS
+  sub "ᆷ(-?)ᄐ", "m\\1t’" # HANGUL JONGSEONG MIEUM + CHOSEONG THIEUTH
+  sub "ᆷ(-?)ᄑ", "m\\1p’" # HANGUL JONGSEONG MIEUM + CHOSEONG PHIEUPH
+  sub "ᆷ(-?)ᄒ", "m\\1h" # HANGUL JONGSEONG MIEUM + CHOSEONG HIEUH
+  sub "ᆷ(-?)ᄁ", "m\\1kk" # HANGUL JONGSEONG MIEUM + CHOSEONG SSANGKIYEOK
+  sub "ᆷ(-?)ᄄ", "m\\1tt" # HANGUL JONGSEONG MIEUM + CHOSEONG SSANGTIEUT
+  sub "ᆷ(-?)ᄈ", "m\\1pp" # HANGUL JONGSEONG MIEUM + CHOSEONG SSANGPIEUP
+  sub "ᆷ(-?)ᄊ", "m\\1ss" # HANGUL JONGSEONG MIEUM + CHOSEONG SSANGSIOS
+  sub "ᆷ(-?)ᄍ", "m\\1tch" # HANGUL JONGSEONG MIEUM + CHOSEONG SSANGCIEUC
+  sub "ᆸ(-?)ᄀ", "p\\1k" # HANGUL JONGSEONG PIEUP + CHOSEONG KIYEOK
+  sub "ᆸ(-?)ᄂ", "m\\1n" # HANGUL JONGSEONG PIEUP + CHOSEONG NIEUN
+  sub "ᆸ(-?)ᄃ(?=[ᅵᅣᅤᅧᅨᅭᅲ])", "p\\1ch" # HANGUL JONGSEONG PIEUP + CHOSEONG TIEUT + YOTIZED VOWELS
+  sub "ᆸ(-?)ᄃ", "p\\1t" # HANGUL JONGSEONG PIEUP + CHOSEONG TIEUT
+  sub "ᆸ(-?)ᄅ", "m\\1n" # HANGUL JONGSEONG PIEUP + CHOSEONG RIEUL
+  sub "ᆸ(-?)ᄆ", "m\\1m" # HANGUL JONGSEONG PIEUP + CHOSEONG MIEUM
+  sub "ᆸ(-?)ᄇ", "p\\1p" # HANGUL JONGSEONG PIEUP + CHOSEONG PIEUP
+  sub "ᆸ(-?)ᄉ", "p\\1s" # HANGUL JONGSEONG PIEUP + CHOSEONG SIOS
+  sub "ᆸ(-?)ᄋ", "p\\1" # HANGUL JONGSEONG PIEUP + CHOSEONG IEUNG
+  sub "ᆸ(-?)ᄌ", "p\\1ch" # HANGUL JONGSEONG PIEUP + CHOSEONG CIEUC
+  sub "ᆸ(-?)ᄎ", "p\\1ch’" # HANGUL JONGSEONG PIEUP + CHOSEONG CHIEUCH
+  sub "ᆸ(-?)ᄏ", "p\\1k’" # HANGUL JONGSEONG PIEUP + CHOSEONG KHIEUKH
+  sub "ᆸ(-?)ᄐ(?=[ᅵᅣᅤᅧᅨᅭᅲ])", "p\\1ch’" # HANGUL JONGSEONG PIEUP + CHOSEONG THIEUTH + YOTIZED VOWELS
+  sub "ᆸ(-?)ᄐ", "p\\1t’" # HANGUL JONGSEONG PIEUP + CHOSEONG THIEUTH
+  sub "ᆸ(-?)ᄑ", "p\\1p’" # HANGUL JONGSEONG PIEUP + CHOSEONG PHIEUPH
+  sub "ᆸ(-?)ᄒ", "p\\1h" # HANGUL JONGSEONG PIEUP + CHOSEONG HIEUH
+  sub "ᆸ(-?)ᄁ", "p\\1kk" # HANGUL JONGSEONG PIEUP + CHOSEONG SSANGKIYEOK
+  sub "ᆸ(-?)ᄄ", "p\\1tt" # HANGUL JONGSEONG PIEUP + CHOSEONG SSANGTIEUT
+  sub "ᆸ(-?)ᄈ", "p\\1p" # HANGUL JONGSEONG PIEUP + CHOSEONG SSANGPIEUP
+  sub "ᆸ(-?)ᄊ", "p\\1ss" # HANGUL JONGSEONG PIEUP + CHOSEONG SSANGSIOS
+  sub "ᆸ(-?)ᄍ", "p\\1tch" # HANGUL JONGSEONG PIEUP + CHOSEONG SSANGCIEUC
+  sub "ᆺ(-?)ᄀ", "t\\1k" # HANGUL JONGSEONG SIOS + CHOSEONG KIYEOK
+  sub "ᆺ(-?)ᄂ", "n\\1n" # HANGUL JONGSEONG SIOS + CHOSEONG NIEUN
+  sub "ᆺ(-?)ᄃ(?=[ᅵᅣᅤᅧᅨᅭᅲ])", "t\\1ch" # HANGUL JONGSEONG SIOS + CHOSEONG TIEUT + YOTIZED VOWELS
+  sub "ᆺ(-?)ᄃ", "t\\1t" # HANGUL JONGSEONG SIOS + CHOSEONG TIEUT
+  sub "ᆺ(-?)ᄅ", "n\\1n" # HANGUL JONGSEONG SIOS + CHOSEONG RIEUL
+  sub "ᆺ(-?)ᄆ", "n\\1m" # HANGUL JONGSEONG SIOS + CHOSEONG MIEUM
+  sub "ᆺ(-?)ᄇ", "t\\1p" # HANGUL JONGSEONG SIOS + CHOSEONG PIEUP
+  sub "ᆺ(-?)ᄉ", "s\\1s" # HANGUL JONGSEONG SIOS + CHOSEONG SIOS
+  sub "ᆺ(-?)ᄋ", "s\\1" # HANGUL JONGSEONG SIOS + CHOSEONG IEUNG
+  sub "ᆺ(-?)ᄌ", "t\\1ch" # HANGUL JONGSEONG SIOS + CHOSEONG CIEUC
+  sub "ᆺ(-?)ᄎ", "t\\1ch’" # HANGUL JONGSEONG SIOS + CHOSEONG CHIEUCH
+  sub "ᆺ(-?)ᄏ", "t\\1k’" # HANGUL JONGSEONG SIOS + CHOSEONG KHIEUKH
+  sub "ᆺ(-?)ᄐ(?=[ᅵᅣᅤᅧᅨᅭᅲ])", "t\\1ch’" # HANGUL JONGSEONG SIOS + CHOSEONG THIEUTH + YOTIZED VOWELS
+  sub "ᆺ(-?)ᄐ", "t\\1t’" # HANGUL JONGSEONG SIOS + CHOSEONG THIEUTH
+  sub "ᆺ(-?)ᄑ", "t\\1p’" # HANGUL JONGSEONG SIOS + CHOSEONG PHIEUPH
+  sub "ᆺ(-?)ᄒ", "t\\1h" # HANGUL JONGSEONG SIOS + CHOSEONG HIEUH
+  sub "ᆺ(-?)ᄁ", "t\\1kk" # HANGUL JONGSEONG SIOS + CHOSEONG SSANGKIYEOK
+  sub "ᆺ(-?)ᄄ", "t\\1t" # HANGUL JONGSEONG SIOS + CHOSEONG SSANGTIEUT
+  sub "ᆺ(-?)ᄈ", "t\\1pp" # HANGUL JONGSEONG SIOS + CHOSEONG SSANGPIEUP
+  sub "ᆺ(-?)ᄊ", "s\\1s" # HANGUL JONGSEONG SIOS + CHOSEONG SSANGSIOS
+  sub "ᆺ(-?)ᄍ", "t\\1ch" # HANGUL JONGSEONG SIOS + CHOSEONG SSANGCIEUC
+  sub "ᆼ(-?)ᄀ", "ng\\1g" # HANGUL JONGSEONG IEUNG + CHOSEONG KIYEOK
+  sub "ᆼ(-?)ᄂ", "ng\\1n" # HANGUL JONGSEONG IEUNG + CHOSEONG NIEUN
+  sub "ᆼ(-?)ᄃ(?=[ᅵᅣᅤᅧᅨᅭᅲ])", "ng\\1j" # HANGUL JONGSEONG IEUNG + CHOSEONG TIEUT + YOTIZED VOWELS
+  sub "ᆼ(-?)ᄃ", "ng\\1d" # HANGUL JONGSEONG IEUNG + CHOSEONG TIEUT
+  sub "ᆼ(-?)ᄅ", "ng\\1n" # HANGUL JONGSEONG IEUNG + CHOSEONG RIEUL
+  sub "ᆼ(-?)ᄆ", "ng\\1m" # HANGUL JONGSEONG IEUNG + CHOSEONG MIEUM
+  sub "ᆼ(-?)ᄇ", "ng\\1b" # HANGUL JONGSEONG IEUNG + CHOSEONG PIEUP
+  sub "ᆼ(-?)ᄉ", "ng\\1s" # HANGUL JONGSEONG IEUNG + CHOSEONG SIOS
+  sub "ᆼ(-?)ᄋ", "ng\\1" # HANGUL JONGSEONG IEUNG + CHOSEONG IEUNG
+  sub "ᆼ(-?)ᄌ", "ng\\1j" # HANGUL JONGSEONG IEUNG + CHOSEONG CIEUC
+  sub "ᆼ(-?)ᄎ", "ng\\1ch’" # HANGUL JONGSEONG IEUNG + CHOSEONG CHIEUCH
+  sub "ᆼ(-?)ᄏ", "ng\\1k’" # HANGUL JONGSEONG IEUNG + CHOSEONG KHIEUKH
+  sub "ᆼ(-?)ᄐ(?=[ᅵᅣᅤᅧᅨᅭᅲ])", "ng\\1ch’" # HANGUL JONGSEONG IEUNG + CHOSEONG THIEUTH + YOTIZED VOWELS
+  sub "ᆼ(-?)ᄐ", "ng\\1t’" # HANGUL JONGSEONG IEUNG + CHOSEONG THIEUTH
+  sub "ᆼ(-?)ᄑ", "ng\\1p’" # HANGUL JONGSEONG IEUNG + CHOSEONG PHIEUPH
+  sub "ᆼ(-?)ᄒ", "ng\\1h" # HANGUL JONGSEONG IEUNG + CHOSEONG HIEUH
+  sub "ᆼ(-?)ᄁ", "ng\\1kk" # HANGUL JONGSEONG IEUNG + CHOSEONG SSANGKIYEOK
+  sub "ᆼ(-?)ᄄ", "ng\\1tt" # HANGUL JONGSEONG IEUNG + CHOSEONG SSANGTIEUT
+  sub "ᆼ(-?)ᄈ", "ng\\1pp" # HANGUL JONGSEONG IEUNG + CHOSEONG SSANGPIEUP
+  sub "ᆼ(-?)ᄊ", "ng\\1ss" # HANGUL JONGSEONG IEUNG + CHOSEONG SSANGSIOS
+  sub "ᆼ(-?)ᄍ", "ng\\1tch" # HANGUL JONGSEONG IEUNG + CHOSEONG SSANGCIEUC
+  sub "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄀ", "\\1g" # VOWEL + CHOSEONG KIYEOK
+  sub "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄂ", "\\1n" # VOWEL + CHOSEONG NIEUN
+  sub "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄃ(?=[ᅵᅣᅤᅧᅨᅭᅲ])", "\\1j" # VOWEL + CHOSEONG TIEUT + YOTIZED VOWELS
+  sub "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄃ", "\\1d" # VOWEL + CHOSEONG TIEUT
+  sub "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄅ", "\\1r" # VOWEL + CHOSEONG RIEUL
+  sub "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄆ", "\\1m" # VOWEL + CHOSEONG MIEUM
+  sub "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄇ", "\\1b" # VOWEL + CHOSEONG PIEUP
+  sub "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄉ", "\\1s" # VOWEL + CHOSEONG SIOS
+  sub "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄋ", "\\1" # VOWEL + CHOSEONG IEUNG
+  sub "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄌ", "\\1j" # VOWEL + CHOSEONG CIEUC
+  sub "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄎ", "\\1ch’" # VOWEL + CHOSEONG CHIEUCH
+  sub "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄏ", "\\1k’" # VOWEL + CHOSEONG KHIEUKH
+  sub "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄐ(?=[ᅵᅣᅤᅧᅨᅭᅲ])", "\\1ch’" # VOWEL + CHOSEONG THIEUTH + YOTIZED VOWELS
+  sub "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄐ", "\\1t’" # VOWEL + CHOSEONG THIEUTH
+  sub "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄑ", "\\1p’" # VOWEL + CHOSEONG PHIEUPH
+  sub "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄒ", "\\1h" # VOWEL + CHOSEONG HIEUH
+  sub "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄁ", "\\1kk" # VOWEL + CHOSEONG SSANGKIYEOK
+  sub "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄄ", "\\1tt" # VOWEL + CHOSEONG SSANGTIEUT
+  sub "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄈ", "\\1pp" # VOWEL + CHOSEONG SSANGPIEUP
+  sub "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄊ", "\\1ss" # VOWEL + CHOSEONG SSANGSIOS
+  sub "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄍ", "\\1tch" # VOWEL + CHOSEONG SSANGCIEUC
+  sub "ᆰ(-?)ᄀ", "l\\1g" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG KIYEOK
+  sub "ᆰ(-?)ᄂ", "ng\\1n" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG NIEUN
+  sub "ᆰ(-?)ᄃ", "k\\1t" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG TIEUT
+  sub "ᆰ(-?)ᄅ", "ng\\1n" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG RIEUL
+  sub "ᆰ(-?)ᄆ", "ng\\1m" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG MIEUM
+  sub "ᆰ(-?)ᄇ", "k\\1p" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG PIEUP
+  sub "ᆰ(-?)ᄉ", "k\\1s" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG SIOS
+  sub "ᆰ(-?)ᄋ", "l\\1g" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG IEUNG
+  sub "ᆰ(-?)ᄌ", "k\\1ch" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG CIEUC
+  sub "ᆰ(-?)ᄎ", "k\\1ch’" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG CHIEUCH
+  sub "ᆰ(-?)ᄏ", "l\\1k’" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG KHIEUKH
+  sub "ᆰ(-?)ᄐ(?=[ᅵᅣᅤᅧᅨᅭᅲ])", "k\\1ch’" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG THIEUTH + YOTIZED VOWELS
+  sub "ᆰ(-?)ᄐ", "k\\1t’" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG THIEUTH
+  sub "ᆰ(-?)ᄑ", "k\\1p’" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG PHIEUPH
+  sub "ᆰ(-?)ᄒ", "lk\\1h" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG HIEUH
+  sub "ᆰ(-?)ᄁ", "l\\1kk" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG SSANGKIYEOK
+  sub "ᆰ(-?)ᄄ", "k\\1tt" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG SSANGTIEUT
+  sub "ᆰ(-?)ᄈ", "k\\1pp" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG SSANGPIEUP
+  sub "ᆰ(-?)ᄊ", "k\\1ss" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG SSANGSIOS
+  sub "ᆰ(-?)ᄍ", "k\\1tch" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG SSANGCIEUC
+  sub "ᆱ(-?)ᄀ", "m\\1g" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG KIYEOK
+  sub "ᆱ(-?)ᄂ", "m\\1n" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG NIEUN
+  sub "ᆱ(-?)ᄃ", "m\\1d" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG TIEUT
+  sub "ᆱ(-?)ᄅ", "m\\1n" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG RIEUL
+  sub "ᆱ(-?)ᄆ", "l\\1m" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG MIEUM
+  sub "ᆱ(-?)ᄇ", "m\\1b" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG PIEUP
+  sub "ᆱ(-?)ᄉ", "m\\1s" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG SIOS
+  sub "ᆱ(-?)ᄋ", "l\\1m" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG IEUNG
+  sub "ᆱ(-?)ᄌ", "m\\1j" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG CIEUC
+  sub "ᆱ(-?)ᄎ", "m\\1ch’" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG CHIEUCH
+  sub "ᆱ(-?)ᄏ", "m\\1k’" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG KHIEUKH
+  sub "ᆱ(-?)ᄐ(?=[ᅵᅣᅤᅧᅨᅭᅲ])", "m\\1ch’" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG THIEUTH + YOTIZED VOWELS
+  sub "ᆱ(-?)ᄐ", "m\\1t’" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG THIEUTH
+  sub "ᆱ(-?)ᄑ", "m\\1p’" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG PHIEUPH
+  sub "ᆱ(-?)ᄒ", "m\\1h" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG HIEUH
+  sub "ᆱ(-?)ᄁ", "m\\1kk" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG SSANGKIYEOK
+  sub "ᆱ(-?)ᄄ", "m\\1tt" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG SSANGTIEUT
+  sub "ᆱ(-?)ᄈ", "m\\1pp" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG SSANGPIEUP
+  sub "ᆱ(-?)ᄊ", "m\\1ss" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG SSANGSIOS
+  sub "ᆱ(-?)ᄍ", "m\\1tch" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG SSANGCIEUC
+  sub "ᆲ(-?)ᄀ", "pk" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG KIYEOK
+  sub "ᆲ(-?)ᄂ", "mn" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG NIEUN
+  sub "ᆲ(-?)ᄃ", "p\\1t" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG TIEUT
+  sub "ᆲ(-?)ᄅ", "m\\1n" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG RIEUL
+  sub "ᆲ(-?)ᄆ", "m\\1m" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG MIEUM
+  sub "ᆲ(-?)ᄇ", "l\\1b" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG PIEUP
+  sub "ᆲ(-?)ᄉ", "p\\1s" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG SIOS
+  sub "ᆲ(-?)ᄋ", "l\\1b" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG IEUNG
+  sub "ᆲ(-?)ᄌ", "p\\1ch" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG CIEUC
+  sub "ᆲ(-?)ᄎ", "p\\1ch’" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG CHIEUCH
+  sub "ᆲ(-?)ᄏ", "p\\1k’" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG KHIEUKH
+  sub "ᆲ(-?)ᄐ(?=[ᅵᅣᅤᅧᅨᅭᅲ])", "p\\1ch’" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG THIEUTH + YOTIZED VOWELS
+  sub "ᆲ(-?)ᄐ", "p\\1t’" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG THIEUTH
+  sub "ᆲ(-?)ᄑ", "l\\1p’" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG PHIEUPH
+  sub "ᆲ(-?)ᄒ", "lp\\1h" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG HIEUH
+  sub "ᆲ(-?)ᄁ", "p\\1kk" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG SSANGKIYEOK
+  sub "ᆲ(-?)ᄄ", "p\\1tt" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG SSANGTIEUT
+  sub "ᆲ(-?)ᄈ", "l\\1pp" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG SSANGPIEUP
+  sub "ᆲ(-?)ᄊ", "p\\1ss" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG SSANGSIOS
+  sub "ᆲ(-?)ᄍ", "p\\1tch" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG SSANGCIEUC
+  sub "(?<= )ᄀ", "k" # HANGUL CHOSEONG KIYEOK
+  sub "(?<= )ᄂ(?=[ᅵᅣᅤᅧᅨᅭᅲ])", "" # HANGUL CHOSEONG NIEUN # N-onset rule
+  sub "(?<= )ᄂ", "n" # HANGUL CHOSEONG NIEUN
+  sub "(?<= )ᄃ(?=[ᅵᅣᅤᅧᅨᅭᅲ])", "ch" # HANGUL CHOSEONG TIEUT # T -> Ch before yotized vowels
+  sub "(?<= )ᄃ", "t" # HANGUL CHOSEONG TIEUT
+  sub "(?<= )ᄅ(?=[ᅵᅣᅤᅧᅨᅭᅲ])", "" # HANGUL CHOSEONG RIEUL # R-onset rule
+  sub "(?<= )ᄅ", "n" # HANGUL CHOSEONG RIEUL # R-onset rule
+  sub "(?<= )ᄆ", "m" # HANGUL CHOSEONG MIEUM
+  sub "(?<= )ᄇ", "p" # HANGUL CHOSEONG PIEUP
+  sub "(?<= )ᄉ(?=ᅱ)", "sh" # HANGUL CHOSEONG SIOS
+  sub "(?<= )ᄉ", "s" # HANGUL CHOSEONG SIOS
+  sub "(?<= )ᄋ", "" # HANGUL CHOSEONG IEUNG
+  sub "(?<= )ᄌ", "ch" # HANGUL CHOSEONG CIEUC
+  sub "(?<= )ᄎ", "ch’" # HANGUL CHOSEONG CHIEUCH
+  sub "(?<= )ᄏ", "k’" # HANGUL CHOSEONG KHIEUKH
+  sub "(?<= )ᄐ(?=[ᅵᅣᅤᅧᅨᅭᅲ])", "ch’" # HANGUL CHOSEONG THIEUTH + YOTIZED VOWELS
+  sub "(?<= )ᄐ", "t’" # HANGUL CHOSEONG THIEUTH
+  sub "(?<= )ᄑ", "p’" # HANGUL CHOSEONG PHIEUPH
+  sub "(?<= )ᄒ", "h" # HANGUL CHOSEONG HIEUH
+  sub "(?<= )ᄁ", "kk" # HANGUL CHOSEONG SSANGKIYEOK
+  sub "(?<= )ᄭ", "kk" # HANGUL CHOSEONG SIOS-KIYEOK
+  sub "(?<= )ᄄ", "tt" # HANGUL CHOSEONG SSANGTIEUT
+  sub "(?<= )ᄯ", "tt" # HANGUL CHOSEONG SIOS-TIEUT
+  sub "(?<= )ᄈ", "pp" # HANGUL CHOSEONG SSANGPIEUP
+  sub "(?<= )ᄲ", "pp" # HANGUL CHOSEONG SIOS-PIEUP
+  sub "(?<= )ᄊ", "ss" # HANGUL CHOSEONG SSANGSIOS
+  sub "(?<= )ᄍ", "tch" # HANGUL CHOSEONG SSANGCIEUC
+  sub "(?<= )ᄶ", "tch" # HANGUL CHOSEONG SIOS-CIEUC
+  sub "ᅡ", "a" # HANGUL JUNGSEONG A
+  sub "ᅣ", "ya" # HANGUL JUNGSEONG YA
+  sub "ᅥ", "ŏ" # HANGUL JUNGSEONG EO
+  sub "ᅧ", "yŏ" # HANGUL JUNGSEONG YEO
+  sub "ᅩ", "o" # HANGUL JUNGSEONG O
+  sub "ᅭ", "yo" # HANGUL JUNGSEONG YO
+  sub "ᅮ", "u" # HANGUL JUNGSEONG U
+  sub "ᅲ", "yu" # HANGUL JUNGSEONG YU
+  sub "ᅳ", "ŭ" # HANGUL JUNGSEONG EU
+  sub "ᅵ", "i" # HANGUL JUNGSEONG I
+  sub "ᅢ", "ae" # HANGUL JUNGSEONG AE
+  sub "ᅤ", "yae" # HANGUL JUNGSEONG YAE
+  sub "ᅦ", "e" # HANGUL JUNGSEONG E
+  sub "ᅨ", "ye" # HANGUL JUNGSEONG YE
+  sub "ᅬ", "oe" # HANGUL JUNGSEONG OE
+  sub "ᅱ", "wi" # HANGUL JUNGSEONG WI
+  sub "ᅴ", "ŭi" # HANGUL JUNGSEONG YI
+  sub "ᅪ", "wa" # HANGUL JUNGSEONG WA
+  sub "ᅯ", "wŏ" # HANGUL JUNGSEONG WEO
+  sub "ᅫ", "wae" # HANGUL JUNGSEONG WAE
+  sub "ᅰ", "we" # HANGUL JUNGSEONG WE
+  sub "ᆨ(?=[ -])", "k" # HANGUL JONGSEONG KIYEOK
+  sub "ᆫ(?=[ -])", "n" # HANGUL JONGSEONG NIEUN
+  sub "ᆮ(?=[ -])", "t" # HANGUL JONGSEONG TIEUT
+  sub "ᆯ(?=[ -])", "l" # HANGUL JONGSEONG RIEUL
+  sub "ᆷ(?=[ -])", "m" # HANGUL JONGSEONG MIEUM
+  sub "ᆸ(?=[ -])", "p" # HANGUL JONGSEONG PIEUP
+  sub "ᆺ(?=[ -])", "t" # HANGUL JONGSEONG SIOS
+  sub "ᆼ(?=[ -])", "ng" # HANGUL JONGSEONG IEUNG
+  sub "ᆽ(?=[ -])", "t" # HANGUL JONGSEONG CIEUC
+  sub "ᆾ(?=[ -])", "t" # HANGUL JONGSEONG CHIEUCH
+  sub "ᆿ(?=[ -])", "k" # HANGUL JONGSEONG KHIEUKH
+  sub "ᇀ(?=[ -])", "t" # HANGUL JONGSEONG THIEUTH
+  sub "ᇁ(?=[ -])", "p" # HANGUL JONGSEONG PHIEUPH
+  sub "ᆰ(?=[ -])", "k" # HANGUL JONGSEONG RIEUL-KIYEOK
+  sub "ᆲ(?=[ -])", "p" # HANGUL JONGSEONG RIEUL-PIEUP
+  
+  sub "(ch|ch’|j|s|ss)y", "\\1"
+  
+  sub "swi", "shwi"
+  
+  # Remove space added
+  sub "^ ", ""
+  sub " $", ""
+  
 
-    # HANGUL JONGSEONG NIEUN-CIEUC
-    - pattern: "ᆬ(-?)ᄋ"
-      result: "ᆫ\\1ᄌ"
-    - pattern: "ᆬ(-?)"
-      result: "ᆫ\\1"
+  # CHARACTERS
+  parallel {
+    # This is based on Jamo
+    
+  }
 
-    # HANGUL JONGSEONG NIEUN-CIEUC
-    - pattern: "ᆭ(-?)ᄀ"
-      result: "ᆫ\\1ᄏ"
-    - pattern: "ᆭ(-?)ᄃ"
-      result: "ᆫ\\1ᄐ"
-    - pattern: "ᆭ(-?)ᄇ"
-      result: "ᆫ\\1ᄑ"
-    - pattern: "ᆭ(-?)ᄌ"
-      result: "ᆫ\\1ᄎ"
-    - pattern: "ᆭ(-?)"
-      result: "ᆫ\\1"
+  # DICTIONARY
+  parallel {
+    #
+  }
 
-    # HANGUL JONGSEONG TIEUT
-    - pattern: "ᆮ(-?)(?=[ᄀᄁᄂᄃᄄᄅᄆᄇᄈᄉᄊᄌᄍᄎᄏᄐᄑᄒ])"
-      result: "ᆺ\\1"
+}
 
-    # HANGUL JONGSEONG RIEUL-SIOS
-    - pattern: "ᆳ(-?)ᄋ"
-      result: "ᆯ\\1ᄉ"
-    - pattern: "ᆳ(-?)"
-      result: "ᆯ\\1"
-
-    # HANGUL JONGSEONG RIEUL-THIEUTH
-    - pattern: "ᆴ(-?)ᄋ"
-      result: "ᆯ\\1ᄐ"
-    - pattern: "ᆴ(-?)"
-      result: "ᆯ\\1"
-
-    # HANGUL JONGSEONG RIEUL-PHIEUPH
-    - pattern: "ᆵ(-?)ᄋ"
-      result: "ᆯ\\1ᄑ"
-    - pattern: "ᆵ(-?)(?=[ᄃᄄᄐ])"
-      result: "ᆯ\\1"
-    - pattern: "ᆵ(-?)"
-      result: "ᄇ\\1"
-
-    # HANGUL JONGSEONG RIEUL-HIEUH
-    - pattern: "ᆶ(-?)ᄀ"
-      result: "ᆯ\\1ᄏ"
-    - pattern: "ᆶ(-?)ᄃ"
-      result: "ᆯ\\1ᄐ"
-    - pattern: "ᆶ(-?)ᄇ"
-      result: "ᆯ\\1ᄑ"
-    - pattern: "ᆶ(-?)ᄌ"
-      result: "ᆯ\\1ᄎ"
-    - pattern: "ᆶ(-?)"
-      result: "ᆯ\\1"
-
-    # HANGUL JONGSEONG PIEUP-SIOS
-    - pattern: "ᆹ(-?)ᄋ"
-      result: "ᄇ\\1ᄉ"
-    - pattern: "ᆹ(-?)"
-      result: "ᄇ\\1"
-
-    # HANGUL JONGSEONG SSANG-SIOS
-    - pattern: "ᆻ(-?)ᄋ"
-      result: "ᆺ\\1ᄊ"
-    - pattern: "ᆻ(-?)"
-      result: "ᆺ\\1"
-
-    # HANGUL JONGSEONG CIEUC
-    - pattern: "ᆽ(-?)ᄋ"
-      result: "ᆺ\\1ᄌ"
-    - pattern: "ᆽ(-?)"
-      result: "ᆺ\\1"
-
-    # HANGUL JONGSEONG CHIEUCH
-    - pattern: "ᆾ(-?)ᄋ"
-      result: "ᆺ\\1ᄎ"
-    - pattern: "ᆾ(-?)"
-      result: "ᆺ\\1"
-
-    # HANGUL JONGSEONG KHIEUKH
-    - pattern: "ᆿ(-?)ᄋ"
-      result: "ᆨ\\1ᄏ"
-    - pattern: "ᆿ(-?)"
-      result: "ᆨ\\1"
-
-    # HANGUL JONGSEONG THIEUTH
-    - pattern: "ᇀ(-?)ᄋ"
-      result: "ᆺ\\1ᄐ"
-    - pattern: "ᇀ(-?)"
-      result: "ᆺ\\1"
-
-    # HANGUL JONGSEONG PHIEUPH
-    - pattern: "ᇁ(-?)ᄋ"
-      result: "ᆸ\\1ᄑ"
-    - pattern: "ᇁ(-?)"
-      result: "ᆸ\\1"
-
-    # HANGUL JONGSEONG HIEUH
-    - pattern: "ᇂ(-?)ᄀ"
-      result: "\\1ᄏ"
-    - pattern: "ᇂ(-?)ᄃ"
-      result: "\\1ᄐ"
-    - pattern: "ᇂ(-?)ᄇ"
-      result: "\\1ᄑ"
-    - pattern: "ᇂ(-?)ᄌ"
-      result: "\\1ᄎ"
-    - pattern: "ᇂ(-?)"
-      result: "\\1"
-
-    # From Unicode Chart
-    # https://github.com/unicode-org/cldr/blob/master/common/transforms/Korean-Latin-BGN.xml
-
-    - pattern: "ᆮ(-?)ᄋ" # HANGUL JONGSEONG TIEUT + CHOSEONG IEUNG
-      result: "\\1d"
-
-    - pattern: "ᆨ(-?)ᄀ"
-      result: "k\\1k" # HANGUL JONGSEONG KIYEOK + CHOSEONG KIYEOK
-    - pattern: "ᆨ(-?)ᄂ"
-      result: "ng\\1n" # HANGUL JONGSEONG KIYEOK + CHOSEONG NIEUN
-    - pattern: "ᆨ(-?)ᄃ(?=[ᅵᅣᅤᅧᅨᅭᅲ])"
-      result: "k\\1ch" # HANGUL JONGSEONG KIYEOK + CHOSEONG TIEUT + YOTIZED VOWELS
-    - pattern: "ᆨ(-?)ᄃ"
-      result: "k\\1t" # HANGUL JONGSEONG KIYEOK + CHOSEONG TIEUT
-    - pattern: "ᆨ(-?)ᄅ"
-      result: "ng\\1n" # HANGUL JONGSEONG KIYEOK + CHOSEONG RIEUL
-    - pattern: "ᆨ(-?)ᄆ"
-      result: "ng\\1m" # HANGUL JONGSEONG KIYEOK + CHOSEONG MIEUM
-    - pattern: "ᆨ(-?)ᄇ"
-      result: "k\\1p" # HANGUL JONGSEONG KIYEOK + CHOSEONG PIEUP
-    - pattern: "ᆨ(-?)ᄉ"
-      result: "k\\1s" # HANGUL JONGSEONG KIYEOK + CHOSEONG SIOS
-    - pattern: "ᆨ(-?)ᄋ"
-      result: "\\1g" # HANGUL JONGSEONG KIYEOK + CHOSEONG IEUNG
-    - pattern: "ᆨ(-?)ᄌ"
-      result: "k\\1ch" # HANGUL JONGSEONG KIYEOK + CHOSEONG CIEUC
-    - pattern: "ᆨ(-?)ᄎ"
-      result: "k\\1ch’" # HANGUL JONGSEONG KIYEOK + CHOSEONG CHIEUCH
-    - pattern: "ᆨ(-?)ᄏ"
-      result: "k\\1k’" # HANGUL JONGSEONG KIYEOK + CHOSEONG KHIEUKH
-    - pattern: "ᆨ(-?)ᄐ(?=[ᅵᅣᅤᅧᅨᅭᅲ])"
-      result: "k\\1ch’" # HANGUL JONGSEONG KIYEOK + CHOSEONG THIEUTH + YOTIZED VOWELS
-    - pattern: "ᆨ(-?)ᄐ"
-      result: "k\\1t’" # HANGUL JONGSEONG KIYEOK + CHOSEONG THIEUTH
-    - pattern: "ᆨ(-?)ᄑ"
-      result: "k\\1p’" # HANGUL JONGSEONG KIYEOK + CHOSEONG PHIEUPH
-    - pattern: "ᆨ(-?)ᄒ"
-      result: "k\\1h" # HANGUL JONGSEONG KIYEOK + CHOSEONG HIEUH
-    - pattern: "ᆨ(-?)ᄁ"
-      result: "k\\1k" # HANGUL JONGSEONG KIYEOK + CHOSEONG SSANGKIYEOK
-    - pattern: "ᆨ(-?)ᄄ"
-      result: "k\\1tt" # HANGUL JONGSEONG KIYEOK + CHOSEONG SSANGTIEUT
-    - pattern: "ᆨ(-?)ᄈ"
-      result: "k\\1pp" # HANGUL JONGSEONG KIYEOK + CHOSEONG SSANGPIEUP
-    - pattern: "ᆨ(-?)ᄊ"
-      result: "k\\1ss" # HANGUL JONGSEONG KIYEOK + CHOSEONG SSANGSIOS
-    - pattern: "ᆨ(-?)ᄍ"
-      result: "k\\1tch" # HANGUL JONGSEONG KIYEOK + CHOSEONG SSANGCIEUC
-    - pattern: "ᆫᄀ"
-      result: "n’g" # HANGUL JONGSEONG NIEUN + CHOSEONG KIYEOK
-    - pattern: "ᆫ(-)ᄀ"
-      result: "n\\1g" # HANGUL JONGSEONG NIEUN + CHOSEONG KIYEOK
-    - pattern: "ᆫ(-?)ᄂ"
-      result: "n\\1n" # HANGUL JONGSEONG NIEUN + CHOSEONG NIEUN
-    - pattern: "ᆫ(-?)ᄃ(?=[ᅵᅣᅤᅧᅨᅭᅲ])"
-      result: "n\\1j" # HANGUL JONGSEONG NIEUN + CHOSEONG TIEUT + YOTIZED VOWELS
-    - pattern: "ᆫ(-?)ᄃ"
-      result: "n\\1d" # HANGUL JONGSEONG NIEUN + CHOSEONG TIEUT
-    - pattern: "ᆫ(-?)ᄅ"
-      result: "l\\1l" # HANGUL JONGSEONG NIEUN + CHOSEONG RIEUL
-    - pattern: "ᆫ(-?)ᄆ"
-      result: "n\\1m" # HANGUL JONGSEONG NIEUN + CHOSEONG MIEUM
-    - pattern: "ᆫ(-?)ᄇ"
-      result: "n\\1b" # HANGUL JONGSEONG NIEUN + CHOSEONG PIEUP
-    - pattern: "ᆫ(-?)ᄉ"
-      result: "n\\1s" # HANGUL JONGSEONG NIEUN + CHOSEONG SIOS
-    - pattern: "ᆫ(-?)ᄋ"
-      result: "n\\1" # HANGUL JONGSEONG NIEUN + CHOSEONG IEUNG
-    - pattern: "ᆫ(-?)ᄌ"
-      result: "n\\1j" # HANGUL JONGSEONG NIEUN + CHOSEONG CIEUC
-    - pattern: "ᆫ(-?)ᄎ"
-      result: "n\\1ch’" # HANGUL JONGSEONG NIEUN + CHOSEONG CHIEUCH
-    - pattern: "ᆫ(-?)ᄏ"
-      result: "n\\1k’" # HANGUL JONGSEONG NIEUN + CHOSEONG KHIEUKH
-    - pattern: "ᆫ(-?)ᄐ(?=[ᅵᅣᅤᅧᅨᅭᅲ])"
-      result: "n\\1ch’" # HANGUL JONGSEONG NIEUN + CHOSEONG THIEUTH + YOTIZED VOWELS
-    - pattern: "ᆫ(-?)ᄐ"
-      result: "n\\1t’" # HANGUL JONGSEONG NIEUN + CHOSEONG THIEUTH
-    - pattern: "ᆫ(-?)ᄑ"
-      result: "n\\1p’" # HANGUL JONGSEONG NIEUN + CHOSEONG PHIEUPH
-    - pattern: "ᆫ(-?)ᄒ"
-      result: "n\\1h" # HANGUL JONGSEONG NIEUN + CHOSEONG HIEUH
-    - pattern: "ᆫ(-?)ᄁ"
-      result: "n\\1kk" # HANGUL JONGSEONG NIEUN + CHOSEONG SSANGKIYEOK
-    - pattern: "ᆫ(-?)ᄄ"
-      result: "n\\1tt" # HANGUL JONGSEONG NIEUN + CHOSEONG SSANGTIEUT
-    - pattern: "ᆫ(-?)ᄈ"
-      result: "n\\1pp" # HANGUL JONGSEONG NIEUN + CHOSEONG SSANGPIEUP
-    - pattern: "ᆫ(-?)ᄊ"
-      result: "n\\1ss" # HANGUL JONGSEONG NIEUN + CHOSEONG SSANGSIOS
-    - pattern: "ᆫ(-?)ᄍ"
-      result: "n\\1tch" # HANGUL JONGSEONG NIEUN + CHOSEONG SSANGCIEUC
-    - pattern: "ᆯ(-?)ᄀ"
-      result: "l\\1g" # HANGUL JONGSEONG RIEUL + CHOSEONG KIYEOK
-    - pattern: "ᆯ(-?)ᄂ"
-      result: "l\\1l" # HANGUL JONGSEONG RIEUL + CHOSEONG NIEUN
-    - pattern: "ᆯ(-?)ᄃ(?=[ᅵᅣᅤᅧᅨᅭᅲ])"
-      result: "l\\1ch" # HANGUL JONGSEONG RIEUL + CHOSEONG TIEUT + YOTIZED VOWELS
-    - pattern: "ᆯ(-?)ᄃ"
-      result: "l\\1t" # HANGUL JONGSEONG RIEUL + CHOSEONG TIEUT
-    - pattern: "ᆯ(-?)ᄅ"
-      result: "l\\1l" # HANGUL JONGSEONG RIEUL + CHOSEONG RIEUL
-    - pattern: "ᆯ(-?)ᄆ"
-      result: "l\\1m" # HANGUL JONGSEONG RIEUL + CHOSEONG MIEUM
-    - pattern: "ᆯ(-?)ᄇ"
-      result: "l\\1b" # HANGUL JONGSEONG RIEUL + CHOSEONG PIEUP
-    - pattern: "ᆯ(-?)ᄉ"
-      result: "l\\1s" # HANGUL JONGSEONG RIEUL + CHOSEONG SIOS
-    - pattern: "ᆯ(-?)ᄋ"
-      result: "\\1r" # HANGUL JONGSEONG RIEUL + CHOSEONG IEUNG
-    - pattern: "ᆯ(-?)ᄌ"
-      result: "l\\1ch" # HANGUL JONGSEONG RIEUL + CHOSEONG CIEUC
-    - pattern: "ᆯ(-?)ᄎ"
-      result: "l\\1ch’" # HANGUL JONGSEONG RIEUL + CHOSEONG CHIEUCH
-    - pattern: "ᆯ(-?)ᄏ"
-      result: "l\\1k’" # HANGUL JONGSEONG RIEUL + CHOSEONG KHIEUKH
-    - pattern: "ᆯ(-?)ᄐ(?=[ᅵᅣᅤᅧᅨᅭᅲ])"
-      result: "l\\1ch’" # HANGUL JONGSEONG RIEUL + CHOSEONG THIEUTH + YOTIZED VOWELS
-    - pattern: "ᆯ(-?)ᄐ"
-      result: "l\\1t’" # HANGUL JONGSEONG RIEUL + CHOSEONG THIEUTH
-    - pattern: "ᆯ(-?)ᄑ"
-      result: "l\\1p’" # HANGUL JONGSEONG RIEUL + CHOSEONG PHIEUPH
-    - pattern: "ᆯ(-?)ᄒ"
-      result: "r\\1h" # HANGUL JONGSEONG RIEUL + CHOSEONG HIEUH
-    - pattern: "ᆯ(-?)ᄁ"
-      result: "l\\1kk" # HANGUL JONGSEONG RIEUL + CHOSEONG SSANGKIYEOK
-    - pattern: "ᆯ(-?)ᄄ"
-      result: "l\\1tt" # HANGUL JONGSEONG RIEUL + CHOSEONG SSANGTIEUT
-    - pattern: "ᆯ(-?)ᄈ"
-      result: "l\\1pp" # HANGUL JONGSEONG RIEUL + CHOSEONG SSANGPIEUP
-    - pattern: "ᆯ(-?)ᄊ"
-      result: "l\\1ss" # HANGUL JONGSEONG RIEUL + CHOSEONG SSANGSIOS
-    - pattern: "ᆯ(-?)ᄍ"
-      result: "l\\1tch" # HANGUL JONGSEONG RIEUL + CHOSEONG SSANGCIEUC
-    - pattern: "ᆷ(-?)ᄀ"
-      result: "m\\1g" # HANGUL JONGSEONG MIEUM + CHOSEONG KIYEOK
-    - pattern: "ᆷ(-?)ᄂ"
-      result: "m\\1n" # HANGUL JONGSEONG MIEUM + CHOSEONG NIEUN
-    - pattern: "ᆷ(-?)ᄃ(?=[ᅵᅣᅤᅧᅨᅭᅲ])"
-      result: "m\\1j" # HANGUL JONGSEONG MIEUM + CHOSEONG TIEUT + YOTIZED VOWELS
-    - pattern: "ᆷ(-?)ᄃ"
-      result: "m\\1d" # HANGUL JONGSEONG MIEUM + CHOSEONG TIEUT
-    - pattern: "ᆷ(-?)ᄅ"
-      result: "m\\1n" # HANGUL JONGSEONG MIEUM + CHOSEONG RIEUL
-    - pattern: "ᆷ(-?)ᄆ"
-      result: "m\\1m" # HANGUL JONGSEONG MIEUM + CHOSEONG MIEUM
-    - pattern: "ᆷ(-?)ᄇ"
-      result: "m\\1b" # HANGUL JONGSEONG MIEUM + CHOSEONG PIEUP
-    - pattern: "ᆷ(-?)ᄉ"
-      result: "m\\1s" # HANGUL JONGSEONG MIEUM + CHOSEONG SIOS
-    - pattern: "ᆷ(-?)ᄋ"
-      result: "m\\1" # HANGUL JONGSEONG MIEUM + CHOSEONG IEUNG
-    - pattern: "ᆷ(-?)ᄌ"
-      result: "m\\1j" # HANGUL JONGSEONG MIEUM + CHOSEONG CIEUC
-    - pattern: "ᆷ(-?)ᄎ"
-      result: "m\\1ch’" # HANGUL JONGSEONG MIEUM + CHOSEONG CHIEUCH
-    - pattern: "ᆷ(-?)ᄏ"
-      result: "m\\1k’" # HANGUL JONGSEONG MIEUM + CHOSEONG KHIEUKH
-    - pattern: "ᆷ(-?)ᄐ(?=[ᅵᅣᅤᅧᅨᅭᅲ])"
-      result: "m\\1ch’" # HANGUL JONGSEONG MIEUM + CHOSEONG THIEUTH + YOTIZED VOWELS
-    - pattern: "ᆷ(-?)ᄐ"
-      result: "m\\1t’" # HANGUL JONGSEONG MIEUM + CHOSEONG THIEUTH
-    - pattern: "ᆷ(-?)ᄑ"
-      result: "m\\1p’" # HANGUL JONGSEONG MIEUM + CHOSEONG PHIEUPH
-    - pattern: "ᆷ(-?)ᄒ"
-      result: "m\\1h" # HANGUL JONGSEONG MIEUM + CHOSEONG HIEUH
-    - pattern: "ᆷ(-?)ᄁ"
-      result: "m\\1kk" # HANGUL JONGSEONG MIEUM + CHOSEONG SSANGKIYEOK
-    - pattern: "ᆷ(-?)ᄄ"
-      result: "m\\1tt" # HANGUL JONGSEONG MIEUM + CHOSEONG SSANGTIEUT
-    - pattern: "ᆷ(-?)ᄈ"
-      result: "m\\1pp" # HANGUL JONGSEONG MIEUM + CHOSEONG SSANGPIEUP
-    - pattern: "ᆷ(-?)ᄊ"
-      result: "m\\1ss" # HANGUL JONGSEONG MIEUM + CHOSEONG SSANGSIOS
-    - pattern: "ᆷ(-?)ᄍ"
-      result: "m\\1tch" # HANGUL JONGSEONG MIEUM + CHOSEONG SSANGCIEUC
-    - pattern: "ᆸ(-?)ᄀ"
-      result: "p\\1k" # HANGUL JONGSEONG PIEUP + CHOSEONG KIYEOK
-    - pattern: "ᆸ(-?)ᄂ"
-      result: "m\\1n" # HANGUL JONGSEONG PIEUP + CHOSEONG NIEUN
-    - pattern: "ᆸ(-?)ᄃ(?=[ᅵᅣᅤᅧᅨᅭᅲ])"
-      result: "p\\1ch" # HANGUL JONGSEONG PIEUP + CHOSEONG TIEUT + YOTIZED VOWELS
-    - pattern: "ᆸ(-?)ᄃ"
-      result: "p\\1t" # HANGUL JONGSEONG PIEUP + CHOSEONG TIEUT
-    - pattern: "ᆸ(-?)ᄅ"
-      result: "m\\1n" # HANGUL JONGSEONG PIEUP + CHOSEONG RIEUL
-    - pattern: "ᆸ(-?)ᄆ"
-      result: "m\\1m" # HANGUL JONGSEONG PIEUP + CHOSEONG MIEUM
-    - pattern: "ᆸ(-?)ᄇ"
-      result: "p\\1p" # HANGUL JONGSEONG PIEUP + CHOSEONG PIEUP
-    - pattern: "ᆸ(-?)ᄉ"
-      result: "p\\1s" # HANGUL JONGSEONG PIEUP + CHOSEONG SIOS
-    - pattern: "ᆸ(-?)ᄋ"
-      result: "p\\1" # HANGUL JONGSEONG PIEUP + CHOSEONG IEUNG
-    - pattern: "ᆸ(-?)ᄌ"
-      result: "p\\1ch" # HANGUL JONGSEONG PIEUP + CHOSEONG CIEUC
-    - pattern: "ᆸ(-?)ᄎ"
-      result: "p\\1ch’" # HANGUL JONGSEONG PIEUP + CHOSEONG CHIEUCH
-    - pattern: "ᆸ(-?)ᄏ"
-      result: "p\\1k’" # HANGUL JONGSEONG PIEUP + CHOSEONG KHIEUKH
-    - pattern: "ᆸ(-?)ᄐ(?=[ᅵᅣᅤᅧᅨᅭᅲ])"
-      result: "p\\1ch’" # HANGUL JONGSEONG PIEUP + CHOSEONG THIEUTH + YOTIZED VOWELS
-    - pattern: "ᆸ(-?)ᄐ"
-      result: "p\\1t’" # HANGUL JONGSEONG PIEUP + CHOSEONG THIEUTH
-    - pattern: "ᆸ(-?)ᄑ"
-      result: "p\\1p’" # HANGUL JONGSEONG PIEUP + CHOSEONG PHIEUPH
-    - pattern: "ᆸ(-?)ᄒ"
-      result: "p\\1h" # HANGUL JONGSEONG PIEUP + CHOSEONG HIEUH
-    - pattern: "ᆸ(-?)ᄁ"
-      result: "p\\1kk" # HANGUL JONGSEONG PIEUP + CHOSEONG SSANGKIYEOK
-    - pattern: "ᆸ(-?)ᄄ"
-      result: "p\\1tt" # HANGUL JONGSEONG PIEUP + CHOSEONG SSANGTIEUT
-    - pattern: "ᆸ(-?)ᄈ"
-      result: "p\\1p" # HANGUL JONGSEONG PIEUP + CHOSEONG SSANGPIEUP
-    - pattern: "ᆸ(-?)ᄊ"
-      result: "p\\1ss" # HANGUL JONGSEONG PIEUP + CHOSEONG SSANGSIOS
-    - pattern: "ᆸ(-?)ᄍ"
-      result: "p\\1tch" # HANGUL JONGSEONG PIEUP + CHOSEONG SSANGCIEUC
-    - pattern: "ᆺ(-?)ᄀ"
-      result: "t\\1k" # HANGUL JONGSEONG SIOS + CHOSEONG KIYEOK
-    - pattern: "ᆺ(-?)ᄂ"
-      result: "n\\1n" # HANGUL JONGSEONG SIOS + CHOSEONG NIEUN
-    - pattern: "ᆺ(-?)ᄃ(?=[ᅵᅣᅤᅧᅨᅭᅲ])"
-      result: "t\\1ch" # HANGUL JONGSEONG SIOS + CHOSEONG TIEUT + YOTIZED VOWELS
-    - pattern: "ᆺ(-?)ᄃ"
-      result: "t\\1t" # HANGUL JONGSEONG SIOS + CHOSEONG TIEUT
-    - pattern: "ᆺ(-?)ᄅ"
-      result: "n\\1n" # HANGUL JONGSEONG SIOS + CHOSEONG RIEUL
-    - pattern: "ᆺ(-?)ᄆ"
-      result: "n\\1m" # HANGUL JONGSEONG SIOS + CHOSEONG MIEUM
-    - pattern: "ᆺ(-?)ᄇ"
-      result: "t\\1p" # HANGUL JONGSEONG SIOS + CHOSEONG PIEUP
-    - pattern: "ᆺ(-?)ᄉ"
-      result: "s\\1s" # HANGUL JONGSEONG SIOS + CHOSEONG SIOS
-    - pattern: "ᆺ(-?)ᄋ"
-      result: "s\\1" # HANGUL JONGSEONG SIOS + CHOSEONG IEUNG
-    - pattern: "ᆺ(-?)ᄌ"
-      result: "t\\1ch" # HANGUL JONGSEONG SIOS + CHOSEONG CIEUC
-    - pattern: "ᆺ(-?)ᄎ"
-      result: "t\\1ch’" # HANGUL JONGSEONG SIOS + CHOSEONG CHIEUCH
-    - pattern: "ᆺ(-?)ᄏ"
-      result: "t\\1k’" # HANGUL JONGSEONG SIOS + CHOSEONG KHIEUKH
-    - pattern: "ᆺ(-?)ᄐ(?=[ᅵᅣᅤᅧᅨᅭᅲ])"
-      result: "t\\1ch’" # HANGUL JONGSEONG SIOS + CHOSEONG THIEUTH + YOTIZED VOWELS
-    - pattern: "ᆺ(-?)ᄐ"
-      result: "t\\1t’" # HANGUL JONGSEONG SIOS + CHOSEONG THIEUTH
-    - pattern: "ᆺ(-?)ᄑ"
-      result: "t\\1p’" # HANGUL JONGSEONG SIOS + CHOSEONG PHIEUPH
-    - pattern: "ᆺ(-?)ᄒ"
-      result: "t\\1h" # HANGUL JONGSEONG SIOS + CHOSEONG HIEUH
-    - pattern: "ᆺ(-?)ᄁ"
-      result: "t\\1kk" # HANGUL JONGSEONG SIOS + CHOSEONG SSANGKIYEOK
-    - pattern: "ᆺ(-?)ᄄ"
-      result: "t\\1t" # HANGUL JONGSEONG SIOS + CHOSEONG SSANGTIEUT
-    - pattern: "ᆺ(-?)ᄈ"
-      result: "t\\1pp" # HANGUL JONGSEONG SIOS + CHOSEONG SSANGPIEUP
-    - pattern: "ᆺ(-?)ᄊ"
-      result: "s\\1s" # HANGUL JONGSEONG SIOS + CHOSEONG SSANGSIOS
-    - pattern: "ᆺ(-?)ᄍ"
-      result: "t\\1ch" # HANGUL JONGSEONG SIOS + CHOSEONG SSANGCIEUC
-    - pattern: "ᆼ(-?)ᄀ"
-      result: "ng\\1g" # HANGUL JONGSEONG IEUNG + CHOSEONG KIYEOK
-    - pattern: "ᆼ(-?)ᄂ"
-      result: "ng\\1n" # HANGUL JONGSEONG IEUNG + CHOSEONG NIEUN
-    - pattern: "ᆼ(-?)ᄃ(?=[ᅵᅣᅤᅧᅨᅭᅲ])"
-      result: "ng\\1j" # HANGUL JONGSEONG IEUNG + CHOSEONG TIEUT + YOTIZED VOWELS
-    - pattern: "ᆼ(-?)ᄃ"
-      result: "ng\\1d" # HANGUL JONGSEONG IEUNG + CHOSEONG TIEUT
-    - pattern: "ᆼ(-?)ᄅ"
-      result: "ng\\1n" # HANGUL JONGSEONG IEUNG + CHOSEONG RIEUL
-    - pattern: "ᆼ(-?)ᄆ"
-      result: "ng\\1m" # HANGUL JONGSEONG IEUNG + CHOSEONG MIEUM
-    - pattern: "ᆼ(-?)ᄇ"
-      result: "ng\\1b" # HANGUL JONGSEONG IEUNG + CHOSEONG PIEUP
-    - pattern: "ᆼ(-?)ᄉ"
-      result: "ng\\1s" # HANGUL JONGSEONG IEUNG + CHOSEONG SIOS
-    - pattern: "ᆼ(-?)ᄋ"
-      result: "ng\\1" # HANGUL JONGSEONG IEUNG + CHOSEONG IEUNG
-    - pattern: "ᆼ(-?)ᄌ"
-      result: "ng\\1j" # HANGUL JONGSEONG IEUNG + CHOSEONG CIEUC
-    - pattern: "ᆼ(-?)ᄎ"
-      result: "ng\\1ch’" # HANGUL JONGSEONG IEUNG + CHOSEONG CHIEUCH
-    - pattern: "ᆼ(-?)ᄏ"
-      result: "ng\\1k’" # HANGUL JONGSEONG IEUNG + CHOSEONG KHIEUKH
-    - pattern: "ᆼ(-?)ᄐ(?=[ᅵᅣᅤᅧᅨᅭᅲ])"
-      result: "ng\\1ch’" # HANGUL JONGSEONG IEUNG + CHOSEONG THIEUTH + YOTIZED VOWELS
-    - pattern: "ᆼ(-?)ᄐ"
-      result: "ng\\1t’" # HANGUL JONGSEONG IEUNG + CHOSEONG THIEUTH
-    - pattern: "ᆼ(-?)ᄑ"
-      result: "ng\\1p’" # HANGUL JONGSEONG IEUNG + CHOSEONG PHIEUPH
-    - pattern: "ᆼ(-?)ᄒ"
-      result: "ng\\1h" # HANGUL JONGSEONG IEUNG + CHOSEONG HIEUH
-    - pattern: "ᆼ(-?)ᄁ"
-      result: "ng\\1kk" # HANGUL JONGSEONG IEUNG + CHOSEONG SSANGKIYEOK
-    - pattern: "ᆼ(-?)ᄄ"
-      result: "ng\\1tt" # HANGUL JONGSEONG IEUNG + CHOSEONG SSANGTIEUT
-    - pattern: "ᆼ(-?)ᄈ"
-      result: "ng\\1pp" # HANGUL JONGSEONG IEUNG + CHOSEONG SSANGPIEUP
-    - pattern: "ᆼ(-?)ᄊ"
-      result: "ng\\1ss" # HANGUL JONGSEONG IEUNG + CHOSEONG SSANGSIOS
-    - pattern: "ᆼ(-?)ᄍ"
-      result: "ng\\1tch" # HANGUL JONGSEONG IEUNG + CHOSEONG SSANGCIEUC
-    - pattern: "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄀ"
-      result: "\\1g" # VOWEL + CHOSEONG KIYEOK
-    - pattern: "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄂ"
-      result: "\\1n" # VOWEL + CHOSEONG NIEUN
-    - pattern: "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄃ(?=[ᅵᅣᅤᅧᅨᅭᅲ])"
-      result: "\\1j" # VOWEL + CHOSEONG TIEUT + YOTIZED VOWELS
-    - pattern: "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄃ"
-      result: "\\1d" # VOWEL + CHOSEONG TIEUT
-    - pattern: "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄅ"
-      result: "\\1r" # VOWEL + CHOSEONG RIEUL
-    - pattern: "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄆ"
-      result: "\\1m" # VOWEL + CHOSEONG MIEUM
-    - pattern: "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄇ"
-      result: "\\1b" # VOWEL + CHOSEONG PIEUP
-    - pattern: "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄉ"
-      result: "\\1s" # VOWEL + CHOSEONG SIOS
-    - pattern: "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄋ"
-      result: "\\1" # VOWEL + CHOSEONG IEUNG
-    - pattern: "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄌ"
-      result: "\\1j" # VOWEL + CHOSEONG CIEUC
-    - pattern: "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄎ"
-      result: "\\1ch’" # VOWEL + CHOSEONG CHIEUCH
-    - pattern: "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄏ"
-      result: "\\1k’" # VOWEL + CHOSEONG KHIEUKH
-    - pattern: "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄐ(?=[ᅵᅣᅤᅧᅨᅭᅲ])"
-      result: "\\1ch’" # VOWEL + CHOSEONG THIEUTH + YOTIZED VOWELS
-    - pattern: "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄐ"
-      result: "\\1t’" # VOWEL + CHOSEONG THIEUTH
-    - pattern: "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄑ"
-      result: "\\1p’" # VOWEL + CHOSEONG PHIEUPH
-    - pattern: "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄒ"
-      result: "\\1h" # VOWEL + CHOSEONG HIEUH
-    - pattern: "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄁ"
-      result: "\\1kk" # VOWEL + CHOSEONG SSANGKIYEOK
-    - pattern: "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄄ"
-      result: "\\1tt" # VOWEL + CHOSEONG SSANGTIEUT
-    - pattern: "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄈ"
-      result: "\\1pp" # VOWEL + CHOSEONG SSANGPIEUP
-    - pattern: "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄊ"
-      result: "\\1ss" # VOWEL + CHOSEONG SSANGSIOS
-    - pattern: "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])(-?)ᄍ"
-      result: "\\1tch" # VOWEL + CHOSEONG SSANGCIEUC
-    - pattern: "ᆰ(-?)ᄀ"
-      result: "l\\1g" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG KIYEOK
-    - pattern: "ᆰ(-?)ᄂ"
-      result: "ng\\1n" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG NIEUN
-    - pattern: "ᆰ(-?)ᄃ"
-      result: "k\\1t" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG TIEUT
-    - pattern: "ᆰ(-?)ᄅ"
-      result: "ng\\1n" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG RIEUL
-    - pattern: "ᆰ(-?)ᄆ"
-      result: "ng\\1m" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG MIEUM
-    - pattern: "ᆰ(-?)ᄇ"
-      result: "k\\1p" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG PIEUP
-    - pattern: "ᆰ(-?)ᄉ"
-      result: "k\\1s" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG SIOS
-    - pattern: "ᆰ(-?)ᄋ"
-      result: "l\\1g" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG IEUNG
-    - pattern: "ᆰ(-?)ᄌ"
-      result: "k\\1ch" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG CIEUC
-    - pattern: "ᆰ(-?)ᄎ"
-      result: "k\\1ch’" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG CHIEUCH
-    - pattern: "ᆰ(-?)ᄏ"
-      result: "l\\1k’" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG KHIEUKH
-    - pattern: "ᆰ(-?)ᄐ(?=[ᅵᅣᅤᅧᅨᅭᅲ])"
-      result: "k\\1ch’" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG THIEUTH + YOTIZED VOWELS
-    - pattern: "ᆰ(-?)ᄐ"
-      result: "k\\1t’" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG THIEUTH
-    - pattern: "ᆰ(-?)ᄑ"
-      result: "k\\1p’" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG PHIEUPH
-    - pattern: "ᆰ(-?)ᄒ"
-      result: "lk\\1h" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG HIEUH
-    - pattern: "ᆰ(-?)ᄁ"
-      result: "l\\1kk" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG SSANGKIYEOK
-    - pattern: "ᆰ(-?)ᄄ"
-      result: "k\\1tt" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG SSANGTIEUT
-    - pattern: "ᆰ(-?)ᄈ"
-      result: "k\\1pp" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG SSANGPIEUP
-    - pattern: "ᆰ(-?)ᄊ"
-      result: "k\\1ss" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG SSANGSIOS
-    - pattern: "ᆰ(-?)ᄍ"
-      result: "k\\1tch" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG SSANGCIEUC
-    - pattern: "ᆱ(-?)ᄀ"
-      result: "m\\1g" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG KIYEOK
-    - pattern: "ᆱ(-?)ᄂ"
-      result: "m\\1n" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG NIEUN
-    - pattern: "ᆱ(-?)ᄃ"
-      result: "m\\1d" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG TIEUT
-    - pattern: "ᆱ(-?)ᄅ"
-      result: "m\\1n" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG RIEUL
-    - pattern: "ᆱ(-?)ᄆ"
-      result: "l\\1m" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG MIEUM
-    - pattern: "ᆱ(-?)ᄇ"
-      result: "m\\1b" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG PIEUP
-    - pattern: "ᆱ(-?)ᄉ"
-      result: "m\\1s" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG SIOS
-    - pattern: "ᆱ(-?)ᄋ"
-      result: "l\\1m" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG IEUNG
-    - pattern: "ᆱ(-?)ᄌ"
-      result: "m\\1j" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG CIEUC
-    - pattern: "ᆱ(-?)ᄎ"
-      result: "m\\1ch’" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG CHIEUCH
-    - pattern: "ᆱ(-?)ᄏ"
-      result: "m\\1k’" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG KHIEUKH
-    - pattern: "ᆱ(-?)ᄐ(?=[ᅵᅣᅤᅧᅨᅭᅲ])"
-      result: "m\\1ch’" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG THIEUTH + YOTIZED VOWELS
-    - pattern: "ᆱ(-?)ᄐ"
-      result: "m\\1t’" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG THIEUTH
-    - pattern: "ᆱ(-?)ᄑ"
-      result: "m\\1p’" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG PHIEUPH
-    - pattern: "ᆱ(-?)ᄒ"
-      result: "m\\1h" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG HIEUH
-    - pattern: "ᆱ(-?)ᄁ"
-      result: "m\\1kk" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG SSANGKIYEOK
-    - pattern: "ᆱ(-?)ᄄ"
-      result: "m\\1tt" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG SSANGTIEUT
-    - pattern: "ᆱ(-?)ᄈ"
-      result: "m\\1pp" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG SSANGPIEUP
-    - pattern: "ᆱ(-?)ᄊ"
-      result: "m\\1ss" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG SSANGSIOS
-    - pattern: "ᆱ(-?)ᄍ"
-      result: "m\\1tch" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG SSANGCIEUC
-    - pattern: "ᆲ(-?)ᄀ"
-      result: "pk" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG KIYEOK
-    - pattern: "ᆲ(-?)ᄂ"
-      result: "mn" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG NIEUN
-    - pattern: "ᆲ(-?)ᄃ"
-      result: "p\\1t" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG TIEUT
-    - pattern: "ᆲ(-?)ᄅ"
-      result: "m\\1n" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG RIEUL
-    - pattern: "ᆲ(-?)ᄆ"
-      result: "m\\1m" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG MIEUM
-    - pattern: "ᆲ(-?)ᄇ"
-      result: "l\\1b" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG PIEUP
-    - pattern: "ᆲ(-?)ᄉ"
-      result: "p\\1s" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG SIOS
-    - pattern: "ᆲ(-?)ᄋ"
-      result: "l\\1b" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG IEUNG
-    - pattern: "ᆲ(-?)ᄌ"
-      result: "p\\1ch" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG CIEUC
-    - pattern: "ᆲ(-?)ᄎ"
-      result: "p\\1ch’" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG CHIEUCH
-    - pattern: "ᆲ(-?)ᄏ"
-      result: "p\\1k’" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG KHIEUKH
-    - pattern: "ᆲ(-?)ᄐ(?=[ᅵᅣᅤᅧᅨᅭᅲ])"
-      result: "p\\1ch’" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG THIEUTH + YOTIZED VOWELS
-    - pattern: "ᆲ(-?)ᄐ"
-      result: "p\\1t’" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG THIEUTH
-    - pattern: "ᆲ(-?)ᄑ"
-      result: "l\\1p’" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG PHIEUPH
-    - pattern: "ᆲ(-?)ᄒ"
-      result: "lp\\1h" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG HIEUH
-    - pattern: "ᆲ(-?)ᄁ"
-      result: "p\\1kk" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG SSANGKIYEOK
-    - pattern: "ᆲ(-?)ᄄ"
-      result: "p\\1tt" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG SSANGTIEUT
-    - pattern: "ᆲ(-?)ᄈ"
-      result: "l\\1pp" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG SSANGPIEUP
-    - pattern: "ᆲ(-?)ᄊ"
-      result: "p\\1ss" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG SSANGSIOS
-    - pattern: "ᆲ(-?)ᄍ"
-      result: "p\\1tch" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG SSANGCIEUC
-    - pattern: "(?<= )ᄀ"
-      result: "k" # HANGUL CHOSEONG KIYEOK
-    - pattern: "(?<= )ᄂ(?=[ᅵᅣᅤᅧᅨᅭᅲ])"
-      result: "" # HANGUL CHOSEONG NIEUN # N-onset rule
-    - pattern: "(?<= )ᄂ"
-      result: "n" # HANGUL CHOSEONG NIEUN
-    - pattern: "(?<= )ᄃ(?=[ᅵᅣᅤᅧᅨᅭᅲ])"
-      result: "ch" # HANGUL CHOSEONG TIEUT # T -> Ch before yotized vowels
-    - pattern: "(?<= )ᄃ"
-      result: "t" # HANGUL CHOSEONG TIEUT
-    - pattern: "(?<= )ᄅ(?=[ᅵᅣᅤᅧᅨᅭᅲ])"
-      result: "" # HANGUL CHOSEONG RIEUL # R-onset rule
-    - pattern: "(?<= )ᄅ"
-      result: "n" # HANGUL CHOSEONG RIEUL # R-onset rule
-    - pattern: "(?<= )ᄆ"
-      result: "m" # HANGUL CHOSEONG MIEUM
-    - pattern: "(?<= )ᄇ"
-      result: "p" # HANGUL CHOSEONG PIEUP
-    - pattern: "(?<= )ᄉ(?=ᅱ)"
-      result: "sh" # HANGUL CHOSEONG SIOS
-    - pattern: "(?<= )ᄉ"
-      result: "s" # HANGUL CHOSEONG SIOS
-    - pattern: "(?<= )ᄋ"
-      result: "" # HANGUL CHOSEONG IEUNG
-    - pattern: "(?<= )ᄌ"
-      result: "ch" # HANGUL CHOSEONG CIEUC
-    - pattern: "(?<= )ᄎ"
-      result: "ch’" # HANGUL CHOSEONG CHIEUCH
-    - pattern: "(?<= )ᄏ"
-      result: "k’" # HANGUL CHOSEONG KHIEUKH
-    - pattern: "(?<= )ᄐ(?=[ᅵᅣᅤᅧᅨᅭᅲ])"
-      result: "ch’" # HANGUL CHOSEONG THIEUTH + YOTIZED VOWELS
-    - pattern: "(?<= )ᄐ"
-      result: "t’" # HANGUL CHOSEONG THIEUTH
-    - pattern: "(?<= )ᄑ"
-      result: "p’" # HANGUL CHOSEONG PHIEUPH
-    - pattern: "(?<= )ᄒ"
-      result: "h" # HANGUL CHOSEONG HIEUH
-    - pattern: "(?<= )ᄁ"
-      result: "kk" # HANGUL CHOSEONG SSANGKIYEOK
-    - pattern: "(?<= )ᄭ"
-      result: "kk" # HANGUL CHOSEONG SIOS-KIYEOK
-    - pattern: "(?<= )ᄄ"
-      result: "tt" # HANGUL CHOSEONG SSANGTIEUT
-    - pattern: "(?<= )ᄯ"
-      result: "tt" # HANGUL CHOSEONG SIOS-TIEUT
-    - pattern: "(?<= )ᄈ"
-      result: "pp" # HANGUL CHOSEONG SSANGPIEUP
-    - pattern: "(?<= )ᄲ"
-      result: "pp" # HANGUL CHOSEONG SIOS-PIEUP
-    - pattern: "(?<= )ᄊ"
-      result: "ss" # HANGUL CHOSEONG SSANGSIOS
-    - pattern: "(?<= )ᄍ"
-      result: "tch" # HANGUL CHOSEONG SSANGCIEUC
-    - pattern: "(?<= )ᄶ"
-      result: "tch" # HANGUL CHOSEONG SIOS-CIEUC
-    - pattern: "ᅡ"
-      result: "a" # HANGUL JUNGSEONG A
-    - pattern: "ᅣ"
-      result: "ya" # HANGUL JUNGSEONG YA
-    - pattern: "ᅥ"
-      result: "ŏ" # HANGUL JUNGSEONG EO
-    - pattern: "ᅧ"
-      result: "yŏ" # HANGUL JUNGSEONG YEO
-    - pattern: "ᅩ"
-      result: "o" # HANGUL JUNGSEONG O
-    - pattern: "ᅭ"
-      result: "yo" # HANGUL JUNGSEONG YO
-    - pattern: "ᅮ"
-      result: "u" # HANGUL JUNGSEONG U
-    - pattern: "ᅲ"
-      result: "yu" # HANGUL JUNGSEONG YU
-    - pattern: "ᅳ"
-      result: "ŭ" # HANGUL JUNGSEONG EU
-    - pattern: "ᅵ"
-      result: "i" # HANGUL JUNGSEONG I
-    - pattern: "ᅢ"
-      result: "ae" # HANGUL JUNGSEONG AE
-    - pattern: "ᅤ"
-      result: "yae" # HANGUL JUNGSEONG YAE
-    - pattern: "ᅦ"
-      result: "e" # HANGUL JUNGSEONG E
-    - pattern: "ᅨ"
-      result: "ye" # HANGUL JUNGSEONG YE
-    - pattern: "ᅬ"
-      result: "oe" # HANGUL JUNGSEONG OE
-    - pattern: "ᅱ"
-      result: "wi" # HANGUL JUNGSEONG WI
-    - pattern: "ᅴ"
-      result: "ŭi" # HANGUL JUNGSEONG YI
-    - pattern: "ᅪ"
-      result: "wa" # HANGUL JUNGSEONG WA
-    - pattern: "ᅯ"
-      result: "wŏ" # HANGUL JUNGSEONG WEO
-    - pattern: "ᅫ"
-      result: "wae" # HANGUL JUNGSEONG WAE
-    - pattern: "ᅰ"
-      result: "we" # HANGUL JUNGSEONG WE
-    - pattern: "ᆨ(?=[ -])"
-      result: "k" # HANGUL JONGSEONG KIYEOK
-    - pattern: "ᆫ(?=[ -])"
-      result: "n" # HANGUL JONGSEONG NIEUN
-    - pattern: "ᆮ(?=[ -])"
-      result: "t" # HANGUL JONGSEONG TIEUT
-    - pattern: "ᆯ(?=[ -])"
-      result: "l" # HANGUL JONGSEONG RIEUL
-    - pattern: "ᆷ(?=[ -])"
-      result: "m" # HANGUL JONGSEONG MIEUM
-    - pattern: "ᆸ(?=[ -])"
-      result: "p" # HANGUL JONGSEONG PIEUP
-    - pattern: "ᆺ(?=[ -])"
-      result: "t" # HANGUL JONGSEONG SIOS
-    - pattern: "ᆼ(?=[ -])"
-      result: "ng" # HANGUL JONGSEONG IEUNG
-    - pattern: "ᆽ(?=[ -])"
-      result: "t" # HANGUL JONGSEONG CIEUC
-    - pattern: "ᆾ(?=[ -])"
-      result: "t" # HANGUL JONGSEONG CHIEUCH
-    - pattern: "ᆿ(?=[ -])"
-      result: "k" # HANGUL JONGSEONG KHIEUKH
-    - pattern: "ᇀ(?=[ -])"
-      result: "t" # HANGUL JONGSEONG THIEUTH
-    - pattern: "ᇁ(?=[ -])"
-      result: "p" # HANGUL JONGSEONG PHIEUPH
-    - pattern: "ᆰ(?=[ -])"
-      result: "k" # HANGUL JONGSEONG RIEUL-KIYEOK
-    - pattern: "ᆲ(?=[ -])"
-      result: "p" # HANGUL JONGSEONG RIEUL-PIEUP
-
-    - pattern: "(ch|ch’|j|s|ss)y"
-      result: "\\1"
-
-    - pattern: "swi"
-      result: "shwi"
-
-    # Remove space added
-    - pattern: "^ "
-      result: ""
-    - pattern: " $"
-      result: ""
-
-  characters:
-  # This is based on Jamo
-
-  dictionary:
-  #

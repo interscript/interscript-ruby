@@ -37,147 +37,152 @@ tests {
   test "राजस्‍थान में फि‍र खींचतान, पायलट ने गहलोत को लिखा पत्र, याद दिलाया घोषणा-पत्र, कहा- नाखुश है गुर्जर समाज", "rājsthān mēṃ phir khīñctān, pāylṭ nē ghlōt kō likhā ptr, yād dilāyā ghōṣṇā-ptr, khā- nākhuś hai gurjr smāj"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
 
-  rules:
-    # note
-    - pattern: \u0902(?=[कखगघङ])
-      result: ṅ
-    - pattern: \u0902(?=[चछजझञ])
-      result: ñ
-    - pattern: \u0902(?=[टठडढण])
-      result: ṇ
-    - pattern: \u0902(?=[तथदधन])
-      result: n
-    - pattern: \u0902(?=[पफबभम])
-      result: m
+stage {
 
+  # RULES
+  # note
+  sub "\\u0902(?=[कखगघङ])", "ṅ"
+  sub "\\u0902(?=[चछजझञ])", "ñ"
+  sub "\\u0902(?=[टठडढण])", "ṇ"
+  sub "\\u0902(?=[तथदधन])", "n"
+  sub "\\u0902(?=[पफबभम])", "m"
+  
+  
 
-  characters:
-    'अ': 'a'
-    'आ': 'ā'
-    'इ': 'i'
-    'ई': 'ī'
-    'उ': 'u'
-    'ऊ': 'ū'
-    'ऋ': 'ṛ'
-    'ॠ': 'ṝ'
-    'ऌ': 'ḻ'
-    'ॡ': 'ḹ'
-
-    'ए': 'ē'
-    'ऐ': 'ai'
-    'ऍ': 'ê'
-
-    'ऒ': 'o'
-    'ओ': 'ŏ'
-    'औ': 'au'
-    'ऑ': 'ô'
-
+  # CHARACTERS
+  parallel {
+    sub "अ", "a"
+    sub "आ", "ā"
+    sub "इ", "i"
+    sub "ई", "ī"
+    sub "उ", "u"
+    sub "ऊ", "ū"
+    sub "ऋ", "ṛ"
+    sub "ॠ", "ṝ"
+    sub "ऌ", "ḻ"
+    sub "ॡ", "ḹ"
+    
+    sub "ए", "ē"
+    sub "ऐ", "ai"
+    sub "ऍ", "ê"
+    
+    sub "ऒ", "o"
+    sub "ओ", "ŏ"
+    sub "औ", "au"
+    sub "ऑ", "ô"
+    
     # II. Consonants (see Note 2)
     # Gutturals
-    'क': 'k'
-    'ख': 'kh'
-    'ग': 'g'
-    'घ': 'gh'
-    'ङ': 'ṅ'
-
+    sub "क", "k"
+    sub "ख", "kh"
+    sub "ग", "g"
+    sub "घ", "gh"
+    sub "ङ", "ṅ"
+    
     # Palatals
-    'च': 'c'
-    'छ': 'ch'
-    'ज': 'j'
-    'झ': 'jh'
-    'ञ': 'ñ'
-
+    sub "च", "c"
+    sub "छ", "ch"
+    sub "ज", "j"
+    sub "झ", "jh"
+    sub "ञ", "ñ"
+    
     # Cerebrals
-    'ट': 'ṭ'
-    'ठ': 'ṭh'
-    'ड': 'ḍ'
-    'ढ': 'ḍh'
-    'ण': 'ṇ'
-
+    sub "ट", "ṭ"
+    sub "ठ", "ṭh"
+    sub "ड", "ḍ"
+    sub "ढ", "ḍh"
+    sub "ण", "ṇ"
+    
     # Dentals
-    'त': 't'
-    'थ': 'th'
-    'द': 'd'
-    'ध': 'dh'
-    'न': 'n'
-    'ऩ': 'ṉ'
-
+    sub "त", "t"
+    sub "थ", "th"
+    sub "द", "d"
+    sub "ध", "dh"
+    sub "न", "n"
+    sub "ऩ", "ṉ"
+    
     # Labials
-    'प': 'p'
-    'फ': 'ph'
-    'ब': 'b'
-    'भ': 'bh'
-    'म': 'm'
-
+    sub "प", "p"
+    sub "फ", "ph"
+    sub "ब", "b"
+    sub "भ", "bh"
+    sub "म", "m"
+    
     # Semivowels
-    'य': 'y'
-    'य़': 'ẏ'
-    'र': 'r'
-    'ऱ': 'ṟ'
-    'ल': 'l'
-    'ळ': 'ḷ'
-    'ऴ': 'ẕ'
-
-
-    'व': 'v'
-
+    sub "य", "y"
+    sub "य़", "ẏ"
+    sub "र", "r"
+    sub "ऱ", "ṟ"
+    sub "ल", "l"
+    sub "ळ", "ḷ"
+    sub "ऴ", "ẕ"
+    
+    
+    sub "व", "v"
+    
     # Sibilants
-    'श': 'ś'
-    'ष': 'ṣ'
-    'स': 's'
-
-
+    sub "श", "ś"
+    sub "ष", "ṣ"
+    sub "स", "s"
+    
+    
     # Aspirate
-    'ह': 'h'
-
-
+    sub "ह", "h"
+    
+    
     #Nukta Constants
-
-    'क़': 'q'
-    'ख़': 'ḵẖ'
-    'ग़': 'gẖ'
-    'ज़': 'z'
-    'ड़': 'd̂'
-    'ढ़': 'd̂h'
-    'फ़': 'f'
-
+    
+    sub "क़", "q"
+    sub "ख़", "ḵẖ"
+    sub "ग़", "gẖ"
+    sub "ज़", "z"
+    sub "ड़", "d̂"
+    sub "ढ़", "d̂h"
+    sub "फ़", "f"
+    
     # Chandrabindu
-    'ँ': 'm'
-
+    sub "ँ", "m"
+    
     # Bisarga
-    'ः ': 'ḥ'
-
+    sub "ः ", "ḥ"
+    
     # Anusvāra
-    'ं': 'ṃ'
-
+    sub "ं", "ṃ"
+    
     # Medials # Needed for connecting constants
-    'ा': "ā"
-    'ि': "i"
-    'ी': "ī"
-    'ु': "u"
-    'ू': "ū"
-    'ृ': "ṛ"
+    sub "ा", "ā"
+    sub "ि", "i"
+    sub "ी", "ī"
+    sub "ु", "u"
+    sub "ू", "ū"
+    sub "ृ", "ṛ"
+    
+    
+    sub "ॆ", "e"
+    sub "े", "ē"
+    sub "ै", "ai"
+    sub "ॅ", "ê"
+    
+    
+    sub "ॊ", "o"
+    sub "ो", "ō"
+    sub "ौ", "au"
+    sub "ॉ", "ô"
+    sub "्", ""
+    sub "़", ""
+    sub "।", "."
+    sub "‍", "" # no need for zero with joiner
+  }
 
+}
 
-    'ॆ': "e"
-    'े': "ē"
-    'ै': "ai"
-    'ॅ': "ê"
-
-
-    'ॊ': 'o'
-    'ो': 'ō'
-    'ौ': 'au'
-    'ॉ': 'ô'
-    '्': ''
-    '़': ''
-    '।': '.'
-    "‍": '' # no need for zero with joiner

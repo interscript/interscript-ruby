@@ -65,138 +65,118 @@ tests {
   test "އައްޕައްޗި", "appacci"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
 
-  rules:
-    # note[1]
-    - pattern: (?<=)\u0781\u07b0(?=\b)
-      result: "ḫ"
-    # note[2]
-    - pattern: (?<!\b)\u0782\u07b0(?<!\b)  # medial position with sukun
-      result: "n"
-    - pattern: (?<!\b)\u0782(?<!\b)  # medial position without sukun
-      result: "ṁ"
-    # note[3(a)]
-    - pattern: \b(\u0787=?)(?=[\u07a6\u07a7\u07a8\u07a9\u07aa\u07ab\u07ac\u07ad\u07ae\u07af]) # initial position with any vowel sign
-      result:  ''
-    # note[3(c)]  a consonant follows އް in medial position
-    - pattern: (?<!\b)\u0787\u07b0(?=[ހ])
-      result: "h"
-    - pattern: (?<!\b)\u0787\u07b0(?=[ށ])
-      result: "ś"
-    - pattern: (?<!\b)\u0787\u07b0(?=[ނ])
-      result: "n"
-    - pattern: (?<!\b)\u0787\u07b0(?=[ރ])
-      result: "r"
-    - pattern: (?<!\b)\u0787\u07b0(?=[ބ])
-      result: "b"
-    - pattern: (?<!\b)\u0787\u07b0(?=[ޅ])
-      result: "ḷ"
-    - pattern: (?<!\b)\u0787\u07b0(?=[ކ])
-      result: "k"
-    - pattern: (?<!\b)\u0787\u07b0(?=[ވ])
-      result: "v"
-    - pattern: (?<!\b)\u0787\u07b0(?=[މ])
-      result: "m"
-    - pattern: (?<!\b)\u0787\u07b0(?=[ފ])
-      result: "f"
-    - pattern: (?<!\b)\u0787\u07b0(?=[ދ])
-      result: "d"
-    - pattern: (?<!\b)\u0787\u07b0(?=[ތ])
-      result: "t"
-    - pattern: (?<!\b)\u0787\u07b0(?=[ލ])
-      result: "l"
-    - pattern: (?<!\b)\u0787\u07b0(?=[ގ])
-      result: "g"
-    - pattern: (?<!\b)\u0787\u07b0(?=[ޏ])
-      result: "ñ"
-    - pattern: (?<!\b)\u0787\u07b0(?=[ސ])
-      result: "s"
-    - pattern: (?<!\b)\u0787\u07b0(?=[ޑ])
-      result: "ḍ"
-    - pattern: (?<!\b)\u0787\u07b0(?=[ޖ])
-      result: "j"
-    - pattern: (?<!\b)\u0787\u07b0(?=[ޗ])
-      result: "c"
-    - pattern: (?<!\b)\u0787\u07b0(?=[ޒ])
-      result: "z"
-    - pattern: (?<!\b)\u0787\u07b0(?=[ޓ])
-      result: "ṭ"
-    - pattern: (?<!\b)\u0787\u07b0(?=[ޕ])
-      result: "p"
-    - pattern: (?<!\b)\u0787\u07b0(?=[ޔ])
-      result: "y"
-    # note[3(d)]
-    - pattern: (?<!\b)\u0787\u07b0(?=\b) # final position with sukun
-      result:  'h'
-    # note[3(b)]
-    - pattern: (?<!\b)\u0787(?=[\u07a6\u07a7\u07a8\u07a9\u07aa\u07ab\u07ac\u07ad\u07ae\u07af]) # medial position with any vowel sign
-      result:  'ʼ'
-    # note[4]
-    - pattern: \u078c\u07b0\u078c
-      result:  't̤t'
+stage {
 
+  # RULES
+  # note[1]
+  sub "(?<=)\\u0781\\u07b0(?=\\b)", "ḫ"
+  # note[2]
+  sub "(?<!\\b)\\u0782\\u07b0(?<!\\b)", "n" # medial position with sukun
+  sub "(?<!\\b)\\u0782(?<!\\b)", "ṁ" # medial position without sukun
+  # note[3(a)]
+  sub "\\b(\\u0787=?)(?=[\\u07a6\\u07a7\\u07a8\\u07a9\\u07aa\\u07ab\\u07ac\\u07ad\\u07ae\\u07af])", "" # initial position with any vowel sign
+  # note[3(c)]  a consonant follows އް in medial position
+  sub "(?<!\\b)\\u0787\\u07b0(?=[ހ])", "h"
+  sub "(?<!\\b)\\u0787\\u07b0(?=[ށ])", "ś"
+  sub "(?<!\\b)\\u0787\\u07b0(?=[ނ])", "n"
+  sub "(?<!\\b)\\u0787\\u07b0(?=[ރ])", "r"
+  sub "(?<!\\b)\\u0787\\u07b0(?=[ބ])", "b"
+  sub "(?<!\\b)\\u0787\\u07b0(?=[ޅ])", "ḷ"
+  sub "(?<!\\b)\\u0787\\u07b0(?=[ކ])", "k"
+  sub "(?<!\\b)\\u0787\\u07b0(?=[ވ])", "v"
+  sub "(?<!\\b)\\u0787\\u07b0(?=[މ])", "m"
+  sub "(?<!\\b)\\u0787\\u07b0(?=[ފ])", "f"
+  sub "(?<!\\b)\\u0787\\u07b0(?=[ދ])", "d"
+  sub "(?<!\\b)\\u0787\\u07b0(?=[ތ])", "t"
+  sub "(?<!\\b)\\u0787\\u07b0(?=[ލ])", "l"
+  sub "(?<!\\b)\\u0787\\u07b0(?=[ގ])", "g"
+  sub "(?<!\\b)\\u0787\\u07b0(?=[ޏ])", "ñ"
+  sub "(?<!\\b)\\u0787\\u07b0(?=[ސ])", "s"
+  sub "(?<!\\b)\\u0787\\u07b0(?=[ޑ])", "ḍ"
+  sub "(?<!\\b)\\u0787\\u07b0(?=[ޖ])", "j"
+  sub "(?<!\\b)\\u0787\\u07b0(?=[ޗ])", "c"
+  sub "(?<!\\b)\\u0787\\u07b0(?=[ޒ])", "z"
+  sub "(?<!\\b)\\u0787\\u07b0(?=[ޓ])", "ṭ"
+  sub "(?<!\\b)\\u0787\\u07b0(?=[ޕ])", "p"
+  sub "(?<!\\b)\\u0787\\u07b0(?=[ޔ])", "y"
+  # note[3(d)]
+  sub "(?<!\\b)\\u0787\\u07b0(?=\\b)", "h" # final position with sukun
+  # note[3(b)]
+  sub "(?<!\\b)\\u0787(?=[\\u07a6\\u07a7\\u07a8\\u07a9\\u07aa\\u07ab\\u07ac\\u07ad\\u07ae\\u07af])", "ʼ" # medial position with any vowel sign
+  # note[4]
+  sub "\\u078c\\u07b0\\u078c", "t̤t"
+  
+  
 
-  characters:
-
-  # Vowels
-
-    "\u07a6" : "a"
-    "\u07a7" : "ā"
-    "\u07a8" : "i"
-    "\u07a9" : "ī"
-    "\u07aa" : "u"
-    "\u07ab" : "ū"
-    "\u07ac" : "e"
-    "\u07ad" : "ē"
-    "\u07ae" : "o"
-    "\u07af" : "ō"
-    "\u07B0" : "" # omit (see Note 6)
-
-
-   # Consonants
-    "ހ": "h"
-    "ށ": "ś" # or ḫ (see Note 1)
-    "ނ": "n" # see Note 2
-    "ރ": "r"
-    "ބ": "b"
-    "ޅ": "ḷ"
-    "ކ": "k"
-    "އ": "" # ʼ or h or omit (see Note 3)
-    "ވ": "v"
-    "މ": "m"
-    "ފ": "f"
-    "ދ": "d"
-    "ތ": "t" # see Note 4
-    "ލ": "l"
-    "ގ": "g"
-    "ޏ": "ñ"
-    "ސ": "s"
-    "ޑ": "ḍ"
-    "ޖ": "j"
-    "ޗ": "c"
-    "ޒ": "z"
-    "ޓ": "ṭ"
-    "ޕ": "p"
-    "ޔ": "y"
-
+  # CHARACTERS
+  parallel {
+    
+    # Vowels
+    
+    sub "ަ", "a"
+    sub "ާ", "ā"
+    sub "ި", "i"
+    sub "ީ", "ī"
+    sub "ު", "u"
+    sub "ޫ", "ū"
+    sub "ެ", "e"
+    sub "ޭ", "ē"
+    sub "ޮ", "o"
+    sub "ޯ", "ō"
+    sub "ް", "" # omit (see Note 6)
+    
+    
+    # Consonants
+    sub "ހ", "h"
+    sub "ށ", "ś" # or ḫ (see Note 1)
+    sub "ނ", "n" # see Note 2
+    sub "ރ", "r"
+    sub "ބ", "b"
+    sub "ޅ", "ḷ"
+    sub "ކ", "k"
+    sub "އ", "" # ʼ or h or omit (see Note 3)
+    sub "ވ", "v"
+    sub "މ", "m"
+    sub "ފ", "f"
+    sub "ދ", "d"
+    sub "ތ", "t" # see Note 4
+    sub "ލ", "l"
+    sub "ގ", "g"
+    sub "ޏ", "ñ"
+    sub "ސ", "s"
+    sub "ޑ", "ḍ"
+    sub "ޖ", "j"
+    sub "ޗ", "c"
+    sub "ޒ", "z"
+    sub "ޓ", "ṭ"
+    sub "ޕ", "p"
+    sub "ޔ", "y"
+    
     # Divehi Equivalents to Represent Arabic Letters
+    
+    sub "ޘ", "th"
+    sub "ޙ", "ḥ"
+    sub "ޚ", "kh"
+    sub "ޛ", "dh"
+    sub "ޝ", "sh"
+    sub "ޞ", "ṣ"
+    sub "ޟ", "ḏ"
+    sub "ޠ", "t̤"
+    sub "ޡ", "ẓ"
+    sub "ޢ", "ʻ"
+    sub "ޣ", "gh"
+    sub "ޤ", "q"
+  }
 
-    "ޘ": "th"
-    "ޙ": "ḥ"
-    "ޚ": "kh"
-    "ޛ": "dh"
-    "ޝ": "sh"
-    "ޞ": "ṣ"
-    "ޟ": "ḏ"
-    "ޠ": "t̤"
-    "ޡ": "ẓ"
-    "ޢ": "ʻ"
-    "ޣ": "gh"
-    "ޤ": "q"
+}
+

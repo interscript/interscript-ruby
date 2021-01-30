@@ -78,136 +78,142 @@ tests {
   test "गौरीटारस्थित रंगशाला", "gaurīṭārsathit rṅgshālā"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
 
-  rules:
-    # note[5]
-    - pattern: \u0902(?=[कखगघ])    # ं  before क, ख, ग, and घ
-      result: ṅ
-    - pattern: \u0902(?=[चछजझ])    # ं  before च, छ, ज, and झ
-      result: ñ
-    - pattern: \u0902(?=[टठडढ])    # ं  before ट, ठ, ड, and ढ
-      result: ṇ
-    - pattern: \u0902(?=[तथदध])    # ं  before त, थ, द, and ध
-      result: n
+stage {
 
-  characters:
+  # RULES
+  # note[5]
+  sub "\\u0902(?=[कखगघ])", "ṅ" # ं  before क, ख, ग, and घ
+  sub "\\u0902(?=[चछजझ])", "ñ" # ं  before च, छ, ज, and झ
+  sub "\\u0902(?=[टठडढ])", "ṇ" # ं  before ट, ठ, ड, and ढ
+  sub "\\u0902(?=[तथदध])", "n" # ं  before त, थ, द, and ध
+  
 
+  # CHARACTERS
+  parallel {
+    
     # Vowels and Diphthongs
-
-    'अ': 'a'
-    'आ': 'ā'
-    'इ': 'i'
-    'ई': 'ī'
-    'उ': 'u'
-    'ऊ': 'ū'
-    'ऋ': 'ṛi'
-    'ॠ': 'rī'
-    'ए': 'e'
-    'ऐ': 'ai'
-    'ओ': 'o'
-    'औ': 'au'
-
+    
+    sub "अ", "a"
+    sub "आ", "ā"
+    sub "इ", "i"
+    sub "ई", "ī"
+    sub "उ", "u"
+    sub "ऊ", "ū"
+    sub "ऋ", "ṛi"
+    sub "ॠ", "rī"
+    sub "ए", "e"
+    sub "ऐ", "ai"
+    sub "ओ", "o"
+    sub "औ", "au"
+    
     # Medials # Needed for connecting constants
-
-    'ा': "ā"
-    'ि': "i"
-    'ी': "ī"
-    'ु': "u"
-    'ू': "ū"
-    'ृ': "ṛi"
-    'ॄ': "rī"
-    'े': "e"
-    'ै': "ai"
-    'ो': "o"
-    'ौ': "au"
-
-
+    
+    sub "ा", "ā"
+    sub "ि", "i"
+    sub "ी", "ī"
+    sub "ु", "u"
+    sub "ू", "ū"
+    sub "ृ", "ṛi"
+    sub "ॄ", "rī"
+    sub "े", "e"
+    sub "ै", "ai"
+    sub "ो", "o"
+    sub "ौ", "au"
+    
+    
     # Consonants (see Note 1)
-
+    
     # Gutturals
-    'क': 'k'
-    'ख': 'kh'
-    'ग': 'g'
-    'घ': 'gh'
-    'ङ': 'ṅ'
-
+    sub "क", "k"
+    sub "ख", "kh"
+    sub "ग", "g"
+    sub "घ", "gh"
+    sub "ङ", "ṅ"
+    
     # Palatals
-    'च': 'ch'
-    'छ': 'chh'
-    'ज': 'j'
-    'झ': 'jh'
-    'ञ': 'ñ'
-
+    sub "च", "ch"
+    sub "छ", "chh"
+    sub "ज", "j"
+    sub "झ", "jh"
+    sub "ञ", "ñ"
+    
     # Cerebrals
-    'ट': 'ṭ'
-    'ठ': 'ṭh'
-    'ड': 'ḍ'
-    'ढ': 'ḍh'
-    'ण': 'ṇ'
-
+    sub "ट", "ṭ"
+    sub "ठ", "ṭh"
+    sub "ड", "ḍ"
+    sub "ढ", "ḍh"
+    sub "ण", "ṇ"
+    
     # Dentals
-    'त': 't'
-    'थ': 'th'
-    'द': 'd'
-    'ध': 'dh'
-    'न': 'n'
-
+    sub "त", "t"
+    sub "थ", "th"
+    sub "द", "d"
+    sub "ध", "dh"
+    sub "न", "n"
+    
     # Labials
-    'प': 'p'
-    'फ': 'ph'
-    'ब': 'b'
-    'भ': 'bh'
-    'म': 'm'
-
+    sub "प", "p"
+    sub "फ", "ph"
+    sub "ब", "b"
+    sub "भ", "bh"
+    sub "म", "m"
+    
     # Semivowels
-    'य': 'y'
-    'र': 'r'
-    'ल': 'l'
-    'व': 'v' # or wa [Note#3]
-
+    sub "य", "y"
+    sub "र", "r"
+    sub "ल", "l"
+    sub "व", "v" # or wa [Note#3]
+    
     # Sibilants
-    'श': 'sh'
-    'ष': 'ṣ'
-    'स': 's'
-    'क्ष': 'kṣ'
-    'त्र': 'tr'
-    'ज्ञ' : 'jñ'
-
+    sub "श", "sh"
+    sub "ष", "ṣ"
+    sub "स", "s"
+    sub "क्ष", "kṣ"
+    sub "त्र", "tr"
+    sub "ज्ञ", "jñ"
+    
     # Aspirate
-    'ह': 'h'
-
+    sub "ह", "h"
+    
     # Anusvāra
-    'ं': 'ṃ'
-
+    sub "ं", "ṃ"
+    
     # Bisarga
-    'ः': 'ḥ'
-
+    sub "ः", "ḥ"
+    
     # Anunāsika
-    'ँ': '~'
-
-    'ॅ': 'r'
-
+    sub "ँ", "~"
+    
+    sub "ॅ", "r"
+    
     # halanta
-    '्': 'a'
-
+    sub "्", "a"
+    
     # Abagraha
-    'ऽ': '’' # (apostrophe)
-
+    sub "ऽ", "’" # (apostrophe)
+    
     # Numerals / सङ्ख्या
-    '०': '0'
-    '१': '1'
-    '२': '2'
-    '३': '3'
-    '४': '4'
-    '५': '5'
-    '६': '6'
-    '७': '7'
-    '८': '8'
-    '९': '9'
+    sub "०", "0"
+    sub "१", "1"
+    sub "२", "2"
+    sub "३", "3"
+    sub "४", "4"
+    sub "५", "5"
+    sub "६", "6"
+    sub "७", "7"
+    sub "८", "8"
+    sub "९", "9"
+  }
+
+}
+

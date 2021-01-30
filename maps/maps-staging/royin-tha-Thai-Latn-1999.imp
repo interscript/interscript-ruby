@@ -32,37 +32,47 @@ tests {
   test "โรงเรียนไม้เรียงประชาสรรค์", "rongrianmairiangprachasan"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  title-case: false
-  word_separator: " "
-  transcription: "sequitur.pythainlp_lexicon"
 
-  rules:
+stage {
 
-  postrules:
-    - pattern: 'chh'
-      result: 'ch'
+  # RULES
+  
 
-  characters:
-    '[0-9]': ''
+  # POSTRULES
+  sub "chh", "ch"
+  
 
-  dictionary:
-    'ʰ': 'h'
-    'c': 'ch'
-    'ː': ''
-    'ŋ': 'ng'
-    'j': 'i'
-    'w': 'o'
-    'ɔ': 'o'
-    'ɤ': 'oe'
-    'ɛ': 'ae'
-    'ɯ': 'ue'
-    'ʔ' : ''
-    't͡ɕ': 'c'
-    '.' : ''
+  # CHARACTERS
+  parallel {
+    sub "[0-9]", ""
+    
+  }
+
+  # DICTIONARY
+  parallel {
+    sub "ʰ", "h"
+    sub "c", "ch"
+    sub "ː", ""
+    sub "ŋ", "ng"
+    sub "j", "i"
+    sub "w", "o"
+    sub "ɔ", "o"
+    sub "ɤ", "oe"
+    sub "ɛ", "ae"
+    sub "ɯ", "ue"
+    sub "ʔ", ""
+    sub "t͡ɕ", "c"
+    sub ".", ""
+  }
+
+}
+

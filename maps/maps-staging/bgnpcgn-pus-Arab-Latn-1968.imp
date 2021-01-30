@@ -225,75 +225,73 @@ tests {
   test "جَبَل السَرَاج", "Jabal us Sarāj"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  inherit: bgnpcgn-prs-Arab-Latn-2007
-  postrules:
-    - pattern: (?<=\b)(?<!\b[‘|’|'|-])[\u0061-\uFFFF]
-      result: "upcase"
-    # don't capitalize defined article in the middle of a sentence
-    - pattern : ' Ut T'  # الت
-      result: ' ut T'
-    - pattern : ' Us̄ S̄'  # الث
-      result: ' us̄ S̄'
-    - pattern : ' Ud D' # الد
-      result: ' ud D'
-    - pattern : ' Uz̄ Z̄'  # الذ
-      result: ' uz̄ Z̄'
-    - pattern : ' Ur R' # الر
-      result: ' ur R'
-    - pattern : ' Uz Z'  # الز
-      result: ' uz Z'
-    - pattern : ' Us S' # الس
-      result: ' us S'
-    - pattern : ' Ush Sh' # الش
-      result: ' ush Sh'
-    - pattern : ' Uş Ş'  # الص
-      result: ' uş Ş'
-    - pattern : ' Uẕ Ẕ'  # الض
-      result: ' uẕ Ẕ'
-    - pattern : ' Uţ Ţ'  # الط
-      result: ' uţ Ţ'
-    - pattern : ' Uz̧ Z̧' # الظ
-      result: ' uz̧ Z̧'
-    - pattern : ' Ul L'  # الل
-      result: ' ul L'
-    - pattern : ' Un n'  # الن
-      result: ' un N'
-  characters:
+dependency "bgnpcgn-prs-Arab-Latn-2007", as: arablatn
 
-    '\u0650': 'i' # ِ kasra
-    '\u064f': 'u' # ُ damma
+stage {
 
-    '\u0650\b' : '-e' # ِ kasra
+  run map.arablatn.stage.main
 
-    '\s\u0627\u0644\u0644\u0651\u064e\u0647' : 'ullāh' # Note5
-    '\s\u062E\u0648\u0627' : 'khwā' # Note5
-    '\s\u0634\u064E\u0647\u0631' : 'shahr' # Note5
-    '\s\u0632\u0627\u062F\u0629' : 'zādah' # Note5
-    '\s\u0632\u064E\u064a' : 'zay' # Note5
-    '\u0652' : ''  # ْ sokoon
-    '\u0659': 'ê'
+  # POSTRULES
+  sub "(?<=\\b)(?<!\\b[‘|’|'|-])[\\u0061-\\uFFFF]", "upcase"
+  # don't capitalize defined article in the middle of a sentence
+  sub " Ut T", " ut T" # الت
+  sub " Us̄ S̄", " us̄ S̄" # الث
+  sub " Ud D", " ud D" # الد
+  sub " Uz̄ Z̄", " uz̄ Z̄" # الذ
+  sub " Ur R", " ur R" # الر
+  sub " Uz Z", " uz Z" # الز
+  sub " Us S", " us S" # الس
+  sub " Ush Sh", " ush Sh" # الش
+  sub " Uş Ş", " uş Ş" # الص
+  sub " Uẕ Ẕ", " uẕ Ẕ" # الض
+  sub " Uţ Ţ", " uţ Ţ" # الط
+  sub " Uz̧ Z̧", " uz̧ Z̧" # الظ
+  sub " Ul L", " ul L" # الل
+  sub " Un n", " un N" # الن
 
+  # CHARACTERS
+  parallel {
+    
+    sub "\u0650", "i" # ِ kasra
+    sub "\u064f", "u" # ُ damma
+    
+    sub "\u0650\\b", "-e" # ِ kasra
+    
+    sub "\\s\u0627\u0644\u0644\u0651\u064e\u0647", "ullāh" # Note5
+    sub "\\s\u062E\u0648\u0627", "khwā" # Note5
+    sub "\\s\u0634\u064E\u0647\u0631", "shahr" # Note5
+    sub "\\s\u0632\u0627\u062F\u0629", "zādah" # Note5
+    sub "\\s\u0632\u064E\u064a", "zay" # Note5
+    sub "\u0652", "" # ْ sokoon
+    sub "\u0659", "ê"
+    
     # Sun letters
-    '\b\u0627\u0644\u062a' : 'ut t'  # الت
-    '\b\u0627\u0644\u062b' : 'us̄ s̄'  # الث
-    '\b\u0627\u0644\u062f' : 'ud d' # الد
-    '\b\u0627\u0644\u0630' : 'uz̄ z̄'  # الذ
-    '\b\u0627\u0644\u0631' : 'ur r' # الر
-    '\b\u0627\u0644\u0632' : 'uz z'  # الز
-    '\b\u0627\u0644\u0633' : 'us s' # الس
-    '\b\u0627\u0644\u0634' : 'ush sh' # الش
-    '\b\u0627\u0644\u0635' : 'uş ş'  # الص
-    '\b\u0627\u0644\u0636' : 'uẕ ẕ'  # الض
-    '\b\u0627\u0644\u0637' : 'uţ ţ'  # الط
-    '\b\u0627\u0644\u0638' : 'uz̧ z̧' # الظ
-    '\b\u0627\u0644\u0644' : 'ul l'  # الل
-    '\b\u0627\u0644\u0646' : 'un n'  # الن
+    sub "\\b\u0627\u0644\u062a", "ut t" # الت
+    sub "\\b\u0627\u0644\u062b", "us̄ s̄" # الث
+    sub "\\b\u0627\u0644\u062f", "ud d" # الد
+    sub "\\b\u0627\u0644\u0630", "uz̄ z̄" # الذ
+    sub "\\b\u0627\u0644\u0631", "ur r" # الر
+    sub "\\b\u0627\u0644\u0632", "uz z" # الز
+    sub "\\b\u0627\u0644\u0633", "us s" # الس
+    sub "\\b\u0627\u0644\u0634", "ush sh" # الش
+    sub "\\b\u0627\u0644\u0635", "uş ş" # الص
+    sub "\\b\u0627\u0644\u0636", "uẕ ẕ" # الض
+    sub "\\b\u0627\u0644\u0637", "uţ ţ" # الط
+    sub "\\b\u0627\u0644\u0638", "uz̧ z̧" # الظ
+    sub "\\b\u0627\u0644\u0644", "ul l" # الل
+    sub "\\b\u0627\u0644\u0646", "un n" # الن
+    
+    sub "\u0626", "êy" # ئ
+  }
 
-    '\u0626': 'êy' # ئ
+}
+

@@ -61,189 +61,191 @@ tests {
   test "ਸੜਕ ਹਾਦਸੇ ਦੌਰਾਨ ਇਕ ਦੀ ਮੌਤ", "saṛaka haādasae daauraāna ika daī maauta"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
 
-  rules:
-    # note[4]
-    - pattern: \u0A02(?=[ਕਖਖ਼ਗਗ਼ਘਙ])    # ਂ  before gutturals
-      result: ṅ
-    - pattern: \u0A02(?=[ਚਛਜਜ਼ਝਞ])    # ਂ   before palatals
-      result: ñ
-    - pattern: \u0A02(?=[ਟਠਡਢਣ])    # ਂ   before cerebrals
-      result: ṇ
-    - pattern: \u0A02(?=[ਤਥਦਧਨ])    # ਂ   before dentals
-      result: n
+stage {
 
-    # note[5]
-    - pattern: \u0A70(?=[ਕਖਖ਼ਗਗ਼ਘਙ])    # ੰ  before gutturals
-      result: ṅ
-    - pattern: \u0A70(?=[ਚਛਜਜ਼ਝਞ])    # ੰ  before palatals
-      result: ñ
-    - pattern: \u0A70(?=[ਟਠਡਢਣ])    # ੰ  before cerebrals
-      result: ṇ
-    - pattern: \u0A70(?=[ਤਥਦਧਨ])    # ੰ  before dentals
-      result: n
+  # RULES
+  # note[4]
+  sub "\\u0A02(?=[ਕਖਖ਼ਗਗ਼ਘਙ])", "ṅ" # ਂ  before gutturals
+  sub "\\u0A02(?=[ਚਛਜਜ਼ਝਞ])", "ñ" # ਂ   before palatals
+  sub "\\u0A02(?=[ਟਠਡਢਣ])", "ṇ" # ਂ   before cerebrals
+  sub "\\u0A02(?=[ਤਥਦਧਨ])", "n" # ਂ   before dentals
+  
+  # note[5]
+  sub "\\u0A70(?=[ਕਖਖ਼ਗਗ਼ਘਙ])", "ṅ" # ੰ  before gutturals
+  sub "\\u0A70(?=[ਚਛਜਜ਼ਝਞ])", "ñ" # ੰ  before palatals
+  sub "\\u0A70(?=[ਟਠਡਢਣ])", "ṇ" # ੰ  before cerebrals
+  sub "\\u0A70(?=[ਤਥਦਧਨ])", "n" # ੰ  before dentals
+  
 
-  characters:
-
+  # CHARACTERS
+  parallel {
+    
     # I. Vowels and Diphthongs (see Note 1)
-
-    'ਅ': 'a'
-    'ਆ': 'ā'
-    'ਇ': 'i'
-    'ਈ': 'ī'
-    'ਉ': 'u'
-    'ਊ': 'ū'
-    'ਏ': 'e'
-    'ਐ': 'ai'
-    'ਓ': 'o'
-    'ਔ': 'au'
-
+    
+    sub "ਅ", "a"
+    sub "ਆ", "ā"
+    sub "ਇ", "i"
+    sub "ਈ", "ī"
+    sub "ਉ", "u"
+    sub "ਊ", "ū"
+    sub "ਏ", "e"
+    sub "ਐ", "ai"
+    sub "ਓ", "o"
+    sub "ਔ", "au"
+    
     # II. Consonants (see Note 2)
     # Gutturals
-    'ਕ': 'ka'
-    'ਖ': 'kha'
-    'ਖ਼': 'kha'
-    'ਗ': 'ga'
-    'ਗ਼': 'gha'
-    'ਘ': 'gha'
-    'ਙ': 'ṅa'
-
+    sub "ਕ", "ka"
+    sub "ਖ", "kha"
+    sub "ਖ਼", "kha"
+    sub "ਗ", "ga"
+    sub "ਗ਼", "gha"
+    sub "ਘ", "gha"
+    sub "ਙ", "ṅa"
+    
     # Palatals
-    'ਚ': 'ca'
-    'ਛ': 'cha'
-    'ਜ਼': 'za'
-    'ਜ': 'ja'
-    'ਝ': 'jha'
-    'ਞ': 'ña'
-
+    sub "ਚ", "ca"
+    sub "ਛ", "cha"
+    sub "ਜ਼", "za"
+    sub "ਜ", "ja"
+    sub "ਝ", "jha"
+    sub "ਞ", "ña"
+    
     # Cerebrals
-    'ਟ': 'ṭa'
-    'ਠ': 'ṭha'
-    'ਡ': 'ḍa'
-    'ਢ': 'ḍha'
-    'ਣ': 'ṇa'
-
+    sub "ਟ", "ṭa"
+    sub "ਠ", "ṭha"
+    sub "ਡ", "ḍa"
+    sub "ਢ", "ḍha"
+    sub "ਣ", "ṇa"
+    
     # Dentals
-    'ਤ': 'ta'
-    'ਥ': 'tha'
-    'ਦ': 'da'
-    'ਧ': 'dha'
-    'ਨ': 'na'
-
+    sub "ਤ", "ta"
+    sub "ਥ", "tha"
+    sub "ਦ", "da"
+    sub "ਧ", "dha"
+    sub "ਨ", "na"
+    
     # Labials
-    'ਪ': 'pa'
-    'ਫ': 'pha'
-    'ਫ਼': 'fa'
-    'ਬ': 'ba'
-    'ਭ': 'bha'
-    'ਮ': 'ma'
-
+    sub "ਪ", "pa"
+    sub "ਫ", "pha"
+    sub "ਫ਼", "fa"
+    sub "ਬ", "ba"
+    sub "ਭ", "bha"
+    sub "ਮ", "ma"
+    
     # Semivowels
-    'ਯ': 'ya'
-    'ਰ': 'ra'
-    'ਲ': 'la'
-    'ਲੵ': 'ḷa'
-    'ਲ਼': 'ḷa'
-    'ਵ': 'wa'
-    'ੜ': 'ṛa'
-
+    sub "ਯ", "ya"
+    sub "ਰ", "ra"
+    sub "ਲ", "la"
+    sub "ਲੵ", "ḷa"
+    sub "ਲ਼", "ḷa"
+    sub "ਵ", "wa"
+    sub "ੜ", "ṛa"
+    
     # Sibilants
-    'ਸ': 'sa'
-    'ਸ਼': 'sha'
-
+    sub "ਸ", "sa"
+    sub "ਸ਼", "sha"
+    
     # Aspirate
-    'ਹ': 'ha'
-
+    sub "ਹ", "ha"
+    
     # Bindī (see Note 4)
-    'ਂ': 'ṃ'
-
+    sub "ਂ", "ṃ"
+    
     # Ṭippī (see Note 5)
-    'ੰ': 'm̆̐'
-
+    sub "ੰ", "m̆̐"
+    
     # Medials # Needed for connecting constants
-    'ਾ': "ā"
-    'ਿ': "i"
-    'ੀ': "ī"
-    'ੁ': "u"
-    'ੂ': "ū"
-    'ੇ': "e"
-    'ੈ': "ai"
-    'ੋ': "o"
-    'ੌ': "au"
-
+    sub "ਾ", "ā"
+    sub "ਿ", "i"
+    sub "ੀ", "ī"
+    sub "ੁ", "u"
+    sub "ੂ", "ū"
+    sub "ੇ", "e"
+    sub "ੈ", "ai"
+    sub "ੋ", "o"
+    sub "ੌ", "au"
+    
     # For adhik character[Note 6]
-
+    
     # Gutturals
-    'ੱਕ': 'kka'
-    'ੱਖ': 'kkha'
-    'ੱਖ਼': 'kkha'
-    'ੱਗ': 'gga'
-    'ੱਗ਼': 'ggha'
-    'ੱਘ': 'ggha'
-    'ੱਙ': 'ṅṅa'
-
+    sub "ੱਕ", "kka"
+    sub "ੱਖ", "kkha"
+    sub "ੱਖ਼", "kkha"
+    sub "ੱਗ", "gga"
+    sub "ੱਗ਼", "ggha"
+    sub "ੱਘ", "ggha"
+    sub "ੱਙ", "ṅṅa"
+    
     # Palatals
-    'ੱਚ': 'cca'
-    'ੱਛ': 'ccha'
-    'ੱਜ': 'jja'
-    'ੱਜ਼': 'zza'
-    'ੱਝ': 'jjha'
-    'ੱਞ': 'ñña'
-
+    sub "ੱਚ", "cca"
+    sub "ੱਛ", "ccha"
+    sub "ੱਜ", "jja"
+    sub "ੱਜ਼", "zza"
+    sub "ੱਝ", "jjha"
+    sub "ੱਞ", "ñña"
+    
     # Cerebrals
-    'ੱਟ': 'ṭṭa'
-    'ੱਠ': 'ṭṭha'
-    'ੱਡ': 'ḍḍa'
-    'ੱਢ': 'ḍḍha'
-    'ੱਣ': 'ṇṇa'
-
+    sub "ੱਟ", "ṭṭa"
+    sub "ੱਠ", "ṭṭha"
+    sub "ੱਡ", "ḍḍa"
+    sub "ੱਢ", "ḍḍha"
+    sub "ੱਣ", "ṇṇa"
+    
     # Dentals
-    'ੱਤ': 'tta'
-    'ੱਥ': 'ttha'
-    'ੱਦ': 'dda'
-    'ੱਧ': 'ddha'
-    'ੱਨ': 'nna'
-
+    sub "ੱਤ", "tta"
+    sub "ੱਥ", "ttha"
+    sub "ੱਦ", "dda"
+    sub "ੱਧ", "ddha"
+    sub "ੱਨ", "nna"
+    
     # Labials
-    'ੱਪ': 'ppa'
-    'ੱਫ': 'ppha'
-    'ੱਫ਼': 'ffa'
-    'ੱਬ': 'bba'
-    'ੱਭ': 'bbha'
-    'ੱਮ': 'mma'
-
+    sub "ੱਪ", "ppa"
+    sub "ੱਫ", "ppha"
+    sub "ੱਫ਼", "ffa"
+    sub "ੱਬ", "bba"
+    sub "ੱਭ", "bbha"
+    sub "ੱਮ", "mma"
+    
     # Semivowels
-    'ੱਯ': 'yya'
-    'ੱਰ': 'rra'
-    'ੱਲ': 'lla'
-    'ੱਲੵ': 'ḷḷa'
-    'ੱਵ': 'wwa'
-    'ੱੜ': 'ṛṛa'
-
+    sub "ੱਯ", "yya"
+    sub "ੱਰ", "rra"
+    sub "ੱਲ", "lla"
+    sub "ੱਲੵ", "ḷḷa"
+    sub "ੱਵ", "wwa"
+    sub "ੱੜ", "ṛṛa"
+    
     # Sibilants
-    'ੱਸ': 'ssa'
-    'ੱਸ਼': 'ssha'
-
+    sub "ੱਸ", "ssa"
+    sub "ੱਸ਼", "ssha"
+    
     # Aspirate
-    'ੱਹ': 'hha'
-
-
+    sub "ੱਹ", "hha"
+    
+    
     # digits
+    
+    sub "੦", "0"
+    sub "੧", "1"
+    sub "੨", "2"
+    sub "੩", "3"
+    sub "੪", "4"
+    sub "੫", "5"
+    sub "੬", "6"
+    sub "੭", "7"
+    sub "੮", "8"
+    sub "੯", "9"
+  }
 
-    '੦': '0'
-    '੧': '1'
-    '੨': '2'
-    '੩': '3'
-    '੪': '4'
-    '੫': '5'
-    '੬': '6'
-    '੭': '7'
-    '੮': '8'
-    '੯': '9'
+}
+

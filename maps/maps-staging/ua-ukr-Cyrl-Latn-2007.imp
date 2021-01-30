@@ -25,48 +25,54 @@ tests {
   test "ЄНАКІЄВЕ", "YENAKIIEVE"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  inherit: ua-ukr-Cyrl-Latn-1996
+dependency "ua-ukr-Cyrl-Latn-1996", as: cyrllatn
 
-  rules:
-    # override parent rules
-    - pattern: \u0027
-      result: ""
-    - pattern: \u2019
-      result: ""
-    - pattern: (?<=[З])\u0413 # Г after З or з
-      result: GH
-    - pattern: \b\u0404 # Є in initial position -> YE
-      result: YE
-    - pattern: \b\u0407 # Ї in initial position -> I
-      result: I
-    - pattern: \b\u042e # Ю in initial position -> YU
-      result: YU
-    - pattern: \b\u042f # Я in initial position -> YA
-      result: YA
 
-  characters:
-    "\u0413": 'G'    # Г
-    "\u0404": 'IE'   # Є
-    "\u0416": 'ZH'   # Ж
-    "\u0425": 'KH'   # Х
-    "\u0426": 'TS'   # Ц
-    "\u0427": 'CH'   # Ч
-    "\u0428": 'SH'   # Ш
-    "\u0429": 'SHCH' # Щ
-    "\u042e": 'IU'   # Ю
-    "\u042f": 'IA'   # Я
-    "\u042c": ''     # Ь ->
-    "\u0433": 'g'    # г
-    "\u0449": 'shch' # щ
-    "\u044e": 'iu'   # ю
-    "\u044f": 'ia'   # я
-    "\u044c": ''     # ь ->
-    "\u0027": ''     # ' ->
-    "\u2019": ''     # ’ ->
+stage {
+
+  run map.cyrllatn.stage.main
+
+  # RULES
+  # override parent rules
+  sub "\\u0027", ""
+  sub "\\u2019", ""
+  sub "(?<=[З])\\u0413", "GH" # Г after З or з
+  sub "\\b\\u0404", "YE" # Є in initial position -> YE
+  sub "\\b\\u0407", "I" # Ї in initial position -> I
+  sub "\\b\\u042e", "YU" # Ю in initial position -> YU
+  sub "\\b\\u042f", "YA" # Я in initial position -> YA
+  
+
+  # CHARACTERS
+  parallel {
+    sub "Г", "G" # Г
+    sub "Є", "IE" # Є
+    sub "Ж", "ZH" # Ж
+    sub "Х", "KH" # Х
+    sub "Ц", "TS" # Ц
+    sub "Ч", "CH" # Ч
+    sub "Ш", "SH" # Ш
+    sub "Щ", "SHCH" # Щ
+    sub "Ю", "IU" # Ю
+    sub "Я", "IA" # Я
+    sub "Ь", "" # Ь ->
+    sub "г", "g" # г
+    sub "щ", "shch" # щ
+    sub "ю", "iu" # ю
+    sub "я", "ia" # я
+    sub "ь", "" # ь ->
+    sub "'", "" # ' ->
+    sub "’", "" # ’ ->
+  }
+
+}
+

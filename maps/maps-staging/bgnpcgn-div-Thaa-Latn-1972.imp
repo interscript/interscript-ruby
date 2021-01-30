@@ -30,63 +30,69 @@ tests {
   test "ނޔ", "n·y"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  rules:
-    # rule 3
-    - pattern: \u0787(?!=[\u07a6\u07a7\u07a8\u07a9\u07aa\u07ab\u07ac\u07ad\u07ae\u07af\u07B0])
-      result: "’"
-    # rule 4
-    - pattern: \u0782(?=[\u0784\u078b\u0791\u078e])
-      result: "ň"
+stage {
 
-    # rule 5
-    - pattern: \u0790(?=[\u0780])
-      result: "s·" #raised dot unicode U+2E33
-    - pattern: \u0782(?=[\u0794])
-      result: "n·" #raised dot unicode U+2E33
+  # RULES
+  # rule 3
+  sub "\\u0787(?!=[\\u07a6\\u07a7\\u07a8\\u07a9\\u07aa\\u07ab\\u07ac\\u07ad\\u07ae\\u07af\\u07B0])", "’"
+  # rule 4
+  sub "\\u0782(?=[\\u0784\\u078b\\u0791\\u078e])", "ň"
+  
+  # rule 5
+  sub "\\u0790(?=[\\u0780])", "s·" #raised dot unicode U+2E33
+  sub "\\u0782(?=[\\u0794])", "n·" #raised dot unicode U+2E33
+  
 
-  characters:
+  # CHARACTERS
+  parallel {
     # Vowels
-    "\u07a6": "a"
-    "\u07a7": "ā"
-    "\u07ac": "e"
-    "\u07ad": "ē"
-    "\u07a8": "i"
-    "\u07a9": "ī"
-    "\u07aa": "u"
-    "\u07ab": "ū"
-    "\u07ae": "o"
-    "\u07af": "ō"
-    "\u07B0": "" # omitted
+    sub "ަ", "a"
+    sub "ާ", "ā"
+    sub "ެ", "e"
+    sub "ޭ", "ē"
+    sub "ި", "i"
+    sub "ީ", "ī"
+    sub "ު", "u"
+    sub "ޫ", "ū"
+    sub "ޮ", "o"
+    sub "ޯ", "ō"
+    sub "ް", "" # omitted
+    
+    sub "ހ", "h"
+    sub "ށ", "sh"
+    sub "ނ", "n"
+    sub "ރ", "r"
+    sub "ބ", "b"
+    sub "ޅ", "l̦"
+    sub "ކ", "k"
+    sub "އ", ""
+    sub "ވ", "v"
+    sub "މ", "m"
+    sub "ފ", "f"
+    sub "ދ", "d"
+    sub "ތ", "t"
+    sub "ލ", "l"
+    sub "ގ", "g"
+    sub "ޏ", "ny"
+    sub "ސ", "s"
+    sub "ޝ", "sh"
+    sub "ޑ", "d̦"
+    sub "ޒ", "z"
+    sub "ޓ", "ț"
+    sub "ޔ", "y"
+    sub "ޕ", "p"
+    sub "ޖ", "j"
+    sub "ޗ", "ch"
+  }
 
-    "ހ": "h"
-    "ށ": "sh"
-    "ނ": "n"
-    "ރ": "r"
-    "ބ": "b"
-    "ޅ": "l̦"
-    "ކ": "k"
-    "އ": ""
-    "ވ": "v"
-    "މ": "m"
-    "ފ": "f"
-    "ދ": "d"
-    "ތ": "t"
-    "ލ": "l"
-    "ގ": "g"
-    "ޏ": "ny"
-    "ސ": "s"
-    "ޝ": "sh"
-    "ޑ": "d̦"
-    "ޒ": "z"
-    "ޓ": "ț"
-    "ޔ": "y"
-    "ޕ": "p"
-    "ޖ": "j"
-    "ޗ": "ch"
+}
+

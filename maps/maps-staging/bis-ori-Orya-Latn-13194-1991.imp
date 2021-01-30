@@ -38,136 +38,141 @@ tests {
   test "୦୧୭୧୬୪୨୯୭୦୦", "01716429700"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
 
-  rules:
-    # note
-    - pattern: \u0B02(?=[କଖଗଘଙ])
-      result: ṅ
-    - pattern: \u0B02(?=[ଚଛଜଝଞ])
-      result: ñ
-    - pattern: \u0B02(?=[ଟଠଡଡ଼ଢଣଢ଼])
-      result: ṇ
-    - pattern: \u0B02(?=[ତଥଦଧନ])
-      result: n
-    - pattern: \u0B02(?=[ପଫବଭମ])
-      result: m
+stage {
 
+  # RULES
+  # note
+  sub "\\u0B02(?=[କଖଗଘଙ])", "ṅ"
+  sub "\\u0B02(?=[ଚଛଜଝଞ])", "ñ"
+  sub "\\u0B02(?=[ଟଠଡଡ଼ଢଣଢ଼])", "ṇ"
+  sub "\\u0B02(?=[ତଥଦଧନ])", "n"
+  sub "\\u0B02(?=[ପଫବଭମ])", "m"
+  
+  
 
-  characters:
-    'ଅ': 'a'
-    'ଆ': 'ā'
-    'ଇ': 'i'
-    'ଈ': 'ī'
-    'ଉ': 'u'
-    'ଊ': 'ū'
-    'ଋ': 'ṛ'
-    'ଌ': 'ḻ'
-    'ଏ': 'ē'
-    'ଐ': 'ai'
-    'ଓ': 'ŏ'
-    'ଔ': 'au'
-
+  # CHARACTERS
+  parallel {
+    sub "ଅ", "a"
+    sub "ଆ", "ā"
+    sub "ଇ", "i"
+    sub "ଈ", "ī"
+    sub "ଉ", "u"
+    sub "ଊ", "ū"
+    sub "ଋ", "ṛ"
+    sub "ଌ", "ḻ"
+    sub "ଏ", "ē"
+    sub "ଐ", "ai"
+    sub "ଓ", "ŏ"
+    sub "ଔ", "au"
+    
     # II. Consonants (see Note 2)
     # Gutturals
-    'କ': 'k'
-    'ଖ': 'kh'
-    'ଗ': 'g'
-    'ଘ': 'gh'
-    'ଙ': 'ṅ'
-
+    sub "କ", "k"
+    sub "ଖ", "kh"
+    sub "ଗ", "g"
+    sub "ଘ", "gh"
+    sub "ଙ", "ṅ"
+    
     # Palatals
-    'ଚ': 'c'
-    'ଛ': 'ch'
-    'ଜ': 'j'
-    'ଝ': 'jh'
-    'ଞ': 'ñ'
-
+    sub "ଚ", "c"
+    sub "ଛ", "ch"
+    sub "ଜ", "j"
+    sub "ଝ", "jh"
+    sub "ଞ", "ñ"
+    
     # Cerebrals
-    'ଟ':  'ṭ'
-    'ଠ':  'ṭh'
-    'ଡ':  'ḍ'
-    'ଡ଼':  'd̂'
-    'ଢ':  'ḍh'
-    'ଢ଼':  'd̂h'
-    'ଣ':  'ṇ'
-
+    sub "ଟ", "ṭ"
+    sub "ଠ", "ṭh"
+    sub "ଡ", "ḍ"
+    sub "ଡ଼", "d̂"
+    sub "ଢ", "ḍh"
+    sub "ଢ଼", "d̂h"
+    sub "ଣ", "ṇ"
+    
     # Dentals
-    'ତ': 't'
-    'ଥ': 'th'
-    'ଦ': 'd'
-    'ଧ': 'dh'
-    'ନ': 'n'
-
+    sub "ତ", "t"
+    sub "ଥ", "th"
+    sub "ଦ", "d"
+    sub "ଧ", "dh"
+    sub "ନ", "n"
+    
     # Labials
-    'ପ': 'p'
-    'ଫ': 'ph'
-    'ବ': 'b'
-    'ଭ': 'bh'
-    'ମ': 'm'
-
+    sub "ପ", "p"
+    sub "ଫ", "ph"
+    sub "ବ", "b"
+    sub "ଭ", "bh"
+    sub "ମ", "m"
+    
     # Semivowels
-    'ଯ': 'y'
-    'ୟ': 'ẏ'
-    'ର': 'r'
-    'ଲ': 'l'
-    'ଳ': 'ḷ'
-    'ଵ': 'v'
-
+    sub "ଯ", "y"
+    sub "ୟ", "ẏ"
+    sub "ର", "r"
+    sub "ଲ", "l"
+    sub "ଳ", "ḷ"
+    sub "ଵ", "v"
+    
     # Sibilants
-    'ଶ': 'ś'
-    'ଷ': 'ṣ'
-    'ସ': 's'
-
-
+    sub "ଶ", "ś"
+    sub "ଷ", "ṣ"
+    sub "ସ", "s"
+    
+    
     # Aspirate
-    'ହ': 'h'
-
+    sub "ହ", "h"
+    
     # Chandrabindu
-    'ଁ': 'm'
-
+    sub "ଁ", "m"
+    
     # Bisarga
-    'ଃ': 'ḥ'
-
+    sub "ଃ", "ḥ"
+    
     # Anusvāra
-    'ଂ': 'ṃ'
-
+    sub "ଂ", "ṃ"
+    
     # Medials # Needed for connecting constants
-
-    'ା': 'ā'
-    'ି': 'i'
-    'ୀ': 'ī'
-    'ୁ': 'u'
-    'ୂ': 'ū'
-    'ୃ': 'ṛ'
-    'େ': 'ē'
-    'ୈ': 'ai'
-    'ୋ': 'ŏ'
-    'ୌ': 'au'
-
-    '्': ''
-    '୍': ''
-    '़': ''
-    '଼': ''
-    '।': '.'
-    "‍": ''# Used for joining
-    "‌": ''# Used for non joining
-
+    
+    sub "ା", "ā"
+    sub "ି", "i"
+    sub "ୀ", "ī"
+    sub "ୁ", "u"
+    sub "ୂ", "ū"
+    sub "ୃ", "ṛ"
+    sub "େ", "ē"
+    sub "ୈ", "ai"
+    sub "ୋ", "ŏ"
+    sub "ୌ", "au"
+    
+    sub "्", ""
+    sub "୍", ""
+    sub "़", ""
+    sub "଼", ""
+    sub "।", "."
+    sub "‍", "" # Used for joining
+    sub "‌", "" # Used for non joining
+    
     # Numbers
+    
+    sub "୦", "0"
+    sub "୧", "1"
+    sub "୨", "2"
+    sub "୩", "3"
+    sub "୪", "4"
+    sub "୫", "5"
+    sub "୬", "6"
+    sub "୭", "7"
+    sub "୮", "8"
+    sub "୯", "9"
+  }
 
-    '୦': '0'
-    '୧': '1'
-    '୨': '2'
-    '୩': '3'
-    '୪': '4'
-    '୫': '5'
-    '୬': '6'
-    '୭': '7'
-    '୮': '8'
-    '୯': '9'
+}
+

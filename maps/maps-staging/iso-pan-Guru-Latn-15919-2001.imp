@@ -66,153 +66,162 @@ tests {
   test "ਅਸੀਂ ਲੁੱਕ ਛੁੱਪ ਕ਼ ਆਪਣੀ ਜਾਨ", "asaīṃ lauka chaupa qa āpaṇaī jaāna"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
 
-  characters:
+stage {
 
+  # CHARACTERS
+  parallel {
+    
     # Vowels
-
-    'ਅ': 'a'
-    'ਆ': 'ā'
-    'ਇ': 'i'
-    'ਈ': 'ī'
-    'ਉ': 'u'
-    'ਊ': 'ū'
-    'ਏ': 'e'
-    'ਐ': 'ai'
-    'ਓ': 'o'
-    'ਔ': 'au'
-
+    
+    sub "ਅ", "a"
+    sub "ਆ", "ā"
+    sub "ਇ", "i"
+    sub "ਈ", "ī"
+    sub "ਉ", "u"
+    sub "ਊ", "ū"
+    sub "ਏ", "e"
+    sub "ਐ", "ai"
+    sub "ਓ", "o"
+    sub "ਔ", "au"
+    
     # Consonants
     # Gutturals
-    'ਕ': 'ka'
-    'ਖ': 'kha'
-    'ਗ': 'ga'
-    'ਘ': 'gha'
-    'ਙ': 'ṅa'
-
+    sub "ਕ", "ka"
+    sub "ਖ", "kha"
+    sub "ਗ", "ga"
+    sub "ਘ", "gha"
+    sub "ਙ", "ṅa"
+    
     # Palatals
-    'ਚ': 'ca'
-    'ਛ': 'cha'
-    'ਜ': 'ja'
-    'ਝ': 'jha'
-    'ਞ': 'ña'
-
+    sub "ਚ", "ca"
+    sub "ਛ", "cha"
+    sub "ਜ", "ja"
+    sub "ਝ", "jha"
+    sub "ਞ", "ña"
+    
     # Cerebrals
-    'ਟ': 'ṭa'
-    'ਠ': 'ṭha'
-    'ਡ': 'ḍa'
-    'ਢ': 'ḍha'
-    'ਣ': 'ṇa'
-
+    sub "ਟ", "ṭa"
+    sub "ਠ", "ṭha"
+    sub "ਡ", "ḍa"
+    sub "ਢ", "ḍha"
+    sub "ਣ", "ṇa"
+    
     # Dentals
-    'ਤ': 'ta'
-    'ਥ': 'tha'
-    'ਦ': 'da'
-    'ਧ': 'dha'
-    'ਨ': 'na'
-
+    sub "ਤ", "ta"
+    sub "ਥ", "tha"
+    sub "ਦ", "da"
+    sub "ਧ", "dha"
+    sub "ਨ", "na"
+    
     # Labials
-    'ਪ': 'pa'
-    'ਫ': 'pha'
-    'ਬ': 'ba'
-    'ਭ': 'bha'
-    'ਮ': 'ma'
-
+    sub "ਪ", "pa"
+    sub "ਫ", "pha"
+    sub "ਬ", "ba"
+    sub "ਭ", "bha"
+    sub "ਮ", "ma"
+    
     # Semivowels
-    'ਯ': 'ya'
-    'ਰ': 'ra'
-    'ਲ': 'la'
-    'ਲ਼': 'ḷa'
-    'ਵ': 'va'
-    'ੜ': 'ṛa'
-
+    sub "ਯ", "ya"
+    sub "ਰ", "ra"
+    sub "ਲ", "la"
+    sub "ਲ਼", "ḷa"
+    sub "ਵ", "va"
+    sub "ੜ", "ṛa"
+    
     # Sibilants
-    'ਸ': 'sa'
-
+    sub "ਸ", "sa"
+    
     # Aspirate
-    'ਹ': 'ha'
-
+    sub "ਹ", "ha"
+    
     # Bindī
-    'ਂ': 'ṃ'
-
+    sub "ਂ", "ṃ"
+    
     # Ṭippī
-    'ੰ': 'ṁ'
-
+    sub "ੰ", "ṁ"
+    
     # Bisarga
-    'ਃ': 'ḥ'
-
+    sub "ਃ", "ḥ"
+    
     # candrabindu
-    '\u0A01': 'm̐'
-
-
+    sub "\u0A01", "m̐"
+    
+    
     # Medials # Needed for connecting constants
-    'ਾ': "ā"
-    'ਿ': "i"
-    'ੀ': "ī"
-    'ੁ': "u"
-    'ੂ': "ū"
-    'ੇ': "e"
-    'ੈ': "ai"
-    'ੋ': "o"
-    'ੌ': "au"
-    'ੱ': ""
-
+    sub "ਾ", "ā"
+    sub "ਿ", "i"
+    sub "ੀ", "ī"
+    sub "ੁ", "u"
+    sub "ੂ", "ū"
+    sub "ੇ", "e"
+    sub "ੈ", "ai"
+    sub "ੋ", "o"
+    sub "ੌ", "au"
+    sub "ੱ", ""
+    
     # For adhik before a vowel rule 9 exception
-
-    'ੱਅ': ':a'
-    'ੱਆ': ':ā'
-    'ੱਇ': ':i'
-    'ੱਈ': ':ī'
-    'ੱਉ': ':u'
-    'ੱਊ': ':ū'
-    'ੱਏ': ':e'
-    'ੱਐ': ':ai'
-    'ੱਓ': ':o'
-    'ੱਔ': ':au'
-
-    'ੱਾ': ":ā"
-    'ੱਿ': ":i"
-    'ੱੀ': ":ī"
-    'ੱੁ': ":u"
-    'ੱੂ': ":ū"
-    'ੱੇ': ":e"
-    'ੱੈ': ":ai"
-    'ੱੋ': ":o"
-    'ੱੌ': ":au"
-
-
+    
+    sub "ੱਅ", ":a"
+    sub "ੱਆ", ":ā"
+    sub "ੱਇ", ":i"
+    sub "ੱਈ", ":ī"
+    sub "ੱਉ", ":u"
+    sub "ੱਊ", ":ū"
+    sub "ੱਏ", ":e"
+    sub "ੱਐ", ":ai"
+    sub "ੱਓ", ":o"
+    sub "ੱਔ", ":au"
+    
+    sub "ੱਾ", ":ā"
+    sub "ੱਿ", ":i"
+    sub "ੱੀ", ":ī"
+    sub "ੱੁ", ":u"
+    sub "ੱੂ", ":ū"
+    sub "ੱੇ", ":e"
+    sub "ੱੈ", ":ai"
+    sub "ੱੋ", ":o"
+    sub "ੱੌ", ":au"
+    
+    
     # rule 9 exception for bindi and tippi
-
-    'ਂਈ' : 'ī:ṃ'
-    'ੰਈ' : 'ī:ṁ'
-
-
+    
+    sub "ਂਈ", "ī:ṃ"
+    sub "ੰਈ", "ī:ṁ"
+    
+    
     # digits
-
-    '੦': '0'
-    '੧': '1'
-    '੨': '2'
-    '੩': '3'
-    '੪': '4'
-    '੫': '5'
-    '੬': '6'
-    '੭': '7'
-    '੮': '8'
-    '੯': '9'
-
-
+    
+    sub "੦", "0"
+    sub "੧", "1"
+    sub "੨", "2"
+    sub "੩", "3"
+    sub "੪", "4"
+    sub "੫", "5"
+    sub "੬", "6"
+    sub "੭", "7"
+    sub "੮", "8"
+    sub "੯", "9"
+    
+    
     # Perso-Arabic Characters
+    
+    sub "ਖ਼", "ḵẖa"
+    sub "ਕ਼", "qa"
+    sub "ਗ਼", "ġa"
+    sub "ਫ਼", "fa"
+    sub "ਸ਼", "śa"
+    sub "ਜ਼", "za"
+  }
 
-    'ਖ਼': 'ḵẖa'
-    'ਕ਼': 'qa'
-    'ਗ਼': 'ġa'
-    'ਫ਼': 'fa'
-    'ਸ਼': 'śa'
-    'ਜ਼': 'za'
+}
+

@@ -68,99 +68,100 @@ tests {
   test "Валяр'яны", "Valiarjany"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  rules:
-    - pattern: (?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\u0415 # Е after consonants
-      result: IE
-    - pattern: (?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\u0435 # е after consonants
-      result: ie
-    - pattern: (?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\u0401 # Ё after consonants
-      result: IO
-    - pattern: (?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\u0451 # ё after consonants
-      result: io
-    - pattern: (?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\u042E # Ю after consonants
-      result: IU
-    - pattern: (?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\u044E # ю after consonants
-      result: iu
-    - pattern: (?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\u042F # Я after consonants
-      result: IA
-    - pattern: (?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\u044F # я after consonants
-      result: ia
-  postrules:
-    - pattern: '\u042C' # Ь
-      result: "'"
-    - pattern: '\u044C' # ь
-      result: "'"
+stage {
 
-  characters:
-    '\u0027' : ''   # '
+  # RULES
+  sub "(?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\\u0415", "IE" # Е after consonants
+  sub "(?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\\u0435", "ie" # е after consonants
+  sub "(?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\\u0401", "IO" # Ё after consonants
+  sub "(?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\\u0451", "io" # ё after consonants
+  sub "(?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\\u042E", "IU" # Ю after consonants
+  sub "(?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\\u044E", "iu" # ю after consonants
+  sub "(?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\\u042F", "IA" # Я after consonants
+  sub "(?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\\u044F", "ia" # я after consonants
 
-    '\u0410' : 'A'  # A
-    '\u0411' : 'B'  # Б
-    '\u0412' : 'V'  # B
-    '\u0413' : 'H'  # Г
-    '\u0414' : 'D'  # Д
-    '\u0415' : 'Je' # Е
-    '\u0401' : 'Jo' # Ё
-    '\u0416' : 'Ž'  # Ж
-    '\u0417' : 'Z'  # З
-    '\u0406' : 'I'  # І
-    '\u0419' : 'J'  # Й
-    '\u041A' : 'K'  # К
-    '\u041B' : 'L'  # Л
-    '\u041C' : 'M'  # М
-    '\u041D' : 'N'  # Н
-    '\u041E' : 'O'  # О
-    '\u041F' : 'P'  # П
-    '\u0420' : 'R'  # Р
-    '\u0421' : 'S'  # С
-    '\u0422' : 'T'  # Т
-    '\u0423' : 'U'  # У
-    '\U040E' : 'Ŭ'  # Ў
-    '\u0424' : 'F'  # Ф
-    '\u0425' : 'Ch' # Х
-    '\u0426' : 'C'  # Ц
-    '\u0427' : 'Č'  # Ч
-    '\u0428' : 'Š'  # Ш
-    '\u042B' : 'Y'  # Ы
-    '\u042D' : 'E'  # Э
-    '\u042E' : 'Ju' # Ю
-    '\u042F' : 'Ja' # Я
+  # POSTRULES
+  sub "\\u042C", "'" # Ь
+  sub "\\u044C", "'" # ь
+  
 
-    '\u0430' : 'a'  # а
-    '\u0431' : 'b'  # б
-    '\u0432' : 'v'  # в
-    '\u0433' : 'h'  # г
-    '\u0434' : 'd'  # д
-    '\u0435' : 'je' # е
-    '\u0451' : 'jo' # ё
-    '\u0436' : 'ž'  # ж
-    '\u0437' : 'z'  # з
-    '\u0456' : 'i'  # і
-    '\u0439' : 'j'  # й
-    '\u043A' : 'k'  # к
-    '\u043B' : 'l'  # л
-    '\u043C' : 'm'  # м
-    '\u043D' : 'n'  # н
-    '\u043E' : 'o'  # о
-    '\u043F' : 'p'  # п
-    '\u0440' : 'r'  # р
-    '\u0441' : 's'  # с
-    '\u0442' : 't'  # т
-    '\u0443' : 'u'  # у
-    '\u045E' : 'ŭ'  # ў
-    '\u0444' : 'f'  # ф
-    '\u0445' : 'ch' # х
-    '\u0446' : 'c'  # ц
-    '\u0447' : 'č'  # ч
-    '\u0448' : 'š'  # ш
-    '\u044B' : 'y'  # ы
-    '\u044D' : 'e'  # э
-    '\u044E' : 'ju' # ю
-    '\u044F' : 'ja' # я
+  # CHARACTERS
+  parallel {
+    sub "\u0027", "" # '
+    
+    sub "\u0410", "A" # A
+    sub "\u0411", "B" # Б
+    sub "\u0412", "V" # B
+    sub "\u0413", "H" # Г
+    sub "\u0414", "D" # Д
+    sub "\u0415", "Je" # Е
+    sub "\u0401", "Jo" # Ё
+    sub "\u0416", "Ž" # Ж
+    sub "\u0417", "Z" # З
+    sub "\u0406", "I" # І
+    sub "\u0419", "J" # Й
+    sub "\u041A", "K" # К
+    sub "\u041B", "L" # Л
+    sub "\u041C", "M" # М
+    sub "\u041D", "N" # Н
+    sub "\u041E", "O" # О
+    sub "\u041F", "P" # П
+    sub "\u0420", "R" # Р
+    sub "\u0421", "S" # С
+    sub "\u0422", "T" # Т
+    sub "\u0423", "U" # У
+    sub "\\U040E", "Ŭ" # Ў
+    sub "\u0424", "F" # Ф
+    sub "\u0425", "Ch" # Х
+    sub "\u0426", "C" # Ц
+    sub "\u0427", "Č" # Ч
+    sub "\u0428", "Š" # Ш
+    sub "\u042B", "Y" # Ы
+    sub "\u042D", "E" # Э
+    sub "\u042E", "Ju" # Ю
+    sub "\u042F", "Ja" # Я
+    
+    sub "\u0430", "a" # а
+    sub "\u0431", "b" # б
+    sub "\u0432", "v" # в
+    sub "\u0433", "h" # г
+    sub "\u0434", "d" # д
+    sub "\u0435", "je" # е
+    sub "\u0451", "jo" # ё
+    sub "\u0436", "ž" # ж
+    sub "\u0437", "z" # з
+    sub "\u0456", "i" # і
+    sub "\u0439", "j" # й
+    sub "\u043A", "k" # к
+    sub "\u043B", "l" # л
+    sub "\u043C", "m" # м
+    sub "\u043D", "n" # н
+    sub "\u043E", "o" # о
+    sub "\u043F", "p" # п
+    sub "\u0440", "r" # р
+    sub "\u0441", "s" # с
+    sub "\u0442", "t" # т
+    sub "\u0443", "u" # у
+    sub "\u045E", "ŭ" # ў
+    sub "\u0444", "f" # ф
+    sub "\u0445", "ch" # х
+    sub "\u0446", "c" # ц
+    sub "\u0447", "č" # ч
+    sub "\u0448", "š" # ш
+    sub "\u044B", "y" # ы
+    sub "\u044D", "e" # э
+    sub "\u044E", "ju" # ю
+    sub "\u044F", "ja" # я
+  }
+
+}
+

@@ -61,155 +61,164 @@ tests {
   test "મંત્રાલય તથા ખ઼.ય ના વિ૨ષ્ઠ અધિકા૨ીઓ ઉપસ્થિત ૨હ્યા હતા", "maṁtaraālaya tathaā ḵẖa.ya naā vai2ṣaṭha adhaikaā2īo upasathaita 2hayaā hataā"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
 
-  characters:
+stage {
 
-    'અ': 'a'
-    'આ': 'ā'
-    'ઇ': 'i'
-    'ઈ': 'ī'
-    'ઉ': 'u'
-    'ઊ': 'ū'
-    'ઋ': 'ṛ'
-    'ૠ': 'ṝ'
-    'ઌ': 'ḷ'
-    'ૡ': 'ḹ'
-
-    'ઍ': 'ê'
-    'એ': 'e'
-    'ઐ': 'ai'
-
-    'ઑ': 'ô'
-    'ઓ': 'o'
-    'ઔ': 'au'
-
+  # CHARACTERS
+  parallel {
+    
+    sub "અ", "a"
+    sub "આ", "ā"
+    sub "ઇ", "i"
+    sub "ઈ", "ī"
+    sub "ઉ", "u"
+    sub "ઊ", "ū"
+    sub "ઋ", "ṛ"
+    sub "ૠ", "ṝ"
+    sub "ઌ", "ḷ"
+    sub "ૡ", "ḹ"
+    
+    sub "ઍ", "ê"
+    sub "એ", "e"
+    sub "ઐ", "ai"
+    
+    sub "ઑ", "ô"
+    sub "ઓ", "o"
+    sub "ઔ", "au"
+    
     # Gutturals
-    'ક': 'ka'
-    'ખ': 'kha'
-    'ગ': 'ga'
-    'ઘ': 'gha'
-    'ઙ': 'ṅa'
-
+    sub "ક", "ka"
+    sub "ખ", "kha"
+    sub "ગ", "ga"
+    sub "ઘ", "gha"
+    sub "ઙ", "ṅa"
+    
     # Palatals
-    'ચ': 'ca'
-    'છ': 'cha'
-    'જ': 'ja'
-    'ઝ': 'jha'
-    'ઞ': 'ña'
-
+    sub "ચ", "ca"
+    sub "છ", "cha"
+    sub "જ", "ja"
+    sub "ઝ", "jha"
+    sub "ઞ", "ña"
+    
     # Cerebrals
-    'ટ':  'tạ'
-    'ઠ':  'ṭha'
-    'ડ':  'ḍa'
-    'ઢ':  'ḍha'
-    'ણ':  'ṇa'
-
+    sub "ટ", "tạ"
+    sub "ઠ", "ṭha"
+    sub "ડ", "ḍa"
+    sub "ઢ", "ḍha"
+    sub "ણ", "ṇa"
+    
     # Dentals
-    'ત': 'ta'
-    'થ': 'tha'
-    'દ': 'da'
-    'ધ': 'dha'
-    'ન': 'na'
-
+    sub "ત", "ta"
+    sub "થ", "tha"
+    sub "દ", "da"
+    sub "ધ", "dha"
+    sub "ન", "na"
+    
     # Labials
-    'પ': 'pa'
-    'ફ': 'pha'
-    'બ': 'ba'
-    'ભ': 'bha'
-    'મ': 'ma'
-
+    sub "પ", "pa"
+    sub "ફ", "pha"
+    sub "બ", "ba"
+    sub "ભ", "bha"
+    sub "મ", "ma"
+    
     # Semivowels
-    'ય': 'ya'
-    'ર': 'ra'
-    'લ': 'la'
-    'ળ': 'ḷa'
-    'વ': 'va'
-
+    sub "ય", "ya"
+    sub "ર", "ra"
+    sub "લ", "la"
+    sub "ળ", "ḷa"
+    sub "વ", "va"
+    
     # Sibilants
-    'શ': 'śa'
-    'ષ': 'ṣa'
-    'સ': 'sa'
-
-
+    sub "શ", "śa"
+    sub "ષ", "ṣa"
+    sub "સ", "sa"
+    
+    
     # Aspirate
-    'હ': 'ha'
-
+    sub "હ", "ha"
+    
     # Chandrabindu
-    'ઁ': 'm̐'
-
+    sub "ઁ", "m̐"
+    
     # Bisarga
-    'ઃ': 'ḥ'
-
+    sub "ઃ", "ḥ"
+    
     # Anusvāra
-    'ં': 'ṁ'
-
+    sub "ં", "ṁ"
+    
     # Medials # Needed for connecting constants
-
-    'ા': 'ā'
-    'િ': 'i'
-    'ી': 'ī'
-    'ુ': 'u'
-    'ૂ': 'ū'
-    'ૃ': 'ṛ'
-    'ૄ': 'ṝ'
-    '\u0AE2': 'ḷ'  #  ૢ
-    '\u0AE3': 'ḹ'  #  ૣ
-
-    'ૅ': 'ê'
-    'ૉ': 'ô'
-
-    'ે': 'e'
-    'ૈ': 'ai'
-    'ો': 'o'
-    'ૌ': 'au'
-
+    
+    sub "ા", "ā"
+    sub "િ", "i"
+    sub "ી", "ī"
+    sub "ુ", "u"
+    sub "ૂ", "ū"
+    sub "ૃ", "ṛ"
+    sub "ૄ", "ṝ"
+    sub "\u0AE2", "ḷ" #  ૢ
+    sub "\u0AE3", "ḹ" #  ૣ
+    
+    sub "ૅ", "ê"
+    sub "ૉ", "ô"
+    
+    sub "ે", "e"
+    sub "ૈ", "ai"
+    sub "ો", "o"
+    sub "ૌ", "au"
+    
     # for semivowel rule no. 5
-
-    'યઁ': 'm̐ya'
-    'રઁ': 'm̐ra'
-    'લઁ': 'm̐la'
-    'ળઁ': 'm̐ḷa'
-    'વઁ': 'm̐va'
-
-
+    
+    sub "યઁ", "m̐ya"
+    sub "રઁ", "m̐ra"
+    sub "લઁ", "m̐la"
+    sub "ળઁ", "m̐ḷa"
+    sub "વઁ", "m̐va"
+    
+    
     # Perso-Arabic Characters
-
-    'ક઼': 'qa'
-    'ખ઼': 'ḵẖa'
-    'ગ઼': 'ġa'
-    'જ઼': 'za'
-    'ફ઼': 'fa'
-
-
+    
+    sub "ક઼", "qa"
+    sub "ખ઼", "ḵẖa"
+    sub "ગ઼", "ġa"
+    sub "જ઼", "za"
+    sub "ફ઼", "fa"
+    
+    
     # Abagraha
-    'ऽ': ':’'
-
-
-
-
-    '\u09CD': '' # Used for joining
-    '્': ''
-    '઼': ''
-    '।': '.'
-    "‍": ''# Used for joining
-
-
+    sub "ऽ", ":’"
+    
+    
+    
+    
+    sub "\u09CD", "" # Used for joining
+    sub "્", ""
+    sub "઼", ""
+    sub "।", "."
+    sub "‍", "" # Used for joining
+    
+    
     # digits
+    
+    sub "૦", "0"
+    sub "૧", "1"
+    sub "૨", "2"
+    sub "૩", "3"
+    sub "૪", "4"
+    sub "૫", "5"
+    sub "૬", "6"
+    sub "૭", "7"
+    sub "૮", "8"
+    sub "૯", "9"
+  }
 
-    '૦': '0'
-    '૧': '1'
-    '૨': '2'
-    '૩': '3'
-    '૪': '4'
-    '૫': '5'
-    '૬': '6'
-    '૭': '7'
-    '૮': '8'
-    '૯': '9'
+}
+

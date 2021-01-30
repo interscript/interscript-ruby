@@ -98,96 +98,105 @@ tests {
   test "Іңқардария", "Ingqardarīya"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  characters:
-    '\u0410': 'A'      # А
-    '\u04D8': 'Ä'      # Ә
-    '\u0411': 'B'      # Б
-    '\u0412': 'V'      # В
-    '\u0413': 'G'      # Г
-    '\u0492': 'Gh'     # Ғ
-    '\u0414': 'D'      # Д
-    '\u0415': 'E'      # Е
-    '\u0401': 'Yo'     # Ё
-    '\u0416': 'Zh'     # Ж
-    '\u0417': 'Z'      # З
-    '\u0418': 'Ī'      # И
-    '\u0419': 'Y'      # Й
-    '\u041A': 'K'      # К
-    '\u049A': 'Q'      # Қ
-    '\u041B': 'L'      # Л
-    '\u041C': 'M'      # М
-    '\u041D': 'N'      # Н
-    '\u04A2': 'Ng'     # Ң
-    '\u041E': 'O'      # О
-    '\u04E8': 'Ö'      # Ө
-    '\u041F': 'P'      # П
-    '\u0420': 'R'      # Р
-    '\u0421': 'S'      # С
-    '\u0422': 'T'      # Т
-    '\u0423': 'Ū'      # У
-    '\u04B0': 'U'      # Ұ
-    '\u04AE': 'Ü'      # Ү
-    '\u0424': 'F'      # Ф
-    '\u0425': 'Kh'     # Х
-    '\u04BA': 'H'      # Һ
-    '\u0426': 'Ts'     # Ц
-    '\u0427': 'Ch'     # Ч
-    '\u0428': 'Sh'     # Ш
-    '\u0429': 'Shch'   # Щ
-    '\u042A': '”'      # Ъ
-    '\u042B': 'Y'      # Ы
-    '\u0406': 'I'      # І
-    '\u042C': '’'      # Ь
-    '\u042D': 'Ė'      # Э
-    '\u042E': 'Yu'     # Ю
-    '\u042F': 'Ya'     # Я
+stage {
 
-    '\u0430': 'a'      # а
-    '\u04D9': 'ä'      # ә
-    '\u0431': 'b'      # б
-    '\u0432': 'v'      # в
-    '\u0433': 'g'      # г
-    '\u0493': 'gh'     # ғ
-    '\u0434': 'd'      # д
-    '\u0435': 'e'      # e
-    '\u0451': 'yo'     # ё
-    '\u0436': 'zh'     # ж
-    '\u0437': 'z'      # з
-    '\u0438': 'ī'      # и
-    '\u0439': 'y'      # й
-    '\u043A': 'k'      # к
-    '\u049B': 'q'      # қ
-    '\u043B': 'l'      # л
-    '\u043C': 'm'      # м
-    '\u043D': 'n'      # н
-    '\u04A3': 'ng'     # ң
-    '\u043E': 'o'      # о
-    '\u04E9': 'ö'      # ө
-    '\u043F': 'p'      # п
-    '\u0440': 'r'      # р
-    '\u0441': 's'      # с
-    '\u0442': 't'      # т
-    '\u0443': 'ū'      # у
-    '\u04B1': 'u'      # ұ
-    '\u04AF': 'ü'      # ү
-    '\u0444': 'f'      # ф
-    '\u0445': 'kh'     # х
-    '\u04BB': 'h'      # һ
-    '\u0446': 'ts'     # ц
-    '\u0447': 'ch'     # ч
-    '\u0448': 'sh'     # ш
-    '\u0449': 'shch'   # щ
-    '\u044A': '”'      # ъ
-    '\u044B': 'y'      # ы
-    '\u0456': 'i'      # і
-    '\u044C': '’'      # ь
-    '\u044D': 'ė'      # э
-    '\u044E': 'yu'     # ю
-    '\u044F': 'ya'     # я
+  # CHARACTERS
+  parallel {
+    sub "\u0410", "A" # А
+    sub "\u04D8", "Ä" # Ә
+    sub "\u0411", "B" # Б
+    sub "\u0412", "V" # В
+    sub "\u0413", "G" # Г
+    sub "\u0492", "Gh" # Ғ
+    sub "\u0414", "D" # Д
+    sub "\u0415", "E" # Е
+    sub "\u0401", "Yo" # Ё
+    sub "\u0416", "Zh" # Ж
+    sub "\u0417", "Z" # З
+    sub "\u0418", "Ī" # И
+    sub "\u0419", "Y" # Й
+    sub "\u041A", "K" # К
+    sub "\u049A", "Q" # Қ
+    sub "\u041B", "L" # Л
+    sub "\u041C", "M" # М
+    sub "\u041D", "N" # Н
+    sub "\u04A2", "Ng" # Ң
+    sub "\u041E", "O" # О
+    sub "\u04E8", "Ö" # Ө
+    sub "\u041F", "P" # П
+    sub "\u0420", "R" # Р
+    sub "\u0421", "S" # С
+    sub "\u0422", "T" # Т
+    sub "\u0423", "Ū" # У
+    sub "\u04B0", "U" # Ұ
+    sub "\u04AE", "Ü" # Ү
+    sub "\u0424", "F" # Ф
+    sub "\u0425", "Kh" # Х
+    sub "\u04BA", "H" # Һ
+    sub "\u0426", "Ts" # Ц
+    sub "\u0427", "Ch" # Ч
+    sub "\u0428", "Sh" # Ш
+    sub "\u0429", "Shch" # Щ
+    sub "\u042A", "”" # Ъ
+    sub "\u042B", "Y" # Ы
+    sub "\u0406", "I" # І
+    sub "\u042C", "’" # Ь
+    sub "\u042D", "Ė" # Э
+    sub "\u042E", "Yu" # Ю
+    sub "\u042F", "Ya" # Я
+    
+    sub "\u0430", "a" # а
+    sub "\u04D9", "ä" # ә
+    sub "\u0431", "b" # б
+    sub "\u0432", "v" # в
+    sub "\u0433", "g" # г
+    sub "\u0493", "gh" # ғ
+    sub "\u0434", "d" # д
+    sub "\u0435", "e" # e
+    sub "\u0451", "yo" # ё
+    sub "\u0436", "zh" # ж
+    sub "\u0437", "z" # з
+    sub "\u0438", "ī" # и
+    sub "\u0439", "y" # й
+    sub "\u043A", "k" # к
+    sub "\u049B", "q" # қ
+    sub "\u043B", "l" # л
+    sub "\u043C", "m" # м
+    sub "\u043D", "n" # н
+    sub "\u04A3", "ng" # ң
+    sub "\u043E", "o" # о
+    sub "\u04E9", "ö" # ө
+    sub "\u043F", "p" # п
+    sub "\u0440", "r" # р
+    sub "\u0441", "s" # с
+    sub "\u0442", "t" # т
+    sub "\u0443", "ū" # у
+    sub "\u04B1", "u" # ұ
+    sub "\u04AF", "ü" # ү
+    sub "\u0444", "f" # ф
+    sub "\u0445", "kh" # х
+    sub "\u04BB", "h" # һ
+    sub "\u0446", "ts" # ц
+    sub "\u0447", "ch" # ч
+    sub "\u0448", "sh" # ш
+    sub "\u0449", "shch" # щ
+    sub "\u044A", "”" # ъ
+    sub "\u044B", "y" # ы
+    sub "\u0456", "i" # і
+    sub "\u044C", "’" # ь
+    sub "\u044D", "ė" # э
+    sub "\u044E", "yu" # ю
+    sub "\u044F", "ya" # я
+  }
+
+}
+

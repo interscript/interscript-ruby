@@ -36,112 +36,121 @@ tests {
   test "अच्छेद्योऽयमदाह्योऽयमक्लेद्योऽशोष्य एव च ", "acachaedayao’yamadaāhayao’yamakalaedayao’śaoṣaya eva ca "
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
 
-  characters:
+stage {
 
+  # CHARACTERS
+  parallel {
+    
     # I. Vowels and Diphthongs (see Note 1)
-
-    'अ': 'a'
-    'आ': 'ā'
-    'इ': 'i'
-    'ई': 'ī'
-    'उ': 'u'
-    'ऊ': 'ū'
-    'ऋ': 'ṛ'
-    'ॠ': 'ṝ'
-    'ऌ': 'ḷ'
-    'ॡ': 'ḹ'
-    'ए': 'e'
-    'ऐ': 'ai'
-    'ओ': 'o'
-    'औ': 'au'
-
+    
+    sub "अ", "a"
+    sub "आ", "ā"
+    sub "इ", "i"
+    sub "ई", "ī"
+    sub "उ", "u"
+    sub "ऊ", "ū"
+    sub "ऋ", "ṛ"
+    sub "ॠ", "ṝ"
+    sub "ऌ", "ḷ"
+    sub "ॡ", "ḹ"
+    sub "ए", "e"
+    sub "ऐ", "ai"
+    sub "ओ", "o"
+    sub "औ", "au"
+    
     # II. Consonants (see Note 2)
     # Gutturals
-    'क': 'ka'
-    'ख': 'kha'
-    'ग': 'ga'
-    'घ': 'gha'
-    'ङ': 'ṅa'
-
+    sub "क", "ka"
+    sub "ख", "kha"
+    sub "ग", "ga"
+    sub "घ", "gha"
+    sub "ङ", "ṅa"
+    
     # Palatals
-    'च': 'ca'
-    'छ': 'cha'
-    'ज': 'ja'
-    'झ': 'jha'
-    'ञ': 'ña'
-
+    sub "च", "ca"
+    sub "छ", "cha"
+    sub "ज", "ja"
+    sub "झ", "jha"
+    sub "ञ", "ña"
+    
     # Cerebrals
-    'ट': 'ṭa'
-    'ठ': 'ṭha'
-    'ड': 'ḍa'
-    'ढ': 'ḍha'
-    'ण': 'ṇa'
-
+    sub "ट", "ṭa"
+    sub "ठ", "ṭha"
+    sub "ड", "ḍa"
+    sub "ढ", "ḍha"
+    sub "ण", "ṇa"
+    
     # Dentals
-    'त': 'ta'
-    'थ': 'tha'
-    'द': 'da'
-    'ध': 'dha'
-    'न': 'na'
-
+    sub "त", "ta"
+    sub "थ", "tha"
+    sub "द", "da"
+    sub "ध", "dha"
+    sub "न", "na"
+    
     # Labials
-    'प': 'pa'
-    'फ': 'pha'
-    'ब': 'ba'
-    'भ': 'bha'
-    'म': 'ma'
-
+    sub "प", "pa"
+    sub "फ", "pha"
+    sub "ब", "ba"
+    sub "भ", "bha"
+    sub "म", "ma"
+    
     # Semivowels
-    'य': 'ya'
-    'र': 'ra'
-    'ल': 'la'
-    'व': 'va'
-
+    sub "य", "ya"
+    sub "र", "ra"
+    sub "ल", "la"
+    sub "व", "va"
+    
     # Sibilants
-    'श': 'śa'
-    'ष': 'ṣa'
-    'स': 'sa'
-
+    sub "श", "śa"
+    sub "ष", "ṣa"
+    sub "स", "sa"
+    
     # Aspirate
-    'ह': 'ha'
-
+    sub "ह", "ha"
+    
     # Anusvāra
-    'ं': 'ṃ'
-    'अं': 'ṃ'
-
+    sub "ं", "ṃ"
+    sub "अं", "ṃ"
+    
     # Bisarga
-    'ः': 'ḥ'
-    'अः': 'ḥ'
-
+    sub "ः", "ḥ"
+    sub "अः", "ḥ"
+    
     # Anunāsika
-    'ँ': 'm̐'
-    'अँ': 'm̐'
-
+    sub "ँ", "m̐"
+    sub "अँ", "m̐"
+    
     # Abagraha
-    'ऽ': '’' # (apostrophe)
-
-
+    sub "ऽ", "’" # (apostrophe)
+    
+    
     # Medials # Needed for connecting constants
-    'ा': "ā"
-    'ि': "i"
-    'ी': "ī"
-    'ु': "u"
-    'ू': "ū"
-    'ृ': "ṛ"
-    'ॄ': "ṝ"
-    'ॢ': "ḷ"
-    'ॣ': "ḹ"
-    'े': "e"
-    'ै': "ai"
-    'ो': "o"
-    'ौ': "au"
-    '्': ""
-    '‍': ''# Used for joining
+    sub "ा", "ā"
+    sub "ि", "i"
+    sub "ी", "ī"
+    sub "ु", "u"
+    sub "ू", "ū"
+    sub "ृ", "ṛ"
+    sub "ॄ", "ṝ"
+    sub "ॢ", "ḷ"
+    sub "ॣ", "ḹ"
+    sub "े", "e"
+    sub "ै", "ai"
+    sub "ो", "o"
+    sub "ौ", "au"
+    sub "्", ""
+    sub "‍", "" # Used for joining
+  }
+
+}
+

@@ -61,156 +61,165 @@ tests {
   test "दुसूलँ", "dausaūm̐la"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
 
-  characters:
+stage {
 
+  # CHARACTERS
+  parallel {
+    
     # I. Vowels and Diphthongs (see Note 1)
-
-    'अ': 'a'
-    'आ': 'ā'
-    'इ': 'i'
-    'ई': 'ī'
-    'उ': 'u'
-    'ऊ': 'ū'
-    'ऋ': 'ṛ'
-    'ॠ': 'ṝ'
-    'ऌ': 'ḷ'
-    'ॡ': 'ḹ'
-    'ए': 'e'
-    'ऐ': 'ai'
-    'ओ': 'o'
-    'औ': 'au'
-    'ऍ': 'ê'
-    'ऑ': 'ô'
-
+    
+    sub "अ", "a"
+    sub "आ", "ā"
+    sub "इ", "i"
+    sub "ई", "ī"
+    sub "उ", "u"
+    sub "ऊ", "ū"
+    sub "ऋ", "ṛ"
+    sub "ॠ", "ṝ"
+    sub "ऌ", "ḷ"
+    sub "ॡ", "ḹ"
+    sub "ए", "e"
+    sub "ऐ", "ai"
+    sub "ओ", "o"
+    sub "औ", "au"
+    sub "ऍ", "ê"
+    sub "ऑ", "ô"
+    
     # II. Consonants (see Note 2)
     # Gutturals
-    'क': 'ka'
-    'ख': 'kha'
-    'ग': 'ga'
-    'घ': 'gha'
-    'ङ': 'ṅa'
-
+    sub "क", "ka"
+    sub "ख", "kha"
+    sub "ग", "ga"
+    sub "घ", "gha"
+    sub "ङ", "ṅa"
+    
     # Palatals
-    'च': 'ca'
-    'छ': 'cha'
-    'ज': 'ja'
-    'झ': 'jha'
-    'ञ': 'ña'
-
+    sub "च", "ca"
+    sub "छ", "cha"
+    sub "ज", "ja"
+    sub "झ", "jha"
+    sub "ञ", "ña"
+    
     # Cerebrals
-    'ट': 'ṭa'
-    'ठ': 'ṭha'
-    'ड': 'ḍa'
-    'ढ': 'ḍha'
-    'ण': 'ṇa'
-
+    sub "ट", "ṭa"
+    sub "ठ", "ṭha"
+    sub "ड", "ḍa"
+    sub "ढ", "ḍha"
+    sub "ण", "ṇa"
+    
     # Dentals
-    'त': 'ta'
-    'थ': 'tha'
-    'द': 'da'
-    'ध': 'dha'
-    'न': 'na'
-
+    sub "त", "ta"
+    sub "थ", "tha"
+    sub "द", "da"
+    sub "ध", "dha"
+    sub "न", "na"
+    
     # Labials
-    'प': 'pa'
-    'फ': 'pha'
-    'ब': 'ba'
-    'भ': 'bha'
-    'म': 'ma'
-
+    sub "प", "pa"
+    sub "फ", "pha"
+    sub "ब", "ba"
+    sub "भ", "bha"
+    sub "म", "ma"
+    
     # Semivowels
-    'य': 'ya'
-    'र': 'ra'
-    'ल': 'la'
-    'ळ': 'ḷa'
-    'व': 'va'
-
+    sub "य", "ya"
+    sub "र", "ra"
+    sub "ल", "la"
+    sub "ळ", "ḷa"
+    sub "व", "va"
+    
     # Sibilants
-    'श': 'śa'
-    'ष': 'ṣa'
-    'स': 'sa'
-
+    sub "श", "śa"
+    sub "ष", "ṣa"
+    sub "स", "sa"
+    
     # Aspirate
-    'ह': 'ha'
-
-    'ᳵ': 'ẖ'
-    'ᳶ': 'ḫ'
-
-
+    sub "ह", "ha"
+    
+    sub "ᳵ", "ẖ"
+    sub "ᳶ", "ḫ"
+    
+    
     # Anusvāra
-    'ं': 'ṁ'
-
+    sub "ं", "ṁ"
+    
     # Bisarga
-    'ः': 'ḥ'
-
+    sub "ः", "ḥ"
+    
     # candrabindu
-    'ँ': 'm̐'
-
+    sub "ँ", "m̐"
+    
     # Abagraha
-    'ऽ': ':’' # (apostrophe)
-
-
+    sub "ऽ", ":’" # (apostrophe)
+    
+    
     # Medials # Needed for connecting constants
-    'ा': "ā"
-    'ि': "i"
-    'ी': "ī"
-    'ु': "u"
-    'ू': "ū"
-    'ॢ': "ḷ"
-    'ॣ': "ḹ"
-    'ृ': "ṛ"
-    'ॄ': "ṝ"
-    'े': "e"
-    'ै': "ai"
-    'ो': "o"
-    'ौ': "au"
-    'ॉ': 'ô'
-    'ॅ': "ê"
-
-    '्': ""
-    '‍': ''# Used for joining
-
-
+    sub "ा", "ā"
+    sub "ि", "i"
+    sub "ी", "ī"
+    sub "ु", "u"
+    sub "ू", "ū"
+    sub "ॢ", "ḷ"
+    sub "ॣ", "ḹ"
+    sub "ृ", "ṛ"
+    sub "ॄ", "ṝ"
+    sub "े", "e"
+    sub "ै", "ai"
+    sub "ो", "o"
+    sub "ौ", "au"
+    sub "ॉ", "ô"
+    sub "ॅ", "ê"
+    
+    sub "्", ""
+    sub "‍", "" # Used for joining
+    
+    
     # for semivowel rule no. 5
-
-    'यँ': 'm̐ya'
-    'रँ': 'm̐ra'
-    'लँ': 'm̐la'
-    'ळँ': 'm̐ḷa'
-    'वँ': 'm̐va'
-
-
+    
+    sub "यँ", "m̐ya"
+    sub "रँ", "m̐ra"
+    sub "लँ", "m̐la"
+    sub "ळँ", "m̐ḷa"
+    sub "वँ", "m̐va"
+    
+    
     # digits
-
-    '०': '0'
-    '१': '1'
-    '२': '2'
-    '३': '3'
-    '४': '4'
-    '५': '5'
-    '६': '6'
-    '७': '7'
-    '८': '8'
-    '९': '9'
-
+    
+    sub "०", "0"
+    sub "१", "1"
+    sub "२", "2"
+    sub "३", "3"
+    sub "४", "4"
+    sub "५", "5"
+    sub "६", "6"
+    sub "७", "7"
+    sub "८", "8"
+    sub "९", "9"
+    
     # Perso-Arabic characters
+    
+    sub "स़", "s̱a"
+    sub "ह़", "ẓa"
+    sub "ख़", "k͟ha"
+    sub "ज़", "za"
+    sub "त़", "t̤a"
+    sub "ग़", "ġa"
+    sub "फ़", "fa"
+    sub "क़", "qa"
+    sub "व़", "wa"
+    sub "ड़", "ṛa"
+    sub "ढ़", "ṛha"
+  }
 
-    'स़': 's̱a'
-    'ह़': 'ẓa'
-    'ख़': 'k͟ha'
-    'ज़': 'za'
-    'त़': 't̤a'
-    'ग़': 'ġa'
-    'फ़': 'fa'
-    'क़': 'qa'
-    'व़': 'wa'
-    'ड़': 'ṛa'
-    'ढ़': 'ṛha'
+}
+

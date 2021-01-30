@@ -57,36 +57,48 @@ tests {
   test "राज्यातील शाळा दिवाळीपर्यंत बंद, मंत्र्यांच्या बैठकीत निर्णय, शिक्षकांची जबाबदारी वाढली", "rājyātīl shāḷaā divāḷaīparyaṁt baṁd, maṁtryāṁchyā baiṭhakīt nirṇay, shikṣhakāṁchī jabābadārī vāḍhalī"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  inherit: "un-hin-Deva-Latn-2016"
+dependency "un-hin-Deva-Latn-2016", as: devalatn
 
-  rules:
-    # note[3]
-    - pattern: (?<=)\U+0939(?=\b)
-      result: "h"
 
-  characters:
+stage {
 
+  run map.devalatn.stage.main
+
+  # RULES
+  # note[3]
+  sub "(?<=)\\U+0939(?=\\b)", "h"
+  
+
+  # CHARACTERS
+  parallel {
+    
     # Note 1
-    'ळ': 'ḷa'
-    'ऍ': 'ă'
-
+    sub "ळ", "ḷa"
+    sub "ऍ", "ă"
+    
     # Note 2
-    'ऱ': 'r' # used for making Ligatures  'ऱ्य': 'rya'  'ऱ्ह': 'rha'
-
+    sub "ऱ", "r" # used for making Ligatures  'ऱ्य': 'rya'  'ऱ्ह': 'rha'
+    
     # Note 4
-    'अि': 'i'
-    'अी': 'ī'
-    'अु': 'u'
-    'अू': 'ū'
-    'अे': 'e'
-    'अै': 'ai'
+    sub "अि", "i"
+    sub "अी", "ī"
+    sub "अु", "u"
+    sub "अू", "ū"
+    sub "अे", "e"
+    sub "अै", "ai"
+    
+    sub "ॲ", "ê"
+    sub "ऑ", "ô"
+  }
 
-    'ॲ': 'ê'
-    'ऑ': 'ô'
+}
+

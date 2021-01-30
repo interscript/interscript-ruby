@@ -159,19 +159,202 @@ old_maps.shuffle.each do |old_map|
 
   print "."
 
-  new << "__END__\n"
   new << "# This map has been partially converted by the bin/maps_v1_to_v2 script\n"
-  new << "# The section below requires human attention. Remember to remove the\n"
-  new << "# __END__ marker and this comment and move the converted map to 'maps/'\n"
-  new << "# directory. Please also take note that the maps-staging directory will\n"
-  new << "# be cleaned up whenever you run the bin/maps_v1_to_v2 script.\n\n"
+  new << "# The section below requires human attention. Remember to remove this\n"
+  new << "# comment and move the converted map to 'maps/' directory. Please also\n"
+  new << "# take note that the maps-staging directory will be cleaned up whenever\n"
+  new << "# you run the bin/maps_v1_to_v2 script. You should particularly be\n"
+  new << "# concerned about any regular expressions found in this file and about\n"
+  new << "# advanced expressions in parallel {} parts, and also about the order\n"
+  new << "# of particular parts of the stage.\n\n"
+
+  transcription = nil
+  title_case = nil
+  downcase = nil
+  inherit = nil
+
+  characters, rules, dictionary, postrules = [], [], [], []
+
+  cur = nil
+  indent = 0
+  stagedone = false
+  efini = proc do
+    if inherit
+      new << "\n"
+      inherit.each do |i|
+        new << "  run map.#{i}.stage.main\n"
+      end
+    end
+    new << "\n"
+    efini=proc{}
+  end
+  fini = proc{}
+  begn = proc { new << "stage {\n"; stagedone = true; begn=proc{} }
+
+  iter = -1
+  while iter+1 < map.length
+    iter += 1
+    i = map[iter]
+
+    cmt = nil
+    if i =~ /\A  [^\s#]/ || i =~ /\A    inherit:/
+      i.sub(/(#.*?)\z/) { cmt = $1 }
+      if cmt
+        new << " "*indent << cmt << "\n"
+      end
+
+      maybe_val = YAML.load(i.split(":").last)
+      case i.split(":").first.strip
+      when "inherit"
+        inherit = Array(maybe_val)
+        inherit = inherit.map do |inh|
+          short = inh.split("-")[2..3].join.downcase
+          new << "dependency #{inh.inspect}, as: #{short}\n"
+          short
+        end
+        new << "\n"
+        raise "Duplicate items" unless inherit.length == inherit.uniq.length
+      when "dictionary"
+        begn.()
+        fini.()
+        new << "  # DICTIONARY\n"
+        new << "  parallel {\n"
+        indent = 4
+        cur = dictionary
+        fini = proc{new << "  }\n\n";indent = 2}
+      when "rules"
+        begn.()
+        fini.()
+        efini.()
+        new << "  # RULES\n"
+        indent = 2
+        cur = rules
+        fini = proc{new << "\n"}
+      when "characters"
+        begn.()
+        fini.()
+        efini.()
+        new << "  # CHARACTERS\n"
+        new << "  parallel {\n"
+        indent = 4
+        cur = characters
+        fini = proc{new << "  }\n\n";indent = 2}
+      when "postrules"
+        begn.()
+        fini.()
+        efini.()
+        new << "  # POSTRULES\n"
+        indent = 2
+        cur = postrules
+        fini = proc{new << "\n"}
+      when "downcase"
+        downcase = maybe_val
+      when "title_case"
+        title_case = maybe_val
+      when "transcription"
+        transcription = maybe_val
+      # Those we will ignore for now
+      when "word_separator", "segmentation", "character_separator", "map"
+      # Those are bugs
+      when "title-case"
+      else
+        p i
+      end
+    else
+      cmt = ""
+      i = i.sub(/(#.*?)\z/) { cmt << $1; "" }
+      #new << " "*indent << i.strip << "\n"
+      if i.strip == ""
+        new << " "*indent << cmt << "\n"
+        next
+      end
+
+      case cur.object_id
+      when nil.object_id
+        raise "Unexpected line #{i}"
+      when characters.object_id, dictionary.object_id
+        k,v = i.split(":", 2).map(&:strip)
+        if !v || v == ""
+          v = ""
+          # Load array
+          iter2 = iter + 1
+          while iter2 < map.length
+            i2 = map[iter2]
+            break unless i2.strip =~ /\A-/
+            i2 = i2.sub(/(#.*?)\z/) { cmt << $1; "" }
+            v << "\n" << i2
+            iter2 += 1
+          end
+          iter = iter2 - 1
+        end
+
+        kk,vv = YAML.load(k), YAML.load(v)
+
+        kkk,vvv = kk.inspect, vv.inspect
+        if vv.class == Array
+          if vv.all? { |z| z.length == 1 }
+            vvv = "any(" + vv.join.inspect + ")"
+          else
+            vvv = "any(" + vv.inspect + ")"
+          end
+        end
+
+        # This worked due to use of regexps... it should remove 1 slash.
+        kkk = kkk.gsub("\\\\u", "\\\\u")
+
+        new << "    sub #{kkk}, #{vvv}"
+      when rules.object_id, postrules.object_id
+        if i.strip =~ /\A- pattern\s*:/
+          _, k = i.split(":", 2)
+          ii = map[iter+1]
+          ii = ii.sub(/(#.*?)\z/) { cmt << $1; "" }
+          if ii.strip == ""
+            iter += 1
+            ii = map[iter+1]
+            ii = ii.sub(/(#.*?)\z/) { cmt << $1; "" }
+          end
+          if ii.strip =~ /\Aresult\s*:/
+            _, v = ii.split(":", 2)
+          else
+            raise "Unexpected(2): #{ii.strip.inspect}"
+          end
+          iter += 1
+        else
+          raise "Unexpected(1): #{i.strip.inspect}"
+        end
+
+        kk,vv = YAML.load(k), YAML.load(v)
+        kkk,vvv = kk.inspect, vv.inspect
+        new << "  sub #{kkk}, #{vvv}"
+      end
+
+      if cmt != ""
+        new << " " << cmt << "\n"
+      else
+        new << "\n"
+      end
+    end
+  end
+
+  fini.()
+
+  unless stagedone
+    new << "stage {\n"
+    efini.()
+  end
+
+  new << "  title_case" if title_case
+  new << "  downcase" if downcase
+
+  new << "}\n\n"
 
   if chain
     new << "# This map is chained and probably depends on seq2seq:\n"
-    new << "# #{chain}\n\n"
+    new << "# #{chain}\n"
+    new << "# transcription: #{transcription}\n\n"
   end
 
-  new << map.join("\n")
+  #new << map.join("\n")
 
   File.write("../maps/maps-staging/#{old_map_name}.imp", new)
 

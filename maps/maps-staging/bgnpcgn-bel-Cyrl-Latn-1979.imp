@@ -103,108 +103,107 @@ tests {
   test "Вадасховішча Гезгальскае", "Vadaskhovishcha Hyez·hal’skaye"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  postrules:
-    - pattern: '\u042C' # Ь
-      result: "\u2019"
-    - pattern: '\u044C' # ь
-      result: "\u2019"
+stage {
+
+  # POSTRULES
+  sub "\\u042C", "’" # Ь
+  sub "\\u044C", "’" # ь
   # Per documentation those rules are optional
-  rules:
-    - pattern: \u0417\u0413 # ЗГ
-      result: "Z\u00B7H"    # Z·H
-    - pattern: \u0437\u0433 # зг
-      result: "z\u00B7h"    # z·h
-    - pattern: \u041A\u0413 # КГ
-      result: "K\u00B7H"    # K·H
-    - pattern: \u043A\u0433 # кг
-      result: "k\u00B7h"    # k·h
-    - pattern: \u0421\u0413 # СГ
-      result: "S\u00B7H"    # S·H
-    - pattern: \u0441\u0433 # сг
-      result: "s\u00B7h"    # s·h
-    - pattern: \u0422\u0421 # ТС
-      result: "T\u00B7S"    # T·S
-    - pattern: \u0442\u0441 # тс
-      result: "t\u00B7s"    # t·s
-    - pattern: \u0426\u0413 # ЦГ
-      result: "TS\u00B7H"   # TS·H
-    - pattern: \u0446\u0433 # цг
-      result: "ts\u00B7h"   # ts·h
 
-  characters:
-    '\u00B4' : "\u201D" # apostrophe according to spec
-    '\u02BC' : "\u201D" # apostrophe according to spec
-    '\u2019' : "\u201D" # apostrophe in actual examples
+  # RULES
+  sub "\\u0417\\u0413", "Z·H" # ЗГ# Z·H
+  sub "\\u0437\\u0433", "z·h" # зг# z·h
+  sub "\\u041A\\u0413", "K·H" # КГ# K·H
+  sub "\\u043A\\u0433", "k·h" # кг# k·h
+  sub "\\u0421\\u0413", "S·H" # СГ# S·H
+  sub "\\u0441\\u0433", "s·h" # сг# s·h
+  sub "\\u0422\\u0421", "T·S" # ТС# T·S
+  sub "\\u0442\\u0441", "t·s" # тс# t·s
+  sub "\\u0426\\u0413", "TS·H" # ЦГ# TS·H
+  sub "\\u0446\\u0433", "ts·h" # цг# ts·h
+  
 
-    '\u0410' : 'A'  # A
-    '\u0411' : 'B'  # Б
-    '\u0412' : 'V'  # B
-    '\u0413' : 'H'  # Г
-    '\u0414' : 'D'  # Д
-    '\u0415' : 'Ye' # Е
-    '\u0401' : 'Yo' # Ё
-    '\u0416' : 'Zh' # Ж
-    '\u0417' : 'Z'  # З
-    '\u0406' : 'I'  # І
-    '\u0419' : 'Y'  # Й
-    '\u041A' : 'K'  # К
-    '\u041B' : 'L'  # Л
-    '\u041C' : 'M'  # М
-    '\u041D' : 'N'  # Н
-    '\u041E' : 'O'  # О
-    '\u041F' : 'P'  # П
-    '\u0420' : 'R'  # Р
-    '\u0421' : 'S'  # С
-    '\u0422' : 'T'  # Т
-    '\u0423' : 'U'  # У
-    '\U040E' : 'W'  # Ў
-    '\u0424' : 'F'  # Ф
-    '\u0425' : 'Kh' # Х
-    '\u0426' : 'Ts' # Ц
-    '\u0427' : 'Ch' # Ч
-    '\u0428' : 'Sh' # Ш
-    '\u042B' : 'Y'  # Ы
-    '\u042D' : 'E'  # Э
-    '\u042E' : 'Yu' # Ю
-    '\u042F' : 'Ya' # Я
-    '\u0490' : 'G'  # Ґ
+  # CHARACTERS
+  parallel {
+    sub "\u00B4", "”" # apostrophe according to spec
+    sub "\u02BC", "”" # apostrophe according to spec
+    sub "\u2019", "”" # apostrophe in actual examples
+    
+    sub "\u0410", "A" # A
+    sub "\u0411", "B" # Б
+    sub "\u0412", "V" # B
+    sub "\u0413", "H" # Г
+    sub "\u0414", "D" # Д
+    sub "\u0415", "Ye" # Е
+    sub "\u0401", "Yo" # Ё
+    sub "\u0416", "Zh" # Ж
+    sub "\u0417", "Z" # З
+    sub "\u0406", "I" # І
+    sub "\u0419", "Y" # Й
+    sub "\u041A", "K" # К
+    sub "\u041B", "L" # Л
+    sub "\u041C", "M" # М
+    sub "\u041D", "N" # Н
+    sub "\u041E", "O" # О
+    sub "\u041F", "P" # П
+    sub "\u0420", "R" # Р
+    sub "\u0421", "S" # С
+    sub "\u0422", "T" # Т
+    sub "\u0423", "U" # У
+    sub "\\U040E", "W" # Ў
+    sub "\u0424", "F" # Ф
+    sub "\u0425", "Kh" # Х
+    sub "\u0426", "Ts" # Ц
+    sub "\u0427", "Ch" # Ч
+    sub "\u0428", "Sh" # Ш
+    sub "\u042B", "Y" # Ы
+    sub "\u042D", "E" # Э
+    sub "\u042E", "Yu" # Ю
+    sub "\u042F", "Ya" # Я
+    sub "\u0490", "G" # Ґ
+    
+    sub "\u0430", "a" # а
+    sub "\u0431", "b" # б
+    sub "\u0432", "v" # в
+    sub "\u0433", "h" # г
+    sub "\u0434", "d" # д
+    sub "\u0435", "ye" # е
+    sub "\u0451", "yo" # ё
+    sub "\u0436", "zh" # ж
+    sub "\u0437", "z" # з
+    sub "\u0456", "i" # і
+    sub "\u0439", "y" # й
+    sub "\u043A", "k" # к
+    sub "\u043B", "l" # л
+    sub "\u043C", "m" # м
+    sub "\u043D", "n" # н
+    sub "\u043E", "o" # о
+    sub "\u043F", "p" # п
+    sub "\u0440", "r" # р
+    sub "\u0441", "s" # с
+    sub "\u0442", "t" # т
+    sub "\u0443", "u" # у
+    sub "\u045E", "w" # ў
+    sub "\u0444", "f" # ф
+    sub "\u0445", "kh" # х
+    sub "\u0446", "ts" # ц
+    sub "\u0447", "ch" # ч
+    sub "\u0448", "sh" # ш
+    sub "\u044B", "y" # ы
+    sub "\u044D", "e" # э
+    sub "\u044E", "yu" # ю
+    sub "\u044F", "ya" # я
+    sub "\u0491", "g" # ґ
+  }
 
-    '\u0430' : 'a'  # а
-    '\u0431' : 'b'  # б
-    '\u0432' : 'v'  # в
-    '\u0433' : 'h'  # г
-    '\u0434' : 'd'  # д
-    '\u0435' : 'ye' # е
-    '\u0451' : 'yo' # ё
-    '\u0436' : 'zh'  # ж
-    '\u0437' : 'z'  # з
-    '\u0456' : 'i'  # і
-    '\u0439' : 'y'  # й
-    '\u043A' : 'k'  # к
-    '\u043B' : 'l'  # л
-    '\u043C' : 'm'  # м
-    '\u043D' : 'n'  # н
-    '\u043E' : 'o'  # о
-    '\u043F' : 'p'  # п
-    '\u0440' : 'r'  # р
-    '\u0441' : 's'  # с
-    '\u0442' : 't'  # т
-    '\u0443' : 'u'  # у
-    '\u045E' : 'w'  # ў
-    '\u0444' : 'f'  # ф
-    '\u0445' : 'kh' # х
-    '\u0446' : 'ts' # ц
-    '\u0447' : 'ch' # ч
-    '\u0448' : 'sh' # ш
-    '\u044B' : 'y'  # ы
-    '\u044D' : 'e'  # э
-    '\u044E' : 'yu' # ю
-    '\u044F' : 'ya' # я
-    '\u0491' : 'g'  # ґ
+}
+

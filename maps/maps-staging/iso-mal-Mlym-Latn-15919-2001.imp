@@ -70,209 +70,216 @@ tests {
   test "൱", "100"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
 
-  rules:
-    - pattern: (?<=)\u0D4D(?=\b) # Rule 12
-      result: 'ŭ'
-    - pattern: (?<=)\u0D02(?=\b) # Rule 3
-      result: 'm'
-    - pattern: (?<=)\u0D7C(?=\b) # Rule 13
-      result: 'ṟ'
+stage {
 
-  characters:
-    'അ': 'a'
-    'ആ': 'ā'
-    'ഇ': 'i'
-    'ഈ': 'ī'
-    'ഉ': 'u'
-    'ഊ': 'ū'
-    'ഋ': "ṛ"
-    'ൠ': "ṝ"
-    'ഌ': "ḷ"
-    'ൡ': "ḹ"
+  # RULES
+  sub "(?<=)\\u0D4D(?=\\b)", "ŭ" # Rule 12
+  sub "(?<=)\\u0D02(?=\\b)", "m" # Rule 3
+  sub "(?<=)\\u0D7C(?=\\b)", "ṟ" # Rule 13
+  
 
-    'എ': 'e'
-    'ഏ': 'ē'
-    'ഐ': 'ai'
-
-    'ഒ': 'o'
-    'ഓ': 'ō'
-    'ഔ': 'au'
-
+  # CHARACTERS
+  parallel {
+    sub "അ", "a"
+    sub "ആ", "ā"
+    sub "ഇ", "i"
+    sub "ഈ", "ī"
+    sub "ഉ", "u"
+    sub "ഊ", "ū"
+    sub "ഋ", "ṛ"
+    sub "ൠ", "ṝ"
+    sub "ഌ", "ḷ"
+    sub "ൡ", "ḹ"
+    
+    sub "എ", "e"
+    sub "ഏ", "ē"
+    sub "ഐ", "ai"
+    
+    sub "ഒ", "o"
+    sub "ഓ", "ō"
+    sub "ഔ", "au"
+    
     # Consonants
     # Gutturals
-    'ക': 'ka'
-    'ഖ': 'kha'
-    'ഗ': 'ga'
-    'ഘ': 'gha'
-    'ങ': 'ṅa'
-
+    sub "ക", "ka"
+    sub "ഖ", "kha"
+    sub "ഗ", "ga"
+    sub "ഘ", "gha"
+    sub "ങ", "ṅa"
+    
     # Palatals
-    'ച': 'ca'
-    'ഛ': 'cha'
-    'ജ': 'ja'
-    'ഝ': 'jha'
-    'ഞ': 'ña'
-
+    sub "ച", "ca"
+    sub "ഛ", "cha"
+    sub "ജ", "ja"
+    sub "ഝ", "jha"
+    sub "ഞ", "ña"
+    
     # Cerebrals
-    'ട':  'ṭa'
-    'ഠ':  'ṭha'
-    'ഡ': 'd̂a'
-    'ഢ':  'ḍha'
-    'ണ':  'ṇa'
-
+    sub "ട", "ṭa"
+    sub "ഠ", "ṭha"
+    sub "ഡ", "d̂a"
+    sub "ഢ", "ḍha"
+    sub "ണ", "ṇa"
+    
     # Dentals
-    'ത': 'ta'
-    'ഥ': 'tha'
-    'ദ': 'da'
-    'ധ': 'dha'
-    'ന': 'na'
-
+    sub "ത", "ta"
+    sub "ഥ", "tha"
+    sub "ദ", "da"
+    sub "ധ", "dha"
+    sub "ന", "na"
+    
     # Labials
-    'പ': 'pa'
-    'ഫ': 'pha'
-    'ബ': 'ba'
-    'ഭ': 'bha'
-    'മ': 'ma'
-
+    sub "പ", "pa"
+    sub "ഫ", "pha"
+    sub "ബ", "ba"
+    sub "ഭ", "bha"
+    sub "മ", "ma"
+    
     # Semivowels
-    'യ': 'ya'
-    'ര': 'ra'
-    'ർ': 'r'
-    'റ': 'ṟa'
-    'ല': 'la'
-    'ള': 'ḷa'
-    'ഴ': 'ḻa'
+    sub "യ", "ya"
+    sub "ര", "ra"
+    sub "ർ", "r"
+    sub "റ", "ṟa"
+    sub "ല", "la"
+    sub "ള", "ḷa"
+    sub "ഴ", "ḻa"
     # Sibilants
-    'വ': 'va'
-    'ശ': 'śa'
-    'ഷ': 'ṣa'
-    'സ': 'sa'
-    'ഩ': 'ṉa'
-
-
+    sub "വ", "va"
+    sub "ശ", "śa"
+    sub "ഷ", "ṣa"
+    sub "സ", "sa"
+    sub "ഩ", "ṉa"
+    
+    
     # Aspirate
-    'ഹ': 'ha'
-
+    sub "ഹ", "ha"
+    
     # Bisarga
-    'ഃ': 'ḥ'
-
+    sub "ഃ", "ḥ"
+    
     # Anusvāra
-    'ം': 'ṁ'
-
-
+    sub "ം", "ṁ"
+    
+    
     # Abagraha
-    'ഽ': ':’' # (apostrophe)
-
+    sub "ഽ", ":’" # (apostrophe)
+    
     # Medials # Needed for connecting constants
-
-    'ാ': 'ā'
-    'ി': 'i'
-    'ീ': 'ī'
-    'ു': 'u'
-    'ൂ': 'ū'
-    '്': 'ŭ'
-    'ൃ': "ṛ"
-    'ൄ': "ṝ"
-    '\u0D62': "ḷ"
-    '\u0D63': "ḹ"
-    'െ': "e"
-    'േ': "ē"
-    'ൈ': "ai"
-    'ൊ': 'o'
-    'ോ': 'ō'
-    'ൌ': 'au'
-
-    '्': ''
-    '़': ''
-    'ൗ': ''
-    "‍": '' # no need for zero with joiner
-    "‌": '' # no need for zero with non joiner
-
-
+    
+    sub "ാ", "ā"
+    sub "ി", "i"
+    sub "ീ", "ī"
+    sub "ു", "u"
+    sub "ൂ", "ū"
+    sub "്", "ŭ"
+    sub "ൃ", "ṛ"
+    sub "ൄ", "ṝ"
+    sub "\u0D62", "ḷ"
+    sub "\u0D63", "ḹ"
+    sub "െ", "e"
+    sub "േ", "ē"
+    sub "ൈ", "ai"
+    sub "ൊ", "o"
+    sub "ോ", "ō"
+    sub "ൌ", "au"
+    
+    sub "्", ""
+    sub "़", ""
+    sub "ൗ", ""
+    sub "‍", "" # no need for zero with joiner
+    sub "‌", "" # no need for zero with non joiner
+    
+    
     # For rule 12
     # Gutturals
-    'ക്': 'k'
-    'ഖ്': 'kh'
-    'ഗ്': 'g'
-    'ഘ്': 'gh'
-    'ങ്': 'ṅ'
-
+    sub "ക്", "k"
+    sub "ഖ്", "kh"
+    sub "ഗ്", "g"
+    sub "ഘ്", "gh"
+    sub "ങ്", "ṅ"
+    
     # Palatals
-    'ച്': 'c'
-    'ഛ്': 'ch'
-    'ജ്': 'j'
-    'ഝ്': 'jh'
-    'ഞ്': 'ñ'
-
+    sub "ച്", "c"
+    sub "ഛ്", "ch"
+    sub "ജ്", "j"
+    sub "ഝ്", "jh"
+    sub "ഞ്", "ñ"
+    
     # Cerebrals
-    'ട്':  'ṭ'
-    'ഠ്':  'ṭh'
-    'ഡ്': 'd̂'
-    'ഢ്':  'ḍh'
-    'ണ്':  'ṇ'
-
+    sub "ട്", "ṭ"
+    sub "ഠ്", "ṭh"
+    sub "ഡ്", "d̂"
+    sub "ഢ്", "ḍh"
+    sub "ണ്", "ṇ"
+    
     # Dentals
-    'ത്': 't'
-    'ഥ്': 'th'
-    'ദ്': 'd'
-    'ധ്': 'dh'
-    'ന്': 'n'
-
+    sub "ത്", "t"
+    sub "ഥ്", "th"
+    sub "ദ്", "d"
+    sub "ധ്", "dh"
+    sub "ന്", "n"
+    
     # Labials
-    'പ്': 'p'
-    'ഫ്': 'ph'
-    'ബ്': 'b'
-    'ഭ്': 'bh'
-    'മ്': 'm'
-
+    sub "പ്", "p"
+    sub "ഫ്", "ph"
+    sub "ബ്", "b"
+    sub "ഭ്", "bh"
+    sub "മ്", "m"
+    
     # Semivowels
-    'യ്': 'y'
-    'ര്': 'r'
-    'റ്': 'ṟ'
-    'ല്': 'l'
-    'ള്': 'ḷ'
-    'ഴ്': 'ḻ'
+    sub "യ്", "y"
+    sub "ര്", "r"
+    sub "റ്", "ṟ"
+    sub "ല്", "l"
+    sub "ള്", "ḷ"
+    sub "ഴ്", "ḻ"
     # Sibilants
-    'വ്': 'v'
-    'ശ്': 'ś'
-    'ഷ്': 'ṣ'
-    'സ്': 's'
-    'ഩ്': 'ṉ'
-
-
+    sub "വ്", "v"
+    sub "ശ്", "ś"
+    sub "ഷ്", "ṣ"
+    sub "സ്", "s"
+    sub "ഩ്", "ṉ"
+    
+    
     # Aspirate
-    'ഹ്': 'h'
-
-
+    sub "ഹ്", "h"
+    
+    
     # numbers
-
-    '൦': '0'
-    '൧': '1'
-    '൨': '2'
-    '൩': '3'
-    '൪': '4'
-    '൫': '5'
-    '൬': '6'
-    '൭': '7'
-    '൮': '8'
-    '൯': '9'
-    '൰': '10'
-    '൱': '100'
-    '൲': '1000'
-
-
+    
+    sub "൦", "0"
+    sub "൧", "1"
+    sub "൨", "2"
+    sub "൩", "3"
+    sub "൪", "4"
+    sub "൫", "5"
+    sub "൬", "6"
+    sub "൭", "7"
+    sub "൮", "8"
+    sub "൯", "9"
+    sub "൰", "10"
+    sub "൱", "100"
+    sub "൲", "1000"
+    
+    
     # Rule 8(II)
+    
+    sub "ൺ", ":na"
+    sub "ൻ", ":ṇa"
+    sub "ൽ", ":la"
+    sub "ൾ", ":ḷa"
+    sub "ൿ", ":ka"
+  }
 
-    'ൺ': ':na'
-    'ൻ': ':ṇa'
-    'ൽ': ':la'
-    'ൾ': ':ḷa'
-    'ൿ': ':ka'
+}
+

@@ -88,22 +88,27 @@ tests {
   test "مسئلة", "msy’lh"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  characters:
+stage {
 
+  # CHARACTERS
+  parallel {
+    
     # word-medial or word-final form where so appearing in a word.
     # '\u0627': '-'
-
+    
     # # Vowel, Diphthong and Diacritical Characters
-
+    
     # '\u064E': 'a'
-
+    
     # # Both e and i are available to romanize this short vowel,
     # # depending on local usage and/or root language. In cases where the sound
     # # is uncertain, i is the default romanization in BGN/PCGN standardization
@@ -111,7 +116,7 @@ __END__
     # '\u0650':
     #   - 'e'
     #   - 'i'
-
+    
     # # Both o and u are available to romanize this short vowel,
     # # depending on local usage and/or root language. In cases where the sound
     # # is uncertain, u is the default romanization in BGN/PCGN standardization
@@ -120,19 +125,19 @@ __END__
     #   - 'o'
     #   - 'u'
     # '\u0659': 'ê'
-
+    
     # # An alif with mad ( آ ) is written only in the initial position by
     # # BGN/PCGN standardization procedures, in keeping with Persian language
     # # family standards of use of the Arabic alphabet. The same letter written
     # # in a medial or final position is written . . .
     # '\u0622': 'ā'
-
+    
     # pending issue #442
     # '\u0648': 'ō'
     # '\u0648': 'ū'
     # '\u0648': 'ow'
     # '\u06CC': 'ī'
-
+    
     # # Or 'ē'. The character ی should be romanized ay or ē according to
     # # its root language or local pronunciation. In case of uncertainty a
     # # reference source (such as the Fairchild Aerial Surveys map series, or a
@@ -140,7 +145,7 @@ __END__
     # # be consulted.
     # '\u06CC': 'ay'
     # '\u06D0': 'ē'
-
+    
     # # Or 'aī'. Both the combination ay and aī are available to romanize
     # # this character according to its root language or local pronunciation.
     # # In cases where the sound is uncertain ay is the default romanization in
@@ -153,204 +158,204 @@ __END__
     # '\u0674':
     #   - '-e'
     #   - '-ye'
-
+    
     # # Other Diacritical Marks and Language Conventions
-
+    
     # '\u0627': 'āy'
-
+    
     # '\u0648': 'w'
     # '\u0626': '’'
     # '\u06C0': ''
     # '\u0651': ''
-
-
+    
+    
     # special rules
-
-    '\s(?=\u0622\u0628\u064E\u0627\u062F)': '' # space followed by abad is removed
-    '\ufdf2': 'Allāh' # See note 5
-
+    
+    sub "\\s(?=\u0622\u0628\u064E\u0627\u062F)", "" # space followed by abad is removed
+    sub "\ufdf2", "Allāh" # See note 5
+    
     # pointing
-    '\u064e' : 'a' # َ fatha
-
-    '\u0650':
-      - 'e'
-      - 'i'
-    '\u0650\b' : '-e' # ِ kasra
-
-    '\u064f':  # ُ damma
-      - 'o'
-      - 'u'
-
-    '\u0652' : ''  # ْ sokoon
-    '\u0659': 'ê'
-
+    sub "\u064e", "a" # َ fatha
+    
+    sub "\u0650", any("ei")
+    sub "\u0650\\b", "-e" # ِ kasra
+    
+    sub "\u064f", any("ou") # ُ damma
+    
+    sub "\u0652", "" # ْ sokoon
+    sub "\u0659", "ê"
+    
     # special pointed letters
-    '\u0639\u064e' : '‘a'  # عَ
-    '\u0639\u0650' : '‘i'  # عِ
-    '\u0639\u064f' : '‘ū'  # عُ
+    sub "\u0639\u064e", "‘a" # عَ
+    sub "\u0639\u0650", "‘i" # عِ
+    sub "\u0639\u064f", "‘ū" # عُ
     # handle MacOS regex difference
-    '\u0639\u064f\u0648' : '‘ū'  # عُو damma followed by و
-
-    '\u0650\u064a' : 'ī' # ـِي kasra followed by ي
-    '\u0650\u06cc' : 'ī' # ـِي kasra followed by ي
-    '\u0650\u064a\u0651\u064e' : 'īy' # ـِيَّ
-    '\u0650\u064a(?=\u064e|u064f)' : 'iy' # ـِي kasra followed by ي
-    '\u064f\u0648' : 'ō'  # ـُو damma followed by و
-    '\u064e\u0627' : 'ā'  # ـَا fatha followed by ا
-    '\u064e\u0649' : 'ay'  # ـَى fatha followed by ى which is ا not ي
-    '\u064e\u0648\u0652' : 'aw'  # ـَوْ
-    '\u064e\u0648' : 'ow'  # ـَو
-    '\u064e\u064a\u0652' : 'ay'  # ـَيْ
-    '\u0650\u06cc\u0651\u064e' : 'īy' # ـِيَّ
-    '\u064e\u064a' : 'aī'  # ـَي
-    '\u064e\u06cc' : 'aī'  # ـَي
-    '\u0649\u0670': 'á' # ىٰ
-    '\u0674': '-e' # ٴ
-    '\u0654': '-e' #  ٔ
-      # - '-ye'
-
-    '\u0622' : 'â'  # آ
-
+    sub "\u0639\u064f\u0648", "‘ū" # عُو damma followed by و
+    
+    sub "\u0650\u064a", "ī" # ـِي kasra followed by ي
+    sub "\u0650\u06cc", "ī" # ـِي kasra followed by ي
+    sub "\u0650\u064a\u0651\u064e", "īy" # ـِيَّ
+    sub "\u0650\u064a(?=\u064e|u064f)", "iy" # ـِي kasra followed by ي
+    sub "\u064f\u0648", "ō" # ـُو damma followed by و
+    sub "\u064e\u0627", "ā" # ـَا fatha followed by ا
+    sub "\u064e\u0649", "ay" # ـَى fatha followed by ى which is ا not ي
+    sub "\u064e\u0648\u0652", "aw" # ـَوْ
+    sub "\u064e\u0648", "ow" # ـَو
+    sub "\u064e\u064a\u0652", "ay" # ـَيْ
+    sub "\u0650\u06cc\u0651\u064e", "īy" # ـِيَّ
+    sub "\u064e\u064a", "aī" # ـَي
+    sub "\u064e\u06cc", "aī" # ـَي
+    sub "\u0649\u0670", "á" # ىٰ
+    sub "\u0674", "-e" # ٴ
+    sub "\u0654", "-e" #  ٔ
+    # - '-ye'
+    
+    sub "\u0622", "â" # آ
+    
     # ta' marboota
-    '\u0629' : 't' # ة in the middle of the sentence
-    '\u0629$' : 'h'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{2})\u0629' : 'h'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{3})\u0629' : 'h'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{4})\u0629' : 'h'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{5})\u0629' : 'h'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{6})\u0629' : 'h'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{7})\u0629' : 'h'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{8})\u0629' : 'h'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{9})\u0629' : 'h'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{10})\u0629' : 'h'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{11})\u0629' : 'h'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{12})\u0629' : 'h'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{13})\u0629' : 'h'
-
+    sub "\u0629", "t" # ة in the middle of the sentence
+    sub "\u0629$", "h"
+    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{2})\u0629", "h"
+    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{3})\u0629", "h"
+    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{4})\u0629", "h"
+    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{5})\u0629", "h"
+    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{6})\u0629", "h"
+    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{7})\u0629", "h"
+    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{8})\u0629", "h"
+    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{9})\u0629", "h"
+    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{10})\u0629", "h"
+    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{11})\u0629", "h"
+    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{12})\u0629", "h"
+    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{13})\u0629", "h"
+    
     # shadda
-    '\u0628' : 'bb'  # ب
-    '\u067E' : 'pp' # پ
-    '\u062a' : 'tt'  # ت
-    '\u062B' : 's̱s̱'   # ث
-    '\u062c' : 'jj'  # ج
-    '\u0686' : 'č̱č̱'  # ‫چ‬‬
-    '\u062d' : 'ḥḥ' # ح
-    '\u062e' : 'ḵḵ'  # خ
-    '\u062f' : 'dd'  # د
-    '\u0689' : 'ḏḏ' # ‫ډ‬
-    '\u0630' : 'ẕẕ'  # ذ
-    '\u0631' : 'rr'  # ر
-    '\u0632' : 'zz'  # ز
-    '\u0698' : 'zz'  # ‫ژ‬
-    '\u0633' : 'ss'  # س
-    '\u0634' : 'šš'  # ش
-    '\u0635' : 'ṣṣ'  # ص
-    '\u0636' : 'żż'  # ض
-    '\u0637' : 'ṭṭ'  # ط
-    '\u0638' : 'zz'  # ظ
-    '\u0639' : '‘'  # ع
-    '\u063a' : 'gh'  # غ
-    '\u0641' : 'ff'  # ف
-    '\u0642' : 'qq'  # ق
-    '\u06A9' : 'kk' # ک
-    '\u06AF' : 'gg' # ‫گ‬
-    '\u0644' : 'll'  # ل
-    '\u0645' : 'mm'  # م
-    '\u0646' : 'nn'  # ن
-    '\u0648' : 'vv'  # و
-    '\u0647' : 'hh'  # ه
-    '\u064a' : 'yy'  # ي
-    '\u0649' : 'yy'  # ي
-    '\u06D0' : 'ēē'   # ې
-    '\u06CD' : 'êy'  # ‫ۍ
-
+    sub "\u0628", "bb" # ب
+    sub "\u067E", "pp" # پ
+    sub "\u062a", "tt" # ت
+    sub "\u062B", "s̱s̱" # ث
+    sub "\u062c", "jj" # ج
+    sub "\u0686", "č̱č̱" # ‫چ‬‬
+    sub "\u062d", "ḥḥ" # ح
+    sub "\u062e", "ḵḵ" # خ
+    sub "\u062f", "dd" # د
+    sub "\u0689", "ḏḏ" # ‫ډ‬
+    sub "\u0630", "ẕẕ" # ذ
+    sub "\u0631", "rr" # ر
+    sub "\u0632", "zz" # ز
+    sub "\u0698", "zz" # ‫ژ‬
+    sub "\u0633", "ss" # س
+    sub "\u0634", "šš" # ش
+    sub "\u0635", "ṣṣ" # ص
+    sub "\u0636", "żż" # ض
+    sub "\u0637", "ṭṭ" # ط
+    sub "\u0638", "zz" # ظ
+    sub "\u0639", "‘" # ع
+    sub "\u063a", "gh" # غ
+    sub "\u0641", "ff" # ف
+    sub "\u0642", "qq" # ق
+    sub "\u06A9", "kk" # ک
+    sub "\u06AF", "gg" # ‫گ‬
+    sub "\u0644", "ll" # ل
+    sub "\u0645", "mm" # م
+    sub "\u0646", "nn" # ن
+    sub "\u0648", "vv" # و
+    sub "\u0647", "hh" # ه
+    sub "\u064a", "yy" # ي
+    sub "\u0649", "yy" # ي
+    sub "\u06D0", "ēē" # ې
+    sub "\u06CD", "êy" # ‫ۍ
+    
     # Tanvin
-    '\u064b': '´´' #  ً
-    '\u064c': '' #  ٌ
-    '\u064d': '' #  ٍ
-
+    sub "\u064b", "´´" #  ً
+    sub "\u064c", "" #  ٌ
+    sub "\u064d", "" #  ٍ
+    
     # hamzeh
-    '\u0621' : '’' # ء
-    '\u0623' : 'â’'  # أ
-    '\u0624' : 'v’'  # ؤ
-    '\u0626' : 'y’' # ئ
-
+    sub "\u0621", "’" # ء
+    sub "\u0623", "â’" # أ
+    sub "\u0624", "v’" # ؤ
+    sub "\u0626", "y’" # ئ
+    
     # punctuation
-
-    '\u060c' : ',' # vavak comma
-    '\u061b' : ';' # nogteh vavak semi column
-    '\u061f' : '?' # neshane-ye porsesh question mark
-
-    '\u0625' : ''    # إ
-    '\u0627' : 'â'  # ا
-
+    
+    sub "\u060c", "," # vavak comma
+    sub "\u061b", ";" # nogteh vavak semi column
+    sub "\u061f", "?" # neshane-ye porsesh question mark
+    
+    sub "\u0625", "" # إ
+    sub "\u0627", "â" # ا
+    
     # See note B
-    '\b\u0627\u0644' : 'al '  # ال
+    sub "\\b\u0627\u0644", "al " # ال
     # '\uFE8E' : ''  # ﺎ
-
+    
     # Sun letters
-    '\b\u0627\u0644\u062a' : 'at t'  # الت
-    '\b\u0627\u0644\u062b' : 'as̄ s̄'  # الث
-    '\b\u0627\u0644\u062f' : 'ad d' # الد
-    '\b\u0627\u0644\u0630' : 'az̄ z̄'  # الذ
-    '\b\u0627\u0644\u0631' : 'ar r' # الر
-    '\b\u0627\u0644\u0632' : 'az z'  # الز
-    '\b\u0627\u0644\u0633' : 'as s' # الس
-    '\b\u0627\u0644\u0634' : 'ash sh' # الش
-    '\b\u0627\u0644\u0635' : 'aş ş'  # الص
-    '\b\u0627\u0644\u0636' : 'aẕ ẕ'  # الض
-    '\b\u0627\u0644\u0637' : 'aţ ţ'  # الط
-    '\b\u0627\u0644\u0638' : 'az̧ z̧' # الظ
-    '\b\u0627\u0644\u0644' : 'al l'  # الل
-    '\b\u0627\u0644\u0646' : 'an n'  # الن
-
+    sub "\\b\u0627\u0644\u062a", "at t" # الت
+    sub "\\b\u0627\u0644\u062b", "as̄ s̄" # الث
+    sub "\\b\u0627\u0644\u062f", "ad d" # الد
+    sub "\\b\u0627\u0644\u0630", "az̄ z̄" # الذ
+    sub "\\b\u0627\u0644\u0631", "ar r" # الر
+    sub "\\b\u0627\u0644\u0632", "az z" # الز
+    sub "\\b\u0627\u0644\u0633", "as s" # الس
+    sub "\\b\u0627\u0644\u0634", "ash sh" # الش
+    sub "\\b\u0627\u0644\u0635", "aş ş" # الص
+    sub "\\b\u0627\u0644\u0636", "aẕ ẕ" # الض
+    sub "\\b\u0627\u0644\u0637", "aţ ţ" # الط
+    sub "\\b\u0627\u0644\u0638", "az̧ z̧" # الظ
+    sub "\\b\u0627\u0644\u0644", "al l" # الل
+    sub "\\b\u0627\u0644\u0646", "an n" # الن
+    
     # consonant characters
-
-    '\u0628' : 'b'  # ب
-    '\u067E': 'p' # پ
-    '\u062a' : 't'  # ت
+    
+    sub "\u0628", "b" # ب
+    sub "\u067E", "p" # پ
+    sub "\u062a", "t" # ت
     # '\u067C': 'ṯ'  # ټ
-    '\u062B': 's̱'   # ث
-    '\u062c' : 'j'  # ج
-    '\u0686': 'c'  # ‫چ‬
-
+    sub "\u062B", "s̱" # ث
+    sub "\u062c", "j" # ج
+    sub "\u0686", "c" # ‫چ‬
+    
     # # The variant form ج is seen infrequently and does not have a
     # # single Unicode encoding.
     # '\u0681': 'dz' # Note 2 # ‫ځ‬
-
+    
     # '\u0685': 'ts' # Note 2 # ‫څ
-
-    '\u062d' : 'ḥ' # ح
-    '\u062e' : 'ḵ'  # خ
-    '\u062f' : 'd'  # د
-    '\u0689' : 'ḏ' # ‫ډ‬
-    '\u0630' : 'ẕ'  # ذ
-    '\u0631' : 'r'  # ر
+    
+    sub "\u062d", "ḥ" # ح
+    sub "\u062e", "ḵ" # خ
+    sub "\u062f", "d" # د
+    sub "\u0689", "ḏ" # ‫ډ‬
+    sub "\u0630", "ẕ" # ذ
+    sub "\u0631", "r" # ر
     # '\u0693' : 'ṟ'   # ړ
-    '\u0632' : 'z'  # ز
-    '\u0698' : 'z'  # ‫ژ‬
+    sub "\u0632", "z" # ز
+    sub "\u0698", "z" # ‫ژ‬
     # '\u0696' : 'z͟h'  # ږ
-    '\u0633' : 's'  # س
+    sub "\u0633", "s" # س
     # '\u069A' : 's͟h'  # ښ
-    '\u0634' : 'š'  # ش
-    '\u0635' : 'ṣ'  # ص
-    '\u0636' : 'ż'  # ض
-    '\u0637' : 'ṭ'  # ط
-    '\u0638' : 'z'  # ظ
-    '\u0639' : '‘'  # ع
-    '\u063a' : 'gh'  # غ
-    '\u0641' : 'f'  # ف
-    '\u0642' : 'q'  # ق
+    sub "\u0634", "š" # ش
+    sub "\u0635", "ṣ" # ص
+    sub "\u0636", "ż" # ض
+    sub "\u0637", "ṭ" # ط
+    sub "\u0638", "z" # ظ
+    sub "\u0639", "‘" # ع
+    sub "\u063a", "gh" # غ
+    sub "\u0641", "f" # ف
+    sub "\u0642", "q" # ق
     # '\u0643' : 'k'  # ك
-    '\u06A9' : 'k' # ک
-    '\u06AF' : 'g' # ‫گ‬
-    '\u0644' : 'l'  # ل
-    '\u0645' : 'm'  # م
-    '\u0646' : 'n'  # ن
+    sub "\u06A9", "k" # ک
+    sub "\u06AF", "g" # ‫گ‬
+    sub "\u0644", "l" # ل
+    sub "\u0645", "m" # م
+    sub "\u0646", "n" # ن
     # '\u06BC' : 'ṉ' # ڼ
-    '\u0648' : 'v'  # و
-    '\u0647' : 'h'  # ه
-    '\u064a' : 'y'  # ي
-    '\u0649' : 'y'  # ي
-    '\u06D0' : 'ē'   # ې
-    '\u06CD' : 'êy'  # ‫ۍ‬
+    sub "\u0648", "v" # و
+    sub "\u0647", "h" # ه
+    sub "\u064a", "y" # ي
+    sub "\u0649", "y" # ي
+    sub "\u06D0", "ē" # ې
+    sub "\u06CD", "êy" # ‫ۍ‬
+  }
+
+}
+

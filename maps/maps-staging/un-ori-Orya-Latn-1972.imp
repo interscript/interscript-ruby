@@ -41,201 +41,174 @@ tests {
   test "ପାହାଡ଼ି ଇଲାକାବାସୀଙ୍କ ଆଶାର ବତୀ ‘ପାର୍ବତୀ’", "pāhāṙi ilākābāsīṅka āshāra batī ‘pārbatī’"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
 
-  rules:
-    - pattern: ([କ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   'k'
-    - pattern: ([ଖ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   'kh'
-    - pattern: ([ଗ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   'g'
-    - pattern: ([ଘ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   'gh'
-    - pattern: ([ଙ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   'ṅ'
-    - pattern: ([ଚ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   'ch'
-    - pattern: ([ଛ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   'chhh'
-    - pattern: ([ଜ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   'j'
-    - pattern: ([ଝ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   'jh'
-    - pattern: ([ଞ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   'ñ'
-    - pattern: ([ଟ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   'ṭ'
-    - pattern: ([ଠ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   'ṭh'
-    - pattern: ([ଡ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   'ḍ'
-    - pattern: ([ଡ଼]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   'ṙ'
-    - pattern: ([ଢ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   'ḍh'
-    - pattern: ([ଢ଼]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   'ṙh'
-    - pattern: ([ଣ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   'ṇ'
-    - pattern: ([ତ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   't'
-    - pattern: ([ଥ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   'th'
-    - pattern: ([ଦ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   'd'
-    - pattern: ([ଧ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   'dh'
-    - pattern: ([ନ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   'n'
-    - pattern: ([ପ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   'p'
-    - pattern: ([ଫ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   'ph'
-    - pattern: ([ବ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   'b'
-    - pattern: ([ଭ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   'bh'
-    - pattern: ([ମ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   'm'
-    - pattern: ([ଯ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   'ỵ'
-    - pattern: ([ୟ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   'y'
-    - pattern: ([ର]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   'r'
-    - pattern: ([ଲ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   'l'
-    - pattern: ([ଳ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   'ḷ'
-    - pattern: ([ଶ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   'sh'
-    - pattern: ([ଷ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   'ṣh'
-    - pattern: ([ସ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   's'
-    - pattern: ([ହ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   'h'
-    - pattern: ([କ୍ଷ]=?)(?=[\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c])
-      result:   'kṣh'
+stage {
 
-  characters:
-    'ଅ': 'a'
-    'ଆ': 'ā'
-    'ଇ': 'i'
-    'ଈ': 'ī'
-    'ଉ': 'u'
-    'ଊ': 'ū'
-    'ଋ': 'ṛ'
-    'ୠ': 'ṝ'
-    'ଌ': 'ḻ'
-    'ଏ': 'e'
-    'ଐ': 'ai'
-    'ଓ': 'o'
-    'ୱ': 'va'
-    'ଔ': 'au'
+  # RULES
+  sub "([କ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "k"
+  sub "([ଖ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "kh"
+  sub "([ଗ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "g"
+  sub "([ଘ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "gh"
+  sub "([ଙ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "ṅ"
+  sub "([ଚ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "ch"
+  sub "([ଛ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "chhh"
+  sub "([ଜ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "j"
+  sub "([ଝ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "jh"
+  sub "([ଞ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "ñ"
+  sub "([ଟ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "ṭ"
+  sub "([ଠ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "ṭh"
+  sub "([ଡ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "ḍ"
+  sub "([ଡ଼]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "ṙ"
+  sub "([ଢ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "ḍh"
+  sub "([ଢ଼]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "ṙh"
+  sub "([ଣ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "ṇ"
+  sub "([ତ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "t"
+  sub "([ଥ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "th"
+  sub "([ଦ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "d"
+  sub "([ଧ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "dh"
+  sub "([ନ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "n"
+  sub "([ପ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "p"
+  sub "([ଫ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "ph"
+  sub "([ବ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "b"
+  sub "([ଭ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "bh"
+  sub "([ମ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "m"
+  sub "([ଯ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "ỵ"
+  sub "([ୟ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "y"
+  sub "([ର]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "r"
+  sub "([ଲ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "l"
+  sub "([ଳ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "ḷ"
+  sub "([ଶ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "sh"
+  sub "([ଷ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "ṣh"
+  sub "([ସ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "s"
+  sub "([ହ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "h"
+  sub "([କ୍ଷ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "kṣh"
+  
 
+  # CHARACTERS
+  parallel {
+    sub "ଅ", "a"
+    sub "ଆ", "ā"
+    sub "ଇ", "i"
+    sub "ଈ", "ī"
+    sub "ଉ", "u"
+    sub "ଊ", "ū"
+    sub "ଋ", "ṛ"
+    sub "ୠ", "ṝ"
+    sub "ଌ", "ḻ"
+    sub "ଏ", "e"
+    sub "ଐ", "ai"
+    sub "ଓ", "o"
+    sub "ୱ", "va"
+    sub "ଔ", "au"
+    
     # II. Consonants
     # Gutturals
-    'କ': 'ka'
-    'ଖ': 'kha'
-    'ଗ': 'ga'
-    'ଘ': 'gha'
-    'ଙ': 'ṅa'
-
+    sub "କ", "ka"
+    sub "ଖ", "kha"
+    sub "ଗ", "ga"
+    sub "ଘ", "gha"
+    sub "ଙ", "ṅa"
+    
     # Palatals
-    'ଚ': 'cha'
-    'ଛ': 'chha'
-    'ଜ': 'ja'
-    'ଝ': 'jha'
-    'ଞ': 'ña'
-
+    sub "ଚ", "cha"
+    sub "ଛ", "chha"
+    sub "ଜ", "ja"
+    sub "ଝ", "jha"
+    sub "ଞ", "ña"
+    
     # Cerebrals
-    'ଟ':  'ṭa'
-    'ଠ':  'ṭha'
-    'ଡ':  'ḍa'
-    'ଡ଼':  'ṙa'
-    'ଢ':  'ḍha'
-    'ଢ଼':  'ṙha'
-    'ଣ':  'ṇa'
-
+    sub "ଟ", "ṭa"
+    sub "ଠ", "ṭha"
+    sub "ଡ", "ḍa"
+    sub "ଡ଼", "ṙa"
+    sub "ଢ", "ḍha"
+    sub "ଢ଼", "ṙha"
+    sub "ଣ", "ṇa"
+    
     # Dentals
-    'ତ': 'ta'
-    'ଥ': 'tha'
-    'ଦ': 'da'
-    'ଧ': 'dha'
-    'ନ': 'na'
-
+    sub "ତ", "ta"
+    sub "ଥ", "tha"
+    sub "ଦ", "da"
+    sub "ଧ", "dha"
+    sub "ନ", "na"
+    
     # Labials
-    'ପ': 'pa'
-    'ଫ': 'pha'
-    'ବ': 'ba'
-    'ଭ': 'bha'
-    'ମ': 'ma'
-
+    sub "ପ", "pa"
+    sub "ଫ", "pha"
+    sub "ବ", "ba"
+    sub "ଭ", "bha"
+    sub "ମ", "ma"
+    
     # Semivowels
-    'ଯ': 'ỵa'
-    'ୟ': 'ya'
-    'ର': 'ra'
-    'ଲ': 'la'
-    'ଳ': 'ḷa'
-
+    sub "ଯ", "ỵa"
+    sub "ୟ", "ya"
+    sub "ର", "ra"
+    sub "ଲ", "la"
+    sub "ଳ", "ḷa"
+    
     # Sibilants
-    'ଶ': 'sha'
-    'ଷ': 'ṣha'
-    'ସ': 'sa'
-
-
+    sub "ଶ", "sha"
+    sub "ଷ", "ṣha"
+    sub "ସ", "sa"
+    
+    
     # Aspirate
-    'ହ': 'ha'
-
-    'କ୍ଷ': 'kṣha'
-
+    sub "ହ", "ha"
+    
+    sub "କ୍ଷ", "kṣha"
+    
     # Chandrabindu
-    'ଁ': 'm'
-
+    sub "ଁ", "m"
+    
     # Bisarga
-    'ଃ': 'ḥ'
-
+    sub "ଃ", "ḥ"
+    
     # Anusvāra
-    'ଂ': 'ṃ'
-
+    sub "ଂ", "ṃ"
+    
     # Medials # Needed for connecting constants
-
-    'ା': 'ā'
-    'ି': 'i'
-    'ୀ': 'ī'
-    'ୁ': 'u'
-    'ୂ': 'ū'
-    'ୃ': 'ṛ'
-    'େ': 'e'
-    'ୈ': 'ai'
-    'ୋ': 'o'
-    'ୌ': 'au'
-
-    '्': ''
-    '୍': ''
-    '़': ''
-    '଼': ''
-    '।': '.'
-    "‍": ''# Used for joining
-    "‌": ''# Used for non joining
-
+    
+    sub "ା", "ā"
+    sub "ି", "i"
+    sub "ୀ", "ī"
+    sub "ୁ", "u"
+    sub "ୂ", "ū"
+    sub "ୃ", "ṛ"
+    sub "େ", "e"
+    sub "ୈ", "ai"
+    sub "ୋ", "o"
+    sub "ୌ", "au"
+    
+    sub "्", ""
+    sub "୍", ""
+    sub "़", ""
+    sub "଼", ""
+    sub "।", "."
+    sub "‍", "" # Used for joining
+    sub "‌", "" # Used for non joining
+    
     # Numbers
+    
+    sub "୦", "0"
+    sub "୧", "1"
+    sub "୨", "2"
+    sub "୩", "3"
+    sub "୪", "4"
+    sub "୫", "5"
+    sub "୬", "6"
+    sub "୭", "7"
+    sub "୮", "8"
+    sub "୯", "9"
+  }
 
-    '୦': '0'
-    '୧': '1'
-    '୨': '2'
-    '୩': '3'
-    '୪': '4'
-    '୫': '5'
-    '୬': '6'
-    '୭': '7'
-    '୮': '8'
-    '୯': '9'
+}
+

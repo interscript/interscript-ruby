@@ -260,181 +260,148 @@ tests {
   test "Χονγκ Κονγκ", "Chongk Kongk"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  # https://en.wikipedia.org/wiki/Romanization_of_Greek
-  rules:
-    - pattern: (?<=[ΑαΕεΗη])\u03A5(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])    # Υ (after Α, Ε, Η)
-      result: F̱
-    - pattern: (?<=[ΑαΕεΗη])\u03A5(?=\b)    # Υ (after Α, Ε, Η)
-      result: F̱
-    - pattern: (?<=[ΑαΕεΗη])\u03C5(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])    # υ (after Α, Ε, Η)
-      result: f̱
-    - pattern: (?<=[ΑαΕεΗη])\u03C5(?=\b)    # υ (after Α, Ε, Η)
-      result: f̱
-    - pattern: (?<=[ΑαΕεΗη])\u03A5(?![θΘκΚξΞπΠσΣςτΤφΦχΧψΨ]|\b)    # Υ (after Α, Ε, Η)
-      result: V̱
-    - pattern: (?<=[ΑαΕεΗη])\u03C5(?![θΘκΚξΞπΠσΣςτΤφΦχΧψΨ]|\b)    # υ (after Α, Ε, Η)
-      result: v̱
-    - pattern: \u0391\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])    # Αύ
-      result: Áf̱
-    - pattern: \u0391\u03CD(?=\b)    # Αύ
-      result: Áf̱
-    - pattern: \u0391\u03CD(?![θΘκΚξΞπΠσΣςτΤφΦχΧψΨ]|\b)    # Αύ
-      result: Áv̱
-    - pattern: \u03B1\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])    # Αύ
-      result: áf̱
-    - pattern: \u03B1\u03CD(?=\b)    # Αύ
-      result: áf̱
-    - pattern: \u03B1\u03CD(?![θΘκΚξΞπΠσΣςτΤφΦχΧψΨ]|\b)    # Αύ
-      result: áv̱
-    - pattern: \u0395\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])    # Εύ
-      result: Éf̱
-    - pattern: \u0395\u03CD(?=\b)    # Εύ
-      result: Éf̱
-    - pattern: \u0395\u03CD(?![θΘκΚξΞπΠσΣςτΤφΦχΧψΨ]|\b)    # Εύ
-      result: Év̱
-    - pattern: \u03B5\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])    # Εύ
-      result: éf̱
-    - pattern: \u03B5\u03CD(?=\b)    # Εύ
-      result: éf̱
-    - pattern: \u03B5\u03CD(?![θΘκΚξΞπΠσΣςτΤφΦχΧψΨ]|\b)    # Εύ
-      result: év̱
-    - pattern: \u0397\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])    # Εύ
-      result: Í̱f̱
-    - pattern: \u0397\u03CD(?=\b)    # Εύ
-      result: Í̱f̱
-    - pattern: \u0397\u03CD(?![θΘκΚξΞπΠσΣςτΤφΦχΧψΨ]|\b)    # Εύ
-      result: Í̱v̱
-    - pattern: \u03B7\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])    # Εύ
-      result: í̱f̱
-    - pattern: \u03B7\u03CD(?=\b)    # Εύ
-      result: í̱f̱
-    - pattern: \u03B7\u03CD(?![θΘκΚξΞπΠσΣςτΤφΦχΧψΨ]|\b)    # Εύ
-      result: í̱v̱
-    - pattern: (?<=[Οο])\u03A5    # Υ (after Ο)
-      result: U
-    - pattern: (?<=[Οο])\u03C5    # υ (after Ο)
-      result: u
-    - pattern: (?<=[Οο])\u03CD    # ύ (after Ο)
-      result: ú
-    - pattern: (?<=[ΆάΈέΉήΌό])\u03A5    # Άυ, Έυ, Ήυ, Όυ
-      result: Υ
-    - pattern: (?<=[ΆάΈέΉήΌό])\u03C5    # Άυ, Έυ, Ήυ, Όυ
-      result: y
-    - pattern: \u0393(?=[ξΞχΧ])    # Γ (before Γ, Ξ, Χ)
-      result: Ṉ
-    - pattern: \u03B3(?=[ξΞχΧ])    # γ (before Γ, Ξ, Χ)
-      result: ṉ
-    - pattern: \u0393[Γγ]    # Γ (before Γ)
-      result: Ṉg
-    - pattern: \u03B3\u03B3    # γ (before Γ)
-      result: ṉg
-    - pattern: \u0393[Κκ]    # Γ (before Κ)
-      result: Gk
-    - pattern: \u03B3[Κκ]    # γ (before Κ)
-      result: gk
-    - pattern: (?<=\b)\u039C[πΠ]    # ΜΠ (initially)
-      result: B
-    - pattern: (?<=\b)\u03BC[πΠ]    # μπ (initially)
-      result: b
-    - pattern: \u039C[πΠ](?=\b)    # ΜΠ (finally)
-      result: B
-    - pattern: \u03BC[πΠ](?=\b)    # μπ (finally)
-      result: b
-    - pattern: (?<!\b)\u039C[πΠ]    # ΜΠ (medially)
-      result: Mp
-    - pattern: (?<!\b)\u03BC[πΠ]    # μπ (medially)
-      result: mp
-    - pattern: \u037E   # ;
-      result: "?"
-    - pattern: \u003B   # ;
-      result: "?"
+# https://en.wikipedia.org/wiki/Romanization_of_Greek
+stage {
 
-  characters:
-    "\u0027": ""
-    "\u0386": "Á"  # Ά
-    "\u0391": "A"  # Α
-    "\u0392": "V"  # Β
-    "\u0393": "G"  # Γ
-    "\u0394": "D"  # Δ
-    "\u0395": "E"  # Ε
-    "\u0395\u03AA": "Εï"  # ΕΪ
-    "\u0395\u03CA": "Εï"  # Εϊ
-    "\u0388\u03CA": "Éï"  # Έϊ
-    "\u0388\u03CA": "Éï"  # Έι
-    "\u0396": "Z"  # Ζ
-    "\u0397": "I̱"  # Η
-    "\u0398": "Th" # Θ
-    "\u0399": "I"  # Ι
-    "\u039A": "K"  # Κ
-    "\u039B": "L"  # Λ
-    "\u039C": "M"  # Μ
-    "\u039D": "N"  # Ν
-    "\u039E": "X"  # Ξ
-    "\u039F": "O"  # Ο
-    "\u03A0": "P"  # Π
-    "\u03A1": "R"  # Ρ
-    "\u03A3": "S"  # Σ
-    "\u03A4": "T"  # Τ
-    "\u03A5": "Y"  # Υ
-    "\u03A6": "F" # Φ
-    "\u03A7": "Ch" # Χ
-    "\u03A8": "Ps" # Ψ
-    "\u03A9": "O̱"  # Ω
-    "\u0388": "É"  # Έ
-    "\u0389": "Í̱"  # Ή
-    "\u038A": "Í"  # Ί
-    "\u038C": "Ó"  # Ό
-    "\u038E": "Ý"  # Ύ
-    "\u038F": "Ó̱"  # Ώ
-    "\u03AA": "Ï"  # Ϊ
-    "\u03AB": "Ÿ"  # Ϋ
+  # RULES
+  sub "(?<=[ΑαΕεΗη])\\u03A5(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])", "F̱" # Υ (after Α, Ε, Η)
+  sub "(?<=[ΑαΕεΗη])\\u03A5(?=\\b)", "F̱" # Υ (after Α, Ε, Η)
+  sub "(?<=[ΑαΕεΗη])\\u03C5(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])", "f̱" # υ (after Α, Ε, Η)
+  sub "(?<=[ΑαΕεΗη])\\u03C5(?=\\b)", "f̱" # υ (after Α, Ε, Η)
+  sub "(?<=[ΑαΕεΗη])\\u03A5(?![θΘκΚξΞπΠσΣςτΤφΦχΧψΨ]|\\b)", "V̱" # Υ (after Α, Ε, Η)
+  sub "(?<=[ΑαΕεΗη])\\u03C5(?![θΘκΚξΞπΠσΣςτΤφΦχΧψΨ]|\\b)", "v̱" # υ (after Α, Ε, Η)
+  sub "\\u0391\\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])", "Áf̱" # Αύ
+  sub "\\u0391\\u03CD(?=\\b)", "Áf̱" # Αύ
+  sub "\\u0391\\u03CD(?![θΘκΚξΞπΠσΣςτΤφΦχΧψΨ]|\\b)", "Áv̱" # Αύ
+  sub "\\u03B1\\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])", "áf̱" # Αύ
+  sub "\\u03B1\\u03CD(?=\\b)", "áf̱" # Αύ
+  sub "\\u03B1\\u03CD(?![θΘκΚξΞπΠσΣςτΤφΦχΧψΨ]|\\b)", "áv̱" # Αύ
+  sub "\\u0395\\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])", "Éf̱" # Εύ
+  sub "\\u0395\\u03CD(?=\\b)", "Éf̱" # Εύ
+  sub "\\u0395\\u03CD(?![θΘκΚξΞπΠσΣςτΤφΦχΧψΨ]|\\b)", "Év̱" # Εύ
+  sub "\\u03B5\\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])", "éf̱" # Εύ
+  sub "\\u03B5\\u03CD(?=\\b)", "éf̱" # Εύ
+  sub "\\u03B5\\u03CD(?![θΘκΚξΞπΠσΣςτΤφΦχΧψΨ]|\\b)", "év̱" # Εύ
+  sub "\\u0397\\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])", "Í̱f̱" # Εύ
+  sub "\\u0397\\u03CD(?=\\b)", "Í̱f̱" # Εύ
+  sub "\\u0397\\u03CD(?![θΘκΚξΞπΠσΣςτΤφΦχΧψΨ]|\\b)", "Í̱v̱" # Εύ
+  sub "\\u03B7\\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])", "í̱f̱" # Εύ
+  sub "\\u03B7\\u03CD(?=\\b)", "í̱f̱" # Εύ
+  sub "\\u03B7\\u03CD(?![θΘκΚξΞπΠσΣςτΤφΦχΧψΨ]|\\b)", "í̱v̱" # Εύ
+  sub "(?<=[Οο])\\u03A5", "U" # Υ (after Ο)
+  sub "(?<=[Οο])\\u03C5", "u" # υ (after Ο)
+  sub "(?<=[Οο])\\u03CD", "ú" # ύ (after Ο)
+  sub "(?<=[ΆάΈέΉήΌό])\\u03A5", "Υ" # Άυ, Έυ, Ήυ, Όυ
+  sub "(?<=[ΆάΈέΉήΌό])\\u03C5", "y" # Άυ, Έυ, Ήυ, Όυ
+  sub "\\u0393(?=[ξΞχΧ])", "Ṉ" # Γ (before Γ, Ξ, Χ)
+  sub "\\u03B3(?=[ξΞχΧ])", "ṉ" # γ (before Γ, Ξ, Χ)
+  sub "\\u0393[Γγ]", "Ṉg" # Γ (before Γ)
+  sub "\\u03B3\\u03B3", "ṉg" # γ (before Γ)
+  sub "\\u0393[Κκ]", "Gk" # Γ (before Κ)
+  sub "\\u03B3[Κκ]", "gk" # γ (before Κ)
+  sub "(?<=\\b)\\u039C[πΠ]", "B" # ΜΠ (initially)
+  sub "(?<=\\b)\\u03BC[πΠ]", "b" # μπ (initially)
+  sub "\\u039C[πΠ](?=\\b)", "B" # ΜΠ (finally)
+  sub "\\u03BC[πΠ](?=\\b)", "b" # μπ (finally)
+  sub "(?<!\\b)\\u039C[πΠ]", "Mp" # ΜΠ (medially)
+  sub "(?<!\\b)\\u03BC[πΠ]", "mp" # μπ (medially)
+  sub "\\u037E", "?" # ;
+  sub "\\u003B", "?" # ;
+  
 
-    "\u03AC": "á"  # ά
-    "\u03B1": "a"  # α
-    "\u03B2": "v"  # β
-    "\u03B3": "g"  # γ
-    "\u03B4": "d"  # δ
-    "\u03B5": "e"  # ε
-    "\u03B5\u03CA": "eï"  # εϊ
-    "\u03AD\u03CA": "éï"  # έϊ
-    "\u03AD\u03B9": "éï"  # έι
-    "\u03B6": "z"  # ζ
-    "\u03B7": "i̱"  # η
-    "\u03B8": "th" # θ
-    "\u03B9": "i"  # ι
-    "\u03BA": "k"  # κ
-    "\u03BB": "l"  # λ
-    "\u03BC": "m"  # μ
-    "\u03BD": "n"  # ν
-    "\u03BE": "x"  # ξ
-    "\u03BF": "o"  # ο
-    "\u03C0": "p"  # π
-    "\u03C1": "r"  # ρ
-    "\u03C3": "s"  # σ
-    "\u03C2": "s"  # ς
-    "\u03C4": "t"  # τ
-    "\u03C5": "y"  # υ
-    "\u03C6": "f" # φ
-    "\u03C7": "ch" # χ
-    "\u03C8": "ps" # ψ
-    "\u03C9": "o̱"  # ω
-    "\u03AD": "é"  # έ
-    "\u03AE": "í̱"  # ή
-    "\u03AF": "í"  # ί
-    "\u03CC": "ó"  # ό
-    "\u03CD": "ý"  # ύ
-    "\u03CE": "ó̱"  # ώ
-    "\u03CA": "ï"  # ϊ
-    "\u03CB": "ÿ"  # ϋ
-    "\u0390": "ḯ"  # ΐ
-    "\u03B0": "ÿ́"  # ΰ
+  # CHARACTERS
+  parallel {
+    sub "'", ""
+    sub "Ά", "Á" # Ά
+    sub "Α", "A" # Α
+    sub "Β", "V" # Β
+    sub "Γ", "G" # Γ
+    sub "Δ", "D" # Δ
+    sub "Ε", "E" # Ε
+    sub "ΕΪ", "Εï" # ΕΪ
+    sub "Εϊ", "Εï" # Εϊ
+    sub "Έϊ", "Éï" # Έϊ
+    sub "Έϊ", "Éï" # Έι
+    sub "Ζ", "Z" # Ζ
+    sub "Η", "I̱" # Η
+    sub "Θ", "Th" # Θ
+    sub "Ι", "I" # Ι
+    sub "Κ", "K" # Κ
+    sub "Λ", "L" # Λ
+    sub "Μ", "M" # Μ
+    sub "Ν", "N" # Ν
+    sub "Ξ", "X" # Ξ
+    sub "Ο", "O" # Ο
+    sub "Π", "P" # Π
+    sub "Ρ", "R" # Ρ
+    sub "Σ", "S" # Σ
+    sub "Τ", "T" # Τ
+    sub "Υ", "Y" # Υ
+    sub "Φ", "F" # Φ
+    sub "Χ", "Ch" # Χ
+    sub "Ψ", "Ps" # Ψ
+    sub "Ω", "O̱" # Ω
+    sub "Έ", "É" # Έ
+    sub "Ή", "Í̱" # Ή
+    sub "Ί", "Í" # Ί
+    sub "Ό", "Ó" # Ό
+    sub "Ύ", "Ý" # Ύ
+    sub "Ώ", "Ó̱" # Ώ
+    sub "Ϊ", "Ï" # Ϊ
+    sub "Ϋ", "Ÿ" # Ϋ
+    
+    sub "ά", "á" # ά
+    sub "α", "a" # α
+    sub "β", "v" # β
+    sub "γ", "g" # γ
+    sub "δ", "d" # δ
+    sub "ε", "e" # ε
+    sub "εϊ", "eï" # εϊ
+    sub "έϊ", "éï" # έϊ
+    sub "έι", "éï" # έι
+    sub "ζ", "z" # ζ
+    sub "η", "i̱" # η
+    sub "θ", "th" # θ
+    sub "ι", "i" # ι
+    sub "κ", "k" # κ
+    sub "λ", "l" # λ
+    sub "μ", "m" # μ
+    sub "ν", "n" # ν
+    sub "ξ", "x" # ξ
+    sub "ο", "o" # ο
+    sub "π", "p" # π
+    sub "ρ", "r" # ρ
+    sub "σ", "s" # σ
+    sub "ς", "s" # ς
+    sub "τ", "t" # τ
+    sub "υ", "y" # υ
+    sub "φ", "f" # φ
+    sub "χ", "ch" # χ
+    sub "ψ", "ps" # ψ
+    sub "ω", "o̱" # ω
+    sub "έ", "é" # έ
+    sub "ή", "í̱" # ή
+    sub "ί", "í" # ί
+    sub "ό", "ó" # ό
+    sub "ύ", "ý" # ύ
+    sub "ώ", "ó̱" # ώ
+    sub "ϊ", "ï" # ϊ
+    sub "ϋ", "ÿ" # ϋ
+    sub "ΐ", "ḯ" # ΐ
+    sub "ΰ", "ÿ́" # ΰ
+    
+    sub "·", ";" # ·
+    sub "·", ";" # ·
+  }
 
-    "\u0387": ";"   # ·
-    "\u00B7": ";"   # ·
+}
+

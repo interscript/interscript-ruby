@@ -80,36 +80,48 @@ tests {
   test "صَفَر", "safar"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  inherit: odni-fas-Arab-Latn-2004
-  characters:
+dependency "odni-fas-Arab-Latn-2004", as: arablatn
 
-    '\u0626' : '' # ئ
-    '\u0624' : '' # ؤ
+stage {
 
+  run map.arablatn.stage.main
+
+  # CHARACTERS
+  parallel {
+    
+    sub "\u0626", "" # ئ
+    sub "\u0624", "" # ؤ
+    
     # shadda
-
-    '\u0642\u0651' : 'qq'  # ق
-    '\u0648\u0651' : 'ww'  # و
-
-    '\u0621': '' # ء
-
+    
+    sub "\u0642\u0651", "qq" # ق
+    sub "\u0648\u0651", "ww" # و
+    
+    sub "\u0621", "" # ء
+    
     # FROM NOTES
-
-    '\u064a\u064a' : 'i' # NOTE 4 (2)
-    '\u06cc\u06cc' : 'i'
-
-    '\u0627\u064a\b' : 'i' # NOTE 4 (3)
-    '\u0627\u06cc\b' : 'i'
-
+    
+    sub "\u064a\u064a", "i" # NOTE 4 (2)
+    sub "\u06cc\u06cc", "i"
+    
+    sub "\u0627\u064a\\b", "i" # NOTE 4 (3)
+    sub "\u0627\u06cc\\b", "i"
+    
     # Farsi consonant characters
+    
+    sub "\u0639", "" # ع # new
+    sub "\u0642", "q" # ق
+    sub "\u0648", "w" # و
+  }
 
-    '\u0639' : ''  # ع # new
-    '\u0642' : 'q'  # ق
-    '\u0648' : 'w'  # و
+}
+

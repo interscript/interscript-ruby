@@ -64,117 +64,126 @@ tests {
   test "कृष्णास्वामी", "krishnasvami"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
 
-  characters:
+stage {
 
+  # CHARACTERS
+  parallel {
+    
     #Independent vowel characters
-    'अ': 'a'
-    'आ': 'a'
-    'इ': 'i'
-    'ई': 'i'
-    'उ': 'u'
-    'ऊ': 'u'
-    'ऋ': 'ri'
-    'ऌ': 'l̤'
-    'ए': 'e'
-    'ऐ': 'ai'
-    'ओ': 'o'
-    'ऑ': 'au'
-    'औ': 'au'
-
+    sub "अ", "a"
+    sub "आ", "a"
+    sub "इ", "i"
+    sub "ई", "i"
+    sub "उ", "u"
+    sub "ऊ", "u"
+    sub "ऋ", "ri"
+    sub "ऌ", "l̤"
+    sub "ए", "e"
+    sub "ऐ", "ai"
+    sub "ओ", "o"
+    sub "ऑ", "au"
+    sub "औ", "au"
+    
     #Dependent Vowels
-    'ा': "a"
-    'ि': "i"
-    'ी': "i"
-    'ु': "u"
-    'ू': "u"
-    'ृ': "ri"
-    'े': "e"
-    'ै': "ai"
-    'ॅ': "ai"
-    'ो': "o"
-    'ौ': "au"
-    'ॉ': "au" 
-
-
+    sub "ा", "a"
+    sub "ि", "i"
+    sub "ी", "i"
+    sub "ु", "u"
+    sub "ू", "u"
+    sub "ृ", "ri"
+    sub "े", "e"
+    sub "ै", "ai"
+    sub "ॅ", "ai"
+    sub "ो", "o"
+    sub "ौ", "au"
+    sub "ॉ", "au"
+    
+    
     # Consonants
-
+    
     # Gutturals
-    'क': 'k'
-    'क्ष': 'ksha'
-    'क़': 'q'
-    'ख': 'kh'
-    'ख़': 'kh'
-    'ग': 'g'
-    'ग़': 'gh'
-    'घ': 'gh'
-    'ङ': 'n'
-
+    sub "क", "k"
+    sub "क्ष", "ksha"
+    sub "क़", "q"
+    sub "ख", "kh"
+    sub "ख़", "kh"
+    sub "ग", "g"
+    sub "ग़", "gh"
+    sub "घ", "gh"
+    sub "ङ", "n"
+    
     # Palatals
-    'च': 'ch'
-    'छ': 'ch'
-    'ज': 'j'
-    'ज़': 'z'
-    'झ': 'gya'
-    'झ': 'jh'
-    'ञ': 'n'
-
+    sub "च", "ch"
+    sub "छ", "ch"
+    sub "ज", "j"
+    sub "ज़", "z"
+    sub "झ", "gya"
+    sub "झ", "jh"
+    sub "ञ", "n"
+    
     # Cerebrals
-    'ट': 't'
-    'ठ': 'th'
-    'ड': 'd'
-    'ड़': 'r'
-    'ढ़': 'rh'
-    'ढ': 'dh'
-    'ण': 'n'
-
+    sub "ट", "t"
+    sub "ठ", "th"
+    sub "ड", "d"
+    sub "ड़", "r"
+    sub "ढ़", "rh"
+    sub "ढ", "dh"
+    sub "ण", "n"
+    
     # Dentals
-    'त': 't'
-    'थ': 'th'
-    'द': 'd'
-    'ध': 'dh'
-    'न': 'n'
-
+    sub "त", "t"
+    sub "थ", "th"
+    sub "द", "d"
+    sub "ध", "dh"
+    sub "न", "n"
+    
     # Labials
-    'प': 'p'
-    'फ़': 'f'
-    'फ': 'ph'
-    'ब': 'b'
-    'भ': 'bh'
-    'म': 'm'
-
+    sub "प", "p"
+    sub "फ़", "f"
+    sub "फ", "ph"
+    sub "ब", "b"
+    sub "भ", "bh"
+    sub "म", "m"
+    
     # Semivowels
-    'य': 'y'
-    'र': 'r'
-    'ल': 'l'
-    'व': 'v'
-
+    sub "य", "y"
+    sub "र", "r"
+    sub "ल", "l"
+    sub "व", "v"
+    
     # Sibilants
-    'श': 'sh'
-    'ष': 'sh'
-    'स': 's'
-
-
+    sub "श", "sh"
+    sub "ष", "sh"
+    sub "स", "s"
+    
+    
     # Aspirate
-    'ह': 'h'
-
+    sub "ह", "h"
+    
     # Anusvāra
-    'ं': 'n'
-
+    sub "ं", "n"
+    
     # Anunāsika
-    'ँ': 'n'
-
+    sub "ँ", "n"
+    
     # halanta
-    '्': ''
-
+    sub "्", ""
+    
     # bisharga
-    'ः': 'h'
+    sub "ः", "h"
+    
+    sub "़", ""
+  }
 
-    '़': ''
+}
+

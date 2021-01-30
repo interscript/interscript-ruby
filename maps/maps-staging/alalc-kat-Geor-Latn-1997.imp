@@ -43,62 +43,71 @@ tests {
   test "ღრმაღელე", "ġrmaġele"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  characters:
-    '\u10d0' : 'a' # ა
-    '\u10d1' : 'b' # ბ
-    '\u10d2' : 'g' # გ
-    '\u10d3' : 'd' # დ
-    '\u10d4' : 'e' # ე
-    '\u10d5' : 'v' # ვ
-    '\u10d6' : 'z' # ზ
+stage {
 
-    '\u10f1' : 'ē' # ჱ
+  # CHARACTERS
+  parallel {
+    sub "\u10d0", "a" # ა
+    sub "\u10d1", "b" # ბ
+    sub "\u10d2", "g" # გ
+    sub "\u10d3", "d" # დ
+    sub "\u10d4", "e" # ე
+    sub "\u10d5", "v" # ვ
+    sub "\u10d6", "z" # ზ
+    
+    sub "\u10f1", "ē" # ჱ
+    
+    sub "\u10d7", "tʻ" # თ
+    sub "\u10d8", "i" # ი
+    sub "\u10d9", "k" # კ
+    sub "\u10da", "l" # ლ
+    sub "\u10db", "m" # მ
+    sub "\u10dc", "n" # ნ
+    
+    sub "\u10f2", "y" # ჲ
+    
+    sub "\u10dd", "o" # ო
+    sub "\u10de", "p" # პ
+    sub "\u10df", "ž" # ჟ
+    sub "\u10e0", "r" # რ
+    sub "\u10e1", "s" # ს
+    sub "\u10e2", "t" # ტ
+    
+    sub "\u10f3", "w" # ჳ
+    
+    sub "\u10e3", "u" # უ
+    sub "\u10e4", "pʻ" # ფ
+    sub "\u10e5", "kʻ" # ქ
+    sub "\u10e6", "ġ" # ღ
+    sub "\u10e7", "q" # ყ
+    sub "\u10e8", "š" # შ
+    sub "\u10e9", "čʻ" # ჩ
+    sub "\u10ea", "cʻ" # ც
+    sub "\u10eb", "ż" # ძ
+    sub "\u10ec", "c" # წ
+    sub "\u10ed", "č" # ჭ
+    sub "\u10ee", "x" # ხ
+    
+    sub "\u10f4", "x̣" # ჴ
+    
+    sub "\u10ef", "j" # ჯ
+    sub "\u10f0", "h" # ჰ
+    
+    sub "\u10f5", "ō" # ჵ
+    
+    sub "\u10f6", "f" # ჶ
+    sub "\u10f7", "ĕ" # ჷ
+    sub "\u10f8", "ʻ" # ჸ
+  }
 
-    '\u10d7' : 'tʻ' # თ
-    '\u10d8' : 'i' # ი
-    '\u10d9' : 'k' # კ
-    '\u10da' : 'l' # ლ
-    '\u10db' : 'm' # მ
-    '\u10dc' : 'n' # ნ
+}
 
-    '\u10f2' : 'y' # ჲ
-
-    '\u10dd' : 'o' # ო
-    '\u10de' : 'p' # პ
-    '\u10df' : 'ž' # ჟ
-    '\u10e0' : 'r' # რ
-    '\u10e1' : 's' # ს
-    '\u10e2' : 't' # ტ
-
-    '\u10f3' : 'w' # ჳ
-
-    '\u10e3' : 'u' # უ
-    '\u10e4' : 'pʻ' # ფ
-    '\u10e5' : 'kʻ' # ქ
-    '\u10e6' : 'ġ' # ღ
-    '\u10e7' : 'q' # ყ
-    '\u10e8' : 'š' # შ
-    '\u10e9' : 'čʻ' # ჩ
-    '\u10ea' : 'cʻ' # ც
-    '\u10eb' : 'ż' # ძ
-    '\u10ec' : 'c' # წ
-    '\u10ed' : 'č' # ჭ
-    '\u10ee' : 'x' # ხ
-
-    '\u10f4' : 'x̣' # ჴ
-
-    '\u10ef' : 'j' # ჯ
-    '\u10f0' : 'h' # ჰ
-
-    '\u10f5' : 'ō' # ჵ
-
-    '\u10f6' : 'f' # ჶ
-    '\u10f7' : 'ĕ' # ჷ
-    '\u10f8' : 'ʻ' # ჸ

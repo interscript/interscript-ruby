@@ -62,41 +62,50 @@ metadata {
     - In names containing the Arabic word for back, ridge, or hill, appearing as either ظهر or ضهر in Arabic sources, the word should be romanized to reflect the particular Arabic spelling shown.
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  characters:
-    '\u0627' : 'a'
-    '\u0628' : 'b'
-    '\u067e' : 'p'
-    '\u062a' : 't'
-    '\u062b' : 's'
-    '\u062c' : 'j'
-    '\u062d' : 'h'
-    '\u0686' : 'ch'
-    '\u062e' : 'kh'
-    '\u062f' : 'd'
-    '\u0630' : 'z'
-    '\u0631' : 'r'
-    '\u0632' : 'z'
-    '\u0633' : 's'
-    '\u0634' : 'sh'
-    '\u0635' : 's'
-    '\u0636' : 'z'
-    '\u0637' : 't'
-    '\u0638' : 'z'
-    '\u0639' : '\u2018'
-    '\u063a' : 'gh'
-    '\u0641' : 'f'
-    '\u0642' : 'q'
-    '\u0643' : 'k'
-    '\u0644' : 'l'
-    '\u0645' : 'm'
-    '\u0646' : 'n'
-    '\u0647' : 'h'
-    '\u0648' : 'v'
-    '\u0649' : 'y'
+stage {
+
+  # CHARACTERS
+  parallel {
+    sub "\u0627", "a"
+    sub "\u0628", "b"
+    sub "\u067e", "p"
+    sub "\u062a", "t"
+    sub "\u062b", "s"
+    sub "\u062c", "j"
+    sub "\u062d", "h"
+    sub "\u0686", "ch"
+    sub "\u062e", "kh"
+    sub "\u062f", "d"
+    sub "\u0630", "z"
+    sub "\u0631", "r"
+    sub "\u0632", "z"
+    sub "\u0633", "s"
+    sub "\u0634", "sh"
+    sub "\u0635", "s"
+    sub "\u0636", "z"
+    sub "\u0637", "t"
+    sub "\u0638", "z"
+    sub "\u0639", "\\u2018"
+    sub "\u063a", "gh"
+    sub "\u0641", "f"
+    sub "\u0642", "q"
+    sub "\u0643", "k"
+    sub "\u0644", "l"
+    sub "\u0645", "m"
+    sub "\u0646", "n"
+    sub "\u0647", "h"
+    sub "\u0648", "v"
+    sub "\u0649", "y"
+  }
+
+}
+

@@ -130,58 +130,62 @@ tests {
   test "ᠴᠢᠩᠭᠢᠰ ᠬᠠᠭᠠᠨ", "cingγis xaγan" # Чингис Хаан
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  rules:
-    - pattern: \u182c(\u1821|u1822|\u1825|\u1826)
-      result: "k\\1"
-    - pattern: \u182d(\u1821|u1822|\u1825|\u1826)
-      result: "g\\1"
-    - pattern: \u1820\u1836\u1822
-      result: "ai"
-    - pattern: \u1821\u1836\u1822
-      result: "ei"
-    - pattern: \u1823\u1836\u1822
-      result: "oi"
-    - pattern: \u1824\u1836\u1822
-      result: "ui"
+stage {
 
-  characters:
-    "ᠠ": "a"      # \u1820
-    "ᠡ": "e"      # \u1821
-    "ᠢ": "i"      # \u1822
-    "ᠣ": "o"      # \u1823
-    "ᠤ": "u"      # \u1824
-    "ᠥ": "ø"     # \u1825
-    "ᠦ": "y"     # \u1826
-    "ᠨ": "n"      # \u1828
-    "ᠩ": "ng"     # \u1829
-    "ᠬ": "x"      # \u182c
-    "ᠭ": "γ"      # \u182d
-    "ᠪ": "b"      # \u182a
-    "ᠫ": "p"      # \u182b
-    "ᠹ": "f"      # \u1839
-    "ᠰ": "s"      # \u1830
-    "ᠱ": "š"      # \u1831
-    "ᠲ": "t"      # \u1832
-    "ᠳ": "d"      # \u1833
-    "ᠯ": "l"      # \u182f
-    "ᠮ": "m"      # \u182e
-    "ᠴ": "c"      # \u1834
-    "ᠵ": "z"      # \u1835
-    "ᠶ": "j"      # \u1836
-    "ᠺ": "k"      # \u183a
-    "ᠷ": "r"      # \u1837
-    "ᠸ": "v"      # \u1838
-    "ᠾ": "h"     # \u183e
-    "᠁": "..."   # \u1801
-    "᠂": ","      # \u1802
-    "᠃": "."      # \u1803
-    "᠄": ":"      # \u1804
-    "\u180e": "-" # MVS
-    "\u202f": "-" # NNBSP
+  # RULES
+  sub "\\u182c(\\u1821|u1822|\\u1825|\\u1826)", "k\\1"
+  sub "\\u182d(\\u1821|u1822|\\u1825|\\u1826)", "g\\1"
+  sub "\\u1820\\u1836\\u1822", "ai"
+  sub "\\u1821\\u1836\\u1822", "ei"
+  sub "\\u1823\\u1836\\u1822", "oi"
+  sub "\\u1824\\u1836\\u1822", "ui"
+  
+
+  # CHARACTERS
+  parallel {
+    sub "ᠠ", "a" # \u1820
+    sub "ᠡ", "e" # \u1821
+    sub "ᠢ", "i" # \u1822
+    sub "ᠣ", "o" # \u1823
+    sub "ᠤ", "u" # \u1824
+    sub "ᠥ", "ø" # \u1825
+    sub "ᠦ", "y" # \u1826
+    sub "ᠨ", "n" # \u1828
+    sub "ᠩ", "ng" # \u1829
+    sub "ᠬ", "x" # \u182c
+    sub "ᠭ", "γ" # \u182d
+    sub "ᠪ", "b" # \u182a
+    sub "ᠫ", "p" # \u182b
+    sub "ᠹ", "f" # \u1839
+    sub "ᠰ", "s" # \u1830
+    sub "ᠱ", "š" # \u1831
+    sub "ᠲ", "t" # \u1832
+    sub "ᠳ", "d" # \u1833
+    sub "ᠯ", "l" # \u182f
+    sub "ᠮ", "m" # \u182e
+    sub "ᠴ", "c" # \u1834
+    sub "ᠵ", "z" # \u1835
+    sub "ᠶ", "j" # \u1836
+    sub "ᠺ", "k" # \u183a
+    sub "ᠷ", "r" # \u1837
+    sub "ᠸ", "v" # \u1838
+    sub "ᠾ", "h" # \u183e
+    sub "᠁", "..." # \u1801
+    sub "᠂", "," # \u1802
+    sub "᠃", "." # \u1803
+    sub "᠄", ":" # \u1804
+    sub "᠎", "-" # MVS
+    sub " ", "-" # NNBSP
+  }
+
+}
+

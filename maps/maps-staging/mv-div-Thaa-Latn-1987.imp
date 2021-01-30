@@ -35,160 +35,120 @@ tests {
   test "ހޯދިފައިނުވާ", "hoadhifain’uvaa"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
 
-  rules:
-    # Note 4
-    - pattern: \u0787\u07b0(?=[ހ])
-      result:  "h"
-    - pattern: \u0787\u07b0(?=[ށ])
-      result:  "h"
-    - pattern: \u0787\u07b0(?=[ނ])
-      result:  "n"
-    - pattern: \u0787\u07b0(?=[ރ])
-      result:  "r"
-    - pattern: \u0787\u07b0(?=[ބ])
-      result:  "b"
-    - pattern: \u0787\u07b0(?=[ޅ])
-      result:  "h"
-    - pattern: \u0787\u07b0(?=[ކ])
-      result:  "k"
-    - pattern: \u0787\u07b0(?=[ވ])
-      result:  "v"
-    - pattern: \u0787\u07b0(?=[މ])
-      result:  "m"
-    - pattern: \u0787\u07b0(?=[ފ])
-      result:  "f"
-    - pattern: \u0787\u07b0(?=[ދ])
-      result:  "h"
-    - pattern: \u0787\u07b0(?=[ތ])
-      result:  "h"
-    - pattern: \u0787\u07b0(?=[ލ])
-      result:  "l"
-    - pattern: \u0787\u07b0(?=[ގ])
-      result:  "g"
-    - pattern: \u0787\u07b0(?=[ޏ])
-      result:  "h"
-    - pattern: \u0787\u07b0(?=[ސ])
-      result:  "s"
-    - pattern: \u0787\u07b0(?=[ޑ])
-      result:  "d"
-    - pattern: \u0787\u07b0(?=[ޖ])
-      result:  "j"
-    - pattern: \u0787\u07b0(?=[ޗ])
-      result:  "h"
-    - pattern: \u0787\u07b0(?=[ޒ])
-      result:  "z"
-    - pattern: \u0787\u07b0(?=[ޓ])
-      result:  "t"
-    - pattern: \u0787\u07b0(?=[ޕ])
-      result:  "p"
-    - pattern: \u0787\u07b0(?=[ޔ])
-      result:  "y"
+stage {
 
-    - pattern: \u0781\u07b0(?=[ހ])
-      result:  "h"
-    - pattern: \u0781\u07b0(?=[ށ])
-      result:  "h"
-    - pattern: \u0781\u07b0(?=[ނ])
-      result:  "n"
-    - pattern: \u0781\u07b0(?=[ރ])
-      result:  "r"
-    - pattern: \u0781\u07b0(?=[ބ])
-      result:  "b"
-    - pattern: \u0781\u07b0(?=[ޅ])
-      result:  "h"
-    - pattern: \u0781\u07b0(?=[ކ])
-      result:  "k"
-    - pattern: \u0781\u07b0(?=[ވ])
-      result:  "v"
-    - pattern: \u0781\u07b0(?=[މ])
-      result:  "m"
-    - pattern: \u0781\u07b0(?=[ފ])
-      result:  "f"
-    - pattern: \u0781\u07b0(?=[ދ])
-      result:  "h"
-    - pattern: \u0781\u07b0(?=[ތ])
-      result:  "h"
-    - pattern: \u0781\u07b0(?=[ލ])
-      result:  "l"
-    - pattern: \u0781\u07b0(?=[ގ])
-      result:  "g"
-    - pattern: \u0781\u07b0(?=[ޏ])
-      result:  "h"
-    - pattern: \u0781\u07b0(?=[ސ])
-      result:  "s"
-    - pattern: \u0781\u07b0(?=[ޑ])
-      result:  "d"
-    - pattern: \u0781\u07b0(?=[ޖ])
-      result:  "j"
-    - pattern: \u0781\u07b0(?=[ޗ])
-      result:  "h"
-    - pattern: \u0781\u07b0(?=[ޒ])
-      result:  "z"
-    - pattern: \u0781\u07b0(?=[ޓ])
-      result:  "t"
-    - pattern: \u0781\u07b0(?=[ޕ])
-      result:  "p"
-    - pattern: \u0781\u07b0(?=[ޔ])
-      result:  "y"
+  # RULES
+  # Note 4
+  sub "\\u0787\\u07b0(?=[ހ])", "h"
+  sub "\\u0787\\u07b0(?=[ށ])", "h"
+  sub "\\u0787\\u07b0(?=[ނ])", "n"
+  sub "\\u0787\\u07b0(?=[ރ])", "r"
+  sub "\\u0787\\u07b0(?=[ބ])", "b"
+  sub "\\u0787\\u07b0(?=[ޅ])", "h"
+  sub "\\u0787\\u07b0(?=[ކ])", "k"
+  sub "\\u0787\\u07b0(?=[ވ])", "v"
+  sub "\\u0787\\u07b0(?=[މ])", "m"
+  sub "\\u0787\\u07b0(?=[ފ])", "f"
+  sub "\\u0787\\u07b0(?=[ދ])", "h"
+  sub "\\u0787\\u07b0(?=[ތ])", "h"
+  sub "\\u0787\\u07b0(?=[ލ])", "l"
+  sub "\\u0787\\u07b0(?=[ގ])", "g"
+  sub "\\u0787\\u07b0(?=[ޏ])", "h"
+  sub "\\u0787\\u07b0(?=[ސ])", "s"
+  sub "\\u0787\\u07b0(?=[ޑ])", "d"
+  sub "\\u0787\\u07b0(?=[ޖ])", "j"
+  sub "\\u0787\\u07b0(?=[ޗ])", "h"
+  sub "\\u0787\\u07b0(?=[ޒ])", "z"
+  sub "\\u0787\\u07b0(?=[ޓ])", "t"
+  sub "\\u0787\\u07b0(?=[ޕ])", "p"
+  sub "\\u0787\\u07b0(?=[ޔ])", "y"
+  
+  sub "\\u0781\\u07b0(?=[ހ])", "h"
+  sub "\\u0781\\u07b0(?=[ށ])", "h"
+  sub "\\u0781\\u07b0(?=[ނ])", "n"
+  sub "\\u0781\\u07b0(?=[ރ])", "r"
+  sub "\\u0781\\u07b0(?=[ބ])", "b"
+  sub "\\u0781\\u07b0(?=[ޅ])", "h"
+  sub "\\u0781\\u07b0(?=[ކ])", "k"
+  sub "\\u0781\\u07b0(?=[ވ])", "v"
+  sub "\\u0781\\u07b0(?=[މ])", "m"
+  sub "\\u0781\\u07b0(?=[ފ])", "f"
+  sub "\\u0781\\u07b0(?=[ދ])", "h"
+  sub "\\u0781\\u07b0(?=[ތ])", "h"
+  sub "\\u0781\\u07b0(?=[ލ])", "l"
+  sub "\\u0781\\u07b0(?=[ގ])", "g"
+  sub "\\u0781\\u07b0(?=[ޏ])", "h"
+  sub "\\u0781\\u07b0(?=[ސ])", "s"
+  sub "\\u0781\\u07b0(?=[ޑ])", "d"
+  sub "\\u0781\\u07b0(?=[ޖ])", "j"
+  sub "\\u0781\\u07b0(?=[ޗ])", "h"
+  sub "\\u0781\\u07b0(?=[ޒ])", "z"
+  sub "\\u0781\\u07b0(?=[ޓ])", "t"
+  sub "\\u0781\\u07b0(?=[ޕ])", "p"
+  sub "\\u0781\\u07b0(?=[ޔ])", "y"
+  
+  sub "\\u0787\\u07b0(?=\\b)", "h"
+  sub "\\u0781\\u07b0(?=\\b)", "h"
+  
+  # Note 5
+  sub "\\u0782(?!=[\\u07a6\\u07a7\\u07a8\\u07a9\\u07aa\\u07ab\\u07ac\\u07ad\\u07ae\\u07af\\u07B0])", "n’"
+  
+  # Note 6
+  sub "\\u078C(?=\\u07B0)", "iy"
+  
 
-    - pattern: \u0787\u07b0(?=\b)
-      result:  'h'
-    - pattern: \u0781\u07b0(?=\b)
-      result:  'h'
-
-      # Note 5
-    - pattern: \u0782(?!=[\u07a6\u07a7\u07a8\u07a9\u07aa\u07ab\u07ac\u07ad\u07ae\u07af\u07B0])
-      result: "n’"
-
-    # Note 6
-    - pattern: \u078C(?=\u07B0)
-      result: "iy"
-
-  characters:
+  # CHARACTERS
+  parallel {
     # Vowels
-    "\u07a6" : "a"
-    "\u07a7" : "aa"
-    "\u07a8" : "i"
-    "\u07a9" : "ee"
-    "\u07aa" : "u"
-    "\u07ab" : "oo"
-    "\u07ac" : "e"
-    "\u07ad" : "ey"
-    "\u07ae" : "o"
-    "\u07af" : "oa"
-    "\u07B0" : "" # not romanized but see notes 4 & 6
-
-
+    sub "ަ", "a"
+    sub "ާ", "aa"
+    sub "ި", "i"
+    sub "ީ", "ee"
+    sub "ު", "u"
+    sub "ޫ", "oo"
+    sub "ެ", "e"
+    sub "ޭ", "ey"
+    sub "ޮ", "o"
+    sub "ޯ", "oa"
+    sub "ް", "" # not romanized but see notes 4 & 6
+    
+    
     # Consonants
-    "ހ": "h"
-    "ށ": "sh" # Note 4
-    "ނ": "n" # Note 5
-    "ރ": "r"
-    "ބ": "b"
-    "ޅ": "lh"
-    "ކ": "k"
-    "އ": "" # Notes 3 & 4
-    "ވ": "v"
-    "މ": "m"
-    "ފ": "f"
-    "ދ": "dh"
-    "ތ": "th" # Note 6
-    "ލ": "l"
-    "ގ": "g"
-    "ޏ": "gn"
-    "ސ": "s"
-    "ޑ": "d"
-    "ޖ": "j"
-    "ޗ": "ch"
-    "ޒ": "z"
-    "ޓ": "t"
-    "ޕ": "p"
-    "ޔ": "y"
+    sub "ހ", "h"
+    sub "ށ", "sh" # Note 4
+    sub "ނ", "n" # Note 5
+    sub "ރ", "r"
+    sub "ބ", "b"
+    sub "ޅ", "lh"
+    sub "ކ", "k"
+    sub "އ", "" # Notes 3 & 4
+    sub "ވ", "v"
+    sub "މ", "m"
+    sub "ފ", "f"
+    sub "ދ", "dh"
+    sub "ތ", "th" # Note 6
+    sub "ލ", "l"
+    sub "ގ", "g"
+    sub "ޏ", "gn"
+    sub "ސ", "s"
+    sub "ޑ", "d"
+    sub "ޖ", "j"
+    sub "ޗ", "ch"
+    sub "ޒ", "z"
+    sub "ޓ", "t"
+    sub "ޕ", "p"
+    sub "ޔ", "y"
+  }
+
+}
+

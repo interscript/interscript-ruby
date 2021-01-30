@@ -63,154 +63,163 @@ tests {
   test "౪౬౨౬౯", "46269"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
 
 
-  characters:
-    'అ': 'a'
-    'ఆ': 'ā'
-    'ఇ': 'i'
-    'ఈ': 'ī'
-    'ఉ': 'u'
-    'ఊ': 'ū'
-    'ఋ': 'ṛ'
-    'ౠ': 'ṝ'
-    'ఌ': 'ḻ'
-    'ౡ': 'ḹ'
-    'ఎ': 'e'
-    'ఏ': 'ē'
-    'ఐ': 'ai'
-    'ఒ': 'o'
-    'ఓ': 'ō'
-    'ఔ': 'au'
+stage {
 
-
+  # CHARACTERS
+  parallel {
+    sub "అ", "a"
+    sub "ఆ", "ā"
+    sub "ఇ", "i"
+    sub "ఈ", "ī"
+    sub "ఉ", "u"
+    sub "ఊ", "ū"
+    sub "ఋ", "ṛ"
+    sub "ౠ", "ṝ"
+    sub "ఌ", "ḻ"
+    sub "ౡ", "ḹ"
+    sub "ఎ", "e"
+    sub "ఏ", "ē"
+    sub "ఐ", "ai"
+    sub "ఒ", "o"
+    sub "ఓ", "ō"
+    sub "ఔ", "au"
+    
+    
     # II. Consonants (see Note 2)
     # Gutturals  క ఖ గ ఘ ఙ
-    'క': 'ka'
-    'ఖ': 'kha'
-    'గ': 'ga'
-    'ఘ': 'gha'
-    'ఙ': 'ṅa'
-
+    sub "క", "ka"
+    sub "ఖ", "kha"
+    sub "గ", "ga"
+    sub "ఘ", "gha"
+    sub "ఙ", "ṅa"
+    
     # Palatals చ ఛ జ ఝ ఞ
-    'చ': 'ca'
-    'ఛ': 'cha'
-    'జ': 'ja'
-    'ఝ': 'jha'
-    'ఞ': 'ña'
-
+    sub "చ", "ca"
+    sub "ఛ", "cha"
+    sub "జ", "ja"
+    sub "ఝ", "jha"
+    sub "ఞ", "ña"
+    
     # Cerebrals ట ఠ డ ఢ ణ
-    'ట':  'ṭa'
-    'ఠ':  'ṭha'
-    'డ':  'ḍa'
-    'ఢ':  'ḍha'
-    'ణ':  'ṇa'
-
+    sub "ట", "ṭa"
+    sub "ఠ", "ṭha"
+    sub "డ", "ḍa"
+    sub "ఢ", "ḍha"
+    sub "ణ", "ṇa"
+    
     # Dentals త థ ద ధ న
-    'త': 'ta'
-    'థ': 'tha'
-    'ద': 'da'
-    'ధ': 'dha'
-    'న': 'na'
-
+    sub "త", "ta"
+    sub "థ", "tha"
+    sub "ద", "da"
+    sub "ధ", "dha"
+    sub "న", "na"
+    
     # Labials ప ఫ బ భ మ
-    'ప': 'pa'
-    'ఫ': 'pha'
-    'బ': 'ba'
-    'భ': 'bha'
-    'మ': 'ma'
-
+    sub "ప", "pa"
+    sub "ఫ", "pha"
+    sub "బ", "ba"
+    sub "భ", "bha"
+    sub "మ", "ma"
+    
     # Semivowels య ర ల వ
-    'య': 'ya'
-    'ర': 'ra'
-    'ఱ': 'ṛa'
-    'ల': 'la'
-    'ళ': 'ḷa'
-    'వ': 'va'
-
+    sub "య", "ya"
+    sub "ర", "ra"
+    sub "ఱ", "ṛa"
+    sub "ల", "la"
+    sub "ళ", "ḷa"
+    sub "వ", "va"
+    
     # Sibilants శ ష స హ
-    'శ': 'śa'
-    'ష': 'ṣa'
-    'స': 'sa'
-
-
-
+    sub "శ", "śa"
+    sub "ష", "ṣa"
+    sub "స", "sa"
+    
+    
+    
     # Aspirate
-    'హ': 'ha'
-
-    'ౙ': 'za'
-    'ౘ': 'ĉa'
-    'ౚ': 'ṟa'
-    '\u0C34': 'ḻa'
-
-
+    sub "హ", "ha"
+    
+    sub "ౙ", "za"
+    sub "ౘ", "ĉa"
+    sub "ౚ", "ṟa"
+    sub "\u0C34", "ḻa"
+    
+    
     # Chandrabindu
-    'ঁ': 'm̐'
-
+    sub "ঁ", "m̐"
+    
     # Bisarga
-    'ః': 'ḥ'
-
+    sub "ః", "ḥ"
+    
     # Anusvāra
-    'ం': 'ṁ'
-
+    sub "ం", "ṁ"
+    
     # Medials # Needed for connecting constants
-
-    'ా': 'ā'
-    'ి': 'i'
-    'ీ': 'ī'
-    'ు': 'u'
-    'ూ': 'ū'
-    'ృ': 'ṛ'
-    'ౄ': "ṝ"
-    ' ౢ': "ḷ" # \u0C62
-    ' ౣ': "ḹ" # \u0C63
-    'ె': 'e'
-    'ే': 'ē'
-    'ై': 'ai'
-    'ొ': 'o'
-    'ో': 'ō'
-    'ౌ': 'au'
-    'ఁ': 'ň'
-
-
+    
+    sub "ా", "ā"
+    sub "ి", "i"
+    sub "ీ", "ī"
+    sub "ు", "u"
+    sub "ూ", "ū"
+    sub "ృ", "ṛ"
+    sub "ౄ", "ṝ"
+    sub " ౢ", "ḷ" # \u0C62
+    sub " ౣ", "ḹ" # \u0C63
+    sub "ె", "e"
+    sub "ే", "ē"
+    sub "ై", "ai"
+    sub "ొ", "o"
+    sub "ో", "ō"
+    sub "ౌ", "au"
+    sub "ఁ", "ň"
+    
+    
     # Abagraha
-    'ఽ': ':’' # (apostrophe)
-
-
-    '\u0c4d': '' #verma sign for halanta
-    'ౕ	': ''
-    'ౖ	': ''
-    '्': ''
-    '़': ''
-    '\u09CD': '' # Used for joining
-    "‍": ''# Used for joining
-    "‌": ''# Used for non joining
-
-
-    'యঁ': 'm̐ya'
-    'రঁ': 'm̐ra'
-    'ఱঁ': 'm̐ṛa'
-    'లঁ': 'm̐la'
-    'ళঁ': 'm̐ḷa'
-    'వঁ': 'm̐va'
-
-
+    sub "ఽ", ":’" # (apostrophe)
+    
+    
+    sub "\u0c4d", "" #verma sign for halanta
+    sub "ౕ\t", ""
+    sub "ౖ\t", ""
+    sub "्", ""
+    sub "़", ""
+    sub "\u09CD", "" # Used for joining
+    sub "‍", "" # Used for joining
+    sub "‌", "" # Used for non joining
+    
+    
+    sub "యঁ", "m̐ya"
+    sub "రঁ", "m̐ra"
+    sub "ఱঁ", "m̐ṛa"
+    sub "లঁ", "m̐la"
+    sub "ళঁ", "m̐ḷa"
+    sub "వঁ", "m̐va"
+    
+    
     # numbers
+    
+    sub "౦", "0"
+    sub "౧", "1"
+    sub "౨", "2"
+    sub "౩", "3"
+    sub "౪", "4"
+    sub "౫", "5"
+    sub "౬", "6"
+    sub "౭", "7"
+    sub "౮", "8"
+    sub "౯", "9"
+  }
 
-    '౦': '0'
-    '౧': '1'
-    '౨': '2'
-    '౩': '3'
-    '౪': '4'
-    '౫': '5'
-    '౬': '6'
-    '౭': '7'
-    '౮': '8'
-    '౯': '9'
+}
+

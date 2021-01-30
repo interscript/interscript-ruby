@@ -28,93 +28,98 @@ tests {
   test "България", "Bŭlgariya"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  rules:
-    # note[1]
-    - pattern: (?<=)\u042a(?=\b)
-      result: ""
-    - pattern: (?<=)\u044a(?=\b)
-      result: ""
-    # note[4]
-    - pattern: "\u0422\u0421"
-      result: T·S
-    - pattern: "\u0422\u0441"
-      result: T·s
-    - pattern: "\u0442\u0441"
-      result: t·s
+stage {
 
-  characters:
-    '\u0410': 'A'
-    '\u0411': 'B'
-    '\u0412': 'V'
-    '\u0413': 'G'
-    '\u0414': 'D'
-    '\u0415': 'E'
-    '\u0416': 'Zh'
-    '\u0417': 'Z'
-    '\u0418': 'I'
-    '\u0419': 'Y'
-    '\u041a': 'K'
-    '\u041b': 'L'
-    '\u041c': 'M'
-    '\u041d': 'N'
-    '\u041e': 'O'
-    '\u041f': 'P'
-    '\u0420': 'R'
-    '\u0421': 'S'
-    '\u0422': 'T'
-    '\u0423': 'U'
-    '\u0424': 'F'
-    '\u0425': 'Kh'
-    '\u0426': 'Ts'
-    '\u0427': 'Ch'
-    '\u0428': 'Sh'
-    '\u0429': 'Sht'
-    '\u042a': "U\u0306"
-    '\u042c': "\\'"
-    '\u042e': 'Yu'
-    '\u042f': 'Ya'
-    '\u0430': 'a'
-    '\u0431': 'b'
-    '\u0432': 'v'
-    '\u0433': 'g'
-    '\u0434': 'd'
-    '\u0435': 'e'
-    '\u0436': 'zh'
-    '\u0437': 'z'
-    '\u0438': 'i'
-    '\u0439': 'y'
-    '\u043a': 'k'
-    '\u043b': 'l'
-    '\u043c': 'm'
-    '\u043d': 'n'
-    '\u043e': 'o'
-    '\u043f': 'p'
-    '\u0440': 'r'
-    '\u0441': 's'
-    '\u0442': 't'
-    '\u0443': 'u'
-    '\u0444': 'f'
-    '\u0445': 'kh'
-    '\u0446': 'ts'
-    '\u0447': 'ch'
-    '\u0448': 'sh'
-    '\u0449': 'sht'
-    '\u044a': "u\u0306"
-    '\u044c': "\\'"
-    '\u044e': 'yu'
-    '\u044f': 'ya'
+  # RULES
+  # note[1]
+  sub "(?<=)\\u042a(?=\\b)", ""
+  sub "(?<=)\\u044a(?=\\b)", ""
+  # note[4]
+  sub "ТС", "T·S"
+  sub "Тс", "T·s"
+  sub "тс", "t·s"
+  
 
+  # CHARACTERS
+  parallel {
+    sub "\u0410", "A"
+    sub "\u0411", "B"
+    sub "\u0412", "V"
+    sub "\u0413", "G"
+    sub "\u0414", "D"
+    sub "\u0415", "E"
+    sub "\u0416", "Zh"
+    sub "\u0417", "Z"
+    sub "\u0418", "I"
+    sub "\u0419", "Y"
+    sub "\u041a", "K"
+    sub "\u041b", "L"
+    sub "\u041c", "M"
+    sub "\u041d", "N"
+    sub "\u041e", "O"
+    sub "\u041f", "P"
+    sub "\u0420", "R"
+    sub "\u0421", "S"
+    sub "\u0422", "T"
+    sub "\u0423", "U"
+    sub "\u0424", "F"
+    sub "\u0425", "Kh"
+    sub "\u0426", "Ts"
+    sub "\u0427", "Ch"
+    sub "\u0428", "Sh"
+    sub "\u0429", "Sht"
+    sub "\u042a", "Ŭ"
+    sub "\u042c", "\\'"
+    sub "\u042e", "Yu"
+    sub "\u042f", "Ya"
+    sub "\u0430", "a"
+    sub "\u0431", "b"
+    sub "\u0432", "v"
+    sub "\u0433", "g"
+    sub "\u0434", "d"
+    sub "\u0435", "e"
+    sub "\u0436", "zh"
+    sub "\u0437", "z"
+    sub "\u0438", "i"
+    sub "\u0439", "y"
+    sub "\u043a", "k"
+    sub "\u043b", "l"
+    sub "\u043c", "m"
+    sub "\u043d", "n"
+    sub "\u043e", "o"
+    sub "\u043f", "p"
+    sub "\u0440", "r"
+    sub "\u0441", "s"
+    sub "\u0442", "t"
+    sub "\u0443", "u"
+    sub "\u0444", "f"
+    sub "\u0445", "kh"
+    sub "\u0446", "ts"
+    sub "\u0447", "ch"
+    sub "\u0448", "sh"
+    sub "\u0449", "sht"
+    sub "\u044a", "ŭ"
+    sub "\u044c", "\\'"
+    sub "\u044e", "yu"
+    sub "\u044f", "ya"
+    
     # note 2
-    '\u046A': "U\u0306" # Ѫ
-    '\u046B': "u\u0306" # ѫ
-
+    sub "\u046A", "Ŭ" # Ѫ
+    sub "\u046B", "ŭ" # ѫ
+    
     # note[3]
-    '\u0462': "Ye" # Ѣ
-    '\u0463': "ye" # ѣ
+    sub "\u0462", "Ye" # Ѣ
+    sub "\u0463", "ye" # ѣ
+  }
+
+}
+

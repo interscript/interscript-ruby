@@ -364,7 +364,8 @@ RSpec.describe Interscript::DSL::Stage do
         context "multiple versions of replacement" do
           it "works with any" do
             s = stage {
-              sub any("ab"), any("XY")
+              sub any("a"), any("XY")
+              sub any("b"), any(["X", "Y"])
             }
             expect(s.("abbacus")).to eq("XXXXcus")
           end

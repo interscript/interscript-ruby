@@ -41,28 +41,40 @@ tests {
   test "ހަވީރެހް", "haveereh"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  inherit: mv-div-Thaa-Latn-1987
-  characters:
+dependency "mv-div-Thaa-Latn-1987", as: thaalatn
+
+stage {
+
+  run map.thaalatn.stage.main
+
+  # CHARACTERS
+  parallel {
     #Consonants with diacritical marks (used mainly in words of Arabic origin, corresponding
     # Arabic characters and their romanizations are shown in parentheses)
-    "ޘ": "th’"
-    "ޙ": "h’"
-    "ޚ": "kh"
-    "ޛ": "dh’"
-    "ޜ": "x"
-    "ޝ": "sh’"
-    "ޞ": "s’"
-    "ޟ": "l’"
-    "ޠ": "t’"
-    "ޡ": "z’"
-    "ޢ": "’"
-    "ޣ": "gh"
-    "ޤ": "q"
-    "ޥ": "w"
+    sub "ޘ", "th’"
+    sub "ޙ", "h’"
+    sub "ޚ", "kh"
+    sub "ޛ", "dh’"
+    sub "ޜ", "x"
+    sub "ޝ", "sh’"
+    sub "ޞ", "s’"
+    sub "ޟ", "l’"
+    sub "ޠ", "t’"
+    sub "ޡ", "z’"
+    sub "ޢ", "’"
+    sub "ޣ", "gh"
+    sub "ޤ", "q"
+    sub "ޥ", "w"
+  }
+
+}
+

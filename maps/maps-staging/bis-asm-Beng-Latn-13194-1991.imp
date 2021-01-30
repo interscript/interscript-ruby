@@ -37,122 +37,127 @@ tests {
   test "লখিমপুৰ জিলাৰ নাৰায়ণপুৰৰ বৰপথাৰত আজি প্ৰশান্তি ধাম নামেৰে এখন বৃদ্ধাশ্ৰমৰ শুভাৰম্ভ কৰা হয়", "lkhimpur jilār nārāẏṇpurr brpthārt āji prśānti dhām nāmērē ēkhn bṛddhāśrmr śubhārmbh krā hẏ"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
 
-  rules:
-    # note
-    - pattern: \u0982(?=[কখগঘঙ])
-      result: ṅ
-    - pattern: \u0982(?=[চছজঝঞ])
-      result: ñ
-    - pattern: \u0982(?=[টঠডড়ঢঢ়ণ])
-      result: ṇ
-    - pattern: \u0982(?=[তৎথদধন])
-      result: n
-    - pattern: \u0982(?=[পফবভম])
-      result: m
+stage {
 
+  # RULES
+  # note
+  sub "\\u0982(?=[কখগঘঙ])", "ṅ"
+  sub "\\u0982(?=[চছজঝঞ])", "ñ"
+  sub "\\u0982(?=[টঠডড়ঢঢ়ণ])", "ṇ"
+  sub "\\u0982(?=[তৎথদধন])", "n"
+  sub "\\u0982(?=[পফবভম])", "m"
+  
+  
 
-  characters:
-    'অ': 'a'
-    'আ': 'ā'
-    'ই': 'i'
-    'ঈ': 'ī'
-    'উ': 'u'
-    'ঊ': 'ū'
-    'ৠ': 'ṛ'
-    'ঌ': 'ḻ'
-    'এ': 'ē'
-    'ঐ': 'ai'
-    'ও': 'ŏ'
-    'ঔ': 'au'
-
+  # CHARACTERS
+  parallel {
+    sub "অ", "a"
+    sub "আ", "ā"
+    sub "ই", "i"
+    sub "ঈ", "ī"
+    sub "উ", "u"
+    sub "ঊ", "ū"
+    sub "ৠ", "ṛ"
+    sub "ঌ", "ḻ"
+    sub "এ", "ē"
+    sub "ঐ", "ai"
+    sub "ও", "ŏ"
+    sub "ঔ", "au"
+    
     # Consonants
     # Gutturals
-    'ক': 'k'
-    'খ': 'kh'
-    'গ': 'g'
-    'ঘ': 'gh'
-    'ঙ': 'ṅ'
-
+    sub "ক", "k"
+    sub "খ", "kh"
+    sub "গ", "g"
+    sub "ঘ", "gh"
+    sub "ঙ", "ṅ"
+    
     # Palatals
-    'চ': 'c'
-    'ছ': 'ch'
-    'জ': 'j'
-    'ঝ': 'jh'
-    'ঞ': 'ñ'
-
+    sub "চ", "c"
+    sub "ছ", "ch"
+    sub "জ", "j"
+    sub "ঝ", "jh"
+    sub "ঞ", "ñ"
+    
     # Cerebrals
-    'ট':  'ṭ'
-    'ঠ':  'ṭh'
-    'ড':  'ḍ'
-    'ড়': 'd̂'
-    'ঢ':  'ḍh'
-    'ঢ়': 'd̂h'
-    'ণ':  'ṇ'
-
+    sub "ট", "ṭ"
+    sub "ঠ", "ṭh"
+    sub "ড", "ḍ"
+    sub "ড়", "d̂"
+    sub "ঢ", "ḍh"
+    sub "ঢ়", "d̂h"
+    sub "ণ", "ṇ"
+    
     # Dentals
-    'ত': 't'
-    'ৎ': 't'
-    'থ': 'th'
-    'দ': 'd'
-    'ধ': 'dh'
-    'ন': 'n'
-
+    sub "ত", "t"
+    sub "ৎ", "t"
+    sub "থ", "th"
+    sub "দ", "d"
+    sub "ধ", "dh"
+    sub "ন", "n"
+    
     # Labials
-    'প': 'p'
-    'ফ': 'ph'
-    'ব': 'b'
-    'ভ': 'bh'
-    'ম': 'm'
-
+    sub "প", "p"
+    sub "ফ", "ph"
+    sub "ব", "b"
+    sub "ভ", "bh"
+    sub "ম", "m"
+    
     # Semivowels
-    'য': 'y'
-    'য়': 'ẏ'
-    'য়': 'ẏ'
-    'ৰ': 'r'
-    'ল': 'l'
-    'ৱ': 'v'
-
-
+    sub "য", "y"
+    sub "য়", "ẏ"
+    sub "য়", "ẏ"
+    sub "ৰ", "r"
+    sub "ল", "l"
+    sub "ৱ", "v"
+    
+    
     # Sibilants
-    'শ': 'ś'
-    'ষ': 'ṣ'
-    'স': 's'
-
-
+    sub "শ", "ś"
+    sub "ষ", "ṣ"
+    sub "স", "s"
+    
+    
     # Aspirate
-    'হ': 'h'
-
+    sub "হ", "h"
+    
     # Chandrabindu
-    'ঁ': 'm'
-
+    sub "ঁ", "m"
+    
     # Bisarga
-    'ঃ ': 'ḥ'
-
+    sub "ঃ ", "ḥ"
+    
     # Anusvāra
-    'ং': 'ṃ'
-
+    sub "ং", "ṃ"
+    
     # Medials # Needed for connecting constants
+    
+    sub "\u09be", "ā"
+    sub "\u09bf", "i"
+    sub "\u09c0", "ī"
+    sub "\u09c1", "u"
+    sub "\u09c2", "ū"
+    sub "\u09c3", "ṛ"
+    sub "\u09c7", "ē"
+    sub "\u09c8", "ai"
+    sub "\u09cb", "ŏ"
+    sub "\u09cc", "au"
+    sub "\u09CD", "" # Used for joining
+    sub "्", ""
+    sub "़", ""
+    sub "।", "."
+    sub "‍", "" # Used for joining
+  }
 
-    '\u09be': 'ā'
-    '\u09bf': 'i'
-    '\u09c0': 'ī'
-    '\u09c1': 'u'
-    '\u09c2': 'ū'
-    '\u09c3': 'ṛ'
-    '\u09c7': 'ē'
-    '\u09c8': 'ai'
-    '\u09cb': 'ŏ'
-    '\u09cc': 'au'
-    '\u09CD': '' # Used for joining
-    '्': ''
-    '़': ''
-    '।': '.'
-    "‍": ''# Used for joining
+}
+

@@ -25,14 +25,22 @@ tests {
   test "悠久한 歷史와 傳統에 빛나는 우리 大韓國民", "Yuguhan Yŏksawa Chŏnt’onge Pinnanŭn Uri Taehan’gungmin"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  character_separator: ""
-  word_separator: " "
-  title_case: True
-  inherit: [var-kor-Kore-Hang-2013, var-kor-Hang-Latn-mr-1939]
+dependency "var-kor-Kore-Hang-2013", as: korehang
+dependency "var-kor-Hang-Latn-mr-1939", as: hanglatn
+
+stage {
+
+  run map.korehang.stage.main
+  run map.hanglatn.stage.main
+
+  title_case}
+

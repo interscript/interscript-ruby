@@ -56,166 +56,137 @@ tests {
   test "লখিমপুৰ জিলাৰ নাৰায়ণপুৰৰ বৰপথাৰত আজি প্ৰশান্তি ধাম নামেৰে এখন বৃদ্ধাশ্ৰমৰ শুভাৰম্ভ কৰা হয়", "lakhimapura jilāra nārāyaṇapurara barapathārata āji prashānti dhāma nāmere ekhana bṛddhāshramara shubhārambha karā haya"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  rules:
-    - pattern: ([ক]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'k'
-    - pattern: ([খ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'kh'
-    - pattern: ([গ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'g'
-    - pattern: ([ঘ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'gh'
-    - pattern: ([ঙ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'ṅ'
-    - pattern: ([চ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'ch'
-    - pattern: ([ছ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'chh'
-    - pattern: ([জ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'j'
-    - pattern: ([ঝ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'jh'
-    - pattern: ([ঞ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'ñ'
-    - pattern: ([ট]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'ṭ'
-    - pattern: ([ঠ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'ṭh'
-    - pattern: ([ড]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'ḍ'
-    - pattern: ([ঢ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'ḍh'
-    - pattern: ([ণ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'ṇ'
-    - pattern: ([ত]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   't'
-    - pattern: ([থ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'th'
-    - pattern: ([দ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'd'
-    - pattern: ([ধ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'dh'
-    - pattern: ([ন]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'n'
-    - pattern: ([প]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'p'
-    - pattern: ([ফ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'ph'
-    - pattern: ([ব]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'b'
-    - pattern: ([ভ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'bh'
-    - pattern: ([ম]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'm'
-    - pattern: ([য]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'j̱'
-    - pattern: ([ৰ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'r'
-    - pattern: ([ল]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'l'
-    - pattern: ([ৱ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'v'
-    - pattern: ([শ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'sh'
-    - pattern: ([ষ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'ṣh'
-    - pattern: ([স]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   's'
-    - pattern: ([হ]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'h'
-    - pattern: ([ড়]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'ṙ'
-    - pattern: ([ঢ়]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'ṙh'
-    - pattern: ([য়]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'y'
-    - pattern: ([ড়]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'ṙ'
-    - pattern: ([ঢ়]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'ṙh'
-    - pattern: ([য়]=?)(?=[\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd])
-      result:   'y'
+stage {
 
-  characters:
+  # RULES
+  sub "([ক]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "k"
+  sub "([খ]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "kh"
+  sub "([গ]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "g"
+  sub "([ঘ]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "gh"
+  sub "([ঙ]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "ṅ"
+  sub "([চ]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "ch"
+  sub "([ছ]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "chh"
+  sub "([জ]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "j"
+  sub "([ঝ]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "jh"
+  sub "([ঞ]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "ñ"
+  sub "([ট]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "ṭ"
+  sub "([ঠ]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "ṭh"
+  sub "([ড]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "ḍ"
+  sub "([ঢ]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "ḍh"
+  sub "([ণ]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "ṇ"
+  sub "([ত]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "t"
+  sub "([থ]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "th"
+  sub "([দ]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "d"
+  sub "([ধ]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "dh"
+  sub "([ন]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "n"
+  sub "([প]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "p"
+  sub "([ফ]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "ph"
+  sub "([ব]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "b"
+  sub "([ভ]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "bh"
+  sub "([ম]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "m"
+  sub "([য]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "j̱"
+  sub "([ৰ]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "r"
+  sub "([ল]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "l"
+  sub "([ৱ]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "v"
+  sub "([শ]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "sh"
+  sub "([ষ]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "ṣh"
+  sub "([স]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "s"
+  sub "([হ]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "h"
+  sub "([ড়]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "ṙ"
+  sub "([ঢ়]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "ṙh"
+  sub "([য়]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "y"
+  sub "([ড়]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "ṙ"
+  sub "([ঢ়]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "ṙh"
+  sub "([য়]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "y"
+  
 
+  # CHARACTERS
+  parallel {
+    
     # I. Independent vowel characters
-    'অ': 'a'
-    'আ': 'ā'
-    'ই': 'i'
-    'ঈ': 'ī'
-    'উ': 'u'
-    'ঊ': 'ū'
-    'ঋ': 'ṛ'
-    'এ': 'e'
-    'ঐ': 'ai'
-    'ও': 'o'
-    'ঔ': 'au'
-
+    sub "অ", "a"
+    sub "আ", "ā"
+    sub "ই", "i"
+    sub "ঈ", "ī"
+    sub "উ", "u"
+    sub "ঊ", "ū"
+    sub "ঋ", "ṛ"
+    sub "এ", "e"
+    sub "ঐ", "ai"
+    sub "ও", "o"
+    sub "ঔ", "au"
+    
     # II. Abbreviated vowel characters
-    '\u09be': 'ā'
-    '\u09bf': 'i'
-    '\u09c0': 'ī'
-    '\u09c1': 'u'
-    '\u09c2': 'ū'
-    '\u09c3': 'ṛ'
-    '\u09c7': 'e'
-    '\u09c8': 'ai'
-    '\u09cb': 'o'
-    '\u09cc': 'au'
-
+    sub "\u09be", "ā"
+    sub "\u09bf", "i"
+    sub "\u09c0", "ī"
+    sub "\u09c1", "u"
+    sub "\u09c2", "ū"
+    sub "\u09c3", "ṛ"
+    sub "\u09c7", "e"
+    sub "\u09c8", "ai"
+    sub "\u09cb", "o"
+    sub "\u09cc", "au"
+    
     # III. Other symbols
-    '\u0982':	'ṁ'
-    '\u0981':	'm̐'
-    '\u0983':	'ḥ'
-    '\u09cd': ''
-
+    sub "\u0982", "ṁ"
+    sub "\u0981", "m̐"
+    sub "\u0983", "ḥ"
+    sub "\u09cd", ""
+    
     # IV. Consonant characters
-    'ক': 'ka'
-    'খ': 'kha'
-    'গ': 'ga'
-    'ঘ': 'gha'
-    'ঙ': 'ṅa'
-    'চ': 'cha'
-    'ছ': 'chha'
-    'জ': 'ja'
-    'ঝ': 'jha'
-    'ঞ': 'ña'
-    'ট': 'ṭa'
-    'ঠ': 'ṭha'
-    'ড': 'ḍa'
-    'ঢ': 'ḍha'
-    'ণ': 'ṇa'
-    'ত': 'ta'
-    'থ': 'tha'
-    'দ': 'da'
-    'ধ': 'dha'
-    'ন': 'na'
-    'প': 'pa'
-    'ফ': 'pha'
-    'ব': 'ba'
-    'ভ': 'bha'
-    'ম': 'ma'
-    'য': 'j̱a'
-    'ৰ': 'ra'
-    'ল': 'la'
-    'ৱ': 'va'
-    'শ': 'sha'
-    'ষ': 'ṣha'
-    'স': 'sa'
-    'হ': 'ha'
-    'ৎ': 't'
-
+    sub "ক", "ka"
+    sub "খ", "kha"
+    sub "গ", "ga"
+    sub "ঘ", "gha"
+    sub "ঙ", "ṅa"
+    sub "চ", "cha"
+    sub "ছ", "chha"
+    sub "জ", "ja"
+    sub "ঝ", "jha"
+    sub "ঞ", "ña"
+    sub "ট", "ṭa"
+    sub "ঠ", "ṭha"
+    sub "ড", "ḍa"
+    sub "ঢ", "ḍha"
+    sub "ণ", "ṇa"
+    sub "ত", "ta"
+    sub "থ", "tha"
+    sub "দ", "da"
+    sub "ধ", "dha"
+    sub "ন", "na"
+    sub "প", "pa"
+    sub "ফ", "pha"
+    sub "ব", "ba"
+    sub "ভ", "bha"
+    sub "ম", "ma"
+    sub "য", "j̱a"
+    sub "ৰ", "ra"
+    sub "ল", "la"
+    sub "ৱ", "va"
+    sub "শ", "sha"
+    sub "ষ", "ṣha"
+    sub "স", "sa"
+    sub "হ", "ha"
+    sub "ৎ", "t"
+    
     # Note V Dotted variants
-    'ড়': 'ṙa'
-    'ঢ়': 'ṙha'
-    'য়': 'ya'
-    'য়': 'ya'
-    'ড়': 'ṙa'
-    'ঢ়': 'ya'
+    sub "ড়", "ṙa"
+    sub "ঢ়", "ṙha"
+    sub "য়", "ya"
+    sub "য়", "ya"
+    sub "ড়", "ṙa"
+    sub "ঢ়", "ya"
+  }
+
+}
+

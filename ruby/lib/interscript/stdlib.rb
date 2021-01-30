@@ -90,7 +90,7 @@ class Interscript::Stdlib
   end
 
   def self.available_functions
-    %i[title_case compose decompose separate]
+    %i[title_case downcase compose decompose separate]
   end
 
   module Functions
@@ -98,6 +98,10 @@ class Interscript::Stdlib
       output = output.gsub(/^(.)/, &:upcase)
       output = output.gsub(/#{word_separator}(.)/, &:upcase) unless word_separator == ''
       output
+    end
+
+    def self.downcase(output)
+      output.downcase
     end
 
     def self.compose(output)

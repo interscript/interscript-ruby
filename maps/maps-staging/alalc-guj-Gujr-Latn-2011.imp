@@ -47,12 +47,21 @@ tests {
   test "મોદી સરકારના આત્મનિર્ભર ભારત અભિયાનને સફળતા, પાંચ મહિનામાં ચીન સાથેની વેપાર ખાધ અડધી થઈ ગઈ, ચાઈનિઝ સ્માર્ટફોનની હિસ્સેદારી પણ ઘટી", "mȏdī sarakāranā ātmanirbhara bhārata abhiyānanȇ saphaḷatā, pāñca mahināmāṃ cīna sāthȇnī vȇpāra khādha aḍadhī thaī gaī, cāīnijha smārṭaphȏnanī hissȇdārī paṇa ghaṭī"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
 
-  inherit: 'alalc-guj-Gujr-Latn-1997'
+dependency "alalc-guj-Gujr-Latn-1997", as: gujrlatn
+
+stage {
+
+  run map.gujrlatn.stage.main
+
+}
+

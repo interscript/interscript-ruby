@@ -28,89 +28,98 @@ metadata {
 tests {
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  characters:
-    '\u0531' : 'A'
-    '\u0532' : 'B'
-    '\u0533' : 'G'
-    '\u0534' : 'D'
-    '\u0535' : 'Ye' #treated same as Russian 'ye'
-    '\u0536' : 'Z'
-    '\u0537' : 'E'
-    '\u0538' : 'Y'
-    '\u0539' : 'T\u2019'
-    '\u053a' : 'Zh'
-    '\u053b' : 'I'
-    '\u053c' : 'L'
-    '\u053d' : 'Kh'
-    '\u053e' : 'Ts'
-    '\u053f' : 'K'
-    '\u0540' : 'H'
-    '\u0541' : 'Dz'
-    '\u0542' : 'Gh'
-    '\u0543' : 'Ch'
-    '\u0544' : 'M'
-    '\u0545' : 'Y'
-    '\u0546' : 'N'
-    '\u0547' : 'Sh'
-    '\u0548' : 'O' # VO initially and U when in combination with \u0552
-    '\u0549' : u'Ch\u2019'
-    '\u054a' : 'P'
-    '\u054b' : 'J'
-    '\u054c' : 'Rr'
-    '\u054d' : 'S'
-    '\u054e' : 'V'
-    '\u054f' : 'T'
-    '\u0550' : 'R'
-    '\u0551' : 'Ts\u2019'
-    '\u0548\u0552' : 'U'
-    '\u0548\u0582' : 'U'
-    '\u0553' : 'P\u2019'
-    '\u0554' : 'K\u2019'
-    '\u0555' : 'O'
-    '\u0556' : 'F'
-    '\u0561' : 'a'
-    '\u0562' : 'b'
-    '\u0563' : 'g'
-    '\u0564' : 'd'
-    '\u0565' : 'e' # ye initially
-    '\u0566' : 'z'
-    '\u0567' : 'e'
-    '\u0568' : 'y'
-    '\u0569' : u't\u2019'
-    '\u056a' : 'zh'
-    '\u056b' : 'i'
-    '\u056c' : 'l'
-    '\u056d' : 'kh'
-    '\u056e' : 'ts'
-    '\u056f' : 'k'
-    '\u0570' : 'h'
-    '\u0571' : 'dz'
-    '\u0572' : 'gh'
-    '\u0573' : 'ch'
-    '\u0574' : 'm'
-    '\u0575' : 'y'
-    '\u0576' : 'n'
-    '\u0577' : 'sh'
-    '\u0578' : 'o' # vo initially and u when in combination with \u0582
-    '\u0579' : 'ch\u2019'
-    '\u057a' : 'p'
-    '\u057b' : 'j'
-    '\u057c' : 'rr'
-    '\u057d' : 's'
-    '\u057e' : 'v'
-    '\u057f' : 't'
-    '\u0580' : 'r'
-    '\u0581' : 'ts\u2019'
-    '\u0578\u0582' : 'u'
-    '\u0583' : 'p\u2019'
-    '\u0584' : 'k\u2019'
-    '\u0585' : 'o'
-    '\u0586' : 'f'
-    '\u0587' : 'ev' # yev initially
+stage {
+
+  # CHARACTERS
+  parallel {
+    sub "\u0531", "A"
+    sub "\u0532", "B"
+    sub "\u0533", "G"
+    sub "\u0534", "D"
+    sub "\u0535", "Ye" #treated same as Russian 'ye'
+    sub "\u0536", "Z"
+    sub "\u0537", "E"
+    sub "\u0538", "Y"
+    sub "\u0539", "T\\u2019"
+    sub "\u053a", "Zh"
+    sub "\u053b", "I"
+    sub "\u053c", "L"
+    sub "\u053d", "Kh"
+    sub "\u053e", "Ts"
+    sub "\u053f", "K"
+    sub "\u0540", "H"
+    sub "\u0541", "Dz"
+    sub "\u0542", "Gh"
+    sub "\u0543", "Ch"
+    sub "\u0544", "M"
+    sub "\u0545", "Y"
+    sub "\u0546", "N"
+    sub "\u0547", "Sh"
+    sub "\u0548", "O" # VO initially and U when in combination with \u0552
+    sub "\u0549", "u'Ch\\u2019'"
+    sub "\u054a", "P"
+    sub "\u054b", "J"
+    sub "\u054c", "Rr"
+    sub "\u054d", "S"
+    sub "\u054e", "V"
+    sub "\u054f", "T"
+    sub "\u0550", "R"
+    sub "\u0551", "Ts\\u2019"
+    sub "\u0548\u0552", "U"
+    sub "\u0548\u0582", "U"
+    sub "\u0553", "P\\u2019"
+    sub "\u0554", "K\\u2019"
+    sub "\u0555", "O"
+    sub "\u0556", "F"
+    sub "\u0561", "a"
+    sub "\u0562", "b"
+    sub "\u0563", "g"
+    sub "\u0564", "d"
+    sub "\u0565", "e" # ye initially
+    sub "\u0566", "z"
+    sub "\u0567", "e"
+    sub "\u0568", "y"
+    sub "\u0569", "u't\\u2019'"
+    sub "\u056a", "zh"
+    sub "\u056b", "i"
+    sub "\u056c", "l"
+    sub "\u056d", "kh"
+    sub "\u056e", "ts"
+    sub "\u056f", "k"
+    sub "\u0570", "h"
+    sub "\u0571", "dz"
+    sub "\u0572", "gh"
+    sub "\u0573", "ch"
+    sub "\u0574", "m"
+    sub "\u0575", "y"
+    sub "\u0576", "n"
+    sub "\u0577", "sh"
+    sub "\u0578", "o" # vo initially and u when in combination with \u0582
+    sub "\u0579", "ch\\u2019"
+    sub "\u057a", "p"
+    sub "\u057b", "j"
+    sub "\u057c", "rr"
+    sub "\u057d", "s"
+    sub "\u057e", "v"
+    sub "\u057f", "t"
+    sub "\u0580", "r"
+    sub "\u0581", "ts\\u2019"
+    sub "\u0578\u0582", "u"
+    sub "\u0583", "p\\u2019"
+    sub "\u0584", "k\\u2019"
+    sub "\u0585", "o"
+    sub "\u0586", "f"
+    sub "\u0587", "ev" # yev initially
+  }
+
+}
+

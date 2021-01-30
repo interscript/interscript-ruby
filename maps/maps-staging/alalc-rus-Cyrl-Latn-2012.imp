@@ -83,24 +83,36 @@ tests {
   test "Брянск", "Bri͡ansk"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  inherit: alalc-rus-Cyrl-Latn-1997
+dependency "alalc-rus-Cyrl-Latn-1997", as: cyrllatn
 
-  characters:
-    '\u0406': "\u012A"
-    '\u0456': "\u012B"
 
-    '\u0462': "I\u0361E" # Ѣ
-    '\u0463': "i\u0361e" # ѣ
+stage {
 
-    '\u0472': "F\u0307" # Ѳ
-    '\u0473': "f\u0307" # ѳ
+  run map.cyrllatn.stage.main
 
-    '\u0474': "Y\u0307" # Ѵ
-    '\u0475': "y\u0307" # ѵ
+  # CHARACTERS
+  parallel {
+    sub "\u0406", "Ī"
+    sub "\u0456", "ī"
+    
+    sub "\u0462", "I͡E" # Ѣ
+    sub "\u0463", "i͡e" # ѣ
+    
+    sub "\u0472", "Ḟ" # Ѳ
+    sub "\u0473", "ḟ" # ѳ
+    
+    sub "\u0474", "Ẏ" # Ѵ
+    sub "\u0475", "ẏ" # ѵ
+  }
+
+}
+

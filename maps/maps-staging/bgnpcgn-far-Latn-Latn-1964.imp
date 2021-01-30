@@ -20,15 +20,27 @@ tests {
   test "Þakka", "Þakka"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  inherit: bgnpcgn-isl-Latn-Latn-1964
+dependency "bgnpcgn-isl-Latn-Latn-1964", as: latnlatn
 
-  characters:
-    "\u00DE": ~ # Þ translitarion removed
-    "\u00FE": ~ # þ translitarion removed
+
+stage {
+
+  run map.latnlatn.stage.main
+
+  # CHARACTERS
+  parallel {
+    sub "Þ", nil # Þ translitarion removed
+    sub "þ", nil # þ translitarion removed
+  }
+
+}
+

@@ -56,82 +56,91 @@ tests {
   test "Ясениця", "Yasenytsya"
 }
 
-__END__
 # This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove the
-# __END__ marker and this comment and move the converted map to 'maps/'
-# directory. Please also take note that the maps-staging directory will
-# be cleaned up whenever you run the bin/maps_v1_to_v2 script.
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  rules:
-    - pattern: \b\u2019\b # ’ in the middle of a word -> ”
-      result: "\u201d"
+stage {
 
-  characters:
-    "\u0430": 'a'
-    "\u0431": 'b'
-    "\u0432": 'v'
-    "\u0433": 'h'
-    "\u0434": 'd'
-    "\u0435": 'e'
-    "\u0436": 'zh'
-    "\u0437": 'z'
-    "\u0438": 'y'
-    "\u0439": 'y'
-    "\u043a": 'k'
-    "\u043b": 'l'
-    "\u043c": 'm'
-    "\u043d": 'n'
-    "\u043e": 'o'
-    "\u043f": 'p'
-    "\u0440": 'r'
-    "\u0441": 's'
-    "\u0442": 't'
-    "\u0443": 'u'
-    "\u0444": 'f'
-    "\u0445": 'kh'
-    "\u0446": 'ts'
-    "\u0447": 'ch'
-    "\u0448": 'sh'
-    "\u0449": 'shch'
-    "\u044c": "\u2019"
-    "\u044e": 'yu'
-    "\u044f": 'ya'
-    "\u0454": 'ye'
-    "\u0456": 'i'
-    "\u0457": 'yi'
-    "\u0491": 'g'
-    "\ufeff": ' '
-    "\u0404": 'Ye'
-    "\u0406": 'I'
-    "\u0407": 'Yi'
-    "\u0410": 'A'
-    "\u0411": 'B'
-    "\u0412": 'V'
-    "\u0413": 'H'
-    "\u0414": 'D'
-    "\u0415": 'E'
-    "\u0416": 'Zh'
-    "\u0417": 'Z'
-    "\u0418": 'Y'
-    "\u0419": 'Y'
-    "\u041a": 'K'
-    "\u041b": 'L'
-    "\u041c": 'M'
-    "\u041d": 'N'
-    "\u041e": 'O'
-    "\u041f": 'P'
-    "\u0420": 'R'
-    "\u0421": 'S'
-    "\u0422": 'T'
-    "\u0423": 'U'
-    "\u0424": 'F'
-    "\u0425": 'Kh'
-    "\u0426": 'Ts'
-    "\u0427": 'Ch'
-    "\u0428": 'Sh'
-    "\u0429": 'Shch'
-    "\u042c": "\u2019"
-    "\u042e": 'Yu'
-    "\u042f": 'Ya'
-    "\u0490": 'G'
+  # RULES
+  sub "\\b\\u2019\\b", "”" # ’ in the middle of a word -> ”
+  
+
+  # CHARACTERS
+  parallel {
+    sub "а", "a"
+    sub "б", "b"
+    sub "в", "v"
+    sub "г", "h"
+    sub "д", "d"
+    sub "е", "e"
+    sub "ж", "zh"
+    sub "з", "z"
+    sub "и", "y"
+    sub "й", "y"
+    sub "к", "k"
+    sub "л", "l"
+    sub "м", "m"
+    sub "н", "n"
+    sub "о", "o"
+    sub "п", "p"
+    sub "р", "r"
+    sub "с", "s"
+    sub "т", "t"
+    sub "у", "u"
+    sub "ф", "f"
+    sub "х", "kh"
+    sub "ц", "ts"
+    sub "ч", "ch"
+    sub "ш", "sh"
+    sub "щ", "shch"
+    sub "ь", "’"
+    sub "ю", "yu"
+    sub "я", "ya"
+    sub "є", "ye"
+    sub "і", "i"
+    sub "ї", "yi"
+    sub "ґ", "g"
+    sub "﻿", " "
+    sub "Є", "Ye"
+    sub "І", "I"
+    sub "Ї", "Yi"
+    sub "А", "A"
+    sub "Б", "B"
+    sub "В", "V"
+    sub "Г", "H"
+    sub "Д", "D"
+    sub "Е", "E"
+    sub "Ж", "Zh"
+    sub "З", "Z"
+    sub "И", "Y"
+    sub "Й", "Y"
+    sub "К", "K"
+    sub "Л", "L"
+    sub "М", "M"
+    sub "Н", "N"
+    sub "О", "O"
+    sub "П", "P"
+    sub "Р", "R"
+    sub "С", "S"
+    sub "Т", "T"
+    sub "У", "U"
+    sub "Ф", "F"
+    sub "Х", "Kh"
+    sub "Ц", "Ts"
+    sub "Ч", "Ch"
+    sub "Ш", "Sh"
+    sub "Щ", "Shch"
+    sub "Ь", "’"
+    sub "Ю", "Yu"
+    sub "Я", "Ya"
+    sub "Ґ", "G"
+  }
+
+}
+
