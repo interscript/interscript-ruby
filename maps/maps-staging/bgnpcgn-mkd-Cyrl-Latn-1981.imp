@@ -8,7 +8,7 @@ metadata {
   url: https://github.com/riboseinc/interscript/files/4247920/USBGN_romanization_Macedonian_1981.pdf
   creation_date: 1981
   description: BGN/PCGN Romanization table for Makedonian.
-  
+
   notes:
     - The character ѓ should be romanized g when it occurs before е and и. In other
       instances, it should be romanized ǵ (Ǵ).
@@ -61,7 +61,7 @@ stage {
   sub "ѓ(?=[еЕиИ])", "g"
   sub "Ќ(?=[еЕиИ])", "K"
   sub "ќ(?=[еЕиИ])", "k"
-  
+
 
   # POSTRULES
   # DZ
@@ -72,7 +72,7 @@ stage {
   sub "((?<=[[:upper:]])Nj(?=[[:upper:]])?|(?<=[[:upper:]])?Nj(?=[[:upper:]]))", "NJ"
   #DŽ
   sub "((?<=[[:upper:]])Dž(?=[[:upper:]])?|(?<=[[:upper:]])?Dž(?=[[:upper:]]))", "DŽ"
-  
+
 
   # CHARACTERS
   parallel {

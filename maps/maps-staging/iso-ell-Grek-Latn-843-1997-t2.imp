@@ -13,7 +13,7 @@ metadata {
     the characters of the Greek script, independent of the period in
     which it is or was used, i.e. scripts from all periods of Classic
     or Modern Greek. Replaces ISO/R 843.
-  
+
   notes:
     - Transliteration of Greek into Latin: Type 2, Clause 3 Table 2
     - Introduced casing to digamma, yot, and lunate sigma. (Casing was late introduction to character sets for those characters)

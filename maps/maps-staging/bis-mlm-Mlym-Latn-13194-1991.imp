@@ -5,18 +5,18 @@ metadata {
   source_script: Mlym
   destination_script: Latn
   name: Indian script code for information interchange - ISCII - Malayalam Romanization
-  
+
   #url:
   creation_date: 1991
   description: |
     IS 13194 (1991): Indian script code for information
     interchange - ISCII [LITD 20: Indian Language Technologies
     and Products]
-  
+
   notes:
     - |
       Exception: Anusvāra is transliterated by:
-  
+
       a) ṅ before gutturals,
       b) ñ before palatals,
       c) ṇ before cerebrals,
@@ -56,8 +56,8 @@ stage {
   sub "\\u0D02(?=[ടഠഡഢണ])", "ṇ"
   sub "\\u0D02(?=[തഥദധന])", "n"
   sub "\\u0D02(?=[പഫബഭമ])", "m"
-  
-  
+
+
 
   # CHARACTERS
   parallel {
@@ -69,16 +69,16 @@ stage {
     sub "ഊ", "ū"
     sub "ഋ", "ṛ"
     sub "ഌ", "ḻ"
-    
-    
+
+
     sub "എ", "e"
     sub "ഏ", "ē"
     sub "ഐ", "ai"
-    
+
     sub "ഒ", "o"
     sub "ഓ", "ŏ"
     sub "ഔ", "au"
-    
+
     # II. Consonants (see Note 2)
     # Gutturals
     sub "ക", "k"
@@ -87,35 +87,35 @@ stage {
     sub "ഗ", "g"
     sub "ഘ", "gh"
     sub "ങ", "ṅ"
-    
+
     # Palatals
     sub "ച", "c"
     sub "ഛ", "ch"
     sub "ജ", "j"
     sub "ഝ", "jh"
     sub "ഞ", "ñ"
-    
+
     # Cerebrals
     sub "ട", "ṭ"
     sub "ഠ", "ṭh"
     sub "ഡ", "d̂"
     sub "ഢ", "ḍh"
     sub "ണ", "ṇ"
-    
+
     # Dentals
     sub "ത", "t"
     sub "ഥ", "th"
     sub "ദ", "d"
     sub "ധ", "dh"
     sub "ന", "n"
-    
+
     # Labials
     sub "പ", "p"
     sub "ഫ", "ph"
     sub "ബ", "b"
     sub "ഭ", "bh"
     sub "മ", "m"
-    
+
     # Semivowels
     sub "യ", "y"
     sub "ര", "r"
@@ -131,43 +131,43 @@ stage {
     sub "ശ", "ś"
     sub "ഷ", "ṣ"
     sub "സ", "s"
-    
-    
+
+
     # Aspirate
     sub "ഹ", "h"
-    
+
     # Chandrabindu
     sub "\u0D01", "m"
-    
+
     # Bisarga
     sub "ഃ", "ḥ"
-    
+
     # Anusvāra
     sub "ം", "ṃ"
-    
+
     # Medials # Needed for connecting constants
-    
+
     sub "ാ", "ā"
     sub "ി", "i"
     sub "ീ", "ī"
     sub "ു", "u"
     sub "ൂ", "ū"
-    
+
     sub "ൃ", "ṛ"
     sub "ൄ", "ṝ"
-    
-    
+
+
     sub "െ", "e"
     sub "േ", "ē"
     sub "ൈ", "ai"
     sub "ൊ", "o"
     sub "ോ", "ō"
     sub "ൌ", "au"
-    
-    
+
+
     sub "ൺ", "n"
     sub "ൻ", "ṇ"
-    
+
     sub "्", ""
     sub "്", ""
     sub "़", ""

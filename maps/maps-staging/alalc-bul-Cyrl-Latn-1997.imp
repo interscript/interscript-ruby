@@ -7,7 +7,7 @@ metadata {
   name: ALA-LC Romanization Table -- Bulgarian (1997)
   url: http://www.rechtertie.nl/databases/judd/downloads/Bulgarian.pdf
   creation_date: 1997
-  
+
   notes:
     - |
       The letter Ъ in the initial and medial position is a vowel in Bulgarian and is romanized as ŭ.
@@ -35,7 +35,7 @@ stage {
   # note[1]
   sub "(?<=)\\u042a(?=\\b)", "ʺ"
   sub "(?<=)u044a(?=\\b)", "ʺ"
-  
+
 
   # CHARACTERS
   parallel {
@@ -71,7 +71,7 @@ stage {
     sub "\u042e", "I͡U"
     sub "\u042f", "I͡A"
     sub "\u046A", "U̐" # Ѫ check note [2]
-    
+
     sub "\u0430", "a"
     sub "\u0431", "b"
     sub "\u0432", "v"

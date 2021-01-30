@@ -9,7 +9,7 @@ metadata {
   creation_date: 2011
   description: |
     ALA-LC Romanization table for Oriya
-  
+
   notes:
     - |
       Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for vowels following a

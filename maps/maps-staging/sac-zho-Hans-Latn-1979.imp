@@ -37,7 +37,7 @@ stage {
 
   # CHARACTERS
   parallel {
-    
+
     sub "〇", "ling2"
     sub "一", "yi1"
     sub "丁", "ding1"

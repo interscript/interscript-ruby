@@ -5,18 +5,18 @@ metadata {
   source_script: Gujr
   destination_script: Latn
   name: Indian script code for information interchange - ISCII - Gujrati Romanization
-  
+
   #url:
   creation_date: 1991
   description: |
     IS 13194 (1991): Indian script code for information
     interchange - ISCII [LITD 20: Indian Language Technologies
     and Products]
-  
+
   notes:
     - |
       Exception: Anusvāra is transliterated by:
-  
+
       a) ṅ before gutturals,
       b) ñ before palatals,
       c) ṇ before cerebrals,
@@ -57,8 +57,8 @@ stage {
   sub "\\u0A82(?=[ટઠડઢણ])", "ṇ"
   sub "\\u0A82(?=[તથદધન])", "n"
   sub "\\u0A82(?=[પફબભમ])", "m"
-  
-  
+
+
 
   # CHARACTERS
   parallel {
@@ -70,15 +70,15 @@ stage {
     sub "ઊ", "ū"
     # 'ઋ': 'ṛ'
     sub "ઌ", "ḻ"
-    
+
     sub "ઍ", "e"
     sub "એ", "ē"
     sub "ઐ", "ai"
-    
+
     sub "ઑ", "o"
     sub "ઓ", "ŏ"
     sub "ઔ", "au"
-    
+
     # II. Consonants (see Note 2)
     # Gutturals
     sub "ક", "k"
@@ -86,62 +86,62 @@ stage {
     sub "ગ", "g"
     sub "ઘ", "gh"
     sub "ઙ", "ṅ"
-    
+
     # Palatals
     sub "ચ", "c"
     sub "છ", "ch"
     sub "જ", "j"
     sub "ઝ", "jh"
     sub "ઞ", "ñ"
-    
+
     # Cerebrals
     sub "ટ", "ṭ"
     sub "ઠ", "ṭh"
     sub "ડ", "ḍ"
     sub "ઢ", "ḍh"
     sub "ણ", "ṇ"
-    
+
     # Dentals
     sub "ત", "t"
     sub "થ", "th"
     sub "દ", "d"
     sub "ધ", "dh"
     sub "ન", "n"
-    
+
     # Labials
     sub "પ", "p"
     sub "ફ", "ph"
     sub "બ", "b"
     sub "ભ", "bh"
     sub "મ", "m"
-    
+
     # Semivowels
     sub "ય", "y"
     sub "ર", "r"
     sub "લ", "l"
     sub "ળ", "ḷ"
     sub "વ", "v"
-    
+
     # Sibilants
     sub "શ", "ś"
     sub "ષ", "ṣ"
     sub "સ", "s"
-    
-    
+
+
     # Aspirate
     sub "હ", "h"
-    
+
     # Chandrabindu
     sub "ઁ", "m"
-    
+
     # Bisarga
     sub "ઃ", "ḥ"
-    
+
     # Anusvāra
     sub "ં", "ṃ"
-    
+
     # Medials # Needed for connecting constants
-    
+
     sub "ા", "ā"
     sub "િ", "i"
     sub "ી", "ī"
@@ -155,17 +155,17 @@ stage {
     sub "ૉ", "o"
     sub "ો", "ŏ"
     sub "ૌ", "au"
-    
-    
-    
+
+
+
     sub "\u09CD", "" # Used for joining
     sub "્", ""
     sub "઼", ""
     sub "।", "."
     sub "‍", "" # Used for joining
-    
+
     # digits
-    
+
     sub "૦", "0"
     sub "૧", "1"
     sub "૨", "2"

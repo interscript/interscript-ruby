@@ -9,23 +9,23 @@ metadata {
   creation_date: 1997
   description: |
     ALA-LC Romanization table for Kannada
-  
+
   notes:
-  
+
     - Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for
       vowels following a consonant can be found in grammars; no distinction between the two is
       made in transliteration.
-  
+
     - |
       The vowel a is implicit after all consonants and consonant clusters and is supplied in
       transliteration, with the following exceptions:
-  
+
       a) when another vowel is indicated by its appropriate sign; and
       b) when the absence of any vowel is indicated by the superscript sign (◌್).
-  
+
     - |
       Exception: Anusvāra is transliterated by:
-  
+
       a) ṅ before gutturals,
       b) ñ before palatals,
       c) ṇ before cerebrals,
@@ -99,13 +99,13 @@ stage {
   sub "([ಷ]=?)(?=[\\u0cbe\\u0cbf\\u0cc0\\u0cc1\\u0cc2\\u0cc3\\u0cc6\\u0cc7\\u0cc8\\u0cca\\u0ccb\\u0ccc\\u0ccd])", "ṣ"
   sub "([ಸ]=?)(?=[\\u0cbe\\u0cbf\\u0cc0\\u0cc1\\u0cc2\\u0cc3\\u0cc6\\u0cc7\\u0cc8\\u0cca\\u0ccb\\u0ccc\\u0ccd])", "s"
   sub "([ಹ]=?)(?=[\\u0cbe\\u0cbf\\u0cc0\\u0cc1\\u0cc2\\u0cc3\\u0cc6\\u0cc7\\u0cc8\\u0cca\\u0ccb\\u0ccc\\u0ccd])", "h"
-  
+
   # rule[III]
   sub "\\u0C82(?=[ಕಖಗಘಙ])", "ṅ"
   sub "\\u0C82(?=[ಚಛಜಝಞ])", "ñ"
   sub "\\u0C82(?=[ಟಠಡಢಣ])", "ṇ"
   sub "\\u0C82(?=[ತಥದಧನ])", "n"
-  
+
 
   # CHARACTERS
   parallel {
@@ -117,52 +117,52 @@ stage {
     sub "ಊ", "ū"
     sub "ಋ", "ṛ"
     sub "ೠ", "ṝ"
-    
+
     sub "ಌ", "ḻ"
-    
+
     sub "ಎ", "e"
     sub "ಏ", "ē"
     sub "ಐ", "ai"
-    
+
     sub "ಒ", "o"
     sub "ಓ", "ō"
     sub "ಔ", "au"
-    
+
     # Gutturals
     sub "ಕ", "ka"
     sub "ಖ", "kha"
     sub "ಗ", "ga"
     sub "ಘ", "gha"
     sub "ಙ", "ṅa"
-    
+
     # Palatals
     sub "ಚ", "ca"
     sub "ಛ", "cha"
     sub "ಜ", "ja"
     sub "ಝ", "jha"
     sub "ಞ", "ña"
-    
+
     # Cerebrals
     sub "ಟ", "ṭa"
     sub "ಠ", "ṭha"
     sub "ಡ", "ḍa"
     sub "ಢ", "ḍha"
     sub "ಣ", "ṇa"
-    
+
     # Dentals
     sub "ತ", "ta"
     sub "ಥ", "tha"
     sub "ದ", "da"
     sub "ಧ", "dha"
     sub "ನ", "na"
-    
+
     # Labials
     sub "ಪ", "pa"
     sub "ಫ", "pha"
     sub "ಬ", "ba"
     sub "ಭ", "bha"
     sub "ಮ", "ma"
-    
+
     # Semivowels
     sub "ಯ", "ya"
     sub "ರ", "ra"
@@ -170,28 +170,28 @@ stage {
     sub "ಲ", "la"
     sub "ಳ", "ḷa"
     sub "ೞ", "l̤a"
-    
-    
+
+
     sub "ವ", "va"
-    
+
     # Sibilants
     sub "ಶ", "śa"
     sub "ಷ", "ṣa"
     sub "ಸ", "sa"
-    
-    
+
+
     # Aspirate
     sub "ಹ", "ha"
-    
-    
+
+
     # Bisarga
     sub "ಃ", "ḥ"
-    
+
     # Anusvāra
     sub "ಂ", "ṃ"
-    
+
     sub "\u0cbc", "" #nukta
-    
+
     # Medials # Needed for connecting constants
     sub "ಾ", "ā"
     sub "ಿ", "i"
@@ -201,28 +201,28 @@ stage {
     sub "ೃ", "ṛ"
     sub "ೄ", "ṝ"
     sub "\u0CE2", "ḻ" # KANNADA VOWEL SIGN VOCALIC L ( ೢ)
-    
-    
+
+
     sub "ೆ", "e"
     sub "ೇ", "ē"
     sub "ೈ", "ai"
-    
-    
+
+
     sub "ೊ", "o"
     sub "ೋ", "ō"
     sub "ೌ", "au"
-    
-    
+
+
     sub "्", ""
     sub "़", ""
     sub "್", "" # used for pronounciation without vowel
     sub "‍", "" # no need for zero with joiner
     sub "‌", "" # no need for zero with non joiner
-    
-    
-    
+
+
+
     # Digits
-    
+
     sub "೦", "0"
     sub "೧", "1"
     sub "೨", "2"

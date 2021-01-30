@@ -8,7 +8,7 @@ metadata {
   url: http://transliteration.eki.ee/pdf/Ukrainian.pdf
   creation_date: 1996
   description: Romanization table for Ukrainian. The current national system of romanization.
-  
+
   notes:
     - gh is used in the romanization of зг zgh.
     - In initial position є -> ye, ї -> yi, й -> y, ю -> yu, я -> ya.
@@ -82,7 +82,7 @@ stage {
   sub "(?<!\\b\\u2019)\\b\\u042f", "Ya" # Я in initial position -> Ya
   sub "(?<!\\b\\u2019)\\b\\u044f", "ya" # я in initial position -> ya
   sub "\\b\\u2019\\b", "”" # ’ in the middle of a word -> ”
-  
+
 
   # CHARACTERS
   parallel {

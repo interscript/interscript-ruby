@@ -9,7 +9,7 @@ metadata {
   creation_date: 1997
   description: |
     ALA-LC Romanization table for Greek
-  
+
   notes:
     - Applies to texts after 1453 (Modern Greek)
     - This table presupposes monotonic accentuation; rough breathings are accordingly not addressed.
@@ -290,7 +290,7 @@ stage {
   sub "(?<=\\b)\\u03BC\\u03C0", "b" # μπ
   sub "\\u037E", "?" # ;
   sub "\\u003B", "?" # ;
-  
+
 
   # CHARACTERS
   parallel {
@@ -328,7 +328,7 @@ stage {
     sub "Ώ", "Ō" # Ώ
     sub "Ϊ", "I" # Ϊ
     sub "Ϋ", "Y" # Ϋ
-    
+
     sub "ά", "a" # ά
     sub "α", "a" # α
     sub "β", "v" # β
@@ -365,7 +365,7 @@ stage {
     sub "ϋ", "y" # ϋ
     sub "ΐ", "i" # ΐ
     sub "ΰ", "y" # ΰ
-    
+
     sub "·", ";" # ·
     sub "·", ";" # ·
   }

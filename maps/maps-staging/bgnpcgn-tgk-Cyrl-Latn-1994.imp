@@ -14,7 +14,7 @@ metadata {
     orthographic reform of the Tajik Cyrillic alphabet was implemented under the auspices of the Academy of Sciences of
     Tajikistan. This reform was promulgated in a decree of 3 September 1998 by the government of the Republic of
     Tajikistan. The reform abolished the characters ц, щ, ь and ы (see notes 2 through 5).
-  
+
   notes:
     - |
       The character sequences гҳ , зҳ , кҳ , and сҳ may be romanized g·h, z·h, k·h, and s·h in order
@@ -109,7 +109,7 @@ stage {
   # note[2]
   sub "\\u0426(?=[АаЕеЁёИиОоУуЫыЭэЮюЯя])", "S"
   sub "\\u0446(?=[АаЕеЁёИиОоУуЫыЭэЮюЯя])", "s"
-  
+
 
   # CHARACTERS
   parallel {
@@ -152,7 +152,7 @@ stage {
     sub "Э", "Ė" # Э => Ė
     sub "Ю", "Yu" # Ю
     sub "Я", "Ya" # Я
-    
+
     sub "а", "a" # а
     sub "б", "b" # б
     sub "в", "v" # в

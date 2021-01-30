@@ -11,15 +11,15 @@ metadata {
   description: |
     Script conversion is often required for documents such as historical and literary texts, geographical texts (including
     maps and atlases), bibliographies, catalogues, lists and passports (and other identification documents).
-  
+
     Text in Devanagari script or other Indic scripts sometimes needs to be shown in Latin script, where users, or
     equipment that they are using, cannot read or write the text
-  
+
     This International Standard applies to transliteration of Devanagari, and to Indic scripts related to Devanagari,
     independent of the period in which it is or was used.
-  
+
   notes:
-  
+
     - All transliterations made using this International Standard shall be case-insensitive.
     - Inherent a with a consonant shall always be transliterated.
     - Malayalam anusvara final in a word shall be transliterated as m .
@@ -86,7 +86,7 @@ stage {
   sub "(?<=)\\u0D4D(?=\\b)", "ŭ" # Rule 12
   sub "(?<=)\\u0D02(?=\\b)", "m" # Rule 3
   sub "(?<=)\\u0D7C(?=\\b)", "ṟ" # Rule 13
-  
+
 
   # CHARACTERS
   parallel {
@@ -100,15 +100,15 @@ stage {
     sub "ൠ", "ṝ"
     sub "ഌ", "ḷ"
     sub "ൡ", "ḹ"
-    
+
     sub "എ", "e"
     sub "ഏ", "ē"
     sub "ഐ", "ai"
-    
+
     sub "ഒ", "o"
     sub "ഓ", "ō"
     sub "ഔ", "au"
-    
+
     # Consonants
     # Gutturals
     sub "ക", "ka"
@@ -116,35 +116,35 @@ stage {
     sub "ഗ", "ga"
     sub "ഘ", "gha"
     sub "ങ", "ṅa"
-    
+
     # Palatals
     sub "ച", "ca"
     sub "ഛ", "cha"
     sub "ജ", "ja"
     sub "ഝ", "jha"
     sub "ഞ", "ña"
-    
+
     # Cerebrals
     sub "ട", "ṭa"
     sub "ഠ", "ṭha"
     sub "ഡ", "d̂a"
     sub "ഢ", "ḍha"
     sub "ണ", "ṇa"
-    
+
     # Dentals
     sub "ത", "ta"
     sub "ഥ", "tha"
     sub "ദ", "da"
     sub "ധ", "dha"
     sub "ന", "na"
-    
+
     # Labials
     sub "പ", "pa"
     sub "ഫ", "pha"
     sub "ബ", "ba"
     sub "ഭ", "bha"
     sub "മ", "ma"
-    
+
     # Semivowels
     sub "യ", "ya"
     sub "ര", "ra"
@@ -159,23 +159,23 @@ stage {
     sub "ഷ", "ṣa"
     sub "സ", "sa"
     sub "ഩ", "ṉa"
-    
-    
+
+
     # Aspirate
     sub "ഹ", "ha"
-    
+
     # Bisarga
     sub "ഃ", "ḥ"
-    
+
     # Anusvāra
     sub "ം", "ṁ"
-    
-    
+
+
     # Abagraha
     sub "ഽ", ":’" # (apostrophe)
-    
+
     # Medials # Needed for connecting constants
-    
+
     sub "ാ", "ā"
     sub "ി", "i"
     sub "ീ", "ī"
@@ -192,14 +192,14 @@ stage {
     sub "ൊ", "o"
     sub "ോ", "ō"
     sub "ൌ", "au"
-    
+
     sub "्", ""
     sub "़", ""
     sub "ൗ", ""
     sub "‍", "" # no need for zero with joiner
     sub "‌", "" # no need for zero with non joiner
-    
-    
+
+
     # For rule 12
     # Gutturals
     sub "ക്", "k"
@@ -207,35 +207,35 @@ stage {
     sub "ഗ്", "g"
     sub "ഘ്", "gh"
     sub "ങ്", "ṅ"
-    
+
     # Palatals
     sub "ച്", "c"
     sub "ഛ്", "ch"
     sub "ജ്", "j"
     sub "ഝ്", "jh"
     sub "ഞ്", "ñ"
-    
+
     # Cerebrals
     sub "ട്", "ṭ"
     sub "ഠ്", "ṭh"
     sub "ഡ്", "d̂"
     sub "ഢ്", "ḍh"
     sub "ണ്", "ṇ"
-    
+
     # Dentals
     sub "ത്", "t"
     sub "ഥ്", "th"
     sub "ദ്", "d"
     sub "ധ്", "dh"
     sub "ന്", "n"
-    
+
     # Labials
     sub "പ്", "p"
     sub "ഫ്", "ph"
     sub "ബ്", "b"
     sub "ഭ്", "bh"
     sub "മ്", "m"
-    
+
     # Semivowels
     sub "യ്", "y"
     sub "ര്", "r"
@@ -249,14 +249,14 @@ stage {
     sub "ഷ്", "ṣ"
     sub "സ്", "s"
     sub "ഩ്", "ṉ"
-    
-    
+
+
     # Aspirate
     sub "ഹ്", "h"
-    
-    
+
+
     # numbers
-    
+
     sub "൦", "0"
     sub "൧", "1"
     sub "൨", "2"
@@ -270,10 +270,10 @@ stage {
     sub "൰", "10"
     sub "൱", "100"
     sub "൲", "1000"
-    
-    
+
+
     # Rule 8(II)
-    
+
     sub "ൺ", ":na"
     sub "ൻ", ":ṇa"
     sub "ൽ", ":la"

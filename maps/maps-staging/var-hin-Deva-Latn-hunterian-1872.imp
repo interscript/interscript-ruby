@@ -9,9 +9,9 @@ metadata {
   creation_date: 1872
   description:
     The Hunterian system is the national system of romanization in India.
-  
+
   notes:
-  
+
     -  a, i and u are used in word-final position. The a in gaon and the u in pur are not accented.
     -  ज्ञ is transliterated gy.
     -  v is used before i.
@@ -47,18 +47,18 @@ stage {
   sub "(?<=)\\u0906(?=\\b)", "a"
   sub "(?<=)\\u0908(?=\\b)", "i"
   sub "(?<=)\\u090A(?=\\b)", "u"
-  
+
   # note[3]
   sub "\\u0935(?=[इई])", "v"
-  
-  
-  
+
+
+
 
   # CHARACTERS
   parallel {
-    
+
     # I. Vowels and Diphthongs (see Note 1)
-    
+
     sub "अ", "a"
     sub "आ", "ā"
     sub "इ", "i"
@@ -70,7 +70,7 @@ stage {
     sub "ऐ", "ai"
     sub "ओ", "o"
     sub "औ", "au"
-    
+
     # II. Consonants (see Note 2)
     # Gutturals
     sub "क", "ka"
@@ -78,50 +78,50 @@ stage {
     sub "ग", "ga"
     sub "घ", "gha"
     sub "ङ", "nga"
-    
+
     # Palatals
     sub "च", "cha"
     sub "छ", "chha"
     sub "ज", "ja"
     sub "झ", "jha"
     sub "ञ", "nya"
-    
+
     # Cerebrals
     sub "ट", "ta"
     sub "ठ", "tha"
     sub "ड", "da"
     sub "ढ", "dha"
     sub "ण", "na"
-    
+
     # Dentals
     sub "त", "ta"
     sub "थ", "tha"
     sub "द", "da"
     sub "ध", "dha"
     sub "न", "na"
-    
+
     # Labials
     sub "प", "pa"
     sub "फ", "pha"
     sub "ब", "ba"
     sub "भ", "bha"
     sub "म", "ma"
-    
+
     # Semivowels
     sub "य", "ya"
     sub "र", "ra"
     sub "ल", "la"
     sub "व", "wa"
-    
+
     # Sibilants
     sub "श", "sa"
     sub "ष", "sha"
     sub "स", "sa"
-    
+
     # Aspirate
     sub "ह", "ha"
-    
-    
+
+
     # Additional consonants
     sub "क़", "qa"
     sub "ख़", "kha"
@@ -131,20 +131,20 @@ stage {
     sub "ढ़", "ṙha"
     sub "फ़", "fa"
     sub "ळ", "la"
-    
+
     # Anusvāra
     sub "ं", "n"
-    
+
     # Bisarga
     sub "ः", "h"
-    
+
     # Anunāsika
     sub "ँ", "m"
-    
+
     # Note 2
     sub "ज्ञ", "gy"
-    
-    
+
+
     # Medials # Needed for connecting constants
     sub "ा", "ā"
     sub "ि", "i"
@@ -157,59 +157,59 @@ stage {
     sub "ो", "o"
     sub "ौ", "au"
     sub "‍", "" # Used for joining
-    
-    
+
+
     #V. Vowelless with halanta (्)
-    
+
     # Gutturals
     sub "क्", "k"
     sub "ख्", "kh"
     sub "ग्", "g"
     sub "घ्", "gh"
     sub "ङ्", "ng"
-    
+
     # Palatals
     sub "च्", "ch"
     sub "छ्", "chh"
     sub "ज्", "j"
     sub "झ्", "jh"
     sub "ञ्", "ny"
-    
+
     # Cerebrals
     sub "ट्", "t"
     sub "ठ्", "th"
     sub "ड्", "d"
     sub "ढ्", "dh"
     sub "ण्", "n"
-    
+
     # Dentals
     sub "त्", "t"
     sub "थ्", "th"
     sub "द्", "d"
     sub "ध्", "dh"
     sub "न्", "n"
-    
+
     # Labials
     sub "प्", "p"
     sub "फ्", "ph"
     sub "ब्", "b"
     sub "भ्", "bh"
     sub "म्", "m"
-    
+
     # Semivowels
     sub "य्", "y"
     sub "र्", "r"
     sub "ल्", "l"
     sub "व्", "w"
-    
+
     # Sibilants
     sub "श्", "s"
     sub "ष्", "sh"
     sub "स्", "s"
-    
+
     # Aspirate
     sub "ह्", "h"
-    
+
     # Additional consonants
     sub "क़्", "q"
     sub "ख़्", "kh"

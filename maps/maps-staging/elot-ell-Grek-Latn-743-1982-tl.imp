@@ -9,7 +9,7 @@ metadata {
   creation_date: 1982
   description: |
     ELOT 743:1982 transliteration table for Greek
-  
+
   notes:
     - This was the intended system in ELOT 743:1982 for transliteration, as is apparent from un-ell-Grek-Latn-1987-tl and iso-ell-Grek-Latn-843-1997-t2, and ELOT 743:2001, Annex B; but the reversible character diacritics are missing from the currently available document, and the document does not indicate what there was supposed to be.
     - "\"Transliteration\" as used in this specification and its inheritors refers to reversible transliteration, as distinct from \"transcription\", which is a simpler transliteration and which is intended for default use."
@@ -316,7 +316,7 @@ stage {
   sub "(?<!\\b)\\u03BC[πΠ]", "mp" # μπ (medially)
   sub "\\u037E", "?" # ;
   sub "\\u003B", "?" # ;
-  
+
 
   # CHARACTERS
   parallel {
@@ -358,7 +358,7 @@ stage {
     sub "Ώ", "Ó̱" # Ώ
     sub "Ϊ", "Ï" # Ϊ
     sub "Ϋ", "Ÿ" # Ϋ
-    
+
     sub "ά", "á" # ά
     sub "α", "a" # α
     sub "β", "v" # β
@@ -398,7 +398,7 @@ stage {
     sub "ϋ", "ÿ" # ϋ
     sub "ΐ", "ḯ" # ΐ
     sub "ΰ", "ÿ́" # ΰ
-    
+
     sub "·", ";" # ·
     sub "·", ";" # ·
   }

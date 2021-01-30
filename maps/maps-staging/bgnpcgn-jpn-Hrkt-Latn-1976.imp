@@ -9,7 +9,7 @@ metadata {
   creation_date:
   adoption_date:
   description:
-  
+
   notes:
     - Segmentation needs to be done before using this map
     - Note 5 in the specification states that when identical repeating vowels
@@ -115,7 +115,7 @@ stage {
   # CHARACTERS
   parallel {
     # Rare sounds, Table 2 & 4
-    
+
     sub "くぁ", "kwa"
     sub "クァ", "kwa"
     sub "ぐぁ", "gwa"

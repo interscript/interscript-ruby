@@ -105,12 +105,12 @@ stage {
 
   # POSTRULES
   sub " El-", " el-" # الص
-  
+
 
   # CHARACTERS
   parallel {
-    
-    
+
+
     # special pointed letters
     sub "\u0639\u064e", "‛a" # عَ
     sub "\u0639\u0650", "‛i" # عِ
@@ -125,7 +125,7 @@ stage {
     sub "\u064e\u0648\u0652", any(["ô", "au"]) # ـَوْ
     sub "\u064e\u064a\u0652", any(["ei", "ai"]) # ـَيْ
     sub "\u0622", any("âa") # آ
-    
+
     # ta' marboota  in iso-233-1984 is all the same `a`
     sub "\u0629$", "a"
     sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{2})\u0629", "a"
@@ -140,8 +140,8 @@ stage {
     sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{11})\u0629", "a"
     sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{12})\u0629", "a"
     sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{13})\u0629", "a"
-    
-    
+
+
     # Sun letters
     sub "\\b\u0627\u0644\u062a", "el-t" # الت
     sub "\\b\u0627\u0644\u062b", any(["el-th", "el-t"]) # الث
@@ -157,73 +157,73 @@ stage {
     sub "\\b\u0627\u0644\u0638", any(["el-ẓ", "el-d"]) # الظ
     sub "\\b\u0627\u0644\u0644", "el-l" # الل
     sub "\\b\u0627\u0644\u0646", "el-n" # الن
-    
-    
+
+
     # shadda
     sub "\u062b\u0651", any(["thth", "tt"]) # ث
     sub "\u062c\u0651", any(["gg", "jj"]) # ج
     sub "\u062d\u0651", "ḥḥ" # ح
     sub "\u062e\u0651", "khkh" # خ
-    
+
     sub "\u0633\u0651", any(["ss", "cc"]) # س
     sub "\u0635\u0651", "ṣṣ" # ص
     sub "\u0636\u0651", "ḍḍ" # ض
     sub "\u0637\u0651", "ṭṭ" # ط
     sub "\u0638\u0651", any(["ẓẓ", "dd"]) # ظ
     sub "\u0642\u0651", any(["qq", "kk"]) # ق
-    
+
     sub "\\b\u0627\u0644", "el-" # ال
-    
+
     # normal letters
     sub "\u062c", any("gj") # ج
     sub "\ufe9f", any("gj") # ﺟ
     sub "\ufea0", any("gj") # ﺠ
     sub "\ufe9e", any("gj") # ﺞ
-    
+
     sub "\u062d", "ḥ" # ح
     sub "\ufea3", "ḥ" # ﺣ
     sub "\ufea4", "ḥ" # ﺤ
     sub "\ufea2", "ḥ" # ﺢ
-    
+
     sub "\u062e", "kh" # خ
     sub "\ufea7", "kh" # ﺧ
     sub "\ufea8", "kh" # ﺨ
     sub "\ufea6", "kh" # ﺦ
-    
+
     sub "\u0630", any(["dh", "z"]) # ذ
     sub "\ufeac", any(["dh", "z"]) # ﺬ
-    
-    
+
+
     sub "\u0633", any("sc") # س
     sub "\ufeb3", any("sc") # ﺳ
     sub "\ufeb4", any("sc") # ﺴ
     sub "\ufeb2", any("sc") # ﺲ
-    
+
     sub "\u0635", "ṣ" # ص
     sub "\ufebb", "ṣ" # ﺻ
     sub "\ufebc", "ṣ" # ﺼ
     sub "\ufeba", "ṣ" # ﺺ
-    
+
     sub "\u0636", "ḍ" # ض
     sub "\ufebf", "ḍ" # ﺿ
     sub "\ufec0", "ḍ" # ﻀ
     sub "\ufebe", "ḍ" # ﺾ
-    
+
     sub "\u0637", "ṭ" # ط
     sub "\ufec3", "ṭ" # ﻃ
     sub "\ufec4", "ṭ" # ﻄ
     sub "\ufec2", "ṭ" # ﻂ
-    
+
     sub "\u0639", "‛" # ع
     sub "\ufecb", "‛" # ﻋ
     sub "\ufecc", "‛" # ﻌ
     sub "\ufeca", "‛" # ﻊ
-    
+
     sub "\u0638", any("ẓd") # ظ
     sub "\ufec7", any("ẓd") # ظ
     sub "\ufec8", any("ẓd") # ظ
     sub "\ufec6", any("ẓd") # ظ
-    
+
     sub "\u0642", any("qk") # ق
     sub "\ufed7", any("qk") # ﻗ
     sub "\ufed8", any("qk") # ﻘ

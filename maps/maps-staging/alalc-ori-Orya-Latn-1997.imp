@@ -9,7 +9,7 @@ metadata {
   creation_date: 1997
   description: |
     ALA-LC Romanization table for Oriya
-  
+
   notes:
     - |
       Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for vowels following a
@@ -103,7 +103,7 @@ stage {
   sub "([ୱ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "b"
   sub "([ଡ଼]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "ṙ"
   sub "([ଢ଼]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "ṙh"
-  
+
   # Rule III
   sub "([ବ]=?)(?=[\\u0b2c])", "bba"
   # Rule IV
@@ -114,7 +114,7 @@ stage {
   # Rule V
   sub "\\u0b01(?=[ପଫବଭମଯୟରଲଳଶଷସହଅଆଇଈଉଊଋୠଌଏଐଓଔ])", "m̐"
   sub "(?<=)\\u0b01(?=\\b)", "m̐"
-  
+
 
   # CHARACTERS
   parallel {
@@ -131,7 +131,7 @@ stage {
     sub "ଐ", "ai"
     sub "ଓ", "o"
     sub "ଔ", "au"
-    
+
     # II. Consonants (see Note 2)
     # Gutturals
     sub "କ", "ka"
@@ -139,65 +139,65 @@ stage {
     sub "ଗ", "ga"
     sub "ଘ", "gha"
     sub "ଙ", "ṅa"
-    
+
     # Palatals
     sub "ଚ", "ca"
     sub "ଛ", "cha"
     sub "ଜ", "ja"
     sub "ଝ", "jha"
     sub "ଞ", "ña"
-    
+
     # Cerebrals
     sub "ଟ", "ṭa"
     sub "ଠ", "ṭha"
     sub "ଡ", "ḍa"
     sub "ଢ", "ḍha"
     sub "ଣ", "ṇa"
-    
+
     # Dentals
     sub "ତ", "ta"
     sub "ଥ", "tha"
     sub "ଦ", "da"
     sub "ଧ", "dha"
     sub "ନ", "na"
-    
+
     # Labials
     sub "ପ", "pa"
     sub "ଫ", "pha"
     sub "ବ", "ba"
     sub "ଭ", "bha"
     sub "ମ", "ma"
-    
+
     # Semivowels
     sub "ଯ", "ya"
     sub "ୟ", "ẏa"
     sub "ର", "ra"
     sub "ଲ", "la"
     sub "ଳ", "ḷa"
-    
+
     # Sibilants
     sub "ଶ", "śa"
     sub "ଷ", "sha"
     sub "ସ", "sa"
-    
-    
+
+
     # Aspirate
     sub "ହ", "ha"
-    
+
     # Chandrabindu
     sub "ଁ", "n̐"
-    
+
     # Bisarga
     sub "ଃ", "ḥ"
-    
+
     # Anusvāra
     sub "ଂ", "ṃ"
-    
+
     # Abagraha
     sub "ଽ", "’"
-    
+
     # Medials # Needed for connecting constants
-    
+
     sub "ା", "ā"
     sub "ି", "i"
     sub "ୀ", "ī"
@@ -208,7 +208,7 @@ stage {
     sub "ୈ", "ai"
     sub "ୋ", "o"
     sub "ୌ", "au"
-    
+
     sub "्", ""
     sub "୍", ""
     sub "़", ""
@@ -216,14 +216,14 @@ stage {
     sub "।", "."
     sub "‍", "" # Used for joining
     sub "‌", "" # Used for non joining
-    
+
     #Absent but used
     sub "ୱ", "wa"
     sub "ଡ଼", "ṙa"
     sub "ଢ଼", "ṙha"
-    
+
     # Numbers
-    
+
     sub "୦", "0"
     sub "୧", "1"
     sub "୨", "2"

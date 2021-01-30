@@ -11,15 +11,15 @@ metadata {
   description: |
     Script conversion is often required for documents such as historical and literary texts, geographical texts (including
     maps and atlases), bibliographies, catalogues, lists and passports (and other identification documents).
-  
+
     Text in Devanagari script or other Indic scripts sometimes needs to be shown in Latin script, where users, or
     equipment that they are using, cannot read or write the text
-  
+
     This International Standard applies to transliteration of Devanagari, and to Indic scripts related to Devanagari,
     independent of the period in which it is or was used.
-  
+
   notes:
-  
+
     - All transliterations made using this International Standard shall be case-insensitive.
     - Inherent a with a consonant shall always be transliterated.
     - anusvara (including Vedic anusvara) shall be transliterated as ṁ
@@ -74,9 +74,9 @@ stage {
 
   # CHARACTERS
   parallel {
-    
+
     #vowel characters
-    
+
     sub "অ", "a"
     sub "আ", "ā"
     sub "ই", "i"
@@ -91,7 +91,7 @@ stage {
     sub "ঐ", "ai"
     sub "ও", "o"
     sub "ঔ", "au"
-    
+
     sub "া", "ā"
     sub "ি", "i"
     sub "ী", "ī"
@@ -105,14 +105,14 @@ stage {
     sub "ৈ", "ai"
     sub "ো", "o"
     sub "ৌ", "au"
-    
-    
+
+
     sub "ং", "ṁ"
     sub "ঁ", "m̐"
     sub "ঃ", "ḥ"
-    
+
     # Consonant characters
-    
+
     sub "ক", "ka"
     sub "খ", "kha"
     sub "গ", "ga"
@@ -145,25 +145,25 @@ stage {
     sub "ষ", "ṣa"
     sub "স", "sa"
     sub "হ", "ha"
-    
+
     sub "ড়", "ṙa"
     sub "ঢ়", "ṙha"
     sub "য়", "ẏa"
-    
-    
+
+
     # for semivowel rule no. 5
-    
+
     sub "যঁ", "m̐ya"
     sub "রঁ", "m̐ra"
     sub "লঁ", "m̐la"
     sub "বঁ", "m̐va"
-    
+
     sub "ৎ", "t"
     sub "্", ""
-    
-    
+
+
     # numbers
-    
+
     sub "১", "1"
     sub "২", "2"
     sub "৩", "3"

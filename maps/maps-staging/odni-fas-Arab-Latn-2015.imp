@@ -20,7 +20,7 @@ metadata {
     can then be linked to forensic information in ways that
     will help identify the referent of the
     name.
-  
+
     In cases where an individual’s name has already been
     transliterated in a variant spelling, the IC
     Standard spelling should appear first, followed by the
@@ -33,7 +33,7 @@ metadata {
     system capabilities. This convention is
     designed to ensure that vital forensic information is not
     lost while maintaining consistency.
-  
+
     For names of individuals who are not part of the Persian-(
     Farsi) or Dari-speaking community,
     but whose names are encountered in Farsi or Dari, use the
@@ -59,7 +59,7 @@ metadata {
     those resources listed within parentheses
     at the first usage (e.g., former president Mahmud
     Ahmadinezhad (Ahmadi-Nejad).
-  
+
     The primary goal is to produce a consistent Romanized
     transcription of names that is specifically
     readable to the English-speaking non-specialist. The system
@@ -73,29 +73,29 @@ metadata {
     This system will be used in conjunction with online tools,
     name dictionaries, and lists containing
     conventional spellings of names of well-known individuals.
-  
+
   notes:
     - |
       Alef maqsura (final yeh pronounced as a long “a”) should
       be written “a” as in “Musa.”
-  
+
     - |
       Digraphs: No distinction is drawn between digraphs such
       as sh and single contiguous letters
       (e.g., s followed by h).
-  
+
     - |
       Long/short vowels: There is no distinction made between
       long and short a. E.g., Farzad (the
       first a is short, the second long).
-  
+
     - |
       Diphthongs: The diphthong such as in the name Hosein is
       written ei. Following the
       predominant lack of pronunciation of the ow diphthong in
       Farsi, this diphthong will not be
       represented (Khosro, not Khosrow).
-  
+
     - |
       Apostrophe: The apostrophe is used in three cases: 1) to
       represent a name-internal or terminal
@@ -108,7 +108,7 @@ metadata {
       Badreh’i, Ganjeh’i). Name-initially, however, neither
       hamzeh nor ein are indicated in
       transliteration (Abdorrahman, not 'Abdorrahman).
-  
+
     - |
       Double consonants: Double consonants represented by the
       tashdid are shown by doubling the
@@ -123,7 +123,7 @@ metadata {
       non-doubled letters in names that are otherwise
       indistinguishable in their transliterated forms:
       Hasan (حسن (vs. Hassan (حسان(
-  
+
     - |
       Hyphens: A hyphen will be used for compound
       last names to connect major name elements (e.g., Raja’i-
@@ -143,18 +143,18 @@ metadata {
       unless it is known that a specific individual is commonly
       known otherwise). E.g., “Mohammad Mahmudi-Tehrani (
       hereafter Mahmudi).”
-  
+
     - |
       Compound first names will be written as distinct words:
       Ali Reza (not Alireza or Ali-Reza);
       Mohammad Hosein (not Mohammadhosein or Mohammad-Hosein),
       with the exception of cases identified below.
-  
+
     - |
       Arabic-origin names that incorporate the word “Allah” are
       transliterated as one word, with the letter ‘o’ replacing the
       alef in Allah (Azizollah, Rahimollah).
-  
+
     - |
       Name-internal Arabic definite article "al" (‫)ال‬: Common
       in many names borrowed
@@ -169,19 +169,19 @@ metadata {
       “Abdol + attribute of Allah” names are written as a single
       word, as are other names that contain the definite article:
       Shamsoddin (not Shams-al-Din), Nezamoddin, etc.
-  
+
     - |
       Name-initial Arabic definite article "al" (‫)ال‬: For
       Arabic-origin names starting with the definite article “al” (‫)
       ال‬, follow the Arabic standard of al-Sisi (‫)الصیصی‬ (not
       Alsisi or Assisi) and forego sun-letter assimilation.
-  
+
     - |
       Arabic "family marker" of Al (‫)آل‬: For Arabic-origin
       names starting with the "family marker" of Al (‫)آل‬,
       follow the Arabic standard of Al Davud (‫داود‬ ‫)آل‬ (not
       Aldavud or Aledavud).
-  
+
     - |
       Kunyas: In the rather rare case where
       a Persian uses a kunya (a name for an adult normally
@@ -193,7 +193,7 @@ metadata {
       kunya. In these cases, the leading element should be
       treated as a prefix as indicated below (Abuhosein[i],
       Abughasem[i]).
-  
+
     - |
       Persian names of non-Persian origin that are
       no longer considered foreign by Farsi speakers (commonly of
@@ -231,40 +231,40 @@ stage {
 
   # CHARACTERS
   parallel {
-    
-    
-    
+
+
+
     # special rules
-    
+
     sub "\\s(?=\u0622\u0628\u064E\u0627\u062F)", "" # space followed by abad is removed
     sub "\ufdf2", "Allah" # See note 5
     sub "\\s\u0627\u0644\u0644\u0651\u064e\u0647", "ollah" # NOTE 9
-    
+
     sub "\u0652", "" # ْ sokoon
     sub "\u0659", "ê"
-    
+
     sub "\u064e\u064a\u0652", "ay" # ـَيْ
     sub "\u0649\u0670", "á" # ىٰ
     sub "\u0674", "-e" # ٴ
     sub "\u0654", "-e" #  ٔ
     # - '-ye'
-    
-    
+
+
     # ta' marboota
     sub "\u0629", "eh"
-    
-    
-    
+
+
+
     sub "\u0626", "’" # ئ
     sub "\u0624", "’" # ؤ
     sub "\u0623", "" # أ
     sub "\u0625", "" # إ
-    
+
     # See note B
     sub "\\b\u0627\u0644", "al " # ال
     sub "\\b\u0622\\\u0644", "Al " # ‫آل‬
     # '\uFE8E' : ''  # ﺎ
-    
+
     # Sun letters
     sub "\\b\u0627\u0644\u062a", "at t" # الت
     sub "\\b\u0627\u0644\u062b", "as s" # الث
@@ -280,7 +280,7 @@ stage {
     sub "\\b\u0627\u0644\u0638", "az z" # الظ
     sub "\\b\u0627\u0644\u0644", "al l" # الل
     sub "\\b\u0627\u0644\u0646", "an n" # الن
-    
+
     # Farsi Vowel (Pointing)
     sub "\u0622", "a" # آ alef maddeh
     sub "\u064e", "a" # َ fatha
@@ -289,13 +289,13 @@ stage {
     sub "\\b\u0627\u064e", "a" # ا initial followed by fatha
     sub "\\b\u0627\u064f", "o" # ا initial followed by damma
     sub "\\b\u0627\u0650", "e" # ِ ا initial followed by kasra
-    
+
     sub "\u064f", "o" # damma
     sub "\u064f\u0648", "u" # ـُو damma followed by و
     # '\u064e\u0648' : 'ow'  # ـَو
     # '\u064e\u0648\u0652' : 'aw'  # ـَوْ
-    
-    
+
+
     sub "\u0650", "e" # kasra
     sub "\u0650\u064a", "i" # ـِي kasra followed by ي
     sub "\u0650\u06cc", "i" # ـِي kasra followed by ي
@@ -305,11 +305,11 @@ stage {
     # '\u064e\u064a' : 'aī'  # ـَي
     # '\u064e\u06cc' : 'aī'  # ـَي
     # '\u064e\u0649' : 'ay'  # ـَى fatha followed by ى which is ا not ي
-    
+
     # additional symbols
-    
+
     # shadda
-    
+
     sub "\u0628\u0651", "bb" # ب
     sub "\u062a\u0651", "tt" # ت
     sub "\u062b\u0651", "ss" # ث
@@ -336,23 +336,23 @@ stage {
     sub "\u0647\u0651", "hh" # ه
     sub "\u0648\u0651", "vv" # و
     sub "\u064a\u0651", "yy" # ي
-    
+
     sub "(?<=\\b)\u0621", "" # ء
     sub "\u0621", "’" # ء
-    
+
     # FROM NOTES
-    
+
     sub "\u064e\u0649", "a" # ـَى fatha followed by ى which is ا not ي
     sub "\u0649", "a" # ى alef maqsura NOTE-1
-    
+
     sub "\u064a\u064a", "’i" # NOTE 4 (2)
     sub "\u06cc\u06cc", "’i"
-    
+
     sub "\u0627\u064a\\b", "’i" # NOTE 4 (3)
     sub "\u0627\u06cc\\b", "’i"
-    
+
     # Farsi consonant characters
-    
+
     sub "\u0628", "b" # ب
     sub "\u067E", "p" # پ
     sub "\u062a", "t" # ت
@@ -360,13 +360,13 @@ stage {
     sub "\u062B", "s" # ث
     sub "\u062c", "j" # ج
     sub "\u0686", "ch" # ‫چ‬
-    
+
     # # The variant form ج is seen infrequently and does not have a
     # # single Unicode encoding.
     # '\u0681': 'dz' # Note 2 # ‫ځ‬
-    
+
     # '\u0685': 'ts' # Note 2 # ‫څ
-    
+
     sub "\u062d", "h" # ح
     sub "\u062e", "kh" # خ
     sub "\u062f", "d" # د

@@ -9,20 +9,20 @@ metadata {
   creation_date: 1997
   description: |
     ALA-LC Romanization table for Gujarati
-  
+
   notes:
-  
+
     - Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for
       vowels following a consonant can be found in grammars; no distinction between the two is
       made in transliteration.
-  
+
     - |
       The vowel a is implicit after all consonants and consonant clusters and is supplied in
       transliteration, with the following exceptions:
       a) when another vowel is indicated by its appropriate sign and
       b) when the absence of any vowel is indicated by the subscript symbol ( ્ ) called halanta or
       virāma.
-  
+
     - |
       Exception: Anusvāra is transliterated by:
       a) ṅ before gutturals,
@@ -30,7 +30,7 @@ metadata {
       c) ṇ before cerebrals,
       d) n before dentals, and
       e) m before labials.
-  
+
     - When doubled, avagraha is transliterated by two apostrophes ( ’’ ).
 }
 
@@ -68,7 +68,7 @@ stage {
   sub "\\u0A82(?=[ટઠડઢણ])", "ṇ"
   sub "\\u0A82(?=[તથદધન])", "n"
   sub "\\u0A82(?=[પફબભમ])", "m"
-  
+
   # note[2(a,b)]
   sub "([ક]=?)(?=[\\u0abe\\u0abf\\u0ac0\\u0ac1\\u0ac2\\u0ac3\\u0ac5\\u0ac7\\u0ac8\\u0ac9\\u0acb\\u0acc\\u0acd])", "k"
   sub "([ખ]=?)(?=[\\u0abe\\u0abf\\u0ac0\\u0ac1\\u0ac2\\u0ac3\\u0ac5\\u0ac7\\u0ac8\\u0ac9\\u0acb\\u0acc\\u0acd])", "kh"
@@ -104,12 +104,12 @@ stage {
   sub "([ષ]=?)(?=[\\u0abe\\u0abf\\u0ac0\\u0ac1\\u0ac2\\u0ac3\\u0ac5\\u0ac7\\u0ac8\\u0ac9\\u0acb\\u0acc\\u0acd])", "sh"
   sub "([સ]=?)(?=[\\u0abe\\u0abf\\u0ac0\\u0ac1\\u0ac2\\u0ac3\\u0ac5\\u0ac7\\u0ac8\\u0ac9\\u0acb\\u0acc\\u0acd])", "s"
   sub "([હ]=?)(?=[\\u0abe\\u0abf\\u0ac0\\u0ac1\\u0ac2\\u0ac3\\u0ac5\\u0ac7\\u0ac8\\u0ac9\\u0acb\\u0acc\\u0acd])", "h"
-  
-  
+
+
 
   # CHARACTERS
   parallel {
-    
+
     sub "અ", "a"
     sub "આ", "ā"
     sub "ઇ", "i"
@@ -117,15 +117,15 @@ stage {
     sub "ઉ", "u"
     sub "ઊ", "ū"
     sub "ઋ", "ṛ"
-    
+
     sub "ઍ", "e"
     sub "એ", "ȇ"
     sub "ઐ", "ai"
-    
+
     sub "ઑ", "o"
     sub "ઓ", "ȏ"
     sub "ઔ", "au"
-    
+
     # II. Consonants (see Note 2)
     # Gutturals
     sub "ક", "ka"
@@ -133,62 +133,62 @@ stage {
     sub "ગ", "ga"
     sub "ઘ", "gha"
     sub "ઙ", "ṅa"
-    
+
     # Palatals
     sub "ચ", "ca"
     sub "છ", "cha"
     sub "જ", "ja"
     sub "ઝ", "jha"
     sub "ઞ", "ña"
-    
+
     # Cerebrals
     sub "ટ", "ṭa"
     sub "ઠ", "ṭha"
     sub "ડ", "ḍa"
     sub "ઢ", "ḍha"
     sub "ણ", "ṇa"
-    
+
     # Dentals
     sub "ત", "ta"
     sub "થ", "tha"
     sub "દ", "da"
     sub "ધ", "dha"
     sub "ન", "na"
-    
+
     # Labials
     sub "પ", "pa"
     sub "ફ", "pha"
     sub "બ", "ba"
     sub "ભ", "bha"
     sub "મ", "ma"
-    
+
     # Semivowels
     sub "ય", "ya"
     sub "ર", "ra"
     sub "લ", "la"
     sub "ળ", "ḷa"
     sub "વ", "va"
-    
+
     # Sibilants
     sub "શ", "śa"
     sub "ષ", "sha"
     sub "સ", "sa"
-    
-    
+
+
     # Aspirate
     sub "હ", "ha"
-    
+
     # Bisarga
     sub "ઃ", "ḥ"
-    
+
     # Anusvāra
     sub "ં", "ṃ"
-    
+
     # Abagraha  (see Note 4)
     sub "ઽ", "’" # (apostrophe)
-    
+
     # Medials # Needed for connecting constants
-    
+
     sub "ા", "ā"
     sub "િ", "i"
     sub "ી", "ī"
@@ -201,9 +201,9 @@ stage {
     sub "ૉ", "o"
     sub "ો", "ȏ"
     sub "ૌ", "au"
-    
+
     # digits
-    
+
     sub "૦", "0"
     sub "૧", "1"
     sub "૨", "2"
@@ -214,9 +214,9 @@ stage {
     sub "૭", "7"
     sub "૮", "8"
     sub "૯", "9"
-    
-    
-    
+
+
+
     sub "્", ""
     sub "઼", ""
     sub "।", "."

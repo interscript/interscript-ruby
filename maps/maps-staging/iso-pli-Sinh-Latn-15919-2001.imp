@@ -11,15 +11,15 @@ metadata {
   description: |
     Script conversion is often required for documents such as historical and literary texts, geographical texts (including
     maps and atlases), bibliographies, catalogues, lists and passports (and other identification documents).
-  
+
     Text in Devanagari script or other Indic scripts sometimes needs to be shown in Latin script, where users, or
     equipment that they are using, cannot read or write the text
-  
+
     This International Standard applies to transliteration of Devanagari, and to Indic scripts related to Devanagari,
     independent of the period in which it is or was used.
-  
+
   notes:
-  
+
     - All transliterations made using this International Standard shall be case-insensitive.
     - Inherent a with a consonant shall always be transliterated.
     - anusvara (including Vedic anusvara) shall be transliterated as ṁ
@@ -77,7 +77,7 @@ stage {
 
   # CHARACTERS
   parallel {
-    
+
     sub "අ", "a"
     sub "ආ", "ā"
     sub "ඇ", "æ"
@@ -96,7 +96,7 @@ stage {
     sub "ඔ", "o"
     sub "ඕ", "ō"
     sub "ඖ", "au"
-    
+
     sub "ා", "ā"
     sub "ැ", "æ"
     sub "ෑ", "ǣ"
@@ -114,8 +114,8 @@ stage {
     sub "ො", "o"
     sub "ෝ", "ō"
     sub "ෞ", "au"
-    
-    
+
+
     # II. Consonants (see Note 2)
     # Gutturals  క ఖ గ ఘ ఙ
     sub "ක", "ka"
@@ -124,7 +124,7 @@ stage {
     sub "ඝ", "gha"
     sub "ඞ", "ṅa"
     sub "ඟ", "ṅga"
-    
+
     # Palatals చ ఛ జ ఝ ఞ
     sub "ච", "ca"
     sub "ඡ", "cha"
@@ -132,8 +132,8 @@ stage {
     sub "ඣ", "jha"
     sub "ඤ", "ña"
     sub "ඦ", "ñja"
-    
-    
+
+
     # Cerebrals ట ఠ డ ఢ ణ
     sub "ට", "ṭa"
     sub "ඨ", "ṭha"
@@ -141,7 +141,7 @@ stage {
     sub "ඪ", "ḍha"
     sub "ණ", "ṇa"
     sub "ඬ", "ṇḍa"
-    
+
     # Dentals త థ ద ధ న
     sub "ත", "ta"
     sub "ථ", "tha"
@@ -149,7 +149,7 @@ stage {
     sub "ධ", "dha"
     sub "න", "na"
     sub "ඳ", "nda"
-    
+
     # Labials ప ఫ బ భ మ
     sub "ප", "pa"
     sub "ඵ", "pha"
@@ -157,38 +157,38 @@ stage {
     sub "භ", "bha"
     sub "ම", "ma"
     sub "ඹ", "mba"
-    
+
     # Semivowels య ర ల వ
     sub "ය", "ya"
     sub "ර", "ra"
     sub "ල", "la"
     sub "ළ", "ḷa"
     sub "ව", "va"
-    
+
     # Sibilants శ ష స హ
     sub "ශ", "śa"
     sub "ෂ", "ṣa"
     sub "ස", "sa"
-    
-    
-    
+
+
+
     # Aspirate
     sub "හ", "ha"
-    
+
     sub "ෆ", "fa"
-    
+
     # Chandrabindu
     sub "ઁ", "m̐"
-    
+
     # Bisarga
     sub "ඃ", "ḥ"
-    
+
     # Anusvāra
     sub "ං", "ṁ"
-    
-    
+
+
     # numbers
-    
+
     sub "\u0DE6", "0"
     sub "\u0DE7", "1"
     sub "\u0DE8", "2"
@@ -199,19 +199,19 @@ stage {
     sub "\u0DED", "7"
     sub "\u0DEE", "8"
     sub "\u0DEF", "9"
-    
-    
+
+
     # semivowel chandrabindu rule
-    
+
     # Semivowels య ర ల వ
     sub "යઁ", "m̐ya"
     sub "රઁ", "m̐ra"
     sub "ලઁ", "m̐la"
     sub "ළઁ", "m̐ḷa"
     sub "වઁ", "m̐va"
-    
-    
-    
+
+
+
     sub "\u09CD", "" # Used for joining
     sub "‍", "" # Used for joining
     sub "‌", "" # Used for non joining

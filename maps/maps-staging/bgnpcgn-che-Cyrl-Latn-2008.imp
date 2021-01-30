@@ -11,7 +11,7 @@ metadata {
     Chechen is an official language within Chechnya, one of the republics of the Russian Federation.
     It will normally be encountered in Cyrillic script, in which case it should be romanized by means of
     the Cyrillic-Roman table of correspondences given below.
-  
+
   notes:
     - The letter ə is used to represent short a; a is used for long a.
     - Ye is used word- and syllable-initially. This Cyrillic letter may be encountered as the ligature ie in Chechen-Roman sources.
@@ -23,9 +23,9 @@ metadata {
     - |
       An inventory of letter-diacritic combinations, with their Unicode encoding, in addition to the
       unmodified letters of the basic Roman script is:
-  
+
       All apostrophes appearing in romanization are U+2019
-  
+
           Ə (U+018F)       ə (U+0259)
           Ä (U+00C4)       ä (U+00E4)
           Ġ (U+0047+0307)  ġ (U+0067+0307)
@@ -39,7 +39,7 @@ metadata {
           Ç (U+00C7)       ç (U+00E7)
           Ç̇ (U+00C7+0307)  ç̇ (U+00E7+0307)
           Ş (U+015E)       ş (U+015F)
-  
+
     - The Roman-script columns show only lowercase forms but, when applying the table, uppercase and lowercase Roman letters as appropriate should be used
 }
 
@@ -77,7 +77,7 @@ stage {
   sub "\\u043A\\u043A\\u042A", "q̇q̇"
   sub "\\u041A\\u041A\\u0445", "QQ"
   sub "\\u041A\\u041A\\u042A", "Q̇Q̇"
-  
+
 
   # CHARACTERS
   parallel {
@@ -130,7 +130,7 @@ stage {
     sub "\u042F", "Ya" # Я
     sub "\u042F\u044C", "Yä" # Яь -> Yä
     sub "\u04C0", "J" # Ӏ note[7]
-    
+
     sub "\u0430", any("aə") # а note[1]
     sub "\u0430\u044C", "ä" # аь -> ä
     sub "\u0431", "b" # б

@@ -14,7 +14,7 @@ metadata {
       One crucial difference between Modified and Tranditional Hepburn is
       that the ん/ン sound is always transliterated as n, even before the
       letters b,m,p.
-  
+
   notes:
 }
 
@@ -52,7 +52,7 @@ stage {
 
   # RULES
   sub "([んン])(?=[あいうえおやゆよアイウエオヤユヨ])", "\\1’"
-  
+
 
   # POSTRULES
   # Handling of っ/ッ
@@ -66,11 +66,11 @@ stage {
   # phonetically realised as an abrupt stop or shorterning of
   # the previous syllable. There is no documented or commonly
   # accepted way to transliterate this sound.
-  
+
   sub "[っッ]([BbDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz])", "\\1\\1" # っ or ッ folloved by consonant
   sub "[っッ]([Cc])", "t\\1" # ッ followed by ch-
   sub "[っッ]", "" # drop all other っッ.
-  
+
   # In Modified Hepburn, long vowels within the same morpheme are
   # transliterated using a macron, i.e. ā, ī, ū, ē, ō.
   #
@@ -79,26 +79,26 @@ stage {
   #
   # Long vowels in loanwords are indicated with a macron instead
   # of letter doubling.
-  
+
   sub "a[ーa]", "ā"
   sub "i[ーi]", "ī"
   sub "u[ーu]", "ū"
   sub "e[ーe]", "ē"
   sub "o[ーo]", "ō"
-  
+
 
   # CHARACTERS
   parallel {
-    
+
     # Hiragana
-    
+
     sub "あ", "a"
     sub "い", "i"
     sub "う", "u"
     sub "え", "e"
     sub "お", "o"
     sub "おう", "ō"
-    
+
     sub "か", "ka"
     sub "き", "ki"
     sub "く", "ku"
@@ -109,7 +109,7 @@ stage {
     sub "きょ", "kyo"
     sub "きょう", "kyō"
     sub "こう", "kō"
-    
+
     sub "さ", "sa"
     sub "し", "shi"
     sub "す", "su"
@@ -120,7 +120,7 @@ stage {
     sub "しょ", "sho"
     sub "しょう", "shō"
     sub "そう", "sō"
-    
+
     sub "た", "ta"
     sub "ち", "chi"
     sub "つ", "tsu"
@@ -131,7 +131,7 @@ stage {
     sub "ちょ", "cho"
     sub "とう", "tō"
     sub "ちょう", "chō"
-    
+
     sub "な", "na"
     sub "に", "ni"
     sub "ぬ", "nu"
@@ -142,7 +142,7 @@ stage {
     sub "にょ", "nyo"
     sub "にょう", "nyō"
     sub "のう", "nō"
-    
+
     sub "は", "ha"
     sub "ひ", "hi"
     sub "ふ", "fu"
@@ -153,7 +153,7 @@ stage {
     sub "ひょ", "hyo"
     sub "ひょう", "hyō"
     sub "ほう", "hō"
-    
+
     sub "ま", "ma"
     sub "み", "mi"
     sub "む", "mu"
@@ -164,12 +164,12 @@ stage {
     sub "みょ", "myo"
     sub "みょう", "myō"
     sub "もう", "mō"
-    
+
     sub "や", "ya"
     sub "ゆ", "yu"
     sub "よ", "yo"
     sub "よう", "yō"
-    
+
     sub "ら", "ra"
     sub "り", "ri"
     sub "る", "ru"
@@ -180,10 +180,10 @@ stage {
     sub "りょ", "ryo"
     sub "りょう", "ryō"
     sub "ろう", "rō"
-    
+
     sub "わ", "wa"
     sub "を", "o"
-    
+
     sub "が", "ga"
     sub "ぎ", "gi"
     sub "ぐ", "gu"
@@ -194,7 +194,7 @@ stage {
     sub "ぎょ", "gyo"
     sub "ぎょう", "gyō"
     sub "ごう", "gō"
-    
+
     sub "ざ", "za"
     sub "じ", "ji"
     sub "ず", "zu"
@@ -205,7 +205,7 @@ stage {
     sub "じょ", "jo"
     sub "じょう", "jō"
     sub "ぞう", "zō"
-    
+
     sub "だ", "da"
     sub "ぢ", "ji"
     sub "づ", "zu"
@@ -215,7 +215,7 @@ stage {
     sub "ぢゅ", "ju"
     sub "ぢょ", "jo"
     sub "どう", "dō"
-    
+
     sub "ば", "ba"
     sub "び", "bi"
     sub "ぶ", "bu"
@@ -226,7 +226,7 @@ stage {
     sub "びょ", "byo"
     sub "びょう", "byō"
     sub "ぼう", "bō"
-    
+
     sub "ぱ", "pa"
     sub "ぴ", "pi"
     sub "ぷ", "pu"
@@ -237,18 +237,18 @@ stage {
     sub "ぴょ", "pyo"
     sub "ぴょう", "pyō"
     sub "ぽう", "pō"
-    
+
     sub "ん", "n"
-    
+
     # Katakana
-    
+
     sub "ア", "a"
     sub "イ", "i"
     sub "ウ", "u"
     sub "エ", "e"
     sub "オ", "o"
     sub "オウ", "ō"
-    
+
     sub "カ", "ka"
     sub "キ", "ki"
     sub "ク", "ku"
@@ -259,7 +259,7 @@ stage {
     sub "キョ", "kyo"
     sub "キョウ", "kyō"
     sub "コウ", "kō"
-    
+
     sub "サ", "sa"
     sub "シ", "shi"
     sub "ス", "su"
@@ -270,7 +270,7 @@ stage {
     sub "ショ", "sho"
     sub "ショウ", "shō"
     sub "ソウ", "sō"
-    
+
     sub "タ", "ta"
     sub "チ", "chi"
     sub "ツ", "tsu"
@@ -281,7 +281,7 @@ stage {
     sub "チョ", "cho"
     sub "チョウ", "chō"
     sub "トウ", "tō"
-    
+
     sub "ナ", "na"
     sub "ニ", "ni"
     sub "ヌ", "nu"
@@ -292,7 +292,7 @@ stage {
     sub "ニョ", "nyo"
     sub "ニョウ", "nyō"
     sub "ノウ", "nō"
-    
+
     sub "ハ", "ha"
     sub "ヒ", "hi"
     sub "フ", "fu"
@@ -303,7 +303,7 @@ stage {
     sub "ヒョ", "hyo"
     sub "ヒョウ", "hyō"
     sub "ホウ", "hō"
-    
+
     sub "マ", "ma"
     sub "ミ", "mi"
     sub "ム", "mu"
@@ -314,12 +314,12 @@ stage {
     sub "ミョ", "myo"
     sub "ミョウ", "myō"
     sub "モウ", "mō"
-    
+
     sub "ヤ", "ya"
     sub "ユ", "yu"
     sub "ヨ", "yo"
     sub "ヨウ", "yō"
-    
+
     sub "ラ", "ra"
     sub "リ", "ri"
     sub "ル", "ru"
@@ -330,10 +330,10 @@ stage {
     sub "リョ", "ryo"
     sub "リョウ", "ryō"
     sub "ロウ", "rō"
-    
+
     sub "ワ", "wa"
     sub "ヲ", "o"
-    
+
     sub "ガ", "ga"
     sub "ギ", "gi"
     sub "グ", "gu"
@@ -344,7 +344,7 @@ stage {
     sub "ギョ", "gyo"
     sub "ギョウ", "gyō"
     sub "ゴウ", "gō"
-    
+
     sub "ザ", "za"
     sub "ジ", "ji"
     sub "ズ", "zu"
@@ -355,7 +355,7 @@ stage {
     sub "ジョ", "jo"
     sub "ジョウ", "jō"
     sub "ゾウ", "zō"
-    
+
     sub "ダ", "da"
     sub "ヂ", "ji"
     sub "ヅ", "zu"
@@ -365,7 +365,7 @@ stage {
     sub "ヂュ", "ju"
     sub "ヂョ", "jo"
     sub "ドウ", "dō"
-    
+
     sub "バ", "ba"
     sub "ビ", "bi"
     sub "ブ", "bu"
@@ -376,7 +376,7 @@ stage {
     sub "ビョ", "byo"
     sub "ビョウ", "byō"
     sub "ボウ", "bō"
-    
+
     sub "パ", "pa"
     sub "ピ", "pi"
     sub "プ", "pu"
@@ -387,7 +387,7 @@ stage {
     sub "ピョ", "pyo"
     sub "ピョウ", "pyō"
     sub "ポウ", "pō"
-    
+
     sub "ン", "n"
   }
 

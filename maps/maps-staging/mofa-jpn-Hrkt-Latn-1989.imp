@@ -8,7 +8,7 @@ metadata {
   url: https://www.ezairyu.mofa.go.jp/passport/hebon.html
   creation_date:
   adoption_date:
-  
+
   description:
       The law (旅券法施行規則) requires the use of Hepburn romanization for passports.
       https://elaws.e-gov.go.jp/search/elawsSearch/elaws_search/lsg0500/detail?lawId=401M50000020011
@@ -16,15 +16,15 @@ metadata {
       ただし、申請者がその氏名についてヘボン式によらないローマ字表記を希望し、
       外務大臣又は領事官が、出生証明書等により当該表記が適当であり、かつ、
       渡航の便宜のため特に必要であると認めるときは、この限りではない。
-  
+
   notes:
       Vowel lengthening is not marked in this system.
       The use of OH for the long O sound used to be common, but it is
       clearly stated that this usage is not part of the Hepburn system.
-  
+
       OO is simplified to O, except when it comes at the end of a word.
       OU and UU are always transliterated without the lengthening U.
-  
+
       The consonant V is not allowed, and will be transliterated as
       BU or B instead.
 }
@@ -102,21 +102,21 @@ stage {
   # Add a dash (-) between ん and a vowel sound or ya, yu, yo
   # - pattern: "([んン])(?=[あいうえおやゆよアイウエオヤユヨ])"
   #   result: "\\1-"
-  
+
   # Convert ん into m before b, m, p
   # 撥音：B、M、Pの前の「ん」は、NではなくMで表記します。
-  
+
   sub "[んン](?=[ばびぶべぼまみむめもぱぴぷぺぽバビブベボマミムメモパピプペポ])", "M"
-  
+
   # Long O and U will not be recorded.
   # 長音：OやUは記入しません。
   #
   # Exception: when OO appears at the end of the word
-  
+
   sub "([おこそとのほもよろをごぞどぼぽょぉオコソトノホモヨロヲゴゾドボポョォ])[おオ](?=[^\\s])", "\\1"
-  
+
   sub "([うくすつぬふむゆるぐずづぶぷゅぅウクスツヌフムユルグズヅブプュゥ])[うウ]", "\\1"
-  
+
 
   # POSTRULES
   # Handling of っ/ッ
@@ -132,23 +132,23 @@ stage {
   # the previous syllable. There is no documented or commonly
   # accepted way to transliterate this sound.
   #
-  
+
   sub "[っッ]([BbDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz])", "\\1\\1"
   sub "[っッ]([Cc])", "T\\1" # ッ followed by ch-
   sub "[っッ]", "" # drop all other っッ.
-  
+
 
   # CHARACTERS
   parallel {
     sub "ー", "" # Long vowel marker is ignored
-    
+
     sub "あ", "A"
     sub "い", "I"
     sub "う", "U"
     sub "え", "E"
     sub "お", "O"
     sub "おう", "O"
-    
+
     sub "か", "KA"
     sub "き", "KI"
     sub "く", "KU"
@@ -159,7 +159,7 @@ stage {
     sub "きょ", "KYO"
     sub "きょう", "KYO"
     sub "こう", "KO"
-    
+
     sub "さ", "SA"
     sub "し", "SHI"
     sub "す", "SU"
@@ -170,7 +170,7 @@ stage {
     sub "しょ", "SHO"
     sub "しょう", "SHO"
     sub "そう", "SO"
-    
+
     sub "た", "TA"
     sub "ち", "CHI"
     sub "つ", "TSU"
@@ -181,7 +181,7 @@ stage {
     sub "ちょ", "CHO"
     sub "とう", "TO"
     sub "ちょう", "CHO"
-    
+
     sub "な", "NA"
     sub "に", "NI"
     sub "ぬ", "NU"
@@ -192,7 +192,7 @@ stage {
     sub "にょ", "NYO"
     sub "にょう", "NYO"
     sub "のう", "NO"
-    
+
     sub "は", "HA"
     sub "ひ", "HI"
     sub "ふ", "FU"
@@ -203,7 +203,7 @@ stage {
     sub "ひょ", "HYO"
     sub "ひょう", "HYO"
     sub "ほう", "HO"
-    
+
     sub "ま", "MA"
     sub "み", "MI"
     sub "む", "MU"
@@ -214,12 +214,12 @@ stage {
     sub "みょ", "MYO"
     sub "みょう", "MYO"
     sub "もう", "MO"
-    
+
     sub "や", "YA"
     sub "ゆ", "YU"
     sub "よ", "YO"
     sub "よう", "YO"
-    
+
     sub "ら", "RA"
     sub "り", "RI"
     sub "る", "RU"
@@ -230,12 +230,12 @@ stage {
     sub "りょ", "RYO"
     sub "りょう", "RYO"
     sub "ろう", "RO"
-    
+
     sub "わ", "WA"
     sub "ゐ", "I"
     sub "ゑ", "E"
     sub "を", "O"
-    
+
     sub "が", "GA"
     sub "ぎ", "GI"
     sub "ぐ", "GU"
@@ -246,7 +246,7 @@ stage {
     sub "ぎょ", "GYO"
     sub "ぎょう", "GYO"
     sub "ごう", "GO"
-    
+
     sub "ざ", "ZA"
     sub "じ", "JI"
     sub "ず", "ZU"
@@ -257,8 +257,8 @@ stage {
     sub "じょ", "JO"
     sub "じょう", "JO"
     sub "ぞう", "ZO"
-    
-    
+
+
     sub "だ", "DA"
     sub "ぢ", "JI"
     sub "づ", "ZU"
@@ -268,7 +268,7 @@ stage {
     sub "ぢゅ", "JU"
     sub "ぢょ", "JO"
     sub "どう", "DO"
-    
+
     sub "ば", "BA"
     sub "び", "BI"
     sub "ぶ", "BU"
@@ -279,7 +279,7 @@ stage {
     sub "びょ", "BYO"
     sub "びょう", "BYO"
     sub "ぼう", "BO"
-    
+
     sub "ぱ", "PA"
     sub "ぴ", "PI"
     sub "ぷ", "PU"
@@ -290,18 +290,18 @@ stage {
     sub "ぴょ", "PYO"
     sub "ぴょう", "PYO"
     sub "ぽう", "PO"
-    
+
     sub "ん", "N"
-    
+
     # KATAKANA
-    
+
     sub "ア", "A"
     sub "イ", "I"
     sub "ウ", "U"
     sub "エ", "E"
     sub "オ", "O"
     sub "オウ", "O"
-    
+
     sub "カ", "KA"
     sub "キ", "KI"
     sub "ク", "KU"
@@ -313,7 +313,7 @@ stage {
     sub "コウ", "KO"
     sub "キョウ", "KYO"
     sub "コウ", "KO"
-    
+
     sub "サ", "SA"
     sub "シ", "SHI"
     sub "ス", "SU"
@@ -324,7 +324,7 @@ stage {
     sub "ショ", "SHO"
     sub "ショウ", "SHO"
     sub "ソウ", "SO"
-    
+
     sub "タ", "TA"
     sub "チ", "CHI"
     sub "ツ", "TSU"
@@ -335,7 +335,7 @@ stage {
     sub "チョ", "CHO"
     sub "チョウ", "CHO"
     sub "トウ", "TO"
-    
+
     sub "ナ", "NA"
     sub "ニ", "NI"
     sub "ヌ", "NU"
@@ -346,7 +346,7 @@ stage {
     sub "ニョ", "NYO"
     sub "ニョウ", "NYO"
     sub "ノウ", "NO"
-    
+
     sub "ハ", "HA"
     sub "ヒ", "HI"
     sub "フ", "FU"
@@ -357,7 +357,7 @@ stage {
     sub "ヒョ", "HYO"
     sub "ヒョウ", "HYO"
     sub "ホウ", "HO"
-    
+
     sub "マ", "MA"
     sub "ミ", "MI"
     sub "ム", "MU"
@@ -368,12 +368,12 @@ stage {
     sub "ミョ", "MYO"
     sub "ミョウ", "MYO"
     sub "モウ", "MO"
-    
+
     sub "ヤ", "YA"
     sub "ユ", "YU"
     sub "ヨ", "YO"
     sub "ヨウ", "YO"
-    
+
     sub "ラ", "RA"
     sub "リ", "RI"
     sub "ル", "RU"
@@ -384,12 +384,12 @@ stage {
     sub "リョ", "RYO"
     sub "リョウ", "RYO"
     sub "ロウ", "RO"
-    
+
     sub "ワ", "WA"
     sub "ヰ", "I"
     sub "ヱ", "E"
     sub "ヲ", "O"
-    
+
     sub "ガ", "GA"
     sub "ギ", "GI"
     sub "グ", "GU"
@@ -400,7 +400,7 @@ stage {
     sub "ギョ", "GYO"
     sub "ギョウ", "GYO"
     sub "ゴウ", "GO"
-    
+
     sub "ザ", "ZA"
     sub "ジ", "JI"
     sub "ズ", "ZU"
@@ -411,7 +411,7 @@ stage {
     sub "ジョ", "JO"
     sub "ジョウ", "JO"
     sub "ゾウ", "ZO"
-    
+
     sub "ダ", "DA"
     sub "ヂ", "JI"
     sub "ヅ", "ZU"
@@ -421,7 +421,7 @@ stage {
     sub "ヂュ", "JU"
     sub "ヂョ", "JO"
     sub "ドウ", "DO"
-    
+
     sub "バ", "BA"
     sub "ビ", "BI"
     sub "ブ", "BU"
@@ -432,7 +432,7 @@ stage {
     sub "ビョ", "BYO"
     sub "ビョウ", "BYO"
     sub "ボウ", "BO"
-    
+
     sub "パ", "PA"
     sub "ピ", "PI"
     sub "プ", "PU"
@@ -443,11 +443,11 @@ stage {
     sub "ピョ", "PYO"
     sub "ピョウ", "PYO"
     sub "ポウ", "PO"
-    
+
     sub "ン", "N"
-    
+
     # Additional combinations
-    
+
     sub "しぇ", "SHIE"
     sub "ちぇ", "CHIE"
     sub "てぃ", "TEI"
@@ -468,7 +468,7 @@ stage {
     sub "ゔ", "BU"
     sub "ゔぇ", any(["BE", "BUE"])
     sub "ゔぉ", any(["BO", "BUO"])
-    
+
     sub "シェ", "SHIE"
     sub "チェ", "CHIE"
     sub "ティ", "TEI"

@@ -9,7 +9,7 @@ metadata {
   creation_date: 1997
   description: |
     ALA-LC Romanization Tables: Transliteration Schemes for Non-Roman Scripts. Randal K. Berry (ed.). Library of Congress, 1997.
-  
+
   notes:
     - "Ј ј replaced Й й in 1959 (Roman: y; ISO 9: j; ALA-LC: ĭ)."
 }
@@ -68,7 +68,7 @@ stage {
     sub "\u0427", "Ch" # Ч
     sub "\u04B8", "J" # Ҹ
     sub "\u0428", "Sh" # Ш
-    
+
     sub "\u0430", "a" # а
     sub "\u0431", "b" # б
     sub "\u0432", "v" # в
@@ -102,7 +102,7 @@ stage {
     sub "\u0447", "ch" # ч
     sub "\u04B9", "j" # ҹ
     sub "\u0448", "sh" # ш
-    
+
     sub "\u2019", "\\u2019"
   }
 

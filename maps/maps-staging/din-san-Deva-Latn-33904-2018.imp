@@ -9,10 +9,10 @@ metadata {
   creation_date: 2018
   description: |
     Sanskrit system.
-  
+
     This standard specifies the transliteration of all languages of the Devanāgarī characters into Latin letters firmly.
     It is suitable for any application.
-  
+
   notes:
     - |
       Vowels:
@@ -22,20 +22,20 @@ metadata {
       डॉक्टर  ḍôkṭara (doctor)
     - |
       Consonants:
-  
+
       Since the Devanāgarī script is a syllabic script, it becomes -a inherent in the consonant.
       Always written during transliteration, also in the final part
       EXAMPLE 1
       पुस्तक   pustaka
-  
+
       A line under the consonant, the so-called Virāma, means in the Devanāgarī script that that inherent -a not applicable.
       EXAMPLE 2
       वाक्   vāk
-  
+
       The anusvāra is always represented with -ṃ-.
       EXAMPLE 3
       संसकरण saṃskaraṇa
-  
+
       Before k, kh, g, gh, c, ch, j, jh, ṭ, ṭh, ḍ, ḍh, t, th, d, dh, p, ph, b, bh, the anusvāra becomes the class nasal transformed.
       EXAMPLE 4
       तंघी   kaṃghī becomes kaṅghī
@@ -43,9 +43,9 @@ metadata {
       पंडित  paṃḍita becomes paṇḍita
       संधी   saṃdhī becomes sandhī
       दिसंबर  disaṃbara becomes disambara
-  
+
       Anunāsika or Candrabindu signals the nasalization of vowels
-  
+
       EXAMPLE 5
       माँ māṁ
 }
@@ -86,9 +86,9 @@ stage {
   sub "\\u0902(?=[टट़ठडड़ढढ़ण])", "ṇ"
   sub "\\u0902(?=[तथदधन])", "n"
   sub "\\u0902(?=[पफबभम])", "m"
-  
+
   sub "\\u0902(?=[कखगघचछजझतथदधपफबभटठडढ])", "ñ"
-  
+
   sub "([क]=?)(?=[\\u093E\\u093F\\u0940\\u0941\\u0942\\u0943\\u0944\\u0945\\u0947\\u0948\\u0949\\u094B\\u094C])", "k"
   sub "([ख]=?)(?=[\\u093E\\u093F\\u0940\\u0941\\u0942\\u0943\\u0944\\u0945\\u0947\\u0948\\u0949\\u094B\\u094C])", "kh"
   sub "([ग]=?)(?=[\\u093E\\u093F\\u0940\\u0941\\u0942\\u0943\\u0944\\u0945\\u0947\\u0948\\u0949\\u094B\\u094C])", "g"
@@ -123,13 +123,13 @@ stage {
   sub "([ष]=?)(?=[\\u093E\\u093F\\u0940\\u0941\\u0942\\u0943\\u0944\\u0945\\u0947\\u0948\\u0949\\u094B\\u094C])", "ṣ"
   sub "([स]=?)(?=[\\u093E\\u093F\\u0940\\u0941\\u0942\\u0943\\u0944\\u0945\\u0947\\u0948\\u0949\\u094B\\u094C])", "s"
   sub "([ह]=?)(?=[\\u093E\\u093F\\u0940\\u0941\\u0942\\u0943\\u0944\\u0945\\u0947\\u0948\\u0949\\u094B\\u094C])", "h"
-  
+
 
   # CHARACTERS
   parallel {
-    
+
     # I. Vowels and Diphthongs (see Note 1)
-    
+
     sub "अ", "a"
     sub "आ", "ā"
     sub "इ", "i"
@@ -145,8 +145,8 @@ stage {
     sub "ओ", "o"
     sub "ऒ", "ŏ"
     sub "औ", "au"
-    
-    
+
+
     # II. Consonants (see Note 2)
     # Gutturals
     sub "क", "ka"
@@ -154,62 +154,62 @@ stage {
     sub "ग", "ga"
     sub "घ", "gha"
     sub "ङ", "ṅa"
-    
+
     # Palatals
     sub "च", "ca"
     sub "छ", "cha"
     sub "ज", "ja"
     sub "झ", "jha"
     sub "ञ", "ña"
-    
+
     # Cerebrals
     sub "ट", "ṭa"
     sub "ठ", "ṭha"
     sub "ड", "ḍa"
     sub "ढ", "ḍha"
     sub "ण", "ṇa"
-    
+
     # Dentals
     sub "त", "ta"
     sub "थ", "tha"
     sub "द", "da"
     sub "ध", "dha"
     sub "न", "na"
-    
+
     # Labials
     sub "प", "pa"
     sub "फ", "pha"
     sub "ब", "ba"
     sub "भ", "bha"
     sub "म", "ma"
-    
+
     # Semivowels
     sub "य", "ya"
     sub "र", "ra"
     sub "ल", "la"
     sub "ळ", "ḷa"
     sub "व", "va"
-    
+
     # Sibilants
     sub "श", "śa"
     sub "ष", "ṣa"
     sub "स", "sa"
-    
+
     # Aspirate
     sub "ह", "ha"
-    
+
     # Anusvāra
     sub "ं", "ṃ"
-    
+
     # Bisarga
     sub "ः", "ḥ"
-    
+
     # Anunāsika
     sub "ँ", "ṁ"
-    
+
     # Abagraha
     sub "ऽ", "’" # (apostrophe)
-    
+
     # Medials # Needed for connecting constants
     sub "ा", "ā"
     sub "ि", "i"
@@ -228,9 +228,9 @@ stage {
     sub "ॉ", "ô"
     sub "ॅ", "ê"
     sub "‍", "" # Used for joining
-    
-    
-    
+
+
+
     # For consonant Virāma
     # Gutturals
     sub "क्", "k"
@@ -238,52 +238,52 @@ stage {
     sub "ग्", "g"
     sub "घ्", "gh"
     sub "ङ्", "ṅ"
-    
+
     # Palatals
     sub "च्", "c"
     sub "छ्", "ch"
     sub "ज्", "j"
     sub "झ्", "jh"
     sub "ञ्", "ñ"
-    
+
     # Cerebrals
     sub "ट्", "ṭ"
     sub "ठ्", "ṭh"
     sub "ड्", "ḍ"
     sub "ढ्", "ḍh"
     sub "ण्", "ṇ"
-    
+
     # Dentals
     sub "त्", "t"
     sub "थ्", "th"
     sub "द्", "d"
     sub "ध्", "dh"
     sub "न्", "n"
-    
+
     # Labials
     sub "प्", "p"
     sub "फ्", "ph"
     sub "ब्", "b"
     sub "भ्", "bh"
     sub "म्", "m"
-    
+
     # Semivowels
     sub "य्", "y"
     sub "र्", "r"
     sub "ल्", "l"
     sub "ळ्", "ḷ"
     sub "व्", "v"
-    
+
     # Sibilants
     sub "श्", "ś"
     sub "ष्", "ṣ"
     sub "स्", "s"
-    
+
     # Aspirate
     sub "ह्", "h"
-    
+
     # digits
-    
+
     sub "०", "0"
     sub "१", "1"
     sub "२", "2"

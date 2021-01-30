@@ -7,14 +7,14 @@ metadata {
   name: About approval of the Instructions for transliteration of surnames and proper names of citizens of the Republic of Belarus when their personal data is included in the population register
   url: https://www.icao.int/publications/pages/publication.aspx?docnum=9303
   creation_date: 2008
-  
+
   description: |
     RESOLUTION OF THE MINISTRY OF INTERNAL AFFAIRS OF THE REPUBLIC OF BELARUS
     October 9, 2008, No. 288
     8/19678 (10.23.2008)
     About 8/19678 approval of the Instructions for transliteration of surnames and proper names of citizens of
     the Republic of Belarus when their personal data is included in the population register
-  
+
   notes:
     # Original notes
     # - |
@@ -103,7 +103,7 @@ stage {
   sub "(\\u2019\\u044E)", "ju" # ю
   sub "(\\u2019\\u042F)", "Ja" # Я
   sub "(\\u2019\\u044F)", "ja" # я
-  
+
   sub "(?<=[АаЕеЁёИиОоУуЭэЮюЯяЬьЎў])\\u0415", "Je" # Е after vowels
   sub "(?<=[АаЕеЁёИиОоУуЭэЮюЯяЬьЎў])\\u0435", "je" # е after vowels
   sub "(?<=[АаЕеЁёИиОоУуЭэЮюЯяЬьЎў])\\u0401", "Jo" # Ё after vowels
@@ -112,11 +112,11 @@ stage {
   sub "(?<=[АаЕеЁёИиОоУуЭэЮюЯяЬьЎў])\\u044E", "ju" # ю after vowels
   sub "(?<=[АаЕеЁёИиОоУуЭэЮюЯяЬьЎў])\\u042F", "Ja" # Я after vowels
   sub "(?<=[АаЕеЁёИиОоУуЭэЮюЯяЬьЎў])\\u044F", "ja" # я after vowels
-  
+
   # note[5]
   sub "(?<=[ЗзЛлНнСсЦц])\\u044C", "\\1́" # ь after consonants
   sub "(?<=[ЗзЛлНнСсЦц])\\u02B9", "\\1́" # Ь after consonants
-  
+
   # vowels initially
   sub "\\b\\u0415", "Je" # Е
   sub "\\b\\u0435", "je" # е
@@ -126,15 +126,15 @@ stage {
   sub "\\b\\u044E", "ju" # ю
   sub "\\b\\u042F", "Ja" # Я
   sub "\\b\\u044F", "ja" # я
-  
+
 
   # POSTRULES
   sub "\\u2019", "j"
-  
+
 
   # CHARACTERS
   parallel {
-    
+
     sub "\u0410", "A" # А
     sub "\u0411", "B" # Б
     sub "\u0412", "V" # B
@@ -167,7 +167,7 @@ stage {
     sub "\u042D", "E" # Э
     sub "\u042E", "Iu" # Ю
     sub "\u042F", "Ia" # Я
-    
+
     sub "\u0430", "a" # а
     sub "\u0431", "b" # б
     sub "\u0432", "v" # в

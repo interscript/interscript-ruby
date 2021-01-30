@@ -118,41 +118,41 @@ stage {
   sub " Aş Ş", " aş Ş" # الص
   sub " Aḑ Ḑ", " aḑ Ḑ" # الض
   sub " Aţ Ţ", " aţ Ţ" # الط
-  
+
 
   # CHARACTERS
   parallel {
-    
+
     sub "\\b\u0627\u0644\u0635", "aş ş" # الص
     sub "\\b\u0627\u0644\u0636", "aḑ ḑ" # الض
     sub "\\b\u0627\u0644\u0637", "aţ ţ" # الط
-    
+
     sub "\u062d\u0651", "ḩḩ" # ح
     sub "\u0635\u0651", "şş" # ص
     sub "\u0636\u0651", "ḑḑ" # ض
     sub "\u0637\u0651", "ţţ" # ط
     sub "\u0638\u0651", "z̧z̧" # ظ
-    
+
     sub "\u062d", "ḩ" # ح
     sub "\ufea3", "ḩ" # ﺣ
     sub "\ufea4", "ḩ" # ﺤ
     sub "\ufea2", "ḩ" # ﺢ
-    
+
     sub "\u0635", "ş" # ص
     sub "\ufebb", "ş" # ﺻ
     sub "\ufebc", "ş" # ﺼ
     sub "\ufeba", "ş" # ﺺ
-    
+
     sub "\u0636", "ḑ" # ض
     sub "\ufebf", "ḑ" # ﺿ
     sub "\ufec0", "ḑ" # ﻀ
     sub "\ufebe", "ḑ" # ﺾ
-    
+
     sub "\u0637", "ţ" # ط
     sub "\ufec3", "ţ" # ﻃ
     sub "\ufec4", "ţ" # ﻄ
     sub "\ufec2", "ţ" # ﻂ
-    
+
     sub "\u0638", "z̧" # ظ
     sub "\ufec7", "z̧" # ﻇ
     sub "\ufec8", "z̧" # ﻈ

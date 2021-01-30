@@ -9,7 +9,7 @@ metadata {
   creation_date: 1996
   adoption_date:
   description: Establishes a system for the transliteration of the characters of Korean script into Latin characters. Intended to provide a means for international communication of written documents.
-  
+
   notes: ""
 }
 
@@ -55,25 +55,25 @@ stage {
   run map.hanghang.stage.main
 
   # RULES
-  
+
 
   # POSTRULES
   # Add space to the two ends of the string for easier word boundary handling
   sub "^", " "
   sub "$", " "
-  
+
   # Marks A, B, C
   sub "(?<!\\p{Hangul})ᄋ", "" # Word initially
   sub "ᄋ", "'" # See notes 2, 3 and 4.
   sub "ᆼ", "ng" # At the end of a syllable.
-  
+
   # Note 4: add apostrophe before 5 double consonants at initial position
   #         unless start of the word
   sub "(?<=\\p{Hangul})([ᄁᄄᄈᄍᄊ])", "'\\1"
   # Note 4: (only method 1) same but with 4 aspirated
   #- pattern: "(?<=\\p{Hangul})([ᄏᄐᄑᄎ])"
   #  result: "'\\1"
-  
+
   # Consonants differing between method1 and method2
   sub "[ᄀᆨ]", "g"
   sub "[ᄏᆿ]", "k"
@@ -88,7 +88,7 @@ stage {
   sub "[ᄎᆾ]", "c"
   sub "[ᄍퟹ]", "jj"
   # End
-  
+
   # Composite differing consonants (cons. https://en.wikipedia.org/wiki/ISO/TR_11941 )
   sub "[ᆪ]", "gs"
   sub "[ꥤ]", "rg" # D. R at the beginning of a syllable
@@ -100,7 +100,7 @@ stage {
   sub "[ᅜᆬ]", "nj"
   sub "[ᄡᆹ]", "bs"
   # End
-  
+
   # Other consonants
   sub "[ᄉᆺ]", "s"
   sub "[ᄊᆻ]", "ss"
@@ -110,7 +110,7 @@ stage {
   sub "[ᆯ]", "l"
   sub "[ᄆᆷ]", "m"
   # End
-  
+
   # Other composite consonants (cons. https://en.wikipedia.org/wiki/ISO/TR_11941 )
   sub "[ꥬ]", "rs" # D. R at the beginning of a syllable
   sub "[ᆳ]", "ls"
@@ -120,7 +120,7 @@ stage {
   sub "[ᆶ]", "lh"
   sub "[ᅝᆭ]", "nh"
   # End
-  
+
   # Vowels
   sub "ᅡ", "a"
   sub "ᅥ", "eo"
@@ -144,16 +144,16 @@ stage {
   sub "ᅰ", "we"
   sub "ᅴ", "yi"
   # End
-  
+
   # Remove space added
   sub "^ ", ""
   sub " $", ""
-  
+
 
   # CHARACTERS
   parallel {
     # This is based on Jamo
-    
+
   }
 
   # DICTIONARY

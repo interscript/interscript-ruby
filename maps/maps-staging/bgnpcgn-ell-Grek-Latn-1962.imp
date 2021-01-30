@@ -9,7 +9,7 @@ metadata {
   creation_date: 1962
   description: |
     BGN/PCGN Romanization table for Greek
-  
+
   notes:
     - Original specification is for polytonic Greek; this has been adapted for monotonic Greek
     - The treatment of έι in https://transliteration.eki.ee/pdf/Greek.pdf is incorrect; although
@@ -320,7 +320,7 @@ stage {
   sub "(?<=[ΑΆαάΟΌοό])\\u03AE", "ḯ" # αή, οή
   sub "\\u037E", "?" # ;
   sub "\\u003B", "?" # ;
-  
+
 
   # CHARACTERS
   parallel {
@@ -368,7 +368,7 @@ stage {
     sub "Ώ", "Ó" # Ώ
     sub "Ϊ", "Ï" # Ϊ
     sub "Ϋ", "Ï" # Ϋ
-    
+
     sub "ά", "á" # ά
     sub "α", "a" # α
     sub "β", "v" # β
@@ -413,7 +413,7 @@ stage {
     sub "ϋ", "ï" # ϋ
     sub "ΐ", "ḯ" # ΐ
     sub "ΰ", "ḯ" # ΰ
-    
+
     sub "·", ";" # ·
     sub "·", ";" # ·
   }

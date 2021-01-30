@@ -10,15 +10,15 @@ metadata {
   confirmation_date: 2016
   description: |
     There does not seem to exist any national systems of romanization for Sinhalese (Sinhala) in Sri Lanka.
-  
+
     In 1972, D. N. Sharma prepared a romanization table for Sinhalese (Sinhala) which was published in vol. II
     of the conference report together with the other languages of the Indian group1.
-  
+
     Sinhalese uses an alphasyllabic script whereby each character represents a syllable rather than one sound.
     Vowels and diphthongs are marked in two ways: as independent characters (used syllable-initially) and in an
     abbreviated form, to denote vowels after consonants.
-  
-  
+
+
   notes:
     - |
       The character ඇ was romanized as a͝i and the character ඈ as ai in Sharma's table, but there was no romanization for the character ඓ which,
@@ -97,7 +97,7 @@ stage {
   sub "([හ]=?)(?=[\\u0dcf\\u0dd0\\u0dd1\\u0dd2\\u0dd3\\u0dd4\\u0dd6\\u0dd8\\u0df2\\u0dd9\\u0dda\\u0ddb\\u0ddc\\u0ddd\\u0dde\\u0dca])", "h"
   sub "([ෆ]=?)(?=[\\u0dcf\\u0dd0\\u0dd1\\u0dd2\\u0dd3\\u0dd4\\u0dd6\\u0dd8\\u0df2\\u0dd9\\u0dda\\u0ddb\\u0ddc\\u0ddd\\u0dde\\u0dca])", "f"
   sub "([ළ]=?)(?=[\\u0dcf\\u0dd0\\u0dd1\\u0dd2\\u0dd3\\u0dd4\\u0dd6\\u0dd8\\u0df2\\u0dd9\\u0dda\\u0ddb\\u0ddc\\u0ddd\\u0dde\\u0dca])", "ḷ"
-  
+
 
   # CHARACTERS
   parallel {
@@ -118,7 +118,7 @@ stage {
     sub "ඔ", "ŏ"
     sub "ඕ", "o"
     sub "ඖ", "au"
-    
+
     # II. Abbreviated vowel characters and other symbols
     sub "ා", "ā"
     sub "ැ", "æ̆"
@@ -138,8 +138,8 @@ stage {
     sub "ඃ", "ḥ"
     sub "ං", "ṁ"
     sub "්", ""
-    
-    
+
+
     # III. Consonant characters
     sub "ක", "ka"
     sub "ඛ", "kha"
@@ -176,7 +176,7 @@ stage {
     sub "හ", "ha"
     sub "ෆ", "fa"
     sub "ළ", "ḷa"
-    
+
     # numbers
     sub "\u0DE6", "0"
     sub "\u0DE7", "1"
@@ -188,8 +188,8 @@ stage {
     sub "\u0DED", "7"
     sub "\u0DEE", "8"
     sub "\u0DEF", "9"
-    
-    
+
+
     sub "‍", "" # Used for joining
     sub "‌", "" # Used for non joining
   }

@@ -9,16 +9,16 @@ metadata {
   creation_date: 1997
   description: |
     ALA-LC Romanization table for Malayalam
-  
-  
+
+
   notes:
-  
+
     - Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for
       vowels following a consonant can be found in grammars; no distinction between the two is
       made in transliteration.
-  
+
     - When  ് is used in combination with the vowel u (ഉ്), the combination is also transliterated ȧ.
-  
+
     - |
       The vowel a is implicit after all consonants and consonant clusters and is supplied in transliteration, with the following exceptions:
       a) when another vowel is indicated by its appropriate sign
@@ -31,10 +31,10 @@ metadata {
         ൽ  l
         ർ   r
     - When റ റ appears as a subscript in a cluster (റ്റ), it is transliterated ta.
-  
+
     - |
       Exception: Anusvāra is transliterated by:
-  
+
       a) ṅ before gutturals,
       b) ñ before palatals,
       c) ṇ before cerebrals,
@@ -74,7 +74,7 @@ stage {
   sub "\\u0DCA(?=[ചഛജഝഞ])", "ñ"
   sub "\\u0DCA(?=[ടഠഡഢണ])", "ṇ"
   sub "\\u0DCA(?=[തഥദധന])", "n"
-  
+
   # note[3(a,b)]
   sub "(['ക']=?)(?=[\\u0d3e\\u0d3f\\u0d40\\u0d41\\u0d42\\u0d4d\\u0d43\\u0d44\\u0d46\\u0d47\\u0d48\\u0d4a\\u0d4b\\u0d4c\\u0D62\\u0D63\\u0d4d])", "k"
   sub "(['ഖ']=?)(?=[\\u0d3e\\u0d3f\\u0d40\\u0d41\\u0d42\\u0d4d\\u0d43\\u0d44\\u0d46\\u0d47\\u0d48\\u0d4a\\u0d4b\\u0d4c\\u0D62\\u0D63\\u0d4d])", "kh"
@@ -113,13 +113,13 @@ stage {
   sub "(['സ']=?)(?=[\\u0d3e\\u0d3f\\u0d40\\u0d41\\u0d42\\u0d4d\\u0d43\\u0d44\\u0d46\\u0d47\\u0d48\\u0d4a\\u0d4b\\u0d4c\\u0D62\\u0D63\\u0d4d])", "s"
   sub "(['ഩ']=?)(?=[\\u0d3e\\u0d3f\\u0d40\\u0d41\\u0d42\\u0d4d\\u0d43\\u0d44\\u0d46\\u0d47\\u0d48\\u0d4a\\u0d4b\\u0d4c\\u0D62\\u0D63\\u0d4d])", "ṉ"
   sub "(['ഹ']=?)(?=[\\u0d3e\\u0d3f\\u0d40\\u0d41\\u0d42\\u0d4d\\u0d43\\u0d44\\u0d46\\u0d47\\u0d48\\u0d4a\\u0d4b\\u0d4c\\u0D62\\u0D63\\u0d4d])", "h"
-  
-  
-  
+
+
+
 
   # CHARACTERS
   parallel {
-    
+
     sub "അ", "a"
     sub "ആ", "ā"
     sub "ഇ", "i"
@@ -130,15 +130,15 @@ stage {
     sub "ൠ", "ṝ"
     sub "ഌ", "ḷ"
     sub "ൡ", "ḹ"
-    
+
     sub "എ", "e"
     sub "ഏ", "ē"
     sub "ഐ", "ai"
-    
+
     sub "ഒ", "o"
     sub "ഓ", "ō"
     sub "ഔ", "au"
-    
+
     # Consonants
     # Gutturals
     sub "ക", "ka"
@@ -146,35 +146,35 @@ stage {
     sub "ഗ", "ga"
     sub "ഘ", "gha"
     sub "ങ", "ṅa"
-    
+
     # Palatals
     sub "ച", "ca"
     sub "ഛ", "cha"
     sub "ജ", "ja"
     sub "ഝ", "jha"
     sub "ഞ", "ña"
-    
+
     # Cerebrals
     sub "ട", "ṭa"
     sub "ഠ", "ṭha"
     sub "ഡ", "d̂a"
     sub "ഢ", "ḍha"
     sub "ണ", "ṇa"
-    
+
     # Dentals
     sub "ത", "ta"
     sub "ഥ", "tha"
     sub "ദ", "da"
     sub "ധ", "dha"
     sub "ന", "na"
-    
+
     # Labials
     sub "പ", "pa"
     sub "ഫ", "pha"
     sub "ബ", "ba"
     sub "ഭ", "bha"
     sub "മ", "ma"
-    
+
     # Semivowels
     sub "യ", "ya"
     sub "ര", "ra"
@@ -189,23 +189,23 @@ stage {
     sub "ഷ", "ṣa"
     sub "സ", "sa"
     sub "ഩ", "ṉa"
-    
-    
+
+
     # Aspirate
     sub "ഹ", "ha"
-    
+
     # Bisarga
     sub "ഃ", "ḥ"
-    
+
     # Anusvāra
     sub "ം", "ṃ"
-    
-    
+
+
     # Abagraha
     sub "ഽ", ":’" # (apostrophe)
-    
+
     # Medials # Needed for connecting constants
-    
+
     sub "ാ", "ā"
     sub "ി", "i"
     sub "ീ", "ī"
@@ -222,14 +222,14 @@ stage {
     sub "ൊ", "o"
     sub "ോ", "ō"
     sub "ൌ", "au"
-    
+
     sub "्", ""
     sub "़", ""
     sub "ൗ", ""
     sub "‍", "" # no need for zero with joiner
     sub "‌", "" # no need for zero with non joiner
-    
-    
+
+
     # numbers
     sub "൦", "0"
     sub "൧", "1"
@@ -244,10 +244,10 @@ stage {
     sub "൰", "10"
     sub "൱", "100"
     sub "൲", "1000"
-    
-    
+
+
     # Note 3(c)
-    
+
     sub "ൿ", "k"
     sub "ൺ", "ṇ"
     sub "ൻ", "n"
@@ -255,9 +255,9 @@ stage {
     sub "ൾ", "ḷ"
     sub "ർ", "r"
     sub "ഉ്", "ū"
-    
+
     # extended and ancient forms
-    
+
     sub "ഺ", "ṯa"
   }
 

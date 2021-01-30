@@ -9,7 +9,7 @@ metadata {
   creation_date: 2004
   confirmation_date: 2004-11
   description: |
-  
+
   notes:
     - Long/short vowels:- There is no distinction made in Roman
       between long and short a:-  E.g., Parvas (first a is short,
@@ -41,9 +41,9 @@ metadata {
       respectively:-  Hosein; Khosrow.
     - Yeh maqsura (final yeh pronounced as “a”):-  should be
       written as “a” as in “Musa”.
-  
+
     - Special Rules
-  
+
     - Hyphens:-  A hyphen is used to indicate the ezafeh
       construction:-  Arshad-e Ameri
     - Borrowed names that incorporate the name of God (Allah)
@@ -58,7 +58,7 @@ metadata {
       to place of birth, etc.)) names derived with these
       suffixes  (e.g., nezhadi, abadi) are written as part of the
       name:-
-  
+
       asa		Mehrasa
       baksh		Tajbaksh
       dust		Rafighdust
@@ -79,16 +79,16 @@ metadata {
       tabar		Shayestehtbar
       yar		Mohammadyar
       zadeh		Vakilzadeh
-  
+
       abadi		Salehabadi
       khani		Alikhani
       nezhadi 	Niknezhadi
-  
+
     - Note also that yar can function as a prefix and, as such,
       should be affixed directly to the name:-
-  
+
       yar		Yarmohammadi, Yarshater
-  
+
     - This is in contrast with hyphenated names such as Raja’i-
       Khorasani, Tabataba’i-Shirazi, Soleimani-Maimandi, etc.
 }
@@ -118,36 +118,36 @@ stage {
   # CHARACTERS
   parallel {
     # special rules
-    
+
     sub "\\s(?=\u0622\u0628\u064E\u0627\u062F)", "" # space followed by abad is removed
     sub "\ufdf2", "Allah" # See note 5
     sub "\\s\u0627\u0644\u0644\u0651\u064e\u0647", "ollah" # NOTE 9
-    
+
     sub "\u0652", "" # ْ sokoon
     sub "\u0659", "ê"
-    
+
     sub "\u064e\u064a\u0652", "ay" # ـَيْ
     sub "\u0649\u0670", "á" # ىٰ
     sub "\u0674", "-e" # ٴ
     sub "\u0654", "-e" #  ٔ
     # - '-ye'
-    
-    
+
+
     # ta' marboota
     sub "\u0629", "eh"
-    
-    
-    
+
+
+
     sub "\u0626", "’" # ئ
     sub "\u0624", "’" # ؤ
     sub "\u0623", "" # أ
     sub "\u0625", "" # إ
-    
+
     # See note B
     sub "\\b\u0627\u0644", "al " # ال
     sub "\\b\u0622\\\u0644", "Al " # ‫آل‬
     # '\uFE8E' : ''  # ﺎ
-    
+
     # Sun letters
     sub "\\b\u0627\u0644\u062a", "at t" # الت
     sub "\\b\u0627\u0644\u062b", "as s" # الث
@@ -163,7 +163,7 @@ stage {
     sub "\\b\u0627\u0644\u0638", "az z" # الظ
     sub "\\b\u0627\u0644\u0644", "al l" # الل
     sub "\\b\u0627\u0644\u0646", "an n" # الن
-    
+
     # Farsi Vowel (Pointing)
     sub "\u0622", "a" # آ alef maddeh
     sub "\u064e", "a" # َ fatha
@@ -172,13 +172,13 @@ stage {
     sub "\\b\u0627\u064e", "a" # ا initial followed by fatha
     sub "\\b\u0627\u064f", "o" # ا initial followed by damma
     sub "\\b\u0627\u0650", "e" # ِ ا initial followed by kasra
-    
+
     sub "\u064f", "o" # damma
     sub "\u064f\u0648", "u" # ـُو damma followed by و
     # '\u064e\u0648' : 'ow'  # ـَو
     # '\u064e\u0648\u0652' : 'aw'  # ـَوْ
-    
-    
+
+
     sub "\u0650", "e" # kasra
     sub "\u0650\u064a", "i" # ـِي kasra followed by ي
     sub "\u0650\u06cc", "i" # ـِي kasra followed by ي
@@ -188,11 +188,11 @@ stage {
     # '\u064e\u064a' : 'aī'  # ـَي
     # '\u064e\u06cc' : 'aī'  # ـَي
     # '\u064e\u0649' : 'ay'  # ـَى fatha followed by ى which is ا not ي
-    
+
     # additional symbols
-    
+
     # shadda
-    
+
     sub "\u0628\u0651", "bb" # ب
     sub "\u062a\u0651", "tt" # ت
     sub "\u062b\u0651", "ss" # ث
@@ -219,23 +219,23 @@ stage {
     sub "\u0647\u0651", "hh" # ه
     sub "\u0648\u0651", "vv" # و
     sub "\u064a\u0651", "yy" # ي
-    
+
     sub "(?<=\\b)\u0621", "" # ء
     sub "\u0621", "’" # ء
-    
+
     # FROM NOTES
-    
+
     sub "\u064e\u0649", "a" # ـَى fatha followed by ى which is ا not ي
     sub "\u0649", "a" # ى alef maqsura NOTE-1
-    
+
     sub "\u064a\u064a", "’i" # NOTE 4 (2)
     sub "\u06cc\u06cc", "’i"
-    
+
     sub "\u0627\u064a\\b", "’i" # NOTE 4 (3)
     sub "\u0627\u06cc\\b", "’i"
-    
+
     # Farsi consonant characters
-    
+
     sub "\u0628", "b" # ب
     sub "\u067E", "p" # پ
     sub "\u062a", "t" # ت

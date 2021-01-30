@@ -13,14 +13,14 @@ metadata {
     II/11) and amended in 1977 (III/12), based on a report
     prepared by D. N. Sharma. The tables and their corrections
     were published in volume II of the conference reports1,2.
-  
+
     There is no evidence of the use of the system either in
     Pakistan, India or in international cartographic products.
     Instead, in Pakistan the Hunterian system is officially
     used3. The resolutions III/12 (1977) and IV/17 (1982)
     recommended association, inter alia, with Pakistan, in
     carrying out further studies on the system.
-  
+
     Urdu (Urdū) uses the Perso-Arabic script which is written
     from right to left. In the script vowel points are usually
     omitted which makes it difficult to obtain uniform
@@ -126,10 +126,10 @@ stage {
   # CHARACTERS
   parallel {
     # special rules
-    
+
     sub "\\s(?=\u0622\u0628\u064E\u0627\u062F)", "" # space followed by abad is removed
     sub "\ufdf2", "Allāh" # See note 5
-    
+
     # Vowels, Diphthongs, and Diacritical Marks
     sub "\u064e", "a" # َ fatha
     sub "\u064e\u0627", "ā" # ـَا fatha followed by ا
@@ -140,26 +140,26 @@ stage {
     sub "\\b\u0627", "" # ا
     sub "\u064e(?=\u0629)", "" # َ fatha followed by ta' marboota
     sub "\u064e(?=a[h|t])", "" # َ fatha followed by ta' marboota, handling different order of conversion
-    
+
     sub "\u0652", "" # ْ sokoon
     sub "\u0659", "ê"
-    
+
     sub "\u0650", "i" # karsra
     sub "\u0650[\u064a|\u06cc]", "ī" # ـِي kasra followed by ي
     sub "\u0650\u06d2\u0652", "e" # ـے
     sub "\u0650\u06d2", "e" # ـے
     sub "\u06d2", "e" # ـے
-    
+
     sub "\u064f", "u" # ُ damma
     sub "\u064f\u0648", "ū" # ـُو damma followed by و
     sub "\u064f\u0648\u0652", "o" # ـَوْ
-    
-    
+
+
     sub "\u064e\u06d2", "ai" # ـے
     sub "\u064e\u0648", "au" # ـَو
     sub "\u0670", "á" # ىٰ
     sub "\u0649", "á" # ىٰ
-    
+
     # shadda
     sub "\u0628\u0651", "bb" # ب
     sub "\u062a\u0651", "tt" # ت
@@ -187,12 +187,12 @@ stage {
     sub "\u0647\u0651", "hh" # ه
     sub "\u0648\u0651", "vv" # و
     sub "[\u064a|\u06cc]\u0651", "yy" # ي
-    
+
     # NOTE 1
     sub "\u0650\\b", "-e" # ِ kasra
     sub "\u0674", "-e" # ٴ
     sub "\u0654", "-e" #  ٔ
-    
+
     sub "\u0650\u064a\u0651\u064e", "īy" # ـِيَّ
     sub "\u0650\u064a(?=\u064e|u064f)", "iy" # ـِي kasra followed by ي
     sub "\u064e\u0649", "ay" # ـَى fatha followed by ى which is ا not ي
@@ -202,8 +202,8 @@ stage {
     sub "\u064e\u064a", "aī" # ـَي
     sub "\u064e\u06cc", "aī" # ـَي
     # - '-ye'
-    
-    
+
+
     # ta' marboota
     sub "\u0629", "at" # ة in the middle of the sentence
     sub "\u0629$", "ah"
@@ -219,19 +219,19 @@ stage {
     sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{11})\u0629", "ah"
     sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{12})\u0629", "ah"
     sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{13})\u0629", "ah"
-    
-    
-    
+
+
+
     sub "\u0621", "-" # ء
     sub "\u0624", "-" # ؤ
     sub "\u0626", "-" # ئ
-    
+
     sub "\u0623", "" # أ
     sub "\u0625", "" # إ
     # See note B
     sub "\\b\u0627\u0644", "al " # ال
     # '\uFE8E' : ''  # ﺎ
-    
+
     # Sun letters
     sub "\\b\u0627\u0644\u062a", "at t" # الت
     sub "\\b\u0627\u0644\u062b", "as s" # الث
@@ -247,10 +247,10 @@ stage {
     sub "\\b\u0627\u0644\u0638", "az z" # الظ
     sub "\\b\u0627\u0644\u0644", "al l" # الل
     sub "\\b\u0627\u0644\u0646", "an n" # الن
-    
-    
+
+
     # consonant characters
-    
+
     sub "\u0628", "b" # ب
     sub "\u067E", "p" # پ
     sub "\u062a", "t" # ت

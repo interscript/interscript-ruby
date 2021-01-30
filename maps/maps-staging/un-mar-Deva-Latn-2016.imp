@@ -12,25 +12,25 @@ metadata {
     The United Nations recommended system was approved in 1972 (II/11) and amended in 1977
     (III/12), based on a report prepared by D. N. Sharma. The tables and their corrections were
     published in volume II of the conference reports
-  
+
     There is no evidence of the use of the system either in India or in international cartographic
     products.
-  
+
     Marathi (Marāṭhī) uses the alphasyllabic script Devanāgarī.
-  
+
   notes:
     - |
        Additional characters (absent in Hindi):
        ळ ḷa
        ऍ ă (abbreviated: कॅ kă)
-  
+
     - |
       Ligatures may be formed with r as the first component: 'ऱ्य': 'rya' 'ऱ्ह': 'rha'
     - |
       Typical are ligatures ending in h: न्ह nh, म्ह mh, ल्ह lh, व्ह vh.
     - |
       The following independent characters are sometimes used: अि i, अी ī, अु u, अू ū, अे e, अै ai.
-  
+
     ######################################## Additional Note ############################################################
     #    It is recommended that the vowel अ (a) should always be romanized except when it ends a                        #
     #    name. In the scheme we are not yet able to detect a name. Analysing language pattern and the example           #
@@ -76,18 +76,18 @@ stage {
   # RULES
   # note[3]
   sub "(?<=)\\U+0939(?=\\b)", "h"
-  
+
 
   # CHARACTERS
   parallel {
-    
+
     # Note 1
     sub "ळ", "ḷa"
     sub "ऍ", "ă"
-    
+
     # Note 2
     sub "ऱ", "r" # used for making Ligatures  'ऱ्य': 'rya'  'ऱ्ह': 'rha'
-    
+
     # Note 4
     sub "अि", "i"
     sub "अी", "ī"
@@ -95,7 +95,7 @@ stage {
     sub "अू", "ū"
     sub "अे", "e"
     sub "अै", "ai"
-    
+
     sub "ॲ", "ê"
     sub "ऑ", "ô"
   }

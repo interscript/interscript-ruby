@@ -12,11 +12,11 @@ metadata {
     The United Nations recommended system was approved in 1972 (II/11) and amended in 1977
     (III/12), based on a report prepared by D. N. Sharma. The tables and their corrections were
     published in volume II of the conference reports.
-  
+
     There is no evidence of the use of the system either in India or in international cartographic
     products. It was stated in 1987 that the appropriate resolution had not been implemented in
     India and the Hunterian system was still in use in large-scale mapping
-  
+
     Hindi uses the alphasyllabic script Devanāgarī whereby each character represents a syllable
     rather than one sound. Vowels and diphthongs are marked in two ways: as independent
     characters (used syllable-initially) and in an abbreviated form, to denote vowels after
@@ -24,7 +24,7 @@ metadata {
     many ligatures not given in the original table (only three are given). The system is mostly
     reversible but there may exist some ambiguities in the romanization of vowels (independent
     vs. abbreviated characters) and consonants
-  
+
   notes:
     - |
       It is recommended that the vowel अ (a) should always be romanized except when it ends a
@@ -34,7 +34,7 @@ metadata {
     - |
       If each letter of a digraph or any two parts of a trigraph has a distinct independent sound
       then it should be indicated by a hyphen, thus d-h.
-      
+
     ######################################## Additional Note ############################################################
     #    It is recommended that the vowel अ (a) should always be romanized except when it ends a                        #
     #    name. In the scheme we are not yet able to detect a name. Analysing language pattern and the example           #
@@ -111,11 +111,11 @@ stage {
   sub "(([ढ़]=?)(?=[\\u093E\\u093F\\u0940\\u0941\\u0942\\u0943\\u0944\\u0945\\u0947\\u0948\\u0949\\u094B\\u094C\\u0020\\u094d]))|(([ढ़])(?=\\b))", "ṙh"
   sub "(([फ़]=?)(?=[\\u093E\\u093F\\u0940\\u0941\\u0942\\u0943\\u0944\\u0945\\u0947\\u0948\\u0949\\u094B\\u094C\\u0020\\u094d]))|(([फ़])(?=\\b))", "f"
   sub "(([ह]=?)(?=[\\u093E\\u093F\\u0940\\u0941\\u0942\\u0943\\u0944\\u0945\\u0947\\u0948\\u0949\\u094B\\u094C\\u0020\\u094d]))|(([ह])(?=\\b))", "h"
-  
+
 
   # CHARACTERS
   parallel {
-    
+
     # I. Independent vowel characters
     sub "अ", "a"
     sub "आ", "ā"
@@ -130,9 +130,9 @@ stage {
     sub "ऐ", "ai"
     sub "ओ", "o"
     sub "औ", "au"
-    
+
     # II. Abbreviated vowel characters
-    
+
     sub "ा", "ā" # का
     sub "ॉ", "ā̆ " #  additional mark: कॉ
     sub "ि", "i" # कि i
@@ -144,56 +144,56 @@ stage {
     sub "ै", "ai" # कै
     sub "ो", "o" # को
     sub "ौ", "au" # कौ
-    
-    
+
+
     # Consonants (see Note 1)
-    
+
     # Gutturals
     sub "क", "ka"
     sub "ख", "kha"
     sub "ग", "ga"
     sub "घ", "gha"
     sub "ङ", "ṅa"
-    
+
     # Palatals
     sub "च", "cha"
     sub "छ", "chha"
     sub "ज", "ja"
     sub "झ", "jha"
     sub "ञ", "ña"
-    
+
     # Cerebrals
     sub "ट", "ṭa"
     sub "ठ", "ṭha"
     sub "ड", "ḍa"
     sub "ढ", "ḍha"
     sub "ण", "ṇa"
-    
+
     # Dentals
     sub "त", "ta"
     sub "थ", "tha"
     sub "द", "da"
     sub "ध", "dha"
     sub "न", "na"
-    
+
     # Labials
     sub "प", "pa"
     sub "फ", "pha"
     sub "ब", "ba"
     sub "भ", "bha"
     sub "म", "ma"
-    
+
     # Semivowels
     sub "य", "ya"
     sub "र", "ra"
     sub "ल", "la"
     sub "व", "va"
-    
+
     # Sibilants
     sub "श", "sha"
     sub "ष", "ṣha"
     sub "स", "sa"
-    
+
     # Dotted variants
     sub "क़", "qa"
     sub "ख़", "ḳha"
@@ -202,72 +202,72 @@ stage {
     sub "ड़", "ṙa"
     sub "ढ़", "ṙha"
     sub "फ़", "fa"
-    
-    
+
+
     # Aspirate
     sub "ह", "ha"
-    
+
     # Anusvāra
     sub "ं", "ṁ"
-    
+
     # Anunāsika
     sub "ँ", "m̐"
-    
+
     # halanta
     sub "्", ""
-    
+
     # bisharga
     sub "ः", "ḥ"
-    
+
     #V. Ligatures(To cover all Ligatures at unicode)
     #  Implemnting Pronunciation without a vowel: क् k.
-    
+
     # Gutturals
     sub "क्", "k"
     sub "ख्", "kh"
     sub "ग्", "g"
     sub "घ्", "gh"
     sub "ङ्", "ṅ"
-    
+
     # Palatals
     sub "च्", "ch"
     sub "छ्", "chh"
     sub "ज्", "j"
     sub "झ्", "jh"
     sub "ञ्", "ñ"
-    
+
     # Cerebrals
     sub "ट्", "ṭ"
     sub "ठ्", "ṭh"
     sub "ड्", "ḍ"
     sub "ढ्", "ḍh"
     sub "ण्", "ṇ"
-    
+
     # Dentals
     sub "त्", "t"
     sub "थ्", "th"
     sub "द्", "d"
     sub "ध्", "dh"
     sub "न्", "n"
-    
+
     # Labials
     sub "प्", "p"
     sub "फ्", "ph"
     sub "ब्", "b"
     sub "भ्", "bh"
     sub "म्", "m"
-    
+
     # Semivowels
     sub "य्", "y"
     sub "र्", "r"
     sub "ल्", "l"
     sub "व्", "v"
-    
+
     # Sibilants
     sub "श्", "sh"
     sub "ष्", "ṣh"
     sub "स्", "s"
-    
+
     # Dotted variants
     sub "क़्", "q"
     sub "ख़्", "ḳh"

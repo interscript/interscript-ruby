@@ -12,9 +12,9 @@ metadata {
     The United Nations recommended system was approved in 1972 (II/11) and amended in 1977 (III/12),
     based on a report prepared by D. N. Sharma. The tables and their corrections were published in
     volume II of the conference reports.
-  
+
     There is no evidence of the use of the system either in India or in international cartographic products.
-  
+
     Malayalam (Malayāḷam) uses an alphasyllabic script whereby each character represents a syllable rather
     than one sound. Vowels and diphthongs are marked in two ways: as independent characters (used syllable-initially)
     and in an abbreviated form, to denote vowels after consonants. The romanization table is unambiguous but now
@@ -23,8 +23,8 @@ metadata {
     recognize many ligatures not given in the original table. The system is mostly reversible but there exist some
     ambiguities in the romanization of vowels (independent vs. abbreviated characters) and
     consonants (ligatures vs. character sequences), particularly in the case of older orthography.
-  
-  
+
+
   notes:
     - |
       ടു For traditional script forms ഖു khu, മു mu, etc., exceptionally കു ku (ക്കു kku, ങ്കു ṅku), ഗു gu, ഛു chhu, ജു ju, ണു ṇu, തു tu, നു nu (ന്നു nnu), ഭു bhu, രു ru, ശു shu, ഹു hu
@@ -104,7 +104,7 @@ stage {
   sub "([ഴ]=?)(?=[\\u0d3e\\u0d3f\\u0d40\\u0d41\\u0d42\\u0d43\\u0d46\\u0d47\\u0d48\\u0d4a\\u0d4b\\u0d4c\\u0d4d])", "ḻ"
   sub "([റ]=?)(?=[\\u0d3e\\u0d3f\\u0d40\\u0d41\\u0d42\\u0d43\\u0d46\\u0d47\\u0d48\\u0d4a\\u0d4b\\u0d4c\\u0d4d])", "ṟ"
   sub "([ക്ഷ]=?)(?=[\\u0d3e\\u0d3f\\u0d40\\u0d41\\u0d42\\u0d43\\u0d46\\u0d47\\u0d48\\u0d4a\\u0d4b\\u0d4c\\u0d4d])", "kṣh"
-  
+
 
   # CHARACTERS
   parallel {
@@ -122,7 +122,7 @@ stage {
     sub "ഒ", "ŏ"
     sub "ഓ", "o"
     sub "ഔ", "au"
-    
+
     # II. Abbreviated vowel characters
     sub "ാ", "ā"
     sub "ി", "i"
@@ -136,12 +136,12 @@ stage {
     sub "ൊ", "ŏ"
     sub "ോ", "o"
     sub "ൌ", "au"
-    
+
     #III. Other symbols
     sub "ഃ", "ḥ"
     sub "ം", "ṃ"
     sub "്", ""
-    
+
     #IV. Consonant characters
     sub "ക", "ka"
     sub "ഖ", "kha"
@@ -181,15 +181,15 @@ stage {
     sub "ഴ", "ḻa"
     sub "റ", "ṟa"
     sub "റ്റ", "ṭ̈"
-    
-    
+
+
     sub "्", ""
     sub "़", ""
     sub "ൗ", ""
     sub "‍", "" # no need for zero with joiner
     sub "‌", "" # no need for zero with non joiner
-    
-    
+
+
     # numbers
     sub "൦", "0"
     sub "൧", "1"
@@ -204,8 +204,8 @@ stage {
     sub "൰", "10"
     sub "൱", "100"
     sub "൲", "1000"
-    
-    
+
+
     # chillu-forms of consonants note 5
     sub "ൿ", "k"
     sub "ൺ", "ṇ"

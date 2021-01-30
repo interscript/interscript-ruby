@@ -7,7 +7,7 @@ metadata {
   name: ALA-LC Romanization System 1997
   url: https://www.loc.gov/catdir/cpso/romanization/ukrainia.pdf
   creation_date: 2011
-  
+
   notes:
     - The z͡h ligature is necessary to distinguish ж from the combination зг.
     - The t͡s ligature is necessary to distinguish ц from the combination тс.

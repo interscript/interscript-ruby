@@ -5,18 +5,18 @@ metadata {
   source_script: Taml
   destination_script: Latn
   name: Indian script code for information interchange - ISCII - Tamil Romanization
-  
+
   #url:
   creation_date: 1991
   description: |
     IS 13194 (1991): Indian script code for information
     interchange - ISCII [LITD 20: Indian Language Technologies
     and Products]
-  
+
   notes:
     - |
       Exception: Anusvāra is transliterated by:
-  
+
       a) ṅ before gutturals,
       b) ñ before palatals,
       c) ṇ before cerebrals,
@@ -56,7 +56,7 @@ stage {
   sub "\\u0B82(?=[டண])", "ṇ"
   sub "\\u0B82(?=[தநன])", "n"
   sub "\\u0B82(?=[பம])", "m"
-  
+
 
   # CHARACTERS
   parallel {
@@ -66,38 +66,38 @@ stage {
     sub "ஈ", "ī"
     sub "உ", "u"
     sub "ஊ", "ū"
-    
+
     sub "எ", "e"
     sub "ஏ", "ē"
     sub "ஐ", "ai"
-    
+
     sub "ஒ", "o"
     sub "ஓ", "ŏ"
     sub "ஔ", "au"
-    
+
     # II. Consonants (see Note 2)
     # Gutturals
     sub "க", "k"
     sub "ங", "ṅ"
-    
+
     # Palatals
     sub "ச", "c"
     sub "ஜ", "j"
     sub "ஞ", "ñ"
-    
+
     # Cerebrals
     sub "ட", "ṭ"
     sub "ண", "ṇ"
-    
+
     # Dentals
     sub "த", "t"
     sub "ந", "n"
     sub "ன", "ṉ"
-    
+
     # Labials
     sub "ப", "p"
     sub "ம", "m"
-    
+
     # Semivowels
     sub "ய", "y"
     sub "ர", "r"
@@ -105,48 +105,48 @@ stage {
     sub "ல", "l"
     sub "ள", "ḷ"
     sub "ழ", "ẕ"
-    
-    
+
+
     # Sibilants
     sub "வ", "v"
     sub "ஶ", "ś"
     sub "ஷ", "ṣ"
     sub "ஸ", "s"
-    
-    
+
+
     # Aspirate
     sub "ஹ", "h"
-    
-    
+
+
     # Bisarga
     sub "ஃ", "ḥ"
-    
+
     # Anusvāra
     sub "ஂ", "ṃ"
-    
+
     # Medials # Needed for connecting constants
-    
+
     sub "ா", "ā"
     sub "ி", "i"
     sub "ீ", "ī"
     sub "ு", "u"
     sub "ூ", "ū"
-    
+
     sub "ൃ", "ṛ"
     sub "ൄ", "ṝ"
-    
-    
+
+
     sub "ெ", "e"
     sub "ே", "ē"
     sub "ை", "ai"
     sub "ொ", "o"
     sub "ோ", "ō"
     sub "ௌ", "au"
-    
-    
+
+
     sub "ൺ", "n"
     sub "ൻ", "ṇ"
-    
+
     sub "्", ""
     sub "്", ""
     sub "்", ""

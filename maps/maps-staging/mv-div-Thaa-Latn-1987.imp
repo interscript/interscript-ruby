@@ -10,7 +10,7 @@ metadata {
   description: |
     In 1987 the Maldivian government adopted a system for the romanization of Maldivian. It was also approved by the BGN and the PCGN in 1988.
     Maldivian is written from right to left. Vowels are marked as diacritical marks accompanying a consonant character.
-  
+
   notes:
     - The character އ is not romanized. If it bears a vowel character, that vowel character alone is romanized, e.g. އިރުގައި irugai.
     - Characters އް and ށް word-finally and before a digraph are romanized h, e.g. ވޭވަށް Veyvah, ކެރެއްދޫ Kerehdhoo. In other cases,
@@ -72,7 +72,7 @@ stage {
   sub "\\u0787\\u07b0(?=[ޓ])", "t"
   sub "\\u0787\\u07b0(?=[ޕ])", "p"
   sub "\\u0787\\u07b0(?=[ޔ])", "y"
-  
+
   sub "\\u0781\\u07b0(?=[ހ])", "h"
   sub "\\u0781\\u07b0(?=[ށ])", "h"
   sub "\\u0781\\u07b0(?=[ނ])", "n"
@@ -96,16 +96,16 @@ stage {
   sub "\\u0781\\u07b0(?=[ޓ])", "t"
   sub "\\u0781\\u07b0(?=[ޕ])", "p"
   sub "\\u0781\\u07b0(?=[ޔ])", "y"
-  
+
   sub "\\u0787\\u07b0(?=\\b)", "h"
   sub "\\u0781\\u07b0(?=\\b)", "h"
-  
+
   # Note 5
   sub "\\u0782(?!=[\\u07a6\\u07a7\\u07a8\\u07a9\\u07aa\\u07ab\\u07ac\\u07ad\\u07ae\\u07af\\u07B0])", "n’"
-  
+
   # Note 6
   sub "\\u078C(?=\\u07B0)", "iy"
-  
+
 
   # CHARACTERS
   parallel {
@@ -121,8 +121,8 @@ stage {
     sub "ޮ", "o"
     sub "ޯ", "oa"
     sub "ް", "" # not romanized but see notes 4 & 6
-    
-    
+
+
     # Consonants
     sub "ހ", "h"
     sub "ށ", "sh" # Note 4

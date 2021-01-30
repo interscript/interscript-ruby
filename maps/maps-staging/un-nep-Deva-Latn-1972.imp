@@ -12,22 +12,22 @@ metadata {
     The United Nations recommended system was approved in 1972 (II/11), based on a report
     prepared by D. N. Sharma. The note on the system was published in volume II of the
     conference report.
-  
+
     There is no evidence of the use of the system either in Nepal or in international cartographic
     products. The resolution IV/17 (1982) recommended association, inter alia, with Nepal in
     carrying out further studies on the system. In Nepal a system of romanization is employed by
     the Nepal Survey Department (NSD). This system has been applied to names appearing on
     national mapping, and it is also used in the Geographic Information Infrastructure Programme
     (NGIIP).
-  
+
     Nepali (Nepālī) uses the alphasyllabic script Devanāgarī.
-  
+
   notes:
-  
+
     - In normal spelling ṙ and ṙh are not marked, instead dotless ड ḍa, ढ ḍha are used to denote these sounds.
     - |
       Ligatures may be formed with r as the first component: ~ह rha.
-  
+
     ######################################## Additional Note ############################################################
     #    It is recommended that the vowel अ (a) should always be romanized except when it ends a                        #
     #    name. In the scheme we are not yet able to detect a name. Analysing language pattern and the example           #
@@ -114,12 +114,12 @@ stage {
   sub "(([ढ़]=?)(?=[\\u093E\\u093F\\u0940\\u0941\\u0942\\u0943\\u0944\\u0945\\u0947\\u0948\\u0949\\u094B\\u094C\\u0020\\u094d]))|(([ढ़])(?=\\b))", "ṙh"
   sub "(([फ़]=?)(?=[\\u093E\\u093F\\u0940\\u0941\\u0942\\u0943\\u0944\\u0945\\u0947\\u0948\\u0949\\u094B\\u094C\\u0020\\u094d]))|(([फ़])(?=\\b))", "f"
   sub "(([ह]=?)(?=[\\u093E\\u093F\\u0940\\u0941\\u0942\\u0943\\u0944\\u0945\\u0947\\u0948\\u0949\\u094B\\u094C\\u0020\\u094d]))|(([ह])(?=\\b))", "h"
-  
-  
+
+
 
   # CHARACTERS
   parallel {
-    
+
     # Vowels and Diphthongs
     sub "अ", "a"
     sub "आ", "ā"
@@ -134,9 +134,9 @@ stage {
     sub "ऐ", "ai"
     sub "ओ", "o"
     sub "औ", "au"
-    
+
     # Medials # Needed for connecting constants
-    
+
     sub "ा", "ā"
     sub "ि", "i"
     sub "ी", "ī"
@@ -147,55 +147,55 @@ stage {
     sub "ै", "ai"
     sub "ो", "o"
     sub "ौ", "au"
-    
+
     # Consonants (see Note 1)
-    
+
     # Gutturals
     sub "क", "ka"
     sub "ख", "kha"
     sub "ग", "ga"
     sub "घ", "gha"
     sub "ङ", "ṅa"
-    
+
     # Palatals
     sub "च", "cha"
     sub "छ", "chha"
     sub "ज", "ja"
     sub "झ", "jha"
     sub "ञ", "ña"
-    
+
     # Cerebrals
     sub "ट", "ṭa"
     sub "ठ", "ṭha"
     sub "ड", "ḍa"
     sub "ढ", "ḍha"
     sub "ण", "ṇa"
-    
+
     # Dentals
     sub "त", "ta"
     sub "थ", "tha"
     sub "द", "da"
     sub "ध", "dha"
     sub "न", "na"
-    
+
     # Labials
     sub "प", "pa"
     sub "फ", "pha"
     sub "ब", "ba"
     sub "भ", "bha"
     sub "म", "ma"
-    
+
     # Semivowels
     sub "य", "ya"
     sub "र", "ra"
     sub "ल", "la"
     sub "व", "va" # or wa [Note#3]
-    
+
     # Sibilants
     sub "श", "sha"
     sub "ष", "ṣha"
     sub "स", "sa"
-    
+
     # Dotted variants
     sub "क़", "qa"
     sub "ख़", "ḳha"
@@ -204,17 +204,17 @@ stage {
     sub "ड़", "ṙa"
     sub "ढ़", "ṙha"
     sub "फ़", "fa"
-    
-    
+
+
     # Aspirate
     sub "ह", "ha"
-    
+
     # Anusvāra
     sub "ं", "ṁ"
-    
+
     # Anunāsika
     sub "ँ", "m̐"
-    
+
     # halanta
     sub "्", ""
   }

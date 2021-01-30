@@ -9,9 +9,9 @@ metadata {
   creation_date: 1997
   description: |
     ALA-Library of Congress Divehi Romanization 1997 System
-  
+
   notes:
-  
+
     - |
       Romanize ށް as ḫ when it doubles the following consonant or is used as a glottal stop.
         aḫvana	އަށްވަނަ
@@ -115,14 +115,14 @@ stage {
   sub "(?<!\\b)\\u0787(?=[\\u07a6\\u07a7\\u07a8\\u07a9\\u07aa\\u07ab\\u07ac\\u07ad\\u07ae\\u07af])", "ʼ" # medial position with any vowel sign
   # note[4]
   sub "\\u078c\\u07b0\\u078c", "t̤t"
-  
-  
+
+
 
   # CHARACTERS
   parallel {
-    
+
     # Vowels
-    
+
     sub "ަ", "a"
     sub "ާ", "ā"
     sub "ި", "i"
@@ -134,8 +134,8 @@ stage {
     sub "ޮ", "o"
     sub "ޯ", "ō"
     sub "ް", "" # omit (see Note 6)
-    
-    
+
+
     # Consonants
     sub "ހ", "h"
     sub "ށ", "ś" # or ḫ (see Note 1)
@@ -161,9 +161,9 @@ stage {
     sub "ޓ", "ṭ"
     sub "ޕ", "p"
     sub "ޔ", "y"
-    
+
     # Divehi Equivalents to Represent Arabic Letters
-    
+
     sub "ޘ", "th"
     sub "ޙ", "ḥ"
     sub "ޚ", "kh"

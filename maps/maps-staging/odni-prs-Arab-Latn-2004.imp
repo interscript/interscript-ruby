@@ -9,7 +9,7 @@ metadata {
   creation_date: 2004
   confirmation_date: 2004-11
   description: |
-  
+
   notes:
     - This standard is intended only for those Afghan names
       that have a common bond or similarity with Iranian or
@@ -43,9 +43,9 @@ metadata {
       respectively:-  Hosein; Khosrow.
     - Yeh maqsura (final yeh pronounced as “a”):-  should be
       written as “a” as in “Musa”.
-  
+
     - Special Rules
-  
+
     - Hyphens:-  A hyphen is used to indicate the ezafeh
       construction:-  Arshad-e Ameri
     - Borrowed names that incorporate the name of God (Allah)
@@ -59,13 +59,13 @@ metadata {
       etc., as well as nesbeh (‘relationship’ (to place of birth,
       etc.)) names derived with these suffixes  (e.g., abadi) are
       written as part of the name:-
-  
+
       gol		Parigol, Ziagol
       pur		Shahpur, Mehrpur
       mand		Gulahmand
       yar		Aminyar
       zadeh		Ismailzadeh, Karimzadeh
-  
+
       abadi		Kamalabadi
 }
 
@@ -97,27 +97,27 @@ stage {
 
   # CHARACTERS
   parallel {
-    
+
     sub "\u0626", "" # ئ
     sub "\u0624", "" # ؤ
-    
+
     # shadda
-    
+
     sub "\u0642\u0651", "qq" # ق
     sub "\u0648\u0651", "ww" # و
-    
+
     sub "\u0621", "" # ء
-    
+
     # FROM NOTES
-    
+
     sub "\u064a\u064a", "i" # NOTE 4 (2)
     sub "\u06cc\u06cc", "i"
-    
+
     sub "\u0627\u064a\\b", "i" # NOTE 4 (3)
     sub "\u0627\u06cc\\b", "i"
-    
+
     # Farsi consonant characters
-    
+
     sub "\u0639", "" # ع # new
     sub "\u0642", "q" # ق
     sub "\u0648", "w" # و

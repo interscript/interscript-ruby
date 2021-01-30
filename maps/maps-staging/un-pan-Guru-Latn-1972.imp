@@ -12,25 +12,25 @@ metadata {
     The United Nations recommended system was approved in 1972 (II/11) and amended in 1977 (III/12),
     based on a report prepared by D. N. Sharma. The tables and their corrections were published in volume
     II of the conference reports1,2.
-  
+
     There is no evidence of the use of the system either in India or in international cartographic products.
-  
+
     Punjabi (Panjābī) in India uses an alphasyllabic script (Gurmukhi) whereby each character represents a syllable
     rather than one sound. Vowels and diphthongs are marked in two ways: as independent characters (used syllable-initially)
     and in an abbreviated form, to denote vowels after consonants. The romanization table is unambiguous. The system is mostly
     reversible but there exist some ambiguities in the romanization of vowels (independent vs. abbreviated characters) and
     consonants (combinations with subscript consonants vs. character sequences).
-  
+
     References
-  
+
     Second United Nations Conference on the Standardization of Geographical Names. London, 10–31 May 1972. Vol. II. Technical papers.
     United Nations. New York 1974, pp. 136–138.
-  
+
     Third United Nations Conference on the Standardization of Geographical Names. Athens, 17 August – 7 September 1977. Vol. II,
     Technical papers, pp. 393 etc.
-  
-  
-  
+
+
+
   notes:
     - |
       These characters are used in combination with abbreviated vowel characters: ਉ u, ਊ ū, ਅ a, ਆ ā, ਐ ai, ਔ au, ਇ i, ਈ ī, ਏ e; exceptional variation: ਓ o.
@@ -112,7 +112,7 @@ stage {
   sub "(?<!ੱ)([ਸ]=?)(?=[\\u0a3e\\u0a3f\\u0a40\\u0a41\\u0a42\\u0a47\\u0a48\\u0a4b\\u0a4c\\u0a4d])", "s"
   sub "(?<!ੱ)([ਸ਼]=?)(?=[\\u0a3e\\u0a3f\\u0a40\\u0a41\\u0a42\\u0a47\\u0a48\\u0a4b\\u0a4c\\u0a4d])", "sh"
   sub "(?<!ੱ)([ਹ]=?)(?=[\\u0a3e\\u0a3f\\u0a40\\u0a41\\u0a42\\u0a47\\u0a48\\u0a4b\\u0a4c\\u0a4d])", "h"
-  
+
   sub "(?<=ੱ)([ਕ]=?)(?=[\\u0a3e\\u0a3f\\u0a40\\u0a41\\u0a42\\u0a47\\u0a48\\u0a4b\\u0a4c\\u0a4d])", "kk"
   sub "(?<=ੱ)([ਖ]=?)(?=[\\u0a3e\\u0a3f\\u0a40\\u0a41\\u0a42\\u0a47\\u0a48\\u0a4b\\u0a4c\\u0a4d])", "kkh"
   sub "(?<=ੱ)([ਖ਼]=?)(?=[\\u0a3e\\u0a3f\\u0a40\\u0a41\\u0a42\\u0a47\\u0a48\\u0a4b\\u0a4c\\u0a4d])", "ḳḳh"
@@ -152,11 +152,11 @@ stage {
   sub "(?<=ੱ)([ਸ]=?)(?=[\\u0a3e\\u0a3f\\u0a40\\u0a41\\u0a42\\u0a47\\u0a48\\u0a4b\\u0a4c\\u0a4d])", "ss"
   sub "(?<=ੱ)([ਸ਼]=?)(?=[\\u0a3e\\u0a3f\\u0a40\\u0a41\\u0a42\\u0a47\\u0a48\\u0a4b\\u0a4c\\u0a4d])", "ssh"
   sub "(?<=ੱ)([ਹ]=?)(?=[\\u0a3e\\u0a3f\\u0a40\\u0a41\\u0a42\\u0a47\\u0a48\\u0a4b\\u0a4c\\u0a4d])", "hh"
-  
+
 
   # CHARACTERS
   parallel {
-    
+
     # I. Vowels and Diphthongs (see Note 1)
     sub "ਅ", "a"
     sub "ਆ", "ā"
@@ -168,7 +168,7 @@ stage {
     sub "ਐ", "ai"
     sub "ਓ", "o"
     sub "ਔ", "au"
-    
+
     sub "ਾ", "ā"
     sub "ਿ", "i"
     sub "ੀ", "ī"
@@ -178,7 +178,7 @@ stage {
     sub "ੈ", "ai"
     sub "ੋ", "o"
     sub "ੌ", "au"
-    
+
     # II. Consonants
     sub "ਕ", "ka"
     sub "ਖ", "kha"
@@ -221,7 +221,7 @@ stage {
     sub "ਹ", "h"
     sub "ਂ", "ṁ"
     sub "ੰ", "ṁ"
-    
+
     # Adhik character doubling of the following consonant[Note 5]
     sub "ੱਕ", "kka"
     sub "ੱਖ", "kkha"
@@ -262,7 +262,7 @@ stage {
     sub "ੱਸ", "ss"
     sub "ੱਸ਼", "ssha"
     sub "ੱਹ", "hh"
-    
+
     # Adhik character doubling of the following consonant and ends with ੍ [Note 5]
     sub "ੱਕ੍", "kk"
     sub "ੱਖ੍", "kkh"
@@ -303,18 +303,18 @@ stage {
     sub "ੱਸ੍", "ss"
     sub "ੱਸ਼੍", "ssh"
     sub "ੱਹ੍", "hh"
-    
-    
+
+
     # III. Subscript consonant characters
     sub "੍ਹ", "-h"
     sub "੍ਵ", "-v"
     sub "੍ਰ", "-r"
     sub "੍ਯ", "-y"
-    
+
     sub "੍", ""
     sub "ੱ", ""
     sub "਼", ""
-    
+
     # digits
     sub "੦", "0"
     sub "੧", "1"

@@ -13,7 +13,7 @@ metadata {
     names written in the Ukrainian alphabet. The Ukrainian alphabet
     contains five characters not present in the Russian alphabet: ґ, є, і,
     ї, and ’.
-  
+
   notes:
     - The character sequences з г, к г, с г, т с and ц г and may be romanized z∙h, k∙h, s∙h, t∙s and ts∙h in order to differentiate those romanizations from the digraphs zh, kh, sh, ts, and the letter sequence tsh, which are used to render the characters ж, x, ц, ш, and the character sequence тш.
     - All apostrophes appearing in romanization are Unicode encoding 2019.
@@ -69,7 +69,7 @@ stage {
 
   # RULES
   sub "\\b\\u2019\\b", "”" # ’ in the middle of a word -> ”
-  
+
 
   # CHARACTERS
   parallel {

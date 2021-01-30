@@ -7,7 +7,7 @@ metadata {
   name: The Cabinet of Ministers of Ukraine adopted Resolution No 55 "On Normalization of Transliteration of the Ukrainian Alphabet by Means of the Latin Alphabet"
   url: https://unstats.un.org/unsd/geoinfo/UNGEGN/docs/26th-gegn-docs/WP/WP21_Roma_system_Ukraine%20_engl._.pdf
   creation_date: 2010
-  
+
   description: |
     The Cabinet of Ministers of Ukraine adopted Resolution No 55 "On
     Normalization of Transliteration of the Ukrainian Alphabet by Means of the
@@ -17,10 +17,10 @@ metadata {
     (geographical names, names and surnames,) are rendered by means of the Latin
     alphabet in accordance with unified rules of transliteration in official documents,
     in cartographic editions, on signs of populated places, streets, metro stations,
-    stops, etc. 
-  
+    stops, etc.
+
   notes:
-    - Combination of letters "зг" is transliterated as "zgh" as opposed to "zh" – the equivalent of the Ukrainian letter "ж". 
+    - Combination of letters "зг" is transliterated as "zgh" as opposed to "zh" – the equivalent of the Ukrainian letter "ж".
     - Soft sign and the apostrophe are not reproduced in Latin.
     - Transliteration of first and last names of individuals and geograpical names is carried out by way of letter-for-letter representation in Latin.
 }
@@ -121,7 +121,7 @@ stage {
   # RULES
   sub "\\u0027", ""
   sub "\\u2019", ""
-  
+
 
   # CHARACTERS
   parallel {

@@ -15,11 +15,11 @@ metadata {
     alphabetical cataloging. It can be used in all areas, but in
     particular the aim is to standardize the library and publication
     area.
-  
+
   notes:
     - |
       Since the Tamil script is a syllabic script, the consonant -a inherent in the transliteration is always written, even in the final.
-  
+
     - |
       A point above the consonant, the so-called "pulli", means in Tamil that the inherent -a is omitted:
         கார்த்திகேயன் kārttikēyaṉ
@@ -80,44 +80,44 @@ stage {
   sub "([ஷ]=?)(?=[\\u0BBE\\u0BBF\\u0BC0\\u0BC1\\u0BC2\\u0BC6\\u0BC7\\u0BC8\\u0BCA\\u0BCB\\u0BCC\\u094B\\u094C])", "ṣ"
   sub "([ஸ]=?)(?=[\\u0BBE\\u0BBF\\u0BC0\\u0BC1\\u0BC2\\u0BC6\\u0BC7\\u0BC8\\u0BCA\\u0BCB\\u0BCC\\u094B\\u094C])", "s"
   sub "([ஹ]=?)(?=[\\u0BBE\\u0BBF\\u0BC0\\u0BC1\\u0BC2\\u0BC6\\u0BC7\\u0BC8\\u0BCA\\u0BCB\\u0BCC\\u094B\\u094C])", "h"
-  
+
 
   # CHARACTERS
   parallel {
     sub "அ", "a"
     sub "ஆ", "ā"
     sub "ா", "ā"
-    
+
     sub "இ", "i"
     sub "ி", "i"
-    
+
     sub "ஈ", "ī"
     sub "ீ", "ī"
-    
+
     sub "உ", "u"
     sub "ு", "u"
-    
+
     sub "ஊ", "ū"
     sub "ூ", "ū"
-    
+
     sub "ெ", "e"
     sub "எ", "e"
-    
+
     sub "ே", "ē"
     sub "ஏ", "ē"
-    
+
     sub "ஐ", "ai"
     sub "ை", "ai"
-    
+
     sub "ஒ", "o"
     sub "ொ", "o"
-    
+
     sub "ோ", "ō"
     sub "ஓ", "ō"
-    
+
     sub "ஔ", "au"
     sub "ௌ", "au"
-    
+
     sub "க்", "k"
     sub "ங்", "ṅ"
     sub "ச்", "c"
@@ -137,13 +137,13 @@ stage {
     sub "ற்", "ṟ"
     sub "ன்", "ṉ"
     sub "ஜ்", "j"
-    
+
     sub "ஶ்", "ś"
     sub "ஷ்", "ṣ"
     sub "ஸ்", "s"
     sub "ஹ்", "h"
-    
-    
+
+
     sub "க", "ka"
     sub "ங", "ṅa"
     sub "ஃ", "ḵ"
@@ -168,7 +168,7 @@ stage {
     sub "ஷ", "ṣa"
     sub "ஸ", "sa"
     sub "ஹ", "ha"
-    
+
     # Digits
     sub "௧", "1"
     sub "௨", "2"
@@ -183,10 +183,10 @@ stage {
     sub "௰", "10"
     sub "௱", "100"
     sub "௲", "1000"
-    
-    
-    
-    
+
+
+
+
     sub "‍", "" # no need for zero with joiner
     sub "‌", "" # no need for zero with non joiner
   }

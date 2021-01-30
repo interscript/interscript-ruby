@@ -31,7 +31,7 @@ metadata {
     gracefully into the rules described below are included with
     case-by-case preferred spellings in a list near the end of
     this document.
-  
+
   notes:
     # Special rules: Consonants
     - Pashto letter ge (‫ږ‬) The two common renderings for this
@@ -41,7 +41,7 @@ metadata {
       render the name with a 'g' as opposed to a 'zh,' then 'g'
       will be the preferred option. In these cases, the inclusion
       of a variant spelling with 'zh' is strongly encouraged.
-  
+
     - Double consonants Double consonants represented by the
       tashdid (shaddah) are shown in most cases regardless of
       whether they are clearly enunciated in speech. Examples
@@ -52,17 +52,17 @@ metadata {
       non-doubled letters in names that are otherwise
       indistinguishable in their transliterated forms
       Hasan (حسن (vs. Hassan (حسان(
-  
+
     - Digraphs No distinction is made between digraphs such as 'sh'
       and single contiguous letters such as 's' followed by 'h.'
-  
+
     # Special rules: Vowels
     - Short vowels zair and pesh The preferred options for the
       short vowels represented by the zair and pesh will be 'i'
       and 'u.' However, in cases where there is a mixed Dari and
       Pashto environment, then the use of 'e' and 'o' is accepted
       in consideration of Dari norms.
-  
+
     - Long/short vowels Long and short vowels are not
       distinguished in the system (with the exception of
       certain spellings driven by Dari influence as discussed
@@ -78,20 +78,20 @@ metadata {
       as to which name is intended, as in the following examples
       Hamid (var. Hameed) – ‫حمید‬
       Hamid (var. Hamed) – ‫حامد‬
-  
+
     - Izafat The linking vowel of Persian origin known as the
       izafat will be written with a hyphen and then 'e'
       and then a following space. Example Koh-e Nur ("mountain
       of light"). There will be no special
       accommodation for when the initial word ends in a vowel.
-  
+
     # Special rules: Arabic
     - The Arabic article al ( ‫ال‬ ) The Arabic article will be
       written with a lowercase 'a' and followed by a hyphen, with
       the obvious exception that an uppercase 'a' should be used
       where required by English orthographic conventions, e.g.,
       at the beginning of a sentence. Example Karim al-Afghani
-  
+
     - Genitive constructions Multi-part Arabic names that follow
       the Arabic genitive construction will be written with a
       lowercase ul joined to the last part of the name by a
@@ -116,7 +116,7 @@ metadata {
       Rahman and Fazl Rahman would be
       acceptable, depending on whether the article was included
       in the individual's name.
-  
+
     - Consonant clusters Traditional Arabic names ending in a
       final consonant cluster will be spelled with the
       consonant cluster intact. Although most native Pashto
@@ -126,26 +126,26 @@ metadata {
       cluster in print.
       This type of name should not be confused with Arabic names whose orthography includes a zabar (short
       'a' vowel) prior to the final consonant. -- NOT DONE
-  
+
     # Special rules: Multiple-part Pashto names
     - TODO
-  
+
     # Special rules: Glides versus consonants
     - The unwritten phonetic "glides," also known as semi-
       consonants (sounding similar to /y/ and /w/), will
       generally not be shown between two vowels.
       Examples Rauf, Said (سعيد)
-  
+
     - Care should be taken to distinguish the above rule from
       cases in which wao or ya are a written part of the name and
       function as true consonants, including cases where they are
       doubled. Examples Fayiz ( ‫فایز‬ ), Fayyaz ( ‫فیّاض‬ )
-  
+
     - A common form where ya will be shown in its role as a
       consonant is with the Arabic nisba (suffix showing origin,
       relation, etc.) appended to names that end in a vowel.
       Examples Ziayi, Shafiyi, Mirzayi, Paktiayi
-  
+
     # Specific rules: Exceptions
     - TODO
       In spite of best intentions, the unbending application of
@@ -161,7 +161,7 @@ metadata {
       Qureshi (not Quraishi)
       Saad (not Sad)
       Sherpao (not Sherpaw)
-  
+
     - The following names do not constitute exceptions to the
       rules of this standard, but they are names that pose
       significant challenges to standardization and are therefore
@@ -179,7 +179,7 @@ metadata {
       Sherzad (not Shirzad)
       Tor Jan (not Tur Jan)
       Uwais (not Awais)
-  
+
     # Special rules: Titles
     - We treat the spelling of commonly used titles differently
       from the handling of names, given that titles are subject
@@ -242,20 +242,20 @@ stage {
 
   # CHARACTERS
   parallel {
-    
+
     sub "\u0650", "i" # ِ kasra
     sub "\u064f", "u" # ُ damma
-    
+
     sub "\u0650\\b", "-e" # ِ kasra
-    
+
     sub "\u0652", "" # ْ sokoon
     sub "\u0659", "ê"
-    
+
     # Sun letters
     sub "\u064f?\\s?\u0627\u0644\u062f[\u064a|\u0649]\u0646", "uddin" # الدين
-    
+
     sub "\u0626", "êy" # ئ
-    
+
     sub "\u0628", "b" # ب
     sub "\u067E", "p" # پ
     sub "[\u062a|\u067C|\u0637]", "t" # ت/ټ/ط
@@ -278,14 +278,14 @@ stage {
     sub "\u0643", "k" # ك
     sub "\u06A9", "k" # ک
     sub "[\u06AF|\u06AB]", "g" # ‫گ‬/ګ
-    
+
     sub "\u0644", "l" # ل
     sub "\u0645", "m" # م
     sub "[\u0646|\u06BC]", "n" # ن/ڼ
     sub "\u0648", "w" # و
     sub "\u064a", "y" # ي
     sub "\u0649", "y" # ي
-    
+
     sub "\u064e\u0627?", "a" # َ fatha
     sub "\u0650", any("ie")
     sub "\u064f", any("uo") # ُ damma
@@ -306,7 +306,7 @@ stage {
     sub "\u0648\u064A\\b", "oy" # ‫وي‬
     sub "\u064f\u0648\u064A\\b", "uy" # ُوي
     sub "\u0623", "" # أ
-    
+
     # Double consonants
     sub "\u0628\u0651", "bb" # ب
     sub "\u067E\u0651", "pp" # پ
@@ -328,10 +328,10 @@ stage {
     sub "\u0648\u0651", "ww" # و
     sub "\u064a\u0651", "yy" # ي
     sub "\u0649\u0651", "yy" # ي
-    
+
     sub "(?<=\\s)\\b\u0627\u0644", "al-" # ال
     sub "\\s?\u0627\u0644\u0644\u0651\u064e\u0647", "ullah"
-    
+
     sub "\u0624\u0648", "u"
   }
 

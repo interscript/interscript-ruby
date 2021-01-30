@@ -11,22 +11,22 @@ metadata {
   description: |
     The tabulation below reflects the Serbian Cyrillic alphabet and the standard Roman script equivalents
     used in both Serbia and Montenegro.
-  
+
   notes:
     - The Serbian Cyrillic lowercase italic Д may sometimes be seen as g.
       There is no specific Unicode encoding for this variant form so a comparable character
       has been used here for illustrative purposes.
-  
+
     - The digraph dj(Dj) will occasionally be found as an alternative form of đ(Đ).
-  
+
     - The Serbian Cyrillic lowercase italic П may sometimes be seen as ӣ.
       There is no specific Unicode encoding for this variant form so a comparable character
       has been used here for illustrative purposes.
-  
+
     - The Serbian Cyrillic lowercase italic Т may sometimes be seen as w.
       There is no specific Unicode encoding for this variant form so a comparable character
       has been used here for illustrative purposes.
-  
+
     - |
       An inventory of letter-diacritic combinations, with their Unicode encoding,
       in addition to the unmodified letters of the basic Roman script is:
@@ -37,7 +37,7 @@ metadata {
       | Dž (U+01C5)* | dž (U+01C6)* |
       | Š (U+0160)   | š (U+0161)   |
       * Note that these characters can also be reproduced with individual letters (e.g. l+j).
-  
+
     - The Roman-script columns show only lowercase forms but, when applying the table,
       uppercase and lowercase Roman letters as appropriate should be used.
 }
@@ -87,7 +87,7 @@ stage {
   sub "((?<=[[:upper:]])Nj(?=[[:upper:]])?|(?<=[[:upper:]])?Nj(?=[[:upper:]]))", "NJ"
   #DŽ
   sub "((?<=[[:upper:]])Dž(?=[[:upper:]])?|(?<=[[:upper:]])?Dž(?=[[:upper:]]))", "DŽ"
-  
+
 
   # CHARACTERS
   parallel {

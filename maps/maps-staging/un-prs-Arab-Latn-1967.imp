@@ -1,7 +1,7 @@
 metadata {
   authority_id: ungen
   id: 2017
-  language: iso-639-3:prs 
+  language: iso-639-3:prs
   # prs stands for Dari (https://iso639-3.sil.org/code/prs&_ga=GA1.2.2054538372.1574092823)
   source_script: Arab
   destination_script: Latn
@@ -20,10 +20,10 @@ metadata {
     Revised edition 1998. Submitted by the Islamic Republic of
     Iran. UNGEGN, 20th session. New York, 17-28 January 2000,
     Working Paper No. 41.).
-  
+
     The system is used in the Islamic Republic of Iran and in
     international cartographic products.
-  
+
     Persian (Farsi) uses the Perso-Arabic script that is
     written from right to left. The Persian script usually
     omits vowel points and diacritical marks from writing which
@@ -33,8 +33,8 @@ metadata {
     sequences (kh, sh, th, zh) which also may represent the
     romanized values of two Persian characters in addition to
     the respective single ones.
-  
-  
+
+
   notes:
     - A Word-initially.
     - B Not romanized; marks absence of the vowel.
@@ -45,13 +45,13 @@ metadata {
       romanized -īyeh. In romanizing the definite article the
       same rules of assimilation of consonants are applied as in
       Arabic, e.g. زين الدين Zeyn od Dīn.
-  
+
     - 2-The relational suffix (eẕāfeh) -e is usually not
       expressed in Persian writing after a consonant. After final
       ا or و it is written with ى, e.g. پاى آب Pā-ye Āb. After
       final ى and ه it is expressed by writing hamzeh over the
       character دهانۀ ممبر Dahāneh-ye Mambar.
-  
+
     - 3-To point Persian vowels two systems are in use that are
       separated by a column in the table. The first system is a
       Persian one while the other adheres to the Arabic
@@ -86,22 +86,22 @@ stage {
 
   # POSTRULES
   sub "(?<=\\b)(?<!\\b[‘|’|'|-])[\\u0061-\\uFFFF]", "upcase"
-  
+
   sub " Al", " al"
-  
+
   sub " Ol", " ol"
-  
+
 
   # CHARACTERS
   parallel {
-    
+
     sub "\u064e", "a" # َ fatha
     sub "\u064e(?=\u0629)", "" # َ fatha followed by ta' marboota
     sub "\u064e(?=a[h|t])", "" # َ fatha followed by ta' marboota, handling different order of conversion
     sub "\u0650", "e" # ِ kasra
     sub "\u064f", "o" # ُ damma
     sub "\u0652", "" # ْ sokoon, see Note B
-    
+
     sub "\u064e\u0627", "ā" # ـَا fatha followed by ا
     sub "\u064e\u0649", "á" # ـَى fatha followed by ى which is ا not ي
     sub "\\b\u0622", "ā" # آ  NOTE A
@@ -117,7 +117,7 @@ stage {
     sub "(?<=[\u064a|\u0647])[\u0654|\u0674]", "-ye" # ٴ ezafeh
     sub "\u0650\\b", "-e" # ِ kasra
     sub "[\u064a|\u06cc]\u0650\\b", "-ye" # ِ kasra
-    
+
     # NOTE C
     sub "\u0628\u0651", "bb" # ب
     sub "\u062a\u0651", "tt" # ت
@@ -145,7 +145,7 @@ stage {
     sub "\u0647\u0651", "hh" # ه
     sub "\u0648\u0651", "vv" # و
     sub "\u064a\u0651", "yy" # ي
-    
+
     # NOTE 1
     # Sun letters
     sub "\\b\u0627\u0644\u062a", "ot t" # الت
@@ -162,10 +162,10 @@ stage {
     sub "\\b\u0627\u0644\u0638", "oz̧ z̧" # الظ
     sub "\\b\u0627\u0644\u0644", "ol l" # الل
     sub "\\b\u0627\u0644\u0646", "on n" # الن
-    
+
     sub "\u0650\u064a\u0651", "īy" # ـِيَّ
     sub "\u0650\u064a(?=\u064e|u064f)", "iy" # ـِي kasra followed by ي
-    
+
     # ta' marboota
     sub "\u0629", "at" # ة in the middle of the sentence
     sub "\u0629$", "ah"
@@ -181,14 +181,14 @@ stage {
     sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{11})\u0629", "ah"
     sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{12})\u0629", "ah"
     sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{13})\u0629", "ah"
-    
+
     sub "\\b\u0627\u0644", "al " # ال
     sub "\\s\\b\u0627\u0644", " ol " # ال #special Rule 1
-    
+
     sub "\\b\u0627", "" # ا initial
     sub "\u0627", "ā" # ا middial
     sub "\u0627\\b", "ā" # ا final
-    
+
     sub "\u0628", "b" # ب
     sub "\u067E", "p" # پ
     sub "\u062A", "t" # ت

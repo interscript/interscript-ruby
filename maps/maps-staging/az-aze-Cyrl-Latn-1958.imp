@@ -8,7 +8,7 @@ metadata {
   creation_date: 1958
   description: |
     In 1939 Joseph Stalin ordered the Cyrillic alphabet to be used by Azeri speakers in the Soviet Union.
-  
+
   notes:
     - In 1947, the letter Цц was excluded from the alphabet. Previously, it was used for Russian borrowings
     - In 1958, the letters Ээ, Юю, Яя were eliminated, and the letter Йй was replaced by Јј
@@ -45,7 +45,7 @@ stage {
     sub "Э", none # Э note[2]
     sub "Ю", none # Ю note[2]
     sub "Я", none # Я note[2]
-    
+
     sub "ј", "y" # ј note[2]
     sub "й", none # й note[2]
     sub "ц", none # ц note[1]

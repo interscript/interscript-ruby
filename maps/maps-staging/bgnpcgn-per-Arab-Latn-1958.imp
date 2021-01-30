@@ -1,7 +1,7 @@
 metadata {
   authority_id: bgnpcgn
   id: 2007
-  language: iso-639-3:prs 
+  language: iso-639-3:prs
   # prs stands for Dari (https://iso639-3.sil.org/code/prs&_ga=GA1.2.2054538372.1574092823)
   source_script: Arab
   destination_script: Latn
@@ -38,7 +38,7 @@ metadata {
     dialectical variation.
     The notes and special rules explain details of
     transliteration not stated in the tables.
-  
+
   notes:
     - |
       1)The Persian writing system, in its generally used form,
@@ -53,7 +53,7 @@ metadata {
       system presupposes forms fully pointed with the Persian
       symbols represented in Table II, though these are omitted
       from the examples given below.
-  
+
     - 2) Alef ( أ ) occurs with the following uses
       a. Initially, it indicates that the word begins with a vowel or
       diphthong, and the alef itself is not transliterated, e.g.,
@@ -62,11 +62,11 @@ metadata {
       c. Medially and finally. it represents ā, e.g., e.g., آبادان Ābādān,
        توكا Tūkā.
       d.	With hamzeh. See Note 5.
-  
-  
+
+
     - 3) Where special considerations are paramount, the sub-dot
       may be used in place of the cedilla
-  
+
     - 4) The two-letter symbols kh, zh, sh, and gh are convenient
       for use and easily comprehensible. The infrequent sequences
       of kāf, ze, sīn, and gāf followed by he can be unequivocally
@@ -74,7 +74,7 @@ metadata {
       slant line (“shilling,” “solidus") to separate true h from
       a preceding k, z, s, or	g; that is,	kh represents khe, but
       k/h stands for kāf followed by he.
-  
+
     - 5) Hamzeh (ء)	is	not regarded as a letter of the Persian
       alphabet, but as a diacritic mark, and as such is not
       always expressed in actual writing. In fully pointed words,
@@ -91,11 +91,11 @@ metadata {
       simply Anjireh.	' Hamzeh is also sometimes written over
       final he or ye to represent the -ye form of the eg&feh, cf.
       Note 8.
-  
+
     - 6) Alef maddeh is used initially to indicate ā, e.g., آبادان Ābādān
       Noninitially it indicates ’ā in words of Arabic origin,
       and must be so transliterated, e.g., قرآن Qor’ān, مآب ma’āb
-  
+
     - 7) Tashdid ( ّ) indicates doubling of the consonant over which
       it is written and is represented in transliteration by writing
       the consonant twice, e.g محمّد Mohammad The sequence kasreh ye ye
@@ -105,7 +105,7 @@ metadata {
       (t, s̄, d, z̄, r, s, sh, ẕ, ţ, z̧, ţ, z̧, l, n) is assimilated. The article
       is written in lower case and separate from the preceding and following word,
       e.g., Zeyn od Din, but *£4 . Zeyn ed Dīn. Cf. Special Rule 1.
-  
+
     - 8) The relational (ezafeh) suffix	is	transliterated -e after final consonants
       (except for silent h). After silent h and after vowels, it is transliterated
       -ye. It is usually not expressed in Persian writing after a consonant
@@ -113,9 +113,9 @@ metadata {
       it is written with ye (ي), e.g., بايِ آب	Pa-ye Ab,	جويِ آس Jū-ye Ās.	After	ye (ي)
       and silent he it is written as hamzeh over the letter, e.g., دَهَانهٴ مَمبَر Dahāneh-ye Mambar,
       سَلَيٴ بُذٌرگ Salasi-ye Bozorrg.
-  
-  
-  
+
+
+
     -  1.	In Persian names of Arabic origin, the word division
       used for transliterating Arabic will obtain, except that
       names ending in the word Allah will be written solid and
@@ -123,26 +123,26 @@ metadata {
       definite article when not subject to assimilation will be
       written al in name-initial position but usually, ol
       elsewhere, e.g., Al JJal but 2u ol Faqar. Cf. Note 7 above.
-  
+
     - 2. In Persian names in general, in sequences of name
       elements pronounced as a single unit, division into
       separate words will be made after Persian letters written
       in the word final form. (But see the Rule immediately
       below.)
-  
+
     - 3. The word abad which occurs very frequently at
       the end of place names will be written solid with the
       preceding word; e.g., Allahabad, not Allah Abad.
-  
+
     - 4. Persian derivational endings such as vand and Turkish and other
       endings such as lar, li and lu will be written solid with
       the preceding word, whether so written in Persian script or
       not.
-  
+
     - 5. The letter he, when used in Turkish fashion for
       word internal e, will be transliterated eh as usual but
       will be written solid with the remainder of the word.
-  
+
     - 6. Kheplus vdv followed by long vowel or khe plus vdv followed
       by gammeh will be rendered khv although the v is not
       pronounced.
@@ -181,18 +181,18 @@ stage {
 
   # POSTRULES
   sub "(?<=\\b)(?<!\\b[‘|’|'|-])[\\u0061-\\uFFFF]", "upcase"
-  
+
   sub " Ol", " ol"
-  
+
 
   # CHARACTERS
   parallel {
-    
+
     sub "\\s\u0622\u0628\u064E\u0627\u062F", "ābād" # Special Rule 3
-    
+
     sub "\u064e(?=\u0629)", "" # َ fatha followed by ta' marboota
     sub "\u064e(?=a[h|t])", "" # َ fatha followed by ta' marboota, handling different order of conversion
-    
+
     # pointing
     sub "\u064e", "a" # َ fatha
     sub "\u0650", "e" # ِ kasra
@@ -214,7 +214,7 @@ stage {
     sub "\u0650\\b", "-e" # ِ kasra
     sub "[\u064a|\u06cc]\u0650\\b", "-ye" # ِ kasra
     # shadda
-    
+
     sub "\u0628\u0651", "bb" # ب
     sub "\u062a\u0651", "tt" # ت
     sub "\u062b\u0651", "s̄s̄" # ث
@@ -241,19 +241,19 @@ stage {
     sub "\u0647\u0651", "hh" # ه
     sub "\u0648\u0651", "vv" # و
     sub "\u064a\u0651", "yy" # ي
-    
+
     sub "\u0659", "ê"
-    
+
     # ta' marboota
     sub "\u0629", "eh"
-    
+
     sub "\\b\u0627\u0644", "al " # ال
     sub "\\s\\b\u0627\u0644", " ol " # ال #special Rule 1
     sub "\ufdf2", "Allāh" # See note 5
     sub "\u0627\u0644\u0644\u0651\u064e\u0647", "Allāh"
     sub "(?<!\\b)\u0627\u0644\u0644\u0651\u064e\u0647", "ollāh" # Special Rule 1
     # '\uFE8E' : ''  # ﺎ
-    
+
     # Sun letters
     sub "\\b\u0627\u0644\u062a", "at t" # الت
     sub "\\b\u0627\u0644\u062b", "as̄ s̄" # الث
@@ -269,18 +269,18 @@ stage {
     sub "\\b\u0627\u0644\u0638", "az̧ z̧" # الظ
     sub "\\b\u0627\u0644\u0644", "al l" # الل
     sub "\\b\u0627\u0644\u0646", "an n" # الن
-    
-    
+
+
     sub "\u0621", "’" # ء
     sub "\u0626", "’" # ئ
-    
+
     sub "\u0623", "" # أ
     sub "\u0625", "" # إ
     sub "\u0627", "ā" # ا
     sub "\\b\u0627", "" # ا
-    
+
     # consonant characters
-    
+
     sub "\u0628", "b" # ب
     sub "\u067E", "p" # پ
     sub "\u062a", "t" # ت

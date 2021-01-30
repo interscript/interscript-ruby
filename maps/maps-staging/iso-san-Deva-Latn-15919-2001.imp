@@ -11,15 +11,15 @@ metadata {
   description: |
     Script conversion is often required for documents such as historical and literary texts, geographical texts (including
     maps and atlases), bibliographies, catalogues, lists and passports (and other identification documents).
-  
+
     Text in Devanagari script or other Indic scripts sometimes needs to be shown in Latin script, where users, or
     equipment that they are using, cannot read or write the text
-  
+
     This International Standard applies to transliteration of Devanagari, and to Indic scripts related to Devanagari,
     independent of the period in which it is or was used.
-  
+
   notes:
-  
+
     - All transliterations made using this International Standard shall be case-insensitive.
     - Inherent a with a consonant shall always be transliterated.
     - anusvara (including Vedic anusvara) shall be transliterated as ṁ
@@ -75,9 +75,9 @@ stage {
 
   # CHARACTERS
   parallel {
-    
+
     # I. Vowels and Diphthongs (see Note 1)
-    
+
     sub "अ", "a"
     sub "आ", "ā"
     sub "इ", "i"
@@ -94,7 +94,7 @@ stage {
     sub "औ", "au"
     sub "ऍ", "ê"
     sub "ऑ", "ô"
-    
+
     # II. Consonants (see Note 2)
     # Gutturals
     sub "क", "ka"
@@ -102,67 +102,67 @@ stage {
     sub "ग", "ga"
     sub "घ", "gha"
     sub "ङ", "ṅa"
-    
+
     # Palatals
     sub "च", "ca"
     sub "छ", "cha"
     sub "ज", "ja"
     sub "झ", "jha"
     sub "ञ", "ña"
-    
+
     # Cerebrals
     sub "ट", "ṭa"
     sub "ठ", "ṭha"
     sub "ड", "ḍa"
     sub "ढ", "ḍha"
     sub "ण", "ṇa"
-    
+
     # Dentals
     sub "त", "ta"
     sub "थ", "tha"
     sub "द", "da"
     sub "ध", "dha"
     sub "न", "na"
-    
+
     # Labials
     sub "प", "pa"
     sub "फ", "pha"
     sub "ब", "ba"
     sub "भ", "bha"
     sub "म", "ma"
-    
+
     # Semivowels
     sub "य", "ya"
     sub "र", "ra"
     sub "ल", "la"
     sub "ळ", "ḷa"
     sub "व", "va"
-    
+
     # Sibilants
     sub "श", "śa"
     sub "ष", "ṣa"
     sub "स", "sa"
-    
+
     # Aspirate
     sub "ह", "ha"
-    
+
     sub "ᳵ", "ẖ"
     sub "ᳶ", "ḫ"
-    
-    
+
+
     # Anusvāra
     sub "ं", "ṁ"
-    
+
     # Bisarga
     sub "ः", "ḥ"
-    
+
     # candrabindu
     sub "ँ", "m̐"
-    
+
     # Abagraha
     sub "ऽ", ":’" # (apostrophe)
-    
-    
+
+
     # Medials # Needed for connecting constants
     sub "ा", "ā"
     sub "ि", "i"
@@ -179,22 +179,22 @@ stage {
     sub "ौ", "au"
     sub "ॉ", "ô"
     sub "ॅ", "ê"
-    
+
     sub "्", ""
     sub "‍", "" # Used for joining
-    
-    
+
+
     # for semivowel rule no. 5
-    
+
     sub "यँ", "m̐ya"
     sub "रँ", "m̐ra"
     sub "लँ", "m̐la"
     sub "ळँ", "m̐ḷa"
     sub "वँ", "m̐va"
-    
-    
+
+
     # digits
-    
+
     sub "०", "0"
     sub "१", "1"
     sub "२", "2"
@@ -205,9 +205,9 @@ stage {
     sub "७", "7"
     sub "८", "8"
     sub "९", "9"
-    
+
     # Perso-Arabic characters
-    
+
     sub "स़", "s̱a"
     sub "ह़", "ẓa"
     sub "ख़", "k͟ha"

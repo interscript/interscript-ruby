@@ -10,7 +10,7 @@ metadata {
   creation_date: 2001
   description: |
     Reversible transliteration standard, ELOT
-  
+
   notes:
     - Transliteration standard (reversible): Clause 3.1, Table 1
 }

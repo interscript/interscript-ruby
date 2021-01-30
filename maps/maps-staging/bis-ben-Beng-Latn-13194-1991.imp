@@ -5,18 +5,18 @@ metadata {
   source_script: Beng
   destination_script: Latn
   name: Indian script code for information interchange - ISCII - Bengali Romanization
-  
+
   #url:
   creation_date: 1991
   description: |
     IS 13194 (1991): Indian script code for information
     interchange - ISCII [LITD 20: Indian Language Technologies
     and Products]
-  
+
   notes:
     - |
       Exception: Anusvāra is transliterated by:
-  
+
       a) ṅ before gutturals,
       b) ñ before palatals,
       c) ṇ before cerebrals,
@@ -56,8 +56,8 @@ stage {
   sub "\\u0982(?=[টঠডড়ঢঢ়ণ])", "ṇ"
   sub "\\u0982(?=[তৎথদধন])", "n"
   sub "\\u0982(?=[পফবভম])", "m"
-  
-  
+
+
 
   # CHARACTERS
   parallel {
@@ -73,7 +73,7 @@ stage {
     sub "ঐ", "ai"
     sub "ও", "ŏ"
     sub "ঔ", "au"
-    
+
     # II. Consonants (see Note 2)
     # Gutturals
     sub "ক", "k"
@@ -81,14 +81,14 @@ stage {
     sub "গ", "g"
     sub "ঘ", "gh"
     sub "ঙ", "ṅ"
-    
+
     # Palatals
     sub "চ", "c"
     sub "ছ", "ch"
     sub "জ", "j"
     sub "ঝ", "jh"
     sub "ঞ", "ñ"
-    
+
     # Cerebrals
     sub "ট", "ṭ"
     sub "ঠ", "ṭh"
@@ -97,7 +97,7 @@ stage {
     sub "ঢ", "ḍh"
     sub "ঢ়", "d̂h"
     sub "ণ", "ṇ"
-    
+
     # Dentals
     sub "ত", "t"
     sub "ৎ", "t"
@@ -105,41 +105,41 @@ stage {
     sub "দ", "d"
     sub "ধ", "dh"
     sub "ন", "n"
-    
+
     # Labials
     sub "প", "p"
     sub "ফ", "ph"
     sub "ব", "b"
     sub "ভ", "bh"
     sub "ম", "m"
-    
+
     # Semivowels
     sub "য", "y"
     sub "য়", "ẏ"
     sub "য়", "ẏ"
     sub "র", "r"
     sub "ল", "l"
-    
+
     # Sibilants
     sub "শ", "ś"
     sub "ষ", "ṣ"
     sub "স", "s"
-    
-    
+
+
     # Aspirate
     sub "হ", "h"
-    
+
     # Chandrabindu
     sub "ঁ", "m"
-    
+
     # Bisarga
     sub "ঃ ", "ḥ"
-    
+
     # Anusvāra
     sub "ং", "ṃ"
-    
+
     # Medials # Needed for connecting constants
-    
+
     sub "\u09be", "ā"
     sub "\u09bf", "i"
     sub "\u09c0", "ī"

@@ -9,10 +9,10 @@ metadata {
   creation_date: 1976-06
   description: |
     Article 1
-  
+
     The main purpose of the transliteration method of Chinese pinyin
     letter transliteration of place names in minority languages:
-  
+
     (1) As a standard for spelling place names in minority languages ​​
     with Chinese phonetic alphabet;
     (2) As a phonetic tool for surveying and recording ethnic place
@@ -22,9 +22,9 @@ metadata {
     transliteration;
     (4) Provide convenient conditions for the unified compilation of my
     country's place-name information and index in alphabetical order.
-  
+
     Article 2
-  
+
     The transliteration method is limited to the 26 letters in the
     "Hanyu Pinyin Plan", two letters with additional symbols and a
     sound-proof symbol. In order to make the transcription and phonetic
@@ -33,7 +33,7 @@ metadata {
     in various occasions that are easy to be confused. When recording,
     additional symbols can be added to specific letters to represent
     special sounds.
-  
+
     The transliteration and transliteration of ethnic minority scripts
     in Latin script shall be based on the script. Letters with the same
     or similar pronunciation and usage as in the "Hanyu Pinyin Plan"
@@ -42,73 +42,73 @@ metadata {
     letters, the corresponding Chinese phonetic letters shall be used
     according to the pronunciation of the text. If there is no text,
     according to the general voice mark.
-  
+
     Article 3
-  
+
     Special place names are handled with reference to the following
     methods:
-  
+
     (1) If the commonly used Chinese name is partly transliterated and
     partly translated, the transliteration part is spelled according to
     the transliteration method, and the free translation part is
     spelled according to the pronunciation of the Chinese character.
-  
+
     (2) If the commonly used Chinese character translation is a section
     translation, the actual situation may be considered. Some are
     transliterated according to the full name of the original name, and
     some are spelled according to the Hanyu pronunciation of the
     section translation.
-  
+
     (3) If the translated name of a Chinese character originally came
     from a minority language, but later became a Chinese form and has
     been commonly used, it can be spelled according to the
     pronunciation of the Chinese character, including the original name
     transliterated if necessary.
-  
+
     (4) Other special circumstances shall be dealt with according to
     specific discretion.
-  
+
   original_description: |
     第一条
-  
+
     少数民族语地名汉语拼音字母音译转写法的主要用途：
-  
+
     （1） 作为用汉语拼音字母拼写少数民族语地名的标准；
     （2）作为地图测绘工作中调査记录少数民族语地名的记音工具；
     （3） 作为汉字音译少数民族语地名定音和选字的主要依据；
     （4）为按照字母颐序统一编排我国地名资料和索引提供便利条件。
-  
+
     第二条
-  
+
     音译转写法限用《汉语拼音方案》中的26个字母，两个有附加符号的字母和一
     个隔音符号，为了使转写和记音比较准确，音节结构可以不受汉语普通话音节
     形式的限制，隔音符号可以在各种
     容易混淆的场合应用，记音的时候附加符号可以加在特定的字母上面代表特殊
     语音。
-  
-  
+
+
     少数民族文字用拉丁字母的，音译转写以其文字为依据。跟《汉语拼音方案》
     中读音和用法相同或相近的字母，一律照写；不同或不相近的字母分别规定转
     写方式，文字不用拉丁字母的，根据文字的读音采用相应的汉语拼音字母表示
     。没有文字的，根据通用语音标记。
-  
+
     第三条
-  
+
     特殊的地名参照下列办法处理：
-  
-  
+
+
     (1）惯用的汉字译名如果是一部分音译，一部分意译，其音译部分根据音译转
     写法拼写，意译部分按照汉字读音拼写。
-  
-  
+
+
     (2）惯用的汉字译名如果是节译，可以斟酌具体体情况，有的按照原名全称音
     译转写，有的按照节译的汉宇读音拼写。
-  
+
     (3) 汉字译名如果原先来自少数民族语，后来变成汉语形式并且已经通用，可以按
     照汉字读音拼写，必要时括注音译转写的原名。
-  
+
     (4) 其他特殊情况具体斟酌处理。
-  
+
   notes:
     - The transliteration of Mongolian place names is based on the
       customary pronunciation combining written and spoken languages.
@@ -119,12 +119,12 @@ metadata {
       are juxtaposed with or without symbols and adjuncts. Normally, the
       spelling letters are without symbols, and the place names are
       recorded by the acronym.
-  
+
   original_notes:
     (1) 蒙古语地名的音译转写，以书面语和口语通用相结合的习惯读法为依据。
     (2) 蒙古语元音的长短，一般拼写不分，地名记音中长元音用双字母表示。
     (3) 音译转写的汉语拼音字母有无符和加符并列的，一般拼写用无符字母，地名记音用加符宇母。
-  
+
   implementation_notes:
     - A separated final form of vowels a or e is common, and can appear at the end
       of a word, word stem, or suffix. This form requires a final-shaped preceding

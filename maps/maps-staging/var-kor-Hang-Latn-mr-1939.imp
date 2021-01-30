@@ -183,96 +183,96 @@ stage {
   run map.hanghang.stage.main
 
   # RULES
-  
+
 
   # POSTRULES
-  
+
   # Add space to the two ends of the string for easier word boundary handling
   sub "^", " "
   sub "$", " "
-  
+
   # HANGUL JONGSEONG SSANGKIYEOK
   sub "ᆩ(-?)ᄋ", "ᆨ\\1ᄁ"
   sub "ᆩ(-?)", "ᆨ\\1"
-  
+
   # HANGUL JONGSEONG SSANGKIYEOK
   sub "ᆪ(-?)ᄋ", "ᆨ\\1ᄉ"
   sub "ᆪ(-?)", "ᆨ\\1"
-  
+
   # HANGUL JONGSEONG NIEUN-CIEUC
   sub "ᆬ(-?)ᄋ", "ᆫ\\1ᄌ"
   sub "ᆬ(-?)", "ᆫ\\1"
-  
+
   # HANGUL JONGSEONG NIEUN-CIEUC
   sub "ᆭ(-?)ᄀ", "ᆫ\\1ᄏ"
   sub "ᆭ(-?)ᄃ", "ᆫ\\1ᄐ"
   sub "ᆭ(-?)ᄇ", "ᆫ\\1ᄑ"
   sub "ᆭ(-?)ᄌ", "ᆫ\\1ᄎ"
   sub "ᆭ(-?)", "ᆫ\\1"
-  
+
   # HANGUL JONGSEONG TIEUT
   sub "ᆮ(-?)(?=[ᄀᄁᄂᄃᄄᄅᄆᄇᄈᄉᄊᄌᄍᄎᄏᄐᄑᄒ])", "ᆺ\\1"
-  
+
   # HANGUL JONGSEONG RIEUL-SIOS
   sub "ᆳ(-?)ᄋ", "ᆯ\\1ᄉ"
   sub "ᆳ(-?)", "ᆯ\\1"
-  
+
   # HANGUL JONGSEONG RIEUL-THIEUTH
   sub "ᆴ(-?)ᄋ", "ᆯ\\1ᄐ"
   sub "ᆴ(-?)", "ᆯ\\1"
-  
+
   # HANGUL JONGSEONG RIEUL-PHIEUPH
   sub "ᆵ(-?)ᄋ", "ᆯ\\1ᄑ"
   sub "ᆵ(-?)(?=[ᄃᄄᄐ])", "ᆯ\\1"
   sub "ᆵ(-?)", "ᄇ\\1"
-  
+
   # HANGUL JONGSEONG RIEUL-HIEUH
   sub "ᆶ(-?)ᄀ", "ᆯ\\1ᄏ"
   sub "ᆶ(-?)ᄃ", "ᆯ\\1ᄐ"
   sub "ᆶ(-?)ᄇ", "ᆯ\\1ᄑ"
   sub "ᆶ(-?)ᄌ", "ᆯ\\1ᄎ"
   sub "ᆶ(-?)", "ᆯ\\1"
-  
+
   # HANGUL JONGSEONG PIEUP-SIOS
   sub "ᆹ(-?)ᄋ", "ᄇ\\1ᄉ"
   sub "ᆹ(-?)", "ᄇ\\1"
-  
+
   # HANGUL JONGSEONG SSANG-SIOS
   sub "ᆻ(-?)ᄋ", "ᆺ\\1ᄊ"
   sub "ᆻ(-?)", "ᆺ\\1"
-  
+
   # HANGUL JONGSEONG CIEUC
   sub "ᆽ(-?)ᄋ", "ᆺ\\1ᄌ"
   sub "ᆽ(-?)", "ᆺ\\1"
-  
+
   # HANGUL JONGSEONG CHIEUCH
   sub "ᆾ(-?)ᄋ", "ᆺ\\1ᄎ"
   sub "ᆾ(-?)", "ᆺ\\1"
-  
+
   # HANGUL JONGSEONG KHIEUKH
   sub "ᆿ(-?)ᄋ", "ᆨ\\1ᄏ"
   sub "ᆿ(-?)", "ᆨ\\1"
-  
+
   # HANGUL JONGSEONG THIEUTH
   sub "ᇀ(-?)ᄋ", "ᆺ\\1ᄐ"
   sub "ᇀ(-?)", "ᆺ\\1"
-  
+
   # HANGUL JONGSEONG PHIEUPH
   sub "ᇁ(-?)ᄋ", "ᆸ\\1ᄑ"
   sub "ᇁ(-?)", "ᆸ\\1"
-  
+
   # HANGUL JONGSEONG HIEUH
   sub "ᇂ(-?)ᄀ", "\\1ᄏ"
   sub "ᇂ(-?)ᄃ", "\\1ᄐ"
   sub "ᇂ(-?)ᄇ", "\\1ᄑ"
   sub "ᇂ(-?)ᄌ", "\\1ᄎ"
   sub "ᇂ(-?)", "\\1"
-  
+
   # From Unicode Chart
   # https://github.com/unicode-org/cldr/blob/master/common/transforms/Korean-Latin-BGN.xml
-  
+
   sub "ᆮ(-?)ᄋ", "\\1d" # HANGUL JONGSEONG TIEUT + CHOSEONG IEUNG
-  
+
   sub "ᆨ(-?)ᄀ", "k\\1k" # HANGUL JONGSEONG KIYEOK + CHOSEONG KIYEOK
   sub "ᆨ(-?)ᄂ", "ng\\1n" # HANGUL JONGSEONG KIYEOK + CHOSEONG NIEUN
   sub "ᆨ(-?)ᄃ(?=[ᅵᅣᅤᅧᅨᅭᅲ])", "k\\1ch" # HANGUL JONGSEONG KIYEOK + CHOSEONG TIEUT + YOTIZED VOWELS
@@ -566,20 +566,20 @@ stage {
   sub "ᇁ(?=[ -])", "p" # HANGUL JONGSEONG PHIEUPH
   sub "ᆰ(?=[ -])", "k" # HANGUL JONGSEONG RIEUL-KIYEOK
   sub "ᆲ(?=[ -])", "p" # HANGUL JONGSEONG RIEUL-PIEUP
-  
+
   sub "(ch|ch’|j|s|ss)y", "\\1"
-  
+
   sub "swi", "shwi"
-  
+
   # Remove space added
   sub "^ ", ""
   sub " $", ""
-  
+
 
   # CHARACTERS
   parallel {
     # This is based on Jamo
-    
+
   }
 
   # DICTIONARY

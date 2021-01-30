@@ -12,7 +12,7 @@ metadata {
     World War II and is now the official language of North Macedonia.
     This romanization system replaces the BGN/PCGN 1981 agreement and adheres
     to the most widely-accepted standardization of Macedonian orthography.
-  
+
   notes:
     - The Macedonian Cyrillic lowercase italic Д may sometimes be seen as g.
       There is no specific Unicode encoding for this variant form so a comparable character
@@ -99,7 +99,7 @@ stage {
   sub "((?<=[[:upper:]])Nj(?=[[:upper:]])?|(?<=[[:upper:]])?Nj(?=[[:upper:]]))", "NJ"
   #DŽ
   sub "((?<=[[:upper:]])Dž(?=[[:upper:]])?|(?<=[[:upper:]])?Dž(?=[[:upper:]]))", "DŽ"
-  
+
 
   # CHARACTERS
   parallel {

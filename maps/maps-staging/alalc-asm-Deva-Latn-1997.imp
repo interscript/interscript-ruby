@@ -9,24 +9,24 @@ metadata {
   creation_date: 1997
   description: |
     ALA-LC Romanization table for Assamese
-  
+
   notes:
-  
+
     - Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for
       vowels following a consonant can be found in grammars; no distinction between the two is
       made in transliteration.
-  
+
     - |
       The vowel a is implicit after all consonants and consonant clusters and is supplied in
       transliteration, with the following exceptions:
-  
+
       a) when another vowel is indicated by its appropriate sign; and
       b) when the absence of any vowel is indicated by the subscript sign ( ◌् ) called halanta or
          birāma.
-  
+
     - Candrabindu before guttural, palatal, cerebral, and dental occlusives is transliterated n̐. Before
       labials, sibilants, semivowels, aspirates, vowels, and in final position it is transliterated m̐.
-  
+
     - When doubled, avagraha is transliterated by two apostrophes ( ’’ ).
 }
 
@@ -97,13 +97,13 @@ stage {
   sub "(হ=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u094d\\u09cd])", "h"
   # note[3]
   sub "\\u0981(?=[কখগঘঙচছজঝঞটঠডড়ঢঢ়ণতৎথদধন])", "ṅ" # ঁ before guttural, palatal, cerebral, and dental
-  
+
 
   # CHARACTERS
   parallel {
-    
+
     #Vowels and Diphthongs (see Note 1)
-    
+
     sub "অ", "a"
     sub "আ", "ā"
     sub "ই", "i"
@@ -117,23 +117,23 @@ stage {
     sub "ঐ", "ai"
     sub "ও", "o"
     sub "ঔ", "au"
-    
+
     # Consonant characters
-    
+
     #Gutturals
     sub "ক", "ka"
     sub "খ", "kha"
     sub "গ", "ga"
     sub "ঘ", "gha"
     sub "ঙ", "ṅa"
-    
+
     #Palatals
     sub "চ", "ca"
     sub "ছ", "cha"
     sub "জ", "ja"
     sub "ঝ", "jha"
     sub "ঞ", "ña"
-    
+
     #Cerebrals
     sub "ট", "ṭa"
     sub "ঠ", "ṭha"
@@ -142,7 +142,7 @@ stage {
     sub "ঢ", "ḍha"
     sub "ঢ়", "ṛha"
     sub "ণ", "ṇa"
-    
+
     #Dentals
     sub "ত", "ta"
     sub "ৎ", "ṭ"
@@ -150,14 +150,14 @@ stage {
     sub "দ", "da"
     sub "ধ", "dha"
     sub "ন", "na"
-    
+
     #Labials
     sub "প", "pa"
     sub "ফ", "pha"
     sub "ব", "ba"
     sub "ভ", "bha"
     sub "ম", "ma"
-    
+
     #Semivowels
     sub "য়", "ya"
     sub "য", "ẏa"
@@ -165,28 +165,28 @@ stage {
     sub "ৰ", "ra"
     sub "ল", "la"
     sub "ৱ", "wa"
-    
+
     #Sibilants
     sub "শ", "śa"
     sub "ষ", "sha"
     sub "স", "sa"
-    
+
     #Aspirate
     sub "হ", "ha"
-    
-    
+
+
     # Anusvāra
     sub "ং", "ṃ"
-    
+
     # Bisarga
     sub "ঃ", "ḥ"
-    
+
     # Candrabindu (see Note 3)
     sub "ঁ", "m̐"
-    
+
     # Abagraha  (see Note 4)
     sub "ऽ", "’" # (apostrophe)
-    
+
     # Medials # Needed for connecting constants
     sub "\u09be", "ā"
     sub "\u09bf", "i"
@@ -201,9 +201,9 @@ stage {
     sub "।", "."
     sub "्", ""
     sub "\u09CD", "" # Used for joining
-    
+
     # Digits
-    
+
     sub "১", "1"
     sub "২", "2"
     sub "৩", "3"

@@ -8,12 +8,12 @@ metadata {
   url: https://www.iso.org/standard/5215.html
   creation_date: 1997
   description: |
-    Establishes a system for the transliteration and/or transcription 
+    Establishes a system for the transliteration and/or transcription
     of Greek characters into Latin characters. This system applies to
     the characters of the Greek script, independent of the period in
     which it is or was used, i.e. scripts from all periods of Classic
     or Modern Greek. Replaces ISO/R 843.
-  
+
   notes:
     - Transliteration of Greek into Latin: Type 1, Clause 3 Table 1
     - Equivalent to elot-ell-Grek-Latn-743-2001-ts, the transliteration table of ELOT 743:2001
@@ -284,7 +284,7 @@ stage {
   sub "(?<=[ΑαΕεΟο])\\u03CD", "ú" # ύ (after Ο)
   sub "\\u037E", "?" # ;
   sub "\\u003B", "?" # ;
-  
+
 
   # CHARACTERS
   parallel {
@@ -322,7 +322,7 @@ stage {
     sub "Ώ", "Ṓ" # Ώ
     sub "Ϊ", "Ï" # Ϊ
     sub "Ϋ", "Ÿ" # Ϋ
-    
+
     sub "ά", "á" # ά
     sub "α", "a" # α
     sub "β", "v" # β
@@ -359,12 +359,12 @@ stage {
     sub "ϋ", "ÿ" # ϋ
     sub "ΐ", "ḯ" # ΐ
     sub "ΰ", "ÿ́" # ΰ
-    
+
     sub "Ϝ", "W" # Ϝ
     sub "ϝ", "w" # ϝ
     sub "ϲ", "s" # ϲ
     sub "Ϲ", "S" # Ϲ
-    
+
     sub "·", ";" # ·
     sub "·", ";" # ·
   }

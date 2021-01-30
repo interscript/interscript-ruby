@@ -50,7 +50,7 @@ stage {
   sub "\\b\\u0407", "I" # Ї in initial position -> I
   sub "\\b\\u042e", "YU" # Ю in initial position -> YU
   sub "\\b\\u042f", "YA" # Я in initial position -> YA
-  
+
 
   # CHARACTERS
   parallel {

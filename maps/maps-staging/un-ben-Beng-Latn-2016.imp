@@ -12,12 +12,12 @@ metadata {
     and amended in 1977 (III/12), based on a report prepared by D. N.
     Sharma. The tables and their corrections were published in volume II of
     the conference reports1,2.
-  
+
     There is no evidence of the use of the system either in Bangladesh,
     in India or in international cartographic products. The resolution
     IV/17 (1982) recommended association, inter alia, with Bangladesh, in
     carrying out further studies on the system.
-  
+
     Bengali (Bānglā) uses an alphasyllabic script whereby each character
     represents a syllable rather than one sound. Vowels and diphthongs are
     marked in two ways: as independent characters (used syllable-initially)
@@ -27,28 +27,28 @@ metadata {
     reversible but there exist some ambiguities in the romanization of
     vowels (independent vs. abbreviated characters) and consonants
     (ligatures vs. character sequences).
-  
+
     Other systems of romanization
-  
+
     For differences between the UN system and the ISO transliteration
     standard ISO 15919: 2001 see the section on the romanization of Hindi.
-  
+
     References
-  
+
     Second United Nations Conference on the Standardization of
     Geographical Names. London, 10–31 May 1972. Vol. II. Technical papers.
     United Nations. New York 1974, pp. 139–140.
-  
+
     Third United Nations Conference on the Standardization of
     Geographical Names. Athens, 17 August – 7 September 1977. Vol. II,
     Technical papers, pp. 393 etc.
-  
+
   notes:
     - |
       In the romanization system below character variations and the table of ligatures have been added.
-  
+
       I. Independent vowel characters
-  
+
       1	অ	a
       2	আ	ā
       3	ই	i
@@ -60,10 +60,10 @@ metadata {
       9	ঐ	ai
       10	ও	o
       11	ঔ	au
-  
-  
-  
-  
+
+
+
+
     - Where two Roman equivalents are given, the second (in brackets) is
       used for recording the pronunciation of place-names while the first
       form is for general use.
@@ -101,9 +101,9 @@ stage {
 
   # CHARACTERS
   parallel {
-    
+
     # I. Independent vowel characters
-    
+
     sub "অ", "a" # 1
     sub "আ", "ā" # 2
     sub "ই", "i" # 3
@@ -115,9 +115,9 @@ stage {
     sub "ঐ", "ai" # 9
     sub "ও", "o" # 10
     sub "ঔ", "au" # 11
-    
+
     # II. Abbreviated vowel characters (ক stands for any consonant character)
-    
+
     # 'ক': 'a'   # 1
     sub "\u09be", "ā" # 2 কা
     sub "\u09bf", "i" # 3 কি
@@ -129,7 +129,7 @@ stage {
     sub "\u09c8", "ai" # 9 কৈ
     sub "\u09cb", "o" # 10 কো
     sub "\u09cc", "au" # 11 কৌ
-    
+
     # II 5 Exceptions
     sub "গু", "gu"
     sub "রু", "ru"
@@ -141,19 +141,19 @@ stage {
     sub "রূ", "rū"
     # II 7 Exceptions
     sub "হৃ", "hṛ"
-    
+
     # III. Other symbols (ক stands for any consonant character)
-    
+
     sub "\u0982", "ṁ" # 1 কং
     sub "\u0981", "m̐" # 2 কঁ
     sub "\u0983", "ḥ" # 3 কঃ
     sub "\u09cd\u200c", "" # 4 ক্‌ Pronunciation without a vowel; special form: ৎ t.
-    
+
     # III 4 special form
     sub "ৎ", "t"
-    
+
     # IV. Consonant characters
-    
+
     sub "ক", "ka" # 1
     sub "খ", "kha" # 2
     sub "গ", "ga" # 3
@@ -186,13 +186,13 @@ stage {
     sub "ষ", "ṣha" # 30
     sub "স", "sa" # 31
     sub "হ", "ha" # 32
-    
+
     # IV 13, 14
     sub "ড়", "ṙa"
     sub "ঢ়", "ṙha"
     sub "য়", "ya"
-    
-    
+
+
     # V. Ligatures
     # Adscript forms of some consonants
     #
@@ -203,10 +203,10 @@ stage {
     # 'র্‍':	'r-:'
     # '‍্র':	'-r:'
     # '‍্য':	'-y:'
-    
-    
+
+
     # Other ligatures (the list is not complete)
-    
+
     sub "ক্ক", "kka"
     sub "ক্ট", "kṭa"
     sub "ক্ত", "kta"
@@ -219,7 +219,7 @@ stage {
     sub "ক্ষ্ন", "kṣhna"
     sub "ক্ষ্ম", "kṣhma"
     sub "ক্ষ্ব", "kṣhva"
-    
+
     sub "ক্স", "ksa"
     sub "গ্গ", "gga"
     sub "গ্দ", "gda"
@@ -232,7 +232,7 @@ stage {
     sub "ঙ্ক", "ṅka"
     sub "ঙ্গ", "ṅga"
     sub "চ্চ", "chcha"
-    
+
     sub "চ্ছ", "chchha"
     sub "চ্ছ্ব", "chchhva"
     sub "চ্ঞ", "chña"
@@ -245,7 +245,7 @@ stage {
     sub "ঞ্ছ", "ñchha"
     sub "ঞ্জ", "ñja"
     sub "ঞ্ঝ", "ñjha"
-    
+
     sub "ট্ট", "ṭṭa"
     sub "ড্ড", "ḍḍa"
     sub "ণ্ট", "ṇṭa"
@@ -258,7 +258,7 @@ stage {
     sub "ত্ম", "tma"
     sub "ত্র", "tra"
     sub "ত্ল", "tla"
-    
+
     sub "ত্ব", "tva"
     sub "দ্দ", "dda"
     sub "দ্দ্ব", "ddva"
@@ -271,7 +271,7 @@ stage {
     sub "দ্র", "dra"
     sub "দ্ল", "dla"
     sub "ধ্র", "dhra"
-    
+
     sub "ন্ঠ", "nṭha"
     sub "ন্ড", "nḍa"
     sub "ন্ক", "nka"
@@ -284,7 +284,7 @@ stage {
     sub "ন্ন", "nna"
     sub "ন্ম", "nma"
     sub "ন্ব", "nva"
-    
+
     sub "প্ন", "pna"
     sub "প্ত", "pta"
     sub "প্প", "ppa"
@@ -309,7 +309,7 @@ stage {
     sub "ল্ড", "lḍa"
     sub "ল্ম", "lma"
     sub "ল্ল", "lla"
-    
+
     sub "শ্চ", "shcha"
     sub "শ্ছ", "shchha"
     sub "শ্ত", "shta"
@@ -322,7 +322,7 @@ stage {
     sub "ষ্ট", "ṣhṭa"
     sub "ষ্ট্র", "ṣhṭra"
     sub "ষ্ঠ", "ṣhṭha"
-    
+
     sub "ষ্ঞ", "ṣhña"
     sub "ষ্প", "ṣhpa"
     sub "ষ্ফ", "ṣhpha"
@@ -335,11 +335,11 @@ stage {
     sub "স্র", "sra"
     sub "স্ব", "sva"
     sub "হ্ন", "hna"
-    
+
     sub "হ্ম", "hma"
     sub "হ্র", "hra"
     sub "হ্ল", "hla"
-    
+
     # Zuktabarna - combined letters
     #
     # The followings are not the official list, but this has been

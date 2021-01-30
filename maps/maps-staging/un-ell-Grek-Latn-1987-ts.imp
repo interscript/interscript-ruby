@@ -9,7 +9,7 @@ metadata {
   creation_date: 1987
   description: |
     UNGEGN Romanization table for Greek
-  
+
   notes:
     - Transcription version
 }

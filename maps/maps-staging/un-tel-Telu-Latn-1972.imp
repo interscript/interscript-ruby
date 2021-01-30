@@ -12,17 +12,17 @@ metadata {
     The United Nations recommended system was approved in 1972 (II/11) and amended in 1977 (III/12),
     based on a report prepared by D. N. Sharma. The tables and their corrections were published in volume II
     of the conference reports.
-  
+
     There is no evidence of the use of the system either in India or in international cartographic products.
-  
+
     Telugu uses an alphasyllabic script whereby each character represents a syllable rather than one sound.
     Vowels and diphthongs are marked in two ways: as independent characters (used syllable-initially) and in
     an abbreviated form, to denote vowels after consonants. The romanization table is unambiguous. The system is
     mostly reversible but there may exist some ambiguities in the romanization of vowels (independent vs. abbreviated characters)
     and consonants (combinations with subscript consonants vs. character sequences).
-  
+
   notes:
-  
+
     - |
       Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for
       vowels following a consonant can be found in grammars; no distinction between the two is
@@ -114,13 +114,13 @@ stage {
   sub "([స]=?)(?=[\\u0c3e\\u0c3f\\u0c40\\u0c41\\u0c42\\u0c43\\u0c46\\u0c47\\u0c48\\u0c4a\\u0c4b\\u0c4c\\u0c6c\\u0c4d])", "s"
   sub "([హ]=?)(?=[\\u0c3e\\u0c3f\\u0c40\\u0c41\\u0c42\\u0c43\\u0c46\\u0c47\\u0c48\\u0c4a\\u0c4b\\u0c4c\\u0c6c\\u0c4d])", "h"
   sub "([ళ]=?)(?=[\\u0c3e\\u0c3f\\u0c40\\u0c41\\u0c42\\u0c43\\u0c46\\u0c47\\u0c48\\u0c4a\\u0c4b\\u0c4c\\u0c6c\\u0c4d])", "ḷ"
-  
+
 
   # CHARACTERS
   parallel {
-    
+
     # I. Independent vowel characters
-    
+
     sub "అ", "a"
     sub "ఆ", "ā"
     sub "ఇ", "i"
@@ -135,9 +135,9 @@ stage {
     sub "ఒ", "ŏ"
     sub "ఓ", "o"
     sub "ఔ", "au"
-    
+
     # II. Abbreviated vowel characters and other symbols
-    
+
     sub "ా", "ā"
     sub "ి", "i" # Variations: చి chi, ని ni, యి yi, లి li, etc.
     sub "ీ", "ī"
@@ -155,60 +155,60 @@ stage {
     sub "ః", "ḥ"
     sub "ం", "ṃ"
     sub "\u0c4d", "" # End-of-syllable mark (i.e., a consonant without a vowel): రంగపూర్ Raṁgapūr.
-    
+
     # III. Consonant characters
-    
+
     # Gutturals
     sub "క", "ka"
     sub "ఖ", "kha"
     sub "గ", "ga"
     sub "ఘ", "gha"
     sub "ఙ", "ṅa"
-    
+
     # Palatals
     sub "చ", "cha"
     sub "ఛ", "chha"
     sub "జ", "ja"
     sub "ఝ", "jha"
     sub "ఞ", "ña"
-    
+
     # Cerebrals
     sub "ట", "ṭa"
     sub "ఠ", "ṭha"
     sub "డ", "ḍa"
     sub "ఢ", "ḍha"
     sub "ణ", "ṇa"
-    
+
     # Dentals
     sub "త", "ta"
     sub "థ", "tha"
     sub "ద", "da"
     sub "ధ", "dha"
     sub "న", "na"
-    
+
     # Labials
     sub "ప", "pa"
     sub "ఫ", "pha"
     sub "బ", "ba"
     sub "భ", "bha"
     sub "మ", "ma"
-    
+
     # Semivowels
     sub "య", "ya"
     sub "ర", "ra" #Variant: ఱ.
     sub "ఱ", "ra"
     sub "ల", "la"
     sub "వ", "va"
-    
+
     # Sibilants
     sub "శ", "sha"
     sub "ష", "ṣha"
     sub "స", "sa"
-    
+
     # Aspirate
     sub "హ", "ha"
     sub "ళ", "ḷa"
-    
+
     sub "\u09CD", "" # Used for joining
     sub "ౕ\t", ""
     sub "ౖ\t", ""
@@ -216,9 +216,9 @@ stage {
     sub "़", ""
     sub "‍", "" # Used for joining
     sub "‌", "" # Used for non joining
-    
+
     # numbers
-    
+
     sub "౦", "0"
     sub "౧", "1"
     sub "౨", "2"

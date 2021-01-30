@@ -5,7 +5,7 @@ metadata {
   source_script: Cyrl
   destination_script: Latn
   name: Office of the Director Of National Intelligence Belarusian Personal Names 2015, ICS 630-01 Annex B
-  
+
   # url:
   source: ICS 630-01, Annex B
   creation_date: 2015
@@ -16,34 +16,34 @@ metadata {
     intended to eliminate variations of a name that can contribute forensic information. Rather, it is to
     provide an IC standard Romanized (English) transliteration from Belarusian that can then be
     linked to forensic information in ways that will help identify the referent of the name.
-  
+
     In cases where an individual’s name has already been transliterated in a variant spelling, the IC
     Standard spelling should appear first, followed by the variant spelling(s) in parentheses at the first
     usage. In addition, if the original Cyrillic spelling is known, that spelling should also appear in
     parentheses following the name, if possible, following best practices of the issuing organization
     and taking into consideration information system capabilities. This convention is designed to
     ensure that vital forensic information is not lost.
-  
+
     For names of persons who are known to not be part of the Belarusian-speaking community, use
     the relevant IC transliteration standard for names from that language (e.g., Mikhail, Yitzhak). A
     translator’s note may be used to clarify the known origin of the person. Spell names of
     individuals from languages that are written in Roman letters as they are spelled in those
     languages (e.g., George Clooney, Jorge Garcia, Georges Pompidou).
-  
+
     In the case of active senior government officials in the on-line CIA World Factbook and the online directory of Chiefs of State and Cabinet Members of Foreign Governments, the spellings
     given in these on-line reference works should be used in place of the IC Standard. For any
     individual who has at one time been listed in the Factbook or Chiefs of State directory but who no
     longer appears in those resources (i.e. is no longer a government official), the IC Standard
     spelling should appear first, with the spelling, if known, as it previously appeared in those
     resources listed within parentheses at the first usage.
-  
+
     The primary goal is to produce a consistent Romanized transcription of names that is specifically
     readable to the English-speaking non-specialist. The system uses the 26 letters of the standard
     (English) Roman alphabet. Some ambiguities in the Romanized form will occur without the use
     of diacritics. However, within the context of a report, where additional information about the
     individual is provided, the referent will be clearly identified. This system will be used in
     conjunction with on-line tools, name
-  
+
   notes:
 }
 
@@ -74,7 +74,7 @@ stage {
   # CHARACTERS
   parallel {
     sub "\u0027", "" # '
-    
+
     sub "\u0410", "A" # A
     sub "\u0411", "B" # Б
     sub "\u0412", "V" # B
@@ -108,7 +108,7 @@ stage {
     sub "\u042D", "E" # Э
     sub "\u042E", "Yu" # Ю
     sub "\u042F", "Ya" # Я
-    
+
     sub "\u0430", "a" # а
     sub "\u0431", "b" # б
     sub "\u0432", "v" # в

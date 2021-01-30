@@ -11,15 +11,15 @@ metadata {
   description: |
     Script conversion is often required for documents such as historical and literary texts, geographical texts (including
     maps and atlases), bibliographies, catalogues, lists and passports (and other identification documents).
-  
+
     Text in Devanagari script or other Indic scripts sometimes needs to be shown in Latin script, where users, or
     equipment that they are using, cannot read or write the text
-  
+
     This International Standard applies to transliteration of Devanagari, and to Indic scripts related to Devanagari,
     independent of the period in which it is or was used.
-  
+
   notes:
-  
+
     - All transliterations made using this International Standard shall be case-insensitive.
     - Inherent a with a consonant shall always be transliterated.
     - anusvara (including Vedic anusvara) shall be transliterated as ṁ
@@ -36,7 +36,7 @@ metadata {
       follows.
        -  :’ for avagraha in modern text. (The apostrophe in modern text remains unchanged in accordance with previous rule.
        -  Vowel hiatus, not digraph transliteration of diphthongs; as in Sanskrit pra:uga (not prauga), “yoke”;
-  
+
     - If a character in an Indic script is defined in such a way as to be equivalent to another character in any
       script, where the second character has a transliteration in this International Standard, then the first character shall
       be transliterated in the same way as the second character.

@@ -12,9 +12,9 @@ metadata {
     The United Nations recommended system was approved in 1972 (II/11) and amended in 1977 (III/12),
     based on a report prepared by D. N. Sharma. The tables and their corrections were published in
     volume II of the conference reports.
-  
+
     There is no evidence of the use of the system either in India or in international cartographic products.
-  
+
     Gujarati (Gujarātī) uses an alphasyllabic script whereby each character represents a syllable
     rather than one sound. Vowels and diphthongs are marked in two ways: as independent characters
     (used syllable-initially) and in an abbreviated form, to denote vowels after consonants.
@@ -23,17 +23,17 @@ metadata {
     conditions in which either of the two variants is to be used. The system is mostly reversible
     but there exist some ambiguities in the romanization of vowels (independent vs. abbreviated characters)
     and consonants (ligatures vs. character sequences).
-  
+
     References
-  
+
     Second United Nations Conference on the Standardization of Geographical Names. London, 10–31 May 1972.
     Vol. II. Technical papers. United Nations. New York 1974, pp. 134–135.
-  
+
     Third United Nations Conference on the Standardization of Geographical Names.
     Athens, 17 August – 7 September 1977. Vol. II, Technical papers, pp. 393 etc.
-  
+
   notes:
-  
+
     - |
       Exception of ી : જી jī.
     - |
@@ -104,7 +104,7 @@ stage {
   sub "([સ]=?)(?=[\\u0abe\\u0abf\\u0ac0\\u0ac1\\u0ac2\\u0ac3\\u0ac5\\u0ac7\\u0ac8\\u0ac9\\u0acb\\u0acc\\u0acd])", "s"
   sub "([હ]=?)(?=[\\u0abe\\u0abf\\u0ac0\\u0ac1\\u0ac2\\u0ac3\\u0ac5\\u0ac7\\u0ac8\\u0ac9\\u0acb\\u0acc\\u0acd])", "h"
   sub "([ળ]=?)(?=[\\u0abe\\u0abf\\u0ac0\\u0ac1\\u0ac2\\u0ac3\\u0ac5\\u0ac7\\u0ac8\\u0ac9\\u0acb\\u0acc\\u0acd])", "ḷ"
-  
+
 
   # CHARACTERS
   parallel {
@@ -122,7 +122,7 @@ stage {
     sub "ઑ", "o"
     sub "ઓ", "ŏ"
     sub "ઔ", "au"
-    
+
     # II. Abbreviated vowel characters
     sub "ા", "ā"
     sub "િ", "i"
@@ -136,13 +136,13 @@ stage {
     sub "ૉ", "o"
     sub "ો", "ŏ"
     sub "ૌ", "au"
-    
+
     # III. Other symbols
     sub "ઃ", "ḥ"
     sub "ં", "ṁ"
     sub "ઁ", "m̐"
     sub "્", ""
-    
+
     # IV. Consonant characters
     sub "ક", "ka"
     sub "ખ", "kha"
@@ -178,7 +178,7 @@ stage {
     sub "સ", "sa"
     sub "હ", "ha"
     sub "ળ", "ḷa"
-    
+
     # digits
     sub "૦", "0"
     sub "૧", "1"
@@ -190,7 +190,7 @@ stage {
     sub "૭", "7"
     sub "૮", "8"
     sub "૯", "9"
-    
+
     sub "઼", ""
     sub "।", "."
     sub "\u09CD", "" # Used for joining

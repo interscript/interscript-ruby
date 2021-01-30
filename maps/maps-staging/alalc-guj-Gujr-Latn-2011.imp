@@ -9,20 +9,20 @@ metadata {
   creation_date: 2011
   description: |
     ALA-LC Romanization table for Gujarati
-  
+
   notes:
-  
+
     - Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for
       vowels following a consonant can be found in grammars; no distinction between the two is
       made in transliteration.
-  
+
     - |
       The vowel a is implicit after all consonants and consonant clusters and is supplied in
       transliteration, with the following exceptions:
       a) when another vowel is indicated by its appropriate sign and
       b) when the absence of any vowel is indicated by the subscript symbol ( ્ ) called halanta or
       virāma.
-  
+
     - |
       Exception: Anusvāra is transliterated by:
       a) ṅ before gutturals,
@@ -30,7 +30,7 @@ metadata {
       c) ṇ before cerebrals,
       d) n before dentals, and
       e) m before labials.
-  
+
     - When doubled, avagraha is transliterated by two apostrophes ( ’’ ).
 }
 

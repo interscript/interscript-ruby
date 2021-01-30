@@ -10,14 +10,14 @@ metadata {
   adoption_date:
   description:
     This map performs two tasks.
-  
+
     First the text is segmented using a dictionary.
     Then Thai texts will be sent to an external module to get converted into
     Phonemic Thai.
-  
+
     Note that the accuracy for vowel length distinction and certain tonal alternation
     is low.
-  
+
   notes: |
 }
 
@@ -49,14 +49,14 @@ tests {
 stage {
 
   # RULES
-  
+
 
   # POSTRULES
-  
+
 
   # CHARACTERS
   parallel {
-    
+
   }
 
   # DICTIONARY

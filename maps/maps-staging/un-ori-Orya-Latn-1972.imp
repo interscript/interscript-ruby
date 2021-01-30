@@ -12,16 +12,16 @@ metadata {
     The United Nations recommended system was approved in 1972 (II/11), based on a report
     prepared by D. N. Sharma. The note on the system was published in volume II of the
     conference reports.
-  
+
     There is no evidence of the use of the system either in India or in international cartographic
     products.
-  
+
     Oriya uses an alphasyllabic script whereby each character represents a syllable rather than one sound.
     Vowels and diphthongs are marked in two ways: as independent characters (used syllable-initially) and in an
     abbreviated form, to denote vowels after consonants. The romanization table is unambiguous. The system is mostly
     reversible but there may exist some ambiguities in the romanization of vowels (independent vs. abbreviated characters)
     and consonants (combinations with subscript consonants vs. character sequences).
-  
+
   notes:
     - Combinations with r as the first component are written with a special superscript symbol, e.g. ର୍କ rka.
 }
@@ -91,7 +91,7 @@ stage {
   sub "([ସ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "s"
   sub "([ହ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "h"
   sub "([କ୍ଷ]=?)(?=[\\u0b4d\\u0b3e\\u0b3f\\u0b40\\u0b41\\u0b42\\u0b43\\u0b47\\u0b48\\u0b4b\\u0b4c])", "kṣh"
-  
+
 
   # CHARACTERS
   parallel {
@@ -109,7 +109,7 @@ stage {
     sub "ଓ", "o"
     sub "ୱ", "va"
     sub "ଔ", "au"
-    
+
     # II. Consonants
     # Gutturals
     sub "କ", "ka"
@@ -117,14 +117,14 @@ stage {
     sub "ଗ", "ga"
     sub "ଘ", "gha"
     sub "ଙ", "ṅa"
-    
+
     # Palatals
     sub "ଚ", "cha"
     sub "ଛ", "chha"
     sub "ଜ", "ja"
     sub "ଝ", "jha"
     sub "ଞ", "ña"
-    
+
     # Cerebrals
     sub "ଟ", "ṭa"
     sub "ଠ", "ṭha"
@@ -133,50 +133,50 @@ stage {
     sub "ଢ", "ḍha"
     sub "ଢ଼", "ṙha"
     sub "ଣ", "ṇa"
-    
+
     # Dentals
     sub "ତ", "ta"
     sub "ଥ", "tha"
     sub "ଦ", "da"
     sub "ଧ", "dha"
     sub "ନ", "na"
-    
+
     # Labials
     sub "ପ", "pa"
     sub "ଫ", "pha"
     sub "ବ", "ba"
     sub "ଭ", "bha"
     sub "ମ", "ma"
-    
+
     # Semivowels
     sub "ଯ", "ỵa"
     sub "ୟ", "ya"
     sub "ର", "ra"
     sub "ଲ", "la"
     sub "ଳ", "ḷa"
-    
+
     # Sibilants
     sub "ଶ", "sha"
     sub "ଷ", "ṣha"
     sub "ସ", "sa"
-    
-    
+
+
     # Aspirate
     sub "ହ", "ha"
-    
+
     sub "କ୍ଷ", "kṣha"
-    
+
     # Chandrabindu
     sub "ଁ", "m"
-    
+
     # Bisarga
     sub "ଃ", "ḥ"
-    
+
     # Anusvāra
     sub "ଂ", "ṃ"
-    
+
     # Medials # Needed for connecting constants
-    
+
     sub "ା", "ā"
     sub "ି", "i"
     sub "ୀ", "ī"
@@ -187,7 +187,7 @@ stage {
     sub "ୈ", "ai"
     sub "ୋ", "o"
     sub "ୌ", "au"
-    
+
     sub "्", ""
     sub "୍", ""
     sub "़", ""
@@ -195,9 +195,9 @@ stage {
     sub "।", "."
     sub "‍", "" # Used for joining
     sub "‌", "" # Used for non joining
-    
+
     # Numbers
-    
+
     sub "୦", "0"
     sub "୧", "1"
     sub "୨", "2"

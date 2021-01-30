@@ -14,7 +14,7 @@ metadata {
     intended to eliminate variations of a name that can contribute forensic information. Rather, it is
     to provide an IC standard Romanized (English) transliteration from Kyrgyz that can then be linked
     to forensic information in ways that will help identify the referent of the name.
-  
+
     In cases where an individual’s name has already been transliterated in a variant spelling, the IC
     Standard spelling should appear first, followed by the variant spelling(s) in parentheses at the
     first usage. In addition, if the original Cyrillic-script spelling is known, that spelling should
@@ -22,13 +22,13 @@ metadata {
     issuing organization and taking into consideration information system capabilities. For example:
     Guljigit Kalykov (also seen as Guljigit Kalikov, Гульжигит Калыков). This convention is designed
     to ensure that vital forensic information is not lost.
-  
+
     For names of persons who are known to not be part of the Kyrgyz-speaking community, use the
     relevant IC transliteration standard for names from that language (e.g., Yitzhak). A translator’s
     note may be used to clarify the known origin of the person. Spell names of individuals from
     languages that are written in Roman letters as they are spelled in those languages (e.g.,
     George Clooney, Jorge Garcia, Georges Pompidou).
-  
+
     In the case of active senior government officials in the on-line CIA World Factbook and the on-
     line directory of Chiefs of State and Cabinet Members of Foreign Governments, the spellings given
     in these on-line reference works should be used in place of the IC Standard. For any individual
@@ -36,7 +36,7 @@ metadata {
     appears in those resources (i.e. is no longer a government official), the IC Standard spelling
     should appear first, with the spelling, if known, as it previously appeared in those resources
     listed within parentheses at the first usage.
-  
+
     The primary goal is to produce a consistent Romanized transcription of names that is specifically
     readable to the English-speaking non-specialist. The system uses the 26 letters of the standard
     (English) Roman alphabet. Some ambiguities in the Romanized form will occur without the use of
@@ -44,7 +44,7 @@ metadata {
     individual is provided, the referent will be clearly identified. This system will be used in
     conjunction with on-line tools, name dictionaries, and lists containing conventional spellings
     of names of well-known individuals.
-  
+
   notes:
     - Transliterate double digraphs as a single digraph, i.e. шш -> sh, not shsh
     - In the Roman, no distinction is made between digraphs such as 'sh' and single contiguous letters,
@@ -72,7 +72,7 @@ stage {
   sub "(?i)(Ё|Ң|Х|Ц|Ч|Ш|Щ|Ю|Я)\\1(?-i)", "\\1"
   # note[3]
   sub "\\u044A|\\u044C", ""
-  
+
 
   # CHARACTERS
   parallel {
@@ -110,7 +110,7 @@ stage {
     sub "\u042D", "E" # Э
     sub "\u042E", "Yu" # Ю
     sub "\u042F", "Ya" # Я
-    
+
     sub "\u0430", "a" # а
     sub "\u0431", "b" # б
     sub "\u0432", "v" # в

@@ -11,15 +11,15 @@ metadata {
   description: |
     Script conversion is often required for documents such as historical and literary texts, geographical texts (including
     maps and atlases), bibliographies, catalogues, lists and passports (and other identification documents).
-  
+
     Text in Devanagari script or other Indic scripts sometimes needs to be shown in Latin script, where users, or
     equipment that they are using, cannot read or write the text
-  
+
     This International Standard applies to transliteration of Devanagari, and to Indic scripts related to Devanagari,
     independent of the period in which it is or was used.
-  
+
   notes:
-  
+
     - All transliterations made using this International Standard shall be case-insensitive.
     - Inherent a with a consonant shall always be transliterated.
     - anusvara (including Vedic anusvara) shall be transliterated as ṁ
@@ -91,7 +91,7 @@ stage {
     sub "ଐ", "ai"
     sub "ଓ", "o"
     sub "ଔ", "au"
-    
+
     # II. Consonants (see Note 2)
     # Gutturals
     sub "କ", "ka"
@@ -99,14 +99,14 @@ stage {
     sub "ଗ", "ga"
     sub "ଘ", "gha"
     sub "ଙ", "ṅa"
-    
+
     # Palatals
     sub "ଚ", "ca"
     sub "ଛ", "cha"
     sub "ଜ", "ja"
     sub "ଝ", "jha"
     sub "ଞ", "ña"
-    
+
     # Cerebrals
     sub "ଟ", "ṭa"
     sub "ଠ", "ṭha"
@@ -115,21 +115,21 @@ stage {
     sub "ଢ", "ḍha"
     sub "ଢ଼", "ṛha"
     sub "ଣ", "ṇa"
-    
+
     # Dentals
     sub "ତ", "ta"
     sub "ଥ", "tha"
     sub "ଦ", "da"
     sub "ଧ", "dha"
     sub "ନ", "na"
-    
+
     # Labials
     sub "ପ", "pa"
     sub "ଫ", "pha"
     sub "ବ", "ba"
     sub "ଭ", "bha"
     sub "ମ", "ma"
-    
+
     # Semivowels
     sub "ଯ", "ya"
     sub "ୟ", "ẏa"
@@ -137,29 +137,29 @@ stage {
     sub "ଲ", "la"
     sub "ଳ", "ḷa"
     sub "ଵ", "va"
-    
+
     # Sibilants
     sub "ଶ", "śa"
     sub "ଷ", "ṣa"
     sub "ସ", "sa"
-    
+
     sub "ୱ", "wa"
-    
-    
+
+
     # Aspirate
     sub "ହ", "ha"
-    
+
     # Chandrabindu
     sub "ଁ", "m̐"
-    
+
     # Bisarga
     sub "ଃ", "ḥ"
-    
+
     # Anusvāra
     sub "ଂ", "ṁ"
-    
+
     # Medials # Needed for connecting constants
-    
+
     sub "ା", "ā"
     sub "ି", "i"
     sub "ୀ", "ī"
@@ -173,10 +173,10 @@ stage {
     sub "ୈ", "ai"
     sub "ୋ", "o"
     sub "ୌ", "au"
-    
+
     # Abagraha
     sub "ଽ", ":’"
-    
+
     sub "्", ""
     sub "୍", ""
     sub "़", ""
@@ -184,9 +184,9 @@ stage {
     sub "।", "."
     sub "‍", "" # Used for joining
     sub "‌", "" # Used for non joining
-    
+
     # for semivowel rule no. 5
-    
+
     sub "ଯଁ", "m̐ya"
     sub "ୟଁ", "m̐ẏa"
     sub "ରଁ", "m̐ra"

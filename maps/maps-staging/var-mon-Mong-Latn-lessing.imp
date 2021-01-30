@@ -15,7 +15,7 @@ metadata {
     Mongolian appendix to Antoine Mostaert’s Dictionnaire ordos. However, the V-M system
     has many difficult diacriticals and non-Latin characters that constitute a significant
     problem for editors and thus is difficult to recommend.
-  
+
   notes:
     - A separated final form of vowels a or e is common, and can appear at the end
       of a word, word stem, or suffix. This form rexuires a final-shaped preceding
@@ -75,7 +75,7 @@ tests {
   test "ᠣᠲᠣᠭ ᠬᠣᠰᠢᠭᠤ", "otoγ xosiγu" # Otog Banner
   test "ᠳᠠᠯᠠᠳ ᠬᠣᠰᠢᠭᠤ", "dalad xosiγu" # Dalad Banner
   test "ᠵᠡᠭᠦᠨᠭᠠᠷ ᠬᠣᠰᠢᠭᠤ", "zegynγar xosiγu" # Jungar Banner
-  test "ᠣᠲᠣᠭ ᠤᠨ ᠡᠮᠦᠨᠡᠳᠦ ᠬᠣᠰᠢᠭᠤ", "otoγ-un emynedy xosiγu" # Otog Front Banner 
+  test "ᠣᠲᠣᠭ ᠤᠨ ᠡᠮᠦᠨᠡᠳᠦ ᠬᠣᠰᠢᠭᠤ", "otoγ-un emynedy xosiγu" # Otog Front Banner
   test "ᠬᠠᠩᠭᠢᠨ ᠬᠣᠰᠢᠭᠤ", "xangγin xosiγu" # Hanggin Banner
   test "ᠦᠦᠰᠢᠨ ᠬᠣᠰᠢᠭᠤ", "yysin xosiγu" # Uxin Banner
   test "ᠡᠵᠢᠨ ᠬᠣᠷᠣᠭ᠎ᠠ ᠬᠣᠰᠢᠭᠤ", "ezin xoroγ-a xosiγu" # Эзэн Хороо хошуу
@@ -148,7 +148,7 @@ stage {
   sub "\\u1821\\u1836\\u1822", "ei"
   sub "\\u1823\\u1836\\u1822", "oi"
   sub "\\u1824\\u1836\\u1822", "ui"
-  
+
 
   # CHARACTERS
   parallel {

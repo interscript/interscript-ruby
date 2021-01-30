@@ -11,7 +11,7 @@ metadata {
     The ALA-LC Romanization tables for Slavic alphabets is a set of standards for romanization of texts
     in various writing systems used in North American libraries and publications.
     The latest version was published by the American Library Association and the Library of Congress in 2012.
-  
+
   notes:
     - The letters І, Ѣ, Ѳ and Ѵ were eliminated in the orthographic reform of 1918. For other obsolete letters appearing in Russian texts, consult the Church Slavic table.
 }
@@ -103,13 +103,13 @@ stage {
   parallel {
     sub "\u0406", "Ī"
     sub "\u0456", "ī"
-    
+
     sub "\u0462", "I͡E" # Ѣ
     sub "\u0463", "i͡e" # ѣ
-    
+
     sub "\u0472", "Ḟ" # Ѳ
     sub "\u0473", "ḟ" # ѳ
-    
+
     sub "\u0474", "Ẏ" # Ѵ
     sub "\u0475", "ẏ" # ѵ
   }

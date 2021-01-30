@@ -9,7 +9,7 @@ metadata {
   creation_date: 1996
   description: |
     BGN/PCGN Romanization table for Greek
-  
+
   notes:
     - Identical to ELOT 743:1982, which is also adopted as ISO 843:1997 and by UNGEGN
 }

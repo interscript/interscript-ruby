@@ -9,29 +9,29 @@ metadata {
   creation_date: 1997
   description: |
     ALA-LC Romanization table for Arabic
-  
+
   notes:
     - For the use of alif to support hamzah, see rule 2.  For the romanization of hamzah by the consonantal sign ’ (alif), see rule 8(a).  For other orthographic uses of alif see rules 3-5.
-  
+
     - The Maghribī variations ڢ and ڧ are romanized f and q respectively.
-  
+
     - ة in a word in the construct state is romanized t.  See rule 7(b).
-  
+
     # Arabic Letters Romanized in Different Ways Depending on Their Context
     - |
       Rule 1 As indicated in the table, ﻭ and ي may represent:
-  
+
       (a) The consonants romanized w and y, respectively.
-  
+
           waḍ‘				وضع
           ‘iwaḍ				عوض
           dalw				دلو
           yad				    يد
           ḥiyal				حيل
           ṭahy				طهي
-  
+
       (b) The long vowels romanized ū, ī, and ā respectively.
-  
+
             ūlá				    أولى
           ṣūrah				صورة
           dhū				    ذو
@@ -41,88 +41,88 @@ metadata {
           kitāb				كتاب
           saḥāb				سحاب
           jumān				جمان
-  
+
         See also rules 11(a) and 11(b)(1-2).
-  
+
       (c) The diphthongs romanized aw and ay, respectively.
-  
+
           awj				    أوج
           nawm				نوم
           law				    لو
           aysar				أيسر
           shaykh				شيخ
           ‘aynay				عيني
-  
+
     - Rule 2 ا (alif), و and ى when used to support ء (hamzah) are not represented in romanization.  See rule 8(a).
-  
+
     - Rule 3 ا (alif) when used to support waṣlah ( ٱ ) and maddah ( آ ) is not represented in romanization.  See rules 9 and 10.
-  
+
     - |
       Rule 4 ا (alif) and و when used as orthographic signs without phonetic significance are not represented in romanization.
-  
+
           fa‘alū				فعلوا
           ulā’ika				أولائك
           ūqīyah		 	     أوقية
-  
+
         See also rule 12 and examples cited in rules 23-26.
-  
-  
+
+
     - |
       Rule 5 ا (alif) is used to represent the long vowel romanized ā, as indicated in the table.
-  
+
           fā‘il				فاعل
           riḍā				رضا
-  
+
         This alif, when medial, is sometimes omitted in Arabic; it is always indicated in romanization.  See rule 19.
-  
+
     - |
       Rule 6 Final ى appears in the following special cases:
-  
+
       (a)	As ﻯ َ (alif maqṣūrah) used in place of َا to represent the long vowel romanized ā.
-  
+
           ḥattá				حتَّى
           maḍá				مضَى
           kubrá				كبرَى
           Yaḥyá				يحيَى
           musammá			مسمَّى
           Muṣṭafá			مصطفَى
-  
+
         (b)	As ِ ﻯّ in nouns and adjectives of the form fā‘īl which are derived from defective roots.  This ending is romanized ī, not īy, without regard to the presence of  ّ (shaddah).  See rule 11(b)(2).
-  
+
           Raḍī al-Dīn			  رضي الدين
-  
+
         Compare the fa‘īl form of the same root  الرضى[without shaddah] al-Raḍī.
-  
+
         (c)	As ِ ﻯّ in the relative adjective (nisbah).  The ending, like (b) above, is romanized ī, not īy.
-  
+
           al-Miṣrī				المصرِيّ
-  
+
         Compare المصرِيّة al-Miṣrīyah and see rule 11(b)(1).
-  
+
     - |
       Rule 7 ة (tā’ marbūṭah)
-  
+
       (a)	When the noun or adjective ending in ة is indefinite, or is preceded by the definite article, ة is romanized h.  The ة in such positions is often replaced by ه.
-  
+
         ṣalāh				        صلاة
         al-Risālah al-bahīyah		الرسالة البهية
         mir’āh				        مرآة
         Urjūzah fī al-ṭibb		    أرجوزة فى الطب
-  
-  
+
+
       (b)	When the word ending in ة is in the construct state [muḍāf wa-muḍāf ilayh], ة is romanized t.
-  
+
         Wizārat al-Tarbiyah		وزارة التربية
         Mir’āt al-zamān			مرآة الزمان
-  
-  
+
+
       (c)	When the word ending in ة is used adverbially, ة (vocalized ةً) is romanized tan.  See rule 12(b).
-  
+
     - |
       Rule 8 ء (hamzah)
-  
+
       (a)	In initial position, whether at the beginning of a word, following a prefixed preposition or conjunction, or following the definite article, ء is not represented in romanization.  When medial or final, ء is romanized as ’ (alif).
-  
+
         asad				أسد
         uns				    أنس
         idhā				إذا
@@ -131,276 +131,276 @@ metadata {
         dā’im				دائم
         mala’a				ملأ
         khaṭi’a				خطئ
-  
+
       (b)	ء, when replaced by the sign   (waṣlah) and then known as hamzat al-waṣl, is not represented in romanization.  See rule 9 below.
-  
+
       (waṣlah), like initial ء, is not represented in romanization.  See also rule 8(b) above.  When the alif which supports waṣlah belongs to the article ال, the initial vowel of the article is romanized a.  See rule 17(b).  In other words, beginning with hamzat al-waṣl, the initial vowel is romanized i.
-  
+
         Riḥlat Ibn Jubayr		        رحلة ٱبن جبير
         al-istidrāk			           الإستدراك
         kutub iqtanatʹhā			    كتب ٱقتنتها
         bi-ihtimām ‘Abd al-Majīd		باهتمام عبد ٱلمجيد
-  
+
     - |
       Rule 9 (waṣlah), like initial ء, is not represented in romanization.
       See also rule 8(b) above.  When the alif which supports waṣlah belongs to the article ال, the initial vowel of the article is romanized a.
       See rule 17(b).  In other words, beginning with hamzat al-waṣl, the initial vowel is romanized i.
-  
+
       Riḥlat Ibn Jubayr		        رحلة ٱبن جبير
       al-istidrāk			           الإستدراك
       kutub iqtanatʹhā			    كتب ٱقتنتها
       bi-ihtimām ‘Abd al-Majīd		باهتمام عبد ٱلمجيد
-  
+
     - |
       Rule 10 ˜ (maddah)
-  
+
         (a) Initial آ is romanized ā.
-  
+
         ālah				        آلة
         Kullīyat al-Ādāb			كلية الآداب
-  
+
         (b) Medial آ, when it represents the phonetic combination ’ā, is so romanized.
-  
+
         ta’ālīf				    تآليف
         ma’āthir				مآثر
-  
+
         (c)˜ is otherwise not represented in romanization.
-  
+
         khulafā’				خلفآء
     - |
       Rule 11  ّ (shaddah or tashdīd)
-  
+
       (a) Over و
-  
+
             (1)	ُوّ, representing the combination of long vowel plus consonant, is romanized ūw.
-  
+
       ‘adūw				عدُوّ
       qūwah				قُوّة
-  
+
             (2)	َوّ, representing the combination of diphthong plus consonant, is romanized aww.
-  
+
       Shawwāl			شَوّال
       ṣawwara			صَوّر
       jaww				جوّ
-  
-  
+
+
           See also rule 1(c).
-  
+
         (b)	Over ى
-  
+
             (1)	Medial ِىّ, representing the combination of long vowel plus consonant, is romanized īy.
-  
+
           al-Miṣrīyah			المصرِيّة
-  
+
                 See also rule 1(b).
-  
+
             (2)	Final ِىّ is romanized ī.  See rules 6(b) and 6(c).
-  
+
             (3)	Medial and final َىّ, representing the combination of diphthong plus consonant, is romanized ayy.
-  
+
                 ayyām				أَيّام
                 sayyid				سَيّد
                 Quṣayy				قصَيّ
-  
+
                 See also rule 1(c).
-  
+
         (c)	Over other letters, ّ is represented in romanization by doubling the letter or digraph concerned.
-  
+
       al-Ghazzī			الغزّيّ
       al-Kashshāf			الكشّاف
-  
+
     - |
       Rule 12 Tanwīn may take the written form ٌ, ً (ًا), or ٍ, romanized un, an, and in, respectively. Tanwīn is normally disregarded in romanization, however. It is indicated in the following cases:
-  
+
       (a)	When it occurs in indefinite nouns derived from defective roots.
-  
+
         qāḍin				قاضٍ
         ma‘nan				معنىً
-  
+
       (b)	When it indicates the adverbial use of a noun or adjective.
-  
+
         ṭab‘an				  طبعًا
         faj’atan				فجأةً
         al-Mushtarik waḍ‘an		المشترك وضعاً
               wa-al-muftariq ṣuq‘an	والمفترق صقعاً
     - |
       Rule 13 Tanwīn may take the written form ٌ, ً (ًا), or ٍ, romanized un, an, and in, respectively. Tanwīn is normally disregarded in romanization, however. It is indicated in the following cases:
-  
+
       (a)	When it occurs in indefinite nouns derived from defective roots.
-  
+
         qāḍin				قاضٍ
         ma‘nan				معنىً
-  
+
       (b)	When it indicates the adverbial use of a noun or adjective.
-  
+
         ṭab‘an				    طبعًا
         faj’atan				فجأةً
         al-Mushtarik waḍ‘an		المشترك وضعاً
               wa-al-muftariq ṣuq‘an	والمفترق صقعاً
-  
+
       # Grammatical Structure as It Affects Romanization
     - |
       Rule 13 Final inflections of verbs are retained in romanization, except in pause. represent
-  
+
       man waliya Miṣr			           من ولي مصر
       ma‘rifat mā yajibu la-hum	       معرفة ما يجب لهم
       ṣallá Allāh ‘alayhi wa-sallam	   صلى الله عليه وسلم
       al-Lu’lu’ al-maknūn fī ḥukm	       اللؤلؤ المكنون فى حكم
       al-ikhbār ‘ammā sa-yakūn	       الإخبار عما سيكون
-  
+
     - |
       Rule 14 Final inflections of nouns and adjectives:
-  
+
       (a)	Vocalic endings are not represented in romanization, except preceding pronominal suffixes, and except when the text being romanized is in verse.
-  
+
       uṣūluhā al-nafsīyah wa-ṭuruq	 أصولها النفسية وطرق تدريسها
               tadrīsihā
       ilá yawminā hādhā		         الى يومنا هذا
-  
+
       (b)	Tanwīn is not represented in romanization, except as specified in rule 12.
-  
+
       (c)	ة (tā’ marbūṭah) is romanized h or t as specified in rule 7.
-  
+
       (d)	For the romanization of the relative adjective (nisbah) see rule 6(c).
-  
+
     - |
       Rule 15 Pronouns, pronominal suffixes, and demonstratives:
-  
+
         (a)	Vocalic endings are retained in romanization.
-  
+
       anā wa-anta			        انا وانت
       hādhihi al-ḥāl			    هذه الحال
       mu’allafātuhu wa-shurūḥuhā	مؤلفاته وشروحها
-  
+
         (b)	At the close of a phrase or sentence, the ending is romanized in its pausal form.
-  
+
             ḥayātuhu wa-‘aṣruh		    حياته وعصره
             Tawfīq al-Ḥakīm, afkāruh, 	توفيق الحكيم، أفكاره، آثاره
               āthāruh
-  
+
     - |
       Rule 16 Prepositions and conjunctions:
-  
+
         (a)	Final vowels of separable prepositions and conjunctions are retained in romanization.
-  
+
         anna				    أن
         annahu				    أنه
         bayna yadayhi			بين يديه
-  
+
         Note the special cases مما mimmā, ممن mimman.
-  
+
         (b)	Inseparable prepositions, conjunctions, and other prefixes are connected with what follows by a hyphen.
-  
+
         bi-hi				    به
         wa-ma‘ahu			    ومعه
         lā-silkī				لاسلكي
     - |
       Rule 17 The definite article:
-  
+
         (a)	The romanized form al is connected with the following word by a hyphen.
-  
+
       al-kitāb al-thānī			الكتاب الثاني
       al-ittiḥād			        الإتحاد
       al-aṣl				        الأصل
       al-āthār				    الآثار
-  
+
         (b)	When ال is initial in the word, and when it follows an inseparable preposition or conjunction, it is always romanized al regardless of whether the preceding word, as romanized, ends in a vowel or a consonant.
-  
+
       ilá al-ān				          الى الآن
       Abū al-Wafā’			          ابو الوفاء
       Maktabat al-Nahḍah al-Miṣrīyah 	  مكتبة النهضة المصرية
       bi-al-tamām wa-al-kamāl	          بالتمام والكمال
-  
+
         Note the exceptional treatment of the preposition ل followed by the article
-  
+
       lil-Shirbīnī			للشربيني
-  
+
         See also rule 23.
-  
+
         (c)	The ل of the article is always romanized l, whether it is followed by a “sun letter” or not, i.e., regardless of whether or not it is assimilated in pronunciation to the initial consonant of the word to which it is attached.
-  
+
       al-ḥurūf al-abjadīyah		الحروف الأبجدية
       Abū al-Layth al-Samarqandī	ابو الليث السمرقندي
-  
+
     - |
       Rule 18 Capitalization:
-  
+
           (a)	Rules for the capitalization of English are followed, except that the definite article al is given in lower case in all positions.
-  
+
           (b)	Diacritics are used with both upper and lower case letters.
-  
+
         al-Ījī				    الايجي
         al-Ālūsī				الآلوسي
-  
+
     - |
       Rule 19 The macron or the acute accent, as appropriate, is used to indicate all long vowels, including those which in Arabic script are written defectively.  The macron or the acute accent, as the case may be, is retained over final long vowels which are shortened in pronunciation before hamzat al-waṣl.
-  
+
       Ibrāhīm				إبراهيم ، إبرهيم
       Dā’ūd				داؤود ، داؤد
       Abū al-Ḥasan		ابو الحسن
       ru’ūs				رؤوس
       dhālika				ذلك
       ‘alá al-‘ayn		على العين
-  
+
     - |
       Rule 20 The hyphen is used:
-  
+
         (a)	To connect the definite article al with the word to which it is attached.  See rule 17(a).
-  
+
         (b)	Between an inseparable prefix and what follows.  See rules 16(b) and 17(b) above.
-  
+
         (c)	Between bin and the following element in personal names when they are written in Arabic as a single word.  See rule 25.
-  
+
     - |
       Rule 21 The prime ( ʹ ) is used:
-  
+
         (a)	To separate two letters representing two distinct consonantal sounds, when the combination might otherwise be read as a digraph.
-  
+
       Adʹham				أدهم
       akramatʹhā			أكرمتها
-  
+
         (b)	To mark the use of a letter in its final form when it occurs in the middle of a word.
-  
+
       Qal‘ahʹjī				قلعه‌جى
       Shaykhʹzādah			شيخ زاده
-  
+
     - |
       Rule 22 As in the case of romanization from other languages, foreign words which occur in an Arabic context and are written in Arabic letters are romanized according to the rules for romanizing Arabic.
       Jārmānūs (not Germanos nor Germanus)	جارمانوس
       Lūrd Ghrānfīl (not Lord Granville)		لورد غرانفيل
       Īsāghūjī (not Isagoge)				    ايساغوجي
-  
+
       For short vowels not indicated in the Arabic, the Arabic vowel nearest to the original pronunciation is supplied.
-  
+
       Gharsiyā Khayin (not García Jaén)		غرسيا خين
-  
+
     # Examples of Irregular Arabic Orthography
-  
+
     - |
       Rule 23 Note the romanization of الله, alone and in combination.
-  
+
       Allāh				الله
       billāh
       lillāh
       bismillāh			بسم الله
       al-Mustanṣir billāh
-  
+
     - |
       Rule 24 Note the romanization of the following personal names:
-  
+
       Ṭāhā				طه
       Yāsīn				يس ، يسن
       ‘Amr				عمرو
       Bahjat				بهجت ، بهجة
-  
+
     - |
       Rule 25 ابن and بن are both romanized ibn in all positions.
-  
+
       Aḥmad ibn Muḥammad ibn Abī al-Rabī‘	    احمد بن محمد بن ابي الربيع
       Sharḥ Ibn ‘Aqīl ‘alá Alfīyat Ibn Mālik	شرح ابن عقيل على الفية ابن مالك
-  
+
       Exception is made in the case of modern names, typically North African, in which the element بن is pronounced bin.
-  
+
         Bin Khiddah			    بن خده
         Bin-‘Abd Allāh			بنعبد الله
 }
@@ -625,8 +625,8 @@ stage {
 
   # CHARACTERS
   parallel {
-    
-    
+
+
     # pointing
     sub "\u064e", "a" # َ fatha
     # '\u064e(?=\u0629)' : '' # َ fatha followed by ta' marboota
@@ -634,15 +634,15 @@ stage {
     sub "\u0650", "i" # ِ kasra
     sub "\u064f", "u" # ُ damma
     sub "\u0652", "" # ْ sokoon, see note A below
-    
-    
+
+
     # special pointed letters
     sub "\u0639\u064e", "‘a" # عَ
     sub "\u0639\u0650", "‘i" # عِ
     sub "\u0639\u064f", "‘ū" # عُ
     # handle MacOS regex difference
     sub "\u0639\u064f\u0648", "‘ū" # عُو damma followed by و
-    
+
     sub "\u0650\u064a", "ī" # ـِي kasra followed by ي
     sub "\u0650\u064a(?=\u064e|u064f)", "iy" # ـِي kasra followed by ي
     sub "\u064f\u0648", "ū" # ـُو damma followed by و
@@ -650,8 +650,8 @@ stage {
     sub "\u064e\u0649", "á" # ـَى fatha followed by ى which is ا not ي
     sub "\u064e\u0648\u0652", "aw" # ـَوْ
     sub "\u064e\u064a\u0652", "ay" # ـَيْ
-    
-    
+
+
     # ta' marboota
     sub "\u0629", "t" # ة in the middle of the sentence
     sub "\u0629$", "h"
@@ -667,10 +667,10 @@ stage {
     sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{11})\u0629", "h"
     sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{12})\u0629", "h"
     sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{13})\u0629", "h"
-    
+
     # Rule 4
     sub "\u064f\u0648\u0627", "ū" # وا
-    
+
     # Rule 8
     sub "\u0621", "’"
     sub "\\b\u0623", "" # أ
@@ -685,21 +685,21 @@ stage {
     sub "\u0626\\b", "’a" # ئ
     sub "\\b\u0627", "a" # ا
     sub "\u0627", "" # ا
-    
+
     # Rule 10
-    
+
     sub "\\b\u0622", "ā" # آ
     sub "(?<!\\b\u0627\u0644)(?<!\\b)\u0622(?![\\b|\u0621])", "’ā" # آ in middle, not final, or initial, or after ال
     sub "\u064e\u0622", "ā" # ـَآ fatha followed by ا
     sub "\u0622", "" # آ
-    
+
     # Rule 11 - shadda
     sub "\u064f\u0648\u0651", "ūw" # ـَوّ damma followed by و with shadda
     sub "\u064e\u0648\u0651", "aww" # ـَوّ fatha followed by و with shadda
     sub "\u064e\u064a\u0651", "ayy" # ـَيّ fatha followed by و with shadda
     sub "\u0650\u064a\u0651", "īy" # ـِيَّ
     sub "\u0650\u064a\u0651\\b", "ī" # ـِيَّ
-    
+
     sub "\u0628\u0651", "bb" # ب
     sub "\u062a\u0651", "tt" # ت
     sub "\u062b\u0651", "thth" # ث
@@ -726,9 +726,9 @@ stage {
     sub "\u0647\u0651", "hh" # ه
     sub "\u0648\u0651", "ww" # و
     sub "\u064a\u0651", "yy" # ي
-    
+
     # Rule 12 - tanwin
-    
+
     sub "\u064c", "un" #  ٌ
     sub "\u064b", "an" #  ً
     sub "\u064d", "in" #  ٍ
@@ -738,47 +738,47 @@ stage {
     sub "\u064b\u0627", "an" #  ً
     sub "\u0649\u064b", "an" #  ً
     sub "\u0627\u064b", "an" #  ً
-    
+
     # Rule 13
     sub "\u0647\u064e", "hā" # ه
-    
+
     sub "\u060c", "," # ،
-    
+
     sub "\u0627\u0644\u0644\u0651\u064e\u0647", "Allāh"
-    
+
     sub "\\b\u0627\u0644", "al-" # ال
     # '\uFE8E' : ''  # ﺎ
-    
+
     sub "\u0628", "b" # ب
     sub "\uFE91", "b" # ﺑ
     sub "\uFE92", "b" # ﺒ
     sub "\uFE90", "b" # ﺐ
-    
+
     sub "\u062a", "t" # ت
     sub "\ufe97", "t" # ﺗ
     sub "\ufe98", "t" # ﺘ
     sub "\ufe96", "t" # ﺖ
-    
+
     sub "\u062b", "th" # ث
     sub "\ufe9b", "th" # ﺛ
     sub "\ufe9c", "th" # ﺜ
     sub "\ufe9a", "th" # ﺚ
-    
+
     sub "\u062c", "j" # ج
     sub "\ufe9f", "j" # ﺟ
     sub "\ufea0", "j" # ﺠ
     sub "\ufe9e", "j" # ﺞ
-    
+
     sub "\u062d", "ḥ" # ح
     sub "\ufea3", "ḥ" # ﺣ
     sub "\ufea4", "ḥ" # ﺤ
     sub "\ufea2", "ḥ" # ﺢ
-    
+
     sub "\u062e", "kh" # خ
     sub "\ufea7", "kh" # ﺧ
     sub "\ufea8", "kh" # ﺨ
     sub "\ufea6", "kh" # ﺦ
-    
+
     sub "\u062f", "d" # د
     sub "\ufeaa", "d" # ﺪ
     # Initial
@@ -787,111 +787,111 @@ stage {
     sub "\ufebf", "ḍ" # ﺿ
     sub "\ufec3", "ṭ" # ﻃ
     sub "\ufec7", "ẓ" # ﻇ
-    
+
     sub "\u0630", "dh" # ذ
     sub "\ufeac", "dh" # ﺬ
-    
+
     sub "\u0631", "r" # ر
     sub "\ufeae", "r" # ﺮ
-    
+
     sub "\u0632", "z" # ز
     sub "\ufeb0", "z" # ﺰ
-    
+
     sub "\u0633", "s" # س
     sub "\ufeb3", "s" # ﺳ
     sub "\ufeb4", "s" # ﺴ
     sub "\ufeb2", "s" # ﺲ
-    
+
     sub "\u0634", "sh" # ش
     sub "\ufeb7", "sh" # ﺷ
     sub "\ufeb8", "sh" # ﺸ
     sub "\ufeb6", "sh" # ﺶ
-    
+
     sub "\u0635", "ṣ" # ص
     sub "\ufebb", "ṣ" # ﺻ
     sub "\ufebc", "ṣ" # ﺼ
     sub "\ufeba", "ṣ" # ﺺ
-    
+
     sub "\u0636", "ḍ" # ض
     sub "\ufebf", "ḍ" # ﺿ
     sub "\ufec0", "ḍ" # ﻀ
     sub "\ufebe", "ḍ" # ﺾ
-    
+
     sub "\u0637", "ṭ" # ط
     sub "\ufec3", "ṭ" # ﻃ
     sub "\ufec4", "ṭ" # ﻄ
     sub "\ufec2", "ṭ" # ﻂ
-    
+
     sub "\u0638", "ẓ" # ظ
     sub "\ufec7", "ẓ" # ﻇ
     sub "\ufec8", "ẓ" # ﻈ
     sub "\ufec6", "ẓ" # ﻆ
-    
+
     sub "\u0639", "‘" # ع
     sub "\ufecb", "‘" # ﻋ
     sub "\ufecc", "‘" # ﻌ
     sub "\ufeca", "‘" # ﻊ
-    
+
     sub "\u063a", "gh" # غ
     sub "\ufecf", "gh" # ﻏ
     sub "\ufed0", "gh" # ﻐ
     sub "\ufece", "gh" # ﻎ
-    
+
     sub "\u0641", "f" # ف
     sub "\ufed3", "f" # ﻓ
     sub "\ufed4", "f" # ﻔ
     sub "\ufed2", "f" # ﻒ
-    
+
     sub "\u0642", "q" # ق
     sub "\ufed7", "q" # ﻗ
     sub "\ufed8", "q" # ﻘ
     sub "\ufed6", "q" # ﻖ
-    
+
     sub "\u0643", "k" # ك
     sub "\ufedb", "k" # ﻛ
     sub "\ufedc", "k" # ﻜ
     sub "\ufeda", "k" # ﻚ
-    
+
     sub "\u0644", "l" # ل
     sub "\ufedf", "l" # ﻟ
     sub "\ufee0", "l" # ﻠ
     sub "\ufede", "l" # ﻞ
-    
+
     sub "\u0645", "m" # م
     sub "\ufee3", "m" # ﻣ
     sub "\ufee4", "m" # ﻤ
     sub "\ufee2", "m" # ﻢ
-    
+
     sub "\u0646", "n" # ن
     sub "\ufee7", "n" # ﻧ
     sub "\ufee8", "n" # ﻨ
     sub "\ufee6", "n" # ﻦ
-    
+
     # See note C
     sub "\u0647", "h" # ه
     sub "\ufeeb", "h" # ﻫ
     sub "\ufeec", "h" # ﻬ
     sub "\ufeea", "h" # ﻪ
-    
+
     sub "\u0648", "w" # و
     sub "\ufeee", "w" # ﻮ
-    
+
     sub "\u064a", "y" # ي
     sub "\ufef3", "y" # ﻳ
     sub "\ufef4", "y" # ﻴ
     sub "\ufef1", "y" # ﻱ
-    
+
     # (A) Not romanized word-initially.
-    
+
     # (B) Not romanized, but see romanizations accompanying alif (ا) in the table for vowels.
-    
+
     # (C) In certain endings, an original tā’ (ت) is written ة, i.e., like hā’ (ه) with two dots, and is known as tā’ marbūṯah. It is romanized h, except in the construct form of feminine nouns, where it is romanized t, instead.
-    
-    
+
+
     # Vowels, diphthongs and diacritical marks
     # (ـ stands for any consonant)
-    
-    
+
+
     # Vowels and Diphthongs
     sub "\u064e", "a"
     sub "\u064f", "u"
@@ -902,7 +902,7 @@ stage {
     sub "\u0650\u064a", "ī"
     sub "\u064e\u0648\u0652", "aw"
     sub "\u064e\u064a\u0652", "ay"
-    
+
     # Letters Representing Non-Arabic Consonants
     # (this list in not exhaustive)
     sub "\u06af", "g" # گ
@@ -913,7 +913,7 @@ stage {
     sub "\u06a4", "v" # ڤ
     sub "\u06cb", "v" # ۋ
     sub "\u06a5", "v" # ڥ
-    
+
     # Arabic standard Unicode block
     sub "\u0600", "" # ؀
     sub "\u0601", "" # ؁
@@ -948,7 +948,7 @@ stage {
     sub "\u061f", "" # ؟
     sub "\u0620", "" # ؠ
     sub "\u0628", "b" # ب
-    
+
     #   '\u0629': 'h' # ة -- see Note 3
     sub "\u062a", "t" # ت
     sub "\u062b", "th" # ث
@@ -979,10 +979,10 @@ stage {
     sub "\u0644", "l" # ل
     sub "\u0645", "m" # م
     sub "\u0646", "n" # ن
-    
+
     #   '\u0647': 'h' # ه -- see Note 3
     sub "\u0648", "w" # و
-    
+
     #   '\u064a': 'y' # ي
     # '\u064e': '' #  َ
     # '\u064f': '' #  ُ
@@ -1031,7 +1031,7 @@ stage {
     sub "\u067b", "" # ٻ
     sub "\u067c", "" # ټ
     sub "\u067d", "" # ٽ
-    
+
     #   '\u067e': 'p' # پ
     sub "\u067f", "" # ٿ
     sub "\u0680", "" # ڀ
@@ -1040,7 +1040,7 @@ stage {
     sub "\u0683", "" # ڃ
     sub "\u0684", "" # ڄ
     sub "\u0685", "" # څ
-    
+
     #   '\u0686': 'ch' # چ
     sub "\u0687", "" # ڇ
     sub "\u0688", "" # ڈ
@@ -1059,7 +1059,7 @@ stage {
     sub "\u0695", "" # ڕ
     sub "\u0696", "" # ږ
     sub "\u0697", "" # ڗ
-    
+
     #   '\u0698': 'zh' # ژ
     sub "\u0699", "" # ڙ
     sub "\u069a", "" # ښ
@@ -1072,9 +1072,9 @@ stage {
     sub "\u06a1", "" # ڡ
     sub "\u06a2", "" # ڢ
     sub "\u06a3", "" # ڣ
-    
+
     #   '\u06a4': 'v' # ڤ
-    
+
     #   '\u06a5': 'v' # ڥ
     sub "\u06a6", "" # ڦ
     sub "\u06a7", "" # ڧ
@@ -1085,13 +1085,13 @@ stage {
     sub "\u06ac", "" # ڬ
     sub "\u06ad", "" # ڭ
     sub "\u06ae", "" # ڮ
-    
+
     #   '\u06af': 'g' # گ
     sub "\u06b0", "" # ڰ
     sub "\u06b1", "" # ڱ
     sub "\u06b2", "" # ڲ
     sub "\u06b3", "" # ڳ
-    
+
     #   '\u06b4': 'ñ' # ڴ
     sub "\u06b5", "" # ڵ
     sub "\u06b6", "" # ڶ
@@ -1115,7 +1115,7 @@ stage {
     sub "\u06c8", "" # ۈ
     sub "\u06c9", "" # ۉ
     sub "\u06ca", "" # ۊ
-    
+
     #   '\u06cb': 'v' # ۋ
     sub "\u06cc", "" # ی
     sub "\u06cd", "" # ۍ

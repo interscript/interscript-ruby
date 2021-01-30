@@ -15,10 +15,10 @@ metadata {
     being found only in borrowings, while q, w and x were excluded
     altogether. Since k transcribed [h] in loans, it is unclear how loans
     in [kʰ] were written. "j" is used for vowel combinations of the [ja]
-    type. Letter "c" is used for the sound [ts] and "k" is used for the 
+    type. Letter "c" is used for the sound [ts] and "k" is used for the
     ound [h]. The first version was inspired by the Yanalif script used
     for the Soviet Union's Turkic languages.
-  
+
     The orthography of the Mongolian Latin is based on the orthography of
     the Classical Mongolian script. It preserves short final vowels. It
     does not drop unstressed vowels in the closing syllables when the word
@@ -30,7 +30,7 @@ metadata {
     version, letter "b" is used both in the beginning and in the middle of
     the word. Because it phonetically assimilates into sound [w], no
     ambiguity is caused.
-  
+
   notes:
     - A separated final form of vowels a or e is common, and can appear at the end
       of a word, word stem, or suffix. This form requires a final-shaped preceding
@@ -47,11 +47,11 @@ metadata {
       as in ᠭᠠᠵᠠᠷ ᠠ γaǰar‑a 'to the country' and ᠡᠳᠦᠷ ᠡ edür‑e 'on the day', or ᠤᠯᠤᠰ ᠢ ulus‑i
       'the state' etc. Multi-letter suffixes most often start with an initial- (consonants),
       medial- (vowels), or variant-shaped form.
-  
+
     # Note: Provedid sample of "Latin 1931-1939" in https://en.m.wikipedia.org/wiki/Mongolian_Latin_alphabet is not actual transliteration.
     # It's kind of buggy transliteration that mixes Cyrillic and Traditional Mongolian script into Latin based on phonetic sound.
     # There is no expected transliteration sources found for the tests.
-  
+
     # Latin 1931-1939
     # Manai ulasiin niislel koto Ulaanbaatar bol 80 000 şakam kyntei, ulasiin olon niitiin, aƶi akuin tөb gazaruud oroşison jikeeken oron bolno.
     # Tus ulasiin dotoroos garka tyykii zuiliig bolbosruulka aƶi yildberiin gazaruudiig baiguulka ni çukala.

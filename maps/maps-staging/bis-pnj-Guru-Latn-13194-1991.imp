@@ -5,18 +5,18 @@ metadata {
   source_script: Guru
   destination_script: Latn
   name: Indian script code for information interchange - ISCII - Panjabi(Gurmukhi) Romanization
-  
+
   #url:
   creation_date: 1991
   description: |
     IS 13194 (1991): Indian script code for information
     interchange - ISCII [LITD 20: Indian Language Technologies
     and Products]
-  
+
   notes:
     - |
       Exception: Anusvāra is transliterated by:
-  
+
       a) ṅ before gutturals,
       b) ñ before palatals,
       c) ṇ before cerebrals,
@@ -56,8 +56,8 @@ stage {
   sub "\\u0A70(?=[ਟਠਡਢਣ])", "ṇ" # ੰ  before cerebrals
   sub "\\u0A70(?=[ਤਥਦਧਨ])", "n" # ੰ  before dentals
   sub "\\u0A70(?=[ਪਫਬਭਮ])", "m"
-  
-  
+
+
 
   # CHARACTERS
   parallel {
@@ -71,10 +71,10 @@ stage {
     sub "ੳ", "ṝ"
     sub "ਏ", "ē"
     sub "ਐ", "ai"
-    
+
     sub "ਓ", "ŏ"
     sub "ਔ", "au"
-    
+
     # II. Consonants (see Note 2)
     # Gutturals
     sub "ਕ", "k"
@@ -82,21 +82,21 @@ stage {
     sub "ਗ", "g"
     sub "ਘ", "gh"
     sub "ਙ", "ṅ"
-    
+
     # Palatals
     sub "ਚ", "c"
     sub "ਛ", "ch"
     sub "ਜ", "j"
     sub "ਝ", "jh"
     sub "ਞ", "ñ"
-    
+
     # Cerebrals
     sub "ਟ", "ṭ"
     sub "ਠ", "ṭh"
     sub "ਡ", "ḍ"
     sub "ਢ", "ḍh"
     sub "ਣ", "ṇ"
-    
+
     # Dentals
     sub "ਤ", "t"
     sub "ਥ", "th"
@@ -104,14 +104,14 @@ stage {
     sub "ੜ", "ṛa"
     sub "ਧ", "dh"
     sub "ਨ", "ṉ"
-    
+
     # Labials
     sub "ਪ", "p"
     sub "ਫ", "ph"
     sub "ਬ", "b"
     sub "ਭ", "bh"
     sub "ਮ", "m"
-    
+
     # Semivowels
     sub "ਯ", "y"
     #'य़': 'ẏ'
@@ -120,38 +120,38 @@ stage {
     sub "ਲ", "l"
     sub "ਲ਼", "ḷ"
     #'ऴ': 'ẕ'
-    
-    
+
+
     sub "ਵ", "v"
-    
+
     # Sibilants
     sub "ਸ਼", "ś"
     #'ष': 'ṣ'
     sub "ਸ", "s"
-    
-    
+
+
     # Aspirate
     sub "ਹ", "h"
-    
-    
+
+
     #Nukta Constants
-    
+
     sub "क़", "q"
     sub "ਖ਼", "ḵẖ"
     sub "ਗ਼", "gẖ"
     sub "ਜ਼", "z"
     sub "ਫ਼", "f"
-    
+
     # Chandrabindu
     sub "ँ", "m"
-    
+
     # Bisarga
     sub "ः ", "ḥ"
     sub "ਂ", "n"
-    
+
     # Anusvāra
     sub "ੰ", "ṃ"
-    
+
     # Medials # Needed for connecting constants
     sub "ਾ", "ā"
     sub "ਿ", "i"
@@ -159,15 +159,15 @@ stage {
     sub "ੁ", "u"
     sub "ੂ", "ū"
     sub "ृ", "ṛ"
-    
-    
+
+
     sub "ੇ", "ē"
     sub "ੈ", "ai"
-    
-    
+
+
     sub "ੋ", "ō"
     sub "ੌ", "au"
-    
+
     sub "੍", ""
     sub "਼", ""
     sub "ੱ", ""

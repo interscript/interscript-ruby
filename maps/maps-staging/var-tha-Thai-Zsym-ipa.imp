@@ -10,7 +10,7 @@ metadata {
   adoption_date:
   description:
     This maps phonemic Thai to IPA.
-  
+
   notes: |
 }
 
@@ -52,41 +52,41 @@ stage {
   # Low Consonants:   คฅฆงชซฌญฑฒณทธนพฟภมยรลวฬฮ
   # Tone:             [\u0304\u0e48-\u0e4B] 0: 0304  1: 0E48  2: 0E49  3: 0E4A  4: 0E4B
   # Vowels right before tone marks:    [\u0e31\u0e33-\u0e39]
-  
+
   # Handle Consonantal อ, which can never be part of a consonant cluster
   # in phonemic Thai
   sub "(^| |-|[เแไใโ])(อ)(็|[ัำ-ู])?([่̄-๋])?([^ -]*)", "\\1\\2–\\3\\5_M\\4"
-  
+
   # Handle Consonantal ยว
   sub "(^| |-|[เแไใโ])([ยว])(็|[ัำ-ู])?([่̄-๋])?([^ -]*)", "\\1\\2–\\3\\5_L\\4"
-  
+
   sub "(^| |-|[เแไใโ])([ขผสห]ฺ[ยว])(็|[ัำ-ู]็?)?([่̄-๋])?([^ -]*)", "\\1\\2–\\3\\5_H\\4"
   sub "(^| |-|[เแไใโ])([คทพฟ]ฺ[ยว])(็|[ัำ-ู]็?)?([่̄-๋])?([^ -]*)", "\\1\\2–\\3\\5_L\\4"
   sub "(^| |-|[เแไใโ])([กดตบป]ฺ[ยว])(็|[ัำ-ู]็?)?([่̄-๋])?([^ -]*)", "\\1\\2–\\3\\5_M\\4"
-  
+
   # Move tones to the end of the syllable
   sub "(^| |-|[เแไใโ])([ขผสห]ฺ[กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมรลศษสหฬอฮ]|[ขฃฉฐถผฝศษสห])(็|[ัำ-ู]็?)?([่̄-๋])?([^- ฺ]*)(?= |-|$)", "\\1\\2–\\3\\5_H\\4"
   sub "(^| |-|[เแไใโ])([กดตบป]ฺ[กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมรลศษสหฬฮ]|[กจฎฏดตบป])(็|[ัำ-ู]็?)?([่̄-๋])?([^- ฺ]*)(?= |-|$)", "\\1\\2–\\3\\5_M\\4"
   sub "(^| |-|[เแไใโ])([คทพฟ]ฺ[กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมรลศษสหฬอฮ]|[คฅฆงชซฌญฑฒณทธนพฟภมรลฬฮ])(็|[ัำ-ู]็?)?([่̄-๋])?([^- ฺ]*)(?= |-|$)", "\\1\\2–\\3\\5_L\\4"
-  
+
   # If ว is followed by another vowel, than it is actually part of the cluster
   sub "(^| |-|[เแไใโ])([ขผสหกดตบปคทพฟ])–([วรล])([าอำะัำ-ู]็?)([่̄-๋])?([^ -]*_[HML])", "\\1\\2\\3–\\4\\6\\5"
-  
+
   sub "([เแไใโ])([ขผสหกดตบปคทพฟ])–([วรล])([าอำะัำ-ู]?็?)([่̄-๋])?([คฅฆกขฃพภบปฟฌฑฒทธจฎฏดตฐถศษสชมญณนรลฬง]+_[HML])", "\\1\\2\\3–\\4\\6\\5"
-  
+
   # Move preceding vowels to the right position
   sub "(^| |-|[เแไใโ])([เแไใโ])([ปคฟตดผทพกขบหส]ฺ?[กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษสหฬอฮ])", "\\1\\3\\2"
   sub "(^| |-|[เแไใโ])([เแไใโ])([กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษสหฬอฮ])", "\\1\\3\\2"
-  
+
   # Add inherit vowel if there is nothing between the onset and final consonants
   sub "([กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษสหฬอฮ])(–)([คฅฆกขฃพฟภบปชฌฑฒทธจฎฏดตฐถศษสมญณนรลฬง]_)", "\\1โ\\2ะ\\3"
-  
+
   # Add inherit vowel for single letters
   sub "(^| |-|ฺ)([ก-ฮ])–(?=_[HML])", "\\1\\2–ะ"
-  
+
   #Change tones to correct tone values
   # IPA Tones:        0 ˧ , 1 ˨˩ , 2 ˥˩, 3 ˦˥, 4 ˩˩˦
-  
+
   sub "_[HM]่", "˨˩"
   sub "_[HM]้", "˥˩"
   sub "_[HML]๊", "˦˥"
@@ -94,30 +94,30 @@ stage {
   sub "_L่", "˥˩"
   sub "_L้", "˦˥"
   sub "_[HML]̄", "˧"
-  
+
   # Syllables ending in –ะ (U+0E30), –ิ (U+0E34), –ึ (U+0E36), –ุ (U+0E38)
   # are dead syllables and follow a different set of tone rules
   # The combination เ–ิ is an exception.
-  
+
   sub "([^เ]–ิ)_[HM]", "\\1˨˩"
   sub "([^เ]–ิ)_L", "\\1˦˥"
   sub "([ะึุ])_[HM]", "\\1˨˩"
   sub "([ะึุ])_L", "\\1˦˥"
-  
+
   # Syllables with stop finals
   sub "([ะคกขฃพฟภบปชฌฑฒทธจฎฏดตฐถศษส]ส?)_[HM]", "\\1˨˩"
   sub "([^เ]–ิ[คฅฆกขฃพฟภบปชฌฑฒทธจฎฏดตฐถศษส]ส?)_L", "\\1˦˥"
   sub "([ะัึุ็][คฅฆกขฃพฟภบปชฌฑฒทธจฎฏดตฐถศษส]ส?)_L", "\\1˦˥"
   sub "(็อ[คฅฆกขฃพฟภบปชฌฑฒทธจฎฏดตฐถศษส]ส?)_L", "\\1˦˥"
   sub "((?<=[^มนง])[คฅฆกขฃพฟภบปชฌฑฒทธจฎฏดตฐถศษส]ส?)_L", "\\1˥˩"
-  
+
   # Assign the default tones if no tone mark is present.
   sub "_[ML]", "˧"
   sub "_H", "˩˩˦"
-  
+
   # Remove tone-marking unpronounced ห
   sub "ห?ฺ", ""
-  
+
 
   # POSTRULES
   # If a syllable ends with a short vowel, the vowel is sometimes
@@ -129,13 +129,13 @@ stage {
   #
   # - pattern: "([aieuoɯɔɛɤ])(?=[˩˨˧˦˥]*( |$))"
   #   result: "\\1ʔ"
-  
+
   # Remove unprocessed short vowel marks
   sub "็", ""
-  
+
   # Using . instead of - as syllable delimiter in IPA
   sub "-", "."
-  
+
 
   # CHARACTERS
   parallel {
@@ -147,7 +147,7 @@ stage {
     sub "แ–ว", "ɛːw"
     sub "โ–ว", "oːw"
     sub "เ–ียว", "ia̯w"
-    
+
     # Part 2
     sub "–ุย", "uj"
     sub "โ–ย", "oːj"
@@ -155,7 +155,7 @@ stage {
     sub "เ–ย", "ɤːj"
     sub "เ–ือย", "ɯa̯j"
     sub "–วย", "ua̯j"
-    
+
     # Part 3
     sub "เ–ียะ", "ia̯"
     sub "เ–ีย", "ia̯"
@@ -171,7 +171,7 @@ stage {
     sub "–าย", "aːj"
     sub "เ–า", "aw"
     sub "–าว", "aːw"
-    
+
     # Part 4
     sub "–ะ", "a"
     sub "–ั", "a"
@@ -201,7 +201,7 @@ stage {
     sub "เ–ิ็", "ɤ"
     sub "เ–ิ", "ɤː"
     sub "เ–อ", "ɤː"
-    
+
     # FINAL CONSONANTS
     sub "[คฅฆกขฃ](?=ส?[˩˨˧˦˥])", "k̚"
     sub "[พภบป](?=[˩˨˧˦˥])", "p̚"
@@ -213,9 +213,9 @@ stage {
     sub "[ญณนร](?=[˩˨˧˦˥])", "n"
     sub "[ลฬ](?=[˩˨˧˦˥])", "l"
     sub "ง(?=[˩˨˧˦˥])", "ŋ"
-    
+
     # ​ONSET CONSONANTS
-    
+
     sub "ก", "k"
     sub "ข", "kʰ"
     sub "ฃ", "kʰ"
@@ -264,7 +264,7 @@ stage {
     sub "ฬ", "l"
     sub "อ", "ʔ"
     sub "ฮ", "h"
-    
+
   }
 
   # DICTIONARY

@@ -15,17 +15,17 @@ metadata {
     geographical names are transcribed directly from the Mongolian script
     into Pinyin. The scheme was published in Toponymic Guidelines for Map
     and Other Editors: China, 1982.
-  
+
     The system is used in China and in international cartographic
     products.
-  
+
     Mongolian uses a vertical script. Transcription of Mongolian names is
     made from their proper pronunciation based on the written form of the
     Mongolian language and Qahar vernacular, with Zhenglan as its
     representative pronunciation. Due to the complex nature of the script
     the romanization scheme is not reversible, e.g. the name of the city
     Hohhot is written ᠬᠥᠬᠡᠬᠣᠲᠠ but may be transliterated as kökeqota.
-  
+
   notes:
     - The long and short Mongolian vowels are not distinguished in the
       spelling for general use, but in recording the pronunciation of
@@ -38,7 +38,7 @@ metadata {
       are used as well as some ligatures. These features are not covered here.
     - For technical reasons the characters of the Mongolian script are
       turned 90˚ anti-clockwise.
-  
+
   implementation_notes:
     - A separated final form of vowels a or e is common, and can appear at the end
       of a word, word stem, or suffix. This form requires a final-shaped preceding

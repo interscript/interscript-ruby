@@ -38,7 +38,7 @@ metadata {
     recommended that a font such as Scheherazade, available
     from www.sil.org, which includes the Unicode extended
     Arabic sub-range, be used to view this system2 .)
-  
+
   notes:
     - 1. Alif ( ‫ا‬ ) should be romanized as follows
       a. Initially,it indicates that the word begins with a vowel or
@@ -51,21 +51,21 @@ metadata {
       ‫ماڼ‬ → Māṉêy d. Medially and finally in words of Arabic
       origin, alif may serve as the bearer of hamzah, e.g.
       ‫رأس‬ → ra’s. See also note 4.
-  
+
     - 2. The characters tsē ( ‫څ‬ ) and dzē ( ‫ځ‬ ) may be
       romanized t͡ s and d͡ z (the combining double breve (
       Unicode 0361) appearing over the digraph) when for special
       reasons it is desired that confusion be avoided between
       ‫ت‬ (t) plus ‫س‬ (s) and between ‫د‬ (d) plus ‫ز‬ (z),
       respectively.
-  
+
     - 3. Occasionally the character sequences ‫ه‬ ‫ك‬ , ‫ه‬ ‫ز‬ ,
       ‫ه‬ ‫س‬ , and ‫ه‬ ‫گ‬ occur . They may be romanized k·h, z·
       h, s·h, and g·h in order to differentiate these
       romanizations from the digraphs kh, zh, sh, and gh, which
       are used to represent the characters ‫خ‬ , ‫ژ‬, ‫ش‬ , and
       ‫غ‬ respectively .
-  
+
     - 4. Hamzah ( ‫ء‬ ) should be romanized as follows a. In
       word-initial position, where it will appear either above or
       below alif ( indicates a short vowel and should not itself
@@ -74,7 +74,7 @@ metadata {
       Yeh with hamzah ( ‫ئ‬ ) should be romanized êy, unless it
       represents the compound (iẕāfah) morpheme, in which case it
       is romanized according to note 9 below.
-  
+
     - 5. The division of words utilized in Pashto writing is
       followed in romanization, except that the elements –ābād, -
       khwā, -shahr, -zādah, -zay and -ullāh are always romanized
@@ -89,11 +89,11 @@ metadata {
       endings of Turkish origin such as –lar, -lī, -lū, -i, -u, -
       si, and –su, should be written together with the preceding
       word.
-  
+
     - 6. The Pashto preposition ‫د‬ should be romanized dê in
       agreement with its pronunciation, despite the fact that
       it is sometimes pointed with kasrah ( ٙ ).
-  
+
     - 7. In names of Arabic origin, the l of the definite article
       al/ul is assimilated before the ‘sun letters’ t, s̄ , d,
       z̄ , r, z, s, sh, ş, ẕ, ţ, z̧ , l and n. In romanization,
@@ -103,7 +103,7 @@ metadata {
       separated from the name it precedes and should not be
       capitalized, except at the beginning of a name, e.g. جَبَل
       السَرَاج → Jabal us Sarāj
-  
+
     - 8. In Arabic names, a shaddah, ٙ is used to denote the
       doubling of a particular consonant character, e.g. ‫مَّد‬
       َ‫ح‬ ‫م‬ ُ → Muḩammad. However, in Pashto this ‘doubling’
@@ -114,7 +114,7 @@ metadata {
       usual to see Ḩājī without and ‘Abbās with the doubled
       consonant. The doubled y consonant is almost always
       retained, as in Sayyid or Qayyūm
-  
+
     - 9. The iẕāfah morpheme is not a grammatical feature of
       Pashto and, if encountered in a linguistically hybrid
       geographical name (i.e. combining features of both Pashto
@@ -125,13 +125,13 @@ metadata {
       character sequence ‫خو‬ , ‫صار‬ ‫ح‬ ِ ‫غر‬ → Ghar-e Ḩişār;
       ‫و‬ ‫ن‬ َ ‫ه‬ ٔ ‫لع‬ َ ‫ق‬ َ → when followed by ‫ا‬ or
       ‫ی‬ , Qal‘ah-ye Now.
-  
-  
+
+
     - 10. The character sequence خو when followed by ‫ا‬ or
       ‫ی‬ ,should be romanized khw, although the w is either not
       pronounced, or only weakly pronounced; e.g. ‫خواجه‬ →
       khwājah.
-  
+
     - 11. An inventory of letter-diacritic combinations in addition to the unmodified letters of the
       basic Roman script is
       ‘ (U+2018)
@@ -260,12 +260,12 @@ stage {
 
   # CHARACTERS
   parallel {
-    
+
     sub "\u0650", "i" # ِ kasra
     sub "\u064f", "u" # ُ damma
-    
+
     sub "\u0650\\b", "-e" # ِ kasra
-    
+
     sub "\\s\u0627\u0644\u0644\u0651\u064e\u0647", "ullāh" # Note5
     sub "\\s\u062E\u0648\u0627", "khwā" # Note5
     sub "\\s\u0634\u064E\u0647\u0631", "shahr" # Note5
@@ -273,7 +273,7 @@ stage {
     sub "\\s\u0632\u064E\u064a", "zay" # Note5
     sub "\u0652", "" # ْ sokoon
     sub "\u0659", "ê"
-    
+
     # Sun letters
     sub "\\b\u0627\u0644\u062a", "ut t" # الت
     sub "\\b\u0627\u0644\u062b", "us̄ s̄" # الث
@@ -289,7 +289,7 @@ stage {
     sub "\\b\u0627\u0644\u0638", "uz̧ z̧" # الظ
     sub "\\b\u0627\u0644\u0644", "ul l" # الل
     sub "\\b\u0627\u0644\u0646", "un n" # الن
-    
+
     sub "\u0626", "êy" # ئ
   }
 

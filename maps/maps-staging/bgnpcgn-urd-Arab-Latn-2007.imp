@@ -172,36 +172,36 @@ stage {
   # CHARACTERS
   parallel {
     # special rules
-    
+
     sub "\\s(?=\u0622\u0628\u064E\u0627\u062F)", "" # space followed by abad is removed
     sub "\ufdf2", "Allāh" # See note 5
-    
+
     # Vowels, Diphthongs, and Diacritical Marks
     sub "\u064e", "a" # َ fatha
     sub "\u064e(?=\u0629)", "" # َ fatha followed by ta' marboota
     sub "\u064e(?=a[h|t])", "" # َ fatha followed by ta' marboota, handling different order of conversion
-    
+
     sub "\u0652", "" # ْ sokoon
     sub "\u0659", "ê"
-    
+
     sub "\u0650[\u064a|\u06cc]", "ī" # ـِي kasra followed by ي
     sub "\u0650", "i" # karsra
     sub "\u06d2", "e" # ـے
-    
+
     sub "\u0622", "ā" # آ
     sub "\u064e\u0627", "ā" # ـَا fatha followed by ا
     sub "\u0627", "ā" # ا
     sub "\\b\u0627", "" # ا
-    
+
     sub "\u0648", "o" # و # suspect
     sub "\u064f", "u" # ُ damma
     sub "\u064f\u0648", "ū" # ـُو damma followed by و
-    
+
     sub "\u064e\u06d2", "ai" # ـے
     sub "\u064e\u0648", "au" # ـَو
     sub "\u0670", "á" # ىٰ
     sub "\u0649", "á" # ىٰ
-    
+
     # shadda
     sub "\u0628\u0651", "bb" # ب
     sub "\u062a\u0651", "tt" # ت
@@ -229,12 +229,12 @@ stage {
     sub "\u0647\u0651", "hh" # ه
     sub "\u0648\u0651", "ww" # و
     sub "[\u064a|\u06cc]\u0651", "yy" # ي
-    
+
     # NOTE 1
     sub "\u0650\\b", "-e" # ِ kasra
     sub "\u0674", "-e" # ٴ
     sub "\u0654", "-e" #  ٔ
-    
+
     sub "\u0650\u064a\u0651\u064e", "īy" # ـِيَّ
     sub "\u0650\u064a(?=\u064e|u064f)", "iy" # ـِي kasra followed by ي
     sub "\u064e\u0649", "ay" # ـَى fatha followed by ى which is ا not ي
@@ -244,8 +244,8 @@ stage {
     sub "\u064e\u064a", "aī" # ـَي
     sub "\u064e\u06cc", "aī" # ـَي
     # - '-ye'
-    
-    
+
+
     # ta' marboota
     sub "\u0629", "at" # ة in the middle of the sentence
     sub "\u0629$", "ah"
@@ -261,20 +261,20 @@ stage {
     sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{11})\u0629", "ah"
     sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{12})\u0629", "ah"
     sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{13})\u0629", "ah"
-    
-    
-    
+
+
+
     sub "\u0621", "’" # ء
     sub "\u0624", "’" # ؤ
     sub "\u0624\\b", "’o" # ؤ
     sub "\u0626", "’" # ئ
-    
+
     sub "\u0623", "" # أ
     sub "\u0625", "" # إ
     # See note B
     sub "\\b\u0627\u0644", "al " # ال
     # '\uFE8E' : ''  # ﺎ
-    
+
     # Sun letters
     sub "\\b\u0627\u0644\u062a", "at t" # الت
     sub "\\b\u0627\u0644\u062b", "as̄ s̄" # الث
@@ -290,10 +290,10 @@ stage {
     sub "\\b\u0627\u0644\u0638", "az̧ z̧" # الظ
     sub "\\b\u0627\u0644\u0644", "al l" # الل
     sub "\\b\u0627\u0644\u0646", "an n" # الن
-    
-    
+
+
     # consonant characters
-    
+
     sub "\u0628", "b" # ب
     sub "\u067E", "p" # پ
     sub "\u062a", "t" # ت

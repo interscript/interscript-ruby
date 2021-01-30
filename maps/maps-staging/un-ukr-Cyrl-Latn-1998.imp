@@ -47,7 +47,7 @@ stage {
     sub "\u042E", "yu" # Ю
     sub "\u042F", "ya" # Я
     sub "\u042D", "E" # Э
-    
+
     sub "\u0433", "h" # г
     sub "\u0491", "g" # ґ
     sub "\u0454", "ye" # є
@@ -65,7 +65,7 @@ stage {
     sub "\u044E", "yu" # ю
     sub "\u044F", "ya" # я
     sub "\u044D", "e" # э
-    
+
     sub "\u0027", "\"" # '
   }
 

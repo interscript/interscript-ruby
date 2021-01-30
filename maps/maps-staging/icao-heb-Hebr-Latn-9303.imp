@@ -12,12 +12,12 @@ metadata {
     size machine readable travel documents (MRTDs) including those
     necessary for global interoperability using visual inspection and
     machine readable (optical character recognition) means.
-  
+
     Since only Latin-alphabet characters are allowed in the VIZ, if
     mandatory data elements are in a national language that does not use
     the Latin alphabet, a transcription or transliteration shall also be
     provided.
-  
+
     This document defines the transliteration mappings used to produce
     this transcription or transliteration.
 }
@@ -41,7 +41,7 @@ stage {
   # CHARACTERS
   parallel {
     sub "'", "" # '
-    
+
     # Consonants
     sub "א", "" # א
     sub "ב", "V" # ב
@@ -128,7 +128,7 @@ stage {
     sub "תּ", "T" # תּ
     sub "תּ", "T" # תּ
     sub "ת׳", "T" # ת׳
-    
+
     # Niqqud vowels
     sub "ְ", "E" # ( ְ‬ )
     sub "ֱ", "E" # ( ֱ )
@@ -143,7 +143,7 @@ stage {
     sub "ֻ", "U" # ( ֻ )
     sub "וּ", "U" # ( וּ )
     sub "וּ", "U" # ( וּ )
-    
+
     # Diphthongs
     sub "ֵי", "EI" # ( ֵי )
     sub "ֶי", "EI" # ( ֶי )

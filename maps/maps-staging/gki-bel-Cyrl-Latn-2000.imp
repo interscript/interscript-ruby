@@ -92,12 +92,12 @@ stage {
   # POSTRULES
   sub "\\u042C", "'" # Ь
   sub "\\u044C", "'" # ь
-  
+
 
   # CHARACTERS
   parallel {
     sub "\u0027", "" # '
-    
+
     sub "\u0410", "A" # A
     sub "\u0411", "B" # Б
     sub "\u0412", "V" # B
@@ -129,7 +129,7 @@ stage {
     sub "\u042D", "E" # Э
     sub "\u042E", "Ju" # Ю
     sub "\u042F", "Ja" # Я
-    
+
     sub "\u0430", "a" # а
     sub "\u0431", "b" # б
     sub "\u0432", "v" # в

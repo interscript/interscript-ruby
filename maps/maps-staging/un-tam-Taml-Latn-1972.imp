@@ -11,15 +11,15 @@ metadata {
   description: |
     The United Nations recommended system was approved in 1972 (II/11) and amended in 1977 (III/12), based on a report prepared by
     D. N. Sharma. The tables and their corrections were published in volume II of the conference reports.
-  
+
     There is no evidence of the use of the system either in India, Sri Lanka or in international cartographic products.
-  
+
     Tamil uses an alphasyllabic script whereby each character represents a syllable rather than one sound. Vowels and diphthongs
     are marked in two ways: as independent characters (used syllable-initially) and in an abbreviated form, to denote vowels after
     consonants. The romanization table is unambiguous. The system is on the whole reversible.
-  
+
   notes:
-  
+
     - |
       ஜி Variation: டி ṭi.
     - |
@@ -87,48 +87,48 @@ stage {
   sub "([ஷ]=?)(?=[\\u0bbe\\u0bbf\\u0bc0\\u0bc1\\u0bc2\\u0bc6\\u0bc7\\u0bc8\\u0bca\\u0bcb\\u0bcc\\u25cc\\u0bcd])", "ṣh"
   sub "([ஸ]=?)(?=[\\u0bbe\\u0bbf\\u0bc0\\u0bc1\\u0bc2\\u0bc6\\u0bc7\\u0bc8\\u0bca\\u0bcb\\u0bcc\\u25cc\\u0bcd])", "s"
   sub "([ஹ]=?)(?=[\\u0bbe\\u0bbf\\u0bc0\\u0bc1\\u0bc2\\u0bc6\\u0bc7\\u0bc8\\u0bca\\u0bcb\\u0bcc\\u25cc\\u0bcd])", "h"
-  
-  
+
+
 
   # CHARACTERS
   parallel {
     sub "அ", "a"
     sub "ஆ", "ā"
     sub "ா", "ā"
-    
+
     sub "இ", "i"
     sub "ி", "i"
-    
+
     sub "ஈ", "ī"
     sub "ீ", "ī"
-    
+
     sub "உ", "u"
     sub "ு", "u"
-    
+
     sub "ஊ", "ū"
     sub "ூ", "ū"
-    
+
     sub "ெ", "ĕ"
     sub "எ", "ĕ"
-    
+
     sub "ே", "e"
     sub "ஏ", "e"
-    
+
     sub "ஐ", "ai"
     sub "ை", "ai"
-    
+
     sub "ஒ", "ŏ"
     sub "ொ", "ŏ"
-    
+
     sub "ோ", "o"
     sub "ஓ", "o"
-    
+
     sub "ஔ", "au"
     sub "ௌ", "au"
-    
+
     sub "ஃ", "ḥ"
     sub "்", ""
-    
+
     sub "க", "ka"
     sub "ங", "ṅa"
     sub "ச", "cha"
@@ -155,7 +155,7 @@ stage {
     sub "க்ஷ", "kṣha"
     sub "ற்ற", "ṟṟa"
     sub "ன்ற", "ṉṟa"
-    
+
     # Digits
     sub "௧", "1"
     sub "௨", "2"
@@ -170,7 +170,7 @@ stage {
     sub "௰", "10"
     sub "௱", "100"
     sub "௲", "1000"
-    
+
     sub "‍", "" # no need for zero with joiner
     sub "‌", "" # no need for zero with non joiner
   }

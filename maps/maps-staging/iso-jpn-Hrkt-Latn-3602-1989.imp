@@ -13,7 +13,7 @@ metadata {
     Japanese written language. Unrestricted application for the system
     requires that the romanizer possess a detailed knowledge of the
     language in its present-day written form.
-  
+
   notes:
 }
 
@@ -54,12 +54,12 @@ stage {
   # RULES
   # Remove morpheme boundary marker after sokuon っ/ッ
   sub "([っッ])•", "\\1"
-  
+
 
   # POSTRULES
   # Remove morpheme boundary marker
   sub "•", ""
-  
+
   # Use ’ instead of '
   sub "'", "’"
 

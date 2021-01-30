@@ -11,15 +11,15 @@ metadata {
   description: |
     Script conversion is often required for documents such as historical and literary texts, geographical texts (including
     maps and atlases), bibliographies, catalogues, lists and passports (and other identification documents).
-  
+
     Text in Devanagari script or other Indic scripts sometimes needs to be shown in Latin script, where users, or
     equipment that they are using, cannot read or write the text
-  
+
     This International Standard applies to transliteration of Devanagari, and to Indic scripts related to Devanagari,
     independent of the period in which it is or was used.
-  
+
   notes:
-  
+
     - All transliterations made using this International Standard shall be case-insensitive.
     - Inherent a with a consonant shall always be transliterated.
     - anusvara (including Vedic anusvara) shall be transliterated as ṁ
@@ -80,9 +80,9 @@ stage {
 
   # CHARACTERS
   parallel {
-    
+
     # Vowels
-    
+
     sub "ਅ", "a"
     sub "ਆ", "ā"
     sub "ਇ", "i"
@@ -93,7 +93,7 @@ stage {
     sub "ਐ", "ai"
     sub "ਓ", "o"
     sub "ਔ", "au"
-    
+
     # Consonants
     # Gutturals
     sub "ਕ", "ka"
@@ -101,35 +101,35 @@ stage {
     sub "ਗ", "ga"
     sub "ਘ", "gha"
     sub "ਙ", "ṅa"
-    
+
     # Palatals
     sub "ਚ", "ca"
     sub "ਛ", "cha"
     sub "ਜ", "ja"
     sub "ਝ", "jha"
     sub "ਞ", "ña"
-    
+
     # Cerebrals
     sub "ਟ", "ṭa"
     sub "ਠ", "ṭha"
     sub "ਡ", "ḍa"
     sub "ਢ", "ḍha"
     sub "ਣ", "ṇa"
-    
+
     # Dentals
     sub "ਤ", "ta"
     sub "ਥ", "tha"
     sub "ਦ", "da"
     sub "ਧ", "dha"
     sub "ਨ", "na"
-    
+
     # Labials
     sub "ਪ", "pa"
     sub "ਫ", "pha"
     sub "ਬ", "ba"
     sub "ਭ", "bha"
     sub "ਮ", "ma"
-    
+
     # Semivowels
     sub "ਯ", "ya"
     sub "ਰ", "ra"
@@ -137,26 +137,26 @@ stage {
     sub "ਲ਼", "ḷa"
     sub "ਵ", "va"
     sub "ੜ", "ṛa"
-    
+
     # Sibilants
     sub "ਸ", "sa"
-    
+
     # Aspirate
     sub "ਹ", "ha"
-    
+
     # Bindī
     sub "ਂ", "ṃ"
-    
+
     # Ṭippī
     sub "ੰ", "ṁ"
-    
+
     # Bisarga
     sub "ਃ", "ḥ"
-    
+
     # candrabindu
     sub "\u0A01", "m̐"
-    
-    
+
+
     # Medials # Needed for connecting constants
     sub "ਾ", "ā"
     sub "ਿ", "i"
@@ -168,9 +168,9 @@ stage {
     sub "ੋ", "o"
     sub "ੌ", "au"
     sub "ੱ", ""
-    
+
     # For adhik before a vowel rule 9 exception
-    
+
     sub "ੱਅ", ":a"
     sub "ੱਆ", ":ā"
     sub "ੱਇ", ":i"
@@ -181,7 +181,7 @@ stage {
     sub "ੱਐ", ":ai"
     sub "ੱਓ", ":o"
     sub "ੱਔ", ":au"
-    
+
     sub "ੱਾ", ":ā"
     sub "ੱਿ", ":i"
     sub "ੱੀ", ":ī"
@@ -191,16 +191,16 @@ stage {
     sub "ੱੈ", ":ai"
     sub "ੱੋ", ":o"
     sub "ੱੌ", ":au"
-    
-    
+
+
     # rule 9 exception for bindi and tippi
-    
+
     sub "ਂਈ", "ī:ṃ"
     sub "ੰਈ", "ī:ṁ"
-    
-    
+
+
     # digits
-    
+
     sub "੦", "0"
     sub "੧", "1"
     sub "੨", "2"
@@ -211,10 +211,10 @@ stage {
     sub "੭", "7"
     sub "੮", "8"
     sub "੯", "9"
-    
-    
+
+
     # Perso-Arabic Characters
-    
+
     sub "ਖ਼", "ḵẖa"
     sub "ਕ਼", "qa"
     sub "ਗ਼", "ġa"

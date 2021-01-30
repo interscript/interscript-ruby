@@ -9,7 +9,7 @@ metadata {
   creation_date: 1999
   adoption_date:
   description:
-  
+
   notes: |
 }
 
@@ -45,16 +45,16 @@ tests {
 stage {
 
   # RULES
-  
+
 
   # POSTRULES
   sub "chh", "ch"
-  
+
 
   # CHARACTERS
   parallel {
     sub "[0-9]", ""
-    
+
   }
 
   # DICTIONARY

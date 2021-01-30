@@ -10,11 +10,11 @@ metadata {
   description: |
     The BGN and the PCGn in 1947 jointly agreed to the transliteration of two letters of the Icelandic alphabet which,
     although used in writing Old English, have disappeared from the modern English alphabet.
-  
+
     The transliterated letters are the edh (Ð ð) and the thorn (Þ þ), pronounved as th in "thus" and th in "think," respectively.
-  
+
     It was felt that it was better to transliterate these letters into familiar symbols than preserve such unfamiliar letters in the nomenclature.
-  
+
   notes:
     - More about "edh" letter - https://en.wikipedia.org/wiki/Eth
     - More about "thorn" letter - https://en.wikipedia.org/wiki/Thorn_(letter)

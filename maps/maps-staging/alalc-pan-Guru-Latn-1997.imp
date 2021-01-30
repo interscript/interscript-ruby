@@ -9,39 +9,39 @@ metadata {
   creation_date: 1997
   description: |
     ALA-LC Romanization table for Panjabi
-  
+
   notes:
-  
+
     - Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for
       vowels following a consonant can be found in grammars; no distinction between the two is
       made in transliteration.
-  
+
     - |
       The vowel a is implicit after consonant clusters and may be implicit after consonants except
       when they are final or when another vowel is indicated by its appropriate sign. The cases in
       which the vowel a is implicit, however, can be determined only from a knowledge of the
       language or from suitable reference sources. In such cases the a is supplied in transliteration.
-  
+
     - The dotted letters (ਸ਼ ਖ਼ ਗ਼ ਜ਼ ਫ਼ ਲ਼) are used in Urdu words.
-  
+
     - |
       Exception: Bindī is transliterated by:
-  
+
       a) ṅ before gutturals,
       b) ñ before palatals,
       c) ṇ before cerebrals,
       d) n before dentals, and
       e) m before labials.
-  
+
     - |
       Exception: Ṭippī is transliterated by:
-  
+
       a) ṅ before gutturals,
       b) ñ before palatals,
       c) ṇ before cerebrals,
       d) n before dentals, and
       e) m before labials.
-  
+
     - |
       Exception: When adhik implies the combination of a non-aspirated and an aspirated
       consonant, the combination is transliterated as a non-aspirated, followed by an aspirated
@@ -79,19 +79,19 @@ stage {
   sub "\\u0A02(?=[ਚਛਜਜ਼ਝਞ])", "ñ" # ਂ   before palatals
   sub "\\u0A02(?=[ਟਠਡਢਣ])", "ṇ" # ਂ   before cerebrals
   sub "\\u0A02(?=[ਤਥਦਧਨ])", "n" # ਂ   before dentals
-  
+
   # note[5]
   sub "\\u0A70(?=[ਕਖਖ਼ਗਗ਼ਘਙ])", "ṅ" # ੰ  before gutturals
   sub "\\u0A70(?=[ਚਛਜਜ਼ਝਞ])", "ñ" # ੰ  before palatals
   sub "\\u0A70(?=[ਟਠਡਢਣ])", "ṇ" # ੰ  before cerebrals
   sub "\\u0A70(?=[ਤਥਦਧਨ])", "n" # ੰ  before dentals
-  
+
 
   # CHARACTERS
   parallel {
-    
+
     # I. Vowels and Diphthongs (see Note 1)
-    
+
     sub "ਅ", "a"
     sub "ਆ", "ā"
     sub "ਇ", "i"
@@ -102,7 +102,7 @@ stage {
     sub "ਐ", "ai"
     sub "ਓ", "o"
     sub "ਔ", "au"
-    
+
     # II. Consonants (see Note 2)
     # Gutturals
     sub "ਕ", "ka"
@@ -112,7 +112,7 @@ stage {
     sub "ਗ਼", "gha"
     sub "ਘ", "gha"
     sub "ਙ", "ṅa"
-    
+
     # Palatals
     sub "ਚ", "ca"
     sub "ਛ", "cha"
@@ -120,21 +120,21 @@ stage {
     sub "ਜ", "ja"
     sub "ਝ", "jha"
     sub "ਞ", "ña"
-    
+
     # Cerebrals
     sub "ਟ", "ṭa"
     sub "ਠ", "ṭha"
     sub "ਡ", "ḍa"
     sub "ਢ", "ḍha"
     sub "ਣ", "ṇa"
-    
+
     # Dentals
     sub "ਤ", "ta"
     sub "ਥ", "tha"
     sub "ਦ", "da"
     sub "ਧ", "dha"
     sub "ਨ", "na"
-    
+
     # Labials
     sub "ਪ", "pa"
     sub "ਫ", "pha"
@@ -142,7 +142,7 @@ stage {
     sub "ਬ", "ba"
     sub "ਭ", "bha"
     sub "ਮ", "ma"
-    
+
     # Semivowels
     sub "ਯ", "ya"
     sub "ਰ", "ra"
@@ -151,20 +151,20 @@ stage {
     sub "ਲ਼", "ḷa"
     sub "ਵ", "wa"
     sub "ੜ", "ṛa"
-    
+
     # Sibilants
     sub "ਸ", "sa"
     sub "ਸ਼", "sha"
-    
+
     # Aspirate
     sub "ਹ", "ha"
-    
+
     # Bindī (see Note 4)
     sub "ਂ", "ṃ"
-    
+
     # Ṭippī (see Note 5)
     sub "ੰ", "m̆̐"
-    
+
     # Medials # Needed for connecting constants
     sub "ਾ", "ā"
     sub "ਿ", "i"
@@ -175,9 +175,9 @@ stage {
     sub "ੈ", "ai"
     sub "ੋ", "o"
     sub "ੌ", "au"
-    
+
     # For adhik character[Note 6]
-    
+
     # Gutturals
     sub "ੱਕ", "kka"
     sub "ੱਖ", "kkha"
@@ -186,7 +186,7 @@ stage {
     sub "ੱਗ਼", "ggha"
     sub "ੱਘ", "ggha"
     sub "ੱਙ", "ṅṅa"
-    
+
     # Palatals
     sub "ੱਚ", "cca"
     sub "ੱਛ", "ccha"
@@ -194,21 +194,21 @@ stage {
     sub "ੱਜ਼", "zza"
     sub "ੱਝ", "jjha"
     sub "ੱਞ", "ñña"
-    
+
     # Cerebrals
     sub "ੱਟ", "ṭṭa"
     sub "ੱਠ", "ṭṭha"
     sub "ੱਡ", "ḍḍa"
     sub "ੱਢ", "ḍḍha"
     sub "ੱਣ", "ṇṇa"
-    
+
     # Dentals
     sub "ੱਤ", "tta"
     sub "ੱਥ", "ttha"
     sub "ੱਦ", "dda"
     sub "ੱਧ", "ddha"
     sub "ੱਨ", "nna"
-    
+
     # Labials
     sub "ੱਪ", "ppa"
     sub "ੱਫ", "ppha"
@@ -216,7 +216,7 @@ stage {
     sub "ੱਬ", "bba"
     sub "ੱਭ", "bbha"
     sub "ੱਮ", "mma"
-    
+
     # Semivowels
     sub "ੱਯ", "yya"
     sub "ੱਰ", "rra"
@@ -224,17 +224,17 @@ stage {
     sub "ੱਲੵ", "ḷḷa"
     sub "ੱਵ", "wwa"
     sub "ੱੜ", "ṛṛa"
-    
+
     # Sibilants
     sub "ੱਸ", "ssa"
     sub "ੱਸ਼", "ssha"
-    
+
     # Aspirate
     sub "ੱਹ", "hha"
-    
-    
+
+
     # digits
-    
+
     sub "੦", "0"
     sub "੧", "1"
     sub "੨", "2"

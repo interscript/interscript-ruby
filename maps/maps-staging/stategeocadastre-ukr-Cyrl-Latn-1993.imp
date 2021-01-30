@@ -10,17 +10,17 @@ metadata {
   description: |
     These Rules are intended for Romanized transliteration of Ukrainian
     geographic names in international cartographic editions.
-  
+
     Geographic names of Russia, Byelorussia, Bulgaria and other states
     using the Cyrillic alphabet are transliterated according to rules
     accepted in those states.
-  
+
     These Rules come into effect from the moment of their approval by
     the Main Administration of Geodesy, Cartography and Cadastre and
     will be effective until the introduction of a State standard of
     Ukraine regulating the Romanized transliteration of the Ukrainian
     alphabet.
-  
+
   notes:
     - No apostrophe (’) is used in transliteration, the combination "ьо" is transliterated as "io"
     - Use of capitals in Latin version of Ukrainian geographic names correspond to the Ukrainian spelling
@@ -105,7 +105,7 @@ stage {
   sub "\\b\\u2019\\b", "" # remove ’
   sub "\\u042c\\u041e", "IO"
   sub "\\u044c\\u043e", "io"
-  
+
 
   # CHARACTERS
   parallel {

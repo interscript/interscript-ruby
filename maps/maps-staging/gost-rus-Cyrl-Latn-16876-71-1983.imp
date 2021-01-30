@@ -15,22 +15,22 @@ metadata {
     It is based on the scientific transliteration system used in linguistics.
     GOST was an international standard so it included provision for a number of the languages
     of the Soviet Union.
-  
+
     GOST 16876-71 was used by the United Nations to develop its romanization system for geographical names,
     which was adopted for official use by the United Nations at the Fifth United Nations Conference
     on the Standardization of Geographical Names in Montreal, Quebec, Canada, in 1987.
     UN system relies on diacritics to compensate for non-Russian Cyrillic alphabets.
-  
+
     In 1978, COMECON adopted GOST 16876-71 with minor modifications as its official transliteration standard,
     under the name of SEV 1362-78 (Russian: СЭВ 1362-78).
-  
+
     In 1982, In accordance with Order No. 169 of April 16, 1982, GOST 16876-71 / ST SEV 1362-78 was put into effect on May 1, 1982.
-  
+
     In 1983, In accordance with Order No. 231 of May 16, 1983, Additional guidelines was released (check notes[2])
-  
+
     In 2002, the Russian Federation along with a number of CIS countries abandoned the use of GOST 16876
     in favor of ISO 9:1995, which was adopted as GOST 7.79-2000.
-  
+
   notes:
     - http://vsegost.com/Catalog/45/45002.shtml - original GOST
     - https://rosreestr.ru/upload/documenty/doc_169.doc - orders for entry into force (with changes)
@@ -124,7 +124,7 @@ stage {
     sub "\u042D", "È" # Э => È
     sub "\u042E", "Ju" # Ю
     sub "\u042F", "Ja" # Я
-    
+
     sub "\u0430", "a" # а
     sub "\u0431", "b" # б
     sub "\u0432", "v" # в

@@ -71,7 +71,7 @@ metadata {
     Information Technology — Universal Multiple-Octet Coded
     Character Set (UCS) — Part 1: Architecture and Basic
     Multilingual Plane.
-  
+
   notes: |
     TODO
 }
@@ -101,14 +101,14 @@ stage {
 
   # CHARACTERS
   parallel {
-    
+
     # word-medial or word-final form where so appearing in a word.
     # '\u0627': '-'
-    
+
     # # Vowel, Diphthong and Diacritical Characters
-    
+
     # '\u064E': 'a'
-    
+
     # # Both e and i are available to romanize this short vowel,
     # # depending on local usage and/or root language. In cases where the sound
     # # is uncertain, i is the default romanization in BGN/PCGN standardization
@@ -116,7 +116,7 @@ stage {
     # '\u0650':
     #   - 'e'
     #   - 'i'
-    
+
     # # Both o and u are available to romanize this short vowel,
     # # depending on local usage and/or root language. In cases where the sound
     # # is uncertain, u is the default romanization in BGN/PCGN standardization
@@ -125,19 +125,19 @@ stage {
     #   - 'o'
     #   - 'u'
     # '\u0659': 'ê'
-    
+
     # # An alif with mad ( آ ) is written only in the initial position by
     # # BGN/PCGN standardization procedures, in keeping with Persian language
     # # family standards of use of the Arabic alphabet. The same letter written
     # # in a medial or final position is written . . .
     # '\u0622': 'ā'
-    
+
     # pending issue #442
     # '\u0648': 'ō'
     # '\u0648': 'ū'
     # '\u0648': 'ow'
     # '\u06CC': 'ī'
-    
+
     # # Or 'ē'. The character ی should be romanized ay or ē according to
     # # its root language or local pronunciation. In case of uncertainty a
     # # reference source (such as the Fairchild Aerial Surveys map series, or a
@@ -145,7 +145,7 @@ stage {
     # # be consulted.
     # '\u06CC': 'ay'
     # '\u06D0': 'ē'
-    
+
     # # Or 'aī'. Both the combination ay and aī are available to romanize
     # # this character according to its root language or local pronunciation.
     # # In cases where the sound is uncertain ay is the default romanization in
@@ -158,40 +158,40 @@ stage {
     # '\u0674':
     #   - '-e'
     #   - '-ye'
-    
+
     # # Other Diacritical Marks and Language Conventions
-    
+
     # '\u0627': 'āy'
-    
+
     # '\u0648': 'w'
     # '\u0626': '’'
     # '\u06C0': ''
     # '\u0651': ''
-    
-    
+
+
     # special rules
-    
+
     sub "\\s(?=\u0622\u0628\u064E\u0627\u062F)", "" # space followed by abad is removed
     sub "\ufdf2", "Allāh" # See note 5
-    
+
     # pointing
     sub "\u064e", "a" # َ fatha
-    
+
     sub "\u0650", any("ei")
     sub "\u0650\\b", "-e" # ِ kasra
-    
+
     sub "\u064f", any("ou") # ُ damma
-    
+
     sub "\u0652", "" # ْ sokoon
     sub "\u0659", "ê"
-    
+
     # special pointed letters
     sub "\u0639\u064e", "‘a" # عَ
     sub "\u0639\u0650", "‘i" # عِ
     sub "\u0639\u064f", "‘ū" # عُ
     # handle MacOS regex difference
     sub "\u0639\u064f\u0648", "‘ū" # عُو damma followed by و
-    
+
     sub "\u0650\u064a", "ī" # ـِي kasra followed by ي
     sub "\u0650\u06cc", "ī" # ـِي kasra followed by ي
     sub "\u0650\u064a\u0651\u064e", "īy" # ـِيَّ
@@ -209,9 +209,9 @@ stage {
     sub "\u0674", "-e" # ٴ
     sub "\u0654", "-e" #  ٔ
     # - '-ye'
-    
+
     sub "\u0622", "â" # آ
-    
+
     # ta' marboota
     sub "\u0629", "t" # ة in the middle of the sentence
     sub "\u0629$", "h"
@@ -227,7 +227,7 @@ stage {
     sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{11})\u0629", "h"
     sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{12})\u0629", "h"
     sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{13})\u0629", "h"
-    
+
     # shadda
     sub "\u0628", "bb" # ب
     sub "\u067E", "pp" # پ
@@ -264,31 +264,31 @@ stage {
     sub "\u0649", "yy" # ي
     sub "\u06D0", "ēē" # ې
     sub "\u06CD", "êy" # ‫ۍ
-    
+
     # Tanvin
     sub "\u064b", "´´" #  ً
     sub "\u064c", "" #  ٌ
     sub "\u064d", "" #  ٍ
-    
+
     # hamzeh
     sub "\u0621", "’" # ء
     sub "\u0623", "â’" # أ
     sub "\u0624", "v’" # ؤ
     sub "\u0626", "y’" # ئ
-    
+
     # punctuation
-    
+
     sub "\u060c", "," # vavak comma
     sub "\u061b", ";" # nogteh vavak semi column
     sub "\u061f", "?" # neshane-ye porsesh question mark
-    
+
     sub "\u0625", "" # إ
     sub "\u0627", "â" # ا
-    
+
     # See note B
     sub "\\b\u0627\u0644", "al " # ال
     # '\uFE8E' : ''  # ﺎ
-    
+
     # Sun letters
     sub "\\b\u0627\u0644\u062a", "at t" # الت
     sub "\\b\u0627\u0644\u062b", "as̄ s̄" # الث
@@ -304,9 +304,9 @@ stage {
     sub "\\b\u0627\u0644\u0638", "az̧ z̧" # الظ
     sub "\\b\u0627\u0644\u0644", "al l" # الل
     sub "\\b\u0627\u0644\u0646", "an n" # الن
-    
+
     # consonant characters
-    
+
     sub "\u0628", "b" # ب
     sub "\u067E", "p" # پ
     sub "\u062a", "t" # ت
@@ -314,13 +314,13 @@ stage {
     sub "\u062B", "s̱" # ث
     sub "\u062c", "j" # ج
     sub "\u0686", "c" # ‫چ‬
-    
+
     # # The variant form ج is seen infrequently and does not have a
     # # single Unicode encoding.
     # '\u0681': 'dz' # Note 2 # ‫ځ‬
-    
+
     # '\u0685': 'ts' # Note 2 # ‫څ
-    
+
     sub "\u062d", "ḥ" # ح
     sub "\u062e", "ḵ" # خ
     sub "\u062f", "d" # د

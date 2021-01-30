@@ -1,7 +1,7 @@
 metadata {
-  
+
   # TODO: This system is not complete/usable yet!
-  
+
   # TODO: Add tests from PDF
   authority_id: bgnpcgn
   id: 1956
@@ -17,7 +17,7 @@ metadata {
     and is applied in the systematic romanization of geographic names in
     Bahrain, Egypt, Iraq, Jordan, Kuwait, Libya, Oman, Qatar, Saudi Arabia,
     Syria, the United Arab Emirates, and Yemen.
-  
+
     Uniform results in the romanization of Arabic are difficult to
     obtain, since vowel points and diacritical marks are generally omitted
     from both manual and machine writing. It follows that for correct
@@ -25,14 +25,14 @@ metadata {
     knowledge of its standard Arabic- script spelling including proper
     pointing, and recognition of dialectal and idiosyncratic deviations are
     essential.
-  
+
     In order to bring about uniformity in the Roman-script spelling of
     geographic names in Arabic- language areas, the system is based insofar
     as possible on fully pointed modern standard Arabic. In the interest of
     clarity, vowel pointing has been applied to the examples below. Arabic
     is written from right to left, and does not make a distinction between
     upper and lower case.
-  
+
   notes:
     - The symbol ◌ represents any Arabic consonant character.
     - "Hamzah (ء) is written in Arabic in association with most instances of initial alif, except those which belong to the definite article al or which bear a maddah (see note 11). Hamzah is written above the alif if the accompanying short vowel is a fatḩah (َأ) or ḑammah (ُأ) and below the alif if the accompanying short vowel is a kasrah (ِإ). When the purpose is to indicate the presence of a glottal stop, hamzah is written over medial and final alif (أ), wāw (ؤ) and yā’ without dots (ئ). Hamzah following kasrah (◌ِ ) is written (ئ). Almost always the yā’ is in the initial or medial form and the dots are omitted: example: (بئر). Hamzah following ḑammah (◌ُ )is written (ؤ). Hamzah following a long vowel is written without a bearer and is positioned on the line of print like a regular character. The romanization of hamzah (’) should always be carefully distinguished from that of ‘ayn (‘)."
@@ -46,7 +46,7 @@ metadata {
     - Hamzat al waşl (ٱ), which is utilized only in the pointing of classical Arabic, is romanized ’ as illustrated in the classical form of its name hamzatu’l waşli.
     - Since maddah (آ), which is placed over alif (ا), nearly always occurs in word-initial position, no .)◌َا( as well as for fatḩah alif )آ( confusion results from the use of ā for alif maddah
     - The ligatures لا and لـا represent lām- alif, and should be romanized lā.
-  
+
   special_rules:
     # TODO: These are not used
     - Initial definite articles and prepositions should be capitalized and hyphens should not be used to connect parts of names, e.g., Ash Shāriqah and Tall al Laḩm.

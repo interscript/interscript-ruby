@@ -5,18 +5,18 @@ metadata {
   source_script: Orya
   destination_script: Latn
   name: Indian script code for information interchange - ISCII - Oriya Romanization
-  
+
   #url:
   creation_date: 1991
   description: |
     IS 13194 (1991): Indian script code for information
     interchange - ISCII [LITD 20: Indian Language Technologies
     and Products]
-  
+
   notes:
     - |
       Exception: Anusvāra is transliterated by:
-  
+
       a) ṅ before gutturals,
       b) ñ before palatals,
       c) ṇ before cerebrals,
@@ -57,8 +57,8 @@ stage {
   sub "\\u0B02(?=[ଟଠଡଡ଼ଢଣଢ଼])", "ṇ"
   sub "\\u0B02(?=[ତଥଦଧନ])", "n"
   sub "\\u0B02(?=[ପଫବଭମ])", "m"
-  
-  
+
+
 
   # CHARACTERS
   parallel {
@@ -74,7 +74,7 @@ stage {
     sub "ଐ", "ai"
     sub "ଓ", "ŏ"
     sub "ଔ", "au"
-    
+
     # II. Consonants (see Note 2)
     # Gutturals
     sub "କ", "k"
@@ -82,14 +82,14 @@ stage {
     sub "ଗ", "g"
     sub "ଘ", "gh"
     sub "ଙ", "ṅ"
-    
+
     # Palatals
     sub "ଚ", "c"
     sub "ଛ", "ch"
     sub "ଜ", "j"
     sub "ଝ", "jh"
     sub "ଞ", "ñ"
-    
+
     # Cerebrals
     sub "ଟ", "ṭ"
     sub "ଠ", "ṭh"
@@ -98,21 +98,21 @@ stage {
     sub "ଢ", "ḍh"
     sub "ଢ଼", "d̂h"
     sub "ଣ", "ṇ"
-    
+
     # Dentals
     sub "ତ", "t"
     sub "ଥ", "th"
     sub "ଦ", "d"
     sub "ଧ", "dh"
     sub "ନ", "n"
-    
+
     # Labials
     sub "ପ", "p"
     sub "ଫ", "ph"
     sub "ବ", "b"
     sub "ଭ", "bh"
     sub "ମ", "m"
-    
+
     # Semivowels
     sub "ଯ", "y"
     sub "ୟ", "ẏ"
@@ -120,27 +120,27 @@ stage {
     sub "ଲ", "l"
     sub "ଳ", "ḷ"
     sub "ଵ", "v"
-    
+
     # Sibilants
     sub "ଶ", "ś"
     sub "ଷ", "ṣ"
     sub "ସ", "s"
-    
-    
+
+
     # Aspirate
     sub "ହ", "h"
-    
+
     # Chandrabindu
     sub "ଁ", "m"
-    
+
     # Bisarga
     sub "ଃ", "ḥ"
-    
+
     # Anusvāra
     sub "ଂ", "ṃ"
-    
+
     # Medials # Needed for connecting constants
-    
+
     sub "ା", "ā"
     sub "ି", "i"
     sub "ୀ", "ī"
@@ -151,7 +151,7 @@ stage {
     sub "ୈ", "ai"
     sub "ୋ", "ŏ"
     sub "ୌ", "au"
-    
+
     sub "्", ""
     sub "୍", ""
     sub "़", ""
@@ -159,9 +159,9 @@ stage {
     sub "।", "."
     sub "‍", "" # Used for joining
     sub "‌", "" # Used for non joining
-    
+
     # Numbers
-    
+
     sub "୦", "0"
     sub "୧", "1"
     sub "୨", "2"

@@ -12,13 +12,13 @@ metadata {
     author with the development of the Streamlined System for the
     Romanization of Bulgarian, which was eventually codified by the
     Transliteration Act of 2009 (ДВ 2009) of the Bulgarian Parliament.
-  
+
     The four purposes of the system below are in order of priority:
     1. ensure a plausible phonetic approximation of Russian words by English speaking users, including those having no knowledge of the Russian language and no available additional explanations;
     2. the system should allow for the retrieval of the original Cyrillic spellings as much as feasible;
     3. transliterated Russian words should fit an English language environment i.e. not be perceived as too ‘un-English’; and
     4. transliterated word forms should be streamlined and simple. (Ivanov 2003, Ivanov et al. 2010)
-  
+
   notes:
     - Typical for the streamlined approach is its non-use of diacritics,
       its use of Latin y for rendering only Cyrillic й rather than both й and
@@ -53,7 +53,7 @@ stage {
   # RULES
   sub "\\u042c(?=[ЕеЁёИиОоЭэ])", "Y" # Ь (before Е, Ё, И, O, Э)
   sub "\\u044c(?=[ЕеЁёИиОоЭэ])", "y" # ь (before Е, Ё, И, O, Э)
-  
+
 
   # CHARACTERS
   parallel {
@@ -89,20 +89,20 @@ stage {
     sub "Ы", "I" # Ы
     sub "Я", "Ya" # Я
     sub "Ю", "Yu" # Ю
-    
+
     # Ь (before Е, Ё, И, O, Э)
     # "\u042c\u0401": "YE"    # Ё
     # "\u042c\u0415": "YE"    # Е
     # "\u042c\u0418": "YI"    # И
     # "\u042c\u041E": "YO"    # O
     # "\u042c\u0417": "YE"    # Э
-    
+
     # Ь (otherwise) -> (none)
     sub "Ь", ""
-    
+
     # Ъ  -> (none)
     sub "Ъ", ""
-    
+
     sub "а", "a" # а
     sub "б", "b" # б
     sub "в", "v" # в
@@ -134,17 +134,17 @@ stage {
     sub "ы", "i" # ы
     sub "я", "ya" # я
     sub "ю", "yu" # ю
-    
+
     # ь (before е, ё, и, o, э)
     # "\u044c\u0435": "ye"    # ё
     # "\u044c\u0451": "ye"    # е
     # "\u044c\u0438": "yi"    # и
     # "\u044c\u006f": "yo"    # o
     # "\u044c\u044d": "ye"    # э
-    
+
     # ь (otherwise) -> (none)
     sub "ь", ""
-    
+
     # ъ -> (none)
     sub "ъ", ""
   }

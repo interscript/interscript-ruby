@@ -7,7 +7,7 @@ metadata {
   name: 8/19678 On approval of the Instructions for transliteration of surnames and proper names of citizens of the Republic of Belarus when their personal data is included in the population register
   url: https://www.icao.int/publications/pages/publication.aspx?docnum=9303
   creation_date: 2008
-  
+
   notes:
     - check notes from mvd-bel-Cyrl-Latn-2008
 }
@@ -37,12 +37,12 @@ stage {
   sub "([’Ъъ]\\u044E)", "ju"
   sub "([’Ъъ]\\u042F)", "Ja"
   sub "([’Ъъ]\\u044F)", "ja"
-  
+
 
   # CHARACTERS
   parallel {
     sub "’", "j"
-    
+
     sub "\u0410", "A" # А
     sub "\u0411", "B" # Б
     sub "\u0412", "V" # B
@@ -77,7 +77,7 @@ stage {
     sub "\u042D", "E" # Э
     sub "\u042E", "Iu" # Ю
     sub "\u042F", "Ia" # Я
-    
+
     sub "\u0430", "a" # а
     sub "\u0431", "b" # б
     sub "\u0432", "v" # в

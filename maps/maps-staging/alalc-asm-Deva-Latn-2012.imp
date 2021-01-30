@@ -9,24 +9,24 @@ metadata {
   creation_date: 1997
   description: |
     ALA-LC Romanization table for Assamese
-  
+
   notes:
-  
+
     - Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for
       vowels following a consonant can be found in grammars; no distinction between the two is
       made in transliteration.
-  
+
     - |
       The vowel a is implicit after all consonants and consonant clusters and is supplied in
       transliteration, with the following exceptions:
-  
+
       a) when another vowel is indicated by its appropriate sign; and
       b) when the absence of any vowel is indicated by the subscript sign ( ◌् ) called halanta or
          birāma.
-  
+
     - Candrabindu before guttural, palatal, cerebral, and dental occlusives is transliterated n̐. Before
       labials, sibilants, semivowels, aspirates, vowels, and in final position it is transliterated m̐.
-  
+
     - When doubled, avagraha is transliterated by two apostrophes ( ’’ ).
 }
 

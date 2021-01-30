@@ -315,7 +315,7 @@ stage {
   sub "(?<!\\b)\\u03BC[πΠ]", "mp" # μπ (medially)
   sub "\\u037E", "?" # ;
   sub "\\u003B", "?" # ;
-  
+
 
   # CHARACTERS
   parallel {
@@ -356,7 +356,7 @@ stage {
     sub "Ώ", "Ó" # Ώ
     sub "Ϊ", "Ï" # Ϊ
     sub "Ϋ", "Ÿ" # Ϋ
-    
+
     sub "ά", "á" # ά
     sub "α", "a" # α
     sub "β", "v" # β
@@ -396,7 +396,7 @@ stage {
     sub "ϋ", "ÿ" # ϋ
     sub "ΐ", "ḯ" # ΐ
     sub "ΰ", "ÿ́" # ΰ
-    
+
     sub "·", ";" # ·
     sub "·", ";" # ·
   }

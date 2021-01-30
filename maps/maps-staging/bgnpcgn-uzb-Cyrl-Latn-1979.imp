@@ -7,7 +7,7 @@ metadata {
   name: BGN/PCGN Romanization System -- Uzbek Cyrillic (1979)
   url: http://transliteration.eki.ee/pdf/Uzbek.pdf
   creation_date: 1979
-  
+
   notes:
     - At the beginning of a syllable, after a vowel, ъ or ь.
 }
@@ -44,7 +44,7 @@ stage {
   # note[1]
   sub "(?<=[АаЕеЁёИиОоУуЭэЮюЯяЪъЬь])\\u0415", "Ye"
   sub "(?<=[АаЕеЁёИиОоУуЭэЮюЯяЪъЬь])\\u0435", "ye"
-  
+
 
   # CHARACTERS
   parallel {
@@ -83,7 +83,7 @@ stage {
     sub "\u042D", "E" # Э
     sub "\u042E", "Yu" # Ю
     sub "\u042F", "Ya" # Я
-    
+
     sub "\u0430", "a" # а
     sub "\u0431", "b" # б
     sub "\u0432", "w" # в

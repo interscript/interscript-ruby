@@ -12,11 +12,11 @@ metadata {
     Tatar is an official language within Respublika Tatarstan, one of the republics of the Russian
     Federation. It will normally be encountered in Cyrillic script, in which case it should be romanized by means
     of the Cyrillic-Roman table of correspondences given below.
-  
+
   notes:
     - |
-      The alphabet portrayed in the above table is referred to as yaꞑalif-2. 
-      A set of simpler characters is also encountered; this is known as zamanalif. 
+      The alphabet portrayed in the above table is referred to as yaꞑalif-2.
+      A set of simpler characters is also encountered; this is known as zamanalif.
       In this latter set, the alternative characters ä, ñ and ö are used for letters
       2, 17 and 19 respectively where the user has difficulty reproducing ə, ꞑ, and ө.
       Please note that all three alternatives must be used as a set, and the letters should not be intermingled.
@@ -79,7 +79,7 @@ stage {
 
   # RULES
   # note[3] http://www.hintfox.com/article/sistema-glasnih-zvykov-na-tatarskom-i-anglijskom-jazikah.html
-  # back vowels: у, а, ы, о, 
+  # back vowels: у, а, ы, о,
   # front vowels: е, ә, и, ө, ү, э
   sub "Г(?=[ЕеƏәИиӨөҮүЭэ])", "G"
   sub "г(?=[ЕеƏәИиӨөҮүЭэ])", "g"
@@ -89,26 +89,26 @@ stage {
   sub "ю(?=[ЕеƏәИиӨөҮүЭэ])", "yü"
   sub "Я(?=[ЕеƏәИиӨөҮүЭэ])", "Yä"
   sub "я(?=[ЕеƏәИиӨөҮүЭэ])", "yä"
-  
+
   # note[4]
   sub "(?<=[АаЕеƏәОоӨөҮүУуЫыЭэЯяЪъЬь])\\u0415", "Yı"
   sub "(?<=[АаЕеƏәОоӨөҮүУуЫыЭэЯяЪъЬь])\\u0435", "yı"
-  
+
   # note[5]
   sub "(?<=[АаЕеƏәИиОоӨөҮүУуЫыЭэЮюЯяЪъЬь])\\u0423", "W"
   sub "(?<=[АаЕеƏәИиОоӨөҮүУуЫыЭэЮюЯяЪъЬь])\\u0443", "w"
   sub "(?<=[АаЕеƏәИиОоӨөҮүУуЫыЭэЮюЯяЪъЬь])\\u04AE", "W"
   sub "(?<=[АаЕеƏәИиОоӨөҮүУуЫыЭэЮюЯяЪъЬь])\\u04AF", "w"
-  
+
   # note[6]
   sub "(?<=[Гг])ый", "i"
-  
+
   # note[8]
   sub "(?<=[Ии])\\u042E", "Ü"
   sub "(?<=[Ии])\\u044E", "ü"
   sub "(?<=[Ии])\\u042F", "Ä"
   sub "(?<=[Ии])\\u044F", "ä"
-  
+
 
   # CHARACTERS
   parallel {
@@ -150,7 +150,7 @@ stage {
     sub "Э", "E" # Э note[7]
     sub "Ю", "Yu" # Ю note[3] note[8]
     sub "Я", "Ya" # Я note[3] note[8]
-    
+
     sub "\u0430", "a" # а
     sub "\u04D9", any("əä") # ә => [ə, ä] note[1]
     sub "\u0431", "b" # б

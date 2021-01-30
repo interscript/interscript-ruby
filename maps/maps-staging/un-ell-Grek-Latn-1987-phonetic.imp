@@ -9,8 +9,8 @@ metadata {
   creation_date: 1987
   description: |
     UNGEGN Romanization table for Greek: Phonetic transcription
-  
-  
+
+
   notes:
     - Also included in ISO 843:1997, Annex B, Column 5, and ELOT 743:1982, column 5.
     - Corrected obvious errors, which occur every time the table has reappeared: χ > x, x > ks, oï > oi.
@@ -340,7 +340,7 @@ stage {
   sub "\\u03c4[ζΖ]", "dz" # Τζ
   sub "\\u037E", "?" # ;
   sub "\\u003B", "?" # ;
-  
+
 
   # CHARACTERS
   parallel {
@@ -381,7 +381,7 @@ stage {
     sub "Ώ", "o" # Ώ
     sub "Ϊ", "i" # Ϊ
     sub "Ϋ", "i" # Ϋ
-    
+
     sub "ά", "ɑ" # ά
     sub "α", "ɑ" # α
     sub "β", "v" # β
@@ -421,10 +421,10 @@ stage {
     sub "ϋ", "i" # ϋ
     sub "ΐ", "i" # ΐ
     sub "ΰ", "i" # ΰ
-    
+
     sub "·", ";" # ·
     sub "·", ";" # ·
-    
+
   }
 
   # POSTRULES

@@ -22,7 +22,7 @@ metadata {
     and As Sulaymānīyah/Slêmanî governorates). It is generally written in
     Perso-Arabic script, and usually employs the Perso-Arabic script
     orthography.
-  
+
     Kurdish forms of geographical names in Turkey will usually be found
     in Roman script, and so no romanization process will be required. The
     digraph options for consonant letters '\u0686', '\u0634', and '\u063A'
@@ -34,14 +34,14 @@ metadata {
     tailored to fit the orthography of the Romanization shown below and
     should employ the digraph options for consonant letters '\u0686',
     '\u0634', and '\u063A'.
-  
+
   notes:
-  
+
     - In pure Kurdish words hamza is borne by yā’ ( ئ ) and occurs only
       before initial vowels; it is not romanized. Medial and final hamza in
       Arabic borrowings are romanized by ’ (apostrophe – Unicode encoding
       2019).
-  
+
     - The letters ث ذ ص ض ط ظ do not occur in pure Kurdish words. In Arabic
       borrowings some writers retain these letters, others substitute س ز س ز
       ت ز respectively. Only the letters ط ض and ص are catered for in the
@@ -49,16 +49,16 @@ metadata {
       above Consonant table. Words of obvious Arabic origin occurring in a
       Kurdish toponymic environment will be treated as Kurdish rather than
       Arabic, as will words of other non-Kurdish origins.
-  
+
     - The digraph options appearing in rows 6, 15 and 20 of the consonants
       table should be used for Kurdish geographical names in Iraq, Iran, and
       Syria. The single character options should be used for Kurdish
       geographical names in Turkey.
-  
+
     - ڨ is used to represent v in foreign words. Some southern Kurdish
       writers use it to represent the v in borrowings from northern Kurdish
       dialects. و is pronounced as a v in the north and as a w elsewhere.
-  
+
     - Hā’ can be used as a vowel or a consonant. The initial (ه) and medial
       (forms are used for the consonant h, Consonant table, row 31, while the
       final (ه) and independent (forms are used to represent the vowel e,
@@ -73,22 +73,22 @@ metadata {
       Mawet). As with other vowels (see special rules 2 and 3), initial e is
       preceded by the kursî hamza, yielding initial ئه , e.g. ئهني enî
       “forehead”.
-  
+
     - In pure Kurdish words, the vowel ى is always long î, e.g. كانى ماسێ
       Kanî Masê. When it represents îzafe, it is also romanized î and joined
       by means of a hyphen to its preceding word e.g. پارێزگاى دهۆك Parêzga-î
       Dihok.
-  
+
     - |
       An inventory of letter-diacritic combinations, used in addition to
       the unmodified letters of the basic Roman script in the Romanization of
       Kurdish, with their Unicode encoding, is:
-  
+
         '‘': '\u2018' , '’': '2019'
         'Ç': '00C7' , 'ç': '00E7'
         'Ḍ': '1E0C' , 'ḍ': '1E0D'
         'Ê': '00CA' , 'ê': '00EA'
-  
+
         # There is no single Unicode encoding for these letter-diacritic combinations.
         'Ḧ': '0048+0308' , 'ḧ': '0068+0308'
         'Î': '00CE' , 'î': '00EE'
@@ -101,17 +101,17 @@ metadata {
         'Û': '00DB' , 'û': '00FB'
         'Ü': '00DC' , 'ü': '00FC'
         'Ẍ': '1E8C' , 'ẍ': '1E8D'
-  
+
     - The Romanization column shows only lowercase forms but, when
       romanizing, uppercase and lowercase Roman letters as appropriate should
       be used.
-  
+
     # Special Rules
     - The conjunction و (and) should be rendered u if the
       preceding word ends in a consonant, and w if the preceding
       word ends in a vowel. It should be separated by spaces from
       the preceding and following words.
-  
+
     - In the Perso-Arabic orthography for Kurdish, all vowels are
       written, with the exception of the short i, which is
       expressed with a kasrah under the preceding consonant (ِ).
@@ -120,33 +120,33 @@ metadata {
       short i will be preceded by a kursî hamza )ئ )if it appears
       at the beginning of a word (see 3 below; see row 4 of vowel
       table).
-  
+
     - In the Perso-Arabic orthography for Kurdish, when a vowel
       comes at the beginning of a word, or when a vowel directly
       follows another vowel, a kursî hamza )ئ )precedes it (e.g.,
       ئاگر agir “fire”).
-  
+
     - A Kurdish word will never start with alif )ا .)A Kurdish
       word may begin with a yā’ (ي) or wāw )و ,)but only when
       they are used as a consonant, when they will be romanized
       as y and w, respectively.
-  
+
     - When preceded by a consonant, yā’ (ي )and wāw )و )should be
       romanized î and u, respectively. When preceded by a vowel (
       including short i, which is not written), yā’ (ي )and wāw (
       و )should be romanized y and w, respectively.
-  
+
     - The Arabic sign shaddah ( ّ ) denoting a doubled consonant
       is not used in Kurdish; doubled consonants, which are rare,
       are written twice e.g. موحەممەد Muḧemmed; ننا موسه Musanna.
       Shaddah might be used in Arabic borrowings but, as in
       unpointed Arabic, would generally be omitted.
-  
+
     - Particles such as له le (= at, in, on) and به be (= to,
       for, by, with) should be written separately from their
       following word, e.g. كوردستانێ له Le Kurdistanê “in
       Kurdistan”
-  
+
     - Occasionally the character sequences چه ,سه and گه occur.
       They may be romanized c·h, s·h, and g·h in order to
       differentiate those romanizations from the digraphs ch, sh,
@@ -176,11 +176,11 @@ stage {
 
   # POSTRULES
   sub "(?<=\\b)(?<!\\b[‘|’|'])[\\u0061-\\uFFFF]", "upcase"
-  
+
 
   # CHARACTERS
   parallel {
-    
+
     sub "\u0650", "i" # ِ kasra special rule 2
     sub "\u0644\u06d5", "le " # special rule 7
     sub "\u0628\u06d5", "be " # special rule 7
@@ -188,7 +188,7 @@ stage {
     sub "\u0621", "’" # ء
     sub "\u0624", "’" # ؤ
     sub "\u0626", "’" # ئ
-    
+
     sub "(?<=[ء|ب|پ|ت|ج|چ|ح|خ|د|ر|ڕ|ز|ژ|س|ش|ص|ض|ط|ع|غ|́|ڨ|ق|ک|ك|گ|ل|ڵ|م|ن|و|ه|ي])و", "u" # special note 4/5
     sub "(?<=[ء|ب|پ|ت|ج|چ|ح|خ|د|ر|ڕ|ز|ژ|س|ش|ص|ض|ط|ع|غ|́|ڨ|ق|ک|ك|گ|ل|ڵ|م|ن|و|ه|ي])ي", "î" # special note 4/5
     sub "\u0621", "’" # ء (see note 1 and 7)
@@ -224,7 +224,7 @@ stage {
     sub "\u0648", "w" # و  (see note 4)
     sub "\u0647", "h" # ه  (see note 5)
     sub "\u064A", "y" # ي
-    
+
     # VOWELS
     sub "\u0647\\b", "e" # See notes 1 and 5
     sub "\u06D5", "e" # See notes 1 and 5

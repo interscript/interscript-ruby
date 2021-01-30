@@ -11,13 +11,13 @@ metadata {
   description: |
     This map loads two external maps to convert Thai text first into phonemic Thai,
     and then into IPA transcription.
-  
+
     The IPA transcription will then be handled by this map, and converted into
     Royal Thai General System of Transcription (1939)
-  
+
     The first two parts are done via two external maps.
-  
-  
+
+
   notes: |
     This is a draft for the map.
     The conversion from Thai to Phonemic Thai is still work-in-progress.
@@ -46,26 +46,26 @@ stage {
 
   # RULES
   sub "[˩˨˧˦˥]", ""
-  
+
 
   # POSTRULES
   sub "\\.", ""
-  
+
 
   # CHARACTERS
   parallel {
-    
+
   }
 
   # DICTIONARY
   parallel {
-    
+
     sub "̯", ""
     sub "̚", ""
-    
+
     sub "ʔ", ""
     sub "ː", ""
-    
+
     sub "t͡ɕʰ", "ch"
     sub "t͡ɕ", "čh"
     sub "ŋ", "ng"
@@ -75,7 +75,7 @@ stage {
     sub "ɛ", "æ"
     sub "ɯ", "ư"
     sub "ʰ", "h"
-    
+
     sub "aːw", "ao"
     sub "aw", "ao"
     sub "a̯w", "ao"
@@ -85,7 +85,7 @@ stage {
     sub "ɛw", "æo"
     sub "iːw", "iu"
     sub "iw", "iu"
-    
+
     sub "aːj", "ai"
     sub "aj", "ai"
     sub "a̯j", "ai"
@@ -103,5 +103,5 @@ stage {
 
 # This map is chained and probably depends on seq2seq:
 # chain: ["var-tha-Thai-Thai-phonemic" ,"var-tha-Thai-Zsym-ipa"]
-# transcription: 
+# transcription:
 

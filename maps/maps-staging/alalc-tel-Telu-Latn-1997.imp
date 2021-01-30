@@ -9,9 +9,9 @@ metadata {
   creation_date: 1997
   description: |
     ALA-LC Romanization table for Telugu
-  
+
   notes:
-  
+
     - |
       Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for
       vowels following a consonant can be found in grammars; no distinction between the two is
@@ -101,21 +101,21 @@ stage {
   sub "([ష]=?)(?=[\\u0c3e\\u0c3f\\u0c40\\u0c41\\u0c42\\u0c43\\u0c46\\u0c47\\u0c48\\u0c4a\\u0c4b\\u0c4c\\u0c6c])", "ṣ"
   sub "([స]=?)(?=[\\u0c3e\\u0c3f\\u0c40\\u0c41\\u0c42\\u0c43\\u0c46\\u0c47\\u0c48\\u0c4a\\u0c4b\\u0c4c\\u0c6c])", "s"
   sub "([హ]=?)(?=[\\u0c3e\\u0c3f\\u0c40\\u0c41\\u0c42\\u0c43\\u0c46\\u0c47\\u0c48\\u0c4a\\u0c4b\\u0c4c\\u0c6c])", "h"
-  
+
   # rule III
   sub "\\u0C02(?=[కఖగఘఙ])", "ṅ"
   sub "\\u0C02(?=[చౘఛజౙఝఞ])", "ñ"
   sub "\\u0C02(?=[టఠడఢణ])", "ṇ"
   sub "\\u0C02(?=[తథదధన])", "n"
   sub "\\u0C02(?=[పఫబభమ])", "m"
-  
+
   # rule IV
   sub "\\u0C01(?=[కఖగఘఙచౘఛజౙఝఞటఠడఢణతథదధన])", "n̐" # before guttural, palatal, cerebral, and dental
-  
+
 
   # CHARACTERS
   parallel {
-    
+
     sub "అ", "a"
     sub "ఆ", "ā"
     sub "ఇ", "i"
@@ -131,14 +131,14 @@ stage {
     sub "ఒ", "o"
     sub "ఓ", "ō"
     sub "ఔ", "au"
-    
+
     # Gutturals
     sub "క", "ka"
     sub "ఖ", "kha"
     sub "గ", "ga"
     sub "ఘ", "gha"
     sub "ఙ", "ṅa"
-    
+
     # Palatals
     sub "చ", "ca"
     sub "ౘ", "ĉa"
@@ -147,28 +147,28 @@ stage {
     sub "ౙ", "ĵa"
     sub "ఝ", "jha"
     sub "ఞ", "ña"
-    
+
     # Cerebrals
     sub "ట", "ṭa"
     sub "ఠ", "ṭha"
     sub "డ", "ḍa"
     sub "ఢ", "ḍha"
     sub "ణ", "ṇa"
-    
+
     # Dentals
     sub "త", "ta"
     sub "థ", "tha"
     sub "ద", "da"
     sub "ధ", "dha"
     sub "న", "na"
-    
+
     # Labials
     sub "ప", "pa"
     sub "ఫ", "pha"
     sub "బ", "ba"
     sub "భ", "bha"
     sub "మ", "ma"
-    
+
     # Semivowels
     sub "య", "ya"
     sub "ర", "ra"
@@ -176,31 +176,31 @@ stage {
     sub "ల", "la"
     sub "ళ", "ḷa"
     sub "వ", "va"
-    
+
     # Sibilants
     sub "శ", "śa"
     sub "ష", "ṣa"
     sub "స", "sa"
-    
-    
-    
+
+
+
     # Aspirate
     sub "హ", "ha"
-    
-    
-    
+
+
+
     # Chandrabindu
     sub "ঁ", "m̐"
     sub "ఁ", "m̐"
-    
+
     # Bisarga
     sub "ః", "ḥ"
-    
+
     # Anusvāra
     sub "ం", "ṃ"
-    
+
     # Medials # Needed for connecting constants
-    
+
     sub "ా", "ā"
     sub "ి", "i"
     sub "ీ", "ī"
@@ -214,8 +214,8 @@ stage {
     sub "ో", "ŏ"
     sub "ౌ", "au"
     sub "\u09CD", "" # Used for joining
-    
-    
+
+
     sub "\u0c4d", "" #verma sign for halanta
     sub "ౕ\t", ""
     sub "ౖ\t", ""
@@ -223,9 +223,9 @@ stage {
     sub "़", ""
     sub "‍", "" # Used for joining
     sub "‌", "" # Used for non joining
-    
+
     # numbers
-    
+
     sub "౦", "0"
     sub "౧", "1"
     sub "౨", "2"

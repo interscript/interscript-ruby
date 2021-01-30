@@ -12,15 +12,15 @@ metadata {
     Latin characters into Mongolian Cyrillic is the opposite transliteration of based on MNS 5217:2012.
     The standard MNS 5217:2012 is a standard of the Mongolian Agency for Standardization and Metrology
     for transliteration from Cyrillic Mongolian in Latin alphabet.
-  
+
     The grammer of Khalkha Mongolian is required in order to make accurate translation of Latin characters
     into Mongolian Cyrillic because of no distinguish between /и, й, ъ, ь/ for "i" and /ш, щ/ for "sh" in
     the standard.
-  
+
     In Mongolia, the Khalkha dialect, currently written in both Cyrillic and traditional Mongolian script
     (and at times in Latin for social networking), is predominant, while in Inner Mongolia, the language
     is dialectally more diverse and is written in the traditional Mongolian script.
-  
+
   notes: |
     - Khalkha also has four diphthongs: /ui, ʊi, ɔi, ai/. Vowels can also combine to form a further
       three diphthongs, and so seven in total: ia (иа), ʊa (уа) ei (эй). For example: ай in далай (eyes),
@@ -91,7 +91,7 @@ stage {
   sub "Oi", "Ой"
   sub "üi", "үй"
   sub "Üi", "Үй"
-  
+
 
   # CHARACTERS
   parallel {

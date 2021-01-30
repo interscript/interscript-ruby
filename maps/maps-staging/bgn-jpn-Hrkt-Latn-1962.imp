@@ -13,47 +13,47 @@ metadata {
     has been in use by the Board on Geographic Names since about 1930 and
     has been extensively employed in the systematic standardsization of
     thousands of geographic names of Japan in romanized form.
-  
+
   notes: |
-  
+
     1. The "tsu" forms (ツ/つ) are also used to indicate a double consonant and
     are generally (but not alwyas) written in smaller script or type
     slightly to the right of or below the regular line. These characters
     are trasnliterated as k before k; s before s or sh; t before t, ts, or
     ch; and p before p. Occasionally, when a "ku" (ク/く) or "ki" (キ/き) form
     precedes k, the u in ku or the i in ki is dropped.
-  
+
     2. The transliterations in parentheses are used in specific cases when
     the kana symbol is known to be so pronounced.
-  
+
     3. The transliteration m is used before b, p, and m.
-  
+
     4. This letter has been added for the use in transliterating foreign
     words.
-  
+
     5. The asterisk (*) indicates standard combined forms. Those combined
     forms not so marked are rarely used.
-  
+
     ----
-  
+
     Implementation Notes:
-  
+
     a. Despite the mentioning of the term "Modified Hepburn" in the
     specification, the handling of ん/ン in this standard is different from
     Modified Hepburn. It follows the Traditional Hepburn in that the
     letter m is used before b, m, p.
-  
+
     b. This document includes obsolete (pre-reform) combinations.
     Pre-reform combinations will clash with modern Japanese transliteration.
-  
+
     c. There is no discussion on how cross-morpheme vowel sounds should be
     handled.
-  
+
     d. There is no mentioning of separation mark between n and another vowel.
-  
+
     e. Everything not explicitly stated in the specification will be
     assumed to be inherited from var-jpn-Hrkt-Latn-hepburn-1954.
-  
+
     f. Obsolete combinations can be handled by post rules, and are
     included for the sake of completeness only. They have been commented
     out, since they are rarely used and follow different rules than modern
@@ -132,7 +132,7 @@ stage {
   #   result: "h"
   # - pattern: "sy"
   #   result: "sh"
-  
+
 
   # CHARACTERS
   parallel {
@@ -143,8 +143,8 @@ stage {
     sub "け", any(["ke", "ga", "ka", "ko"])
     sub "ケ", any(["ke", "ga\"", "ka", "ko"])
     sub "ヶ", any(["ga", "ka", "ko"])
-    
-    
+
+
     # The Ha-column
     # は is still pronounced as wa when used as a particle,
     # the alternative pronunciations for the other four kana's are obsolete.
@@ -158,15 +158,15 @@ stage {
     sub "フ", any(["fu", "u", "o"])
     sub "ヘ", any(["he", "e"])
     sub "ホ", any(["ho", "o"])
-    
-    
+
+
     # The Wa-column
     # These two kanas below are only used in pre-reform texts.
     sub "ゐ", "i"
     sub "ゑ", "e"
     sub "ヰ", "i"
     sub "ヱ", "e"
-    
+
     # Combined forms
     # These are obsolete forms. See Note 5.
     # They can be handled by post-rules if ever needed.

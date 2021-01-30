@@ -14,7 +14,7 @@ metadata {
     which it is or was used, i.e. scripts from all periods of Classic
     or Modern Greek. It therefore allows for polytonic Greek, though
     it only acknowlegdges rough breathing, and ignores all other diacritics.
-  
+
   notes:
     - Have not included transliteration of Greek numerals (e.g. ͵ΑϠΜΔʹ = 1944)
     - |
@@ -309,7 +309,7 @@ stage {
 
   # POSTRULES
   sub "(?<=[AEIOUYĒŌaeiouyēō])[Hh]", ""
-  
+
 
   # CHARACTERS
   parallel {
@@ -337,7 +337,7 @@ stage {
     sub "ο[ἱἵἳἷ]", "hoi"
     sub "Υ[ἱἵἳἷ]", "Hyi"
     sub "υ[ἱἵἳἷ]", "hyi"
-    
+
     sub "Α", "A"
     sub "Ά", "A"
     sub "Ὰ", "A"
@@ -459,7 +459,7 @@ stage {
     sub "ᾯ", "Hō"
     sub "Ϊ", "Ï"
     sub "Ϋ", "Ÿ"
-    
+
     sub "α", "a"
     sub "ά", "a"
     sub "ά", "a"
@@ -616,12 +616,12 @@ stage {
     sub "ΰ", "ÿ"
     sub "ῢ", "ÿ"
     sub "ῧ", "ÿ"
-    
+
     sub "Ϝ", "W"
     sub "ϝ", "w"
     sub "ϲ", "s"
     sub "Ϲ", "S"
-    
+
     sub "·", ";"
     sub "·", ";"
   }

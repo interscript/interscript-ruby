@@ -8,12 +8,12 @@ metadata {
   url: http://catdir.loc.gov/catdir/cpso/romanization/serbian.pdf
   creation_date: 1997
   description: ALA-LC Romanization table for Serbian and Makedonian.
-  
+
   notes:
     - Special characters in romanization
       Đ - D with crossbar (upper case). USMARC hexadecimal code A3.
       đ - d with crossbar (upper case). USMARC hexadecimal code B3.
-  
+
     - Character modifiers in romanization
       ´ - acute. USMARC hexadecimal code E2.
       ˇ - hachek. USMARC hexadecimal code E9.
@@ -47,7 +47,7 @@ stage {
   sub "((?<=[[:upper:]])Nj(?=[[:upper:]])?|(?<=[[:upper:]])?Nj(?=[[:upper:]]))", "NJ"
   #DŽ
   sub "((?<=[[:upper:]])Dž(?=[[:upper:]])?|(?<=[[:upper:]])?Dž(?=[[:upper:]]))", "DŽ"
-  
+
 
   # CHARACTERS
   parallel {

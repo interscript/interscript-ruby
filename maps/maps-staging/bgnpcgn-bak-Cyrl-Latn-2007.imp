@@ -13,7 +13,7 @@ metadata {
     republics of the Russian Federation. It will normally be encountered in Cyrillic script, in
     which case it should be romanized by means of the Cyrillic-Roman table of
     correspondences given below
-  
+
   notes:
     - The letter w is used word initially and before a vowel. # 'and' or 'or' ?
     - The letter sequence ye is used word initially and before a vowel. # 'and' or 'or' ?
@@ -78,12 +78,12 @@ stage {
   sub "\\b\\u0435", "ye"
   sub "(?=\\b)\\u0415(?<=[АаЕеЁёИиОоӨөУуҮЫыЭэӘәЮюЯя])", "Ye"
   sub "(?=\\b)\\u0435(?<=[АаЕеЁёИиОоӨөУуҮЫыЭэӘәЮюЯя])", "ye"
-  
+
   # note[3] # note[4]
   sub "(?<=[АаЕеЁёИиОоӨөУуҮЫыЭэӘәЮюЯя])[\\u0423\\u04AE]", "W"
   sub "(?<=[АаЕеЁёИиОоӨөУуҮЫыЭэӘәЮюЯя])[\\u0443\\u04AF]", "w"
-  
-  
+
+
 
   # CHARACTERS
   parallel {
@@ -129,7 +129,7 @@ stage {
     sub "\u04D8", "Ə" # Ә
     sub "\u042E", "Yu" # Ю
     sub "\u042F", "Ya" # Я
-    
+
     sub "\u0430", "a" # а
     sub "\u0431", "b" # б
     sub "\u0432", "v" # в note[1]

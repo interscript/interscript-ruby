@@ -15,16 +15,16 @@ metadata {
     by the BGN and PCGN by means of the Hanyu Pinyin system. The principal
     source of approved readings for such characters is the dictionary
     Xinhua Zidian, published by Commercial Press, Beijing, China, in 2004.
-  
+
     Chinese characters which represent Mandarin Chinese names of
     geographical features in Taiwan are either romanized by means of the
     Hanyu Pinyin system, or internationally recognised conventional names
     are used, in accordance with local conventions.
-  
+
     For further details of romanization policy both for Chinese-speaking
     and minority-language areas of China, as well as Taiwan, please consult
     BGN or PCGN.
-  
+
   notes:
     - Sourced from the BGN/PCGN 32 Conference paper on Automatic Romanization
     - As implemented by mooredougl, updated 06/27/2016
@@ -46,9 +46,9 @@ stage {
 
   # CHARACTERS
   parallel {
-    
+
     # TODO: what is "\ud855\udc64": "you"?
-    
+
     sub "啊", "'a"
     sub "阿", "a"
     sub "吖", "'a"
@@ -7393,7 +7393,7 @@ stage {
     sub "怍", "zuo"
     sub "胙", "zuo"
     sub "祚", "zuo"
-    
+
     # Formatting section (in order)
     # Stage 2: Pinyin formatting
     #
@@ -7416,7 +7416,7 @@ stage {
     # "uiao": "ui’ao"
     # ", ": "/"
     sub "'", "’"
-    
+
     # Letters (lowercase) numbers and symbols
     #
     # "a": ""

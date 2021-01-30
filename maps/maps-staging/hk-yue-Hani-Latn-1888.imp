@@ -16,7 +16,7 @@ metadata {
       the same character in the place name 灣仔 is almost always Chai, but more likely
       to be Tsai elsewhere). There will be more variations and unpredictabilities in
       person's names, and these conventions need to be hard-coded.
-  
+
   notes:
     - Tone is not represented in this system.
     - Earlier Cantonese pronunciations is kept distinctive in this scheme,
@@ -26,8 +26,8 @@ metadata {
       and [ph], a represents both [a] and [A]. This is because these
       distinctions were represented by ’ or diacritics (e.g. á vs. a), but were
       removed in printed / typeset documents.
-  
-  
+
+
   #A longer test list will be generated from GeoNames database
 }
 
@@ -59,7 +59,7 @@ tests {
 stage {
 
   # RULES
-  
+
 
   # CHARACTERS
   parallel {

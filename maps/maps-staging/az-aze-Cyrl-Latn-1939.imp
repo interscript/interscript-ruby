@@ -8,7 +8,7 @@ metadata {
   creation_date: 1939
   description: |
     In 1939 Joseph Stalin ordered the Cyrillic alphabet to be used by Azeri speakers in the Soviet Union.
-  
+
   notes:
     # from Wikipedia
     - The letter Ц, intended for the sound [ц] in borrowed words, was used in the Azerbaijani Cyrillic alphabet until 1951. In the Azeri language, the sound [c] usually becomes [s].
@@ -70,7 +70,7 @@ stage {
     sub "Э", "E" # Э
     sub "Ю", "Yu" # Ю
     sub "Я", "Ya" # Я
-    
+
     sub "а", "a" # а
     sub "б", "b" # б
     sub "в", "v" # в
@@ -107,7 +107,7 @@ stage {
     sub "э", "e" # э
     sub "ю", "yu" # ю
     sub "я", "ya" # я
-    
+
     sub "'", "" # '
   }
 

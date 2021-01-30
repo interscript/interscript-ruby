@@ -9,34 +9,34 @@ metadata {
   creation_date:
   adoption_date:
   description:
-  
+
   notes:
-  
+
     - Here is a list of features that are listed in the guideline but
       not unimplemented in this map.
-  
+
     - Note 3.2
       The combination n+r is romanized as -ll- only when it is "considered
       to be longstanding". In this implementation, all n+r will be romanized as
       -ll- for the sake of simplicity.
-  
+
     - Note 3.3
       Sai-siot (Connective ㅅ) is not written out in DPRK Korean, but it is
       supposed to be romanized. Sai-siot is not predictable.
       This has not been implemented.
-  
+
     - Note 4.1
       Hyphen "may be inserted in case of a possible confusion in pronunciation".
       Except for the n-g combination, this has not been implemented.
-  
+
     - Note 4.4
       Geographical names "may be transliterated or translated". In this map,
       all names will be transliterated, not translated. Numerals will not be
       transliterated.
-  
+
     - Note 4.5
       Spacing rule for personal names has not been implemented.
-  
+
     - Note 4.7
       Optional omission of diacritics and optional simplification of
       KK, TT, PP, SS, JJ to single letter have not been implemented.
@@ -115,7 +115,7 @@ stage {
   run map.hanghang.stage.main
 
   # RULES
-  
+
   # This system does not require transliteration of numerals
   # convert numbers to space + Hangul
   # - pattern: "([^0-9 ])(?=[0-9])"
@@ -138,7 +138,7 @@ stage {
   #   result: "팔"
   # - pattern: "9"
   #   result: "구"
-  
+
   # Use voiced onset for geographical features
   # Note 4.3.1
   sub "(?<=..)산( |$)", "san\\1"
@@ -153,7 +153,7 @@ stage {
   sub "(?<=..)관( |$)", "gwan\\1"
   sub "(?<=..)곶( |$)", "got\\1"
   sub "(?<=..)강( |$)", "gang\\1"
-  
+
   # add hyphen in front of generics
   # Only add hyphen if the name is three syllables or longer
   sub "(?<=..)도( |$)", "-do\\1"
@@ -164,96 +164,96 @@ stage {
   sub "(?<=..)동( |$)", "-dong\\1"
   sub "(?<=..)구( |$)", "-gu\\1"
   sub "(?<=..)구역( |$)", "-guyŏk\\1"
-  
+
   # The name Pyongyang will be an exception
   # Not Phyŏngyang
-  
+
   sub "평양", "Pyongyang"
-  
+
 
   # POSTRULES
-  
+
   # Add space to the two ends of the string for easier word boundary handling
   sub "^", " "
   sub "$", " "
-  
+
   # HANGUL JONGSEONG SSANGKIYEOK
   sub "ᆩᄋ", "ᆨᄁ"
   sub "ᆩ", "ᆨ"
-  
+
   # HANGUL JONGSEONG SSANGKIYEOK
   sub "ᆪᄋ", "ᆨᄉ"
   sub "ᆪ", "ᆨ"
-  
+
   # HANGUL JONGSEONG NIEUN-CIEUC
   sub "ᆬᄋ", "ᆫᄌ"
   sub "ᆬ", "ᆫ"
-  
+
   # HANGUL JONGSEONG NIEUN-CIEUC
   sub "ᆭᄀ", "ᆫᄏ"
   sub "ᆭᄃ", "ᆫᄐ"
   sub "ᆭᄇ", "ᆫᄑ"
   sub "ᆭᄌ", "ᆫᄎ"
   sub "ᆭ", "ᆫ"
-  
+
   # HANGUL JONGSEONG TIEUT
   sub "ᆮ(?=[ᄀᄁᄂᄃᄄᄅᄆᄇᄈᄉᄊᄌᄍᄎᄏᄐᄑᄒ])", "ᆺ"
-  
+
   # HANGUL JONGSEONG RIEUL-SIOS
   sub "ᆳᄋ", "ᆯᄉ"
   sub "ᆳ", "ᆯ"
-  
+
   # HANGUL JONGSEONG RIEUL-THIEUTH
   sub "ᆴᄋ", "ᆯᄐ"
   sub "ᆴ", "ᆯ"
-  
+
   # HANGUL JONGSEONG RIEUL-PHIEUPH
   sub "ᆵᄋ", "ᆯᄑ"
   sub "ᆵ(?=[ᄃᄄᄐ])", "ᆯ"
   sub "ᆵ", "ᄇ"
-  
+
   # HANGUL JONGSEONG RIEUL-HIEUH
   sub "ᆶᄀ", "ᆯᄏ"
   sub "ᆶᄃ", "ᆯᄐ"
   sub "ᆶᄇ", "ᆯᄑ"
   sub "ᆶᄌ", "ᆯᄎ"
   sub "ᆶ", "ᆯ"
-  
+
   # HANGUL JONGSEONG PIEUP-SIOS
   sub "ᆹᄋ", "ᄇᄉ"
   sub "ᆹ", "ᄇ"
-  
+
   # HANGUL JONGSEONG SSANG-SIOS
   sub "ᆻᄋ", "ᆺᄊ"
   sub "ᆻ", "ᆺ"
-  
+
   # HANGUL JONGSEONG CIEUC
   sub "ᆽᄋ", "ᆺᄌ"
   sub "ᆽ", "ᆺ"
-  
+
   # HANGUL JONGSEONG CHIEUCH
   sub "ᆾᄋ", "ᆺᄎ"
   sub "ᆾ", "ᆺ"
-  
+
   # HANGUL JONGSEONG KHIEUKH
   sub "ᆿᄋ", "ᆨᄏ"
   sub "ᆿ", "ᆨ"
-  
+
   # HANGUL JONGSEONG THIEUTH
   sub "ᇀᄋ", "ᆺᄐ"
   sub "ᇀ", "ᆺ"
-  
+
   # HANGUL JONGSEONG PHIEUPH
   sub "ᇁᄋ", "ᆸᄑ"
   sub "ᇁ", "ᆸ"
-  
+
   # HANGUL JONGSEONG HIEUH
   sub "ᇂᄀ", "ᄏ"
   sub "ᇂᄃ", "ᄐ"
   sub "ᇂᄇ", "ᄑ"
   sub "ᇂᄌ", "ᄎ"
   sub "ᇂ", ""
-  
+
   # From Unicode Chart
   # https://github.com/unicode-org/cldr/blob/master/common/transforms/Korean-Latin-BGN.xml
   sub "ᆨᄀ", "kk" # HANGUL JONGSEONG KIYEOK + CHOSEONG KIYEOK
@@ -468,12 +468,12 @@ stage {
   sub "(?<= )ᄀ", "k" # HANGUL CHOSEONG KIYEOK
   sub "(?<= )ᄂ", "n" # HANGUL CHOSEONG NIEUN
   sub "(?<= )ᄃ", "t" # HANGUL CHOSEONG TIEUT
-  
+
   # DPRK does not follow the R-onset rule
   # - pattern: "(?<= )ᄅ(?=[ᅣᅤᅧᅨᅭᅲ])"
   #   result: "" # HANGUL CHOSEONG RIEUL # R-onset rule
   sub "(?<= )ᄅ", "r" # result: "n" # HANGUL CHOSEONG RIEUL
-  
+
   sub "(?<= )ᄆ", "m" # HANGUL CHOSEONG MIEUM
   sub "(?<= )ᄇ", "p" # HANGUL CHOSEONG PIEUP
   sub "(?<= )ᄉ", "s" # HANGUL CHOSEONG SIOS
@@ -529,11 +529,11 @@ stage {
   sub "ᇁ(?!\\p{Hangul})", "p" # HANGUL JONGSEONG PHIEUPH
   sub "ᆰ(?!\\p{Hangul})", "k" # HANGUL JONGSEONG RIEUL-KIYEOK
   sub "ᆲ(?!\\p{Hangul})", "p" # HANGUL JONGSEONG RIEUL-PIEUP
-  
+
   # Remove space added
   sub "^ ", ""
   sub " $", ""
-  
+
 
   # CHARACTERS
   parallel {

@@ -356,6 +356,8 @@ old_maps.each do |old_map|
     new << "# transcription: #{transcription}\n\n"
   end
 
+  new = new.gsub(/ +$/, '') # Cleanup trailing whitespaces
+
   #new << map.join("\n")
 
   File.write("../maps/maps-staging/#{old_map_name}.imp", new)

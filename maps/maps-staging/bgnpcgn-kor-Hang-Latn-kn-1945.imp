@@ -9,39 +9,39 @@ metadata {
   creation_date: 1945
   adoption_date:
   description:
-  
+
   notes: "
-  
+
     1. At the end of a syllable, the character ᄋ should be romanized ng,
        as in the following example:
-  
+
        평양 → P’yŏngyang
-  
+
        At the beginning of a syllable, the character ᄋ is silent and
        should not be romanized. An example follows:
-  
+
        용화 → Yonghwa
-  
+
     2. Syllable boundaries within words are not reflected in romanization.
        In the different types of syllables shown in the table below, C
        represents any consonant character, V represents any vowel character
        and / represents a syllable boundary.
-  
+
          Han’gŭl              개성      남포      안양
          Syllable boundaries  CV/CVC   CVC/CV   VC/VC
          Romanization         Kaesŏng  Namp’o   Anyang
-  
+
     3. Euphonic changes occurring within a word, including between the
        specific and generic of a geographical name, should be reflected in
        romanization. Generic terms are usually seen separated from the name
        by a hyphen and with a lower case initial letter rather than as a
        separate word:
-  
+
          영진리 → Yŏngjil-li
          덕흥리 → Tŏkhŭng-ni
          압록강 → Amnok-kang
          대동강 → Taedong-gang
-  
+
     4. As a result of 조선말규범집 (‘Standard Korean Language’ guidelines
        published in North Korea in 1966), unlike the Korean spoken in the
        Republic of Korea, the language spoken in the Democratic People’s
@@ -49,7 +49,7 @@ metadata {
        The use of the word-initial ᄅ ('r') can be seen in official news
        reports as well as native mapping. Since such examples exist, the
        word initial ᄅ ('r') is reflected as an option in the tables given above.
-  
+
     5. The Romanization column shows only lowercase forms but, when romanizing,
        uppercase and lowercase Roman letters as appropriate should be used.
     "
@@ -121,7 +121,7 @@ stage {
   # So that the word-initial conversion rules will be blocked.
   sub "^", "​"
   sub "(?<= )", "​"
-  
+
   # convert numbers to space + Hangul
   sub "([^0-9 ])(?=[0-9])", "\\1 "
   sub "1", "일"
@@ -133,22 +133,22 @@ stage {
   sub "7", "칠"
   sub "8", "팔"
   sub "9", "구"
-  
+
   # This is a logic to add hyphen in front of generics
   # - pattern: "(?<=.)(구역|동|리|도|고개|골|로동자구|사무소|초등학교|중학교|고등학교|강|포|령|역|봉|사|천|교|제|저수지|소류지|재|못|말|면|암|교회|촌|병원|바위|공원|섬|우체국|대학교|보건소|굴|치|대교|지구|폭포|해수욕장|휴게소|중고교|읍|보건진료소|마을|톨게이트|대학|시장|경찰서|학교)$" #to be expanded
   #   result: "-\\1"
-  
+
 
   # POSTRULES
-  
+
   # Add space to the two ends of the string for easier word boundary handling
   sub "^", " "
   sub "$", " "
-  
+
   # Initial rules in the inherited map were blocked, so that
   # this set of updated rules (with the onset rules removed) will be used instead.
   sub "​", ""
-  
+
   sub "(?<= )ᄀ", "k" # HANGUL CHOSEONG KIYEOK
   sub "(?<= )ᄂ", "n" # HANGUL CHOSEONG NIEUN
   sub "(?<= )ᄃ(?=[ᅵᅣᅤᅧᅨᅭᅲ])", "ch" # HANGUL CHOSEONG TIEUT # T -> Ch before yotized vowels
@@ -175,7 +175,7 @@ stage {
   sub "(?<= )ᄊ", "ss" # HANGUL CHOSEONG SSANGSIOS
   sub "(?<= )ᄍ", "tch" # HANGUL CHOSEONG SSANGCIEUC
   sub "(?<= )ᄶ", "tch" # HANGUL CHOSEONG SIOS-CIEUC
-  
+
   # Remove space added
   sub "^ ", ""
   sub " $", ""

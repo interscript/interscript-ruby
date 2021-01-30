@@ -82,18 +82,18 @@ stage {
   sub " Al L", " al L" # الل
   sub " An N", " an N" # الن
   sub " Al ", " al " # ال
-  
+
 
   # CHARACTERS
   parallel {
-    
+
     # pointing
     sub "\u064e", "a" # َ fatha
     sub "\u064e(?=\u0629)", "" # َ fatha followed by ta' marboota
     sub "\u0650", "i" # ِ kasra
     sub "\u064f", "u" # ُ damma
     sub "\u0652", "" # ْ sokoon, see note A below
-    
+
     # special pointed letters
     # special pointed letters
     sub "\u0639\u064e", "‘a" # عَ
@@ -101,7 +101,7 @@ stage {
     sub "\u0639\u064f", "‘ū" # عُ
     # handle MacOS regex difference
     sub "\u0639\u064f\u0648", "‘ū" # عُو damma followed by و
-    
+
     sub "\u0650\u064a", "iy" # ـِي kasra followed by ي
     sub "\u0650\u064a\u0651\u064e", "iy" # ـِيَّ
     sub "\u0650\u064a(?=\u064e|u064f)", "iy" # ـِي kasra followed by ي
@@ -110,9 +110,9 @@ stage {
     sub "\u064f\u0648", "uw" # ـُو damma followed by و
     sub "\u064e\u0648\u0652", "aw" # ـَوْ
     sub "\u064e\u064a\u0652", "ay" # ـَيْ
-    
+
     # Sun letters
-    
+
     sub "\\b\u0627\u0644\u062a", "at t" # الت
     sub "\\b\u0627\u0644\u062b", "aṯ ṯ" # الث
     sub "\\b\u0627\u0644\u062f", "ad d" # الد
@@ -127,13 +127,13 @@ stage {
     sub "\\b\u0627\u0644\u0638", "aẓ ẓ" # الظ
     sub "\\b\u0627\u0644\u0644", "al l" # الل
     sub "\\b\u0627\u0644\u0646", "an n" # الن
-    
+
     # ta' marboota in iso-233-1984 is all the same `aẗ`
     sub "\u0629", "aẗ" # ة in the middle of the sentence
-    
+
     # Shadda
-    
-    
+
+
     sub "\u0628\u0651", "bb" # ب
     sub "\u062a\u0651", "tt" # ت
     sub "\u062b\u0651", "ṯṯ" # ث
@@ -160,147 +160,147 @@ stage {
     sub "\u0647\u0651", "hh" # ه
     sub "\u0648\u0651", "ww" # و
     sub "\u064a\u0651", "yy" # ي
-    
-    
+
+
     sub "\u0622", "’â" # آ
-    
+
     sub "\u0627", "â" # ا
-    
+
     sub "\u0649", "ỳ" # ى
-    
+
     sub "\u0626", "'" # ئ
-    
-    
+
+
     sub "\u0621", any(["’", ""]) # ء# see note A
-    
+
     sub "\u0623", "a" # أ
-    
+
     # See note B
     sub "\\b\u0627\u0644", "al " # ال
     # '\uFE8E' : ''  # ﺎ
-    
+
     sub "\u0628", "b" # ب
     sub "\uFE91", "b" # ﺑ
     sub "\uFE92", "b" # ﺒ
     sub "\uFE90", "b" # ﺐ
-    
+
     # See note C
     sub "\u062a", "t" # ت
     sub "\ufe97", "t" # ﺗ
     sub "\ufe98", "t" # ﺘ
     sub "\ufe96", "t" # ﺖ
-    
+
     sub "\u062b", "ṯ" # ث
     sub "\ufe9b", "ṯ" # ﺛ
     sub "\ufe9c", "ṯ" # ﺜ
     sub "\ufe9a", "ṯ" # ﺚ
-    
+
     sub "\u062c", "ǧ" # ج
     sub "\ufe9f", "ǧ" # ﺟ
     sub "\ufea0", "ǧ" # ﺠ
     sub "\ufe9e", "ǧ" # ﺞ
-    
+
     sub "\u062d", "ḥ" # ح
     sub "\ufea3", "ḥ" # ﺣ
     sub "\ufea4", "ḥ" # ﺤ
     sub "\ufea2", "ḥ" # ﺢ
-    
+
     sub "\u062e", "ẖ" # خ
     sub "\ufea7", "ẖ" # ﺧ
     sub "\ufea8", "ẖ" # ﺨ
     sub "\ufea6", "ẖ" # ﺦ
-    
+
     sub "\u062f", "d" # د
     sub "\ufeaa", "d" # ﺪ
-    
+
     sub "\u0630", "ḏ" # ذ
     sub "\ufeac", "ḏ" # ﺬ
-    
+
     sub "\u0631", "r" # ر
     sub "\ufeae", "r" # ﺮ
-    
+
     sub "\u0632", "z" # ز
     sub "\ufeb0", "z" # ﺰ
-    
+
     sub "\u0633", "s" # س
     sub "\ufeb3", "s" # ﺳ
     sub "\ufeb4", "s" # ﺴ
     sub "\ufeb2", "s" # ﺲ
-    
+
     sub "\u0634", "š" # ش
     sub "\ufeb7", "š" # ﺷ
     sub "\ufeb8", "š" # ﺸ
     sub "\ufeb6", "š" # ﺶ
-    
+
     sub "\u0635", "ṣ" # ص
     sub "\ufebb", "ṣ" # ﺻ
     sub "\ufebc", "ṣ" # ﺼ
     sub "\ufeba", "ṣ" # ﺺ
-    
+
     sub "\u0636", "ḍ" # ض
     sub "\ufebf", "ḍ" # ﺿ
     sub "\ufec0", "ḍ" # ﻀ
     sub "\ufebe", "ḍ" # ﺾ
-    
+
     sub "\u0637", "ṭ" # ط
     sub "\ufec3", "ṭ" # ﻃ
     sub "\ufec4", "ṭ" # ﻄ
     sub "\ufec2", "ṭ" # ﻂ
-    
+
     sub "\u0638", "ẓ" # ظ
     sub "\ufec7", "ẓ" # ﻇ
     sub "\ufec8", "ẓ" # ﻈ
     sub "\ufec6", "ẓ" # ﻆ
-    
+
     sub "\u0639", "‘" # ع
     sub "\ufecb", "‘" # ﻋ
     sub "\ufecc", "‘" # ﻌ
     sub "\ufeca", "‘" # ﻊ
-    
+
     sub "\u063a", "ġ" # غ
     sub "\ufecf", "ġ" # ﻏ
     sub "\ufed0", "ġ" # ﻐ
     sub "\ufece", "ġ" # ﻎ
-    
+
     sub "\u0641", "f" # ف
     sub "\ufed3", "f" # ﻓ
     sub "\ufed4", "f" # ﻔ
     sub "\ufed2", "f" # ﻒ
-    
+
     sub "\u0642", "q" # ق
     sub "\ufed7", "q" # ﻗ
     sub "\ufed8", "q" # ﻘ
     sub "\ufed6", "q" # ﻖ
-    
+
     sub "\u0643", "k" # ك
     sub "\ufedb", "k" # ﻛ
     sub "\ufedc", "k" # ﻜ
     sub "\ufeda", "k" # ﻚ
-    
+
     sub "\u0644", "l" # ل
     sub "\ufedf", "l" # ﻟ
     sub "\ufee0", "l" # ﻠ
     sub "\ufede", "l" # ﻞ
-    
+
     sub "\u0645", "m" # م
     sub "\ufee3", "m" # ﻣ
     sub "\ufee4", "m" # ﻤ
     sub "\ufee2", "m" # ﻢ
-    
+
     sub "\u0646", "n" # ن
     sub "\ufee7", "n" # ﻧ
     sub "\ufee8", "n" # ﻨ
     sub "\ufee6", "n" # ﻦ
-    
+
     # See note C
     sub "\u0647", "h" # ه
     sub "\ufeeb", "h" # ﻫ
     sub "\ufeec", "h" # ﻬ
     sub "\ufeea", "h" # ﻪ
-    
+
     sub "\u0648", "w" # و
     sub "\ufeee", "w" # ﻮ
-    
+
     sub "\u064a", "y" # ي
     sub "\ufef3", "y" # ﻳ
     sub "\ufef4", "y" # ﻴ

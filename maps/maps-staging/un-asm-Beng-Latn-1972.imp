@@ -12,24 +12,24 @@ metadata {
     The United Nations recommended system was approved in 1972 (II/11) and amended in 1977 (III/12),
     based on a report prepared by D. N. Sharma. The tables and their corrections were published in
     volume II of the conference reports.
-  
+
     There is no evidence of the use of the system either in India or in international cartographic products.
-  
+
     Assamese (Asamīyā) uses an alphasyllabic script whereby each character represents a syllable rather
     than one sound. Vowels and diphthongs are marked in two ways: as independent characters (used syllable-initially)
     and in an abbreviated form, to denote vowels after consonants. The romanization table is unambiguous but the user
     would have to recognize many ligatures not given in the original table. The system is mostly reversible but there
     exist some ambiguities in the romanization of vowels (independent vs. abbreviated characters) and consonants
     (ligatures vs. character sequences).
-  
+
     References
-  
+
     Second United Nations Conference on the Standardization of Geographical Names.
     London, 10–31 May 1972. Vol. II. Technical papers. United Nations. New York 1974, pp. 141–142.
-  
+
     Third United Nations Conference on the Standardization of Geographical Names. Athens,
     17 August – 7 September 1977. Vol. II, Technical papers, pp. 393 etc.
-  
+
   notes:
      - |
        ু Exceptions: গু gu; রু ru; শু shu; হু hu; ন্তু ntu; স্তু stu.
@@ -107,11 +107,11 @@ stage {
   sub "([ড়]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "ṙ"
   sub "([ঢ়]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "ṙh"
   sub "([য়]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "y"
-  
+
 
   # CHARACTERS
   parallel {
-    
+
     # I. Independent vowel characters
     sub "অ", "a"
     sub "আ", "ā"
@@ -124,7 +124,7 @@ stage {
     sub "ঐ", "ai"
     sub "ও", "o"
     sub "ঔ", "au"
-    
+
     # II. Abbreviated vowel characters
     sub "\u09be", "ā"
     sub "\u09bf", "i"
@@ -136,13 +136,13 @@ stage {
     sub "\u09c8", "ai"
     sub "\u09cb", "o"
     sub "\u09cc", "au"
-    
+
     # III. Other symbols
     sub "\u0982", "ṁ"
     sub "\u0981", "m̐"
     sub "\u0983", "ḥ"
     sub "\u09cd", ""
-    
+
     # IV. Consonant characters
     sub "ক", "ka"
     sub "খ", "kha"
@@ -178,7 +178,7 @@ stage {
     sub "স", "sa"
     sub "হ", "ha"
     sub "ৎ", "t"
-    
+
     # Note V Dotted variants
     sub "ড়", "ṙa"
     sub "ঢ়", "ṙha"

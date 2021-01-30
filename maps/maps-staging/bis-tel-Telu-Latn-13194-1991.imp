@@ -5,18 +5,18 @@ metadata {
   source_script: Telu
   destination_script: Latn
   name: Indian script code for information interchange - ISCII - Telegu Romanization
-  
+
   #url:
   creation_date: 1991
   description: |
     IS 13194 (1991): Indian script code for information
     interchange - ISCII [LITD 20: Indian Language Technologies
     and Products]
-  
+
   notes:
     - |
       Exception: Anusvāra is transliterated by:
-  
+
       a) ṅ before gutturals,
       b) ñ before palatals,
       c) ṇ before cerebrals,
@@ -56,8 +56,8 @@ stage {
   sub "\\u0C02(?=[టఠడఢణ])", "ṇ"
   sub "\\u0C02(?=[తథదధన])", "n"
   sub "\\u0C02(?=[పఫబభమ])", "m"
-  
-  
+
+
 
   # CHARACTERS
   parallel {
@@ -76,7 +76,7 @@ stage {
     sub "ఒ", "o"
     sub "ఓ", "ŏ"
     sub "ఔ", "au"
-    
+
     # II. Consonants (see Note 2)
     # Gutturals  క ఖ గ ఘ ఙ
     sub "క", "k"
@@ -84,21 +84,21 @@ stage {
     sub "గ", "g"
     sub "ఘ", "gh"
     sub "ఙ", "ṅ"
-    
+
     # Palatals చ ఛ జ ఝ ఞ
     sub "చ", "c"
     sub "ఛ", "ch"
     sub "జ", "j"
     sub "ఝ", "jh"
     sub "ఞ", "ñ"
-    
+
     # Cerebrals ట ఠ డ ఢ ణ
     sub "ట", "ṭ"
     sub "ఠ", "ṭh"
     sub "డ", "ḍ"
     sub "ఢ", "ḍh"
     sub "ణ", "ṇ"
-    
+
     # Dentals త థ ద ధ న
     sub "త", "t"
     #'ৎ': 't'
@@ -106,14 +106,14 @@ stage {
     sub "ద", "d"
     sub "ధ", "dh"
     sub "న", "n"
-    
+
     # Labials ప ఫ బ భ మ
     sub "ప", "p"
     sub "ఫ", "ph"
     sub "బ", "b"
     sub "భ", "bh"
     sub "మ", "m"
-    
+
     # Semivowels య ర ల వ
     sub "య", "y"
     sub "ర", "r"
@@ -121,32 +121,32 @@ stage {
     sub "ల", "l"
     sub "ళ", "ḷ"
     sub "వ", "v"
-    
+
     # Sibilants శ ష స హ
     sub "శ", "ś"
     sub "ష", "ṣ"
     sub "స", "s"
-    
-    
-    
+
+
+
     # Aspirate
     sub "హ", "h"
-    
-    
+
+
     sub "క్ష", "kṣa"
-    
-    
+
+
     # Chandrabindu
     sub "ঁ", "m"
-    
+
     # Bisarga
     sub "ః", "ḥ"
-    
+
     # Anusvāra
     sub "ం", "ṃ"
-    
+
     # Medials # Needed for connecting constants
-    
+
     sub "ా", "ā"
     sub "ి", "i"
     sub "ీ", "ī"
@@ -160,8 +160,8 @@ stage {
     sub "ో", "ŏ"
     sub "ౌ", "au"
     sub "\u09CD", "" # Used for joining
-    
-    
+
+
     sub "\u0c4d", "" #verma sign for halanta
     sub "ౕ\t", ""
     sub "ౖ\t", ""

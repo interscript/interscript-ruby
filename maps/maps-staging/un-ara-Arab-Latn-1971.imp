@@ -99,43 +99,43 @@ stage {
 
   # CHARACTERS
   parallel {
-    
+
     # sun letters
     sub "\\b\u0627\u0644\u062b", "at͟h t͟h" # الث
     sub "\\b\u0627\u0644\u0630", "ad͟h d͟h" # الذ
     sub "\\b\u0627\u0644\u0634", "as͟h s͟h" # الش
     sub "\\b\u0627\u0644\u0638", "az͟h z͟h" # الظ
-    
+
     # shadda
     sub "\u062e\u0651", "k͟hk͟h" # خ
     sub "\u0630\u0651", "d͟hd͟h" # ذ
     sub "\u0634\u0651", "s͟h" # ش
     sub "\u0638\u0651", "z͟hz͟h" # ظ
     sub "\u063a\u0651", "g͟hg͟h" # غ
-    
+
     sub "\u062b", "t͟h" # ث
     sub "\ufe9b", "t͟h" # ﺛ
     sub "\ufe9c", "t͟h" # ﺜ
     sub "\ufe9a", "t͟h" # ﺚ
-    
+
     sub "\u062e", "k͟h" # خ
     sub "\ufea7", "k͟h" # ﺧ
     sub "\ufea8", "k͟h" # ﺨ
     sub "\ufea6", "k͟h" # ﺦ
-    
+
     sub "\u063a", "g͟h" # غ
     sub "\ufecf", "g͟h" # ﻏ
     sub "\ufed0", "g͟h" # ﻐ
     sub "\ufece", "g͟h" # ﻎ
-    
+
     sub "\u0630", "d͟h" # ذ
     sub "\ufeac", "d͟h" # ﺬ
-    
+
     sub "\u0634", "s͟h" # ش
     sub "\ufeb7", "s͟h" # ﺷ
     sub "\ufeb8", "s͟h" # ﺸ
     sub "\ufeb6", "s͟h" # ﺶ
-    
+
     sub "\u0638", "z͟h" # ظ
     sub "\ufec7", "z͟h" # ﻇ
     sub "\ufec8", "z͟h" # ﻈ

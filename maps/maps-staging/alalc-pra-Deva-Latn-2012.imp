@@ -9,31 +9,31 @@ metadata {
   creation_date: 2012
   description: |
     ALA-LC Romanization table for Prakrit
-  
+
   notes:
-  
+
     - Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for
       vowels following a consonant can be found in grammars; no distinction between the two is
       made in transliteration.
-  
+
     - |
       The vowel a is implicit after all consonants and consonant clusters and is supplied in
       transliteration, with the following exceptions:
-  
+
       a) when another vowel is indicated by its appropriate sign; and
       b) when the absence of any vowel is indicated by the subscript sign ( ् ) called halanta or
          virāma.
-  
+
     - |
       Exception: Anusvāra is transliterated by:
-  
+
       a) ṅ before gutturals,
       b) ñ before palatals,
       c) ṇ before cerebrals,
       d) n before dentals, and
       e) m before labials.
       In other circumstances it is transliterated by a tilde (~) over the vowel.
-  
+
     - When doubled, avagraha is transliterated by two apostrophes ( ’’ ).
 }
 

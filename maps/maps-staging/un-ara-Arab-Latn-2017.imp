@@ -133,14 +133,14 @@ stage {
   sub " Al L", " al L" # الل
   sub " An N", " an N" # الن
   sub " Al ", " al " # ال
-  
+
 
   # CHARACTERS
   parallel {
-    
+
     # Tool used for Unicode finding:
     # https://www.branah.com/unicode-converter
-    
+
     # pointing
     sub "\u064e", "a" # َ fatha
     sub "\u064e(?=\u0629)", "" # َ fatha followed by ta' marboota
@@ -148,15 +148,15 @@ stage {
     sub "\u0650", "i" # ِ kasra
     sub "\u064f", "u" # ُ damma
     sub "\u0652", "" # ْ sokoon, see note A below
-    
-    
+
+
     # special pointed letters
     sub "\u0639\u064e", "‘a" # عَ
     sub "\u0639\u0650", "‘i" # عِ
     sub "\u0639\u064f", "‘ū" # عُ
     # handle MacOS regex difference
     sub "\u0639\u064f\u0648", "‘ū" # عُو damma followed by و
-    
+
     sub "\u0650\u064a", "ī" # ـِي kasra followed by ي
     sub "\u0650\u064a\u0651\u064e", "īy" # ـِيَّ
     sub "\u0650\u064a(?=\u064e|u064f)", "iy" # ـِي kasra followed by ي
@@ -166,10 +166,10 @@ stage {
     sub "\u064e\u0648\u0652", "aw" # ـَوْ
     sub "\u064e\u064a\u0652", "ay" # ـَيْ
     sub "\u0622", "ā" # آ
-    
+
     # (A) Marks absence of the vowel.
     # (B) Marks doubling of the consonant.
-    
+
     # Sun letters
     sub "\\b\u0627\u0644\u062a", "at t" # الت
     sub "\\b\u0627\u0644\u062b", "ath th" # الث
@@ -185,7 +185,7 @@ stage {
     sub "\\b\u0627\u0644\u0638", "ad͟h d͟h" # الظ
     sub "\\b\u0627\u0644\u0644", "al l" # الل
     sub "\\b\u0627\u0644\u0646", "an n" # الن
-    
+
     # ta' marboota
     sub "\u0629", "at" # ة in the middle of the sentence
     sub "\u0629$", "ah"
@@ -201,9 +201,9 @@ stage {
     sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{11})\u0629", "ah"
     sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{12})\u0629", "ah"
     sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{13})\u0629", "ah"
-    
+
     # shadda
-    
+
     sub "\u0628\u0651", "bb" # ب
     sub "\u062a\u0651", "tt" # ت
     sub "\u062b\u0651", "thth" # ث
@@ -230,153 +230,153 @@ stage {
     sub "\u0647\u0651", "hh" # ه
     sub "\u0648\u0651", "ww" # و
     sub "\u064a\u0651", "yy" # ي
-    
+
     sub "\u0626", "'" # ئ
-    
-    
+
+
     sub "\u0621", any(["’", ""]) # ء# see note A
-    
+
     sub "\u0623", "a" # أ
     sub "\u0627", "ā" # ا
-    
+
     # See note B
     sub "\\b\u0627\u0644", "al " # ال
     # '\uFE8E' : ''  # ﺎ
-    
+
     sub "\u0628", "b" # ب
     sub "\uFE91", "b" # ﺑ
     sub "\uFE92", "b" # ﺒ
     sub "\uFE90", "b" # ﺐ
-    
+
     # See note C
     sub "\u062a", "t" # ت
     sub "\ufe97", "t" # ﺗ
     sub "\ufe98", "t" # ﺘ
     sub "\ufe96", "t" # ﺖ
-    
+
     sub "\u062b", "th" # ث
     sub "\ufe9b", "th" # ﺛ
     sub "\ufe9c", "th" # ﺜ
     sub "\ufe9a", "th" # ﺚ
-    
+
     sub "\u062c", "j" # ج
     sub "\ufe9f", "j" # ﺟ
     sub "\ufea0", "j" # ﺠ
     sub "\ufe9e", "j" # ﺞ
-    
+
     sub "\u062d", "ẖ" # ح
     sub "\ufea3", "ẖ" # ﺣ
     sub "\ufea4", "ẖ" # ﺤ
     sub "\ufea2", "ẖ" # ﺢ
-    
+
     sub "\u062e", "kh" # خ
     sub "\ufea7", "kh" # ﺧ
     sub "\ufea8", "kh" # ﺨ
     sub "\ufea6", "kh" # ﺦ
-    
+
     sub "\u062f", "d" # د
     sub "\ufeaa", "d" # ﺪ
-    
+
     sub "\u0630", "dh" # ذ
     sub "\ufeac", "dh" # ﺬ
-    
+
     sub "\u0631", "r" # ر
     sub "\ufeae", "r" # ﺮ
-    
+
     sub "\u0632", "z" # ز
     sub "\ufeb0", "z" # ﺰ
-    
+
     sub "\u0633", "s" # س
     sub "\ufeb3", "s" # ﺳ
     sub "\ufeb4", "s" # ﺴ
     sub "\ufeb2", "s" # ﺲ
-    
+
     sub "\u0634", "sh" # ش
     sub "\ufeb7", "sh" # ﺷ
     sub "\ufeb8", "sh" # ﺸ
     sub "\ufeb6", "sh" # ﺶ
-    
+
     sub "\u0635", "s̱" # ص
     sub "\ufebb", "s̱" # ﺻ
     sub "\ufebc", "s̱" # ﺼ
     sub "\ufeba", "s̱" # ﺺ
-    
+
     sub "\u0636", "ḏ" # ض
     sub "\ufebf", "ḏ" # ﺿ
     sub "\ufec0", "ḏ" # ﻀ
     sub "\ufebe", "ḏ" # ﺾ
-    
+
     sub "\u0637", "ṯ" # ط
     sub "\ufec3", "ṯ" # ﻃ
     sub "\ufec4", "ṯ" # ﻄ
     sub "\ufec2", "ṯ" # ﻂ
-    
+
     sub "\u0638", "d͟h" # ظ
     sub "\ufec7", "d͟h" # ﻇ
     sub "\ufec8", "d͟h" # ﻈ
     sub "\ufec6", "d͟h" # ﻆ
-    
+
     sub "\u0639", "‘" # ع
     sub "\ufecb", "‘" # ﻋ
     sub "\ufecc", "‘" # ﻌ
     sub "\ufeca", "‘" # ﻊ
-    
+
     sub "\u063a", "gh" # غ
     sub "\ufecf", "gh" # ﻏ
     sub "\ufed0", "gh" # ﻐ
     sub "\ufece", "gh" # ﻎ
-    
+
     sub "\u0641", "f" # ف
     sub "\ufed3", "f" # ﻓ
     sub "\ufed4", "f" # ﻔ
     sub "\ufed2", "f" # ﻒ
-    
+
     sub "\u0642", "q" # ق
     sub "\ufed7", "q" # ﻗ
     sub "\ufed8", "q" # ﻘ
     sub "\ufed6", "q" # ﻖ
-    
+
     sub "\u0643", "k" # ك
     sub "\ufedb", "k" # ﻛ
     sub "\ufedc", "k" # ﻜ
     sub "\ufeda", "k" # ﻚ
-    
+
     sub "\u0644", "l" # ل
     sub "\ufedf", "l" # ﻟ
     sub "\ufee0", "l" # ﻠ
     sub "\ufede", "l" # ﻞ
-    
+
     sub "\u0645", "m" # م
     sub "\ufee3", "m" # ﻣ
     sub "\ufee4", "m" # ﻤ
     sub "\ufee2", "m" # ﻢ
-    
+
     sub "\u0646", "n" # ن
     sub "\ufee7", "n" # ﻧ
     sub "\ufee8", "n" # ﻨ
     sub "\ufee6", "n" # ﻦ
-    
+
     # See note C
     sub "\u0647", "h" # ه
     sub "\ufeeb", "h" # ﻫ
     sub "\ufeec", "h" # ﻬ
     sub "\ufeea", "h" # ﻪ
-    
+
     sub "\u0648", "w" # و
     sub "\ufeee", "w" # ﻮ
-    
+
     sub "\u064a", "y" # ي
     sub "\ufef3", "y" # ﻳ
     sub "\ufef4", "y" # ﻴ
     sub "\ufef1", "y" # ﻱ
-    
+
     # (A) Not romanized word-initially.
-    
+
     # (B) Not romanized, but see romanizations accompanying alif (ا) in the table for vowels.
-    
+
     # (C) In certain endings, an original tā’ (ت) is written ة, i.e., like hā’ (ه) with two dots, and is known as tā’ marbūṯah. It is romanized h, except in the construct form of feminine nouns, where it is romanized t, instead.
-    
-    
+
+
     # Vowels, diphthongs and diacritical marks
     # (ـ stands for any consonant)
   }

@@ -9,31 +9,31 @@ metadata {
   creation_date: 1997
   description: |
     ALA-LC Romanization table for Marathi
-  
+
   notes:
-  
+
     - Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for
       vowels following a consonant can be found in grammars; no distinction between the two is
       made in transliteration.
-  
+
     - |
       The vowel a is implicit after all consonants and consonant clusters and is supplied in
       transliteration, with the following exceptions:
-  
+
       a) when another vowel is indicated by its appropriate sign; and
       b) when the absence of any vowel is indicated by the subscript sign ( ् ) called halanta or
          virāma.
-  
+
     - |
       Exception: Anusvāra is transliterated by:
-  
+
       a) ṅ before gutturals,
       b) ñ before palatals,
       c) ṇ before cerebrals,
       d) n before dentals, and
       e) m before labials.
       In other circumstances it is transliterated by a tilde (~) over the vowel.
-  
+
     - When doubled, avagraha is transliterated by two apostrophes ( ’’ ).
 }
 
@@ -69,13 +69,13 @@ stage {
   sub "\\u0902(?=[चछजझञ])", "ñ"
   sub "\\u0902(?=[टठडढण])", "ṇ"
   sub "\\u0902(?=[तथदधन])", "n"
-  
+
 
   # CHARACTERS
   parallel {
-    
+
     # I. Vowels and Diphthongs (see Note 1)
-    
+
     sub "अ", "a"
     sub "आ", "ā"
     sub "इ", "i"
@@ -94,7 +94,7 @@ stage {
     sub "ओ", "o"
     sub "ऑ", "ô"
     sub "औ", "ău"
-    
+
     # II. Consonants
     # Gutturals
     sub "क", "ka"
@@ -102,14 +102,14 @@ stage {
     sub "ग", "ga"
     sub "घ", "gha"
     sub "ङ", "ṅa"
-    
+
     # Palatals
     sub "च", "ca"
     sub "छ", "cha"
     sub "ज", "ja"
     sub "झ", "jha"
     sub "ञ", "ña"
-    
+
     # Cerebrals
     sub "ट", "ṭa"
     sub "ठ", "ṭha"
@@ -118,45 +118,45 @@ stage {
     sub "ढ", "ḍha"
     #'ढ़': 'ṛha'
     sub "ण", "ṇa"
-    
+
     # Dentals
     sub "त", "ta"
     sub "थ", "tha"
     sub "द", "da"
     sub "ध", "dha"
     sub "न", "na"
-    
+
     # Labials
     sub "प", "pa"
     sub "फ", "pha"
     sub "ब", "ba"
     sub "भ", "bha"
     sub "म", "ma"
-    
+
     # Semivowels
     sub "य", "ya"
     sub "र", "ra"
     sub "ल", "la"
     sub "ळ", "la"
     sub "व", "va"
-    
+
     # Sibilants
     sub "श", "śa"
     sub "ष", "sha"
     sub "स", "sa"
-    
+
     # Aspirate
     sub "ह", "ha"
-    
+
     # Anusvāra
     sub "ं", "m"
-    
+
     # Bisarga
     sub "ः ", "ḥ"
-    
+
     # Abagraha
     sub "ऽ", "’" # (apostrophe)
-    
+
     # Medials # Needed for connecting constants
     sub "ा", "ā"
     sub "ि", "i"
@@ -169,9 +169,9 @@ stage {
     sub "ो", "o"
     sub "ौ", "au"
     sub "्", ""
-    
+
     # digits
-    
+
     sub "०", "0"
     sub "१", "1"
     sub "२", "2"

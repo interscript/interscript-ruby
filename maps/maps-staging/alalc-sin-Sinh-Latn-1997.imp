@@ -9,30 +9,30 @@ metadata {
   creation_date: 1997
   description: |
     ALA-LC Romanization table for Sinhalese
-  
-  
+
+
   notes:
-  
+
     - Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for
       vowels following a consonant can be found in grammars; no distinction between the two is
       made in transliteration.
-  
+
     - |
       The vowel a is implicit after all consonants and consonant clusters and is supplied in
       transliteration, with the following exceptions:
-  
+
       a) when another vowel is indicated by its appropriate sign; and
       b) when the absence of any vowel is indicated by the sign ් called virāma.
-  
+
     - |
       Exceptions: Anusvāra is transliterated by:
-  
+
       a) ṅ before gutturals,
       b) ñ before palatals,
       c) ṇ before cerebrals,
       d) n before dentals, and
       e) m before labials.
-  
+
     - |
       Exceptions:
       a) when saññaka represents a nasal, it is romanized according to the rule for anusvāra.
@@ -71,7 +71,7 @@ stage {
   sub "\\u0DCA(?=[චඡජඣඤ])", "ñ"
   sub "\\u0DCA(?=[ටඨඩඪණ])", "ṇ"
   sub "\\u0DCA(?=[තථදධන])", "n"
-  
+
   # note[2(a,b)]
   sub "([ක]=?)(?=[\\u0dcf\\u0dd0\\u0dd1\\u0dd2\\u0dd3\\u0dd4\\u0dd6\\u0dd8\\u0df2\\u0ddf\\u0df3\\u0dd9\\u0dda\\u0ddb\\u0ddc\\u0ddd\\u0dde\\u0dca])", "k"
   sub "([ඛ]=?)(?=[\\u0dcf\\u0dd0\\u0dd1\\u0dd2\\u0dd3\\u0dd4\\u0dd6\\u0dd8\\u0df2\\u0ddf\\u0df3\\u0dd9\\u0dda\\u0ddb\\u0ddc\\u0ddd\\u0dde\\u0dca])", "kh"
@@ -112,14 +112,14 @@ stage {
   sub "([ඬ]=?)(?=[\\u0dcf\\u0dd0\\u0dd1\\u0dd2\\u0dd3\\u0dd4\\u0dd6\\u0dd8\\u0df2\\u0ddf\\u0df3\\u0dd9\\u0dda\\u0ddb\\u0ddc\\u0ddd\\u0dde\\u0dca])", "ṇḍ"
   sub "([ඳ]=?)(?=[\\u0dcf\\u0dd0\\u0dd1\\u0dd2\\u0dd3\\u0dd4\\u0dd6\\u0dd8\\u0df2\\u0ddf\\u0df3\\u0dd9\\u0dda\\u0ddb\\u0ddc\\u0ddd\\u0dde\\u0dca])", "nd"
   sub "([ඹ]=?)(?=[\\u0dcf\\u0dd0\\u0dd1\\u0dd2\\u0dd3\\u0dd4\\u0dd6\\u0dd8\\u0df2\\u0ddf\\u0df3\\u0dd9\\u0dda\\u0ddb\\u0ddc\\u0ddd\\u0dde\\u0dca])", "ṃb"
-  
-  
+
+
 
   # CHARACTERS
   parallel {
-    
+
     #Vowels and Diphthongs (see Note 1)
-    
+
     sub "අ", "a"
     sub "ආ", "ā"
     sub "ඇ", "ă"
@@ -138,7 +138,7 @@ stage {
     sub "ඔ", "o"
     sub "ඕ", "ō"
     sub "ඖ", "au"
-    
+
     sub "ා", "ā"
     sub "ැ", "ă"
     sub "ෑ", "â"
@@ -156,8 +156,8 @@ stage {
     sub "ො", "o"
     sub "ෝ", "ō"
     sub "ෞ", "au"
-    
-    
+
+
     # II. Consonants (see Note 2)
     # Gutturals
     sub "ක", "ka"
@@ -165,63 +165,63 @@ stage {
     sub "ග", "ga"
     sub "ඝ", "gha"
     sub "ඞ", "ṅa"
-    
-    
+
+
     # Palatals
     sub "ච", "ca"
     sub "ඡ", "cha"
     sub "ජ", "ja"
     sub "ඣ", "jha"
     sub "ඤ", "ña"
-    
-    
+
+
     # Cerebrals
     sub "ට", "ṭa"
     sub "ඨ", "ṭha"
     sub "ඩ", "ḍa"
     sub "ඪ", "ḍha"
     sub "ණ", "ṇa"
-    
-    
+
+
     # Dentals
     sub "ත", "ta"
     sub "ථ", "tha"
     sub "ද", "da"
     sub "ධ", "dha"
     sub "න", "na"
-    
-    
+
+
     # Labials
     sub "ප", "pa"
     sub "ඵ", "pha"
     sub "බ", "ba"
     sub "භ", "bha"
     sub "ම", "ma"
-    
-    
+
+
     # Semivowels
     sub "ය", "ya"
     sub "ර", "ra"
     sub "ල", "la"
     sub "ළ", "ḷa"
     sub "ව", "va"
-    
+
     # Sibilants
     sub "ශ", "śa"
     sub "ෂ", "ṣa"
     sub "ස", "sa"
-    
+
     # Aspirate
     sub "හ", "ha"
-    
-    
+
+
     # Visarga
     sub "ඃ", "ḥ"
-    
+
     # Anusvāra (see Note 3)
     sub "ං", "ṃ"
-    
-    
+
+
     # numbers
     sub "\u0DE6", "0"
     sub "\u0DE7", "1"
@@ -233,12 +233,12 @@ stage {
     sub "\u0DED", "7"
     sub "\u0DEE", "8"
     sub "\u0DEF", "9"
-    
-    
+
+
     sub "‍", "" # Used for joining
     sub "‌", "" # Used for non joining
     sub "්", ""
-    
+
     # Rule no 4
     sub "ඟ", "ṅga"
     sub "ඦ", "ñja"

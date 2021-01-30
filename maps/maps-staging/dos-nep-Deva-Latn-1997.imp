@@ -9,7 +9,7 @@ metadata {
   creation_date: 1997
   description: |
     Survey Department, Ministry of Land Management, Cooperatives and Poverty Alleviation, Government of Nepal.
-  
+
   notes:
     - |
       ं (anusvara) is rendered by
@@ -50,7 +50,7 @@ stage {
 
   # CHARACTERS
   parallel {
-    
+
     # Bisarga
     sub "ः", "h"
   }

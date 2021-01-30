@@ -12,12 +12,12 @@ metadata {
     The BGN/PCGN system for Russian was adopted by the BGN in 1944 and by the
     PCGN in 1947 for use in romanizing names written in the Russian Cyrillic
     alphabet.
-  
+
   notes:
     - The character e should be romanized ye initially, after the vowel
       characters a, e, ё, и, о, у, ы, э, ю, and я, and after й, ъ, and ь. In
       all other instances, it should be romanized e.
-  
+
     - The character ё is not considered a separate character of the
       Russian alphabet and the dieresis is generally not shown. When the
       dieresis is shown, the character should be romanized yë initially,
@@ -25,7 +25,7 @@ metadata {
       й, ъ, and ь. In all other instances, it should be romanized ё. When the
       dieresis is not shown, the character may still be romanized in the
       preceding manner or, alternatively, in accordance with note 1.
-  
+
     - |
       Unusual Russian character sequences occurring primarily in
       non-Russian-language names may be romanized as shown below in order to
@@ -36,10 +36,10 @@ metadata {
         ы after any vowel character ·у
         э after any consonant character except й ·е
         TC t·s шч sh·ch
-  
+
     - Unicode values are shown with the uppercase Cyrillic character first,
       followed by the lowercase character.
-  
+
     - |
       An inventory of letter-diacritic combinations, with their Unicode
       encoding, in addition to the unmodified letters of the basic Roman
@@ -108,15 +108,15 @@ stage {
   sub "(?<=[БбВвГгДдЖжЗзКкЛлМмНнПпРрСсТтФфХхЦцЧчШшЩщ])\\u044d", "·e" # э after any consonant character except й
   sub "(Т|т)(С|с)", "\\1·\\2" # тс => t·s
   sub "(Ш|ш)(Ч|ч)", "\\1·\\2" # шч => sh·ch
-  
+
 
   # POSTRULES
-  
+
   #YE
   sub "((?<=[[:upper:]])Ye(?=[[:upper:]])?|(?<=[[:upper:]])?Ye(?=[[:upper:]]))", "YE"
   #YË
   sub "((?<=[[:upper:]])Yë(?=[[:upper:]])?|(?<=[[:upper:]])?Yë(?=[[:upper:]]))", "YË"
-  
+
 
   # CHARACTERS
   parallel {

@@ -18,7 +18,7 @@ metadata {
     hundred years. The romanization system is compatible
     with all dialects of Baluchi, including Eastern
     Baluchi, Western Baluchi, and Southern Baluchi.
-  
+
     The BGN/PCGN system laid out below includes diacritical
     marks in order that the original script can be derived
     from the romanized form (i.e. it is reversible). For
@@ -34,36 +34,36 @@ metadata {
     For letters used only in Arabic loan words, the
     rigorous forms have further been designed to harmonize
     with the BGN/PCGN Persian romanization system.
-  
+
   notes:
     - Occasionally, sequences of /z/ or /s/ plus /h/ may be
       encountered, i.e. z·h, s·h. These may be romanized with the
       Unicode 'center dot' (U+00B7) separating the two letters,
       to distinguish them from the digraphs /zh/ and /sh/.
-  
+
     - The character ة is found very rarely in Baluchi, principally in certain Arabic religious terms, e.g. zakāt
       ('alms'). It should be romanized t.
-  
+
     - When the letters ال are found, representing the Arabic
       definite article, the ل is assimilated to a following 'sun letter' ,د ,ث ,ت
       ل ,ظ ,ط , ض , ,ص ,ش ,س , ,ر ,ذ or ن and is romanized t, , d, , r, z, s, sh, ş, ẕ ţ z , l, n accordingly.
-  
+
     - In romanization, the suffixes ءَ (-ā, singular definite)
       and ءِ (-ay, possessive) are connected to the previous word
       by a hyphen, though they are usually written separately.
-  
+
     - The word for 'and', written as و or ءُ, should be
       romanized as –u-, linked by hyphens to the two words it
       connects; e.g.,
       ہ ٹد و س ٹد → Sind-u-Hind ('The Gangetic Plain').
-  
+
     - Except as specified in notes 4 and 5, word division in romanization should follow word division in the Baluchi script.
-  
+
     - Note that the short vowels in the Baluchi examples are not pointed.
-  
+
     - Certain initial, medial and final characters are not
       readily available in a Unicode-encoded font in a standalone form.
-  
+
     - The Romanization columns show only lowercase forms but,
       when romanizing, uppercase and lowercase Roman letters as
       appropriate should be used.
@@ -124,13 +124,13 @@ stage {
 
   # POSTRULES
   sub "(?<=\\b)(?<!\\b[‘|’|'])[\\u0061-\\uFFFF]", "upcase"
-  
+
 
   # CHARACTERS
   parallel {
-    
+
     # consonant characters
-    
+
     sub "\u0628", "b" # ب
     sub "\u067E", "p" # پ
     sub "\u062a", "t" # ت
@@ -176,41 +176,41 @@ stage {
     sub "\u0626", "’" # ئ
     sub "\u0649", "y" # ي
     sub "\u064A", "y" # ي
-    
-    
+
+
     # Aspiration is only contrastive in Eastern Baluchi
     sub "\u0628\u06BE", "bh"
-    
+
     # Aspiration is only contrastive in Eastern Baluchi
     sub "\u067E\u06BE", "ph"
-    
+
     # Aspiration is only contrastive in Eastern Baluchi.
     # Apostrophe distinguishes from fricative /th/.
     sub "\u062A\u06BE", "th’"
-    
+
     # Aspiration is only contrastive in Eastern Baluchi
     sub "\u0679\u06BE", "ṭh"
-    
+
     # Aspiration is only contrastive in Eastern Baluchi
     sub "\u062C\u06BE", "jh"
-    
+
     # Aspiration is only contrastive in Eastern Baluchi
     sub "\u0686\u06BE", "chh"
-    
+
     # Aspiration is only contrastive in Eastern Baluchi.
     # Apostrophe distinguishes from fricative /dh/
     sub "\u062D\u06BE", "dh’"
-    
+
     # Aspiration is only contrastive in Eastern Baluchi
     sub "\u0688\u06BE", "ḍh"
-    
+
     # Aspiration is only contrastive in Eastern Baluchi
     sub "\u0631\u06BE", "\\u1E5B\\u0068"
-    
+
     # Aspiration is only contrastive in Eastern Baluchi.
     # Apostrophe distinguishes from fricative /kh/
     sub "\u06A9\u06BE", "kh’"
-    
+
     # Aspiration is only contrastive in Eastern Baluchi.
     # Apostrophe distinguishes from fricative /gh/
     sub "\u06AF\u06BE", "gh’" #
@@ -219,7 +219,7 @@ stage {
     sub "\u06AF\u0627", "gā" #
     sub "\u06A9\u0644", "kl" #
     sub "\u06AF\u0644", "gl" #
-    
+
     # Vowels, Diphthongs, and Diacritical Marks
     sub "\u0650\u0649", "ī" # ـِي
     sub "\u0650", "i" #  ِ
@@ -235,7 +235,7 @@ stage {
     sub "\u064E\u0648", "aw" # ـَو
     sub "\u0652", "" # Not Romanized
     sub "\u0670", "á" #
-    
+
     sub "\u0628\u0651", "bb" # ب
     sub "\u067E\u0651", "pp" # پ
     sub "\u062a\u0651", "tt" # ت
@@ -280,10 +280,10 @@ stage {
     sub "\u0621\u0651", "’’" # ء
     sub "\u0626\u0651", "’’" # ئ
     sub "\u0649\u0651", "yy" # ي
-    
+
     sub "\u0621\u064E", "-ā" # see note 4
     sub "\u0621\u0650", "-ay" # see note 4
-    
+
     # Numerals
     sub "۰", "0"
     sub "۱", "1"

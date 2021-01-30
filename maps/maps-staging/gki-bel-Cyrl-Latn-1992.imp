@@ -38,10 +38,10 @@ stage {
   parallel {
     sub "\u0406", "I" # І
     sub "\u0456", "i" # і
-    
+
     sub "\u0413", "G" # Г
     sub "\u0433", "g" # г
-    
+
     sub "\\U040E", "Ŭ" # Ў
     sub "\u045E", "ŭ" # ў
   }
