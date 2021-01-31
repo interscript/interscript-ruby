@@ -33,6 +33,10 @@ tests: # tests generated with https://dmsu.gov.ua/services/transliteration.html
     expected: PAPA PACHUKA
   - source: ЄНАКІЄВЕ
     expected: YENAKIIEVE
+  - source: УКРАЇНА
+    expected: UKRAINA
+  - source: КИЇВ
+    expected: KYIV
 
 map:
   inherit: ua-ukr-Cyrl-Latn-1996

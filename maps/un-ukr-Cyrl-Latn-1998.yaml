@@ -5,7 +5,7 @@ language: iso-639-2:ukr
 source_script: Cyrl
 destination_script: Latn
 name: ROMANIZATION SYSTEM FOR BELARUSIAN, RUSSIAN AND UKRAINIAN CYRILLIC
-url: https://unstats.un.org/unsd/geoinfo/UNGEGN/docs/7th-uncsgn-docs/econf/7th_UNCSGN_econf.91_3_Add1.pdf
+url: https://unstats.un.org/unsd/geoinfo/UNGEGN/docs/7th-uncsgn-docs/econf/7th_UNCSGN_econf.91_3_Add1.pdf # page 320
 creation_date: 1998
 
 tests:
