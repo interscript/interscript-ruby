@@ -32,6 +32,8 @@ tests:
     expected: Sofiya-Grad
   - source: България
     expected: "Bu\u0306lgariya"
+  - source: Ъгьл
+    expected: "U\u0306g'l"
 
 map:
   rules:
@@ -76,7 +78,7 @@ map:
     '\u0428': 'Sh'
     '\u0429': 'Sht'
     '\u042a': "U\u0306"
-    '\u042c': "\\'"
+    '\u042c': "'"
     '\u042e': 'Yu'
     '\u042f': 'Ya'
     '\u0430': 'a'
@@ -106,7 +108,7 @@ map:
     '\u0448': 'sh'
     '\u0449': 'sht'
     '\u044a': "u\u0306"
-    '\u044c': "\\'"
+    '\u044c': "'"
     '\u044e': 'yu'
     '\u044f': 'ya'
 
