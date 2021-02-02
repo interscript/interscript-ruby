@@ -23,6 +23,8 @@ tests {
   test "ЙОРКШИР-ТЕР'ЄР", "YORKSHYR-TERIER"
   test "ПАПА ПАЧУКА", "PAPA PACHUKA"
   test "ЄНАКІЄВЕ", "YENAKIIEVE"
+  test "УКРАЇНА", "UKRAINA"
+  test "КИЇВ", "KYIV"
 }
 
 # This map has been partially converted by the bin/maps_v1_to_v2 script

@@ -1,0 +1,38 @@
+metadata {
+  authority_id: bgnpcgn
+  id: 1968
+  language: iso-639-2:fao
+  source_script: Latn
+  destination_script: Latn
+  name: BGN/PCGN Faroese 1968 Roman-Script Spelling Convention Agreement
+  url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/693794/ROMAN-SCRIPT_SPELLING_CONVENTIONS.pdf
+  creation_date: 1968
+
+  notes:
+    - |
+      The special letter Ð, ð, known as edh, [Unicode: 00D0, 00F0] should be reproduced in those forms whenever
+      encountered. In those instances when it cannot be reproduced, however, the digraph Dh dh may be substituted for it.
+}
+
+tests {
+  test "Fyrirgefðu", "Fyrirgefdhu"
+  test "Þakka", "Þakka"
+}
+
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
+
+dependency "bgnpcgn-fao-Latn-Latn-1964", as: latnlatn
+
+stage {
+
+  run map.latnlatn.stage.main
+
+}
+

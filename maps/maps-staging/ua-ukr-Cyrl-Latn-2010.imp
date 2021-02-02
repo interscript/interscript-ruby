@@ -5,7 +5,9 @@ metadata {
   source_script: Cyrl
   destination_script: Latn
   name: The Cabinet of Ministers of Ukraine adopted Resolution No 55 "On Normalization of Transliteration of the Ukrainian Alphabet by Means of the Latin Alphabet"
-  url: https://unstats.un.org/unsd/geoinfo/UNGEGN/docs/26th-gegn-docs/WP/WP21_Roma_system_Ukraine%20_engl._.pdf
+  url:
+   - https://zakon.rada.gov.ua/laws/show/55-2010-%D0%BF/ed20100127
+   - https://unstats.un.org/unsd/geoinfo/UNGEGN/docs/26th-gegn-docs/WP/WP21_Roma_system_Ukraine%20_engl._.pdf
   creation_date: 2010
 
   description: |
