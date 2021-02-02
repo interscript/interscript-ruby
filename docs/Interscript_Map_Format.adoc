@@ -305,9 +305,9 @@ For example:
 [source,ruby]
 ----
 stage {
-  # If dependency declared with import: true
+  # If dependency declared without import: true
   run map.hangjamo.stage.main
-  # If dependency declated without import: true, or we reference a local stage
+  # If dependency declated with import: true, or we reference a local stage
   run stage.remove_spaces
 }
 ----
@@ -342,6 +342,7 @@ the table below and they may be omitted if a default value is specified.
 |===
 | Function name     | Arguments             | Sample input          | Sample output
 | `title_case`      | `word_separator: " "` | `"example string"`    | `"Example String"`
+| `downcase`        |                       | `"HELLO WORLD"`       | `"hello world"`
 | `compose`         |                       | `"ᄆ"+"ᅮ"`            | `"무"`
 | `decompose`       |                       | `"무"`                | `"ᄆ"+"ᅮ"`
 | `separate`        | `separator: " "`      | `"こんいちは"`         | `"こ ん い ち は"`
