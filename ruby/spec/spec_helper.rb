@@ -21,12 +21,13 @@ RSpec.configure do |config|
   end
 
   def document name=nil, &block
-    Interscript::DSL::Document.new(&block).node.tap do |i|
-      $example_id ||= 0
-      $example_id += 1
-      i.name = name || "example-#{$example_id}"
+    $example_id ||= 0
+    $example_id += 1
+    name ||= "example-#{$example_id}"
+
+    Interscript::DSL::Document.new(name, &block).node.tap do |i|
       $documents ||= {}
-      $documents[i.name] = i
+      $documents[name] = i
     end
   end
 

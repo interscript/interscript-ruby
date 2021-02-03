@@ -7,6 +7,8 @@ module Interscript::DSL
 
     return @cache[map_name] if @cache[map_name]
     path = Interscript.locate(map_name)
+    map_name = File.basename(path, ".imp")
+    map_name = File.basename(map_name, ".iml")
 
     ruby = []
     yaml = []
@@ -34,7 +36,7 @@ module Interscript::DSL
     raise ArgumentError, "metadata stage isn't terminated" if md_reading
     ruby, yaml = ruby.join("\n"), yaml.join("\n")
 
-    obj = Interscript::DSL::Document.new
+    obj = Interscript::DSL::Document.new(map_name)
     obj.instance_eval ruby, exc_fname, 1
 
     yaml = if yaml =~ /\A\s*\z/
@@ -49,7 +51,6 @@ module Interscript::DSL
       end
     end
     obj.node.metadata = md.node
-    obj.node.name = map_name
 
     @cache[map_name] = obj.node
   end

@@ -1,5 +1,5 @@
 class Interscript::Node::Stage < Interscript::Node::Group::Sequential
-  attr_accessor :name
+  attr_accessor :name, :doc_name
 
   def initialize name = :main
     @name = name

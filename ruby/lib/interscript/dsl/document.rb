@@ -3,8 +3,9 @@ class Interscript::DSL::Document
 
   attr_accessor :node
 
-  def initialize(&block)
+  def initialize(name = nil, &block)
     @node = Interscript::Node::Document.new
+    @node.name = name if name
     self.instance_exec &block if block_given?
   end
 
@@ -21,6 +22,7 @@ class Interscript::DSL::Document
   def aliases(&block)
     aliases = Interscript::DSL::Aliases.new(&block)
     @node.aliases = aliases.node
+    @node.aliases.transform_values { |v| v.doc_name = @node.name; v }
   end
 
   def dependency(full_name, **kargs)
@@ -38,6 +40,7 @@ class Interscript::DSL::Document
   def stage(name = :main, &block)
     puts "stage(#{name}) from #{self.inspect}" if $DEBUG
     stage = Interscript::DSL::Stage.new(name, &block)
+    stage.node.doc_name = @node.name
     @node.stages[name] = stage.node
   end
 end

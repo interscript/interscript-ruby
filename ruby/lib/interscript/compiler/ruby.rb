@@ -1,40 +1,51 @@
 $main_binding = binding
 
 class Interscript::Compiler::Ruby < Interscript::Compiler
-  def compile(map, stage=:main)
+  def compile(map)
     @map = map
-    stage = @map.stages[stage]
     @parallel_trees = {}
-    @code = compile_rule(stage, @map, true)
+    c = "require 'interscript/stdlib'\n"
+    c << "if !defined?(Interscript::Maps); module Interscript; module Maps\n"
+    c << "module Cache; end\n"
+    c << "class Map < Struct.new(:stages, :aliases, :aliases_re); end\n"
+    c << "@maps = Hash.new { |h,id| h[id] = Map.new({},{},{}) }\n"
+    c << "def self.has_map?(map);                      @maps.include?(map); end\n"
+    c << "def self.add_map_alias(map,name,value)       @maps[map].aliases[name] = value; end\n"
+    c << "def self.add_map_alias_re(map,name,value)    @maps[map].aliases_re[name] = value; end\n"
+    c << "def self.add_map_stage(map,stage,&block);    @maps[map].stages[stage] = block; end\n"
+    c << "def self.get_alias(map,name);                @maps[map].aliases[name]; end\n"
+    c << "def self.get_alias_re(map,name);             @maps[map].aliases_re[name]; end\n"
+    c << "def self.transcribe(map,string,stage=:main); @maps[map].stages[stage].(string); end\n"
+    c << "end; end; end\n"
+    c
+
+    map.aliases.each do |name, value|
+      val = compile_item(value.data, map, :str)
+      c << "Interscript::Maps.add_map_alias(#{map.name.inspect}, #{name.inspect}, #{val})\n"
+      val = '/'+compile_item(value.data, map, :re).gsub('/', '\\\\/')+'/'
+      c << "Interscript::Maps.add_map_alias_re(#{map.name.inspect}, #{name.inspect}, #{val})\n"
+    end
+
+    map.stages.each do |_, stage|
+      c << compile_rule(stage, @map, true)
+    end
+    @parallel_trees.each do |k,v|
+      c << "Interscript::Maps::Cache::PTREE_#{k} ||= #{v.inspect}\n"
+    end
+    @code = c
   end
 
   def compile_rule(r, map = @map, wrapper = false)
     c = ""
     case r
     when Interscript::Node::Stage
-      if wrapper
-        c = "require 'interscript/stdlib'\n"
-        c += "if !defined?(Interscript::Maps); module Interscript; module Maps\n"
-        c += "module Cache; end\n"
-        c += "@maps = {}\n"
-        c += "def self.has_map?(name);         @maps.include?(name); end\n"
-        c += "def self.add_map(name,&block);   @maps[name] = block; end\n"
-        c += "def self.transcribe(map,string); @maps[map].(string); end\n"
-        c += "end; end; end\n"
-        c += "Interscript::Maps.add_map \"#{@map.name}\" do |s|\n"
-        c += "s = s.dup\n"
-      end
+      c += "Interscript::Maps.add_map_stage \"#{@map.name}\", #{r.name.inspect} do |s|\n"
+      c += "s = s.dup\n"
       r.children.each do |t|
         c += compile_rule(t, map)
       end
-      if wrapper
-        c += "s\n"
-        c += "end\n"
-
-        @parallel_trees.each do |k,v|
-          c += "Interscript::Maps::Cache::PTREE_#{k} ||= #{v.inspect}\n"
-        end
-      end
+      c += "s\n"
+      c += "end\n"
     when Interscript::Node::Group::Parallel
       a = []
       r.children.each do |i|
@@ -53,7 +64,7 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
       end
       c += "s = Interscript::Stdlib.parallel_replace_tree(s, Interscript::Maps::Cache::PTREE_#{ah})\n"
     when Interscript::Node::Rule::Sub
-      from = Regexp.new(build_regexp(r, map)).inspect
+      from = "/#{build_regexp(r, map).gsub("/", "\\\\/")}/"
       to = compile_item(r.to, map, :str)
       c += "s.gsub!(#{from}, #{to})\n"
     when Interscript::Node::Rule::Funcall
@@ -62,11 +73,12 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
       if r.stage.map
         doc = map.dep_aliases[r.stage.map].document
         stage = doc.imported_stages[r.stage.name]
-        c += compile_rule(stage, doc)
       else
         stage = map.imported_stages[r.stage.name]
-        c += compile_rule(stage, map)
       end
+      c += "s = Interscript::Maps.transcribe(#{stage.doc_name.inspect}, s, #{stage.name.inspect})\n"
+    else
+      raise ArgumentError, "Can't compile unhandled #{r.class}"
     end
     c
   end
@@ -94,27 +106,30 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
 
     out = case i
     when Interscript::Node::Item::Alias
-      if i.map
+      astr = if i.map
         d = doc.dep_aliases[i.map].document
         a = d.imported_aliases[i.name]
         raise ArgumentError, "Alias #{i.name} of #{i.stage.map} not found" unless a
-        compile_item(a.data, d, target)
+        "Interscript::Maps.get_alias_ALIASTYPE(#{a.doc_name.inspect}, #{a.name.inspect})"
       elsif Interscript::Stdlib::ALIASES.include?(i.name)
         if target != :re && Interscript::Stdlib.re_only_alias?(i.name)
           raise ArgumentError, "Can't use #{i.name} in a #{target} context"
         end
 
-        if target == :str
-          "::Interscript::Stdlib::ALIASES[#{i.name.inspect}]"
-        elsif target == :re
-          "\#{::Interscript::Stdlib::ALIASES[#{i.name.inspect}]}"
-        elsif target == :par
-          raise NotImplementedError, "Can't use aliases in parallel mode yet"
-        end
+        "Interscript::Stdlib::ALIASES[#{i.name.inspect}]"
       else
         a = doc.imported_aliases[i.name]
         raise ArgumentError, "Alias #{i.name} not found" unless a
-        compile_item(a.data, doc, target)
+
+        "Interscript::Maps.get_alias_ALIASTYPE(#{a.doc_name.inspect}, #{a.name.inspect})"
+      end
+
+      if target == :str
+        astr = astr.sub("_ALIASTYPE(", "(")
+      elsif target == :re
+        astr = "\#{#{astr.sub("_ALIASTYPE(", "_re(")}}"
+      elsif target == :par
+        raise NotImplementedError, "Can't use aliases in parallel mode yet"
       end
     when Interscript::Node::Item::String
       if target == :str
@@ -165,13 +180,20 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
     end
   end
 
-  def call(str, stage=:main)
-    raise ArgumentError, "Calling other stages than :main is not supported for Compiler::Ruby" unless stage == :main
-
+  def load
     if !defined?(Interscript::Maps) || !Interscript::Maps.has_map?(@map.name)
+      @map.dependencies.each do |dep|
+        dep = dep.full_name
+        if !defined?(Interscript::Maps) || !Interscript::Maps.has_map?(dep)
+          Interscript.load(dep, compiler: self.class).load
+        end
+      end
       eval(@code, $main_binding)
     end
+  end
 
-    Interscript::Maps.transcribe(@map.name, str)
+  def call(str, stage=:main)
+    load
+    Interscript::Maps.transcribe(@map.name, str, stage)
   end
 end

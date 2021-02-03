@@ -26,11 +26,14 @@ module Interscript
       Interscript::DSL.parse(map_name)
     end
 
+    def load(system_code, maps={}, compiler: Interscript::Interpreter)
+      maps[[system_code, compiler.name]] ||= compiler.(system_code)
+    end
+
     # Transliterates the string.
     def transliterate(system_code, string, maps={}, compiler: Interscript::Interpreter)
       # The current best implementation is Interpreter
-      maps[[system_code, compiler.name]] ||= compiler.(system_code)
-      maps[[system_code, compiler.name]].(string)
+      load(system_code, maps, compiler: compiler).(string)
     end
 
     def transliterate_file(system_code, input_file, output_file, maps={})

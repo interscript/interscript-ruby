@@ -1,5 +1,5 @@
 class Interscript::Node::AliasDef < Interscript::Node
-  attr_accessor :name, :data
+  attr_accessor :name, :data, :doc_name
 
   def initialize(name, data)
     data = Interscript::Node::Item.try_convert(data)
