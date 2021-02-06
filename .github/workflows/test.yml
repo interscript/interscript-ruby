@@ -14,52 +14,59 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        ruby: ['2.6', '2.5', '2.4']
+        ruby: ['2.7', '2.6', '2.5', '2.4']
         python: ['3.8']
         experimental: [false]
         include:
-          - ruby: '2.7'
+          - ruby: '3.0'
             os: ubuntu-latest
             python: '3.8'
             experimental: true
-          - ruby: '2.7'
+          - ruby: '3.0'
             os: macos-latest
             python: '3.8'
             experimental: true
-          - ruby: '2.7'
+          - ruby: '3.0'
             os: windows-latest
             python: '3.8'
             experimental: true
 
     steps:
-      - name: Use Ruby
-        uses: actions/setup-ruby@v1
-        with:
-          ruby-version: ${{ matrix.ruby }}
-
       - uses: actions/checkout@master
 
-      - name: cache ruby gems
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-ruby-modules
+      - name: Use Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-ruby-${{ matrix.ruby }}-${{ matrix.python }}-gems-${{ hashFiles('**/interscript.gemspec') }}
-          restore-keys: |
-            ${{ runner.os }}-ruby-${{ matrix.ruby }}-${{ matrix.python }}-gems-
-
-      - name: Install gems
-        run: |
-          gem install bundler -v "~> 2"
-          bundle config path vendor/bundle
-          bundle install --jobs 4 --retry 5
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true
 
       - name: Setup python
         uses: actions/setup-python@v1
         with:
           python-version: ${{ matrix.python }}
           architecture: x64
+
+      - name: set PIP_DOWNLOAD_CACHE
+        shell: python
+        run: |
+          import os
+          import platform
+          from os.path import expanduser
+
+          home = expanduser("~")
+          cache_path = {
+            "Linux": f"{home}/.cache/pip",
+            "Darwin": f"{home}Library/Caches/pip",
+            "Windows": f"{home}\\AppData\\Local\\pip\\Cache"
+          }[platform.system()]
+
+          os.system(f"echo PIP_DOWNLOAD_CACHE={cache_path} >> {os.environ['GITHUB_ENV']}")
+
+      - uses: actions/cache@v2
+        with:
+          path: ${{ env.PIP_DOWNLOAD_CACHE }}
+          key: ${{ runner.os }}-${{ matrix.python }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: ${{ runner.os }}-${{ matrix.python }}-pip-
 
       - name: Install ubuntu dependencies
         if: matrix.os == 'ubuntu-latest'
@@ -77,30 +84,6 @@ jobs:
           timeout_minutes: 5
           max_attempts: 3
           command: choco install --no-progress swig --version 4.0.1
-
-      - uses: actions/cache@v2
-        if: matrix.os == 'ubuntu-latest'
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-${{ matrix.python }}-pip
-          restore-keys: |
-            ${{ runner.os }}-${{ matrix.python }}-pip
-
-      - uses: actions/cache@v2
-        if: matrix.os == 'macos-latest'
-        with:
-          path: ~/Library/Caches/pip
-          key: ${{ runner.os }}-${{ matrix.python }}-pip
-          restore-keys: |
-            ${{ runner.os }}-${{ matrix.python }}-pip
-
-      - uses: actions/cache@v2
-        if: runner.os == 'windows-latest'
-        with:
-          path: ~\AppData\Local\pip\Cache
-          key: ${{ runner.os }}-${{ matrix.python }}-pip
-          restore-keys: |
-            ${{ runner.os }}-${{ matrix.python }}-pip
 
       - name: Update Sequitur
         run: |
