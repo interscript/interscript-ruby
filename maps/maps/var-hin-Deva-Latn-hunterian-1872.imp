@@ -30,28 +30,16 @@ tests {
   test "गूगल की कार्रवाई पर पेटीएम ने कहा था कि ऐप को अस्थायी तौर पर प्ले-स्टोर से हटाया गया है, आपके पैसे सुरक्षित हैं", "gaūgala kaī kaārrawaāi para paetaīema nae kahaā thaā kai aipa kao asthaāyaī taaura para plae-staora sae hataāyaā gayaā haai, āpakae paaisae saurakshaita haain"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
-
 stage {
 
   # RULES
   # note[1]
-  sub "(?<=)\\u0906(?=\\b)", "a"
-  sub "(?<=)\\u0908(?=\\b)", "i"
-  sub "(?<=)\\u090A(?=\\b)", "u"
+  sub "\u0906", "a", after: boundary
+  sub "\u0908", "i", after: boundary
+  sub "\u090A", "u", after: boundary
 
   # note[3]
-  sub "\\u0935(?=[इई])", "v"
-
-
+  sub "\u0935", "v", after: any("इई")
 
 
   # CHARACTERS
@@ -222,4 +210,3 @@ stage {
   }
 
 }
-

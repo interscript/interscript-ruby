@@ -36,7 +36,7 @@ metadata {
 }
 
 tests {
-  test "আমার সোনার বাংলা, আমি তোমায় ভালোবাসি।\nচিরদিন তোমার আকাশ, তোমার বাতাস, আমার প্রাণে বাজায় বাঁশি॥\nও মা, ফাগুনে তোর আমের বনে ঘ্রাণে পাগল করে, মরি হায়, হায় রে—\nও মা, অঘ্রাণে তোর ভরা ক্ষেতে আমি কী দেখেছি মধুর হাসি॥\n\nকী শোভা, কী ছায়া গো, কী স্নেহ, কী মায়া গো—\nকী আঁচল বিছায়েছ বটের মূলে, নদীর কূলে কূলে।\nমা, তোর মুখের বাণী আমার কানে লাগে সুধার মতো,\nমরি হায়, হায় রে—\nমা, তোর বদনখানি মলিন হলে, ও মা, আমি নয়নজলে ভাসি॥\n", "āmāra sonāra bāṃlā, āmi tomāẏa bhālobāsi।\nciradina tomāra ākāśa, tomāra bātāsa, āmāra prāṇe bājāẏa bān̐śi॥\no mā, phāgune tora āmera bane ghrāṇe pāgala kare, mari hāẏa, hāẏa re—\no mā, aghrāṇe tora bharā kshete āmi kī dekhechi madhura hāsi॥\n\nkī śobhā, kī chāyaṛā go, kī sneha, kī māyaṛā go—\nkī ām̐cala bichāyaṛecha baṭera mūle, nadīra kūle kūle।\nmā, tora mukhera bāṇī āmāra kāne lāge sudhāra mato,\nmari hāẏa, hāẏa re—\nmā, tora badanakhāni malina hale, o mā, āmi naẏanajale bhāsi॥"
+  test "আমার সোনার বাংলা, আমি তোমায় ভালোবাসি।\nচিরদিন তোমার আকাশ, তোমার বাতাস, আমার প্রাণে বাজায় বাঁশি॥\nও মা, ফাগুনে তোর আমের বনে ঘ্রাণে পাগল করে, মরি হায়, হায় রে—\nও মা, অঘ্রাণে তোর ভরা ক্ষেতে আমি কী দেখেছি মধুর হাসি॥\n\nকী শোভা, কী ছায়া গো, কী স্নেহ, কী মায়া গো—\nকী আঁচল বিছায়েছ বটের মূলে, নদীর কূলে কূলে।\nমা, তোর মুখের বাণী আমার কানে লাগে সুধার মতো,\nমরি হায়, হায় রে—\nমা, তোর বদনখানি মলিন হলে, ও মা, আমি নয়নজলে ভাসি॥", "āmāra sonāra bāṃlā, āmi tomāẏa bhālobāsi।\nciradina tomāra ākāśa, tomāra bātāsa, āmāra prāṇe bājāẏa bān̐śi॥\no mā, phāgune tora āmera bane ghrāṇe pāgala kare, mari hāẏa, hāẏa re—\no mā, aghrāṇe tora bharā kshete āmi kī dekhechi madhura hāsi॥\n\nkī śobhā, kī chāyaṛā go, kī sneha, kī māyaṛā go—\nkī ām̐cala bichāyaṛecha baṭera mūle, nadīra kūle kūle।\nmā, tora mukhera bāṇī āmāra kāne lāge sudhāra mato,\nmari hāẏa, hāẏa re—\nmā, tora badanakhāni malina hale, o mā, āmi naẏanajale bhāsi॥"
   test "ট্রাম্প-বাইডেন মহারণ: জয় দাবি দুজনেরই", "ṭrāmpa-bāiḍena mahāraṇa: jaẏa dābi dujanerai"
   test "রিপাবলিকান গভর্নর ডগ ডসি বলেছেন, ফলাফল নিয়ে এখনই কথা বলার সময় আসেনি।", "ripābalikāna gabharnara ḍaga ḍasi balechena, phalāphala niẏe ekhanai kathā balāra samaẏa āseni।"
   test "অনেক আগে থেকেই ট্রাম্প ফ্লোরিডায় জিতে গেছেন বলে গণমাধ্যমগুলোতে তুলে ধরা হচ্ছে", "aneka āge thekei ṭrāmpa phloriḍāẏa jite gechena bale gaṇamādhyamagulote tule dharā hacche"
@@ -49,66 +49,61 @@ tests {
   test "তাঁরা সমর্থকদের উদ্দেশ্যে বলেছেন, এ নির্বাচন শুধু প্রেসিডেন্ট ডোনাল্ড ট্রাম্পের প্রতি নয়", "tān̐rā samarthakadera uddeśye balechena, e nirbācana śudhu presiḍenṭa ḍonālḍa ṭrāmpera prati naẏa"
   test "স্মার্টফোন কিনতে ৮ হাজার করে ঋণ পাবেন ৪১৫০১ শিক্ষার্থী", "smārṭaphona kinate 8 hājāra kare ṛṇa pābena 41501 śikshārthī"
   test "বার্সা সমর্থকদের নিয়ে উদ্‌যাপনের কথা গিলতে হলো ভিদালকে", "bārsā samarthakadera niẏe ud‌yāpanera kathā gilate halo bhidālake"
+  test "য়ে", "yaṛe"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
+aliases {
+  # A different name for this alias can be more fitting...
+  def_alias ben_special, any("\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd")
+}
 
 stage {
-
   # RULES
   #rule II
-  sub "ক(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "k"
-  sub "খ(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "kh"
-  sub "গ(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "g"
-  sub "ঘ(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "gh"
-  sub "ঙ(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "ṅ"
-  sub "চ(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "c"
-  sub "ছ(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "ch"
-  sub "জ(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "j"
-  sub "ঝ(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "jh"
-  sub "ঞ(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "ñ"
-  sub "ট(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "ṭ"
-  sub "ঠ(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "ṭh"
-  sub "ড(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "ḍ"
-  sub "ড়(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "ṛ"
-  sub "([ড়]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "ṛ"
-  sub "ঢ(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "ḍh"
-  sub "([ঢ়]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "ṛh"
-  sub "ণ(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "ṇ"
-  sub "ত(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "t"
-  sub "ৎ(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "ṯ"
-  sub "থ(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "th"
-  sub "দ(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "d"
-  sub "ধ(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "dh"
-  sub "ন(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "n"
-  sub "প(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "p"
-  sub "ফ(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "ph"
-  sub "ব(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "b"
-  sub "ভ(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "bh"
-  sub "ম(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "m"
-  sub "য(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "y"
-  sub "য়(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "ẏ"
-  sub "([য়]=?)(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "ẏ"
-  sub "র(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "r"
-  sub "ল(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "l"
-  sub "শ(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "ś"
-  sub "ষ(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "sh"
-  sub "স(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "s"
-  sub "হ(?=[\\u09be\\u09bf\\u09c0\\u09c1\\u09c2\\u09c3\\u09c7\\u09c8\\u09cb\\u09cc\\u09cd])", "h"
+  sub "ক", "k", after: ben_special
+  sub "খ", "kh", after: ben_special
+  sub "গ", "g", after: ben_special
+  sub "ঘ", "gh", after: ben_special
+  sub "ঙ", "ṅ", after: ben_special
+  sub "চ", "c", after: ben_special
+  sub "ছ", "ch", after: ben_special
+  sub "জ", "j", after: ben_special
+  sub "ঝ", "jh", after: ben_special
+  sub "ঞ", "ñ", after: ben_special
+  sub "ট", "ṭ", after: ben_special
+  sub "ঠ", "ṭh", after: ben_special
+  sub "ড", "ḍ", after: ben_special
+  sub "ড়", "ṛ", after: ben_special
+  sub any("ড়"), "ṛ", after: ben_special # 2 combining characters, why we need any()? - weird
+  sub "ঢ", "ḍh", after: ben_special
+  sub "ঢ়", "ṛh", after: ben_special # 2 combining characters, was any()
+  sub "ণ", "ṇ", after: ben_special
+  sub "ত", "t", after: ben_special
+  sub "ৎ", "ṯ", after: ben_special
+  sub "থ", "th", after: ben_special
+  sub "দ", "d", after: ben_special
+  sub "ধ", "dh", after: ben_special
+  sub "ন", "n", after: ben_special
+  sub "প", "p", after: ben_special
+  sub "ফ", "ph", after: ben_special
+  sub "ব", "b", after: ben_special
+  sub "ভ", "bh", after: ben_special
+  sub "ম", "m", after: ben_special
+  sub "য", "y", after: ben_special
+  sub "য়", "ẏ", after: ben_special # 2 combining characters
+  sub "য়", "ẏ", after: ben_special # But this was any() in the previous version
+  sub "র", "r", after: ben_special
+  sub "ল", "l", after: ben_special
+  sub "শ", "ś", after: ben_special
+  sub "ষ", "sh", after: ben_special
+  sub "স", "s", after: ben_special
+  sub "হ", "h", after: ben_special
 
   # Rule III
-  sub "([ବ]=?)(?=[\\u09AC])", "bba"
+  sub "ବ", "bba", after: "\u09AC"
   # Rule V
-  sub "\\u0981(?=[কখগঘঙচছজঝঞটঠডডঢঢণতৎথদধন])", "m̐"
-  sub "(?<=)\\u0b01(?=\\b)", "m̐"
+  sub "\u0981", "m̐", after: any("কখগঘঙচছজঝঞটঠডডঢঢণতৎথদধন")
+  sub "\u0b01", "m̐", after: boundary
 
 
   # CHARACTERS
@@ -226,5 +221,5 @@ stage {
     sub "৯", "9"
   }
 
+  compose
 }
-

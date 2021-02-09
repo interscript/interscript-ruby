@@ -102,7 +102,10 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
   def compile_item i, doc=@map, target=nil
     i = i.first_string if %i[str parstr].include? target
     i = Interscript::Node::Item.try_convert(i)
-    target = :par if target == :parstr
+    if target == :parstr
+      parstr = true
+      target = :par
+    end
 
     out = case i
     when Interscript::Node::Item::Alias
@@ -115,7 +118,7 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
         if target != :re && Interscript::Stdlib.re_only_alias?(i.name)
           raise ArgumentError, "Can't use #{i.name} in a #{target} context"
         end
-
+        stdlib_alias = true
         "Interscript::Stdlib::ALIASES[#{i.name.inspect}]"
       else
         a = doc.imported_aliases[i.name]
@@ -128,6 +131,8 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
         astr = astr.sub("_ALIASTYPE(", "(")
       elsif target == :re
         astr = "\#{#{astr.sub("_ALIASTYPE(", "_re(")}}"
+      elsif parstr && stdlib_alias
+        astr = Interscript::Stdlib::ALIASES[i.name]
       elsif target == :par
         raise NotImplementedError, "Can't use aliases in parallel mode yet"
       end

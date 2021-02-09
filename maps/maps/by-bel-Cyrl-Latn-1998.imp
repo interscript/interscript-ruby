@@ -65,41 +65,32 @@ tests {
   test "Вязынка", "Viazynka"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
 dependency "gost-rus-Cyrl-Latn-16876-71-1983", as: cyrllatn
-
+dependency "var-Cyrl", import: true
 
 stage {
-
-  run map.cyrllatn.stage.main
-
   # RULES
-  sub "(?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\\u0415", "IE" # Е after consonants
-  sub "(?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\\u0435", "ie" # е after consonants
-  sub "(?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\\u0401", "IO" # Ё after consonants
-  sub "(?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\\u0451", "io" # ё after consonants
-  sub "(?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\\u042E", "IU" # Ю after consonants
-  sub "(?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\\u044E", "iu" # ю after consonants
-  sub "(?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\\u042F", "IA" # Я after consonants
-  sub "(?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\\u044F", "ia" # я after consonants
-  sub "\\u0417\\u042C", "Ź" # ЗЬ
-  sub "\\u0437\\u044C", "ź" # зь
-  sub "\\u041B\\u042C", "Ĺ" # ЛЬ
-  sub "\\u043B\\u044C", "ĺ" # ль
-  sub "\\u0421\\u042C", "Ś" # СЬ
-  sub "\\u0441\\u044C", "ś" # сь
-  sub "\\u0426\\u042C", "Ć" # ЦЬ
-  sub "\\u0446\\u044C", "ć" # ць
-  sub "\\u041D\\u042C", "Ń" # НЬ
-  sub "\\u043D\\u044C", "ń" # нь
+  sub "\u0415", "IE", before: bel_consonant # Е after consonants
+  sub "\u0435", "ie", before: bel_consonant # е after consonants
+  sub "\u0401", "IO", before: bel_consonant # Ё after consonants
+  sub "\u0451", "io", before: bel_consonant # ё after consonants
+  sub "\u042E", "IU", before: bel_consonant # Ю after consonants
+  sub "\u044E", "iu", before: bel_consonant # ю after consonants
+  sub "\u042F", "IA", before: bel_consonant # Я after consonants
+  sub "\u044F", "ia", before: bel_consonant # я after consonants
+
+  parallel {
+    sub "\u0417\u042C", "Ź" # ЗЬ
+    sub "\u0437\u044C", "ź" # зь
+    sub "\u041B\u042C", "Ĺ" # ЛЬ
+    sub "\u043B\u044C", "ĺ" # ль
+    sub "\u0421\u042C", "Ś" # СЬ
+    sub "\u0441\u044C", "ś" # сь
+    sub "\u0426\u042C", "Ć" # ЦЬ
+    sub "\u0446\u044C", "ć" # ць
+    sub "\u041D\u042C", "Ń" # НЬ
+    sub "\u043D\u044C", "ń" # нь
+  }
 
   # CHARACTERS
   parallel {
@@ -107,7 +98,7 @@ stage {
     sub "\u0413", "H" # Г
     sub "\u0415", "Je" # Е
     sub "\u0401", "Jo" # Ё
-    sub "\\U040E", "Ŭ" # Ў
+    sub "\u040E", "Ŭ" # Ў
     sub "\u0425", "Ch" # Х
     sub "\u042C", "" # Ь
     sub "\u042D", "E" # Э
@@ -128,5 +119,5 @@ stage {
     sub "\u0027", "" # '
   }
 
+  run map.cyrllatn.stage.main
 }
-
