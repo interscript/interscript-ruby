@@ -1,0 +1,68 @@
+#!/usr/bin/env ruby
+ENV["INTERSCRIPT_STAGING"] = "1"
+require "bundler/setup"
+require "interscript"
+require "interscript/compiler/ruby"
+
+cache = {}
+
+# surpress warnings
+def warn(*)
+end
+
+for i in Dir[__dir__+"/../../maps/maps-staging/*.imp"]
+  system_name = File.basename(i, ".imp")
+
+  print "#{system_name}: "
+
+  exceptions = []
+
+  begin
+    system = Interscript.parse(system_name)
+  rescue => e
+    exceptions << e
+  end
+
+  if exceptions.length == 0 && system.tests && system.tests.data && system.tests.data.length > 0
+    good = 0
+    bad = 0
+
+    system.tests.data.each do |from,expected|
+      testname = from[0...300].gsub("\n", " / ")
+      result = Interscript.transliterate(system_name, from, cache, compiler: Interscript::Interpreter)
+      result2 = Interscript.transliterate(system_name, from, cache, compiler: Interscript::Compiler::Ruby)
+      if result != result2
+        # Compiler / Interpreter bug!
+        print "!"
+        bad += 1
+      elsif result == expected
+        print "."
+        good += 1
+      elsif result.unicode_normalize == expected.unicode_normalize
+        print ","
+        bad += 1
+      else
+        print "#"
+        bad += 1
+      end
+    rescue => e
+      print "%"
+      bad += 1
+      exceptions << e
+    end
+
+    if bad == 0
+      puts " all tests passed!"
+      `git mv #{i} #{i.sub("-staging", "")}`
+    else
+      puts " (#{good}/#{good+bad})"
+    end
+  elsif exceptions.length != 0
+  else
+    puts "no tests!"
+  end
+
+  exceptions.each do |e|
+    puts e.full_message
+  end
+end

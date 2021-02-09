@@ -22,16 +22,10 @@ metadata {
 }
 
 tests {
+  test "云互亓五", "yun2hu4qi2wu3"
+  test "一一一一", "yi1yi1yi1yi1"
+  test "刿剀剁剂剃剄剅", "gui4kai3duo4ji4ti4jing3lou2"
 }
-
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
 
 stage {
 
@@ -45,7 +39,7 @@ stage {
     sub "七", "qi1"
     sub "丄", any(["shang4", "shang3"])
     sub "丅", "xia4"
-    sub "丆", false
+    sub "丆", none # This character is missing?
     sub "万", any(["wan4", "mo4"])
     sub "丈", "zhang4"
     sub "三", "san1"
@@ -94,7 +88,7 @@ stage {
     sub "临", "lin2"
     sub "丵", "zhuo1"
     sub "丶", "zhu3"
-    sub "丷", false
+    sub "丷", none # This character is missing?
     sub "丸", "wan2"
     sub "丹", "dan1"
     sub "为", any(["wei4", "wei2"])
@@ -107,13 +101,13 @@ stage {
     sub "乁", "yi2"
     sub "乂", any(["yi4", "ai4"])
     sub "乃", "nai3"
-    sub "乄", false
+    sub "乄", none # This character is missing?
     sub "久", "jiu3"
     sub "乆", "jiu3"
     sub "乇", "tuo1"
     sub "么", any(["yao1", "mo2"])
     sub "义", "yi4"
-    sub "乊", false
+    sub "乊", none # This character is missing?
     sub "之", "zhi1"
     sub "乌", any(["wu1", "wu4"])
     sub "乍", "zha4"
@@ -130,7 +124,7 @@ stage {
     sub "乘", any(["cheng2", "sheng4"])
     sub "乙", "yi3"
     sub "乚", "yin3"
-    sub "乛", false
+    sub "乛", none # This character is missing?
     sub "乜", any(["mie1", "nie4"])
     sub "九", "jiu3"
     sub "乞", "qi3"
@@ -139,21 +133,21 @@ stage {
     sub "乡", "xiang1"
     sub "乢", "gai4"
     sub "乣", "diu1"
-    sub "乤", false
-    sub "乥", false
+    sub "乤", none # This character is missing?
+    sub "乥", none # This character is missing?
     sub "书", "shu1"
-    sub "乧", false
+    sub "乧", none # This character is missing?
     sub "乨", "shi3"
     sub "乩", "ji1"
     sub "乪", "nang1"
     sub "乫", "jia1"
-    sub "乬", false
+    sub "乬", none # This character is missing?
     sub "乭", "shi2"
-    sub "乮", false
-    sub "乯", false
+    sub "乮", none # This character is missing?
+    sub "乯", none # This character is missing?
     sub "买", "mai3"
     sub "乱", "luan4"
-    sub "乲", false
+    sub "乲", none # This character is missing?
     sub "乳", "ru3"
     sub "乴", "xi3"
     sub "乵", "yan3"
@@ -161,10 +155,10 @@ stage {
     sub "乷", "sha1"
     sub "乸", "na3"
     sub "乹", any(["gan1", "qian2"])
-    sub "乺", false
-    sub "乻", false
-    sub "乼", false
-    sub "乽", false
+    sub "乺", none # This character is missing?
+    sub "乻", none # This character is missing?
+    sub "乼", none # This character is missing?
+    sub "乽", none # This character is missing?
     sub "乾", any(["gan1", "qian2"])
     sub "乿", "zhi4"
     sub "亀", any(["gui1", "jun1", "qiu1"])
@@ -174,7 +168,7 @@ stage {
     sub "亄", "yi4"
     sub "亅", "jue2"
     sub "了", any(["liao3", "le5"])
-    sub "亇", false
+    sub "亇", none # This character is missing?
     sub "予", any(["yu2", "yu3"])
     sub "争", "zheng1"
     sub "亊", "shi4"
@@ -209,7 +203,7 @@ stage {
     sub "产", "chan3"
     sub "亨", "heng1"
     sub "亩", "mu3"
-    sub "亪", false
+    sub "亪", none # This character is missing?
     sub "享", "xiang3"
     sub "京", "jing1"
     sub "亭", "ting2"
@@ -228,7 +222,7 @@ stage {
     sub "人", "ren2"
     sub "亻", "ren2"
     sub "亼", "ji2"
-    sub "亽", false
+    sub "亽", none # This character is missing?
     sub "亾", "wang2"
     sub "亿", "yi4"
     sub "什", any(["shi2", "shen2"])
@@ -249,7 +243,7 @@ stage {
     sub "仏", any(["fo2", "fu2"])
     sub "仐", "san3"
     sub "仑", "lun2"
-    sub "仒", false
+    sub "仒", none # This character is missing?
     sub "仓", "cang1"
     sub "仔", "zi3"
     sub "仕", "shi4"
@@ -397,9 +391,9 @@ stage {
     sub "佣", any(["yong4", "yong1"])
     sub "佤", "wa3"
     sub "佥", "qian1"
-    sub "佦", false
+    sub "佦", none # This character is missing?
     sub "佧", "ka3"
-    sub "佨", false
+    sub "佨", none # This character is missing?
     sub "佩", "pei4"
     sub "佪", "huai2"
     sub "佫", "he4"
@@ -459,7 +453,7 @@ stage {
     sub "価", any(["jia4", "jie4"])
     sub "侢", "zai4"
     sub "侣", "lu:3"
-    sub "侤", false
+    sub "侤", none # This character is missing?
     sub "侥", any(["jiao3", "yao2"])
     sub "侦", "zhen1"
     sub "侧", "ce4"
@@ -526,7 +520,7 @@ stage {
     sub "俤", "ti4"
     sub "俥", "che1"
     sub "俦", "chou2"
-    sub "俧", false
+    sub "俧", none # This character is missing?
     sub "俨", "yan3"
     sub "俩", any(["lia3", "liang3"])
     sub "俪", "li4"
@@ -614,7 +608,7 @@ stage {
     sub "值", "zhi2"
     sub "倽", "sha4"
     sub "倾", "qing1"
-    sub "倿", false
+    sub "倿", none # This character is missing?
     sub "偀", "ying1"
     sub "偁", any(["cheng1", "cheng4"])
     sub "偂", "qian2"
@@ -674,8 +668,7 @@ stage {
     sub "偸", "tou1"
     sub "偹", "bei4"
     sub "偺", any(["za2", "zan2"])
-    sub "偻", "lu:3"
-    sub ["lou2"], false
+    sub "偻", any(["lu:3", "lou2"]) # BUG
     sub "偼", "jie2"
     sub "偽", "wei4"
     sub "偾", "fen4"
@@ -718,7 +711,7 @@ stage {
     sub "傣", "tai4"
     sub "傤", "zai4"
     sub "傥", "tang3"
-    sub "傦", false
+    sub "傦", none # This character is missing?
     sub "傧", "bin1"
     sub "储", "chu3"
     sub "傩", "nuo2"
@@ -746,8 +739,7 @@ stage {
     sub "傿", "yan4"
     sub "僀", "di4"
     sub "僁", "xi1"
-    sub "僂", "lu:3"
-    sub ["lou2"], false
+    sub "僂", any(["lu:3", "lou2"]) # BUG
     sub "僃", "bei4"
     sub "僄", "piao1"
     sub "僅", any(["jin3", "jin4"])
@@ -824,7 +816,7 @@ stage {
     sub "儌", "jiao3"
     sub "儍", "sha3"
     sub "儎", any(["zai4", "zai3"])
-    sub "儏", false
+    sub "儏", none # This character is missing?
     sub "儐", any(["bin4", "bin1"])
     sub "儑", "an4"
     sub "儒", "ru2"
@@ -920,7 +912,7 @@ stage {
     sub "公", "gong1"
     sub "六", any(["liu4", "lu4"])
     sub "兮", "xi1"
-    sub "兯", false
+    sub "兯", none # This character is missing?
     sub "兰", "lan2"
     sub "共", "gong4"
     sub "兲", "tian1"
@@ -931,7 +923,7 @@ stage {
     sub "具", "ju4"
     sub "典", "dian3"
     sub "兹", "zi1"
-    sub "兺", false
+    sub "兺", none # This character is missing?
     sub "养", "yang3"
     sub "兼", "jian1"
     sub "兽", "shou4"
@@ -976,7 +968,7 @@ stage {
     sub "冤", "yuan1"
     sub "冥", "ming2"
     sub "冦", "kou4"
-    sub "冧", false
+    sub "冧", none # This character is missing?
     sub "冨", "fu4"
     sub "冩", "xie3"
     sub "冪", "mi4"
@@ -1040,10 +1032,10 @@ stage {
     sub "凤", "feng4"
     sub "凥", "ju1"
     sub "処", any(["chu3", "chu4"])
-    sub "凧", false
+    sub "凧", none # This character is missing?
     sub "凨", "feng1"
-    sub "凩", false
-    sub "凪", false
+    sub "凩", none # This character is missing?
+    sub "凪", none # This character is missing?
     sub "凫", "fu2"
     sub "凬", "feng1"
     sub "凭", "ping2"
@@ -1322,13 +1314,13 @@ stage {
     sub "勾", "gou1"
     sub "勿", "wu4"
     sub "匀", "yun2"
-    sub "匁", false
-    sub "匂", false
+    sub "匁", none # This character is missing?
+    sub "匂", none # This character is missing?
     sub "匃", "gai4"
     sub "匄", "gai4"
     sub "包", "bao1"
     sub "匆", "cong1"
-    sub "匇", false
+    sub "匇", none # This character is missing?
     sub "匈", "xiong1"
     sub "匉", "peng1"
     sub "匊", "ju2"
@@ -1450,7 +1442,7 @@ stage {
     sub "卾", "e4"
     sub "卿", "qing1"
     sub "厀", "xi1"
-    sub "厁", false
+    sub "厁", none # This character is missing?
     sub "厂", "chang3"
     sub "厃", "han3"
     sub "厄", "e4"
@@ -1466,7 +1458,7 @@ stage {
     sub "厎", "zhi3"
     sub "厏", "zha3"
     sub "厐", "pang2"
-    sub "厑", false
+    sub "厑", none # This character is missing?
     sub "厒", "ke4"
     sub "厓", "ya2"
     sub "厔", "zhi4"
@@ -1509,7 +1501,7 @@ stage {
     sub "厹", "qiu2"
     sub "厺", "qu4"
     sub "去", "qu4"
-    sub "厼", false
+    sub "厼", none # This character is missing?
     sub "厽", "lei3"
     sub "厾", "du1"
     sub "县", "xian4"
@@ -1575,7 +1567,7 @@ stage {
     sub "叻", "le4"
     sub "叼", "diao1"
     sub "叽", "ji1"
-    sub "叾", false
+    sub "叾", none # This character is missing?
     sub "叿", "hong1"
     sub "吀", "mie1"
     sub "吁", any(["xu1", "yu4"])
@@ -1667,7 +1659,7 @@ stage {
     sub "呗", any(["bai4", "bei5"])
     sub "员", any(["yuan2", "yun2", "yun4"])
     sub "呙", "guo1"
-    sub "呚", false
+    sub "呚", none # This character is missing?
     sub "呛", any(["qiang1", "qiang4"])
     sub "呜", "wu1"
     sub "呝", "e4"
@@ -1791,12 +1783,12 @@ stage {
     sub "哓", "xiao1"
     sub "哔", "bi4"
     sub "哕", "hui4"
-    sub "哖", false
+    sub "哖", none # This character is missing?
     sub "哗", any(["hua1", "hua2", "ye4"])
-    sub "哘", false
+    sub "哘", none # This character is missing?
     sub "哙", "kuai4"
     sub "哚", "duo3"
-    sub "哛", false
+    sub "哛", none # This character is missing?
     sub "哜", "ji4"
     sub "哝", "nong2"
     sub "哞", any(["mou1", "mou2"])
@@ -1861,16 +1853,16 @@ stage {
     sub "唙", "di2"
     sub "唚", "qin4"
     sub "唛", "ma4"
-    sub "唜", false
+    sub "唜", none # This character is missing?
     sub "唝", "gong4"
     sub "唞", "dou3"
-    sub "唟", false
+    sub "唟", none # This character is missing?
     sub "唠", any(["lao2", "lao4"])
     sub "唡", "liang3"
     sub "唢", "suo3"
     sub "唣", "zao4"
     sub "唤", "huan4"
-    sub "唥", false
+    sub "唥", none # This character is missing?
     sub "唦", "gou4"
     sub "唧", "ji1"
     sub "唨", "zuo3"
@@ -1954,7 +1946,7 @@ stage {
     sub "啶", "ding4"
     sub "啷", "lang1"
     sub "啸", "xiao4"
-    sub "啹", false
+    sub "啹", none # This character is missing?
     sub "啺", "tang2"
     sub "啻", "chi4"
     sub "啼", "ti2"
@@ -2017,7 +2009,7 @@ stage {
     sub "喵", "miao1"
     sub "営", "ying2"
     sub "喷", any(["pen1", "pen4"])
-    sub "喸", false
+    sub "喸", none # This character is missing?
     sub "喹", "kui2"
     sub "喺", "xi4"
     sub "喻", "yu4"
@@ -2070,14 +2062,14 @@ stage {
     sub "嗪", "qin2"
     sub "嗫", "nie4"
     sub "嗬", "he1"
-    sub "嗭", false
+    sub "嗭", none # This character is missing?
     sub "嗮", "sai4"
     sub "嗯", any(["ng4", "ng2", "ng3"])
     sub "嗰", "ge4"
     sub "嗱", "na2"
     sub "嗲", any(["dia3", "dia1"])
     sub "嗳", any(["ai4", "ai3"])
-    sub "嗴", false
+    sub "嗴", none # This character is missing?
     sub "嗵", "tong1"
     sub "嗶", "bi4"
     sub "嗷", "ao2"
@@ -2126,7 +2118,7 @@ stage {
     sub "嘢", "ye3"
     sub "嘣", "beng1"
     sub "嘤", "ying1"
-    sub "嘥", false
+    sub "嘥", none # This character is missing?
     sub "嘦", "jiao4"
     sub "嘧", "mi4"
     sub "嘨", "xiao4"
@@ -2211,7 +2203,7 @@ stage {
     sub "噷", "xin1"
     sub "噸", any(["dun1", "dun4"])
     sub "噹", "dang1"
-    sub "噺", false
+    sub "噺", none # This character is missing?
     sub "噻", "sai1"
     sub "噼", "pi1"
     sub "噽", "pi3"
@@ -2234,8 +2226,8 @@ stage {
     sub "嚎", "hao2"
     sub "嚏", "ti4"
     sub "嚐", "chang2"
-    sub "嚑", false
-    sub "嚒", false
+    sub "嚑", none # This character is missing?
+    sub "嚒", none # This character is missing?
     sub "嚓", any(["ca1", "cha1"])
     sub "嚔", "ti4"
     sub "嚕", "lu1"
@@ -2250,7 +2242,7 @@ stage {
     sub "嚞", "zhe2"
     sub "嚟", "li2"
     sub "嚠", "liu2"
-    sub "嚡", false
+    sub "嚡", none # This character is missing?
     sub "嚢", any(["nang2", "nang1"])
     sub "嚣", any(["xiao1", "ao2"])
     sub "嚤", "mo2"
@@ -2295,15 +2287,15 @@ stage {
     sub "囋", "zan4"
     sub "囌", "su1"
     sub "囍", "xi3"
-    sub "囎", false
+    sub "囎", none # This character is missing?
     sub "囏", "jian1"
     sub "囐", "za2"
     sub "囑", "zhu3"
     sub "囒", "lan2"
     sub "囓", "nie4"
     sub "囔", "nang1"
-    sub "囕", false
-    sub "囖", false
+    sub "囕", none # This character is missing?
+    sub "囖", none # This character is missing?
     sub "囗", "wei2"
     sub "囘", "hui2"
     sub "囙", "yin1"
@@ -2383,7 +2375,7 @@ stage {
     sub "圣", "sheng4"
     sub "圤", "yan2"
     sub "圥", "lu2"
-    sub "圦", false
+    sub "圦", none # This character is missing?
     sub "圧", any(["ya1", "ya4"])
     sub "在", "zai4"
     sub "圩", any(["wei2", "xu1", "yu2"])
@@ -2400,8 +2392,8 @@ stage {
     sub "圴", any(["zhuo2", "shao2"])
     sub "圵", "dang4"
     sub "圶", "qia4"
-    sub "圷", false
-    sub "圸", false
+    sub "圷", none # This character is missing?
+    sub "圸", none # This character is missing?
     sub "圹", "kuang4"
     sub "场", any(["chang2", "chang3"])
     sub "圻", "qi2"
@@ -2481,9 +2473,9 @@ stage {
     sub "垅", "long3"
     sub "垆", "lu2"
     sub "垇", "ao4"
-    sub "垈", false
+    sub "垈", none # This character is missing?
     sub "垉", "pao2"
-    sub "垊", false
+    sub "垊", none # This character is missing?
     sub "型", "xing2"
     sub "垌", any(["tong2", "tong3"])
     sub "垍", "ji4"
@@ -2515,16 +2507,16 @@ stage {
     sub "垧", "shang3"
     sub "垨", "shou3"
     sub "垩", "e4"
-    sub "垪", false
+    sub "垪", none # This character is missing?
     sub "垫", "dian4"
     sub "垬", "hong2"
     sub "垭", "ya1"
     sub "垮", "kua3"
     sub "垯", "da5"
-    sub "垰", false
+    sub "垰", none # This character is missing?
     sub "垱", "dang4"
     sub "垲", "kai3"
-    sub "垳", false
+    sub "垳", none # This character is missing?
     sub "垴", "nao3"
     sub "垵", "an1"
     sub "垶", "xing1"
@@ -2559,7 +2551,7 @@ stage {
     sub "埓", "lie4"
     sub "埔", any(["bu4", "bu3", "pu3"])
     sub "埕", "cheng2"
-    sub "埖", false
+    sub "埖", none # This character is missing?
     sub "埗", "bu4"
     sub "埘", "shi2"
     sub "埙", "xun1"
@@ -2616,10 +2608,10 @@ stage {
     sub "堌", "gu4"
     sub "堍", "tu4"
     sub "堎", any(["leng4", "ling2"])
-    sub "堏", false
+    sub "堏", none # This character is missing?
     sub "堐", "ya2"
     sub "堑", "qian4"
-    sub "堒", false
+    sub "堒", none # This character is missing?
     sub "堓", "an4"
     sub "堔", "chen1"
     sub "堕", any(["duo4", "hui1"])
@@ -2665,7 +2657,7 @@ stage {
     sub "堽", "gang1"
     sub "堾", "chuan3"
     sub "堿", "jian3"
-    sub "塀", false
+    sub "塀", none # This character is missing?
     sub "塁", "lei3"
     sub "塂", "gang3"
     sub "塃", "huang1"
@@ -2713,7 +2705,7 @@ stage {
     sub "塭", "wen1"
     sub "塮", "xie4"
     sub "塯", "liu4"
-    sub "塰", false
+    sub "塰", none # This character is missing?
     sub "塱", "lang3"
     sub "塲", any(["chang2", "chang3"])
     sub "塳", "peng2"
@@ -2756,7 +2748,7 @@ stage {
     sub "墘", "qi2"
     sub "墙", "qiang2"
     sub "墚", "liang2"
-    sub "墛", false
+    sub "墛", none # This character is missing?
     sub "墜", "zhui4"
     sub "墝", "qiao1"
     sub "增", "zeng1"
@@ -2786,7 +2778,7 @@ stage {
     sub "墶", "da5"
     sub "墷", "ye4"
     sub "墸", "chu2"
-    sub "墹", false
+    sub "墹", none # This character is missing?
     sub "墺", "ao4"
     sub "墻", "qiang2"
     sub "墼", "ji1"
@@ -2816,7 +2808,7 @@ stage {
     sub "壔", "dao3"
     sub "壕", "hao2"
     sub "壖", "ruan2"
-    sub "壗", false
+    sub "壗", none # This character is missing?
     sub "壘", "lei3"
     sub "壙", "kuang4"
     sub "壚", "lu2"
@@ -2835,10 +2827,10 @@ stage {
     sub "壧", "yan2"
     sub "壨", "lei2"
     sub "壩", "ba4"
-    sub "壪", false
+    sub "壪", none # This character is missing?
     sub "士", "shi4"
     sub "壬", "ren2"
-    sub "壭", false
+    sub "壭", none # This character is missing?
     sub "壮", "zhuang4"
     sub "壯", "zhuang4"
     sub "声", "sheng1"
@@ -2865,7 +2857,7 @@ stage {
     sub "夅", "xiang2"
     sub "夆", "feng2"
     sub "备", "bei4"
-    sub "夈", false
+    sub "夈", none # This character is missing?
     sub "変", "bian4"
     sub "夊", "sui1"
     sub "夋", "qun1"
@@ -2874,7 +2866,7 @@ stage {
     sub "夎", "zuo4"
     sub "夏", "xia4"
     sub "夐", "xiong4"
-    sub "夑", false
+    sub "夑", none # This character is missing?
     sub "夒", "nao2"
     sub "夓", "xia4"
     sub "夔", "kui2"
@@ -2887,7 +2879,7 @@ stage {
     sub "夛", "duo1"
     sub "夜", "ye4"
     sub "夝", "qing2"
-    sub "夞", false
+    sub "夞", none # This character is missing?
     sub "够", "gou4"
     sub "夠", "gou4"
     sub "夡", "qi4"
@@ -2916,7 +2908,7 @@ stage {
     sub "夸", "kua1"
     sub "夹", any(["jia1", "jia2"])
     sub "夺", "duo2"
-    sub "夻", false
+    sub "夻", none # This character is missing?
     sub "夼", "kuang3"
     sub "夽", "yun4"
     sub "夾", any(["jia1", "jia2"])
@@ -2934,7 +2926,7 @@ stage {
     sub "奊", "xie2"
     sub "奋", "fen4"
     sub "奌", "dian3"
-    sub "奍", false
+    sub "奍", none # This character is missing?
     sub "奎", "kui2"
     sub "奏", "zou4"
     sub "奐", "huan4"
@@ -2972,8 +2964,7 @@ stage {
     sub "奰", "bei4"
     sub "奱", "lian2"
     sub "奲", "che3"
-    sub "女", "nu:3"
-    sub ["ru3"], false
+    sub "女", any(["nu:3", "ru3"]) # BUG
     sub "奴", "nu2"
     sub "奵", "ding3"
     sub "奶", "nai3"
@@ -3228,7 +3219,7 @@ stage {
     sub "婯", "li4"
     sub "婰", "dian3"
     sub "婱", "xian2"
-    sub "婲", false
+    sub "婲", none # This character is missing?
     sub "婳", "hua4"
     sub "婴", "ying1"
     sub "婵", "chan2"
@@ -3285,7 +3276,7 @@ stage {
     sub "媨", "jiu4"
     sub "媩", "hu2"
     sub "媪", "ao3"
-    sub "媫", false
+    sub "媫", none # This character is missing?
     sub "媬", "bao3"
     sub "媭", "xu1"
     sub "媮", any(["tou1", "tou3"])
@@ -3356,7 +3347,7 @@ stage {
     sub "嫯", "ao4"
     sub "嫰", "nen4"
     sub "嫱", "qiang2"
-    sub "嫲", false
+    sub "嫲", none # This character is missing?
     sub "嫳", "bi4"
     sub "嫴", "gu1"
     sub "嫵", "wu3"
@@ -3424,7 +3415,7 @@ stage {
     sub "嬳", "wo"
     sub "嬴", "ying2"
     sub "嬵", "mian2"
-    sub "嬶", false
+    sub "嬶", none # This character is missing?
     sub "嬷", "ma1"
     sub "嬸", "shen3"
     sub "嬹", "xing4"
@@ -3473,7 +3464,7 @@ stage {
     sub "孤", "gu1"
     sub "孥", "nu2"
     sub "学", "xue2"
-    sub "孧", false
+    sub "孧", none # This character is missing?
     sub "孨", "chan2"
     sub "孩", "hai2"
     sub "孪", "luan2"
@@ -3623,8 +3614,7 @@ stage {
     sub "寺", "si4"
     sub "寻", any(["xun2", "xin2"])
     sub "导", "dao3"
-    sub "寽", "lu:3"
-    sub ["luo1"], false
+    sub "寽", any(["lu:3", "luo1"]) # BUG
     sub "対", "dui4"
     sub "寿", "shou4"
     sub "尀", "po3"
@@ -3660,7 +3650,7 @@ stage {
     sub "尞", any(["liao2", "liao3"])
     sub "尟", "xian3"
     sub "尠", "xian1"
-    sub "尡", false
+    sub "尡", none # This character is missing?
     sub "尢", any(["wang1", "you2"])
     sub "尣", any(["wang1", "you2"])
     sub "尤", "you2"
@@ -3714,7 +3704,7 @@ stage {
     sub "屔", "ni2"
     sub "展", "zhan3"
     sub "屖", "xi1"
-    sub "屗", false
+    sub "屗", none # This character is missing?
     sub "屘", "man3"
     sub "屙", "e1"
     sub "屚", "lou4"
@@ -3745,8 +3735,8 @@ stage {
     sub "屳", "xian1"
     sub "屴", "li4"
     sub "屵", "e4"
-    sub "屶", false
-    sub "屷", false
+    sub "屶", none # This character is missing?
+    sub "屷", none # This character is missing?
     sub "屸", "long2"
     sub "屹", any(["yi4", "ge1"])
     sub "屺", "qi3"
@@ -3758,7 +3748,7 @@ stage {
     sub "岀", "chu1"
     sub "岁", "sui4"
     sub "岂", "qi3"
-    sub "岃", false
+    sub "岃", none # This character is missing?
     sub "岄", "yue4"
     sub "岅", "ban3"
     sub "岆", "yao3"
@@ -3815,16 +3805,16 @@ stage {
     sub "岹", "tiao2"
     sub "岺", "ling3"
     sub "岻", "chi2"
-    sub "岼", false
+    sub "岼", none # This character is missing?
     sub "岽", "dong1"
-    sub "岾", false
+    sub "岾", none # This character is missing?
     sub "岿", "kui1"
     sub "峀", "xiu4"
     sub "峁", "mao3"
     sub "峂", "tong2"
     sub "峃", "xue2"
     sub "峄", "yi4"
-    sub "峅", false
+    sub "峅", none # This character is missing?
     sub "峆", "he1"
     sub "峇", "ke1"
     sub "峈", "luo4"
@@ -3851,7 +3841,7 @@ stage {
     sub "峝", "tong2"
     sub "峞", "kui3"
     sub "峟", "you4"
-    sub "峠", false
+    sub "峠", none # This character is missing?
     sub "峡", "xia2"
     sub "峢", "li3"
     sub "峣", "yao2"
@@ -4000,8 +3990,8 @@ stage {
     sub "嵲", "nie4"
     sub "嵳", "cuo2"
     sub "嵴", "ji2"
-    sub "嵵", false
-    sub "嵶", false
+    sub "嵵", none # This character is missing?
+    sub "嵶", none # This character is missing?
     sub "嵷", "song3"
     sub "嵸", "zong1"
     sub "嵹", "jiang4"
@@ -4065,7 +4055,7 @@ stage {
     sub "嶳", "di4"
     sub "嶴", "ao4"
     sub "嶵", "zui4"
-    sub "嶶", false
+    sub "嶶", none # This character is missing?
     sub "嶷", "yi2"
     sub "嶸", "rong2"
     sub "嶹", "dao3"
@@ -4074,7 +4064,7 @@ stage {
     sub "嶼", "yu3"
     sub "嶽", "yue4"
     sub "嶾", "yin3"
-    sub "嶿", false
+    sub "嶿", none # This character is missing?
     sub "巀", "jie2"
     sub "巁", "li4"
     sub "巂", any(["sui3", "xi1"])
@@ -4117,10 +4107,10 @@ stage {
     sub "巧", "qiao3"
     sub "巨", "ju4"
     sub "巩", "gong3"
-    sub "巪", false
+    sub "巪", none # This character is missing?
     sub "巫", any(["wu1", "wu2"])
-    sub "巬", false
-    sub "巭", false
+    sub "巬", none # This character is missing?
+    sub "巭", none # This character is missing?
     sub "差", any(["chai1", "cha1", "cha4", "ci1"])
     sub "巯", "qiu2"
     sub "巰", "qiu2"
@@ -4135,7 +4125,7 @@ stage {
     sub "巹", "jin3"
     sub "巺", "xun4"
     sub "巻", any(["juan4", "juan3"])
-    sub "巼", false
+    sub "巼", none # This character is missing?
     sub "巽", "xun4"
     sub "巾", "jin1"
     sub "巿", "fu2"
@@ -4212,7 +4202,7 @@ stage {
     sub "幆", "yi4"
     sub "幇", "bang1"
     sub "幈", "ping2"
-    sub "幉", false
+    sub "幉", none # This character is missing?
     sub "幊", "gong1"
     sub "幋", "pan2"
     sub "幌", "huang3"
@@ -4240,7 +4230,7 @@ stage {
     sub "幢", any(["chuang2", "zhuang4"])
     sub "幣", "bi4"
     sub "幤", "bi4"
-    sub "幥", false
+    sub "幥", none # This character is missing?
     sub "幦", "mi4"
     sub "幧", "qiao1"
     sub "幨", "dan4"
@@ -4285,7 +4275,7 @@ stage {
     sub "序", "xu4"
     sub "庐", "lu2"
     sub "庑", "wu3"
-    sub "庒", false
+    sub "庒", none # This character is missing?
     sub "库", "ku4"
     sub "应", any(["ying4", "ying1"])
     sub "底", any(["di3", "de5"])
@@ -4367,7 +4357,7 @@ stage {
     sub "廡", "wu3"
     sub "廢", "fei4"
     sub "廣", any(["guang3", "an1"])
-    sub "廤", false
+    sub "廤", none # This character is missing?
     sub "廥", "guai4"
     sub "廦", "bi4"
     sub "廧", "qiang2"
@@ -4376,7 +4366,7 @@ stage {
     sub "廪", "lin3"
     sub "廫", "liao2"
     sub "廬", "lu2"
-    sub "廭", false
+    sub "廭", none # This character is missing?
     sub "廮", "ying2"
     sub "廯", "xian1"
     sub "廰", "ting1"
@@ -4460,11 +4450,11 @@ stage {
     sub "弾", any(["dan4", "tan2"])
     sub "弿", "jian3"
     sub "彀", "gou4"
-    sub "彁", false
+    sub "彁", none # This character is missing?
     sub "彂", "fa1"
     sub "彃", "bi4"
     sub "彄", "kou1"
-    sub "彅", false
+    sub "彅", none # This character is missing?
     sub "彆", "bie4"
     sub "彇", "xiao1"
     sub "彈", any(["dan4", "tan2"])
@@ -4543,13 +4533,13 @@ stage {
     sub "徑", "jing4"
     sub "徒", "tu2"
     sub "従", "cong2"
-    sub "徔", false
+    sub "徔", none # This character is missing?
     sub "徕", "lai2"
     sub "徖", "cong2"
     sub "得", any(["de2", "de5", "dei3"])
     sub "徘", "pai2"
     sub "徙", "xi3"
-    sub "徚", false
+    sub "徚", none # This character is missing?
     sub "徛", "qi1"
     sub "徜", "chang2"
     sub "徝", "zhi4"
@@ -4709,11 +4699,11 @@ stage {
     sub "怷", "xi1"
     sub "怸", "xi1"
     sub "怹", "tan1"
-    sub "怺", false
+    sub "怺", none # This character is missing?
     sub "总", "zong3"
     sub "怼", "dui4"
-    sub "怽", false
-    sub "怾", false
+    sub "怽", none # This character is missing?
+    sub "怾", none # This character is missing?
     sub "怿", "yi4"
     sub "恀", "chi3"
     sub "恁", "nen4"
@@ -4770,7 +4760,7 @@ stage {
     sub "恴", "de2"
     sub "恵", "hui4"
     sub "恶", any(["e4", "e3", "wu4"])
-    sub "恷", false
+    sub "恷", none # This character is missing?
     sub "恸", "tong4"
     sub "恹", "yan1"
     sub "恺", "kai3"
@@ -4944,7 +4934,7 @@ stage {
     sub "愢", "sai1"
     sub "愣", "leng4"
     sub "愤", "fen4"
-    sub "愥", false
+    sub "愥", none # This character is missing?
     sub "愦", "kui4"
     sub "愧", "kui4"
     sub "愨", "que4"
@@ -4987,7 +4977,7 @@ stage {
     sub "慍", "yun4"
     sub "慎", "shen4"
     sub "慏", "ming3"
-    sub "慐", false
+    sub "慐", none # This character is missing?
     sub "慑", "she4"
     sub "慒", "cong2"
     sub "慓", "piao1"
@@ -5150,7 +5140,7 @@ stage {
     sub "懰", "liu2"
     sub "懱", "mie4"
     sub "懲", "cheng2"
-    sub "懳", false
+    sub "懳", none # This character is missing?
     sub "懴", "chan4"
     sub "懵", any(["meng2", "meng3"])
     sub "懶", "lan3"
@@ -5249,7 +5239,7 @@ stage {
     sub "打", "da3"
     sub "扔", any(["reng1", "reng3"])
     sub "払", any(["fu2", "bi4"])
-    sub "扖", false
+    sub "扖", none # This character is missing?
     sub "扗", "zai4"
     sub "托", "tuo1"
     sub "扙", "zhang4"
@@ -5326,7 +5316,7 @@ stage {
     sub "抠", "kou1"
     sub "抡", any(["lun2", "lun1"])
     sub "抢", any(["qiang3", "qiang1"])
-    sub "抣", false
+    sub "抣", none # This character is missing?
     sub "护", "hu4"
     sub "报", "bao4"
     sub "抦", "bing3"
@@ -5443,7 +5433,7 @@ stage {
     sub "挕", "die2"
     sub "挖", "wa1"
     sub "挗", "jue2"
-    sub "挘", false
+    sub "挘", none # This character is missing?
     sub "挙", "ju3"
     sub "挚", "zhi4"
     sub "挛", "luan2"
@@ -5458,7 +5448,7 @@ stage {
     sub "挤", "ji3"
     sub "挥", "hui1"
     sub "挦", "xun2"
-    sub "挧", false
+    sub "挧", none # This character is missing?
     sub "挨", any(["ai1", "ai2"])
     sub "挩", "tuo1"
     sub "挪", "nuo2"
@@ -5494,8 +5484,7 @@ stage {
     sub "捈", "tu2"
     sub "捉", "zhuo1"
     sub "捊", "pou2"
-    sub "捋", "le4\tlu:3"
-    sub ["luo1"], false
+    sub "捋", any(["le4", "lu:3", "luo1"]) # BUG
     sub "捌", "ba1"
     sub "捍", "han4"
     sub "捎", any(["shao1", "shao4"])
@@ -5520,7 +5509,7 @@ stage {
     sub "捡", "jian3"
     sub "换", "huan4"
     sub "捣", "dao3"
-    sub "捤", false
+    sub "捤", none # This character is missing?
     sub "捥", "wan4"
     sub "捦", "qin2"
     sub "捧", "peng3"
@@ -5601,11 +5590,11 @@ stage {
     sub "掲", "jie1"
     sub "掳", "lu3"
     sub "掴", any(["guo2", "guai1"])
-    sub "掵", false
-    sub "掶", false
+    sub "掵", none # This character is missing?
+    sub "掶", none # This character is missing?
     sub "掷", "zhi4"
     sub "掸", any(["dan3", "shan3", "shan4"])
-    sub "掹", false
+    sub "掹", none # This character is missing?
     sub "掺", any(["can4", "chan1", "shan3"])
     sub "掻", "sao1"
     sub "掼", "guan4"
@@ -5671,8 +5660,8 @@ stage {
     sub "揸", "zha1"
     sub "揹", "bei1"
     sub "揺", "yao2"
-    sub "揻", false
-    sub "揼", false
+    sub "揻", none # This character is missing?
+    sub "揼", none # This character is missing?
     sub "揽", "lan3"
     sub "揾", "wen4"
     sub "揿", "qin4"
@@ -5858,7 +5847,7 @@ stage {
     sub "撳", "qin4"
     sub "撴", "dun1"
     sub "撵", "nian3"
-    sub "撶", false
+    sub "撶", none # This character is missing?
     sub "撷", "xie2"
     sub "撸", "lu1"
     sub "撹", any(["jiao3", "jia3"])
@@ -5896,8 +5885,8 @@ stage {
     sub "擙", "ao4"
     sub "據", any(["ju4", "ju1"])
     sub "擛", "ye4"
-    sub "擜", false
-    sub "擝", false
+    sub "擜", none # This character is missing?
+    sub "擝", none # This character is missing?
     sub "擞", any(["sou3", "sou4"])
     sub "擟", "mi2"
     sub "擠", "ji3"
@@ -5958,7 +5947,7 @@ stage {
     sub "攗", "mei2"
     sub "攘", any(["rang2", "rang3"])
     sub "攙", "chan1"
-    sub "攚", false
+    sub "攚", none # This character is missing?
     sub "攛", "cuan1"
     sub "攜", "xie2"
     sub "攝", "she4"
@@ -6058,7 +6047,7 @@ stage {
     sub "敻", "xiong4"
     sub "敼", "xi3"
     sub "敽", "jiao3"
-    sub "敾", false
+    sub "敾", none # This character is missing?
     sub "敿", "qiao2"
     sub "斀", "zhuo2"
     sub "斁", any(["yi4", "du4"])
@@ -6124,7 +6113,7 @@ stage {
     sub "施", "shi1"
     sub "斾", "pei4"
     sub "斿", "you2"
-    sub "旀", false
+    sub "旀", none # This character is missing?
     sub "旁", any(["pang2", "bang4"])
     sub "旂", "qi2"
     sub "旃", "zhan1"
@@ -6145,7 +6134,7 @@ stage {
     sub "旒", "liu2"
     sub "旓", "shao1"
     sub "旔", "jian4"
-    sub "旕", false
+    sub "旕", none # This character is missing?
     sub "旖", "yi3"
     sub "旗", "qi2"
     sub "旘", "zhi4"
@@ -6319,7 +6308,7 @@ stage {
     sub "暀", "wang3"
     sub "暁", "xiao3"
     sub "暂", "zan4"
-    sub "暃", false
+    sub "暃", none # This character is missing?
     sub "暄", "xuan1"
     sub "暅", "xuan3"
     sub "暆", "yi2"
@@ -6414,7 +6403,7 @@ stage {
     sub "曟", "chen2"
     sub "曠", "kuang4"
     sub "曡", "die2"
-    sub "曢", false
+    sub "曢", none # This character is missing?
     sub "曣", "yan4"
     sub "曤", "huo4"
     sub "曥", "lu2"
@@ -6461,7 +6450,7 @@ stage {
     sub "朎", "ling2"
     sub "朏", "fei3"
     sub "朐", "qu2"
-    sub "朑", false
+    sub "朑", none # This character is missing?
     sub "朒", "nu:4"
     sub "朓", any(["tiao4", "tiao3"])
     sub "朔", "shuo4"
@@ -6481,7 +6470,7 @@ stage {
     sub "朢", "wang4"
     sub "朣", "tong2"
     sub "朤", "lang3"
-    sub "朥", false
+    sub "朥", none # This character is missing?
     sub "朦", "meng2"
     sub "朧", "long2"
     sub "木", "mu4"
@@ -6492,7 +6481,7 @@ stage {
     sub "札", "zha2"
     sub "朮", "zhu2"
     sub "术", any(["zhu2", "shu4"])
-    sub "朰", false
+    sub "朰", none # This character is missing?
     sub "朱", "zhu1"
     sub "朲", "ren2"
     sub "朳", "ba1"
@@ -6509,7 +6498,7 @@ stage {
     sub "朾", "ting2"
     sub "朿", "ci4"
     sub "杀", "sha1"
-    sub "杁", false
+    sub "杁", none # This character is missing?
     sub "杂", "za2"
     sub "权", "quan2"
     sub "杄", "qian1"
@@ -6542,9 +6531,9 @@ stage {
     sub "束", "shu4"
     sub "杠", "gang1"
     sub "条", "tiao2"
-    sub "杢", false
-    sub "杣", false
-    sub "杤", false
+    sub "杢", none # This character is missing?
+    sub "杣", none # This character is missing?
+    sub "杤", none # This character is missing?
     sub "来", "lai2"
     sub "杦", "shan1"
     sub "杧", "mang2"
@@ -6604,11 +6593,11 @@ stage {
     sub "枝", "zhi1"
     sub "枞", "zong1"
     sub "枟", "yun4"
-    sub "枠", false
+    sub "枠", none # This character is missing?
     sub "枡", "dou3"
     sub "枢", "shu1"
     sub "枣", "zao3"
-    sub "枤", false
+    sub "枤", none # This character is missing?
     sub "枥", "li4"
     sub "枦", "lu2"
     sub "枧", "jian3"
@@ -6703,17 +6692,17 @@ stage {
     sub "栀", "zhi1"
     sub "栁", "liu3"
     sub "栂", "mei2"
-    sub "栃", false
+    sub "栃", none # This character is missing?
     sub "栄", "rong2"
     sub "栅", any(["zha4", "shan1"])
-    sub "栆", false
+    sub "栆", none # This character is missing?
     sub "标", "biao1"
     sub "栈", "zhan4"
     sub "栉", "zhi4"
     sub "栊", "long2"
     sub "栋", "dong4"
     sub "栌", "lu2"
-    sub "栍", false
+    sub "栍", none # This character is missing?
     sub "栎", any(["li4", "yue4"])
     sub "栏", "lan2"
     sub "栐", "yong3"
@@ -6791,10 +6780,10 @@ stage {
     sub "桘", "zhui1"
     sub "桙", "yu2"
     sub "桚", "zan3"
-    sub "桛", false
+    sub "桛", none # This character is missing?
     sub "桜", "ying1"
-    sub "桝", false
-    sub "桞", false
+    sub "桝", none # This character is missing?
+    sub "桞", none # This character is missing?
     sub "桟", "zhan4"
     sub "桠", "ya1"
     sub "桡", "rao2"
@@ -6886,8 +6875,8 @@ stage {
     sub "梷", "jing4"
     sub "梸", "li2"
     sub "梹", any(["bing1", "bin1"])
-    sub "梺", false
-    sub "梻", false
+    sub "梺", none # This character is missing?
+    sub "梻", none # This character is missing?
     sub "梼", "tao2"
     sub "梽", "zhi4"
     sub "梾", "lai2"
@@ -6982,25 +6971,25 @@ stage {
     sub "椗", "ding4"
     sub "椘", "chu3"
     sub "椙", "shan1"
-    sub "椚", false
-    sub "椛", false
+    sub "椚", none # This character is missing?
+    sub "椛", none # This character is missing?
     sub "検", "jian3"
     sub "椝", "gui1"
     sub "椞", "xi4"
     sub "椟", "du2"
     sub "椠", "qian4"
-    sub "椡", false
+    sub "椡", none # This character is missing?
     sub "椢", "kui4"
-    sub "椣", false
+    sub "椣", none # This character is missing?
     sub "椤", "luo2"
     sub "椥", "zhi1"
-    sub "椦", false
-    sub "椧", false
-    sub "椨", false
-    sub "椩", false
+    sub "椦", none # This character is missing?
+    sub "椧", none # This character is missing?
+    sub "椨", none # This character is missing?
+    sub "椩", none # This character is missing?
     sub "椪", "peng4"
     sub "椫", "shan4"
-    sub "椬", false
+    sub "椬", none # This character is missing?
     sub "椭", "tuo3"
     sub "椮", "sen1"
     sub "椯", "duo2"
@@ -7082,10 +7071,10 @@ stage {
     sub "楻", "heng2"
     sub "楼", "lou2"
     sub "楽", any(["le4", "yue4"])
-    sub "楾", false
+    sub "楾", none # This character is missing?
     sub "楿", "gui4"
     sub "榀", "pin3"
-    sub "榁", false
+    sub "榁", none # This character is missing?
     sub "概", "gai4"
     sub "榃", "tan2"
     sub "榄", "lan3"
@@ -7094,9 +7083,9 @@ stage {
     sub "榇", "chen4"
     sub "榈", "lu:2"
     sub "榉", "ju3"
-    sub "榊", false
-    sub "榋", false
-    sub "榌", false
+    sub "榊", none # This character is missing?
+    sub "榋", none # This character is missing?
+    sub "榌", none # This character is missing?
     sub "榍", "xie4"
     sub "榎", "jia3"
     sub "榏", "yi4"
@@ -7177,11 +7166,11 @@ stage {
     sub "槚", "jia3"
     sub "槛", any(["jian4", "kan3"])
     sub "槜", "zui4"
-    sub "槝", false
+    sub "槝", none # This character is missing?
     sub "槞", "long2"
     sub "槟", any(["bin1", "bing1"])
     sub "槠", "zhu1"
-    sub "槡", false
+    sub "槡", none # This character is missing?
     sub "槢", "xi2"
     sub "槣", "qi3"
     sub "槤", "lian2"
@@ -7257,10 +7246,10 @@ stage {
     sub "横", any(["heng2", "heng4"])
     sub "樫", "jian1"
     sub "樬", "cong1"
-    sub "樭", false
-    sub "樮", false
+    sub "樭", none # This character is missing?
+    sub "樮", none # This character is missing?
     sub "樯", "qiang2"
-    sub "樰", false
+    sub "樰", none # This character is missing?
     sub "樱", "ying1"
     sub "樲", "er4"
     sub "樳", "xin2"
@@ -7326,16 +7315,16 @@ stage {
     sub "橯", "lao4"
     sub "橰", "gao1"
     sub "橱", "chu2"
-    sub "橲", false
-    sub "橳", false
-    sub "橴", false
-    sub "橵", false
+    sub "橲", none # This character is missing?
+    sub "橳", none # This character is missing?
+    sub "橴", none # This character is missing?
+    sub "橵", none # This character is missing?
     sub "橶", "ji2"
     sub "橷", "dou1"
-    sub "橸", false
+    sub "橸", none # This character is missing?
     sub "橹", "lu3"
-    sub "橺", false
-    sub "橻", false
+    sub "橺", none # This character is missing?
+    sub "橻", none # This character is missing?
     sub "橼", "yuan2"
     sub "橽", "ta4"
     sub "橾", "shu1"
@@ -7414,7 +7403,7 @@ stage {
     sub "櫇", "po2"
     sub "櫈", "deng4"
     sub "櫉", "chu2"
-    sub "櫊", false
+    sub "櫊", none # This character is missing?
     sub "櫋", "mian2"
     sub "櫌", "you1"
     sub "櫍", "zhi4"
@@ -7440,9 +7429,9 @@ stage {
     sub "櫡", "zhu4"
     sub "櫢", "sou3"
     sub "櫣", "lian2"
-    sub "櫤", false
+    sub "櫤", none # This character is missing?
     sub "櫥", "chu2"
-    sub "櫦", false
+    sub "櫦", none # This character is missing?
     sub "櫧", "zhu1"
     sub "櫨", "lu2"
     sub "櫩", "yan2"
@@ -7457,9 +7446,9 @@ stage {
     sub "櫲", "yu4"
     sub "櫳", "long2"
     sub "櫴", "lai4"
-    sub "櫵", false
+    sub "櫵", none # This character is missing?
     sub "櫶", "xian3"
-    sub "櫷", false
+    sub "櫷", none # This character is missing?
     sub "櫸", "ju3"
     sub "櫹", "xiao1"
     sub "櫺", "ling2"
@@ -7480,8 +7469,8 @@ stage {
     sub "欉", "cong4"
     sub "權", "quan2"
     sub "欋", "qu2"
-    sub "欌", false
-    sub "欍", false
+    sub "欌", none # This character is missing?
+    sub "欍", none # This character is missing?
     sub "欎", "yu4"
     sub "欏", "luo2"
     sub "欐", "li4"
@@ -7489,7 +7478,7 @@ stage {
     sub "欒", "luan2"
     sub "欓", "dang3"
     sub "欔", "jue2"
-    sub "欕", false
+    sub "欕", none # This character is missing?
     sub "欖", "lan3"
     sub "欗", "lan2"
     sub "欘", "zhu3"
@@ -7499,7 +7488,7 @@ stage {
     sub "欜", "nang2"
     sub "欝", "yu4"
     sub "欞", "ling2"
-    sub "欟", false
+    sub "欟", none # This character is missing?
     sub "欠", "qian4"
     sub "次", "ci4"
     sub "欢", "huan1"
@@ -7558,7 +7547,7 @@ stage {
     sub "歗", "xiao4"
     sub "歘", "hu1"
     sub "歙", any(["she4", "xi1"])
-    sub "歚", false
+    sub "歚", none # This character is missing?
     sub "歛", "lian4"
     sub "歜", "chu4"
     sub "歝", "yi4"
@@ -7688,10 +7677,10 @@ stage {
     sub "毙", "bi4"
     sub "毚", "chan2"
     sub "毛", "mao2"
-    sub "毜", false
-    sub "毝", false
+    sub "毜", none # This character is missing?
+    sub "毝", none # This character is missing?
     sub "毞", "pi2"
-    sub "毟", false
+    sub "毟", none # This character is missing?
     sub "毠", "jia1"
     sub "毡", "zhan1"
     sub "毢", "sai1"
@@ -7706,7 +7695,7 @@ stage {
     sub "毫", "hao2"
     sub "毬", "qiu2"
     sub "毭", "dou4"
-    sub "毮", false
+    sub "毮", none # This character is missing?
     sub "毯", "tan3"
     sub "毰", "pei2"
     sub "毱", "ju1"
@@ -7714,7 +7703,7 @@ stage {
     sub "毳", "cui4"
     sub "毴", "bi1"
     sub "毵", "san1"
-    sub "毶", false
+    sub "毶", none # This character is missing?
     sub "毷", "mao4"
     sub "毸", "sui1"
     sub "毹", any(["yu1", "shu1"])
@@ -7754,7 +7743,7 @@ stage {
     sub "氛", "fen1"
     sub "氜", "ri4"
     sub "氝", any(["nei4", "nai3"])
-    sub "氞", false
+    sub "氞", none # This character is missing?
     sub "氟", "fu2"
     sub "氠", "shen1"
     sub "氡", "dong1"
@@ -7822,8 +7811,8 @@ stage {
     sub "江", "jiang1"
     sub "池", "chi2"
     sub "污", "wu1"
-    sub "汢", false
-    sub "汣", false
+    sub "汢", none # This character is missing?
+    sub "汣", none # This character is missing?
     sub "汤", any(["tang1", "shang1"])
     sub "汥", "zhi1"
     sub "汦", "chi2"
@@ -8008,7 +7997,7 @@ stage {
     sub "洙", "zhu1"
     sub "洚", "jiang4"
     sub "洛", "luo4"
-    sub "洜", false
+    sub "洜", none # This character is missing?
     sub "洝", "an4"
     sub "洞", "dong4"
     sub "洟", "yi2"
@@ -8056,7 +8045,7 @@ stage {
     sub "浉", "shi1"
     sub "浊", "zhuo2"
     sub "测", "ce4"
-    sub "浌", false
+    sub "浌", none # This character is missing?
     sub "浍", any(["kuai4", "hui4"])
     sub "济", "ji4"
     sub "浏", "liu2"
@@ -8145,7 +8134,7 @@ stage {
     sub "涢", "yun2"
     sub "涣", "huan4"
     sub "涤", "di2"
-    sub "涥", false
+    sub "涥", none # This character is missing?
     sub "润", "run4"
     sub "涧", "jian4"
     sub "涨", any(["zhang3", "zhang4"])
@@ -8251,7 +8240,7 @@ stage {
     sub "渌", "lu4"
     sub "渍", "zi4"
     sub "渎", "du2"
-    sub "渏", false
+    sub "渏", none # This character is missing?
     sub "渐", any(["jian4", "jian1"])
     sub "渑", any(["mian3", "sheng2"])
     sub "渒", "pi4"
@@ -8368,14 +8357,14 @@ stage {
     sub "溁", "ying2"
     sub "溂", "la4"
     sub "溃", any(["kui4", "hui4"])
-    sub "溄", false
+    sub "溄", none # This character is missing?
     sub "溅", any(["jian4", "jian1"])
     sub "溆", "xu4"
     sub "溇", "lou2"
     sub "溈", "gui1"
     sub "溉", "gai4"
-    sub "溊", false
-    sub "溋", false
+    sub "溊", none # This character is missing?
+    sub "溋", none # This character is missing?
     sub "溌", "po1"
     sub "溍", "jin4"
     sub "溎", "gui4"
@@ -8502,8 +8491,7 @@ stage {
     sub "漇", "xi3"
     sub "漈", "ji4"
     sub "漉", "lu4"
-    sub "漊", "lu:3"
-    sub ["lou2"], false
+    sub "漊", any(["lu:3", "lou2"]) # BUG
     sub "漋", "long2"
     sub "漌", "jin3"
     sub "漍", "guo2"
@@ -8565,8 +8553,8 @@ stage {
     sub "潅", "guan4"
     sub "潆", "ying2"
     sub "潇", "xiao1"
-    sub "潈", false
-    sub "潉", false
+    sub "潈", none # This character is missing?
+    sub "潉", none # This character is missing?
     sub "潊", "xu4"
     sub "潋", "lian4"
     sub "潌", "zhi4"
@@ -8648,9 +8636,9 @@ stage {
     sub "澘", "shan1"
     sub "澙", "xi4"
     sub "澚", "ao4"
-    sub "澛", false
+    sub "澛", none # This character is missing?
     sub "澜", "lan2"
-    sub "澝", false
+    sub "澝", none # This character is missing?
     sub "澞", "yu2"
     sub "澟", "lin3"
     sub "澠", any(["min3", "mian3", "sheng2"])
@@ -8741,7 +8729,7 @@ stage {
     sub "濵", "bin1"
     sub "濶", "kuo4"
     sub "濷", "fei4"
-    sub "濸", false
+    sub "濸", none # This character is missing?
     sub "濹", "bin1"
     sub "濺", any(["jian4", "jian1"])
     sub "濻", any(["dui4", "wei2"])
@@ -8794,8 +8782,8 @@ stage {
     sub "瀪", "fan2"
     sub "瀫", "hu2"
     sub "瀬", "lai4"
-    sub "瀭", false
-    sub "瀮", false
+    sub "瀭", none # This character is missing?
+    sub "瀮", none # This character is missing?
     sub "瀯", "ying2"
     sub "瀰", "mi2"
     sub "瀱", "ji4"
@@ -8829,7 +8817,7 @@ stage {
     sub "灍", "que4"
     sub "灎", "yan4"
     sub "灏", "hao4"
-    sub "灐", false
+    sub "灐", none # This character is missing?
     sub "灑", "sa3"
     sub "灒", "zan4"
     sub "灓", "luan2"
@@ -8841,7 +8829,7 @@ stage {
     sub "灙", "dang3"
     sub "灚", "jiao3"
     sub "灛", "chan3"
-    sub "灜", false
+    sub "灜", none # This character is missing?
     sub "灝", "hao4"
     sub "灞", "ba4"
     sub "灟", "zhu2"
@@ -8940,7 +8928,7 @@ stage {
     sub "炼", "lian4"
     sub "炽", "chi4"
     sub "炾", "ping2"
-    sub "炿", false
+    sub "炿", none # This character is missing?
     sub "烀", "hu1"
     sub "烁", "shuo4"
     sub "烂", "lan4"
@@ -8978,16 +8966,16 @@ stage {
     sub "烢", "zhe4"
     sub "烣", "hui1"
     sub "烤", "kao3"
-    sub "烥", false
+    sub "烥", none # This character is missing?
     sub "烦", "fan2"
     sub "烧", "shao1"
     sub "烨", "ye4"
     sub "烩", "hui4"
-    sub "烪", false
+    sub "烪", none # This character is missing?
     sub "烫", "tang4"
     sub "烬", "jin4"
     sub "热", "re4"
-    sub "烮", false
+    sub "烮", none # This character is missing?
     sub "烯", "xi1"
     sub "烰", "fu2"
     sub "烱", "jiong3"
@@ -9022,8 +9010,8 @@ stage {
     sub "焎", "xie4"
     sub "焏", "qi4"
     sub "焐", "wu4"
-    sub "焑", false
-    sub "焒", false
+    sub "焑", none # This character is missing?
+    sub "焒", none # This character is missing?
     sub "焓", "han2"
     sub "焔", "yan4"
     sub "焕", "huan4"
@@ -9062,14 +9050,14 @@ stage {
     sub "然", "ran2"
     sub "焷", "pi2"
     sub "焸", "yan4"
-    sub "焹", false
+    sub "焹", none # This character is missing?
     sub "焺", "sheng1"
     sub "焻", "chang4"
     sub "焼", "shao1"
-    sub "焽", false
-    sub "焾", false
-    sub "焿", false
-    sub "煀", false
+    sub "焽", none # This character is missing?
+    sub "焾", none # This character is missing?
+    sub "焿", none # This character is missing?
+    sub "煀", none # This character is missing?
     sub "煁", "chen2"
     sub "煂", "he4"
     sub "煃", "kui3"
@@ -9123,8 +9111,8 @@ stage {
     sub "煳", "hu2"
     sub "煴", "yun1"
     sub "煵", "xia1"
-    sub "煶", false
-    sub "煷", false
+    sub "煶", none # This character is missing?
+    sub "煷", none # This character is missing?
     sub "煸", "bian1"
     sub "煹", "wei1"
     sub "煺", "tui4"
@@ -9154,8 +9142,8 @@ stage {
     sub "熒", "ying2"
     sub "熓", "wen4"
     sub "熔", "rong2"
-    sub "熕", false
-    sub "熖", false
+    sub "熕", none # This character is missing?
+    sub "熖", none # This character is missing?
     sub "熗", "qiang4"
     sub "熘", "liu1"
     sub "熙", "xi1"
@@ -9185,7 +9173,7 @@ stage {
     sub "熱", "re4"
     sub "熲", "jiong3"
     sub "熳", "man4"
-    sub "熴", false
+    sub "熴", none # This character is missing?
     sub "熵", any(["shang1", "di1"])
     sub "熶", "cuan4"
     sub "熷", "zeng1"
@@ -9226,8 +9214,8 @@ stage {
     sub "燚", "yi1"
     sub "燛", "jing3"
     sub "燜", "men4"
-    sub "燝", false
-    sub "燞", false
+    sub "燝", none # This character is missing?
+    sub "燞", none # This character is missing?
     sub "營", "ying2"
     sub "燠", "yu4"
     sub "燡", "yi4"
@@ -9250,8 +9238,8 @@ stage {
     sub "燲", "xie2"
     sub "燳", "zhao4"
     sub "燴", "hui4"
-    sub "燵", false
-    sub "燶", false
+    sub "燵", none # This character is missing?
+    sub "燶", none # This character is missing?
     sub "燷", "lan2"
     sub "燸", "ru2"
     sub "燹", "xian3"
@@ -9275,7 +9263,7 @@ stage {
     sub "爋", "xun4"
     sub "爌", "kuang4"
     sub "爍", "shuo4"
-    sub "爎", false
+    sub "爎", none # This character is missing?
     sub "爏", "li4"
     sub "爐", "lu2"
     sub "爑", "jue2"
@@ -9285,7 +9273,7 @@ stage {
     sub "爕", "xie4"
     sub "爖", "long2"
     sub "爗", "yan4"
-    sub "爘", false
+    sub "爘", none # This character is missing?
     sub "爙", any(["rang3", "shang4"])
     sub "爚", "yue4"
     sub "爛", "lan4"
@@ -9293,7 +9281,7 @@ stage {
     sub "爝", "jue2"
     sub "爞", "tong2"
     sub "爟", "guan4"
-    sub "爠", false
+    sub "爠", none # This character is missing?
     sub "爡", "che4"
     sub "爢", "mi2"
     sub "爣", "tang3"
@@ -9312,7 +9300,7 @@ stage {
     sub "爰", "yuan2"
     sub "爱", "ai4"
     sub "爲", any(["wei4", "wei2"])
-    sub "爳", false
+    sub "爳", none # This character is missing?
     sub "爴", "jue2"
     sub "爵", "jue2"
     sub "父", "fu4"
@@ -9348,7 +9336,7 @@ stage {
     sub "牔", "bo2"
     sub "牕", "bang3"
     sub "牖", "you3"
-    sub "牗", false
+    sub "牗", none # This character is missing?
     sub "牘", "du2"
     sub "牙", "ya2"
     sub "牚", any(["cheng4", "cheng1"])
@@ -9549,7 +9537,7 @@ stage {
     sub "猝", "cu4"
     sub "猞", any(["she4", "she1"])
     sub "猟", "lie4"
-    sub "猠", false
+    sub "猠", none # This character is missing?
     sub "猡", "luo2"
     sub "猢", any(["hu2", "hu1"])
     sub "猣", "zong1"
@@ -9588,7 +9576,7 @@ stage {
     sub "獄", "yu4"
     sub "獅", "shi1"
     sub "獆", "hao2"
-    sub "獇", false
+    sub "獇", none # This character is missing?
     sub "獈", "yi4"
     sub "獉", "zhen1"
     sub "獊", "chuang4"
@@ -9617,7 +9605,7 @@ stage {
     sub "獡", "shuo4"
     sub "獢", "xiao1"
     sub "獣", "shou4"
-    sub "獤", false
+    sub "獤", none # This character is missing?
     sub "獥", "xi2"
     sub "獦", "ge2"
     sub "獧", "juan4"
@@ -9652,8 +9640,7 @@ stage {
     sub "玄", "xuan2"
     sub "玅", "miao4"
     sub "玆", "zi1"
-    sub "率", "lu:4"
-    sub ["shuai4"], any(["shuo4"])
+    sub "率", any(["lu:4", "shuai4", "shuo4"]) # BUG
     sub "玈", "lu2"
     sub "玉", "yu4"
     sub "玊", "su4"
@@ -9757,7 +9744,7 @@ stage {
     sub "珬", "xu4"
     sub "班", "ban1"
     sub "珮", "pei4"
-    sub "珯", false
+    sub "珯", none # This character is missing?
     sub "珰", "dang1"
     sub "珱", "ying1"
     sub "珲", any(["hun2", "hui1"])
@@ -9792,7 +9779,7 @@ stage {
     sub "琏", "lian3"
     sub "琐", "suo3"
     sub "琑", "suo3"
-    sub "琒", false
+    sub "琒", none # This character is missing?
     sub "琓", "wan2"
     sub "琔", "dian4"
     sub "琕", "bing3"
@@ -9833,7 +9820,7 @@ stage {
     sub "琸", "zhuo2"
     sub "琹", "qin2"
     sub "琺", "fa4"
-    sub "琻", false
+    sub "琻", none # This character is missing?
     sub "琼", "qiong2"
     sub "琽", "du3"
     sub "琾", "jie4"
@@ -9915,7 +9902,7 @@ stage {
     sub "璊", "man2"
     sub "璋", "zhang1"
     sub "璌", "yin2"
-    sub "璍", false
+    sub "璍", none # This character is missing?
     sub "璎", "ying1"
     sub "璏", "wei4"
     sub "璐", "lu4"
@@ -9938,7 +9925,7 @@ stage {
     sub "璡", "jin4"
     sub "璢", "liu2"
     sub "璣", "ji1"
-    sub "璤", false
+    sub "璤", none # This character is missing?
     sub "璥", "jing3"
     sub "璦", "ai4"
     sub "璧", "bi4"
@@ -9954,7 +9941,7 @@ stage {
     sub "璱", "se4"
     sub "璲", "sui4"
     sub "璳", "tian2"
-    sub "璴", false
+    sub "璴", none # This character is missing?
     sub "璵", "yu2"
     sub "璶", "jin4"
     sub "璷", "fu1"
@@ -10005,7 +9992,7 @@ stage {
     sub "瓤", "rang2"
     sub "瓥", "li4"
     sub "瓦", any(["wa3", "wa4"])
-    sub "瓧", false
+    sub "瓧", none # This character is missing?
     sub "瓨", any(["jiang1", "hong2"])
     sub "瓩", "qian2wa3"
     sub "瓪", "ban3"
@@ -10014,19 +10001,19 @@ stage {
     sub "瓭", "dan3"
     sub "瓮", "weng4"
     sub "瓯", "ou1"
-    sub "瓰", false
-    sub "瓱", false
-    sub "瓲", false
+    sub "瓰", none # This character is missing?
+    sub "瓱", none # This character is missing?
+    sub "瓲", none # This character is missing?
     sub "瓳", "hu2"
     sub "瓴", "ling2"
     sub "瓵", "yi2"
     sub "瓶", "ping2"
     sub "瓷", "ci2"
-    sub "瓸", false
+    sub "瓸", none # This character is missing?
     sub "瓹", "juan4"
     sub "瓺", "chang2"
     sub "瓻", "chi1"
-    sub "瓼", false
+    sub "瓼", none # This character is missing?
     sub "瓽", "dang4"
     sub "瓾", "meng3"
     sub "瓿", any(["pou3", "bu4"])
@@ -10035,7 +10022,7 @@ stage {
     sub "甂", "bian1"
     sub "甃", "zhou4"
     sub "甄", "zhen1"
-    sub "甅", false
+    sub "甅", none # This character is missing?
     sub "甆", "ci2"
     sub "甇", "ying1"
     sub "甈", "qi4"
@@ -10113,7 +10100,7 @@ stage {
     sub "畐", "fu4"
     sub "畑", "tian2"
     sub "畒", "mu3"
-    sub "畓", false
+    sub "畓", none # This character is missing?
     sub "畔", "pan4"
     sub "畕", "jiang1"
     sub "畖", "wa1"
@@ -10126,7 +10113,7 @@ stage {
     sub "畝", "mu3"
     sub "畞", "mu3"
     sub "畟", "ce4"
-    sub "畠", false
+    sub "畠", none # This character is missing?
     sub "畡", "gai1"
     sub "畢", "bi4"
     sub "畣", "da2"
@@ -10135,7 +10122,7 @@ stage {
     sub "畦", "qi2"
     sub "畧", "lu:e4"
     sub "畨", "pan1"
-    sub "畩", false
+    sub "畩", none # This character is missing?
     sub "番", any(["fan1", "pan1"])
     sub "畫", "hua4"
     sub "畬", "yu2"
@@ -10189,8 +10176,7 @@ stage {
     sub "疜", "xia4"
     sub "疝", "shan4"
     sub "疞", "xu1"
-    sub "疟", "nu:e4"
-    sub ["yao4"], false
+    sub "疟", any(["nu:e4", "yao4"]) # BUG
     sub "疠", "li4"
     sub "疡", "yang2"
     sub "疢", "chen4"
@@ -10326,8 +10312,7 @@ stage {
     sub "瘤", "liu2"
     sub "瘥", any(["chai4", "cuo2"])
     sub "瘦", "shou4"
-    sub "瘧", "nu:e4"
-    sub ["yao4"], false
+    sub "瘧", any(["nu:e4", "yao4"]) # BUG
     sub "瘨", "dian1"
     sub "瘩", "da2"
     sub "瘪", any(["bie1", "bie3"])
@@ -10390,7 +10375,7 @@ stage {
     sub "癣", "xuan3"
     sub "癤", "jie1"
     sub "癥", any(["zheng1", "zheng4"])
-    sub "癦", false
+    sub "癦", none # This character is missing?
     sub "癧", "li4"
     sub "癨", "huo4"
     sub "癩", "lai4"
@@ -10407,7 +10392,7 @@ stage {
     sub "癴", "luan2"
     sub "癵", "luan2"
     sub "癶", "bo1"
-    sub "癷", false
+    sub "癷", none # This character is missing?
     sub "癸", "gui3"
     sub "癹", "po1"
     sub "発", "fa1"
@@ -10827,7 +10812,7 @@ stage {
     sub "砘", "dun4"
     sub "砙", "pan1"
     sub "砚", "yan4"
-    sub "砛", false
+    sub "砛", none # This character is missing?
     sub "砜", "feng1"
     sub "砝", any(["fa2", "fa3"])
     sub "砞", "mo4"
@@ -10861,7 +10846,7 @@ stage {
     sub "砺", "li4"
     sub "砻", "long2"
     sub "砼", "tong2"
-    sub "砽", false
+    sub "砽", none # This character is missing?
     sub "砾", "li4"
     sub "砿", "kuang4"
     sub "础", "chu3"
@@ -10883,15 +10868,15 @@ stage {
     sub "硐", any(["tong2", "dong3"])
     sub "硑", "peng1"
     sub "硒", "xi1"
-    sub "硓", false
+    sub "硓", none # This character is missing?
     sub "硔", "hong2"
     sub "硕", "shuo4"
     sub "硖", "xia2"
     sub "硗", "qiao1"
-    sub "硘", false
+    sub "硘", none # This character is missing?
     sub "硙", "wei4"
     sub "硚", "qiao2"
-    sub "硛", false
+    sub "硛", none # This character is missing?
     sub "硜", "keng1"
     sub "硝", "xiao1"
     sub "硞", "que4"
@@ -10915,8 +10900,8 @@ stage {
     sub "硰", "cuo3"
     sub "硱", "kun3"
     sub "硲", "yu4"
-    sub "硳", false
-    sub "硴", false
+    sub "硳", none # This character is missing?
+    sub "硴", none # This character is missing?
     sub "硵", "lu3"
     sub "硶", "chen3"
     sub "硷", "jian3"
@@ -10981,9 +10966,9 @@ stage {
     sub "碲", "di4"
     sub "碳", "tan4"
     sub "碴", any(["cha2", "cha1"])
-    sub "碵", false
+    sub "碵", none # This character is missing?
     sub "碶", "qi4"
-    sub "碷", false
+    sub "碷", none # This character is missing?
     sub "碸", "feng1"
     sub "碹", "xuan4"
     sub "確", "que4"
@@ -11015,7 +11000,7 @@ stage {
     sub "磔", "zhe2"
     sub "磕", "ke1"
     sub "磖", "la2"
-    sub "磗", false
+    sub "磗", none # This character is missing?
     sub "磘", "qing4"
     sub "磙", "gun3"
     sub "磚", "zhuan1"
@@ -11038,7 +11023,7 @@ stage {
     sub "磫", "zong1"
     sub "磬", "qing4"
     sub "磭", "chuo4"
-    sub "磮", false
+    sub "磮", none # This character is missing?
     sub "磯", "ji1"
     sub "磰", "shan4"
     sub "磱", "lao2"
@@ -11090,7 +11075,7 @@ stage {
     sub "礟", "pao4"
     sub "礠", "zi1"
     sub "礡", "bo2"
-    sub "礢", false
+    sub "礢", none # This character is missing?
     sub "礣", "mie4"
     sub "礤", "ca3"
     sub "礥", "xian2"
@@ -11133,7 +11118,7 @@ stage {
     sub "祊", "beng1"
     sub "祋", "shu1"
     sub "祌", "chong1"
-    sub "祍", false
+    sub "祍", none # This character is missing?
     sub "祎", "yi1"
     sub "祏", "shi2"
     sub "祐", "you4"
@@ -11209,7 +11194,7 @@ stage {
     sub "禖", "mei2"
     sub "禗", "si1"
     sub "禘", "di4"
-    sub "禙", false
+    sub "禙", none # This character is missing?
     sub "禚", "zhuo2"
     sub "禛", "zhen1"
     sub "禜", "yong3"
@@ -11219,7 +11204,7 @@ stage {
     sub "禠", "chi3"
     sub "禡", "ma4"
     sub "禢", "ta1"
-    sub "禣", false
+    sub "禣", none # This character is missing?
     sub "禤", "xuan1"
     sub "禥", "qi2"
     sub "禦", "yu4"
@@ -11379,7 +11364,7 @@ stage {
     sub "穀", "gu3"
     sub "穁", "rong2"
     sub "穂", "sui4"
-    sub "穃", false
+    sub "穃", none # This character is missing?
     sub "穄", "ji4"
     sub "穅", "kang1"
     sub "穆", "mu4"
@@ -11394,7 +11379,7 @@ stage {
     sub "穏", "wen3"
     sub "穐", "qiu1"
     sub "穑", "se4"
-    sub "穒", false
+    sub "穒", none # This character is missing?
     sub "穓", "yi4"
     sub "穔", "huang2"
     sub "穕", "qie4"
@@ -11405,7 +11390,7 @@ stage {
     sub "穚", "jiao1"
     sub "穛", "zhuo1"
     sub "穜", "tong2"
-    sub "穝", false
+    sub "穝", none # This character is missing?
     sub "穞", "lu:3"
     sub "穟", "sui4"
     sub "穠", "nong2"
@@ -11423,7 +11408,7 @@ stage {
     sub "穬", "gong3"
     sub "穭", "lu:3"
     sub "穮", "biao1"
-    sub "穯", false
+    sub "穯", none # This character is missing?
     sub "穰", "rang2"
     sub "穱", "jue2"
     sub "穲", "li2"
@@ -11479,7 +11464,7 @@ stage {
     sub "窤", "guan"
     sub "窥", "kui1"
     sub "窦", "dou4"
-    sub "窧", false
+    sub "窧", none # This character is missing?
     sub "窨", "yin4"
     sub "窩", "wo1"
     sub "窪", "wa1"
@@ -11501,7 +11486,7 @@ stage {
     sub "窺", "kui1"
     sub "窻", "chuang1"
     sub "窼", "ju3"
-    sub "窽", false
+    sub "窽", none # This character is missing?
     sub "窾", "kuan3"
     sub "窿", "long2"
     sub "竀", "cheng1"
@@ -11570,7 +11555,7 @@ stage {
     sub "竿", "gan1"
     sub "笀", "mang2"
     sub "笁", "zhu2"
-    sub "笂", false
+    sub "笂", none # This character is missing?
     sub "笃", "du3"
     sub "笄", "ji1"
     sub "笅", "xiao2"
@@ -11625,11 +11610,11 @@ stage {
     sub "笶", "shi3"
     sub "笷", "mao3"
     sub "笸", "po3"
-    sub "笹", false
+    sub "笹", none # This character is missing?
     sub "笺", "jian1"
     sub "笻", "qiong2"
     sub "笼", any(["long2", "long3"])
-    sub "笽", false
+    sub "笽", none # This character is missing?
     sub "笾", "bian1"
     sub "笿", "luo4"
     sub "筀", "gui4"
@@ -11693,7 +11678,7 @@ stage {
     sub "筺", "kuang1"
     sub "筻", "gang4"
     sub "筼", "yun2"
-    sub "筽", false
+    sub "筽", none # This character is missing?
     sub "签", "qian1"
     sub "筿", "xiao3"
     sub "简", "jian3"
@@ -11776,9 +11761,9 @@ stage {
     sub "篍", "qiu1"
     sub "篎", "miao3"
     sub "篏", "qian4"
-    sub "篐", false
+    sub "篐", none # This character is missing?
     sub "篑", "kui4"
-    sub "篒", false
+    sub "篒", none # This character is missing?
     sub "篓", "lou3"
     sub "篔", "yun2"
     sub "篕", "he2"
@@ -11843,7 +11828,7 @@ stage {
     sub "簐", "nian3"
     sub "簑", "suo1"
     sub "簒", "cuan4"
-    sub "簓", false
+    sub "簓", none # This character is missing?
     sub "簔", "suo1"
     sub "簕", "le4"
     sub "簖", "duan4"
@@ -11871,7 +11856,7 @@ stage {
     sub "簬", "lu4"
     sub "簭", "shi4"
     sub "簮", "zan1"
-    sub "簯", false
+    sub "簯", none # This character is missing?
     sub "簰", "pai2"
     sub "簱", "qi2"
     sub "簲", "pai2"
@@ -11890,7 +11875,7 @@ stage {
     sub "簿", "bu4"
     sub "籀", "zhou4"
     sub "籁", "lai4"
-    sub "籂", false
+    sub "籂", none # This character is missing?
     sub "籃", "lan2"
     sub "籄", "kui4"
     sub "籅", "yu2"
@@ -11902,7 +11887,7 @@ stage {
     sub "籋", "mi2"
     sub "籌", "chou2"
     sub "籍", "ji2"
-    sub "籎", false
+    sub "籎", none # This character is missing?
     sub "籏", "qi2"
     sub "籐", "teng2"
     sub "籑", "zhuan4"
@@ -11921,7 +11906,7 @@ stage {
     sub "籞", "yu4"
     sub "籟", "lai4"
     sub "籠", any(["long2", "long3"])
-    sub "籡", false
+    sub "籡", none # This character is missing?
     sub "籢", "lian2"
     sub "籣", "lan2"
     sub "籤", "qian1"
@@ -11954,7 +11939,7 @@ stage {
     sub "籿", "cun4"
     sub "粀", "zhang4"
     sub "粁", "qian1"
-    sub "粂", false
+    sub "粂", none # This character is missing?
     sub "粃", "bi3"
     sub "粄", "ban3"
     sub "粅", "wu4"
@@ -11968,7 +11953,7 @@ stage {
     sub "粍", "li2"
     sub "粎", "chi3"
     sub "粏", "tai4"
-    sub "粐", false
+    sub "粐", none # This character is missing?
     sub "粑", "ba1"
     sub "粒", "li4"
     sub "粓", "gan1"
@@ -11993,11 +11978,11 @@ stage {
     sub "粦", "lin2"
     sub "粧", "zhuang1"
     sub "粨", "bai3"
-    sub "粩", false
+    sub "粩", none # This character is missing?
     sub "粪", "fen4"
     sub "粫", "mian4"
-    sub "粬", false
-    sub "粭", false
+    sub "粬", none # This character is missing?
+    sub "粭", none # This character is missing?
     sub "粮", "liang2"
     sub "粯", "xian4"
     sub "粰", "fu1"
@@ -12016,7 +12001,7 @@ stage {
     sub "粽", "zong4"
     sub "精", "jing1"
     sub "粿", "guo3"
-    sub "糀", false
+    sub "糀", none # This character is missing?
     sub "糁", any(["san3", "shen1"])
     sub "糂", any(["san3", "shen1"])
     sub "糃", "tang2"
@@ -12040,7 +12025,7 @@ stage {
     sub "糕", "gao1"
     sub "糖", "tang2"
     sub "糗", "qiu3"
-    sub "糘", false
+    sub "糘", none # This character is missing?
     sub "糙", any(["cao1", "cao4"])
     sub "糚", "zhuang1"
     sub "糛", "tang2"
@@ -12235,7 +12220,7 @@ stage {
     sub "綘", "feng2"
     sub "継", "ji4"
     sub "続", "xu4"
-    sub "綛", false
+    sub "綛", none # This character is missing?
     sub "綜", any(["zong4", "zeng4", "zong1"])
     sub "綝", "lin3"
     sub "綞", "duo3"
@@ -12293,7 +12278,7 @@ stage {
     sub "緒", "xu4"
     sub "緓", "yingl"
     sub "緔", "shang4"
-    sub "緕", false
+    sub "緕", none # This character is missing?
     sub "緖", "xu4"
     sub "緗", "xiang1"
     sub "緘", "jian1"
@@ -12341,9 +12326,9 @@ stage {
     sub "縂", "zong3"
     sub "縃", "xu1"
     sub "縄", "sheng2"
-    sub "縅", false
+    sub "縅", none # This character is missing?
     sub "縆", "geng1"
-    sub "縇", false
+    sub "縇", none # This character is missing?
     sub "縈", "ying2"
     sub "縉", "jin4"
     sub "縊", "yi4"
@@ -12412,7 +12397,7 @@ stage {
     sub "繉", "hun2"
     sub "繊", "xian1"
     sub "繋", any(["xi4", "ji4"])
-    sub "繌", false
+    sub "繌", none # This character is missing?
     sub "繍", "xiu4"
     sub "繎", "ran2"
     sub "繏", "xuan4"
@@ -12439,7 +12424,7 @@ stage {
     sub "繤", "zuan3"
     sub "繥", "xi1"
     sub "繦", "qiang3"
-    sub "繧", false
+    sub "繧", none # This character is missing?
     sub "繨", "da2"
     sub "繩", "sheng2"
     sub "繪", "hui4"
@@ -12480,7 +12465,7 @@ stage {
     sub "纍", "lei2"
     sub "纎", "xian1"
     sub "纏", "chan2"
-    sub "纐", false
+    sub "纐", none # This character is missing?
     sub "纑", "lu2"
     sub "纒", "chan2"
     sub "纓", "ying1"
@@ -12656,7 +12641,7 @@ stage {
     sub "缽", "bo1"
     sub "缾", "ping2"
     sub "缿", "hou4"
-    sub "罀", false
+    sub "罀", none # This character is missing?
     sub "罁", "gang1"
     sub "罂", "ying1"
     sub "罃", "ying1"
@@ -12665,7 +12650,7 @@ stage {
     sub "罆", "guan4"
     sub "罇", "zun1"
     sub "罈", "tan2"
-    sub "罉", false
+    sub "罉", none # This character is missing?
     sub "罊", "qing4"
     sub "罋", "weng4"
     sub "罌", "ying1"
@@ -12678,7 +12663,7 @@ stage {
     sub "罓", "wang3"
     sub "罔", "wang3"
     sub "罕", "han3"
-    sub "罖", false
+    sub "罖", none # This character is missing?
     sub "罗", any(["luo1", "luo2"])
     sub "罘", any(["fu2", "fou2"])
     sub "罙", "mi2"
@@ -12838,7 +12823,7 @@ stage {
     sub "翳", "yi4"
     sub "翴", "lian2"
     sub "翵", "qu2"
-    sub "翶", false
+    sub "翶", none # This character is missing?
     sub "翷", "lin2"
     sub "翸", "pen3"
     sub "翹", any(["qiao2", "qiao4"])
@@ -12850,7 +12835,7 @@ stage {
     sub "翿", "dao4"
     sub "耀", any(["yao4", "yue4"])
     sub "老", "lao3"
-    sub "耂", false
+    sub "耂", none # This character is missing?
     sub "考", "kao3"
     sub "耄", "mao4"
     sub "者", "zhe3"
@@ -12913,7 +12898,7 @@ stage {
     sub "耾", "hong2"
     sub "耿", "geng3"
     sub "聀", "zhi2"
-    sub "聁", false
+    sub "聁", none # This character is missing?
     sub "聂", "nie4"
     sub "聃", "dan1"
     sub "聄", "zhen3"
@@ -12931,7 +12916,7 @@ stage {
     sub "聐", "ya4"
     sub "聑", "die2"
     sub "聒", any(["gua1", "guo1"])
-    sub "聓", false
+    sub "聓", none # This character is missing?
     sub "联", "lian2"
     sub "聕", "hao4"
     sub "聖", "sheng4"
@@ -12946,8 +12931,8 @@ stage {
     sub "聟", "xu4"
     sub "聠", "ping1"
     sub "聡", "cong1"
-    sub "聢", false
-    sub "聣", false
+    sub "聢", none # This character is missing?
+    sub "聣", none # This character is missing?
     sub "聤", "ting2"
     sub "聥", "yu3"
     sub "聦", "cong1"
@@ -13116,7 +13101,7 @@ stage {
     sub "脉", any(["mai4", "mo4"])
     sub "脊", any(["ji2", "ji3"])
     sub "脋", "xie2"
-    sub "脌", false
+    sub "脌", none # This character is missing?
     sub "脍", "kuai4"
     sub "脎", "sa4"
     sub "脏", "zang4"
@@ -13396,7 +13381,7 @@ stage {
     sub "舡", "gang1"
     sub "舢", "shan1"
     sub "舣", "yi3"
-    sub "舤", false
+    sub "舤", none # This character is missing?
     sub "舥", "pa1"
     sub "舦", "tai4"
     sub "舧", "fan2"
@@ -13423,7 +13408,7 @@ stage {
     sub "舼", "hong2"
     sub "舽", "pang2"
     sub "舾", "xi1"
-    sub "舿", false
+    sub "舿", none # This character is missing?
     sub "艀", "fu2"
     sub "艁", "zao4"
     sub "艂", "feng2"
@@ -13432,7 +13417,7 @@ stage {
     sub "艅", "yu2"
     sub "艆", "lang2"
     sub "艇", "ting3"
-    sub "艈", false
+    sub "艈", none # This character is missing?
     sub "艉", "wei3"
     sub "艊", "bo2"
     sub "艋", "meng3"
@@ -13444,7 +13429,7 @@ stage {
     sub "艑", "bian4"
     sub "艒", "mao4"
     sub "艓", "die2"
-    sub "艔", false
+    sub "艔", none # This character is missing?
     sub "艕", "bang4"
     sub "艖", "cha1"
     sub "艗", "yi4"
@@ -13453,10 +13438,10 @@ stage {
     sub "艚", "cao2"
     sub "艛", "lou2"
     sub "艜", "dai4"
-    sub "艝", false
+    sub "艝", none # This character is missing?
     sub "艞", "yao4"
     sub "艟", any(["tong2", "chong1"])
-    sub "艠", false
+    sub "艠", none # This character is missing?
     sub "艡", "dang1"
     sub "艢", "qiang2"
     sub "艣", "lu3"
@@ -13558,7 +13543,7 @@ stage {
     sub "苃", "you3"
     sub "苄", "bian4"
     sub "苅", "yi4"
-    sub "苆", false
+    sub "苆", none # This character is missing?
     sub "苇", "wei3"
     sub "苈", "li4"
     sub "苉", "pi3"
@@ -13632,9 +13617,9 @@ stage {
     sub "茍", "gou3"
     sub "茎", "jing1"
     sub "茏", "long2"
-    sub "茐", false
+    sub "茐", none # This character is missing?
     sub "茑", "niao3"
-    sub "茒", false
+    sub "茒", none # This character is missing?
     sub "茓", "xue2"
     sub "茔", "ying2"
     sub "茕", "qiong2"
@@ -13678,7 +13663,7 @@ stage {
     sub "茻", "mang3"
     sub "茼", "tong2"
     sub "茽", "zhong4"
-    sub "茾", false
+    sub "茾", none # This character is missing?
     sub "茿", "zhu2"
     sub "荀", "xun2"
     sub "荁", "huan2"
@@ -13714,7 +13699,7 @@ stage {
     sub "荟", "hui4"
     sub "荠", any(["qi2", "ji4"])
     sub "荡", "dang4"
-    sub "荢", false
+    sub "荢", none # This character is missing?
     sub "荣", "rong2"
     sub "荤", any(["hun1", "xun1"])
     sub "荥", any(["ying2", "xing2"])
@@ -13803,7 +13788,7 @@ stage {
     sub "莸", "you2"
     sub "莹", "ying2"
     sub "莺", "ying1"
-    sub "莻", false
+    sub "莻", none # This character is missing?
     sub "莼", "chun2"
     sub "莽", "mang3"
     sub "莾", "mang3"
@@ -13897,16 +13882,16 @@ stage {
     sub "萖", "wan3"
     sub "萗", "ce4"
     sub "萘", "nai4"
-    sub "萙", false
+    sub "萙", none # This character is missing?
     sub "萚", "tuo4"
     sub "萛", "jiu1"
     sub "萜", "tie1"
     sub "萝", "luo2"
-    sub "萞", false
-    sub "萟", false
+    sub "萞", none # This character is missing?
+    sub "萟", none # This character is missing?
     sub "萠", "meng2"
-    sub "萡", false
-    sub "萢", false
+    sub "萡", none # This character is missing?
+    sub "萢", none # This character is missing?
     sub "萣", "ding4"
     sub "萤", "ying2"
     sub "营", "ying2"
@@ -14005,17 +13990,17 @@ stage {
     sub "蒂", "di4"
     sub "蒃", "zhuan4"
     sub "蒄", "guan1"
-    sub "蒅", false
+    sub "蒅", none # This character is missing?
     sub "蒆", "qiong2"
     sub "蒇", "chan3"
     sub "蒈", "kai3"
     sub "蒉", "kui4"
-    sub "蒊", false
+    sub "蒊", none # This character is missing?
     sub "蒋", "jiang3"
     sub "蒌", "lou2"
     sub "蒍", "wei3"
     sub "蒎", "pai4"
-    sub "蒏", false
+    sub "蒏", none # This character is missing?
     sub "蒐", "sou1"
     sub "蒑", "yin1"
     sub "蒒", "shi1"
@@ -14089,18 +14074,18 @@ stage {
     sub "蓖", "bi4"
     sub "蓗", "zong3"
     sub "蓘", "gun3"
-    sub "蓙", false
+    sub "蓙", none # This character is missing?
     sub "蓚", "xiu1"
     sub "蓛", "ce4"
-    sub "蓜", false
+    sub "蓜", none # This character is missing?
     sub "蓝", any(["lan2", "la5"])
-    sub "蓞", false
+    sub "蓞", none # This character is missing?
     sub "蓟", "ji4"
     sub "蓠", "li2"
     sub "蓡", "can1"
     sub "蓢", "lang2"
     sub "蓣", "yu4"
-    sub "蓤", false
+    sub "蓤", none # This character is missing?
     sub "蓥", "ying2"
     sub "蓦", "mo4"
     sub "蓧", "diao4"
@@ -14340,7 +14325,7 @@ stage {
     sub "藑", "qiong2"
     sub "藒", "qie4"
     sub "藓", "li4"
-    sub "藔", false
+    sub "藔", none # This character is missing?
     sub "藕", "ou3"
     sub "藖", "xian2"
     sub "藗", "su4"
@@ -14373,7 +14358,7 @@ stage {
     sub "藲", "shu1"
     sub "藳", "gao3"
     sub "藴", "yun4"
-    sub "藵", false
+    sub "藵", none # This character is missing?
     sub "藶", "li4"
     sub "藷", "zhu1"
     sub "藸", "zhu1"
@@ -14402,10 +14387,10 @@ stage {
     sub "蘏", "jiong1"
     sub "蘐", "xuan1"
     sub "蘑", "mo2"
-    sub "蘒", false
+    sub "蘒", none # This character is missing?
     sub "蘓", "su1"
     sub "蘔", "jiong1"
-    sub "蘕", false
+    sub "蘕", none # This character is missing?
     sub "蘖", "nie4"
     sub "蘗", any(["bo4", "nie4"])
     sub "蘘", "rang2"
@@ -14432,7 +14417,7 @@ stage {
     sub "蘭", "lan2"
     sub "蘮", "ji4"
     sub "蘯", "dang4"
-    sub "蘰", false
+    sub "蘰", none # This character is missing?
     sub "蘱", "lei4"
     sub "蘲", "lei3"
     sub "蘳", "tong4"
@@ -14452,8 +14437,8 @@ stage {
     sub "虁", "nao2"
     sub "虂", "lu4"
     sub "虃", "jian1"
-    sub "虄", false
-    sub "虅", false
+    sub "虄", none # This character is missing?
+    sub "虅", none # This character is missing?
     sub "虆", "lei3"
     sub "虇", "quan3"
     sub "虈", "xiao1"
@@ -14498,7 +14483,7 @@ stage {
     sub "虯", "qiu2"
     sub "虰", "ding1"
     sub "虱", "shi1"
-    sub "虲", false
+    sub "虲", none # This character is missing?
     sub "虳", "di4"
     sub "虴", "zhe2"
     sub "虵", any(["she2", "yi2"])
@@ -14623,7 +14608,7 @@ stage {
     sub "蛬", "gong3"
     sub "蛭", "zhi4"
     sub "蛮", "man2"
-    sub "蛯", false
+    sub "蛯", none # This character is missing?
     sub "蛰", "zhe2"
     sub "蛱", "jia2"
     sub "蛲", "nao2"
@@ -14714,7 +14699,7 @@ stage {
     sub "蝇", "ying2"
     sub "蝈", "guo1"
     sub "蝉", "chan2"
-    sub "蝊", false
+    sub "蝊", none # This character is missing?
     sub "蝋", any(["la4", "zha4"])
     sub "蝌", "ke1"
     sub "蝍", "ji2"
@@ -14806,10 +14791,10 @@ stage {
     sub "螣", "teng2"
     sub "螤", "yu3"
     sub "螥", "cang1"
-    sub "螦", false
-    sub "螧", false
+    sub "螦", none # This character is missing?
+    sub "螧", none # This character is missing?
     sub "螨", "man3"
-    sub "螩", false
+    sub "螩", none # This character is missing?
     sub "螪", "shang1"
     sub "螫", any(["zhe1", "shi4"])
     sub "螬", "cao2"
@@ -14848,7 +14833,7 @@ stage {
     sub "蟍", "li2"
     sub "蟎", "man3"
     sub "蟏", "xiao1"
-    sub "蟐", false
+    sub "蟐", none # This character is missing?
     sub "蟑", "zhang1"
     sub "蟒", "mang3"
     sub "蟓", "xiang4"
@@ -14885,7 +14870,7 @@ stage {
     sub "蟲", "chong2"
     sub "蟳", "xun2"
     sub "蟴", "si1"
-    sub "蟵", false
+    sub "蟵", none # This character is missing?
     sub "蟶", "cheng1"
     sub "蟷", "dang1"
     sub "蟸", any(["li3", "li2"])
@@ -14948,7 +14933,7 @@ stage {
     sub "蠱", "gu3"
     sub "蠲", "juan1"
     sub "蠳", "ying1"
-    sub "蠴", false
+    sub "蠴", none # This character is missing?
     sub "蠵", "xi1"
     sub "蠶", "can2"
     sub "蠷", "qu2"
@@ -14976,7 +14961,7 @@ stage {
     sub "衍", "yan3"
     sub "衎", "kan4"
     sub "衏", "yuan4"
-    sub "衐", false
+    sub "衐", none # This character is missing?
     sub "衑", "ling2"
     sub "衒", "xuan4"
     sub "術", any(["shu4", "zhu2"])
@@ -15070,9 +15055,9 @@ stage {
     sub "被", any(["bei4", "pi1"])
     sub "袬", "yu4"
     sub "袭", "xi2"
-    sub "袮", false
+    sub "袮", none # This character is missing?
     sub "袯", "bo1"
-    sub "袰", false
+    sub "袰", none # This character is missing?
     sub "袱", "fu2"
     sub "袲", "yi2"
     sub "袳", "chi3"
@@ -15091,11 +15076,11 @@ stage {
     sub "裀", "yin1"
     sub "裁", "cai2"
     sub "裂", any(["lie4", "lie3"])
-    sub "裃", false
-    sub "裄", false
+    sub "裃", none # This character is missing?
+    sub "裄", none # This character is missing?
     sub "装", "zhuang1"
     sub "裆", "dang1"
-    sub "裇", false
+    sub "裇", none # This character is missing?
     sub "裈", "kun1"
     sub "裉", "ken4"
     sub "裊", "niao3"
@@ -15156,7 +15141,7 @@ stage {
     sub "褁", "zhi2"
     sub "褂", "gua4"
     sub "褃", "ken4"
-    sub "褄", false
+    sub "褄", none # This character is missing?
     sub "褅", "ti4"
     sub "褆", "shi4"
     sub "複", "fu4"
@@ -15180,8 +15165,8 @@ stage {
     sub "褙", "bei4"
     sub "褚", any(["chu3", "zhu3"])
     sub "褛", "lu:3"
-    sub "褜", false
-    sub "褝", false
+    sub "褜", none # This character is missing?
+    sub "褝", none # This character is missing?
     sub "褞", "yun3"
     sub "褟", "ta1"
     sub "褠", "gou1"
@@ -15221,7 +15206,7 @@ stage {
     sub "襂", "sen1"
     sub "襃", "bao1"
     sub "襄", "xiang1"
-    sub "襅", false
+    sub "襅", none # This character is missing?
     sub "襆", "pu2"
     sub "襇", "jian3"
     sub "襈", "zhuan4"
@@ -15256,7 +15241,7 @@ stage {
     sub "襥", "pu2"
     sub "襦", "ru2"
     sub "襧", "zhi3"
-    sub "襨", false
+    sub "襨", none # This character is missing?
     sub "襩", "shu3"
     sub "襪", "wa4"
     sub "襫", "shi4"
@@ -15271,20 +15256,20 @@ stage {
     sub "襴", "lan2"
     sub "襵", "zhe2"
     sub "襶", "dai4"
-    sub "襷", false
+    sub "襷", none # This character is missing?
     sub "襸", "zan4"
     sub "襹", "shi1"
     sub "襺", "jian3"
     sub "襻", "pan4"
     sub "襼", "yi4"
-    sub "襽", false
+    sub "襽", none # This character is missing?
     sub "襾", "ya4"
     sub "西", "xi1"
     sub "覀", "xi1"
     sub "要", any(["yao4", "yao1"])
     sub "覂", "feng3"
     sub "覃", any(["tan2", "qin2"])
-    sub "覄", false
+    sub "覄", none # This character is missing?
     sub "覅", "fiao4"
     sub "覆", "fu4"
     sub "覇", "ba4"
@@ -15582,7 +15567,7 @@ stage {
     sub "誫", "zhen4"
     sub "説", any(["shuo1", "shui4", "yue4"])
     sub "読", any(["du2", "dou4"])
-    sub "誮", false
+    sub "誮", none # This character is missing?
     sub "誯", "chang4"
     sub "誰", any(["shui2", "shei2"])
     sub "誱", "jie2"
@@ -15667,7 +15652,7 @@ stage {
     sub "謀", "mou2"
     sub "謁", "ye4"
     sub "謂", "wei4"
-    sub "謃", false
+    sub "謃", none # This character is missing?
     sub "謄", "teng2"
     sub "謅", any(["zou1", "zhou1"])
     sub "謆", "shan4"
@@ -15684,8 +15669,7 @@ stage {
     sub "謑", "xi4"
     sub "謒", "qiang1"
     sub "謓", "chen1"
-    sub "謔", "nu:e4"
-    sub ["xue4"], false
+    sub "謔", any(["nu:e4", "xue4"]) # BUG
     sub "謕", "si1"
     sub "謖", "su4"
     sub "謗", "bang4"
@@ -16189,7 +16173,7 @@ stage {
     sub "贉", "tan3"
     sub "贊", "zan4"
     sub "贋", "yan4"
-    sub "贌", false
+    sub "贌", none # This character is missing?
     sub "贍", "shan4"
     sub "贎", "wan4"
     sub "贏", "ying2"
@@ -16201,7 +16185,7 @@ stage {
     sub "贕", "du2"
     sub "贖", "shu2"
     sub "贗", "yan4"
-    sub "贘", false
+    sub "贘", none # This character is missing?
     sub "贙", "xuan4"
     sub "贚", "long4"
     sub "贛", "gan4"
@@ -16353,7 +16337,7 @@ stage {
     sub "趭", "yao4"
     sub "趮", "zao4"
     sub "趯", "yue4"
-    sub "趰", false
+    sub "趰", none # This character is missing?
     sub "趱", "zan3"
     sub "趲", any(["zan3", "zan4"])
     sub "足", any(["zu2", "ju4"])
@@ -16447,7 +16431,7 @@ stage {
     sub "踋", any(["jiao3", "jia3", "jue2"])
     sub "踌", "chou2"
     sub "踍", "xiao4"
-    sub "踎", false
+    sub "踎", none # This character is missing?
     sub "踏", any(["ta4", "ta1"])
     sub "踐", "jian4"
     sub "踑", "qi2"
@@ -16607,33 +16591,33 @@ stage {
     sub "身", any(["shen1", "juan1"])
     sub "躬", "gong1"
     sub "躭", "dan1"
-    sub "躮", false
+    sub "躮", none # This character is missing?
     sub "躯", "qu1"
     sub "躰", "ti3"
     sub "躱", "duo3"
     sub "躲", "duo3"
     sub "躳", "gong1"
     sub "躴", "lang2"
-    sub "躵", false
+    sub "躵", none # This character is missing?
     sub "躶", "luo3"
     sub "躷", "ai3"
     sub "躸", "ji1"
     sub "躹", "ju2"
     sub "躺", "tang3"
-    sub "躻", false
-    sub "躼", false
+    sub "躻", none # This character is missing?
+    sub "躼", none # This character is missing?
     sub "躽", "yan3"
-    sub "躾", false
+    sub "躾", none # This character is missing?
     sub "躿", "kang1"
     sub "軀", "qu1"
     sub "軁", "lou2"
     sub "軂", "lao4"
     sub "軃", "duo3"
     sub "軄", "zhi2"
-    sub "軅", false
+    sub "軅", none # This character is missing?
     sub "軆", "ti3"
     sub "軇", "dao4"
-    sub "軈", false
+    sub "軈", none # This character is missing?
     sub "軉", "yu4"
     sub "車", any(["che1", "ju1"])
     sub "軋", any(["ya4", "zha2"])
@@ -16765,7 +16749,7 @@ stage {
     sub "轉", any(["zhuan3", "zhuai3", "zhuan4"])
     sub "轊", "wei4"
     sub "轋", "hun2"
-    sub "轌", false
+    sub "轌", none # This character is missing?
     sub "轍", any(["che4", "zhe2"])
     sub "轎", "jiao4"
     sub "轏", "zhan4"
@@ -16859,7 +16843,7 @@ stage {
     sub "辧", "bian4"
     sub "辨", "bian4"
     sub "辩", "bian4"
-    sub "辪", false
+    sub "辪", none # This character is missing?
     sub "辫", "bian4"
     sub "辬", "ban1"
     sub "辭", "ci2"
@@ -16872,12 +16856,12 @@ stage {
     sub "辴", "zhen3"
     sub "辵", "chuo4"
     sub "辶", "chuo4"
-    sub "辷", false
+    sub "辷", none # This character is missing?
     sub "辸", "reng2"
     sub "边", "bian1"
     sub "辺", "bian1"
-    sub "辻", false
-    sub "込", false
+    sub "辻", none # This character is missing?
+    sub "込", none # This character is missing?
     sub "辽", "liao2"
     sub "达", "da2"
     sub "辿", "chan1"
@@ -16907,7 +16891,7 @@ stage {
     sub "迗", "e2"
     sub "还", "hai2"
     sub "这", any(["zhe4", "zhei4"])
-    sub "迚", false
+    sub "迚", none # This character is missing?
     sub "进", "jin4"
     sub "远", "yuan3"
     sub "违", "wei2"
@@ -16931,7 +16915,7 @@ stage {
     sub "迯", "tao2"
     sub "述", "shu4"
     sub "迱", "tuo2"
-    sub "迲", false
+    sub "迲", none # This character is missing?
     sub "迳", "jing4"
     sub "迴", "hui2"
     sub "迵", "tong2"
@@ -16984,7 +16968,7 @@ stage {
     sub "逤", "suo4"
     sub "逥", "hui2"
     sub "逦", "li3"
-    sub "逧", false
+    sub "逧", none # This character is missing?
     sub "逨", "zui4"
     sub "逩", "ben1"
     sub "逪", "cuo4"
@@ -17031,7 +17015,7 @@ stage {
     sub "道", "dao4"
     sub "達", "da2"
     sub "違", "wei2"
-    sub "遖", false
+    sub "遖", none # This character is missing?
     sub "遗", "yi2"
     sub "遘", "gou4"
     sub "遙", "yao2"
@@ -17045,7 +17029,7 @@ stage {
     sub "遡", "su4"
     sub "遢", any(["ta4", "ta1"])
     sub "遣", "qian3"
-    sub "遤", false
+    sub "遤", none # This character is missing?
     sub "遥", "yao2"
     sub "遦", "guan4"
     sub "遧", "zhang1"
@@ -17101,7 +17085,7 @@ stage {
     sub "邙", "mang2"
     sub "邚", "ru2"
     sub "邛", "qiong2"
-    sub "邜", false
+    sub "邜", none # This character is missing?
     sub "邝", "kuang4"
     sub "邞", "fu1"
     sub "邟", "kang4"
@@ -17292,8 +17276,8 @@ stage {
     sub "酘", "tou2"
     sub "酙", "zhen1"
     sub "酚", "fen1"
-    sub "酛", false
-    sub "酜", false
+    sub "酛", none # This character is missing?
+    sub "酜", none # This character is missing?
     sub "酝", "yun4"
     sub "酞", "tai4"
     sub "酟", "tian1"
@@ -17452,7 +17436,7 @@ stage {
     sub "釸", "xi4"
     sub "釹", "nu:3"
     sub "釺", "qian1"
-    sub "釻", false
+    sub "釻", none # This character is missing?
     sub "釼", "jian4"
     sub "釽", "pi1"
     sub "釾", "ye2"
@@ -17497,10 +17481,10 @@ stage {
     sub "鈥", any(["huo2", "huo3"])
     sub "鈦", "tai4"
     sub "鈧", "kang4"
-    sub "鈨", false
+    sub "鈨", none # This character is missing?
     sub "鈩", "lu2"
-    sub "鈪", false
-    sub "鈫", false
+    sub "鈪", none # This character is missing?
+    sub "鈫", none # This character is missing?
     sub "鈬", "duo2"
     sub "鈭", "zi1"
     sub "鈮", "ni2"
@@ -17632,7 +17616,7 @@ stage {
     sub "銬", "kao4"
     sub "銭", "qian2"
     sub "銮", "luan2"
-    sub "銯", false
+    sub "銯", none # This character is missing?
     sub "銰", "ai1"
     sub "銱", "diao4"
     sub "銲", "han4"
@@ -17699,9 +17683,9 @@ stage {
     sub "鋯", "gao4"
     sub "鋰", "li3"
     sub "鋱", "te4"
-    sub "鋲", false
+    sub "鋲", none # This character is missing?
     sub "鋳", "zhu4"
-    sub "鋴", false
+    sub "鋴", none # This character is missing?
     sub "鋵", "tu1"
     sub "鋶", "liu3"
     sub "鋷", "zui4"
@@ -17772,17 +17756,17 @@ stage {
     sub "錸", "lai2"
     sub "錹", "ken3"
     sub "錺", "zhui4"
-    sub "錻", false
+    sub "錻", none # This character is missing?
     sub "錼", "nai4"
     sub "錽", "wan3"
     sub "錾", "zan4"
-    sub "錿", false
+    sub "錿", none # This character is missing?
     sub "鍀", "de2"
     sub "鍁", "xian1"
-    sub "鍂", false
+    sub "鍂", none # This character is missing?
     sub "鍃", "huo1"
     sub "鍄", "liang4"
-    sub "鍅", false
+    sub "鍅", none # This character is missing?
     sub "鍆", "men2"
     sub "鍇", "kai3"
     sub "鍈", "ying1"
@@ -17847,7 +17831,7 @@ stage {
     sub "鎃", "pai4"
     sub "鎄", "ai1"
     sub "鎅", "jie4"
-    sub "鎆", false
+    sub "鎆", none # This character is missing?
     sub "鎇", "mei2"
     sub "鎈", "cha1"
     sub "鎉", "ta4"
@@ -17899,11 +17883,11 @@ stage {
     sub "鎷", "ma3"
     sub "鎸", "juan1"
     sub "鎹", "rong2"
-    sub "鎺", false
+    sub "鎺", none # This character is missing?
     sub "鎻", "suo3"
-    sub "鎼", false
-    sub "鎽", false
-    sub "鎾", false
+    sub "鎼", none # This character is missing?
+    sub "鎽", none # This character is missing?
+    sub "鎾", none # This character is missing?
     sub "鎿", "na2"
     sub "鏀", "lu3"
     sub "鏁", "suo3"
@@ -17952,10 +17936,10 @@ stage {
     sub "鏬", "xia4"
     sub "鏭", "xi1"
     sub "鏮", "kang1"
-    sub "鏯", false
+    sub "鏯", none # This character is missing?
     sub "鏰", "beng4"
-    sub "鏱", false
-    sub "鏲", false
+    sub "鏱", none # This character is missing?
+    sub "鏲", none # This character is missing?
     sub "鏳", "zheng1"
     sub "鏴", "lu4"
     sub "鏵", "hua2"
@@ -18003,8 +17987,8 @@ stage {
     sub "鐟", "ti4"
     sub "鐠", "pu3"
     sub "鐡", "tie3"
-    sub "鐢", false
-    sub "鐣", false
+    sub "鐢", none # This character is missing?
+    sub "鐣", none # This character is missing?
     sub "鐤", "ding3"
     sub "鐥", "shan4"
     sub "鐦", "kai1"
@@ -18071,8 +18055,8 @@ stage {
     sub "鑣", "biao1"
     sub "鑤", "bao4"
     sub "鑥", "lu3"
-    sub "鑦", false
-    sub "鑧", false
+    sub "鑦", none # This character is missing?
+    sub "鑧", none # This character is missing?
     sub "鑨", "long2"
     sub "鑩", "e4"
     sub "鑪", "lu2"
@@ -18363,7 +18347,7 @@ stage {
     sub "閇", "bi4"
     sub "閈", "han4"
     sub "閉", "bi4"
-    sub "閊", false
+    sub "閊", none # This character is missing?
     sub "開", "kai1"
     sub "閌", any(["kang4", "kang1"])
     sub "閍", "beng1"
@@ -18395,7 +18379,7 @@ stage {
     sub "閧", any(["hong4", "hong1", "hong3"])
     sub "閨", "gui1"
     sub "閩", "min3"
-    sub "閪", false
+    sub "閪", none # This character is missing?
     sub "閫", "kun3"
     sub "閬", any(["lang3", "lang2", "lang4"])
     sub "閭", "lu:2"
@@ -18431,8 +18415,8 @@ stage {
     sub "闋", "que4"
     sub "闌", "lan2"
     sub "闍", "du1"
-    sub "闎", false
-    sub "闏", false
+    sub "闎", none # This character is missing?
+    sub "闏", none # This character is missing?
     sub "闐", "tian2"
     sub "闑", "nie4"
     sub "闒", "ta4"
@@ -18456,7 +18440,7 @@ stage {
     sub "闤", "huan2"
     sub "闥", "ta4"
     sub "闦", "wen2"
-    sub "闧", false
+    sub "闧", none # This character is missing?
     sub "门", "men2"
     sub "闩", "shuan1"
     sub "闪", "shan3"
@@ -18760,7 +18744,7 @@ stage {
     sub "霔", "chou4"
     sub "霕", "tun2"
     sub "霖", "lin2"
-    sub "霗", false
+    sub "霗", none # This character is missing?
     sub "霘", "dong4"
     sub "霙", "ying1"
     sub "霚", "wu4"
@@ -18796,7 +18780,7 @@ stage {
     sub "霸", "ba4"
     sub "霹", "pi1"
     sub "霺", "wei2"
-    sub "霻", false
+    sub "霻", none # This character is missing?
     sub "霼", "xi3"
     sub "霽", "ji4"
     sub "霾", "mai2"
@@ -18814,7 +18798,7 @@ stage {
     sub "靊", "feng1"
     sub "靋", "li4"
     sub "靌", "bao3"
-    sub "靍", false
+    sub "靍", none # This character is missing?
     sub "靎", "he4"
     sub "靏", "he4"
     sub "靐", "bing4"
@@ -18913,7 +18897,7 @@ stage {
     sub "鞭", "bian1"
     sub "鞮", "di1"
     sub "鞯", "jian1"
-    sub "鞰", false
+    sub "鞰", none # This character is missing?
     sub "鞱", "tao1"
     sub "鞲", "gou1"
     sub "鞳", "ta4"
@@ -18950,7 +18934,7 @@ stage {
     sub "韒", "qiao4"
     sub "韓", "han2"
     sub "韔", "chang4"
-    sub "韕", false
+    sub "韕", none # This character is missing?
     sub "韖", "rou2"
     sub "韗", "xun4"
     sub "韘", "she4"
@@ -19163,7 +19147,7 @@ stage {
     sub "颧", "quan2"
     sub "風", "feng1"
     sub "颩", "biao1"
-    sub "颪", false
+    sub "颪", none # This character is missing?
     sub "颫", "fu2"
     sub "颬", "xia1"
     sub "颭", "zhan3"
@@ -19195,7 +19179,7 @@ stage {
     sub "飇", "biao1"
     sub "飈", "biao1"
     sub "飉", "liao2"
-    sub "飊", false
+    sub "飊", none # This character is missing?
     sub "飋", "se4"
     sub "飌", "feng1"
     sub "飍", "biao1"
@@ -19491,7 +19475,7 @@ stage {
     sub "駯", "zhu"
     sub "駰", "yin1"
     sub "駱", "luo4"
-    sub "駲", false
+    sub "駲", none # This character is missing?
     sub "駳", "dan4"
     sub "駴", "xie4"
     sub "駵", "liu2"
@@ -19881,8 +19865,8 @@ stage {
     sub "魵", "fen4"
     sub "魶", "na4"
     sub "魷", "you2"
-    sub "魸", false
-    sub "魹", false
+    sub "魸", none # This character is missing?
+    sub "魹", none # This character is missing?
     sub "魺", any(["he2", "ge3"])
     sub "魻", "xia2"
     sub "魼", "qu1"
@@ -19911,9 +19895,9 @@ stage {
     sub "鮓", "zha4"
     sub "鮔", "ju4"
     sub "鮕", "gu1"
-    sub "鮖", false
-    sub "鮗", false
-    sub "鮘", false
+    sub "鮖", none # This character is missing?
+    sub "鮗", none # This character is missing?
+    sub "鮘", none # This character is missing?
     sub "鮙", "ta4"
     sub "鮚", "jie2"
     sub "鮛", "shua1"
@@ -19938,10 +19922,10 @@ stage {
     sub "鮮", any(["xian1", "xian3"])
     sub "鮯", "ge2"
     sub "鮰", "hui2"
-    sub "鮱", false
-    sub "鮲", false
+    sub "鮱", none # This character is missing?
+    sub "鮲", none # This character is missing?
     sub "鮳", "kao3"
-    sub "鮴", false
+    sub "鮴", none # This character is missing?
     sub "鮵", "duo2"
     sub "鮶", "jun1"
     sub "鮷", "ti2"
@@ -19967,10 +19951,10 @@ stage {
     sub "鯋", "sha1"
     sub "鯌", "gao4"
     sub "鯍", "meng2"
-    sub "鯎", false
-    sub "鯏", false
-    sub "鯐", false
-    sub "鯑", false
+    sub "鯎", none # This character is missing?
+    sub "鯏", none # This character is missing?
+    sub "鯐", none # This character is missing?
+    sub "鯑", none # This character is missing?
     sub "鯒", "yong3"
     sub "鯓", "ni2"
     sub "鯔", "zi1"
@@ -20002,9 +19986,9 @@ stage {
     sub "鯮", "zong1"
     sub "鯯", "zhi2"
     sub "鯰", any(["nian2", "nian3"])
-    sub "鯱", false
-    sub "鯲", false
-    sub "鯳", false
+    sub "鯱", none # This character is missing?
+    sub "鯲", none # This character is missing?
+    sub "鯳", none # This character is missing?
     sub "鯴", "shi1"
     sub "鯵", "sao1"
     sub "鯶", "hun3"
@@ -20041,9 +20025,9 @@ stage {
     sub "鰕", any(["ha2", "xia1"])
     sub "鰖", "tuo3"
     sub "鰗", "hu2"
-    sub "鰘", false
+    sub "鰘", none # This character is missing?
     sub "鰙", "ruo4"
-    sub "鰚", false
+    sub "鰚", none # This character is missing?
     sub "鰛", "wen1"
     sub "鰜", "jian1"
     sub "鰝", "hao4"
@@ -20065,7 +20049,7 @@ stage {
     sub "鰭", "qi2"
     sub "鰮", "wen1"
     sub "鰯", "ruo4"
-    sub "鰰", false
+    sub "鰰", none # This character is missing?
     sub "鰱", "lian2"
     sub "鰲", "ao2"
     sub "鰳", "le4"
@@ -20108,7 +20092,7 @@ stage {
     sub "鱘", "xun2"
     sub "鱙", "miao2"
     sub "鱚", "xi3"
-    sub "鱛", false
+    sub "鱛", none # This character is missing?
     sub "鱜", "xiang1"
     sub "鱝", "fen4"
     sub "鱞", "guan1"
@@ -20122,14 +20106,14 @@ stage {
     sub "鱦", "sheng2"
     sub "鱧", "li3"
     sub "鱨", "chang2"
-    sub "鱩", false
-    sub "鱪", false
+    sub "鱩", none # This character is missing?
+    sub "鱪", none # This character is missing?
     sub "鱫", "ai4"
     sub "鱬", "ru2"
     sub "鱭", "ji4"
     sub "鱮", "xu4"
     sub "鱯", "huo4"
-    sub "鱰", false
+    sub "鱰", none # This character is missing?
     sub "鱱", "li4"
     sub "鱲", "lie4"
     sub "鱳", "li4"
@@ -20257,7 +20241,7 @@ stage {
     sub "鳭", "diao1"
     sub "鳮", "ji1"
     sub "鳯", "feng4"
-    sub "鳰", false
+    sub "鳰", none # This character is missing?
     sub "鳱", "gan1"
     sub "鳲", "shi1"
     sub "鳳", "feng4"
@@ -20316,7 +20300,7 @@ stage {
     sub "鴨", "ya1"
     sub "鴩", "zhi4"
     sub "鴪", "yu4"
-    sub "鴫", false
+    sub "鴫", none # This character is missing?
     sub "鴬", "ying1"
     sub "鴭", "zhui1"
     sub "鴮", "wu1"
@@ -20343,9 +20327,9 @@ stage {
     sub "鵃", "zhou1"
     sub "鵄", "chi1"
     sub "鵅", "luo4"
-    sub "鵆", false
-    sub "鵇", false
-    sub "鵈", false
+    sub "鵆", none # This character is missing?
+    sub "鵇", none # This character is missing?
+    sub "鵈", none # This character is missing?
     sub "鵉", "luan2"
     sub "鵊", "jia2"
     sub "鵋", "ji4"
@@ -20373,8 +20357,8 @@ stage {
     sub "鵡", "wu3"
     sub "鵢", "shen1"
     sub "鵣", "la4"
-    sub "鵤", false
-    sub "鵥", false
+    sub "鵤", none # This character is missing?
+    sub "鵥", none # This character is missing?
     sub "鵦", "lu4"
     sub "鵧", "bing4"
     sub "鵨", "shu1"
@@ -20414,11 +20398,11 @@ stage {
     sub "鶊", "geng1"
     sub "鶋", "ju1"
     sub "鶌", "qu1"
-    sub "鶍", false
-    sub "鶎", false
+    sub "鶍", none # This character is missing?
+    sub "鶎", none # This character is missing?
     sub "鶏", "ji1"
     sub "鶐", "shu4"
-    sub "鶑", false
+    sub "鶑", none # This character is missing?
     sub "鶒", "chi3"
     sub "鶓", "miao2"
     sub "鶔", "rou2"
@@ -20444,7 +20428,7 @@ stage {
     sub "鶨", "dun4"
     sub "鶩", any(["mu4", "wu4"])
     sub "鶪", "ju2"
-    sub "鶫", false
+    sub "鶫", none # This character is missing?
     sub "鶬", "cang1"
     sub "鶭", "fang3"
     sub "鶮", "ge4"
@@ -20720,7 +20704,7 @@ stage {
     sub "麼", "ma2"
     sub "麽", "mo2"
     sub "麾", "hui1"
-    sub "麿", false
+    sub "麿", none # This character is missing?
     sub "黀", "zou1"
     sub "黁", "nen1"
     sub "黂", "fen2"
@@ -20954,4 +20938,3 @@ stage {
   }
 
 }
-

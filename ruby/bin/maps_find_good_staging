@@ -1,7 +1,0 @@
-#!/bin/bash
-for i in ../maps/maps-staging/*.imp; do
-  TRANSLIT_SYSTEM="$(basename "$i" .imp)" \
-  INTERSCRIPT_STAGING=1 \
-  bundle exec rspec spec/interscript_spec.rb && \
-  git mv "$i" "$(echo "$i" | sed s/-staging//)"
-done
