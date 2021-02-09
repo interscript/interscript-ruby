@@ -1,7 +1,7 @@
 metadata {
   authority_id: iso
   id: 15919-2001
-  language: iso-639-2:hin
+  language: iso-639-2:inc
   source_script: Deva
   destination_script: Latn
   name: "Information and documentation — Transliteration of Devanagari and related Indic scripts into Latin characters"
@@ -35,6 +35,8 @@ metadata {
       A colon: before a Latin character shall be used to resolve ambiguity. Some normative cases are as
       follows.
        -  :’ for avagraha in modern text. (The apostrophe in modern text remains unchanged in accordance with previous rule.
+       -  Vowel hiatus, not digraph transliteration of diphthongs; as in Sanskrit pra:uga (not prauga), “yoke”;
+
     - If a character in an Indic script is defined in such a way as to be equivalent to another character in any
       script, where the second character has a transliteration in this International Standard, then the first character shall
       be transliterated in the same way as the second character.
@@ -47,40 +49,13 @@ metadata {
 }
 
 tests {
-  test "हम", "hama"
-  test "मीन", "maīna"
-  test "औसत", "ausata"
-  test "माँऽऽऽ!", "maām̐:’:’:’!"
-  test "आग़ा ख़ान", "āġaā k͟haāna"
-  test "पढ़ना", "paṛhanaā"
-  test "पेड़", "paeṛa"
-  test "अंग्रेज़ी", "aṁgaraezaī"
-  test "करोड़", "karaoṛa"
-  test "माँ", "maām̐"
-  test "गंभीर मरीजों के मामले में भारत दूसरे नंबर पर", "gaṁbhaīra maraījaoṁ kae maāmalae maeṁ bhaārata daūsarae naṁbara para"
-  test "कोरोना अपडेट्स", "kaoraonaā apaḍaeṭasa"
-  test "सीडीसी चीफ का बयान अहम", "saīḍaīsaī caīpha kaā bayaāna ahama"
-  test "गूगल प्ले स्टोर पर पेटीएम की वापसी", "gaūgala palae saṭaora para paeṭaīema kaī vaāpasaī"
-  test "भारत में गैंबलिंग की इजाजत नहीं", "bhaārata maeṁ gaaiṁbalaiṁga kaī ijaājata nahaīṁ"
-  test "कोरोना वैक्सीन मुद्दे पर घिरे राष्ट्रपति; जो बाइडेन बोले- मुझे और देश को वैज्ञानिकों पर भरोसा है, डोनाल्ड ट्रम्प पर नहीं", "kaoraonaā vaaikasaīna maudadae para ghairae raāṣaṭarapatai; jao baāiḍaena baolae- maujhae aura daeśa kao vaaijañaānaikaoṁ para bharaosaā haai, ḍaonaālaḍa ṭaramapa para nahaīṁ"
-  test "गूगल की कार्रवाई पर पेटीएम ने कहा था कि ऐप को अस्थायी तौर पर प्ले-स्टोर से हटाया गया है, आपके पैसे सुरक्षित हैं", "gaūgala kaī kaāraravaāī para paeṭaīema nae kahaā thaā kai aipa kao asathaāyaī taaura para palae-saṭaora sae haṭaāyaā gayaā haai, āpakae paaisae saurakaṣaita haaiṁ"
+  test "उपमुख्यमंत्र्यांची 'मोठी' घोषणा; राज्यात केंद्राच्या कृषी व कामगार विधेयकाची अंमलबजावणी नाही", "upamaukhayamaṁtarayaāṁcaī 'maoṭhaī' ghaoṣaṇaā; raājayaāta kaeṁdaraācayaā kaṛṣaī va kaāmagaāra vaidhaeyakaācaī aṁmalabajaāvaṇaī naāhaī"
+  test "ग्वालियर बन रहा देश का नया जामताड़ा, ऑनलाइन ठगी के कई गिरोह का पर्दाफाश", "gavaālaiyara bana rahaā daeśa kaā nayaā jaāmataāड़ā, ônalaāina ṭhagaī kae kaī gairaoha kaā paradaāphaāśa"
+  test "२४ घण्टामा कोरोनाबाट ६ जनाको मृत्यु, मृतककाे संख्या ४ सय ५९ पुग्यो", "24 ghaṇaṭaāmaā kaoraonaābaāṭa 6 janaākao maṛtayau, maṛtakakaāe saṁkhayaā 4 saya 59 paugayao"
 }
-
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
 
 dependency "iso-san-Deva-Latn-15919-2001", as: devalatn
 
 stage {
-
   run map.devalatn.stage.main
-
 }
-

@@ -1,8 +1,8 @@
 metadata {
   authority_id: iso
   id: 15919-2001
-  language: iso-639-2:asm
-  source_script: Beng
+  language: iso-639-2:pra
+  source_script: Deva
   destination_script: Latn
   name: "Information and documentation — Transliteration of Devanagari and related Indic scripts into Latin characters"
   url: https://www.chatranjali.fr/Scripts/Standards/ISO15919.pdf
@@ -35,6 +35,7 @@ metadata {
       A colon: before a Latin character shall be used to resolve ambiguity. Some normative cases are as
       follows.
        -  :’ for avagraha in modern text. (The apostrophe in modern text remains unchanged in accordance with previous rule.
+
     - If a character in an Indic script is defined in such a way as to be equivalent to another character in any
       script, where the second character has a transliteration in this International Standard, then the first character shall
       be transliterated in the same way as the second character.
@@ -47,39 +48,13 @@ metadata {
 }
 
 tests {
-  test "অসমীয়া কবিতা", "asamaīẏaā kabaitaā"
-  test "কবিৰ আজি জন্মদিন", "kabaiva ājai janamadaina"
-  test "বেৰুটত এমাহৰ পাছতে পুনৰ ভয়ংকৰ অগ্নিকাণ্ড", "baevauṭata emaāhava paāchatae paunava bhaya়ṁkava aganaikaāṇaḍa"
-  test "ভঙাৰ বিৰুদ্ধে আৱেদন দাখিল কংগনাৰ", "bhaṅaāva baivaudadhae āraedana daākhaila kaṁganaāva"
-  test "আপুনি পঢ়ি ভাল পাব পৰা বাতৰি", "āpaunai paṙhai bhaāla paāba pavaā baātavai"
-  test "শ্ৰীৰামপুৰত গৰুভৰ্তি ট্ৰাক জব্দ, দুজনক আটক", "śavaīvaāmapauvata gavaubhavatai ṭavaāka jabada, daujanaka āṭaka"
-  test "কেনে আছে প্ৰাক্তন", "kaenae āchae pavaākatana"
-  test "কমুম্বাইৰ মেয়ৰৰ দেহত কোভিড পজিটিভ", "kamaumabaāiva maeẏavava daehata kaobhaiḍa pajaiṭaibha"
-  test "টুইটাৰযোগে খোদ সদৰী কৰে এই কথা", "ṭauiṭaāvayaogae khaoda sadavaī kavae ei kathaā"
-  test "লখিমপুৰ জিলাৰ নাৰায়ণপুৰৰ বৰপথাৰত আজি প্ৰশান্তি ধাম নামেৰে এখন বৃদ্ধাশ্ৰমৰ শুভাৰম্ভ কৰা হয়", "lakhaimapauva jailaāva naāvaāẏaṇapauvava bavapathaāvata ājai pavaśaānatai dhaāma naāmaevae ekhana baṛdadhaāśavamava śaubhaāvamabha kavaā haẏa"
+  test "सृष्टिस्थितिविनाशानां शक्तिभूते सनातनि", "saṛṣaṭaisathaitaivainaāśaānaāṁ śakataibhaūtae sanaātanai"
+  test "गुणाश्रये गुणमये नारायणि नमोऽस्तु ते", "gauṇaāśarayae gauṇamayae naāraāyaṇai namao:’satau tae"
+  test "तेन समयेन बुद्धो भगवा सावत्थियं विहरति जेतवने अनाथपिण्डिकस्स आरामे", "taena samayaena baudadhao bhagavaā saāvatathaiyaṁ vaiharatai jaetavanae anaāthapaiṇaḍaikasasa āraāmae"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
-dependency "iso-ben-Beng-Latn-15919-2001", as: benglatn
-
+dependency "iso-san-Deva-Latn-15919-2001", as: devalatn
 
 stage {
-
-  run map.benglatn.stage.main
-
-  # CHARACTERS
-  parallel {
-    sub "ৰ", "va"
-    sub "ৱ", "ra"
-  }
-
+  run map.devalatn.stage.main
 }
-

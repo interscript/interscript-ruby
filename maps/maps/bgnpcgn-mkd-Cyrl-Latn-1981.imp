@@ -45,33 +45,16 @@ tests {
   test "Шехово", "Šehovo"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
+dependency "var-Cyrl", import: true
 
 stage {
 
   # RULES
-  sub "Ѓ(?=[еЕиИ])", "G"
-  sub "ѓ(?=[еЕиИ])", "g"
-  sub "Ќ(?=[еЕиИ])", "K"
-  sub "ќ(?=[еЕиИ])", "k"
-
-
-  # POSTRULES
-  # DZ
-  sub "((?<=[[:upper:]])Dz(?=[[:upper:]])?|(?<=[[:upper:]])?Dz(?=[[:upper:]]))", "DZ"
-  #LJ
-  sub "((?<=[[:upper:]])Lj(?=[[:upper:]])?|(?<=[[:upper:]])?Lj(?=[[:upper:]]))", "LJ"
-  #NJ
-  sub "((?<=[[:upper:]])Nj(?=[[:upper:]])?|(?<=[[:upper:]])?Nj(?=[[:upper:]]))", "NJ"
-  #DŽ
-  sub "((?<=[[:upper:]])Dž(?=[[:upper:]])?|(?<=[[:upper:]])?Dž(?=[[:upper:]]))", "DŽ"
+  sub "Ѓ", "G", after: "еЕиИ"
+  sub "ѓ", "g", after: "еЕиИ"
+  sub "Ќ", "K", after: "еЕиИ"
+  sub "ќ", "k", after: "еЕиИ"
+  # Those aren't tested.
 
 
   # CHARACTERS
@@ -140,5 +123,20 @@ stage {
     sub "ш", "š" # š
   }
 
-}
+  # POSTRULES
+  # DZ
+  sub "Dz", "DZ", before: any("A".."Z")
+  sub "Dz", "DZ", after: any("A".."Z")
+  #LJ
+  sub "Lj", "LJ", before: any("A".."Z")
+  sub "Lj", "LJ", after: any("A".."Z")
+  #NJ
+  sub "Nj", "NJ", before: any("A".."Z")
+  sub "Nj", "NJ", after: any("A".."Z")
+  #DŽ
+  sub "Dž", "DŽ", before: any("A".."Z")
+  sub "Dž", "DŽ", after: any("A".."Z")
+  # Those aren't tested
 
+  compose
+}

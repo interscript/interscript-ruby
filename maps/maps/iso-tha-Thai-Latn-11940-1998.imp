@@ -9,7 +9,7 @@ metadata {
   creation_date: 1998
   adoption_date:
   description:
-  
+
   notes:
 }
 
@@ -110,6 +110,5 @@ stage {
     sub "\u0e5a", "ǁ" # ๚ THAI CHARACTER ANGKHANKHU
     sub "\u0e5b", "»" # ๛ THAI CHARACTER KHOMUT
   }
-
+  compose
 }
-

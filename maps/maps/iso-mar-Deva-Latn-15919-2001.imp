@@ -61,21 +61,8 @@ tests {
   test "संपादक अर्णब गोस्वामी यांच्याविरूद्ध खडक पोलिस ठाण्यात तक्रार", "saṁpaādaka araṇaba gaosavaāmaī yaāṁcayaāvairaūdadha khaḍaka paolaisa ṭhaāṇayaāta takaraāra"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
-
 dependency "iso-san-Deva-Latn-15919-2001", as: devalatn
 
 stage {
-
   run map.devalatn.stage.main
-
 }
-

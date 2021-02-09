@@ -1,23 +1,19 @@
 metadata {
   authority_id: alalc
-  id: 1997
+  id: 2012
   language: iso-639-2:rus
   source_script: Cyrl
   destination_script: Latn
-  name: ALA-LC Romanization System 1997
-  url: https://en.wikipedia.org/wiki/ALA-LC_romanization_for_Russian
-  creation_date: 1997
+  name: ALA-LC Romanization System 2012
+  url: https://www.loc.gov/catdir/cpso/romanization/russian.pdf
+  creation_date: 2012
   description: |
     The ALA-LC Romanization tables for Slavic alphabets is a set of standards for romanization of texts
     in various writing systems used in North American libraries and publications.
-    This version was published by the American Library Association and the Library of Congress in 1997.
-    This article is about the ALA-LC method of transliteration of Russian-language text from Cyrillic script to Latin script.
-
-    The formal, unambiguous version of the system requires some diacritics and two-letter tie characters which are often omitted in practice.
+    The latest version was published by the American Library Association and the Library of Congress in 2012.
 
   notes:
-    - Pre-1918 letters skipped
-    - Pre-18th century letters skipped
+    - The letters І, Ѣ, Ѳ and Ѵ were eliminated in the orthographic reform of 1918. For other obsolete letters appearing in Russian texts, consult the Church Slavic table.
 }
 
 tests {
@@ -87,88 +83,25 @@ tests {
   test "Брянск", "Bri͡ansk"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
+dependency "alalc-rus-Cyrl-Latn-1997", as: cyrllatn
+
 
 stage {
 
+  run map.cyrllatn.stage.main
+
   # CHARACTERS
   parallel {
-    sub "'", "" # '
-    sub "А", "A" # А
-    sub "Б", "B" # Б
-    sub "В", "V" # В
-    sub "Г", "G" # Г
-    sub "Д", "D" # Д
-    sub "Е", "E" # Е
-    sub "Ё", "Ë" # Ё
-    sub "Ж", "Zh" # Ж
-    sub "З", "Z" # З
-    sub "И", "I" # И
-    sub "Й", "Ǐ" # Й
-    sub "К", "K" # К
-    sub "Л", "L" # Л
-    sub "М", "M" # М
-    sub "Н", "N" # Н
-    sub "О", "O" # О
-    sub "П", "P" # П
-    sub "Р", "R" # Р
-    sub "С", "S" # С
-    sub "Т", "T" # Т
-    sub "У", "U" # У
-    sub "Ф", "F" # Ф
-    sub "Х", "Kh" # Х
-    sub "Ц", "T͡S" # Ц
-    sub "Ч", "Ch" # Ч
-    sub "Ш", "Sh" # Ш
-    sub "Щ", "Shch" # Щ
-    sub "Ъ", "ʺ" # Ъ
-    sub "Ы", "Y" # Ы
-    sub "Ь", "ʹ" # Ь
-    sub "Э", "Ė" # Э
-    sub "Ю", "I͡U" # Ю
-    sub "Я", "I͡A" # Я
+    sub "\u0406", "Ī"
+    sub "\u0456", "ī"
 
-    sub "а", "a" # а
-    sub "б", "b" # б
-    sub "в", "v" # в
-    sub "г", "g" # г
-    sub "д", "d" # д
-    sub "е", "e" # e
-    sub "ё", "ë" # ё
-    sub "ж", "zh" # ж
-    sub "з", "z" # з
-    sub "и", "i" # и
-    sub "й", "ǐ" # й
-    sub "к", "k" # к
-    sub "л", "l" # л
-    sub "м", "m" # м
-    sub "н", "n" # н
-    sub "о", "o" # о
-    sub "п", "p" # п
-    sub "р", "r" # р
-    sub "с", "s" # с
-    sub "т", "t" # т
-    sub "у", "u" # у
-    sub "ф", "f" # ф
-    sub "х", "kh" # х
-    sub "ц", "t͡s" # ц
-    sub "ч", "ch" # ч
-    sub "ш", "sh" # ш
-    sub "щ", "shch" # щ
-    sub "ъ", "ʺ" # ъ
-    sub "ы", "y" # ы
-    sub "ь", "ʹ" # ь
-    sub "э", "ė" # э
-    sub "ю", "i͡u" # ю
-    sub "я", "i͡a" # я
+    sub "\u0462", "I͡E" # Ѣ
+    sub "\u0463", "i͡e" # ѣ
+
+    sub "\u0472", "Ḟ" # Ѳ
+    sub "\u0473", "ḟ" # ѳ
+
+    sub "\u0474", "Ẏ" # Ѵ
+    sub "\u0475", "ẏ" # ѵ
   }
-
 }
-

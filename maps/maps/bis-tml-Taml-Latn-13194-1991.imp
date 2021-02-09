@@ -37,26 +37,16 @@ tests {
   test "இந்திய எண்ணெய் கப்பலில் தீ: விபத்து குறித்த எச்சரிக்கையை கப்பல் அதிகாரிகள் புறக்கணித்தனர் - இலங்கை கோர்ட்டு தகவல்", "intiy eṇṇey kpplil tī: vipttu kuṟitt eccrikkaiyai kppl atikārikḷ puṟkkṇittṉr - ilṅkai kōrṭṭu tkvl"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
-
 stage {
 
   # RULES
   # note
-  sub "\\u0B82(?=[கங])", "ṅ"
-  sub "\\u0B82(?=[சஜஞ])", "ñ"
-  sub "\\u0B82(?=[டண])", "ṇ"
-  sub "\\u0B82(?=[தநன])", "n"
-  sub "\\u0B82(?=[பம])", "m"
-
+  sub "\u0B82", "ṅ", after: any("கங")
+  sub "\u0B82", "ñ", after: any("சஜஞ")
+  sub "\u0B82", "ṇ", after: any("டண")
+  sub "\u0B82", "n", after: any("தநன")
+  sub "\u0B82", "m", after: any("பம")
+  # Those aren't tested
 
   # CHARACTERS
   parallel {
@@ -155,5 +145,5 @@ stage {
     sub "‌", "" # no need for zero with non joiner
   }
 
+  compose
 }
-

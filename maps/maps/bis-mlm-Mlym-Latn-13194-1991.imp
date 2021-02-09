@@ -37,26 +37,16 @@ tests {
   test "പരിശോധന കുറച്ച് കേരളം; കോവിഡ് ടെസ്റ്റ് പോസിറ്റിവിറ്റി നിരക്ക് എറ്റവും ഉയർന്ന്; ആശങ്ക‌", "priśōdhn kuṟcc kērḷṃ; kōvid̂ ṭesṟṟ pōsiṟṟiviṟṟi nirkk eṟṟvuṃ uyrnn; āśṅk"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
-
 stage {
 
   # RULES
   # note
-  sub "\\u0D02(?=[കൿഖഗഘങ])", "ṅ"
-  sub "\\u0D02(?=[ചഛജഝഞ])", "ñ"
-  sub "\\u0D02(?=[ടഠഡഢണ])", "ṇ"
-  sub "\\u0D02(?=[തഥദധന])", "n"
-  sub "\\u0D02(?=[പഫബഭമ])", "m"
-
+  sub "\u0D02", "ṅ", after: any("കൿഖഗഘങ")
+  sub "\u0D02", "ñ", after: any("ചഛജഝഞ")
+  sub "\u0D02", "ṇ", after: any("ടഠഡഢണ")
+  sub "\u0D02", "n", after: any("തഥദധന")
+  sub "\u0D02", "m", after: any("പഫബഭമ")
+  # Those aren't tested
 
 
   # CHARACTERS
@@ -176,5 +166,5 @@ stage {
     sub "‌", "" # no need for zero with non joiner
   }
 
+  compose
 }
-

@@ -42,24 +42,15 @@ tests {
   test "अनुञ्‍ञातोम्हि किर मातापितूहि अगारस्मा अनगारियं पब्बज्‍जाया’’ति, हट्ठो उदग्गो पाणिना गत्तानि परिपुञ्छन्तो वुट्ठासि", "anauñañaātaomahai kaira maātaāpaitaūhai agaārasamaā anagaāraiyaṃ pababajajaāyaā’’tai, haṭaṭhao udagagao paāṇainaā gatataānai paraipauñachanatao vauṭaṭhaāsai"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
-
 stage {
 
   # RULES
   # note[3]
-  sub "\\u0902(?=[कखगघङ])", "ṅ"
-  sub "\\u0902(?=[चछजझञ])", "ñ"
-  sub "\\u0902(?=[टठडढण])", "ṇ"
-  sub "\\u0902(?=[तथदधन])", "n"
+  sub "\u0902", "ṅ", after: any("कखगघङ")
+  sub "\u0902", "ñ", after: any("चछजझञ")
+  sub "\u0902", "ṇ", after: any("टठडढण")
+  sub "\u0902", "n", after: any("तथदधन")
+  # Those aren't tested...
 
 
   # CHARACTERS
@@ -145,5 +136,5 @@ stage {
     sub "‍", "" # Used for joining
   }
 
+  compose
 }
-

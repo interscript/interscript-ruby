@@ -1,8 +1,8 @@
 metadata {
   authority_id: iso
   id: 15919-2001
-  language: iso-639-2:inc
-  source_script: Deva
+  language: iso-639-2:asm
+  source_script: Beng
   destination_script: Latn
   name: "Information and documentation — Transliteration of Devanagari and related Indic scripts into Latin characters"
   url: https://www.chatranjali.fr/Scripts/Standards/ISO15919.pdf
@@ -35,8 +35,6 @@ metadata {
       A colon: before a Latin character shall be used to resolve ambiguity. Some normative cases are as
       follows.
        -  :’ for avagraha in modern text. (The apostrophe in modern text remains unchanged in accordance with previous rule.
-       -  Vowel hiatus, not digraph transliteration of diphthongs; as in Sanskrit pra:uga (not prauga), “yoke”;
-
     - If a character in an Indic script is defined in such a way as to be equivalent to another character in any
       script, where the second character has a transliteration in this International Standard, then the first character shall
       be transliterated in the same way as the second character.
@@ -49,26 +47,27 @@ metadata {
 }
 
 tests {
-  test "उपमुख्यमंत्र्यांची 'मोठी' घोषणा; राज्यात केंद्राच्या कृषी व कामगार विधेयकाची अंमलबजावणी नाही", "upamaukhayamaṁtarayaāṁcaī 'maoṭhaī' ghaoṣaṇaā; raājayaāta kaeṁdaraācayaā kaṛṣaī va kaāmagaāra vaidhaeyakaācaī aṁmalabajaāvaṇaī naāhaī"
-  test "ग्वालियर बन रहा देश का नया जामताड़ा, ऑनलाइन ठगी के कई गिरोह का पर्दाफाश", "gavaālaiyara bana rahaā daeśa kaā nayaā jaāmataāड़ā, ônalaāina ṭhagaī kae kaī gairaoha kaā paradaāphaāśa"
-  test "२४ घण्टामा कोरोनाबाट ६ जनाको मृत्यु, मृतककाे संख्या ४ सय ५९ पुग्यो", "24 ghaṇaṭaāmaā kaoraonaābaāṭa 6 janaākao maṛtayau, maṛtakakaāe saṁkhayaā 4 saya 59 paugayao"
+  test "অসমীয়া কবিতা", "asamaīẏaā kabaitaā"
+  test "কবিৰ আজি জন্মদিন", "kabaiva ājai janamadaina"
+  test "বেৰুটত এমাহৰ পাছতে পুনৰ ভয়ংকৰ অগ্নিকাণ্ড", "baevauṭata emaāhava paāchatae paunava bhaya়ṁkava aganaikaāṇaḍa"
+  test "ভঙাৰ বিৰুদ্ধে আৱেদন দাখিল কংগনাৰ", "bhaṅaāva baivaudadhae āraedana daākhaila kaṁganaāva"
+  test "আপুনি পঢ়ি ভাল পাব পৰা বাতৰি", "āpaunai paṙhai bhaāla paāba pavaā baātavai"
+  test "শ্ৰীৰামপুৰত গৰুভৰ্তি ট্ৰাক জব্দ, দুজনক আটক", "śavaīvaāmapauvata gavaubhavatai ṭavaāka jabada, daujanaka āṭaka"
+  test "কেনে আছে প্ৰাক্তন", "kaenae āchae pavaākatana"
+  test "কমুম্বাইৰ মেয়ৰৰ দেহত কোভিড পজিটিভ", "kamaumabaāiva maeẏavava daehata kaobhaiḍa pajaiṭaibha"
+  test "টুইটাৰযোগে খোদ সদৰী কৰে এই কথা", "ṭauiṭaāvayaogae khaoda sadavaī kavae ei kathaā"
+  test "লখিমপুৰ জিলাৰ নাৰায়ণপুৰৰ বৰপথাৰত আজি প্ৰশান্তি ধাম নামেৰে এখন বৃদ্ধাশ্ৰমৰ শুভাৰম্ভ কৰা হয়", "lakhaimapauva jailaāva naāvaāẏaṇapauvava bavapathaāvata ājai pavaśaānatai dhaāma naāmaevae ekhana baṛdadhaāśavamava śaubhaāvamabha kavaā haẏa"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
-
-dependency "iso-san-Deva-Latn-15919-2001", as: devalatn
+dependency "iso-ben-Beng-Latn-15919-2001", as: benglatn
 
 stage {
 
-  run map.devalatn.stage.main
+  run map.benglatn.stage.main
 
+  # CHARACTERS
+  parallel {
+    sub "ৰ", "va"
+    sub "ৱ", "ra"
+  }
 }
-
