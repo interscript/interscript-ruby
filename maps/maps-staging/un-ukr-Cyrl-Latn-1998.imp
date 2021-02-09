@@ -8,9 +8,27 @@ metadata {
   url: https://unstats.un.org/unsd/geoinfo/UNGEGN/docs/7th-uncsgn-docs/econf/7th_UNCSGN_econf.91_3_Add1.pdf
   # page 320
   creation_date: 1998
+
+  notes:
+    - Ge (ґ) was officially banned in the Soviet Ukraine from 1933 to 1990; https://en.wikipedia.org/wiki/Ukrainian_alphabet#ref_2b
 }
 
 tests {
+  # generated manually
+  test "ОЛЕКСАНДР ЯН", "OLEKSANDR ÂN"
+  test "ТРАНСЛІТЕРАЦІЇ", "TRANSLÌTERACÌÌ"
+  test "ПЕРЕВІРКА", "PEREVÌRKA"
+  test "ВСІ МАТЕРІАЛИ РОЗМІЩЕНІ НА УМОВАХ ЛІЦЕНЗІЇ", "VSÌ MATERÌALI ROZMÌŠČENÌ NA UMOVAH LÌCENZÌÌ"
+  test "ВВЕДІТЬ ПРІЗВИЩЕ ТА ІМ'Я УКРАЇНСЬКИМИ ЛІТЕРАМИ", "VVEDÌT´ PRÌZVIŠČE TA ÌM'Â UKRAÌNS´KIMI LÌTERAMI"
+  test "ДОДАТКОВА ІНФОРМАЦІЯ", "DODATKOVA ÌNFORMACÌÂ"
+  test "ДІЯЛЬНІСТЬ", "DÌÂL´NÌST´"
+  test "ЮЛІЯ", "ÛLÌÂ"
+  test "ЗГОРАНИ", "ZGORANI"
+  test "ЙОРКШИР-ТЕР'ЄР", "JORKŠIR-TER'ÊR"
+  test "ПАПА ПАЧУКА", "PAPA PAČUKA"
+  test "ЄНАКІЄВЕ", "ÊNAKÌÊVE"
+  test "УКРАЇНА", "UKRAÌNA"
+  test "КИЇВ", "KIÌV"
 }
 
 # This map has been partially converted by the bin/maps_v1_to_v2 script
@@ -31,43 +49,19 @@ stage {
 
   # CHARACTERS
   parallel {
-    sub "\u0413", "H" # Г
-    sub "\u0490", "G" # Ґ
-    sub "\u0404", "Ye" # Є
-    sub "\u0416", "Zh" # Ж
-    sub "\u0418", "Y" # И
-    sub "\u0419", "Y" # Й
-    sub "\u0406", "I" # І
-    sub "\u0407", "Yi" # Ї
-    sub "\u0425", "Kh" # Х
-    sub "\u0426", "Ts" # Ц
-    sub "\u0427", "Ch" # Ч
-    sub "\u0428", "Sh" # Ш
-    sub "\u0429", "Shch" # Щ
-    sub "\u042C", "" # Ь
-    sub "\u042E", "yu" # Ю
-    sub "\u042F", "ya" # Я
-    sub "\u042D", "E" # Э
+    sub "\u0401", none # Ё
+    sub "\u0404", "Ê" # Є => Ê
+    sub "\u0406", "Ì" # І => Ì
+    sub "\u0407", "Ì" # Ї => Ì
+    sub "\u042B", none # Ы
+    sub "\u042D", none # Э
 
-    sub "\u0433", "h" # г
-    sub "\u0491", "g" # ґ
-    sub "\u0454", "ye" # є
-    sub "\u0436", "zh" # ж
-    sub "\u0438", "y" # и
-    sub "\u0439", "y" # й
-    sub "\u0456", "i" # і
-    sub "\u0457", "yi" # ї
-    sub "\u0445", "kh" # х
-    sub "\u0446", "ts" # ц
-    sub "\u0447", "ch" # ч
-    sub "\u0448", "sh" # ш
-    sub "\u0449", "shch" # щ
-    sub "\u044C", "" # ь
-    sub "\u044E", "yu" # ю
-    sub "\u044F", "ya" # я
-    sub "\u044D", "e" # э
-
-    sub "\u0027", "\"" # '
+    sub "\u0451", none # ё
+    sub "\u0454", "ê" # є => ê
+    sub "\u0456", "ı̀" # і => ì
+    sub "\u0457", "ı̀" # ї => ì
+    sub "\u044B", none # ы
+    sub "\u044D", none # э
   }
 
 }

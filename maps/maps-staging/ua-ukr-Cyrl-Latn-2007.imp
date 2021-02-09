@@ -57,6 +57,7 @@ stage {
   # CHARACTERS
   parallel {
     sub "Г", "G" # Г
+    sub "Ґ", "G" # Ґ
     sub "Є", "IE" # Є
     sub "Ж", "ZH" # Ж
     sub "Х", "KH" # Х
@@ -68,6 +69,7 @@ stage {
     sub "Я", "IA" # Я
     sub "Ь", "" # Ь ->
     sub "г", "g" # г
+    sub "ґ", "g" # ґ
     sub "щ", "shch" # щ
     sub "ю", "iu" # ю
     sub "я", "ia" # я

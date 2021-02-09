@@ -44,6 +44,12 @@ stage {
 
     sub "\\U040E", "Ŭ" # Ў
     sub "\u045E", "ŭ" # ў
+
+    sub "\u042E", "Ju" # Ю
+    sub "\u044E", "ju" # ю
+
+    sub "\u042F", "Ja" # Я
+    sub "\u044F", "ja" # я
   }
 
 }

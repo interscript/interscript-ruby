@@ -127,6 +127,8 @@ stage {
 
   # CHARACTERS
   parallel {
+    sub "Ґ", "G" # Ґ
+    sub "ґ", "g" # ґ
     sub "Щ", "Shch" # Щ
     sub "щ", "shch" # щ
     sub "ь", "" # Ь ->

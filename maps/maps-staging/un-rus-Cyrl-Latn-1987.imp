@@ -98,6 +98,10 @@ stage {
     sub "\u042C", "’" # Ь
     sub "\u044A", "”" # ъ
     sub "\u044C", "’" # ь
+    sub "\u042E", "Ju" # Ю
+    sub "\u044E", "ju" # ю
+    sub "\u042F", "Ja" # Я
+    sub "\u044F", "ja" # я
   }
 
 }

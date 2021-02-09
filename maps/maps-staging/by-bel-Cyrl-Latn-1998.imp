@@ -6,6 +6,7 @@ metadata {
   destination_script: Latn
   name: National System of Geographic Names Transmission into Roman Alphabet in Belarus
   url: https://unstats.un.org/unsd/geoinfo/UNGEGN/docs/20th-gegn-docs/20th_gegn_WP34.pdf
+  # page 48
   creation_date: 1998
   description: |
     The national system of romanization for Belarusian was approved by the State Committee and Land Resources,
@@ -110,6 +111,8 @@ stage {
     sub "\u0425", "Ch" # Х
     sub "\u042C", "" # Ь
     sub "\u042D", "E" # Э
+    sub "\u042E", "Ju" # Ю
+    sub "\u042F", "Ja" # Я
 
     sub "\u0433", "h" # г
     sub "\u0456", "i" # і
@@ -119,6 +122,8 @@ stage {
     sub "\u0445", "ch" # х
     sub "\u044C", "" # ь
     sub "\u044D", "e" # э
+    sub "\u044E", "ju" # ю
+    sub "\u044F", "ja" # я
 
     sub "\u0027", "" # '
   }
