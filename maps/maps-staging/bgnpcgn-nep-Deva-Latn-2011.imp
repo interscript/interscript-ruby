@@ -78,25 +78,14 @@ tests {
   test "गौरीटारस्थित रंगशाला", "gaurīṭārsathit rṅgshālā"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
-
 stage {
 
   # RULES
   # note[5]
-  sub "\\u0902(?=[कखगघ])", "ṅ" # ं  before क, ख, ग, and घ
-  sub "\\u0902(?=[चछजझ])", "ñ" # ं  before च, छ, ज, and झ
-  sub "\\u0902(?=[टठडढ])", "ṇ" # ं  before ट, ठ, ड, and ढ
-  sub "\\u0902(?=[तथदध])", "n" # ं  before त, थ, द, and ध
-
+  sub "\u0902", "ṅ", after: any("कखगघ") # ं  before क, ख, ग, and घ
+  sub "\u0902", "ñ", after: any("चछजझ") # ं  before च, छ, ज, and झ
+  sub "\u0902", "ṇ", after: any("टठडढ") # ं  before ट, ठ, ड, and ढ
+  sub "\u0902", "n", after: any("तथदध") # ं  before त, थ, द, and ध
 
   # CHARACTERS
   parallel {
@@ -215,5 +204,5 @@ stage {
     sub "९", "9"
   }
 
+  compose
 }
-

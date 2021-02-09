@@ -1,129 +1,43 @@
 metadata {
-  authority_id: sasm
-  id: phonetic-1978
+  authority_id: un
+  id: phonetic-2013
   language: iso-639-2:mon
   source_script: Mong
   destination_script: Latn
-  name: Transliteration of Place Names in Minority Languages in Chinese Pinyin (Mongolian, phonetic)
-  url: http://www.moe.gov.cn/ewebeditor/uploadfile/2015/01/12/20150112161436994.pdf
-  creation_date: 1976-06
+  name: Mongolian Romanization in China, Version 4.0 (phonetic)
+  url: http://www.eki.ee/wgrs/rom1_mnc.htm
+  creation_date: 2013-09
   description: |
-    Article 1
+    The United Nations resolution III/8 in 1977 recognized the Scheme for
+    a Chinese Phonetic Alphabet (Pinyin) as China’s official Roman alphabet
+    scheme and recommended the alphabet as the international system for the
+    romanization of Chinese geographical names. In China Mongolian
+    geographical names are transcribed directly from the Mongolian script
+    into Pinyin. The scheme was published in Toponymic Guidelines for Map
+    and Other Editors: China, 1982.
 
-    The main purpose of the transliteration method of Chinese pinyin
-    letter transliteration of place names in minority languages:
+    The system is used in China and in international cartographic
+    products.
 
-    (1) As a standard for spelling place names in minority languages ​​
-    with Chinese phonetic alphabet;
-    (2) As a phonetic tool for surveying and recording ethnic place
-    names in map surveying and mapping work;
-    (3) As the main basis for the pronunciation and selection of place
-    names in ethnic minority languages ​​in Chinese character
-    transliteration;
-    (4) Provide convenient conditions for the unified compilation of my
-    country's place-name information and index in alphabetical order.
-
-    Article 2
-
-    The transliteration method is limited to the 26 letters in the
-    "Hanyu Pinyin Plan", two letters with additional symbols and a
-    sound-proof symbol. In order to make the transcription and phonetic
-    more accurate, the syllable structure can not be restricted by the
-    syllable form of Mandarin Chinese. Soundproof symbols can be used
-    in various occasions that are easy to be confused. When recording,
-    additional symbols can be added to specific letters to represent
-    special sounds.
-
-    The transliteration and transliteration of ethnic minority scripts
-    in Latin script shall be based on the script. Letters with the same
-    or similar pronunciation and usage as in the "Hanyu Pinyin Plan"
-    shall be written according to them; different or dissimilar letters
-    shall be transcribed separately. If the text does not use Latin
-    letters, the corresponding Chinese phonetic letters shall be used
-    according to the pronunciation of the text. If there is no text,
-    according to the general voice mark.
-
-    Article 3
-
-    Special place names are handled with reference to the following
-    methods:
-
-    (1) If the commonly used Chinese name is partly transliterated and
-    partly translated, the transliteration part is spelled according to
-    the transliteration method, and the free translation part is
-    spelled according to the pronunciation of the Chinese character.
-
-    (2) If the commonly used Chinese character translation is a section
-    translation, the actual situation may be considered. Some are
-    transliterated according to the full name of the original name, and
-    some are spelled according to the Hanyu pronunciation of the
-    section translation.
-
-    (3) If the translated name of a Chinese character originally came
-    from a minority language, but later became a Chinese form and has
-    been commonly used, it can be spelled according to the
-    pronunciation of the Chinese character, including the original name
-    transliterated if necessary.
-
-    (4) Other special circumstances shall be dealt with according to
-    specific discretion.
-
-  original_description: |
-    第一条
-
-    少数民族语地名汉语拼音字母音译转写法的主要用途：
-
-    （1） 作为用汉语拼音字母拼写少数民族语地名的标准；
-    （2）作为地图测绘工作中调査记录少数民族语地名的记音工具；
-    （3） 作为汉字音译少数民族语地名定音和选字的主要依据；
-    （4）为按照字母颐序统一编排我国地名资料和索引提供便利条件。
-
-    第二条
-
-    音译转写法限用《汉语拼音方案》中的26个字母，两个有附加符号的字母和一
-    个隔音符号，为了使转写和记音比较准确，音节结构可以不受汉语普通话音节
-    形式的限制，隔音符号可以在各种
-    容易混淆的场合应用，记音的时候附加符号可以加在特定的字母上面代表特殊
-    语音。
-
-
-    少数民族文字用拉丁字母的，音译转写以其文字为依据。跟《汉语拼音方案》
-    中读音和用法相同或相近的字母，一律照写；不同或不相近的字母分别规定转
-    写方式，文字不用拉丁字母的，根据文字的读音采用相应的汉语拼音字母表示
-    。没有文字的，根据通用语音标记。
-
-    第三条
-
-    特殊的地名参照下列办法处理：
-
-
-    (1）惯用的汉字译名如果是一部分音译，一部分意译，其音译部分根据音译转
-    写法拼写，意译部分按照汉字读音拼写。
-
-
-    (2）惯用的汉字译名如果是节译，可以斟酌具体体情况，有的按照原名全称音
-    译转写，有的按照节译的汉宇读音拼写。
-
-    (3) 汉字译名如果原先来自少数民族语，后来变成汉语形式并且已经通用，可以按
-    照汉字读音拼写，必要时括注音译转写的原名。
-
-    (4) 其他特殊情况具体斟酌处理。
+    Mongolian uses a vertical script. Transcription of Mongolian names is
+    made from their proper pronunciation based on the written form of the
+    Mongolian language and Qahar vernacular, with Zhenglan as its
+    representative pronunciation. Due to the complex nature of the script
+    the romanization scheme is not reversible, e.g. the name of the city
+    Hohhot is written ᠬᠥᠬᠡᠬᠣᠲᠠ but may be transliterated as kökeqota.
 
   notes:
-    - The transliteration of Mongolian place names is based on the
-      customary pronunciation combining written and spoken languages.
-    - The length of Mongolian vowels are generally spelled regardless
-      of their spelling. Long vowels in place names are represented by
-      double letters.
-    - The Chinese phonetic alphabets transliterated by transliteration
-      are juxtaposed with or without symbols and adjuncts. Normally, the
-      spelling letters are without symbols, and the place names are
-      recorded by the acronym.
-
-  original_notes:
-    (1) 蒙古语地名的音译转写，以书面语和口语通用相结合的习惯读法为依据。
-    (2) 蒙古语元音的长短，一般拼写不分，地名记音中长元音用双字母表示。
-    (3) 音译转写的汉语拼音字母有无符和加符并列的，一般拼写用无符字母，地名记音用加符宇母。
+    - The long and short Mongolian vowels are not distinguished in the
+      spelling for general use, but in recording the pronunciation of
+      place-names, the long vowel is represented by duplication.
+    - Where two Roman equivalents are given, the second (in brackets) is
+      used for recording the pronunciation of place-names while the first
+      form is for general use.
+    - In the table only word-initial character variants are shown.
+      Depending on the position in the word many variants of the characters
+      are used as well as some ligatures. These features are not covered here.
+    - For technical reasons the characters of the Mongolian script are
+      turned 90˚ anti-clockwise.
 
   implementation_notes:
     - A separated final form of vowels a or e is common, and can appear at the end
@@ -247,27 +161,10 @@ tests {
   test "ᠤᠯᠠᠭᠠᠨᠪᠠᠭᠠᠲᠤᠷ", "ûlaganbagatûr" # Улаанбаатар
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
-dependency "sasm-mon-Mong-Latn-general-1978", as: monglatn
-
+dependency "sasm-mon-Mong-Latn-phonetic-1978", as: monglatn
 
 stage {
 
   run map.monglatn.stage.main
 
-  # CHARACTERS
-  parallel {
-    sub "ᠣ", "ô" # For place names
-    sub "ᠤ", "û" # For place names
-  }
-
 }
-

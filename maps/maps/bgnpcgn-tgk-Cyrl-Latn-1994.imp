@@ -91,24 +91,15 @@ tests {
   test "РАМЗҲО", "RAMZ·HO"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
 stage {
 
   # RULES
   # note[1]
-  sub "([ГгЗзКкСс])\\u04B3", "\\1·h"
-  sub "([ГгЗзКкСс])\\u04B2", "\\1·H"
+  sub "\u04B3", "·h", before: any("ГгЗзКкСс")
+  sub "\u04B2", "·H", before: any("ГгЗзКкСс")
   # note[2]
-  sub "\\u0426(?=[АаЕеЁёИиОоУуЫыЭэЮюЯя])", "S"
-  sub "\\u0446(?=[АаЕеЁёИиОоУуЫыЭэЮюЯя])", "s"
+  sub "\u0426", "S", after: any("АаЕеЁёИиОоУуЫыЭэЮюЯя")
+  sub "\u0446", "s", after: any("АаЕеЁёИиОоУуЫыЭэЮюЯя")
 
 
   # CHARACTERS
@@ -195,4 +186,3 @@ stage {
   }
 
 }
-
