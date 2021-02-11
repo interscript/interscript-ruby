@@ -7,8 +7,10 @@ maps = Interscript.maps(basename: false, select: mask)
 # Precache can be used to compare interpreter to compiler performance
 if ENV.include? "PRECACHE"
   each_compiler do |compiler|
-    system_name = File.basename(system_file, ".imp")
-    Interscript.transliterate(system_name, "", cache, compiler: compiler)
+    maps.each do |system_file|
+      system_name = File.basename(system_file, ".imp")
+      Interscript.transliterate(system_name, "", cache, compiler: compiler)
+    end
   end
 end
 
