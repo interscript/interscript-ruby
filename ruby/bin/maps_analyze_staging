@@ -4,13 +4,20 @@ require "bundler/setup"
 require "interscript"
 require "interscript/compiler/ruby"
 
-cache = {}
 
 # surpress warnings
 def warn(*)
 end
 
-for i in Dir[__dir__+"/../../maps/maps-staging/*.imp"]
+def analyze_maps( filelist )
+
+cache = {}
+
+good_total = 0
+almost_total = 0
+bad_total = 0
+passed_total = 0
+for i in filelist
   system_name = File.basename(i, ".imp")
 
   print "#{system_name}: "
@@ -26,6 +33,7 @@ for i in Dir[__dir__+"/../../maps/maps-staging/*.imp"]
   if exceptions.length == 0 && system.tests && system.tests.data && system.tests.data.length > 0
     good = 0
     bad = 0
+    almost = 0
 
     system.tests.data.each do |from,expected|
       testname = from[0...300].gsub("\n", " / ")
@@ -40,7 +48,7 @@ for i in Dir[__dir__+"/../../maps/maps-staging/*.imp"]
         good += 1
       elsif result.unicode_normalize == expected.unicode_normalize
         print ","
-        bad += 1
+        almost += 1
       else
         print "#"
         bad += 1
@@ -52,11 +60,15 @@ for i in Dir[__dir__+"/../../maps/maps-staging/*.imp"]
     end
 
     if bad == 0
+      passed_total += 1
       puts " all tests passed!"
-      `git mv #{i} #{i.sub("-staging", "")}`
+      `git mv #{i} #{i.sub("-staging", "")}`   if i.include? '-staging'
     else
-      puts " (#{good}/#{good+bad})"
+      puts " (#{good}/#{good+almost+bad})"
     end
+    good_total += good
+    almost_total += almost
+    bad_total += bad
   elsif exceptions.length != 0
   else
     puts "no tests!"
@@ -66,3 +78,9 @@ for i in Dir[__dir__+"/../../maps/maps-staging/*.imp"]
     puts e.full_message
   end
 end
+puts " #{good_total} (#{good_total+almost_total})/#{good_total+almost_total+bad_total}"
+puts " #{passed_total} passed!"
+end
+
+analyze_maps Dir[__dir__+"/../../maps/maps/*.imp"].sort
+analyze_maps Dir[__dir__+"/../../maps/maps-staging/*.imp"].sort

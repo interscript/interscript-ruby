@@ -1,0 +1,173 @@
+metadata {
+  authority_id: bis
+  id: 1991
+  language: iso-639-2:guj
+  source_script: Gujr
+  destination_script: Latn
+  name: Indian script code for information interchange - ISCII - Gujrati Romanization
+
+  #url:
+  creation_date: 1991
+  description: |
+    IS 13194 (1991): Indian script code for information
+    interchange - ISCII [LITD 20: Indian Language Technologies
+    and Products]
+
+  notes:
+    - |
+      Exception: Anusvāra is transliterated by:
+
+      a) ṅ before gutturals,
+      b) ñ before palatals,
+      c) ṇ before cerebrals,
+      d) n before dentals, and
+      e) m before labials.
+}
+
+tests {
+  test "અમિત શાહનો કોરોના રિપોર્ટ 2 ઓગસ્ટે પોઝિટિવ આવ્યો હતો, ત્યારથી તેમનું સ્વાસ્થ્ય સારું નથી", "amit śāhnŏ kŏrŏnā ripŏrṭ 2 ŏgsṭē pŏjhiṭiv āvyŏ htŏ, tyārthī tēmnuṃ svāsthy sāruṃ nthī"
+  test "મેદાંતા હોસ્પિટલમાં તેમનો ઇલાજ ચાલી રહ્યો હતો", "mēdāntā hŏspiṭlmāṃ tēmnŏ ilāj cālī rhyŏ htŏ"
+  test "ભારતના વિશ્વનાથન આનંદે શેનયાનમાં પહેલો ફિડે શતરંજ વિશ્વ કપ જીત્યો", "bhārtnā viśvnāthn ānndē śēnyānmāṃ phēlŏ phiḍē śtrñj viśv kp jītyŏ"
+  test "ભારતીય વડા પ્રધાન જવાહરલાલ નેહરુએ 40 લાખ હિન્દુઓ અને મુસલમાનોના પારસ્પરિક સ્થાનાંતરણનું સૂચન આપ્યું", "bhārtīy vḍā prdhān jvāhrlāl nēhruē 40 lākh hinduŏ anē muslmānŏnā pārsprik sthānāntrṇnuṃ sūcn āpyuṃ"
+  test "લિબિયાના એલ અજિજિયામાં ધરતી પર સૌથી વધુ તાપમાન નોંધાયું. એ વખતે છાયામાં નોંધવામાં આવેલું તાપમાન 58 ડિગ્રી સેલ્સિયસ હતું.", "libiyānā ēl ajijiyāmāṃ dhrtī pr sauthī vdhu tāpmān nŏndhāyuṃ. ē vkhtē chāyāmāṃ nŏndhvāmāṃ āvēluṃ tāpmān 58 ḍigrī sēlsiys htuṃ."
+  test "પ્રથમ વિશ્વયુદ્ધઃ જર્મની અને ફ્રાન્સ વચ્ચે એસ્નેની લડાઈ શરૂ થઈ હતી", "prthm viśvyuddhḥ jrmnī anē phrāns vccē ēsnēnī lḍāī śrū thī htī"
+  test "એન્ગ્લો-મિસ્ત્ર યુદ્ધઃ તેલ અલ કેબિરનું યુદ્ધ લડવામાં આવ્યું હતું.", "ēnglŏ-mistr yuddhḥ tēl al kēbirnuṃ yuddh lḍvāmāṃ āvyuṃ htuṃ."
+  test "પુરાવા ન હતા, એ જ કારણે કેસ ચાલ્યો નહીં, પણ તેમને નજરકેદ રાખવામાં આવ્યા", "purāvā n htā, ē j kārṇē kēs cālyŏ nhīṃ, pṇ tēmnē njrkēd rākhvāmāṃ āvyā"
+  test "સરદાર પટેલે નક્કી કર્યું હતું કે કાશ્મીર ભારતનો હિસ્સો બનશે; 91 વર્ષ પહેલાં લાહોર જેલમાં ભૂખહડતાળ દરમિયાન શહીદ થયા હતા જતીન દાસ", "srdār pṭēlē nkkī kryuṃ htuṃ kē kāśmīr bhārtnŏ hissŏ bnśē; 91 vrṣ phēlāṃ lāhŏr jēlmāṃ bhūkhhḍtāḷ drmiyān śhīd thyā htā jtīn dās"
+  test "કોરોના પ્રોટોકોલ વચ્ચે આજે મેડિકલ પ્રવેશ પરીક્ષા લેવાશેઃ એન્ટ્રી ટચ ફ્રી રહેશે, એડમિટ કાર્ડ બાર કોડથી ચેક થશે", "kŏrŏnā prŏṭŏkŏl vccē ājē mēḍikl prvēś prīkṣā lēvāśēḥ ēnṭrī ṭc phrī rhēśē, ēḍmiṭ kārḍ bār kŏḍthī cēk thśē"
+  test "૮૪૬૬૫૪૧૬૪૬૫૧", "846654164651"
+}
+
+stage {
+
+  # RULES
+  # note
+    sub "\u0A82", "ṅ", after: any("કખગઘઙ")
+    sub "\u0A82", "ñ", after: any("ચછજઝઞ")
+    sub "\u0A82", "ṇ", after: any("ટઠડઢણ")
+    sub "\u0A82", "n", after: any("તથદધન")
+    sub "\u0A82", "m", after: any("પફબભમ")
+
+
+
+  # CHARACTERS
+  parallel {
+    sub "અ", "a"
+    sub "આ", "ā"
+    sub "ઇ", "i"
+    sub "ઈ", "ī"
+    sub "ઉ", "u"
+    sub "ઊ", "ū"
+    # 'ઋ': 'ṛ'
+    sub "ઌ", "ḻ"
+
+    sub "ઍ", "e"
+    sub "એ", "ē"
+    sub "ઐ", "ai"
+
+    sub "ઑ", "o"
+    sub "ઓ", "ŏ"
+    sub "ઔ", "au"
+
+    # II. Consonants (see Note 2)
+    # Gutturals
+    sub "ક", "k"
+    sub "ખ", "kh"
+    sub "ગ", "g"
+    sub "ઘ", "gh"
+    sub "ઙ", "ṅ"
+
+    # Palatals
+    sub "ચ", "c"
+    sub "છ", "ch"
+    sub "જ", "j"
+    sub "ઝ", "jh"
+    sub "ઞ", "ñ"
+
+    # Cerebrals
+    sub "ટ", "ṭ"
+    sub "ઠ", "ṭh"
+    sub "ડ", "ḍ"
+    sub "ઢ", "ḍh"
+    sub "ણ", "ṇ"
+
+    # Dentals
+    sub "ત", "t"
+    sub "થ", "th"
+    sub "દ", "d"
+    sub "ધ", "dh"
+    sub "ન", "n"
+
+    # Labials
+    sub "પ", "p"
+    sub "ફ", "ph"
+    sub "બ", "b"
+    sub "ભ", "bh"
+    sub "મ", "m"
+
+    # Semivowels
+    sub "ય", "y"
+    sub "ર", "r"
+    sub "લ", "l"
+    sub "ળ", "ḷ"
+    sub "વ", "v"
+
+    # Sibilants
+    sub "શ", "ś"
+    sub "ષ", "ṣ"
+    sub "સ", "s"
+
+
+    # Aspirate
+    sub "હ", "h"
+
+    # Chandrabindu
+    sub "ઁ", "m"
+
+    # Bisarga
+    sub "ઃ", "ḥ"
+
+    # Anusvāra
+    sub "ં", "ṃ"
+
+    # Medials # Needed for connecting constants
+
+    sub "ા", "ā"
+    sub "િ", "i"
+    sub "ી", "ī"
+    sub "ુ", "u"
+    sub "ૂ", "ū"
+    sub "ૃ", "ṛ"
+    #'ૄ': 'ṛr'
+    sub "ૅ", "e"
+    sub "ે", "ē"
+    sub "ૈ", "ai"
+    sub "ૉ", "o"
+    sub "ો", "ŏ"
+    sub "ૌ", "au"
+
+
+
+    sub "\u09CD", "" # Used for joining
+    sub "્", ""
+    sub "઼", ""
+    sub "।", "."
+    sub "‍", "" # Used for joining
+
+    # digits
+
+    sub "૦", "0"
+    sub "૧", "1"
+    sub "૨", "2"
+    sub "૩", "3"
+    sub "૪", "4"
+    sub "૫", "5"
+    sub "૬", "6"
+    sub "૭", "7"
+    sub "૮", "8"
+    sub "૯", "9"
+  }
+
+  compose
+}
+

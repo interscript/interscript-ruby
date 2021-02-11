@@ -1,0 +1,215 @@
+metadata {
+  authority_id: alalc
+  id: 1997
+  language: iso-639-2:asm
+  source_script: Deva
+  destination_script: Latn
+  name: Assamese Romanization, 1997
+  url: http://catdir.loc.gov/catdir/cpso/romanization/assamese.pdf
+  creation_date: 1997
+  description: |
+    ALA-LC Romanization table for Assamese
+
+  notes:
+
+    - Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for
+      vowels following a consonant can be found in grammars; no distinction between the two is
+      made in transliteration.
+
+    - |
+      The vowel a is implicit after all consonants and consonant clusters and is supplied in
+      transliteration, with the following exceptions:
+
+      a) when another vowel is indicated by its appropriate sign; and
+      b) when the absence of any vowel is indicated by the subscript sign ( ◌् ) called halanta or
+         birāma.
+
+    - Candrabindu before guttural, palatal, cerebral, and dental occlusives is transliterated n̐. Before
+      labials, sibilants, semivowels, aspirates, vowels, and in final position it is transliterated m̐.
+
+    - When doubled, avagraha is transliterated by two apostrophes ( ’’ ).
+}
+
+tests {
+  test "অসমীয়া কবিতা", "asamīẏā kabitā"
+  test "কবিৰ আজি জন্মদিন", "kabira āji janmadina"
+  test "বেৰুটত এমাহৰ পাছতে পুনৰ ভয়ংকৰ অগ্নিকাণ্ড", "beruṭata emāhara pāchate punara bhayaṃkara agnikāṇḍa"
+  test "ভঙাৰ বিৰুদ্ধে আৱেদন দাখিল কংগনাৰ", "bhaṅāra biruddhe āwedana dākhila kaṃganāra"
+  test "আপুনি পঢ়ি ভাল পাব পৰা বাতৰি", "āpuni paṛhi bhāla pāba parā bātari"
+  test "শ্ৰীৰামপুৰত গৰুভৰ্তি ট্ৰাক জব্দ, দুজনক আটক", "śrīrāmapurata garubharti ṭrāka jabda, dujanaka āṭaka"
+  test "কেনে আছে প্ৰাক্তন", "kene āche prāktana"
+  test "কমুম্বাইৰ মেয়ৰৰ দেহত কোভিড পজিটিভ", "kamumbāira meẏarara dehata kobhiḍa pajiṭibha"
+  test "টুইটাৰযোগে খোদ সদৰী কৰে এই কথা", "ṭuiṭāraẏoge khoda sadarī kare ei kathā"
+  test "লখিমপুৰ জিলাৰ নাৰায়ণপুৰৰ বৰপথাৰত আজি প্ৰশান্তি ধাম নামেৰে এখন বৃদ্ধাশ্ৰমৰ শুভাৰম্ভ কৰা হয়", "lakhimapura jilāra nārāẏaṇapurara barapathārata āji praśānti dhāma nāmere ekhana bṛddhāśramara śubhārambha karā haẏa"
+}
+
+aliases {
+  def_alias deva_chars_1, any("\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u094d\u09cd")
+}
+
+stage {
+
+  # RULES
+  # note[2]
+    sub "ক", "k", after: deva_chars_1
+    sub "খ", "kh", after: deva_chars_1
+    sub "গ", "g", after: deva_chars_1
+    sub "ঘ", "gh", after: deva_chars_1
+    sub "ঙ", "ṅ", after: deva_chars_1
+    sub "চ", "c", after: deva_chars_1
+    sub "ছ", "ch", after: deva_chars_1
+    sub "জ", "j", after: deva_chars_1
+    sub "ঝ", "jh", after: deva_chars_1
+    sub "ঞ", "ñ", after: deva_chars_1
+    sub "ট", "ṭ", after: deva_chars_1
+    sub "ঠ", "ṭh", after: deva_chars_1
+    sub "ড", "ḍ", after: deva_chars_1
+    sub "ড়", "ṛ", after: deva_chars_1
+    sub "ঢ", "ḍh", after: deva_chars_1
+    sub "ঢ়", "ṛh", after: deva_chars_1
+    sub "ণ", "ṇ", after: deva_chars_1
+    sub "ত", "t", after: deva_chars_1
+    sub "ৎ", "ṭ", after: deva_chars_1
+    sub "থ", "th", after: deva_chars_1
+    sub "দ", "d", after: deva_chars_1
+    sub "ধ", "dh", after: deva_chars_1
+    sub "ন", "n", after: deva_chars_1
+    sub "প", "p", after: deva_chars_1
+    sub "ফ", "ph", after: deva_chars_1
+    sub "ব", "b", after: deva_chars_1
+    sub "ভ", "bh", after: deva_chars_1
+    sub "ম", "m", after: deva_chars_1
+    sub "য়", "y", after: deva_chars_1
+    sub "য", "ẏ", after: deva_chars_1
+    sub "য়", "ẏ", after: deva_chars_1
+    sub "ৰ", "r", after: deva_chars_1
+    sub "ল", "l", after: deva_chars_1
+    sub "ৱ", "w", after: deva_chars_1
+    sub "শ", "ś", after: deva_chars_1
+    sub "ষ", "sh", after: deva_chars_1
+    sub "স", "s", after: deva_chars_1
+    sub "হ", "h", after: deva_chars_1
+  # note[3]
+    sub "\u0981", "ṅ", after: any("কখগঘঙচছজঝঞটঠডড়ঢঢ়ণতৎথদধন") # ঁ before guttural, palatal, cerebral, and dental
+
+
+  # CHARACTERS
+  parallel {
+
+    #Vowels and Diphthongs (see Note 1)
+
+    sub "অ", "a"
+    sub "আ", "ā"
+    sub "ই", "i"
+    sub "ঈ", "ī"
+    sub "উ", "u"
+    sub "ঊ", "ū"
+    sub "ঋ", "ṛ"
+    sub "ৠ", "ṝ"
+    sub "ঌ", "ḹ"
+    sub "এ", "e"
+    sub "ঐ", "ai"
+    sub "ও", "o"
+    sub "ঔ", "au"
+
+    # Consonant characters
+
+    #Gutturals
+    sub "ক", "ka"
+    sub "খ", "kha"
+    sub "গ", "ga"
+    sub "ঘ", "gha"
+    sub "ঙ", "ṅa"
+
+    #Palatals
+    sub "চ", "ca"
+    sub "ছ", "cha"
+    sub "জ", "ja"
+    sub "ঝ", "jha"
+    sub "ঞ", "ña"
+
+    #Cerebrals
+    sub "ট", "ṭa"
+    sub "ঠ", "ṭha"
+    sub "ড", "ḍa"
+    sub "ড়", "ṛa"
+    sub "ঢ", "ḍha"
+    sub "ঢ়", "ṛha"
+    sub "ণ", "ṇa"
+
+    #Dentals
+    sub "ত", "ta"
+    sub "ৎ", "ṭ"
+    sub "থ", "tha"
+    sub "দ", "da"
+    sub "ধ", "dha"
+    sub "ন", "na"
+
+    #Labials
+    sub "প", "pa"
+    sub "ফ", "pha"
+    sub "ব", "ba"
+    sub "ভ", "bha"
+    sub "ম", "ma"
+
+    #Semivowels
+    sub "য়", "ya"
+    sub "য", "ẏa"
+    sub "য়", "ẏa"
+    sub "ৰ", "ra"
+    sub "ল", "la"
+    sub "ৱ", "wa"
+
+    #Sibilants
+    sub "শ", "śa"
+    sub "ষ", "sha"
+    sub "স", "sa"
+
+    #Aspirate
+    sub "হ", "ha"
+
+
+    # Anusvāra
+    sub "ং", "ṃ"
+
+    # Bisarga
+    sub "ঃ", "ḥ"
+
+    # Candrabindu (see Note 3)
+    sub "ঁ", "m̐"
+
+    # Abagraha  (see Note 4)
+    sub "ऽ", "’" # (apostrophe)
+
+    # Medials # Needed for connecting constants
+    sub "\u09be", "ā"
+    sub "\u09bf", "i"
+    sub "\u09c0", "ī"
+    sub "\u09c1", "u"
+    sub "\u09c2", "ū"
+    sub "\u09c3", "ṛ"
+    sub "\u09c7", "e"
+    sub "\u09c8", "ai"
+    sub "\u09cb", "o"
+    sub "\u09cc", "au"
+    sub "।", "."
+    sub "्", ""
+    sub "\u09CD", "" # Used for joining
+
+    # Digits
+
+    sub "১", "1"
+    sub "২", "2"
+    sub "৩", "3"
+    sub "৪", "4"
+    sub "৫", "5"
+    sub "৬", "6"
+    sub "৭", "7"
+    sub "৮", "8"
+    sub "৯", "9"
+    sub "০", "0"
+  }
+
+  compose
+}
+

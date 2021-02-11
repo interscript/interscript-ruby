@@ -1,0 +1,188 @@
+metadata {
+  authority_id: un
+  id: 1972
+  language: iso-639-2:ben
+  source_script: Beng
+  destination_script: Latn
+  name: REPORT ON THE CURRENT STATUS OF UNITED NATIONS ROMANIZATION SYSTEMS FOR GEOGRAPHICAL NAMES -- Assamese Romanization, Version 4.0
+  url: https://www.eki.ee/wgrs/rom1_as.htm
+  creation_date: 1972
+  confirmation_date: 2016
+  description: |
+    The United Nations recommended system was approved in 1972 (II/11) and amended in 1977 (III/12),
+    based on a report prepared by D. N. Sharma. The tables and their corrections were published in
+    volume II of the conference reports.
+
+    There is no evidence of the use of the system either in India or in international cartographic products.
+
+    Assamese (Asamīyā) uses an alphasyllabic script whereby each character represents a syllable rather
+    than one sound. Vowels and diphthongs are marked in two ways: as independent characters (used syllable-initially)
+    and in an abbreviated form, to denote vowels after consonants. The romanization table is unambiguous but the user
+    would have to recognize many ligatures not given in the original table. The system is mostly reversible but there
+    exist some ambiguities in the romanization of vowels (independent vs. abbreviated characters) and consonants
+    (ligatures vs. character sequences).
+
+    References
+
+    Second United Nations Conference on the Standardization of Geographical Names.
+    London, 10–31 May 1972. Vol. II. Technical papers. United Nations. New York 1974, pp. 141–142.
+
+    Third United Nations Conference on the Standardization of Geographical Names. Athens,
+    17 August – 7 September 1977. Vol. II, Technical papers, pp. 393 etc.
+
+  notes:
+     - |
+       ু Exceptions: গু gu; রু ru; শু shu; হু hu; ন্তু ntu; স্তু stu.
+     - |
+       ূ Exceptions: রূ rū.
+     - |
+       ৃ Exceptions: হৃ hṛ.
+     - |
+       ্‌  Pronunciation without a vowel; special form: ৎ t.
+     - |
+       Dotted variants of the characters: ড় ṙa; ঢ় ṙha; য় ya.
+}
+
+tests {
+  test "অসমীয়া কবিতা", "asamīyā kabitā"
+  test "কবিৰ আজি জন্মদিন", "kabira āji janmadina"
+  test "বেৰুটত এমাহৰ পাছতে পুনৰ ভয়ংকৰ অগ্নিকাণ্ড", "beruṭata emāhara pāchhate punara bhayaṁkara agnikāṇḍa"
+  test "ভঙাৰ বিৰুদ্ধে আৱেদন দাখিল কংগনাৰ", "bhaṅāra biruddhe āvedana dākhila kaṁganāra"
+  test "আপুনি পঢ়ি ভাল পাব পৰা বাতৰি", "āpuni paṙhi bhāla pāba parā bātari"
+  test "শ্ৰীৰামপুৰত গৰুভৰ্তি ট্ৰাক জব্দ, দুজনক আটক", "shrīrāmapurata garubharti ṭrāka jabda, dujanaka āṭaka"
+  test "কেনে আছে প্ৰাক্তন", "kene āchhe prāktana"
+  test "কমুম্বাইৰ মেয়ৰৰ দেহত কোভিড পজিটিভ", "kamumbāira meyarara dehata kobhiḍa pajiṭibha"
+  test "টুইটাৰযোগে খোদ সদৰী কৰে এই কথা", "ṭuiṭāraj̱oge khoda sadarī kare ei kathā"
+  test "লখিমপুৰ জিলাৰ নাৰায়ণপুৰৰ বৰপথাৰত আজি প্ৰশান্তি ধাম নামেৰে এখন বৃদ্ধাশ্ৰমৰ শুভাৰম্ভ কৰা হয়", "lakhimapura jilāra nārāyaṇapurara barapathārata āji prashānti dhāma nāmere ekhana bṛddhāshramara shubhārambha karā haya"
+}
+
+aliases {
+  def_alias beng_chars_1, any("\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd")
+}
+
+stage {
+
+  # RULES
+    sub "ক", "k", after: beng_chars_1
+    sub "খ", "kh", after: beng_chars_1
+    sub "গ", "g", after: beng_chars_1
+    sub "ঘ", "gh", after: beng_chars_1
+    sub "ঙ", "ṅ", after: beng_chars_1
+    sub "চ", "ch", after: beng_chars_1
+    sub "ছ", "chh", after: beng_chars_1
+    sub "জ", "j", after: beng_chars_1
+    sub "ঝ", "jh", after: beng_chars_1
+    sub "ঞ", "ñ", after: beng_chars_1
+    sub "ট", "ṭ", after: beng_chars_1
+    sub "ঠ", "ṭh", after: beng_chars_1
+    sub "ড", "ḍ", after: beng_chars_1
+    sub "ঢ", "ḍh", after: beng_chars_1
+    sub "ণ", "ṇ", after: beng_chars_1
+    sub "ত", "t", after: beng_chars_1
+    sub "থ", "th", after: beng_chars_1
+    sub "দ", "d", after: beng_chars_1
+    sub "ধ", "dh", after: beng_chars_1
+    sub "ন", "n", after: beng_chars_1
+    sub "প", "p", after: beng_chars_1
+    sub "ফ", "ph", after: beng_chars_1
+    sub "ব", "b", after: beng_chars_1
+    sub "ভ", "bh", after: beng_chars_1
+    sub "ম", "m", after: beng_chars_1
+    sub "য", "j̱", after: beng_chars_1
+    sub "ৰ", "r", after: beng_chars_1
+    sub "ল", "l", after: beng_chars_1
+    sub "ৱ", "v", after: beng_chars_1
+    sub "শ", "sh", after: beng_chars_1
+    sub "ষ", "ṣh", after: beng_chars_1
+    sub "স", "s", after: beng_chars_1
+    sub "হ", "h", after: beng_chars_1
+    sub "ড়", "ṙ", after: beng_chars_1
+    sub "ঢ়", "ṙh", after: beng_chars_1
+    sub "য়", "y", after: beng_chars_1
+    sub "ড়", "ṙ", after: beng_chars_1
+    sub "ঢ়", "ṙh", after: beng_chars_1
+    sub "য়", "y", after: beng_chars_1
+
+
+  # CHARACTERS
+  parallel {
+
+    # I. Independent vowel characters
+    sub "অ", "a"
+    sub "আ", "ā"
+    sub "ই", "i"
+    sub "ঈ", "ī"
+    sub "উ", "u"
+    sub "ঊ", "ū"
+    sub "ঋ", "ṛ"
+    sub "এ", "e"
+    sub "ঐ", "ai"
+    sub "ও", "o"
+    sub "ঔ", "au"
+
+    # II. Abbreviated vowel characters
+    sub "\u09be", "ā"
+    sub "\u09bf", "i"
+    sub "\u09c0", "ī"
+    sub "\u09c1", "u"
+    sub "\u09c2", "ū"
+    sub "\u09c3", "ṛ"
+    sub "\u09c7", "e"
+    sub "\u09c8", "ai"
+    sub "\u09cb", "o"
+    sub "\u09cc", "au"
+
+    # III. Other symbols
+    sub "\u0982", "ṁ"
+    sub "\u0981", "m̐"
+    sub "\u0983", "ḥ"
+    sub "\u09cd", ""
+
+    # IV. Consonant characters
+    sub "ক", "ka"
+    sub "খ", "kha"
+    sub "গ", "ga"
+    sub "ঘ", "gha"
+    sub "ঙ", "ṅa"
+    sub "চ", "cha"
+    sub "ছ", "chha"
+    sub "জ", "ja"
+    sub "ঝ", "jha"
+    sub "ঞ", "ña"
+    sub "ট", "ṭa"
+    sub "ঠ", "ṭha"
+    sub "ড", "ḍa"
+    sub "ঢ", "ḍha"
+    sub "ণ", "ṇa"
+    sub "ত", "ta"
+    sub "থ", "tha"
+    sub "দ", "da"
+    sub "ধ", "dha"
+    sub "ন", "na"
+    sub "প", "pa"
+    sub "ফ", "pha"
+    sub "ব", "ba"
+    sub "ভ", "bha"
+    sub "ম", "ma"
+    sub "য", "j̱a"
+    sub "ৰ", "ra"
+    sub "ল", "la"
+    sub "ৱ", "va"
+    sub "শ", "sha"
+    sub "ষ", "ṣha"
+    sub "স", "sa"
+    sub "হ", "ha"
+    sub "ৎ", "t"
+
+    # Note V Dotted variants
+    sub "ড়", "ṙa"
+    sub "ঢ়", "ṙha"
+    sub "য়", "ya"
+    sub "য়", "ya"
+    sub "ড়", "ṙa"
+    sub "ঢ়", "ya"
+  }
+
+  compose
+}
+

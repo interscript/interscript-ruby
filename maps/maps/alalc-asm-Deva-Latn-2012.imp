@@ -1,0 +1,53 @@
+metadata {
+  authority_id: alalc
+  id: 2012
+  language: iso-639-2:asm
+  source_script: Deva
+  destination_script: Latn
+  name: Assamese Romanization, 2012
+  url: https://www.loc.gov/catdir/cpso/romanization/assamese.pdf
+  creation_date: 1997
+  description: |
+    ALA-LC Romanization table for Assamese
+
+  notes:
+
+    - Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for
+      vowels following a consonant can be found in grammars; no distinction between the two is
+      made in transliteration.
+
+    - |
+      The vowel a is implicit after all consonants and consonant clusters and is supplied in
+      transliteration, with the following exceptions:
+
+      a) when another vowel is indicated by its appropriate sign; and
+      b) when the absence of any vowel is indicated by the subscript sign ( ◌् ) called halanta or
+         birāma.
+
+    - Candrabindu before guttural, palatal, cerebral, and dental occlusives is transliterated n̐. Before
+      labials, sibilants, semivowels, aspirates, vowels, and in final position it is transliterated m̐.
+
+    - When doubled, avagraha is transliterated by two apostrophes ( ’’ ).
+}
+
+tests {
+  test "ৰাজ্যিক স্বাস্থ্য মন্ত্ৰী পীয়ুষ হাজৰিকাৰ বিৰুদ্ধে দাখিল কৰা হৈছে এজাহাৰ।", "rājẏika sbāsthẏa mantrī pīyusha hājarikāra biruddhe dākhila karā haiche ejāhāra."
+  test "কোৰোনা মহামাৰীৰ এই সময়ত সভাখনত হাজাৰ হাজাৰ লোকে মাস্ক পৰিধান নকৰাৰ লগতে সামাজিক দূৰত্ব নমনাৰ অভিযোগ উত্থাপন কৰা হৈছে", "koronā mahāmārīra ei samayata sabhākhanata hājāra hājāra loke māska paridhāna nakarāra lagate sāmājika dūratba namanāra abhiẏoga utthāpana karā haiche"
+  test "হাওৰাঘাটৰ গ্ৰামীণ বিকাশ বেংক হিতাধিকাৰীৰ পৰা উৎকোচ লৈ গ্ৰেপ্তাৰ বিজেপি কৰ্মী যীচু কেম্পাই", "hāorāghāṭara grāmīṇa bikāśa beṃka hitādhikārīra parā uṭkoca lai greptāra bijepi karmī ẏīcu kempāi"
+  test "জ্যেষ্ঠ সাংবাদিক পৰাগ ভূঞাৰ মৃত্যুক লৈ তদন্ত আৰম্ভ চিআইডিৰ", "jẏeshṭha sāṃbādika parāga bhūñāra mṛtẏuka lai tadanta ārambha ciāiḍira"
+  test "সাংবাদিক পৰাগ ভূঞাৰ মৃত্যুৰ উচিত তদন্তৰ দাবীত নলবাৰীত অৱস্থান ধৰ্মঘট", "sāṃbādika parāga bhūñāra mṛtẏura ucita tadantara dābīta nalabārīta awasthāna dharmaghaṭa"
+  test "দৰঙৰ বিভিন্ন অঞ্চলত মানসিক ৰোগৰ সজাগতামূলক বাটৰ নাট প্ৰদৰ্শন", "daraṅara bibhinna añcalata mānasika rogara sajāgatāmūlaka bāṭara nāṭa pradarśana"
+  test "অযোধ্যাত দীপাৱলীঃ ৫.৮৬ লাখ মাটি চাকি জ্বলাই গঢ়িলে গিনিজ ৱ’ৰ্ল্ড ৰেকৰ্ড", "aẏodhẏāta dīpāwalīḥ 5.86 lākha māṭi cāki jbalāi gaḍha়ile ginija wa’rlḍa rekarḍa"
+  test "ৰাজ্যত আকৌ ২৩৩ জন কোভিড পজিটিভ, সুস্থ হৈছে ৬৪২ জন", "rājẏata ākau 233 jana kobhiḍa pajiṭibha, sustha haiche 642 jana"
+  test "এতিয়ালৈকে ৰাজ্যত এই ভাইৰাছত আক্ৰান্ত লোকৰ সংখ্যা ২১০০৬৮জনলৈ পাইছে বৃদ্ধি।", "etiyālaike rājẏata ei bhāirāchata ākrānta lokara saṃkhẏā 210068janalai pāiche bṛddhi."
+  test "এতিয়ালৈকে ৰাজ্যত কোৰোনাত আক্ৰান্ত হৈ ৯৫৮জন লোক হেৰুৱাইছে প্ৰাণ।", "etiyālaike rājẏata koronāta ākrānta hai 958jana loka heruwāiche prāṇa."
+}
+
+dependency "alalc-asm-Deva-Latn-1997", as: devalatn
+
+stage {
+
+  run map.devalatn.stage.main
+
+}
+
