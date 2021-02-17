@@ -81,30 +81,21 @@ tests {
   test "Ясіня", "Yasinia"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
 stage {
 
   # RULES
-  sub "(?<!\\b\\u2019)\\b\\u0404", "Ye" # Є in initial position -> Ye
-  sub "(?<!\\b\\u2019)\\b\\u0454", "ye" # є in initial position -> ye
-  sub "(?<!\\b\\u2019)\\b\\u0419", "Y" # Й in initial position -> Y
-  sub "(?<!\\b\\u2019)\\b\\u0419", "y" # й in initial position -> y
-  sub "(?<!\\b\\u2019)\\b\\u042e", "Yu" # Ю in initial position -> Yu
-  sub "(?<!\\b\\u2019)\\b\\u044e", "yu" # ю in initial position -> yu
-  sub "(?<!\\b\\u2019)\\b\\u042f", "Ya" # Я in initial position -> Ya
-  sub "(?<!\\b\\u2019)\\b\\u044f", "ya" # я in initial position -> ya
+    sub boundary + "\u0404", "Ye", not_before: boundary + "\u2019" # Є in initial position -> Ye
+    sub boundary + "\u0454", "ye", not_before: boundary + "\u2019" # є in initial position -> ye
+    sub boundary + "\u0419", "Y", not_before: boundary + "\u2019" # Й in initial position -> Y
+    sub boundary + "\u0419", "y", not_before: boundary + "\u2019" # й in initial position -> y
+    sub boundary + "\u042e", "Yu", not_before: boundary + "\u2019" # Ю in initial position -> Yu
+    sub boundary + "\u044e", "yu", not_before: boundary + "\u2019" # ю in initial position -> yu
+    sub boundary + "\u042f", "Ya", not_before: boundary + "\u2019" # Я in initial position -> Ya
+    sub boundary + "\u044f", "ya", not_before: boundary + "\u2019" # я in initial position -> ya
   # note[1]
-  sub "\\b\\u2019\\b", "" # remove ’
-  sub "\\u042c\\u041e", "IO"
-  sub "\\u044c\\u043e", "io"
+    sub boundary + "\u2019" + boundary, "" # remove ’
+    sub "\u042c\u041e", "IO"
+    sub "\u044c\u043e", "io"
 
 
   # CHARACTERS

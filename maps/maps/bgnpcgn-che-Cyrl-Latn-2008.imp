@@ -57,31 +57,22 @@ tests {
   test "елха", "yelxa"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
 stage {
 
   # RULES
   # note[2]
-  sub "(?<!\\b\\u2019)\\b\\u0415", "Ye" # Е in initial position -> Ye
-  sub "(?<!\\b\\u2019)\\b\\u0435", "ye" # е in initial position -> ye
+  sub boundary + "\u0415", "Ye", not_before: boundary + "\u2019" # Е in initial position -> Ye
+  sub boundary + "\u0435", "ye", not_before: boundary + "\u2019" # е in initial position -> ye
   # note[4]
-  sub "\\u043A\\u043A\\u0445", "qq"
-  sub "\\u043A\\u043A\\u042A", "q̇q̇"
-  sub "\\u041A\\u041A\\u0445", "QQ"
-  sub "\\u041A\\u041A\\u042A", "Q̇Q̇"
+  sub "\u043A\u043A\u0445", "qq"
+  sub "\u043A\u043A\u042A", "q̇q̇"
+  sub "\u041A\u041A\u0445", "QQ"
+  sub "\u041A\u041A\u042A", "Q̇Q̇"
 
 
   # CHARACTERS
   parallel {
-    sub "\u0410", any("AƏ") # А note[1]
+    sub "\u0410", any(["A", "Ə"]) # А note[1]
     sub "\u0410\u044C", "Ä" # Аь -> Ä
     sub "\u0411", "B" # Б
     sub "\u0412", "V" # В
@@ -100,7 +91,7 @@ stage {
     sub "\u041A\u04C0", "Kh" # КӀ note[4]
     sub "\u041B", "L" # Л
     sub "\u041C", "M" # М
-    sub "\u041D", any("NŊ") # Н note[5]
+    sub "\u041D", any(["N", "Ŋ"]) # Н note[5]
     sub "\u041E", "O" # О note[6]
     sub "\u041E\u044C", "Ö" # Оь -> Ö
     sub "\u041F", "P" # П
@@ -131,7 +122,7 @@ stage {
     sub "\u042F\u044C", "Yä" # Яь -> Yä
     sub "\u04C0", "J" # Ӏ note[7]
 
-    sub "\u0430", any("aə") # а note[1]
+    sub "\u0430", any(["a", "ə"]) # а note[1]
     sub "\u0430\u044C", "ä" # аь -> ä
     sub "\u0431", "b" # б
     sub "\u0432", "v" # в
@@ -150,7 +141,7 @@ stage {
     sub "\u043A\u04CF", "kh" # кӏ note[4]
     sub "\u043B", "l" # л
     sub "\u043C", "m" # м
-    sub "\u043D", any("nŋ") # н note[5]
+    sub "\u043D", any(["n", "ŋ"]) # н note[5]
     sub "\u043E", "o" # о note[6]
     sub "\u043E\u044C", "ö" # оь -> ö
     sub "\u043F", "p" # п
@@ -180,6 +171,6 @@ stage {
     sub "\u044F", "yä" # яь -> yä
     sub "\u04CF", "j" # ӏ note[7]
   }
-
+  compose
 }
 

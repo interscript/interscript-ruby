@@ -1,5 +1,7 @@
 class Interscript::Stdlib
   ALIASES = {
+    any_character: '.',
+    upcase: 'upcase',
     none: "",
     space: " ",
     whitespace: "[\\b \\t\\0\\r\\n]",

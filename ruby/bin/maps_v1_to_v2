@@ -14,108 +14,42 @@ ex_maps = Dir["../maps/maps/*.imp"]
 ex_map_names = ex_maps.map { |i| File.basename(i, ".imp") }
 
 
+require 'regexp_parser'
 
+require './regexp_converter.rb'
 
-def process_str(kkk)
-  # TODO make it recursive, thats why it was moved to separate functon
-  # TODO move stuff like any("characters")
-  # TODO (a|b|c|) in here
-  if kkk[0,4] == "\"\\\\b"
-    kkk[0,4] = "boundary + \""
-  #kkk = "boundary + \""  #   #{process_str(kkk[4..-1])}"  
-  end
-  if kkk[-4,4] == '\\b"'
-    kkk[-4,4] = '\" + boundary'
-  end
-
-  if kkk[0,2] == "\"^"
-    kkk[0,2] = "line_start + \""
-  end
-  if kkk[-2,2] == '$"'
-    kkk[-2,2] = "\" + line_end"
-  end
-
-  if kkk =~ /^\[([^\[\]]+)\]$/
-    kkk = '"' + kkk[2...-2] + '"'
-  end
-  #if kkk[1,1] == '[' and kkk[-2,1] == ']' and kkk.index('|')==nil
-  #  kkk = '"' + kkk[2...-2] + '"'
-  #end
-
-  r_char = /\(([^(=]+)=\?\)/
-  m = kkk.match(r_char)
-  if m
-  kkk = "\"#{ $1 }\""
-  end
-  kkk
-end
 
 def process_line( kkk, vvv)
-  # TODO make before, not_before, after, not_after string being processed by process_str
-  kkk_orig = kkk.dup
 
-  params = []
-
-  kkk = kkk.gsub('\\\\u','\u')  if kkk.include? '\\\\u'
-
-  r = /\(\?<=([^\)]+)\)/
-  m = kkk =~ r
-  if m
-    kkk = kkk.gsub(r,'')
-    str = $1
-    if str =~ /\[([^\]]+)\]/
-      params << ", before: any(\"#{    $1  }\")"
-    else  
-      params << ", before: \"#{str}\""
+    parse_kkk = Regexp::Parser.parse(kkk, 'ruby/2.1')
+    tokens_kkk = process(parse_kkk)
+    # pp conv
+    root_hash = process_root(tokens_kkk)
+    # pp root
+    
+    if vvv.class == String
+      if vvv == '' or vvv =='""' or vvv == nil or vvv.include? '~'
+        root_hash[:to] = '""'
+      else
+        if vvv == "?" #un-ell-Grek-Latn-1987-phonetic has "?" as a target alalc-ell-Grek-Latn-1997.imp also
+          root_hash[:to] = "?".inspect
+        #if root_hash[:from].to_s.include?('capture') or root_hash[:to] =~ /\\\\([0-9]+)/
+        else
+          parse_vvv = Regexp::Parser.parse(vvv)
+          tokens_vvv = process(parse_vvv)
+          string_vvv = stringify(tokens_vvv)
+          # puts string_vvv
+          root_hash[:to] = string_vvv
+        end
+      end
+    elsif vvv.class == Array
+      root_hash[:to] = "any(#{vvv.inspect})"
+    else
+      puts "unknown class #{vvv.inspect}"
     end
-  end
-  
-  r = /\(\?<!([^\)]+)\)/
-  m = kkk =~ r
-  if m
-    kkk = kkk.gsub(r,'')
-    params << ", not_before: \"#{$1}\""
-  end
 
-  r = /\(\?=([^\)]+)\)/
-  m = kkk =~ r
-  if m
-    kkk = kkk.gsub(r,'')
-    str = $1
-    if str =~ /\[([^\]]+)\]/
-      params << ", after: any(\"#{    $1  }\")"
-    else  
-      params << ", after: \"#{str}\""
-    end
-  end
-  
-  r = /\(\?!([^\)]+)\)/
-  m = kkk =~ r
-  if m
-    kkk = kkk.gsub(r,'')
-    params << ", not_after: \"#{$1}\""
-  end
+    str = stringify_root(root_hash)
 
-  r = /\(([^(=]+)=\?\)/
-  m = kkk =~ r
-  if m
-    kkk = "\"#{$1}\""
-  end
-
-
-  kkk = process_str(kkk)
-
-
-  if kkk_orig != kkk
-    line = "    sub #{kkk}, #{vvv}#{params.join}"
-    line << " # generated_from    #{kkk_orig}" if $DEBUG 
-    line.gsub!("\"\\\\b\"",'boundary')
-    line
-  else
-    line = "    sub #{kkk}, #{vvv}"
-
-  end
-  line
 end
 
 
@@ -406,7 +340,7 @@ old_maps.each do |old_map|
         elsif vv.class == NilClass
           vvv = "none"
         end
-
+        kkk,vvv = kk.dup,vv.dup
         # This worked due to use of regexps... it should remove 1 slash.
         kkk = kkk.gsub("\\\\u", "\\\\u")
         kkk = kkk.gsub("\\\\U", "\\\\u")
@@ -433,7 +367,8 @@ old_maps.each do |old_map|
         end
 
         kk,vv = YAML.load(k), YAML.load(v)
-        kkk,vvv = kk.inspect, vv.inspect
+        # kkk,vvv = kk.inspect, vv.inspect
+        kkk,vvv = kk.dup,vv.dup
 
         new << process_line( kkk,vvv )
       end

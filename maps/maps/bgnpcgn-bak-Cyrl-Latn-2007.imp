@@ -58,30 +58,21 @@ tests {
   test "һеҙҙең", "heźźeñ"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
 stage {
 
   # RULES
   # note[1]
-  sub "\\b\\u0412(?=[АаЕеЁёИиОоӨөУуҮЫыЭэӘәЮюЯя])", "W"
-  sub "\\b\\u0432(?=[АаЕеЁёИиОоӨөУуҮЫыЭэӘәЮюЯя])", "w"
+  sub boundary + "\u0412", "W", after: any("АаЕеЁёИиОоӨөУуҮЫыЭэӘәЮюЯя")
+  sub boundary + "\u0432", "w", after: any("АаЕеЁёИиОоӨөУуҮЫыЭэӘәЮюЯя")
   # note[2]
-  sub "\\b\\u0415", "Ye"
-  sub "\\b\\u0435", "ye"
-  sub "(?=\\b)\\u0415(?<=[АаЕеЁёИиОоӨөУуҮЫыЭэӘәЮюЯя])", "Ye"
-  sub "(?=\\b)\\u0435(?<=[АаЕеЁёИиОоӨөУуҮЫыЭэӘәЮюЯя])", "ye"
+  sub boundary + "\u0415", "Ye"
+  sub boundary + "\u0435", "ye"
+  sub "\u0415", "Ye", before: any("АаЕеЁёИиОоӨөУуҮЫыЭэӘәЮюЯя"), after: boundary
+  sub "\u0435", "ye", before: any("АаЕеЁёИиОоӨөУуҮЫыЭэӘәЮюЯя"), after: boundary
 
   # note[3] # note[4]
-  sub "(?<=[АаЕеЁёИиОоӨөУуҮЫыЭэӘәЮюЯя])[\\u0423\\u04AE]", "W"
-  sub "(?<=[АаЕеЁёИиОоӨөУуҮЫыЭэӘәЮюЯя])[\\u0443\\u04AF]", "w"
+  sub any("\u0423\u04AE"), "W", before: any("АаЕеЁёИиОоӨөУуҮЫыЭэӘәЮюЯя")
+  sub any("\u0443\u04AF"), "w", before: any("АаЕеЁёИиОоӨөУуҮЫыЭэӘәЮюЯя")
 
 
 

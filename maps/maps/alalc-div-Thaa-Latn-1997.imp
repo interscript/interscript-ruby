@@ -65,56 +65,46 @@ tests {
   test "އައްޕައްޗި", "appacci"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
-
 stage {
 
   # RULES
   # note[1]
-  sub "(?<=)\\u0781\\u07b0(?=\\b)", "ḫ"
+  sub "\u0781\u07b0", "ḫ", after: boundary, before: ""
   # note[2]
-  sub "(?<!\\b)\\u0782\\u07b0(?<!\\b)", "n" # medial position with sukun
-  sub "(?<!\\b)\\u0782(?<!\\b)", "ṁ" # medial position without sukun
+  sub "\u0782\u07b0", "n", not_before: boundary # medial position with sukun
+  sub "\u0782", "ṁ", not_before: boundary # medial position without sukun
   # note[3(a)]
-  sub "\\b(\\u0787=?)(?=[\\u07a6\\u07a7\\u07a8\\u07a9\\u07aa\\u07ab\\u07ac\\u07ad\\u07ae\\u07af])", "" # initial position with any vowel sign
+  sub boundary + capture("\u0787" + maybe("=")), "", after: any("\u07a6\u07a7\u07a8\u07a9\u07aa\u07ab\u07ac\u07ad\u07ae\u07af") # initial position with any vowel sign
   # note[3(c)]  a consonant follows އް in medial position
-  sub "(?<!\\b)\\u0787\\u07b0(?=[ހ])", "h"
-  sub "(?<!\\b)\\u0787\\u07b0(?=[ށ])", "ś"
-  sub "(?<!\\b)\\u0787\\u07b0(?=[ނ])", "n"
-  sub "(?<!\\b)\\u0787\\u07b0(?=[ރ])", "r"
-  sub "(?<!\\b)\\u0787\\u07b0(?=[ބ])", "b"
-  sub "(?<!\\b)\\u0787\\u07b0(?=[ޅ])", "ḷ"
-  sub "(?<!\\b)\\u0787\\u07b0(?=[ކ])", "k"
-  sub "(?<!\\b)\\u0787\\u07b0(?=[ވ])", "v"
-  sub "(?<!\\b)\\u0787\\u07b0(?=[މ])", "m"
-  sub "(?<!\\b)\\u0787\\u07b0(?=[ފ])", "f"
-  sub "(?<!\\b)\\u0787\\u07b0(?=[ދ])", "d"
-  sub "(?<!\\b)\\u0787\\u07b0(?=[ތ])", "t"
-  sub "(?<!\\b)\\u0787\\u07b0(?=[ލ])", "l"
-  sub "(?<!\\b)\\u0787\\u07b0(?=[ގ])", "g"
-  sub "(?<!\\b)\\u0787\\u07b0(?=[ޏ])", "ñ"
-  sub "(?<!\\b)\\u0787\\u07b0(?=[ސ])", "s"
-  sub "(?<!\\b)\\u0787\\u07b0(?=[ޑ])", "ḍ"
-  sub "(?<!\\b)\\u0787\\u07b0(?=[ޖ])", "j"
-  sub "(?<!\\b)\\u0787\\u07b0(?=[ޗ])", "c"
-  sub "(?<!\\b)\\u0787\\u07b0(?=[ޒ])", "z"
-  sub "(?<!\\b)\\u0787\\u07b0(?=[ޓ])", "ṭ"
-  sub "(?<!\\b)\\u0787\\u07b0(?=[ޕ])", "p"
-  sub "(?<!\\b)\\u0787\\u07b0(?=[ޔ])", "y"
+  sub "\u0787\u07b0", "h", not_before: boundary, after: any("ހ")
+  sub "\u0787\u07b0", "ś", not_before: boundary, after: any("ށ")
+  sub "\u0787\u07b0", "n", not_before: boundary, after: any("ނ")
+  sub "\u0787\u07b0", "r", not_before: boundary, after: any("ރ")
+  sub "\u0787\u07b0", "b", not_before: boundary, after: any("ބ")
+  sub "\u0787\u07b0", "ḷ", not_before: boundary, after: any("ޅ")
+  sub "\u0787\u07b0", "k", not_before: boundary, after: any("ކ")
+  sub "\u0787\u07b0", "v", not_before: boundary, after: any("ވ")
+  sub "\u0787\u07b0", "m", not_before: boundary, after: any("މ")
+  sub "\u0787\u07b0", "f", not_before: boundary, after: any("ފ")
+  sub "\u0787\u07b0", "d", not_before: boundary, after: any("ދ")
+  sub "\u0787\u07b0", "t", not_before: boundary, after: any("ތ")
+  sub "\u0787\u07b0", "l", not_before: boundary, after: any("ލ")
+  sub "\u0787\u07b0", "g", not_before: boundary, after: any("ގ")
+  sub "\u0787\u07b0", "ñ", not_before: boundary, after: any("ޏ")
+  sub "\u0787\u07b0", "s", not_before: boundary, after: any("ސ")
+  sub "\u0787\u07b0", "ḍ", not_before: boundary, after: any("ޑ")
+  sub "\u0787\u07b0", "j", not_before: boundary, after: any("ޖ")
+  sub "\u0787\u07b0", "c", not_before: boundary, after: any("ޗ")
+  sub "\u0787\u07b0", "z", not_before: boundary, after: any("ޒ")
+  sub "\u0787\u07b0", "ṭ", not_before: boundary, after: any("ޓ")
+  sub "\u0787\u07b0", "p", not_before: boundary, after: any("ޕ")
+  sub "\u0787\u07b0", "y", not_before: boundary, after: any("ޔ")
   # note[3(d)]
-  sub "(?<!\\b)\\u0787\\u07b0(?=\\b)", "h" # final position with sukun
+  sub "\u0787\u07b0", "h", not_before: boundary, after: boundary # final position with sukun
   # note[3(b)]
-  sub "(?<!\\b)\\u0787(?=[\\u07a6\\u07a7\\u07a8\\u07a9\\u07aa\\u07ab\\u07ac\\u07ad\\u07ae\\u07af])", "ʼ" # medial position with any vowel sign
+  sub "\u0787", "ʼ", not_before: boundary, after: any("\u07a6\u07a7\u07a8\u07a9\u07aa\u07ab\u07ac\u07ad\u07ae\u07af") # medial position with any vowel sign
   # note[4]
-  sub "\\u078c\\u07b0\\u078c", "t̤t"
+  sub "\u078c\u07b0\u078c", "t̤t"
 
 
 

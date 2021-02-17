@@ -1,0 +1,245 @@
+metadata {
+  authority_id: alalc
+  id: 1997
+  language: iso-639-2:hin
+  source_script: Deva
+  destination_script: Latn
+  name: Hindi Romanization, 1997
+  url: http://catdir.loc.gov/catdir/cpso/romanization/hindi.pdf
+  creation_date: 1997
+  description: |
+    ALA-LC Romanization table for Hindi
+
+  notes:
+
+    - Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for
+      vowels following a consonant can be found in grammars; no distinction between the two is
+      made in transliteration.
+
+    - |
+      The vowel a is implicit after all consonants and consonant clusters and is supplied in
+      transliteration, with the following exceptions:
+
+      a) when another vowel is indicated by its appropriate sign; and
+      b) when the absence of any vowel is indicated by the subscript sign ( ◌् ) called halanta or
+         virāma.
+
+    - |
+      Exception: Anusvāra is transliterated by:
+
+      a) ṅ before gutturals,
+      b) ñ before palatals,
+      c) ṇ before cerebrals,
+      d) n before dentals, and
+      e) m before labials.
+
+    - Anunāsika before guttural, palatal, cerebral, and dental occlusives is transliterated n̐. Before
+      labials, sibilants, semivowels, aspirates, vowels, and in final position it is transliterated m̐.
+
+    - When doubled, avagraha is transliterated by two apostrophes ( ’’ ).
+}
+
+tests {
+  test "हम", "hama"
+  test "मीन", "mīna"
+  test "औसत", "ăusata"
+  test "माँऽऽऽ!", "mān̐’’’!"
+  test "माँ", "mām̐"
+  test "गंभीर मरीजों के मामले में भारत दूसरे नंबर पर", "gaṃbhīr marījoṃ ke māmale meṃ bhārat dūsare naṃbar para"
+  test "कोरोना अपडेट्स", "koronā apaḍeṭsa"
+  test "सीडीसी चीफ का बयान अहम", "sīḍīsī cīph kā bayān ahama"
+  test "गूगल प्ले स्टोर पर पेटीएम की वापसी", "gūgal ple sṭor par peṭīem kī vāpasī"
+  test "भारत में गैंबलिंग की इजाजत नहीं", "bhārat meṃ gaiṃbaliṃg kī ijājat nahīṃ"
+  test "कोरोना वैक्सीन मुद्दे पर घिरे राष्ट्रपति; जो बाइडेन बोले- मुझे और देश को वैज्ञानिकों पर भरोसा है, डोनाल्ड ट्रम्प पर नहीं", "koronā vaiksīn mudde par ghire rāshṭrapati; jo bāiḍen bole- mujhe ăur deś ko vaijñānikoṃ par bharosā hai, ḍonālḍ ṭramp par nahīṃ"
+  test "गूगल की कार्रवाई पर पेटीएम ने कहा था कि ऐप को अस्थायी तौर पर प्ले-स्टोर से हटाया गया है, आपके पैसे सुरक्षित हैं", "gūgal kī kārravāī par peṭīem ne kahā thā ki aip ko asthāyī tăur par ple-sṭor se haṭāyā gayā hai, āpake paise surakshit haiṃ"
+  test "२५६८७५४४६४४६१६११", "2568754464461611"
+}
+
+stage {
+
+  # RULES
+  # note[2]
+  sub capture("क" + maybe("=")), "k", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("क़" + maybe("=")), "q", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("ख" + maybe("=")), "kh", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("ख़" + maybe("=")), "kh", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("ग" + maybe("=")), "g", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("ग़" + maybe("=")), "gh", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("घ" + maybe("=")), "gh", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("ङ" + maybe("=")), "ṅ", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("च" + maybe("=")), "c", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("छ" + maybe("=")), "ch", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("ज" + maybe("=")), "j", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("ज़" + maybe("=")), "j", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("झ" + maybe("=")), "jh", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("ञ" + maybe("=")), "ñ", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("ट" + maybe("=")), "ṭ", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("ट़" + maybe("=")), "t̤", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("ठ" + maybe("=")), "ṭh", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("ड" + maybe("=")), "ḍ", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("ड़" + maybe("=")), "ṛ", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("ड़" + maybe("=")), "ṛ", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("ढ" + maybe("=")), "ḍh", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("ढ़" + maybe("=")), "ṛh", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("ण" + maybe("=")), "ṇ", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("त" + maybe("=")), "t", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("थ" + maybe("=")), "th", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("द" + maybe("=")), "d", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("ध" + maybe("=")), "dh", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("न" + maybe("=")), "n", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("प" + maybe("=")), "p", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("फ" + maybe("=")), "ph", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("फ़" + maybe("=")), "ph", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("ब" + maybe("=")), "b", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("भ" + maybe("=")), "bh", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("म" + maybe("=")), "m", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("य" + maybe("=")), "y", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("र" + maybe("=")), "r", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("ल" + maybe("=")), "l", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("व" + maybe("=")), "v", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("श" + maybe("=")), "ś", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("ष" + maybe("=")), "sh", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("स" + maybe("=")), "s", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("स़" + maybe("=")), "s̤", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("ह" + maybe("=")), "h", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("ह़" + maybe("=")), "h", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+
+  # note[3]
+  sub "\u0902", "ṅ", after: any("कक़खख़गग़घङ")
+  sub "\u0902", "ñ", after: any("चछजज़झञ")
+  sub "\u0902", "ṇ", after: any("टट़ठडड़ढढ़ण")
+  sub "\u0902", "n", after: any("तथदधन")
+  # note[4]
+  sub "\u0901", "m̐", after: boundary, before: ""
+
+
+  # CHARACTERS
+  parallel {
+
+    # I. Vowels and Diphthongs (see Note 1)
+
+    sub "अ", "a"
+    sub "आ", "ā"
+    sub "इ", "i"
+    sub "ई", "ī"
+    sub "उ", "u"
+    sub "ऊ", "ū"
+    sub "ऋ", "ṛ"
+    sub "ॠ", "ṝ"
+    sub "ऌ", "ḷ"
+    sub "ॳ", "ĕ"
+    sub "ए", "e"
+    sub "ॲ", "ê"
+    sub "अै", "ăi"
+    sub "ऐ", "ai"
+    sub "ऒ", "ŏ"
+    sub "ओ", "o"
+    sub "ऑ", "ô"
+    sub "औ", "ău"
+
+    # II. Consonants (see Note 2)
+    # Gutturals
+    sub "क", "ka"
+    sub "क़", "qa"
+    sub "ख", "kha"
+    sub "ख़", "kha"
+    sub "ग", "ga"
+    sub "ग़", "gha"
+    sub "घ", "gha"
+    sub "ङ", "ṅa"
+
+    # Palatals
+    sub "च", "ca"
+    sub "छ", "cha"
+    sub "ज", "ja"
+    sub "ज़", "ja"
+    sub "झ", "jha"
+    sub "ञ", "ña"
+
+    # Cerebrals
+    sub "ट", "ṭa"
+    sub "ट़", "t̤a"
+    sub "ठ", "ṭha"
+    sub "ड", "ḍa"
+    sub "ड़", "ṛa"
+    sub "ड़", "ṛa"
+    sub "ढ", "ḍha"
+    sub "ढ़", "ṛha"
+    sub "ण", "ṇa"
+
+    # Dentals
+    sub "त", "ta"
+    sub "थ", "tha"
+    sub "द", "da"
+    sub "ध", "dha"
+    sub "न", "na"
+
+    # Labials
+    sub "प", "pa"
+    sub "फ", "pha"
+    sub "फ़", "pha"
+    sub "ब", "ba"
+    sub "भ", "bha"
+    sub "म", "ma"
+
+    # Semivowels
+    sub "य", "ya"
+    sub "र", "ra"
+    sub "ल", "la"
+    sub "व", "va"
+
+    # Sibilants
+    sub "श", "śa"
+    sub "ष", "sha"
+    sub "स", "sa"
+    sub "स़", "s̤a"
+
+    # Aspirate
+    sub "ह", "ha"
+    sub "ह़", "ha"
+
+    # Anusvāra
+    sub "ं", "ṃ"
+
+    # Bisarga
+    sub "ः ", "ḥ"
+
+    # Anunāsika
+    sub "ँ", "n̐" # ঁ : n̐, m̐
+
+    # Abagraha
+    sub "ऽ", "’" # (apostrophe)
+
+    # Medials # Needed for connecting constants
+    sub "ा", "ā"
+    sub "ॉ", "ô"
+    sub "ि", "i"
+    sub "ी", "ī"
+    sub "ु", "u"
+    sub "ू", "ū"
+    sub "ृ", "ṛ"
+    sub "ॄ", "ṝ"
+    sub "े", "e"
+    sub "ॊ", "ŏ"
+    sub "ौ", "ău"
+    sub "ै", "ai"
+    sub "ो", "o"
+    sub "्", ""
+    sub "़", ""
+
+    # digits
+
+    sub "०", "0"
+    sub "१", "1"
+    sub "२", "2"
+    sub "३", "3"
+    sub "४", "4"
+    sub "५", "5"
+    sub "६", "6"
+    sub "७", "7"
+    sub "८", "8"
+    sub "९", "9"
+  }
+  compose
+}
+

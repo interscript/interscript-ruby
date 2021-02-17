@@ -18,7 +18,29 @@ almost_total = 0
 bad_total = 0
 passed_total = 0
 for i in filelist
+broken = <<END
+# broken syntax when generating at the moment
+bas-rus-Cyrl-Latn-2017-oss
+az-aze-Cyrl-Latn-1958
+bgnpcgn-kor-Hang-Latn-kn-1945
+mofa-jpn-Hrkt-Latn-1989
+royin-tha-Thai-Latn-1999
+END
+  # used at the bottom
+  raw_lines = File.open(i).read.split("\n")
+  rules_line = raw_lines.index "  # RULES"
+  characters_line = raw_lines.index "  # CHARACTERS"
+  postrules_line = raw_lines.index "  # POSTRULES"
+
   system_name = File.basename(i, ".imp")
+  gonext = false
+  broken.split("\n").each do |b|
+    if i.include? b
+      puts "#{system_name} NEXT"
+      gonext = true
+    end
+  end
+  next if gonext
 
   print "#{system_name}: "
 
@@ -39,7 +61,10 @@ for i in filelist
       testname = from[0...300].gsub("\n", " / ")
       result = Interscript.transliterate(system_name, from, cache, compiler: Interscript::Interpreter)
       result2 = Interscript.transliterate(system_name, from, cache, compiler: Interscript::Compiler::Ruby)
-      if result != result2
+      if result == nil or result2 == nil
+        print '0'
+        bad += 1
+      elsif result != result2
         # Compiler / Interpreter bug!
         print "!"
         bad += 1
@@ -62,7 +87,7 @@ for i in filelist
     if bad == 0
       passed_total += 1
       puts " all tests passed!"
-      `git mv #{i} #{i.sub("-staging", "")}`   if i.include? '-staging'
+      # `git mv #{i} #{i.sub("-staging", "")}`   if i.include? '-staging'
     else
       puts " (#{good}/#{good+almost+bad})"
     end
@@ -73,6 +98,8 @@ for i in filelist
   else
     puts "no tests!"
   end
+    puts "warning: postrules before rules\n\n" if (postrules_line||10000000) < (rules_line||0)
+    puts "warning: postrules before characters\n\n" if (postrules_line||10000000) < (characters_line||0)
 
   exceptions.each do |e|
     puts e.full_message

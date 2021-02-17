@@ -68,31 +68,17 @@ tests {
   test "Валяр'яны", "Valiarjany"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
 stage {
 
   # RULES
-  sub "(?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\\u0415", "IE" # Е after consonants
-  sub "(?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\\u0435", "ie" # е after consonants
-  sub "(?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\\u0401", "IO" # Ё after consonants
-  sub "(?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\\u0451", "io" # ё after consonants
-  sub "(?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\\u042E", "IU" # Ю after consonants
-  sub "(?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\\u044E", "iu" # ю after consonants
-  sub "(?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\\u042F", "IA" # Я after consonants
-  sub "(?<=[БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш])\\u044F", "ia" # я after consonants
-
-  # POSTRULES
-  sub "\\u042C", "'" # Ь
-  sub "\\u044C", "'" # ь
-
+  sub "\u0415", "IE", before: any("БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш") # Е after consonants
+  sub "\u0435", "ie", before: any("БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш") # е after consonants
+  sub "\u0401", "IO", before: any("БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш") # Ё after consonants
+  sub "\u0451", "io", before: any("БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш") # ё after consonants
+  sub "\u042E", "IU", before: any("БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш") # Ю after consonants
+  sub "\u044E", "iu", before: any("БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш") # ю after consonants
+  sub "\u042F", "IA", before: any("БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш") # Я after consonants
+  sub "\u044F", "ia", before: any("БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш") # я after consonants
 
   # CHARACTERS
   parallel {
@@ -119,7 +105,7 @@ stage {
     sub "\u0421", "S" # С
     sub "\u0422", "T" # Т
     sub "\u0423", "U" # У
-    sub "\\U040E", "Ŭ" # Ў
+    sub "\U040E", "Ŭ" # Ў
     sub "\u0424", "F" # Ф
     sub "\u0425", "Ch" # Х
     sub "\u0426", "C" # Ц
@@ -162,6 +148,11 @@ stage {
     sub "\u044E", "ju" # ю
     sub "\u044F", "ja" # я
   }
+
+  # POSTRULES
+  sub "\u042C", "'" # Ь
+  sub "\u044C", "'" # ь
+
 
 }
 

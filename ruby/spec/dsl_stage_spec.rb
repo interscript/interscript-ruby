@@ -91,7 +91,7 @@ RSpec.describe Interscript::DSL::Stage do
             }
           }
           expect(s.("Cameroon")).to eq("CXmXroon")
-          expect(s.("ABfghiabcd")).to eq("ZYYYYXXXX")
+          expect(s.("ABfghiabcdCD")).to eq("ZYYYYXXXXZ")
         end
 
         it "prefers the first given replacement" do
@@ -236,6 +236,22 @@ RSpec.describe Interscript::DSL::Stage do
             }
 
             expect(s.("ad AD ba ca Ad Da bd BD bD")).to eq("X X ba ca Ad Da X X bD")
+          end
+
+          it "handles any with multiple arguments instead of an array" do
+            s = stage {
+              sub any(any("ab") + any("cd"), any("AB") + any("CD")), "X"
+            }
+            expect(s.("ad AD ba ca Ad Da bd BD bD")).to eq("X X ba ca Ad Da X X bD")
+          end
+
+        end
+        context "#maybe" do
+          it "handles maybe with string concatenated to other string" do
+            s = stage {
+              sub maybe("a") + "b", "X"
+            }
+            expect(s.("abcdb")).to eq("XcdX")
           end
         end
 

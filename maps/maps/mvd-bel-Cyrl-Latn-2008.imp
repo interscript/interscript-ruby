@@ -83,53 +83,42 @@ tests {
   test "Дар’я", "Darja"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
 stage {
 
   # RULES
-  sub "(\\u2019\\u0415)", "Je" # Е
-  sub "(\\u2019\\u0435)", "je" # е
-  sub "(\\u2019\\u0401)", "Jo" # Ë
-  sub "(\\u2019\\u0451)", "jo" # ё
-  sub "(\\u2019\\u042E)", "Ju" # Ю
-  sub "(\\u2019\\u044E)", "ju" # ю
-  sub "(\\u2019\\u042F)", "Ja" # Я
-  sub "(\\u2019\\u044F)", "ja" # я
+  sub capture("\u2019\u0415"), "Je" # Е
+  sub capture("\u2019\u0435"), "je" # е
+  sub capture("\u2019\u0401"), "Jo" # Ë
+  sub capture("\u2019\u0451"), "jo" # ё
+  sub capture("\u2019\u042E"), "Ju" # Ю
+  sub capture("\u2019\u044E"), "ju" # ю
+  sub capture("\u2019\u042F"), "Ja" # Я
+  sub capture("\u2019\u044F"), "ja" # я
 
-  sub "(?<=[АаЕеЁёИиОоУуЭэЮюЯяЬьЎў])\\u0415", "Je" # Е after vowels
-  sub "(?<=[АаЕеЁёИиОоУуЭэЮюЯяЬьЎў])\\u0435", "je" # е after vowels
-  sub "(?<=[АаЕеЁёИиОоУуЭэЮюЯяЬьЎў])\\u0401", "Jo" # Ё after vowels
-  sub "(?<=[АаЕеЁёИиОоУуЭэЮюЯяЬьЎў])\\u0451", "jo" # ё after vowels
-  sub "(?<=[АаЕеЁёИиОоУуЭэЮюЯяЬьЎў])\\u042E", "Ju" # Ю after vowels
-  sub "(?<=[АаЕеЁёИиОоУуЭэЮюЯяЬьЎў])\\u044E", "ju" # ю after vowels
-  sub "(?<=[АаЕеЁёИиОоУуЭэЮюЯяЬьЎў])\\u042F", "Ja" # Я after vowels
-  sub "(?<=[АаЕеЁёИиОоУуЭэЮюЯяЬьЎў])\\u044F", "ja" # я after vowels
+  sub "\u0415", "Je", before: any("АаЕеЁёИиОоУуЭэЮюЯяЬьЎў") # Е after vowels
+  sub "\u0435", "je", before: any("АаЕеЁёИиОоУуЭэЮюЯяЬьЎў") # е after vowels
+  sub "\u0401", "Jo", before: any("АаЕеЁёИиОоУуЭэЮюЯяЬьЎў") # Ё after vowels
+  sub "\u0451", "jo", before: any("АаЕеЁёИиОоУуЭэЮюЯяЬьЎў") # ё after vowels
+  sub "\u042E", "Ju", before: any("АаЕеЁёИиОоУуЭэЮюЯяЬьЎў") # Ю after vowels
+  sub "\u044E", "ju", before: any("АаЕеЁёИиОоУуЭэЮюЯяЬьЎў") # ю after vowels
+  sub "\u042F", "Ja", before: any("АаЕеЁёИиОоУуЭэЮюЯяЬьЎў") # Я after vowels
+  sub "\u044F", "ja", before: any("АаЕеЁёИиОоУуЭэЮюЯяЬьЎў") # я after vowels
 
   # note[5]
-  sub "(?<=[ЗзЛлНнСсЦц])\\u044C", "\\1́" # ь after consonants
-  sub "(?<=[ЗзЛлНнСсЦц])\\u02B9", "\\1́" # Ь after consonants
+  sub "\u044C", ref( 1 ) + "́", before: any("ЗзЛлНнСсЦц") # ь after consonants
+  sub "\u02B9", ref( 1 ) + "́", before: any("ЗзЛлНнСсЦц") # Ь after consonants
 
   # vowels initially
-  sub "\\b\\u0415", "Je" # Е
-  sub "\\b\\u0435", "je" # е
-  sub "\\b\\u0401", "Jo" # Ё
-  sub "\\b\\u0451", "jo" # ё
-  sub "\\b\\u042E", "Ju" # Ю
-  sub "\\b\\u044E", "ju" # ю
-  sub "\\b\\u042F", "Ja" # Я
-  sub "\\b\\u044F", "ja" # я
+  sub boundary + "\u0415", "Je" # Е
+  sub boundary + "\u0435", "je" # е
+  sub boundary + "\u0401", "Jo" # Ё
+  sub boundary + "\u0451", "jo" # ё
+  sub boundary + "\u042E", "Ju" # Ю
+  sub boundary + "\u044E", "ju" # ю
+  sub boundary + "\u042F", "Ja" # Я
+  sub boundary + "\u044F", "ja" # я
 
 
-  # POSTRULES
-  sub "\\u2019", "j"
 
 
   # CHARACTERS
@@ -156,7 +145,7 @@ stage {
     sub "\u0421", "S" # С
     sub "\u0422", "T" # Т
     sub "\u0423", "U" # У
-    sub "\\U040E", "W" # Ў
+    sub "\U040E", "W" # Ў
     sub "\u0424", "F" # Ф
     sub "\u0425", "Kh" # Х
     sub "\u0426", "Ts" # Ц
@@ -202,5 +191,9 @@ stage {
     sub "\u044F", "ia" # я
   }
 
+  # POSTRULES
+    sub "\u2019", "j"
+
+  compose
 }
 

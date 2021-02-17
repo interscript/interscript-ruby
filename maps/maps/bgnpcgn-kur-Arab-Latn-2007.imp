@@ -163,20 +163,7 @@ tests {
   test "لەكوردِستانێ", "Le Kurdistanê"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
 stage {
-
-  # POSTRULES
-  sub "(?<=\\b)(?<!\\b[‘|’|'])[\\u0061-\\uFFFF]", "upcase"
-
 
   # CHARACTERS
   parallel {
@@ -189,8 +176,8 @@ stage {
     sub "\u0624", "’" # ؤ
     sub "\u0626", "’" # ئ
 
-    sub "(?<=[ء|ب|پ|ت|ج|چ|ح|خ|د|ر|ڕ|ز|ژ|س|ش|ص|ض|ط|ع|غ|́|ڨ|ق|ک|ك|گ|ل|ڵ|م|ن|و|ه|ي])و", "u" # special note 4/5
-    sub "(?<=[ء|ب|پ|ت|ج|چ|ح|خ|د|ر|ڕ|ز|ژ|س|ش|ص|ض|ط|ع|غ|́|ڨ|ق|ک|ك|گ|ل|ڵ|م|ن|و|ه|ي])ي", "î" # special note 4/5
+    sub "و", "u", before: any("ء|ب|پ|ت|ج|چ|ح|خ|د|ر|ڕ|ز|ژ|س|ش|ص|ض|ط|ع|غ|́|ڨ|ق|ک|ك|گ|ل|ڵ|م|ن|و|ه|ي") # special note 4/5
+    sub "ي", "î", before: any("ء|ب|پ|ت|ج|چ|ح|خ|د|ر|ڕ|ز|ژ|س|ش|ص|ض|ط|ع|غ|́|ڨ|ق|ک|ك|گ|ل|ڵ|م|ن|و|ه|ي") # special note 4/5
     sub "\u0621", "’" # ء (see note 1 and 7)
     sub "\u0628", "b" # ب
     sub "\u067E", "p" # پ
@@ -226,7 +213,7 @@ stage {
     sub "\u064A", "y" # ي
 
     # VOWELS
-    sub "\u0647\\b", "e" # See notes 1 and 5
+    sub "\u0647" + boundary, "e" # See notes 1 and 5
     sub "\u06D5", "e" # See notes 1 and 5
     sub "\u0626\u06D5", "e" # See notes 1 and 5
     sub "\u0627", "a" # See note 1
@@ -245,6 +232,10 @@ stage {
     sub "\u0648", "ö" # Rare; previously written وي . See note 7
     sub "\u06CA", "ü" # Only appearing in some dialects and only in old sources. Often equated to /û/ (row 7 above). Sometimes written يو See note 7.
   }
+
+  # POSTRULES
+    sub any([any("\u0061".."\uFFFF")]), "upcase", before: boundary, not_before: boundary + any("‘|’|'")
+
 
 }
 

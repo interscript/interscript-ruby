@@ -16,6 +16,12 @@ module Interscript::DSL::Items
     Interscript::Node::Item::Any.new(*chars)
   end
 
+  # a?
+  def maybe(*chars)
+    puts "maybe(#{chars.inspect}) from #{self.inspect}" if $DEBUG
+    Interscript::Node::Item::Maybe.new(*chars)
+  end
+
   # (...)
   def capture(expr)
     puts "capture(#{expr.inspect}) from #{self.inspect}" if $DEBUG

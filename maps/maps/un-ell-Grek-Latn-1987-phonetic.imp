@@ -266,80 +266,70 @@ tests {
   test "Χονγκ Κονγκ", "xonŋɡ konŋɡ"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
-
 # https://en.wikipedia.org/wiki/Romanization_of_Greek
 stage {
 
   # RULES
-  sub "(?<=[ΑαΕεΗη])\\u03A5(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])", "f" # Υ (after Α, Ε, Η)
-  sub "(?<=[ΑαΕεΗη])\\u03A5(?=\\b)", "f" # Υ (after Α, Ε, Η)
-  sub "(?<=[ΑαΕεΗη])\\u03C5(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])", "f" # υ (after Α, Ε, Η)
-  sub "(?<=[ΑαΕεΗη])\\u03C5(?=\\b)", "f" # υ (after Α, Ε, Η)
-  sub "(?<=[ΑαΕεΗη])\\u03A5", "v" # Υ (after Α, Ε, Η)
-  sub "(?<=[ΑαΕεΗη])\\u03C5", "v" # υ (after Α, Ε, Η)
-  sub "\\u0391\\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])", "ɑf" # Αύ
-  sub "\\u0391\\u03CD(?=\\b)", "ɑf" # Αύ
-  sub "\\u0391\\u03CD", "ɑv" # Αύ
-  sub "\\u03B1\\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])", "ɑf" # Αύ
-  sub "\\u03B1\\u03CD(?=\\b)", "ɑf" # Αύ
-  sub "\\u03B1\\u03CD", "ɑv" # Αύ
-  sub "\\u0395\\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])", "ɛf" # Εύ
-  sub "\\u0395\\u03CD(?=\\b)", "ɛf" # Εύ
-  sub "\\u0395\\u03CD", "ɛv" # Εύ
-  sub "\\u03B5\\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])", "ɛf" # Εύ
-  sub "\\u03B5\\u03CD(?=\\b)", "ɛf" # Εύ
-  sub "\\u03B5\\u03CD", "ɛv" # Εύ
-  sub "\\u0397\\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])", "if" # Εύ
-  sub "\\u0397\\u03CD(?=\\b)", "if" # Εύ
-  sub "\\u0397\\u03CD", "iv" # Εύ
-  sub "\\u03B7\\u03CD(?=[θΘκΚξΞπΠσΣςτΤφΦχΧψΨ])", "if" # Εύ
-  sub "\\u03B7\\u03CD(?=\\b)", "if" # Εύ
-  sub "\\u03B7\\u03CD", "iv" # Εύ
-  sub "\\u039F[υΥύ]", "u" # Υ (after Ο)
-  sub "\\u03BF[υΥύ]", "u" # υ (after Ο)
-  sub "(?<=[ΆάΈέΉήΌό])\\u03A5", "i" # Άυ, Έυ, Ήυ, Όυ
-  sub "(?<=[ΆάΈέΉήΌό])\\u03C5", "i" # Άυ, Έυ, Ήυ, Όυ
-  sub "\\u0393(?=[ξΞχΧ])", "n" # Γ (before Γ, Ξ, Χ)
-  sub "\\u03B3(?=[ξΞχΧ])", "n" # γ (before Γ, Ξ, Χ)
-  sub "(?<!\\b)\\u0393[Γγ]", "ŋɡ" # Γ (before Γ)
-  sub "(?<!\\b)\\u03B3\\u03B3", "ŋɡ" # γ (before Γ)
-  sub "(?<!\\b)\\u0393[Κκ]", "ŋɡ" # Γ (before Κ)
-  sub "(?<!\\b)\\u03B3[Κκ]", "ŋɡ" # γ (before Κ)
-  sub "(?<=\\b)\\u0393[Γγ]", "ɡ" # Γ (before Γ)
-  sub "(?<=\\b)\\u03B3\\u03B3", "ɡ" # γ (before Γ)
-  sub "(?<=\\b)\\u0393[Κκ]", "ɡ" # Γ (before Κ)
-  sub "(?<=\\b)\\u03B3[Κκ]", "ɡ" # γ (before Κ)
-  sub "(?<=\\b)\\u039C[πΠ]", "b" # ΜΠ (initially)
-  sub "(?<=\\b)\\u03BC[πΠ]", "b" # μπ (initially)
-  sub "\\u039C[πΠ](?=\\b)", "b" # ΜΠ (finally)
-  sub "\\u03BC[πΠ](?=\\b)", "b" # μπ (finally)
-  sub "(?<!\\b)\\u039C[πΠ](?!\\b)", "mb" # ΜΠ (medially)
-  sub "(?<!\\b)\\u03BC[πΠ](?!\\b)", "mb" # μπ (medially)
-  sub "(?<=\\b)[Νν][ττ]", "d" # Ντ (initial)
-  sub "(?<!\\b)[Νν][ττ]", "nd" # Ντ (medial, final)
-  sub "\\u03A3(?=[ΒβΓγΔδΖζΛλΜμΝνΡρ])", "z" # Σ (before voiced consonants)
-  sub "\\u03C3(?=[ΒβΓγΔδΖζΛλΜμΝνΡρ])", "z" # Σ (before voiced consonants)
-  sub "\\u0391[Ιιί]", "ɛ" # Αι
-  sub "\\u03B1[Ιιί]", "ɛ" # αι
-  sub "\\u03A5[Ιιί]", "i" # Υι
-  sub "\\u03C5[Ιιί]", "i" # υι
-  sub "\\u0395[Ιιί]", "i" # Ει
-  sub "\\u03B5[Ιιί]", "i" # ει
-  sub "\\u039F[Ιιί]", "i" # Οι
-  sub "\\u03BF[Ιιί]", "i" # οι
-  sub "\\u03A4[ζΖ]", "dz" # Τζ
-  sub "\\u03c4[ζΖ]", "dz" # Τζ
-  sub "\\u037E", "?" # ;
-  sub "\\u003B", "?" # ;
+    sub "\u03A5", "f", before: any("ΑαΕεΗη"), after: any("θΘκΚξΞπΠσΣςτΤφΦχΧψΨ") # Υ (after Α, Ε, Η)
+    sub "\u03A5", "f", before: any("ΑαΕεΗη"), after: boundary # Υ (after Α, Ε, Η)
+    sub "\u03C5", "f", before: any("ΑαΕεΗη"), after: any("θΘκΚξΞπΠσΣςτΤφΦχΧψΨ") # υ (after Α, Ε, Η)
+    sub "\u03C5", "f", before: any("ΑαΕεΗη"), after: boundary # υ (after Α, Ε, Η)
+    sub "\u03A5", "v", before: any("ΑαΕεΗη") # Υ (after Α, Ε, Η)
+    sub "\u03C5", "v", before: any("ΑαΕεΗη") # υ (after Α, Ε, Η)
+    sub "\u0391\u03CD", "ɑf", after: any("θΘκΚξΞπΠσΣςτΤφΦχΧψΨ") # Αύ
+    sub "\u0391\u03CD", "ɑf", after: boundary # Αύ
+    sub "\u0391\u03CD", "ɑv" # Αύ
+    sub "\u03B1\u03CD", "ɑf", after: any("θΘκΚξΞπΠσΣςτΤφΦχΧψΨ") # Αύ
+    sub "\u03B1\u03CD", "ɑf", after: boundary # Αύ
+    sub "\u03B1\u03CD", "ɑv" # Αύ
+    sub "\u0395\u03CD", "ɛf", after: any("θΘκΚξΞπΠσΣςτΤφΦχΧψΨ") # Εύ
+    sub "\u0395\u03CD", "ɛf", after: boundary # Εύ
+    sub "\u0395\u03CD", "ɛv" # Εύ
+    sub "\u03B5\u03CD", "ɛf", after: any("θΘκΚξΞπΠσΣςτΤφΦχΧψΨ") # Εύ
+    sub "\u03B5\u03CD", "ɛf", after: boundary # Εύ
+    sub "\u03B5\u03CD", "ɛv" # Εύ
+    sub "\u0397\u03CD", "if", after: any("θΘκΚξΞπΠσΣςτΤφΦχΧψΨ") # Εύ
+    sub "\u0397\u03CD", "if", after: boundary # Εύ
+    sub "\u0397\u03CD", "iv" # Εύ
+    sub "\u03B7\u03CD", "if", after: any("θΘκΚξΞπΠσΣςτΤφΦχΧψΨ") # Εύ
+    sub "\u03B7\u03CD", "if", after: boundary # Εύ
+    sub "\u03B7\u03CD", "iv" # Εύ
+    sub "\u039F" + any("υΥύ"), "u" # Υ (after Ο)
+    sub "\u03BF" + any("υΥύ"), "u" # υ (after Ο)
+    sub "\u03A5", "i", before: any("ΆάΈέΉήΌό") # Άυ, Έυ, Ήυ, Όυ
+    sub "\u03C5", "i", before: any("ΆάΈέΉήΌό") # Άυ, Έυ, Ήυ, Όυ
+    sub "\u0393", "n", after: any("ξΞχΧ") # Γ (before Γ, Ξ, Χ)
+    sub "\u03B3", "n", after: any("ξΞχΧ") # γ (before Γ, Ξ, Χ)
+    sub "\u0393" + any("Γγ"), "ŋɡ", not_before: boundary # Γ (before Γ)
+    sub "\u03B3\u03B3", "ŋɡ", not_before: boundary # γ (before Γ)
+    sub "\u0393" + any("Κκ"), "ŋɡ", not_before: boundary # Γ (before Κ)
+    sub "\u03B3" + any("Κκ"), "ŋɡ", not_before: boundary # γ (before Κ)
+    sub "\u0393" + any("Γγ"), "ɡ", before: boundary # Γ (before Γ)
+    sub "\u03B3\u03B3", "ɡ", before: boundary # γ (before Γ)
+    sub "\u0393" + any("Κκ"), "ɡ", before: boundary # Γ (before Κ)
+    sub "\u03B3" + any("Κκ"), "ɡ", before: boundary # γ (before Κ)
+    sub "\u039C" + any("πΠ"), "b", before: boundary # ΜΠ (initially)
+    sub "\u03BC" + any("πΠ"), "b", before: boundary # μπ (initially)
+    sub "\u039C" + any("πΠ"), "b", after: boundary # ΜΠ (finally)
+    sub "\u03BC" + any("πΠ"), "b", after: boundary # μπ (finally)
+    sub "\u039C" + any("πΠ"), "mb", not_before: boundary, not_after: boundary # ΜΠ (medially)
+    sub "\u03BC" + any("πΠ"), "mb", not_before: boundary, not_after: boundary # μπ (medially)
+    sub any("Νν") + any("ττ"), "d", before: boundary # Ντ (initial)
+    sub any("Νν") + any("ττ"), "nd", not_before: boundary # Ντ (medial, final)
+    sub "\u03A3", "z", after: any("ΒβΓγΔδΖζΛλΜμΝνΡρ") # Σ (before voiced consonants)
+    sub "\u03C3", "z", after: any("ΒβΓγΔδΖζΛλΜμΝνΡρ") # Σ (before voiced consonants)
+    sub "\u0391" + any("Ιιί"), "ɛ" # Αι
+    sub "\u03B1" + any("Ιιί"), "ɛ" # αι
+    sub "\u03A5" + any("Ιιί"), "i" # Υι
+    sub "\u03C5" + any("Ιιί"), "i" # υι
+    sub "\u0395" + any("Ιιί"), "i" # Ει
+    sub "\u03B5" + any("Ιιί"), "i" # ει
+    sub "\u039F" + any("Ιιί"), "i" # Οι
+    sub "\u03BF" + any("Ιιί"), "i" # οι
+    sub "\u03A4" + any("ζΖ"), "dz" # Τζ
+    sub "\u03c4" + any("ζΖ"), "dz" # Τζ
+    sub "\u037E", "?" # ;
+    sub "\u003B", "?" # ;
 
 
   # CHARACTERS
@@ -428,20 +418,20 @@ stage {
   }
 
   # POSTRULES
-  sub "vv", "v"
-  sub "ðð", "ð"
-  sub "zz", "z"
-  sub "θθ", "θ"
-  sub "kk", "k"
-  sub "ll", "l"
-  sub "mm", "m"
-  sub "nn", "n"
-  sub "pp", "p"
-  sub "rr", "r"
-  sub "ss", "s"
-  sub "tt", "t"
-  sub "ff", "f"
-  sub "xx", "x"
+    sub "vv", "v"
+    sub "ðð", "ð"
+    sub "zz", "z"
+    sub "θθ", "θ"
+    sub "kk", "k"
+    sub "ll", "l"
+    sub "mm", "m"
+    sub "nn", "n"
+    sub "pp", "p"
+    sub "rr", "r"
+    sub "ss", "s"
+    sub "tt", "t"
+    sub "ff", "f"
+    sub "xx", "x"
 
   downcase
 }

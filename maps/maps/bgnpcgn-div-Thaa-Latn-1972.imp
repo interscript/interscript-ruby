@@ -30,26 +30,17 @@ tests {
   test "ނޔ", "n·y"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
 stage {
 
   # RULES
   # rule 3
-  sub "\\u0787(?!=[\\u07a6\\u07a7\\u07a8\\u07a9\\u07aa\\u07ab\\u07ac\\u07ad\\u07ae\\u07af\\u07B0])", "’"
+  sub "\u0787", "’", not_after: "=" + any("\u07a6\u07a7\u07a8\u07a9\u07aa\u07ab\u07ac\u07ad\u07ae\u07af\u07B0")
   # rule 4
-  sub "\\u0782(?=[\\u0784\\u078b\\u0791\\u078e])", "ň"
+  sub "\u0782", "ň", after: any("\u0784\u078b\u0791\u078e")
 
   # rule 5
-  sub "\\u0790(?=[\\u0780])", "s·" #raised dot unicode U+2E33
-  sub "\\u0782(?=[\\u0794])", "n·" #raised dot unicode U+2E33
+  sub "\u0790", "s·", after: any("\u0780") #raised dot unicode U+2E33
+  sub "\u0782", "n·", after: any("\u0794") #raised dot unicode U+2E33
 
 
   # CHARACTERS
@@ -94,5 +85,6 @@ stage {
     sub "ޗ", "ch"
   }
 
+  compose
 }
 

@@ -130,24 +130,15 @@ tests {
   test "ᠴᠢᠩᠭᠢᠰ ᠬᠠᠭᠠᠨ", "cingγis xaγan" # Чингис Хаан
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
 stage {
 
   # RULES
-  sub "\\u182c(\\u1821|u1822|\\u1825|\\u1826)", "k\\1"
-  sub "\\u182d(\\u1821|u1822|\\u1825|\\u1826)", "g\\1"
-  sub "\\u1820\\u1836\\u1822", "ai"
-  sub "\\u1821\\u1836\\u1822", "ei"
-  sub "\\u1823\\u1836\\u1822", "oi"
-  sub "\\u1824\\u1836\\u1822", "ui"
+  sub "\u182c" + capture(any("\u1821", "u1822", "\u1825", "\u1826")), "k" + ref( 1 )
+  sub "\u182d" + capture(any("\u1821", "u1822", "\u1825", "\u1826")), "g" + ref( 1 )
+  sub "\u1820\u1836\u1822", "ai"
+  sub "\u1821\u1836\u1822", "ei"
+  sub "\u1823\u1836\u1822", "oi"
+  sub "\u1824\u1836\u1822", "ui"
 
 
   # CHARACTERS
@@ -179,9 +170,9 @@ stage {
     sub "ᠷ", "r" # \u1837
     sub "ᠸ", "v" # \u1838
     sub "ᠾ", "h" # \u183e
-    sub "᠁", "..." # \u1801
+    sub "᠁", '...' # \u1801
     sub "᠂", "," # \u1802
-    sub "᠃", "." # \u1803
+    sub "᠃", '.' # \u1803
     sub "᠄", ":" # \u1804
     sub "᠎", "-" # MVS
     sub " ", "-" # NNBSP

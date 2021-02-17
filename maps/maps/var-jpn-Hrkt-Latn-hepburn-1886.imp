@@ -49,57 +49,15 @@ tests {
   test "しんばし", "shimbashi"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
-
 stage {
 
   # RULES
   # Add a dash (-) between ん and a vowel sound or ya, yu, yo
-  sub "([んン])(?=[あいうえおやゆよアイウエオヤユヨ])", "\\1-"
+    sub capture(any("んン")), ref( 1 ) + "-", after: any("あいうえおやゆよアイウエオヤユヨ")
 
   # Convert ん into m before b, m, p
-  sub "[んン](?=[ばびぶべぼまみむめもぱぴぷぺぽバビブベボマミムメモパピプペポ])", "m"
+    sub any("んン"), "m", after: any("ばびぶべぼまみむめもぱぴぷぺぽバビブベボマミムメモパピプペポ")
 
-
-  # POSTRULES
-  # Handling of っ/ッ
-  #
-  # The kana っ/ッ is a geminate marker.
-  # When followed by a consonant, repeat the first letter of
-  # the following syllable. Exception: the combination -cch-
-  # should be transliterated as -tch-
-  #
-  # If っ/ッ is not followed by a consonant, then it is usually
-  # phonetically realised as an abrupt stop or shorterning of
-  # the previous syllable. There is no documented or commonly
-  # accepted way to transliterate this sound.
-
-  sub "[っッ]([BbDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz])", "\\1\\1"
-  sub "[っッ]([Cc])", "t\\1" # ッ followed by ch-
-  sub "[っッ]", "" # drop all other っッ.
-
-  # In Traditional Hepburn, long o (which can be o+o or o+u), and long u
-  # are transliterated as ō and ū.
-  #
-  # Macron should not be used if two repeating letters split across
-  # a morpheme boundary.
-  #
-  # Long vowels in loanwords are indicated with a macron instead
-  # of letter doubling.
-
-  sub "a[ー]", "ā"
-  sub "i[ー]", "ī"
-  sub "u[ーu]", "ū"
-  sub "e[ー]", "ē"
-  sub "o[ーo]", "ō"
 
 
   # CHARACTERS
@@ -405,6 +363,38 @@ stage {
 
     sub "ン", "n"
   }
+
+  # POSTRULES
+  # Handling of っ/ッ
+  #
+  # The kana っ/ッ is a geminate marker.
+  # When followed by a consonant, repeat the first letter of
+  # the following syllable. Exception: the combination -cch-
+  # should be transliterated as -tch-
+  #
+  # If っ/ッ is not followed by a consonant, then it is usually
+  # phonetically realised as an abrupt stop or shorterning of
+  # the previous syllable. There is no documented or commonly
+  # accepted way to transliterate this sound.
+
+    sub any("っッ") + capture(any("BbDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz")), ref( 1 ) + ref( 1 )
+    sub any("っッ") + capture(any("Cc")), "t" + ref( 1 ) # ッ followed by ch-
+    sub any("っッ"), "" # drop all other っッ.
+
+  # In Traditional Hepburn, long o (which can be o+o or o+u), and long u
+  # are transliterated as ō and ū.
+  #
+  # Macron should not be used if two repeating letters split across
+  # a morpheme boundary.
+  #
+  # Long vowels in loanwords are indicated with a macron instead
+  # of letter doubling.
+
+    sub "a" + any("ー"), "ā"
+    sub "i" + any("ー"), "ī"
+    sub "u" + any("ーu"), "ū"
+    sub "e" + any("ー"), "ē"
+    sub "o" + any("ーo"), "ō"
 
 }
 
