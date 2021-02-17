@@ -5,7 +5,6 @@ require 'regexp_parser'
 
 old_maps = Dir["../../interscript/maps/*.yaml"]
 
-
 $expr_classes = []
 $quantifiers = []
 old_maps.each do |old_map|

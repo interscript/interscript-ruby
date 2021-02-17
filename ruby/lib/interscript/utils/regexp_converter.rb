@@ -184,7 +184,7 @@ def stringify_root(root)
 end
 
 if __FILE__ == $0
-  rs = File.open('regexp_examples.txt').read.gsub(/([^\\^])\\u/, '\\1\\\\u').gsub(/\\\\b/, '\b')
+  rs = File.open(__dir__+"/../../docs/utils/regexp_examples.txt").read.gsub(/([^\\^])\\u/, '\\1\\\\u').gsub(/\\\\b/, '\b')
   rs = rs.split("\n")
   rs.each do |r|
     puts r

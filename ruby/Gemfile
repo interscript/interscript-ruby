@@ -8,4 +8,6 @@ gem "rspec", "~> 3.0"
 
 gem "interscript-maps", path: "../maps"
 
+gem 'regexp_parser'
+
 gem 'simplecov', require: false, group: :test
