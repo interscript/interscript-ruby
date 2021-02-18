@@ -10,6 +10,10 @@ class Interscript::Node::Item::Maybe < Interscript::Node::Item
     data.first_string
   end
 
+  def max_length
+    data.max_length
+  end
+
   def to_hash
     { :class => self.class.to_s,
       :data => self.data.to_hash }

@@ -24,6 +24,8 @@ class Interscript::DSL::Group
     @node.children << rule
   end
 
+  def upcase; :upcase; end
+
   Interscript::Stdlib.available_functions.each do |fun|
     define_method fun do |**kwargs|
       puts "funcall(#{fun}, #{kwargs.inspect}) from #{self.inspect}" if $DEBUG

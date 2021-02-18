@@ -57,7 +57,7 @@ def process(node)
 
           out << children if node.respond_to? :expressions
            if node.respond_to? :quantifier and node.quantifier
-            # TODO add quantifier support            
+            # TODO add quantifier support
             # pp node
             # out << process(node.quantifier)
           end
@@ -106,8 +106,8 @@ def stringify(node)
     capture_stop: ')',
     zero_or_one_start: 'maybe(',
     zero_or_one_stop: ')',
-    alternation_start: 'any(',
-    alternation_stop: ')',
+    alternation_start: 'any([',
+    alternation_stop: '])',
     alternative_start: '',
     alternative_stop: '',
     boundary: 'boundary',

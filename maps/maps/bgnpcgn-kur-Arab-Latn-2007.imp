@@ -167,7 +167,6 @@ stage {
 
   # CHARACTERS
   parallel {
-
     sub "\u0650", "i" # ِ kasra special rule 2
     sub "\u0644\u06d5", "le " # special rule 7
     sub "\u0628\u06d5", "be " # special rule 7
@@ -175,9 +174,12 @@ stage {
     sub "\u0621", "’" # ء
     sub "\u0624", "’" # ؤ
     sub "\u0626", "’" # ئ
+  }
 
-    sub "و", "u", before: any("ء|ب|پ|ت|ج|چ|ح|خ|د|ر|ڕ|ز|ژ|س|ش|ص|ض|ط|ع|غ|́|ڨ|ق|ک|ك|گ|ل|ڵ|م|ن|و|ه|ي") # special note 4/5
-    sub "ي", "î", before: any("ء|ب|پ|ت|ج|چ|ح|خ|د|ر|ڕ|ز|ژ|س|ش|ص|ض|ط|ع|غ|́|ڨ|ق|ک|ك|گ|ل|ڵ|م|ن|و|ه|ي") # special note 4/5
+  sub "و", "u", before: any("ء|ب|پ|ت|ج|چ|ح|خ|د|ر|ڕ|ز|ژ|س|ش|ص|ض|ط|ع|غ|́|ڨ|ق|ک|ك|گ|ل|ڵ|م|ن|و|ه|ي") # special note 4/5
+  sub "ي", "î", before: any("ء|ب|پ|ت|ج|چ|ح|خ|د|ر|ڕ|ز|ژ|س|ش|ص|ض|ط|ع|غ|́|ڨ|ق|ک|ك|گ|ل|ڵ|م|ن|و|ه|ي") # special note 4/5
+
+  parallel {
     sub "\u0621", "’" # ء (see note 1 and 7)
     sub "\u0628", "b" # ب
     sub "\u067E", "p" # پ
@@ -213,7 +215,11 @@ stage {
     sub "\u064A", "y" # ي
 
     # VOWELS
-    sub "\u0647" + boundary, "e" # See notes 1 and 5
+  }
+
+  sub "\u0647" + boundary, "e" # See notes 1 and 5
+
+  parallel {
     sub "\u06D5", "e" # See notes 1 and 5
     sub "\u0626\u06D5", "e" # See notes 1 and 5
     sub "\u0627", "a" # See note 1
@@ -234,8 +240,7 @@ stage {
   }
 
   # POSTRULES
-    sub any([any("\u0061".."\uFFFF")]), "upcase", before: boundary, not_before: boundary + any("‘|’|'")
+  sub any([any("\u0061".."\uFFFF")]), upcase, before: boundary, not_before: boundary + any("‘|’|'")
 
 
 }
-

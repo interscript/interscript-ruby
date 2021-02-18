@@ -50,10 +50,10 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
       a = []
       r.children.each do |i|
         raise ArgumentError, "Can't parallelize #{i.class}" unless Interscript::Node::Rule::Sub === i
-        # raise ArgumentError, "Can't parallelize rules with :before" if i.before
-        # raise ArgumentError, "Can't parallelize rules with :after" if i.after
-        # raise ArgumentError, "Can't parallelize rules with :not_before" if i.not_before
-        # raise ArgumentError, "Can't parallelize rules with :not_after" if i.not_after
+        raise ArgumentError, "Can't parallelize rules with :before" if i.before
+        raise ArgumentError, "Can't parallelize rules with :after" if i.after
+        raise ArgumentError, "Can't parallelize rules with :not_before" if i.not_before
+        raise ArgumentError, "Can't parallelize rules with :not_after" if i.not_after
 
         a << [compile_item(i.from, map, :par), compile_item(i.to, map, :parstr)]
       end
@@ -65,11 +65,11 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
       c += "s = Interscript::Stdlib.parallel_replace_tree(s, Interscript::Maps::Cache::PTREE_#{ah})\n"
     when Interscript::Node::Rule::Sub
       from = "/#{build_regexp(r, map).gsub("/", "\\\\/")}/"
-      if Interscript::Node::Item::String === r.to and r.to.data == "upcase"
+      if r.to == :upcase
         to = '&:upcase'
       else
         to = compile_item(r.to, map, :str)
-      end      
+      end
       c += "s.gsub!(#{from}, #{to})\n"
     when Interscript::Node::Rule::Funcall
       c += "s = Interscript::Stdlib::Functions.#{r.name}(s, #{r.kwargs.inspect[1..-2]})\n"
@@ -119,9 +119,9 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
         raise ArgumentError, "Alias #{i.name} of #{i.stage.map} not found" unless a
         "Interscript::Maps.get_alias_ALIASTYPE(#{a.doc_name.inspect}, #{a.name.inspect})"
       elsif Interscript::Stdlib::ALIASES.include?(i.name)
-        # if target != :re && Interscript::Stdlib.re_only_alias?(i.name)
-        #  raise ArgumentError, "Can't use #{i.name} in a #{target} context"
-        # end
+        if target != :re && Interscript::Stdlib.re_only_alias?(i.name)
+          raise ArgumentError, "Can't use #{i.name} in a #{target} context"
+        end
         stdlib_alias = true
         "Interscript::Stdlib::ALIASES[#{i.name.inspect}]"
       else
@@ -138,8 +138,8 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
       elsif parstr && stdlib_alias
         astr = Interscript::Stdlib::ALIASES[i.name]
       elsif target == :par
-        # raise NotImplementedError, "Can't use aliases in parallel mode yet"
-        astr = Interscript::Stdlib::ALIASES[i.name]
+        raise NotImplementedError, "Can't use aliases in parallel mode yet"
+        # astr = Interscript::Stdlib::ALIASES[i.name]
       end
     when Interscript::Node::Item::String
       if target == :str
@@ -152,7 +152,7 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
       end
     when Interscript::Node::Item::Group
       if target == :par
-        # raise NotImplementedError, "Can't concatenate in parallel mode yet"
+        raise NotImplementedError, "Can't concatenate in parallel mode yet"
       elsif target == :str
         i.children.map { |j| compile_item(j, doc, target) }.join("+")
       elsif target == :re
@@ -163,11 +163,15 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
         raise ArgumentError, "Can't use a CaptureGroup in a #{target} context"
       end
       "(" + compile_item(i.data, doc, target) + ")"
-    when Interscript::Node::Item::Maybe # code copied from captureGroup
-      # if target == :par
-      #   raise ArgumentError, "Can't use a Maybe in a #{target} context"
-      # end
-      compile_item(i.data, doc, target) + "?"
+    when Interscript::Node::Item::Maybe
+      if target == :par
+        raise ArgumentError, "Can't use a Maybe in a #{target} context"
+      end
+      if Interscript::Node::Item::String === i.data
+        "(?:" + compile_item(i.data, doc, target) + ")?"
+      else
+        compile_item(i.data, doc, target) + "?"
+      end
     when Interscript::Node::Item::CaptureRef
       if target == :par
         raise ArgumentError, "Can't use CaptureRef in parallel mode"

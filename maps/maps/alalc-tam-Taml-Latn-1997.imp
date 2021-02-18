@@ -54,14 +54,10 @@ dependency "din-tam-Taml-Latn-33903-2016", as: tamllatn
 
 
 stage {
-
-  run map.tamllatn.stage.main
-
   # CHARACTERS
   parallel {
-
     sub "ஃ", "ḵa"
   }
 
+  run map.tamllatn.stage.main
 }
-

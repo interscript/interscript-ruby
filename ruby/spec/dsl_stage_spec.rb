@@ -63,6 +63,13 @@ RSpec.describe Interscript::DSL::Stage do
           }
           expect(s.("\u{12345}")).to eq("\u{12346}")
         end
+
+        it "works with upcase" do
+          s = stage {
+            sub "a", upcase
+          }
+          expect(s.("a")).to eq("A")
+        end
       end
 
       context "#parallel" do
@@ -237,21 +244,22 @@ RSpec.describe Interscript::DSL::Stage do
 
             expect(s.("ad AD ba ca Ad Da bd BD bD")).to eq("X X ba ca Ad Da X X bD")
           end
-
-          it "handles any with multiple arguments instead of an array" do
-            s = stage {
-              sub any(any("ab") + any("cd"), any("AB") + any("CD")), "X"
-            }
-            expect(s.("ad AD ba ca Ad Da bd BD bD")).to eq("X X ba ca Ad Da X X bD")
-          end
-
         end
+
         context "#maybe" do
           it "handles maybe with string concatenated to other string" do
             s = stage {
               sub maybe("a") + "b", "X"
             }
             expect(s.("abcdb")).to eq("XcdX")
+          end
+
+          it "handles maybe with multicharacter string" do
+            s = stage {
+              sub "X"+maybe("abcde")+"X", "Y"
+            }
+            expect(s.("XabcdeX")).to eq("Y")
+            expect(s.("XX")).to eq("Y")
           end
         end
 

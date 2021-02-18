@@ -4,10 +4,14 @@ class Interscript::Node::Rule::Sub < Interscript::Node::Rule
 
   def initialize from, to, before: nil, not_before: nil, after: nil, not_after: nil
     self.from = Interscript::Node::Item.try_convert from
-    self.to = Interscript::Node::Item.try_convert to
+    if to == :upcase
+      self.to = :upcase
+    else
+      self.to = Interscript::Node::Item.try_convert to
+    end
 
-    # raise TypeError, "Can't supply both before and not_before" if before && not_before
-    # raise TypeError, "Can't supply both after and not_after" if after && not_after
+    #raise TypeError, "Can't supply both before and not_before" if before && not_before
+    #raise TypeError, "Can't supply both after and not_after" if after && not_after
 
     self.before = Interscript::Node::Item.try_convert(before) if before
     self.after = Interscript::Node::Item.try_convert(after) if after

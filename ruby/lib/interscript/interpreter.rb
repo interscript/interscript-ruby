@@ -24,10 +24,10 @@ class Interscript::Interpreter < Interscript::Compiler
           a = []
           r.children.each do |i|
             raise ArgumentError, "Can't parallelize #{i.class}" unless Interscript::Node::Rule::Sub === i
-            # raise ArgumentError, "Can't parallelize rules with :before" if i.before
-            # raise ArgumentError, "Can't parallelize rules with :after" if i.after
-            # raise ArgumentError, "Can't parallelize rules with :not_before" if i.not_before
-            # raise ArgumentError, "Can't parallelize rules with :not_after" if i.not_after
+            raise ArgumentError, "Can't parallelize rules with :before" if i.before
+            raise ArgumentError, "Can't parallelize rules with :after" if i.after
+            raise ArgumentError, "Can't parallelize rules with :not_before" if i.not_before
+            raise ArgumentError, "Can't parallelize rules with :not_after" if i.not_after
 
             a << [build_item(i.from, :par), build_item(i.to, :parstr)]
           end
@@ -39,7 +39,7 @@ class Interscript::Interpreter < Interscript::Compiler
           execute_rule(t)
         end
       when Interscript::Node::Rule::Sub
-        if Interscript::Node::Item::String === r.to and r.to.data == "upcase"
+        if r.to == :upcase
           @str = @str.gsub(Regexp.new(build_regexp(r)), &:upcase)
         else
           @str = @str.gsub(Regexp.new(build_regexp(r)), build_item(r.to, :str))
@@ -89,9 +89,9 @@ class Interscript::Interpreter < Interscript::Compiler
           raise ArgumentError, "Alias #{i.name} of #{i.stage.map} not found" unless a
           build_item(a.data, target, d)
         elsif Interscript::Stdlib::ALIASES.include?(i.name)
-          # if target != :re && Interscript::Stdlib.re_only_alias?(i.name)
-          #  raise ArgumentError, "Can't use #{i.name} in a #{target} context"
-          # end
+          if target != :re && Interscript::Stdlib.re_only_alias?(i.name)
+            raise ArgumentError, "Can't use #{i.name} in a #{target} context"
+          end
           Interscript::Stdlib::ALIASES[i.name]
         else
           a = doc.imported_aliases[i.name]
@@ -106,7 +106,7 @@ class Interscript::Interpreter < Interscript::Compiler
         end
       when Interscript::Node::Item::Group
         if target == :par
-          # raise NotImplementedError, "Can't concatenate in parallel mode yet"
+          raise NotImplementedError, "Can't concatenate in parallel mode yet"
         else
           i.children.map { |j| build_item(j, target, doc) }.join
         end
@@ -115,11 +115,15 @@ class Interscript::Interpreter < Interscript::Compiler
           raise ArgumentError, "Can't use a CaptureGroup in a #{target} context"
         end
         "(" + build_item(i.data, target, doc) + ")"
-      when Interscript::Node::Item::Maybe # code copied from captureGroup
-        # if target == :par
-        #   raise ArgumentError, "Can't use a Maybe in a #{target} context"
-        # end
-        build_item(i.data, target, doc) + "?"
+      when Interscript::Node::Item::Maybe
+        if target == :par
+          raise ArgumentError, "Can't use a Maybe in a #{target} context"
+        end
+        if Interscript::Node::Item::String === i.data
+          "(?:" + build_item(i.data, target, doc) + ")?"
+        else
+          build_item(i.data, target, doc) + "?"
+        end
       when Interscript::Node::Item::CaptureRef
         if target == :par
           raise ArgumentError, "Can't use CaptureRef in parallel mode"

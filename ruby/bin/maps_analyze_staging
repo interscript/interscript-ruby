@@ -10,104 +10,104 @@ def warn(*)
 end
 
 def analyze_maps( filelist )
+  cache = {}
 
-cache = {}
+  good_total = 0
+  almost_total = 0
+  bad_total = 0
+  passed_total = 0
+  for i in filelist
+    broken = <<~END
+      # broken syntax when generating at the moment
+      bas-rus-Cyrl-Latn-2017-oss
+      az-aze-Cyrl-Latn-1958
+      bgnpcgn-kor-Hang-Latn-kn-1945
+      mofa-jpn-Hrkt-Latn-1989
+      royin-tha-Thai-Latn-1999
+    END
+    # used at the bottom
+    raw_lines = File.open(i).read.split("\n")
+    rules_line = raw_lines.index "  # RULES"
+    characters_line = raw_lines.index "  # CHARACTERS"
+    postrules_line = raw_lines.index "  # POSTRULES"
 
-good_total = 0
-almost_total = 0
-bad_total = 0
-passed_total = 0
-for i in filelist
-broken = <<END
-# broken syntax when generating at the moment
-bas-rus-Cyrl-Latn-2017-oss
-az-aze-Cyrl-Latn-1958
-bgnpcgn-kor-Hang-Latn-kn-1945
-mofa-jpn-Hrkt-Latn-1989
-royin-tha-Thai-Latn-1999
-END
-  # used at the bottom
-  raw_lines = File.open(i).read.split("\n")
-  rules_line = raw_lines.index "  # RULES"
-  characters_line = raw_lines.index "  # CHARACTERS"
-  postrules_line = raw_lines.index "  # POSTRULES"
-
-  system_name = File.basename(i, ".imp")
-  gonext = false
-  broken.split("\n").each do |b|
-    if i.include? b
-      puts "#{system_name} NEXT"
-      gonext = true
-    end
-  end
-  next if gonext
-
-  print "#{system_name}: "
-
-  exceptions = []
-
-  begin
-    system = Interscript.parse(system_name)
-  rescue => e
-    exceptions << e
-  end
-
-  if exceptions.length == 0 && system.tests && system.tests.data && system.tests.data.length > 0
-    good = 0
-    bad = 0
-    almost = 0
-
-    system.tests.data.each do |from,expected|
-      testname = from[0...300].gsub("\n", " / ")
-      result = Interscript.transliterate(system_name, from, cache, compiler: Interscript::Interpreter)
-      result2 = Interscript.transliterate(system_name, from, cache, compiler: Interscript::Compiler::Ruby)
-      if result == nil or result2 == nil
-        print '0'
-        bad += 1
-      elsif result != result2
-        # Compiler / Interpreter bug!
-        print "!"
-        bad += 1
-      elsif result == expected
-        print "."
-        good += 1
-      elsif result.unicode_normalize == expected.unicode_normalize
-        print ","
-        almost += 1
-      else
-        print "#"
-        bad += 1
+    system_name = File.basename(i, ".imp")
+    gonext = false
+    broken.split("\n").each do |b|
+      if i.include? b
+        puts "#{system_name} NEXT"
+        gonext = true
       end
-    rescue => e
-      print "%"
-      bad += 1
+    end
+    next if gonext
+
+    print "#{system_name}: "
+
+    exceptions = []
+
+    begin
+      system = Interscript.parse(system_name)
+    rescue Exception => e
       exceptions << e
     end
 
-    if bad == 0
-      passed_total += 1
-      puts " all tests passed!"
-      # `git mv #{i} #{i.sub("-staging", "")}`   if i.include? '-staging'
+    if exceptions.length == 0 && system.tests && system.tests.data && system.tests.data.length > 0
+      good = 0
+      bad = 0
+      almost = 0
+
+      system.tests.data.each do |from,expected|
+        testname = from[0...300].gsub("\n", " / ")
+
+        result = Interscript.transliterate(system_name, from, cache, compiler: Interscript::Interpreter)
+        result2 = Interscript.transliterate(system_name, from, cache, compiler: Interscript::Compiler::Ruby)
+        if result == nil or result2 == nil
+          print '0'
+          bad += 1
+        elsif result != result2
+          # Compiler / Interpreter bug!
+          print "!"
+          bad += 1
+        elsif result == expected
+          print "."
+          good += 1
+        elsif result.unicode_normalize == expected.unicode_normalize
+          print ","
+          almost += 1
+        else
+          print "#"
+          bad += 1
+        end
+      rescue Exception => e
+        print "%"
+        bad += 1
+        exceptions << e
+      end
+
+      if bad == 0
+        passed_total += 1
+        puts " all tests passed!"
+        `git mv #{i} #{i.sub("-staging", "")}`   if i.include? '-staging'
+      else
+        puts " (#{good}/#{good+almost+bad})"
+      end
+      good_total += good
+      almost_total += almost
+      bad_total += bad
+    elsif exceptions.length != 0
     else
-      puts " (#{good}/#{good+almost+bad})"
+      puts "no tests!"
     end
-    good_total += good
-    almost_total += almost
-    bad_total += bad
-  elsif exceptions.length != 0
-  else
-    puts "no tests!"
-  end
     puts "warning: postrules before rules\n\n" if (postrules_line||10000000) < (rules_line||0)
     puts "warning: postrules before characters\n\n" if (postrules_line||10000000) < (characters_line||0)
 
-  exceptions.each do |e|
-    puts e.full_message
+    exceptions.each do |e|
+      puts e.full_message
+    end
   end
-end
-puts " #{good_total} (#{good_total+almost_total})/#{good_total+almost_total+bad_total}"
-puts " #{passed_total} passed!"
+  puts " #{good_total} (#{good_total+almost_total})/#{good_total+almost_total+bad_total}"
+  puts " #{passed_total} passed!"
 end
 
-analyze_maps Dir[__dir__+"/../../maps/maps/*.imp"].sort
+#analyze_maps Dir[__dir__+"/../../maps/maps/*.imp"].sort
 analyze_maps Dir[__dir__+"/../../maps/maps-staging/*.imp"].sort
