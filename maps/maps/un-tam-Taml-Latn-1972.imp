@@ -58,29 +58,29 @@ aliases {
 stage {
 
   # RULES
-    sub "க", "k", after: taml_chars_1
-    sub "ங", "ṅ", after: taml_chars_1
-    sub "ச", "ch", after: taml_chars_1
-    sub "ஞ", "ñ", after: taml_chars_1
-    sub "ட", "ṭ", after: taml_chars_1
-    sub "ண", "ṇ", after: taml_chars_1
-    sub "த", "t", after: taml_chars_1
-    sub "ந", "n", after: taml_chars_1
-    sub "ப", "p", after: taml_chars_1
-    sub "ம", "m", after: taml_chars_1
-    sub "ய", "y", after: taml_chars_1
-    sub "ர", "r", after: taml_chars_1
-    sub "ல", "l", after: taml_chars_1
-    sub "வ", "v", after: taml_chars_1
-    sub "ழ", "l̮", after: taml_chars_1
-    sub "ள", "ḷ", after: taml_chars_1
-    sub "ற", "ṟ", after: taml_chars_1
-    sub "ன", "ṉ", after: taml_chars_1
-    sub "ஜ", "j", after: taml_chars_1
-    sub "ஶ", "sh", after: taml_chars_1
-    sub "ஷ", "ṣh", after: taml_chars_1
-    sub "ஸ", "s", after: taml_chars_1
-    sub "ஹ", "h", after: taml_chars_1
+  sub "க", "k", after: taml_chars_1
+  sub "ங", "ṅ", after: taml_chars_1
+  sub "ச", "ch", after: taml_chars_1
+  sub "ஞ", "ñ", after: taml_chars_1
+  sub "ட", "ṭ", after: taml_chars_1
+  sub "ண", "ṇ", after: taml_chars_1
+  sub "த", "t", after: taml_chars_1
+  sub "ந", "n", after: taml_chars_1
+  sub "ப", "p", after: taml_chars_1
+  sub "ம", "m", after: taml_chars_1
+  sub "ய", "y", after: taml_chars_1
+  sub "ர", "r", after: taml_chars_1
+  sub "ல", "l", after: taml_chars_1
+  sub "வ", "v", after: taml_chars_1
+  sub "ழ", "l̮", after: taml_chars_1
+  sub "ள", "ḷ", after: taml_chars_1
+  sub "ற", "ṟ", after: taml_chars_1
+  sub "ன", "ṉ", after: taml_chars_1
+  sub "ஜ", "j", after: taml_chars_1
+  sub "ஶ", "sh", after: taml_chars_1
+  sub "ஷ", "ṣh", after: taml_chars_1
+  sub "ஸ", "s", after: taml_chars_1
+  sub "ஹ", "h", after: taml_chars_1
 
 
 
@@ -171,4 +171,3 @@ stage {
 
   compose
 }
-

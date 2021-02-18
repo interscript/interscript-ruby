@@ -61,43 +61,43 @@ aliases {
 stage {
 
   # RULES
-    sub "ക", "k", after: mlym_chars_1
-    sub "ഖ", "kh", after: mlym_chars_1
-    sub "ഗ", "g", after: mlym_chars_1
-    sub "ഘ", "gh", after: mlym_chars_1
-    sub "ങ", "ṅ", after: mlym_chars_1
-    sub "ച", "ch", after: mlym_chars_1
-    sub "ഛ", "chh", after: mlym_chars_1
-    sub "ജ", "j", after: mlym_chars_1
-    sub "ഝ", "jh", after: mlym_chars_1
-    sub "ഞ", "ñ", after: mlym_chars_1
-    sub "ട", "ṭ", after: mlym_chars_1
-    sub "ഠ", "ṭh", after: mlym_chars_1
-    sub "ഡ", "ḍ", after: mlym_chars_1
-    sub "ഢ", "ḍh", after: mlym_chars_1
-    sub "ണ", "ṇ", after: mlym_chars_1
-    sub "ത", "t", after: mlym_chars_1
-    sub "ഥ", "th", after: mlym_chars_1
-    sub "ദ", "d", after: mlym_chars_1
-    sub "ധ", "dh", after: mlym_chars_1
-    sub "ന", "n", after: mlym_chars_1
-    sub "പ", "p", after: mlym_chars_1
-    sub "ഫ", "ph", after: mlym_chars_1
-    sub "ബ", "b", after: mlym_chars_1
-    sub "ഭ", "bh", after: mlym_chars_1
-    sub "മ", "m", after: mlym_chars_1
-    sub "യ", "y", after: mlym_chars_1
-    sub "ര", "r", after: mlym_chars_1
-    sub "ല", "l", after: mlym_chars_1
-    sub "വ", "v", after: mlym_chars_1
-    sub "ശ", "sh", after: mlym_chars_1
-    sub "ഷ", "ṣh", after: mlym_chars_1
-    sub "സ", "s", after: mlym_chars_1
-    sub "ഹ", "h", after: mlym_chars_1
-    sub "ള", "ḷ", after: mlym_chars_1
-    sub "ഴ", "ḻ", after: mlym_chars_1
-    sub "റ", "ṟ", after: mlym_chars_1
-    sub "ക്ഷ", "kṣh", after: mlym_chars_1
+  sub "ക", "k", after: mlym_chars_1
+  sub "ഖ", "kh", after: mlym_chars_1
+  sub "ഗ", "g", after: mlym_chars_1
+  sub "ഘ", "gh", after: mlym_chars_1
+  sub "ങ", "ṅ", after: mlym_chars_1
+  sub "ച", "ch", after: mlym_chars_1
+  sub "ഛ", "chh", after: mlym_chars_1
+  sub "ജ", "j", after: mlym_chars_1
+  sub "ഝ", "jh", after: mlym_chars_1
+  sub "ഞ", "ñ", after: mlym_chars_1
+  sub "ട", "ṭ", after: mlym_chars_1
+  sub "ഠ", "ṭh", after: mlym_chars_1
+  sub "ഡ", "ḍ", after: mlym_chars_1
+  sub "ഢ", "ḍh", after: mlym_chars_1
+  sub "ണ", "ṇ", after: mlym_chars_1
+  sub "ത", "t", after: mlym_chars_1
+  sub "ഥ", "th", after: mlym_chars_1
+  sub "ദ", "d", after: mlym_chars_1
+  sub "ധ", "dh", after: mlym_chars_1
+  sub "ന", "n", after: mlym_chars_1
+  sub "പ", "p", after: mlym_chars_1
+  sub "ഫ", "ph", after: mlym_chars_1
+  sub "ബ", "b", after: mlym_chars_1
+  sub "ഭ", "bh", after: mlym_chars_1
+  sub "മ", "m", after: mlym_chars_1
+  sub "യ", "y", after: mlym_chars_1
+  sub "ര", "r", after: mlym_chars_1
+  sub "ല", "l", after: mlym_chars_1
+  sub "വ", "v", after: mlym_chars_1
+  sub "ശ", "sh", after: mlym_chars_1
+  sub "ഷ", "ṣh", after: mlym_chars_1
+  sub "സ", "s", after: mlym_chars_1
+  sub "ഹ", "h", after: mlym_chars_1
+  sub "ള", "ḷ", after: mlym_chars_1
+  sub "ഴ", "ḻ", after: mlym_chars_1
+  sub "റ", "ṟ", after: mlym_chars_1
+  sub "ക്ഷ", "kṣh", after: mlym_chars_1
 
 
   # CHARACTERS
@@ -213,4 +213,3 @@ stage {
 
   compose
 }
-

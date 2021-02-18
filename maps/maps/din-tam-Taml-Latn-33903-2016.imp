@@ -179,12 +179,9 @@ stage {
     sub "௲", "1000"
 
 
-
-
     sub "‍", "" # no need for zero with joiner
     sub "‌", "" # no need for zero with non joiner
   }
 
   compose
 }
-

@@ -55,54 +55,58 @@ tests {
   test "२५६८७५४४६४४६१६११", "2568754464461611"
 }
 
+aliases {
+  def_alias hin_cons_or_conscluster, any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+}
+
 stage {
 
   # RULES
   # note[2]
-  sub capture("क" + maybe("=")), "k", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("क़" + maybe("=")), "q", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("ख" + maybe("=")), "kh", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("ख़" + maybe("=")), "kh", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("ग" + maybe("=")), "g", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("ग़" + maybe("=")), "gh", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("घ" + maybe("=")), "gh", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("ङ" + maybe("=")), "ṅ", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("च" + maybe("=")), "c", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("छ" + maybe("=")), "ch", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("ज" + maybe("=")), "j", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("ज़" + maybe("=")), "j", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("झ" + maybe("=")), "jh", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("ञ" + maybe("=")), "ñ", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("ट" + maybe("=")), "ṭ", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("ट़" + maybe("=")), "t̤", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("ठ" + maybe("=")), "ṭh", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("ड" + maybe("=")), "ḍ", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("ड़" + maybe("=")), "ṛ", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("ड़" + maybe("=")), "ṛ", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("ढ" + maybe("=")), "ḍh", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("ढ़" + maybe("=")), "ṛh", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("ण" + maybe("=")), "ṇ", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("त" + maybe("=")), "t", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("थ" + maybe("=")), "th", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("द" + maybe("=")), "d", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("ध" + maybe("=")), "dh", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("न" + maybe("=")), "n", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("प" + maybe("=")), "p", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("फ" + maybe("=")), "ph", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("फ़" + maybe("=")), "ph", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("ब" + maybe("=")), "b", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("भ" + maybe("=")), "bh", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("म" + maybe("=")), "m", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("य" + maybe("=")), "y", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("र" + maybe("=")), "r", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("ल" + maybe("=")), "l", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("व" + maybe("=")), "v", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("श" + maybe("=")), "ś", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("ष" + maybe("=")), "sh", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("स" + maybe("=")), "s", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("स़" + maybe("=")), "s̤", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("ह" + maybe("=")), "h", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
-  sub capture("ह़" + maybe("=")), "h", after: any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+  sub capture("क" + maybe("=")), "k", after: hin_cons_or_conscluster
+  sub capture("क़" + maybe("=")), "q", after: hin_cons_or_conscluster
+  sub capture("ख" + maybe("=")), "kh", after: hin_cons_or_conscluster
+  sub capture("ख़" + maybe("=")), "kh", after: hin_cons_or_conscluster
+  sub capture("ग" + maybe("=")), "g", after: hin_cons_or_conscluster
+  sub capture("ग़" + maybe("=")), "gh", after: hin_cons_or_conscluster
+  sub capture("घ" + maybe("=")), "gh", after: hin_cons_or_conscluster
+  sub capture("ङ" + maybe("=")), "ṅ", after: hin_cons_or_conscluster
+  sub capture("च" + maybe("=")), "c", after: hin_cons_or_conscluster
+  sub capture("छ" + maybe("=")), "ch", after: hin_cons_or_conscluster
+  sub capture("ज" + maybe("=")), "j", after: hin_cons_or_conscluster
+  sub capture("ज़" + maybe("=")), "j", after: hin_cons_or_conscluster
+  sub capture("झ" + maybe("=")), "jh", after: hin_cons_or_conscluster
+  sub capture("ञ" + maybe("=")), "ñ", after: hin_cons_or_conscluster
+  sub capture("ट" + maybe("=")), "ṭ", after: hin_cons_or_conscluster
+  sub capture("ट़" + maybe("=")), "t̤", after: hin_cons_or_conscluster
+  sub capture("ठ" + maybe("=")), "ṭh", after: hin_cons_or_conscluster
+  sub capture("ड" + maybe("=")), "ḍ", after: hin_cons_or_conscluster
+  sub capture("ड़" + maybe("=")), "ṛ", after: hin_cons_or_conscluster
+  sub capture("ड़" + maybe("=")), "ṛ", after: hin_cons_or_conscluster
+  sub capture("ढ" + maybe("=")), "ḍh", after: hin_cons_or_conscluster
+  sub capture("ढ़" + maybe("=")), "ṛh", after: hin_cons_or_conscluster
+  sub capture("ण" + maybe("=")), "ṇ", after: hin_cons_or_conscluster
+  sub capture("त" + maybe("=")), "t", after: hin_cons_or_conscluster
+  sub capture("थ" + maybe("=")), "th", after: hin_cons_or_conscluster
+  sub capture("द" + maybe("=")), "d", after: hin_cons_or_conscluster
+  sub capture("ध" + maybe("=")), "dh", after: hin_cons_or_conscluster
+  sub capture("न" + maybe("=")), "n", after: hin_cons_or_conscluster
+  sub capture("प" + maybe("=")), "p", after: hin_cons_or_conscluster
+  sub capture("फ" + maybe("=")), "ph", after: hin_cons_or_conscluster
+  sub capture("फ़" + maybe("=")), "ph", after: hin_cons_or_conscluster
+  sub capture("ब" + maybe("=")), "b", after: hin_cons_or_conscluster
+  sub capture("भ" + maybe("=")), "bh", after: hin_cons_or_conscluster
+  sub capture("म" + maybe("=")), "m", after: hin_cons_or_conscluster
+  sub capture("य" + maybe("=")), "y", after: hin_cons_or_conscluster
+  sub capture("र" + maybe("=")), "r", after: hin_cons_or_conscluster
+  sub capture("ल" + maybe("=")), "l", after: hin_cons_or_conscluster
+  sub capture("व" + maybe("=")), "v", after: hin_cons_or_conscluster
+  sub capture("श" + maybe("=")), "ś", after: hin_cons_or_conscluster
+  sub capture("ष" + maybe("=")), "sh", after: hin_cons_or_conscluster
+  sub capture("स" + maybe("=")), "s", after: hin_cons_or_conscluster
+  sub capture("स़" + maybe("=")), "s̤", after: hin_cons_or_conscluster
+  sub capture("ह" + maybe("=")), "h", after: hin_cons_or_conscluster
+  sub capture("ह़" + maybe("=")), "h", after: hin_cons_or_conscluster
 
   # note[3]
   sub "\u0902", "ṅ", after: any("कक़खख़गग़घङ")
@@ -242,4 +246,3 @@ stage {
   }
   compose
 }
-

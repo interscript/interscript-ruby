@@ -64,40 +64,40 @@ aliases {
 stage {
 
   # RULES
-    sub "ક", "k", after: gurj_chars_1
-    sub "ખ", "kh", after: gurj_chars_1
-    sub "ગ", "g", after: gurj_chars_1
-    sub "ઘ", "gh", after: gurj_chars_1
-    sub "ઙ", "ṅ", after: gurj_chars_1
-    sub "ચ", "ch", after: gurj_chars_1
-    sub "છ", "chh", after: gurj_chars_1
-    sub "જ", "j", after: gurj_chars_1
-    sub "ઝ", "jh", after: gurj_chars_1
-    sub "ઞ", "ñ", after: gurj_chars_1
-    sub "ટ", "ṭ", after: gurj_chars_1
-    sub "ઠ", "ṭh", after: gurj_chars_1
-    sub "ડ", "ḍ", after: gurj_chars_1
-    sub "ઢ", "ḍh", after: gurj_chars_1
-    sub "ણ", "ṇ", after: gurj_chars_1
-    sub "ત", "t", after: gurj_chars_1
-    sub "થ", "th", after: gurj_chars_1
-    sub "દ", "d", after: gurj_chars_1
-    sub "ધ", "dh", after: gurj_chars_1
-    sub "ન", "n", after: gurj_chars_1
-    sub "પ", "p", after: gurj_chars_1
-    sub "ફ", "f", after: gurj_chars_1
-    sub "બ", "b", after: gurj_chars_1
-    sub "ભ", "bh", after: gurj_chars_1
-    sub "મ", "m", after: gurj_chars_1
-    sub "ય", "y", after: gurj_chars_1
-    sub "ર", "r", after: gurj_chars_1
-    sub "લ", "l", after: gurj_chars_1
-    sub "વ", "v", after: gurj_chars_1
-    sub "શ", "sh", after: gurj_chars_1
-    sub "ષ", "ṣh", after: gurj_chars_1
-    sub "સ", "s", after: gurj_chars_1
-    sub "હ", "h", after: gurj_chars_1
-    sub "ળ", "ḷ", after: gurj_chars_1
+  sub "ક", "k", after: gurj_chars_1
+  sub "ખ", "kh", after: gurj_chars_1
+  sub "ગ", "g", after: gurj_chars_1
+  sub "ઘ", "gh", after: gurj_chars_1
+  sub "ઙ", "ṅ", after: gurj_chars_1
+  sub "ચ", "ch", after: gurj_chars_1
+  sub "છ", "chh", after: gurj_chars_1
+  sub "જ", "j", after: gurj_chars_1
+  sub "ઝ", "jh", after: gurj_chars_1
+  sub "ઞ", "ñ", after: gurj_chars_1
+  sub "ટ", "ṭ", after: gurj_chars_1
+  sub "ઠ", "ṭh", after: gurj_chars_1
+  sub "ડ", "ḍ", after: gurj_chars_1
+  sub "ઢ", "ḍh", after: gurj_chars_1
+  sub "ણ", "ṇ", after: gurj_chars_1
+  sub "ત", "t", after: gurj_chars_1
+  sub "થ", "th", after: gurj_chars_1
+  sub "દ", "d", after: gurj_chars_1
+  sub "ધ", "dh", after: gurj_chars_1
+  sub "ન", "n", after: gurj_chars_1
+  sub "પ", "p", after: gurj_chars_1
+  sub "ફ", "f", after: gurj_chars_1
+  sub "બ", "b", after: gurj_chars_1
+  sub "ભ", "bh", after: gurj_chars_1
+  sub "મ", "m", after: gurj_chars_1
+  sub "ય", "y", after: gurj_chars_1
+  sub "ર", "r", after: gurj_chars_1
+  sub "લ", "l", after: gurj_chars_1
+  sub "વ", "v", after: gurj_chars_1
+  sub "શ", "sh", after: gurj_chars_1
+  sub "ષ", "ṣh", after: gurj_chars_1
+  sub "સ", "s", after: gurj_chars_1
+  sub "હ", "h", after: gurj_chars_1
+  sub "ળ", "ḷ", after: gurj_chars_1
 
 
   # CHARACTERS
@@ -194,4 +194,3 @@ stage {
 
   compose
 }
-

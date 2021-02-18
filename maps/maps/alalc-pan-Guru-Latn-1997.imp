@@ -65,16 +65,16 @@ stage {
 
   # RULES
   # note[4]
-    sub "\u0A02", "ṅ", after: any("ਕਖਖ਼ਗਗ਼ਘਙ") # ਂ  before gutturals
-    sub "\u0A02", "ñ", after: any("ਚਛਜਜ਼ਝਞ") # ਂ   before palatals
-    sub "\u0A02", "ṇ", after: any("ਟਠਡਢਣ") # ਂ   before cerebrals
-    sub "\u0A02", "n", after: any("ਤਥਦਧਨ") # ਂ   before dentals
+  sub "\u0A02", "ṅ", after: any("ਕਖਖ਼ਗਗ਼ਘਙ") # ਂ  before gutturals
+  sub "\u0A02", "ñ", after: any("ਚਛਜਜ਼ਝਞ") # ਂ   before palatals
+  sub "\u0A02", "ṇ", after: any("ਟਠਡਢਣ") # ਂ   before cerebrals
+  sub "\u0A02", "n", after: any("ਤਥਦਧਨ") # ਂ   before dentals
 
   # note[5]
-    sub "\u0A70", "ṅ", after: any("ਕਖਖ਼ਗਗ਼ਘਙ") # ੰ  before gutturals
-    sub "\u0A70", "ñ", after: any("ਚਛਜਜ਼ਝਞ") # ੰ  before palatals
-    sub "\u0A70", "ṇ", after: any("ਟਠਡਢਣ") # ੰ  before cerebrals
-    sub "\u0A70", "n", after: any("ਤਥਦਧਨ") # ੰ  before dentals
+  sub "\u0A70", "ṅ", after: any("ਕਖਖ਼ਗਗ਼ਘਙ") # ੰ  before gutturals
+  sub "\u0A70", "ñ", after: any("ਚਛਜਜ਼ਝਞ") # ੰ  before palatals
+  sub "\u0A70", "ṇ", after: any("ਟਠਡਢਣ") # ੰ  before cerebrals
+  sub "\u0A70", "n", after: any("ਤਥਦਧਨ") # ੰ  before dentals
 
 
   # CHARACTERS
@@ -239,4 +239,3 @@ stage {
 
   compose
 }
-

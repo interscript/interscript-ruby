@@ -51,46 +51,46 @@ stage {
 
   # RULES
   # note[2]
-    sub "ক", "k", after: deva_chars_1
-    sub "খ", "kh", after: deva_chars_1
-    sub "গ", "g", after: deva_chars_1
-    sub "ঘ", "gh", after: deva_chars_1
-    sub "ঙ", "ṅ", after: deva_chars_1
-    sub "চ", "c", after: deva_chars_1
-    sub "ছ", "ch", after: deva_chars_1
-    sub "জ", "j", after: deva_chars_1
-    sub "ঝ", "jh", after: deva_chars_1
-    sub "ঞ", "ñ", after: deva_chars_1
-    sub "ট", "ṭ", after: deva_chars_1
-    sub "ঠ", "ṭh", after: deva_chars_1
-    sub "ড", "ḍ", after: deva_chars_1
-    sub "ড়", "ṛ", after: deva_chars_1
-    sub "ঢ", "ḍh", after: deva_chars_1
-    sub "ঢ়", "ṛh", after: deva_chars_1
-    sub "ণ", "ṇ", after: deva_chars_1
-    sub "ত", "t", after: deva_chars_1
-    sub "ৎ", "ṭ", after: deva_chars_1
-    sub "থ", "th", after: deva_chars_1
-    sub "দ", "d", after: deva_chars_1
-    sub "ধ", "dh", after: deva_chars_1
-    sub "ন", "n", after: deva_chars_1
-    sub "প", "p", after: deva_chars_1
-    sub "ফ", "ph", after: deva_chars_1
-    sub "ব", "b", after: deva_chars_1
-    sub "ভ", "bh", after: deva_chars_1
-    sub "ম", "m", after: deva_chars_1
-    sub "য়", "y", after: deva_chars_1
-    sub "য", "ẏ", after: deva_chars_1
-    sub "য়", "ẏ", after: deva_chars_1
-    sub "ৰ", "r", after: deva_chars_1
-    sub "ল", "l", after: deva_chars_1
-    sub "ৱ", "w", after: deva_chars_1
-    sub "শ", "ś", after: deva_chars_1
-    sub "ষ", "sh", after: deva_chars_1
-    sub "স", "s", after: deva_chars_1
-    sub "হ", "h", after: deva_chars_1
+  sub "ক", "k", after: deva_chars_1
+  sub "খ", "kh", after: deva_chars_1
+  sub "গ", "g", after: deva_chars_1
+  sub "ঘ", "gh", after: deva_chars_1
+  sub "ঙ", "ṅ", after: deva_chars_1
+  sub "চ", "c", after: deva_chars_1
+  sub "ছ", "ch", after: deva_chars_1
+  sub "জ", "j", after: deva_chars_1
+  sub "ঝ", "jh", after: deva_chars_1
+  sub "ঞ", "ñ", after: deva_chars_1
+  sub "ট", "ṭ", after: deva_chars_1
+  sub "ঠ", "ṭh", after: deva_chars_1
+  sub "ড", "ḍ", after: deva_chars_1
+  sub "ড়", "ṛ", after: deva_chars_1
+  sub "ঢ", "ḍh", after: deva_chars_1
+  sub "ঢ়", "ṛh", after: deva_chars_1
+  sub "ণ", "ṇ", after: deva_chars_1
+  sub "ত", "t", after: deva_chars_1
+  sub "ৎ", "ṭ", after: deva_chars_1
+  sub "থ", "th", after: deva_chars_1
+  sub "দ", "d", after: deva_chars_1
+  sub "ধ", "dh", after: deva_chars_1
+  sub "ন", "n", after: deva_chars_1
+  sub "প", "p", after: deva_chars_1
+  sub "ফ", "ph", after: deva_chars_1
+  sub "ব", "b", after: deva_chars_1
+  sub "ভ", "bh", after: deva_chars_1
+  sub "ম", "m", after: deva_chars_1
+  sub "য়", "y", after: deva_chars_1
+  sub "য", "ẏ", after: deva_chars_1
+  sub "য়", "ẏ", after: deva_chars_1
+  sub "ৰ", "r", after: deva_chars_1
+  sub "ল", "l", after: deva_chars_1
+  sub "ৱ", "w", after: deva_chars_1
+  sub "শ", "ś", after: deva_chars_1
+  sub "ষ", "sh", after: deva_chars_1
+  sub "স", "s", after: deva_chars_1
+  sub "হ", "h", after: deva_chars_1
   # note[3]
-    sub "\u0981", "ṅ", after: any("কখগঘঙচছজঝঞটঠডড়ঢঢ়ণতৎথদধন") # ঁ before guttural, palatal, cerebral, and dental
+  sub "\u0981", "ṅ", after: any("কখগঘঙচছজঝঞটঠডড়ঢঢ়ণতৎথদধন") # ঁ before guttural, palatal, cerebral, and dental
 
 
   # CHARACTERS
@@ -212,4 +212,3 @@ stage {
 
   compose
 }
-

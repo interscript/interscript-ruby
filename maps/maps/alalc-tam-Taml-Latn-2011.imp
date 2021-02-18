@@ -40,16 +40,6 @@ tests {
   test "வெறும் கண்ணால் பார்க்கும்போது புள்ளியாக ஆரஞ்சு நிறத்தில் பிரகாசமாக தெரியும்.", "veṟum kaṇṇāl pārkkumpōtu puḷḷiyāka ārañcu niṟattil pirakācamāka teriyum."
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
-
 dependency "alalc-tam-Taml-Latn-1997", as: tamllatn
 
 stage {
@@ -57,4 +47,3 @@ stage {
   run map.tamllatn.stage.main
 
 }
-

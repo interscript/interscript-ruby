@@ -72,33 +72,33 @@ stage {
   # note[3] http://www.hintfox.com/article/sistema-glasnih-zvykov-na-tatarskom-i-anglijskom-jazikah.html
   # back vowels: у, а, ы, о,
   # front vowels: е, ә, и, ө, ү, э
-    sub "Г", "G", after: any("ЕеƏәИиӨөҮүЭэ")
-    sub "г", "g", after: any("ЕеƏәИиӨөҮүЭэ")
-    sub "К", "K", after: any("ЕеƏәИиӨөҮүЭэ")
-    sub "к", "k", after: any("ЕеƏәИиӨөҮүЭэ")
-    sub "Ю", "Yü", after: any("ЕеƏәИиӨөҮүЭэ")
-    sub "ю", "yü", after: any("ЕеƏәИиӨөҮүЭэ")
-    sub "Я", "Yä", after: any("ЕеƏәИиӨөҮүЭэ")
-    sub "я", "yä", after: any("ЕеƏәИиӨөҮүЭэ")
+  sub "Г", "G", after: any("ЕеƏәИиӨөҮүЭэ")
+  sub "г", "g", after: any("ЕеƏәИиӨөҮүЭэ")
+  sub "К", "K", after: any("ЕеƏәИиӨөҮүЭэ")
+  sub "к", "k", after: any("ЕеƏәИиӨөҮүЭэ")
+  sub "Ю", "Yü", after: any("ЕеƏәИиӨөҮүЭэ")
+  sub "ю", "yü", after: any("ЕеƏәИиӨөҮүЭэ")
+  sub "Я", "Yä", after: any("ЕеƏәИиӨөҮүЭэ")
+  sub "я", "yä", after: any("ЕеƏәИиӨөҮүЭэ")
 
   # note[4]
-    sub "\u0415", "Yı", before: any("АаЕеƏәОоӨөҮүУуЫыЭэЯяЪъЬь")
-    sub "\u0435", "yı", before: any("АаЕеƏәОоӨөҮүУуЫыЭэЯяЪъЬь")
+  sub "\u0415", "Yı", before: any("АаЕеƏәОоӨөҮүУуЫыЭэЯяЪъЬь")
+  sub "\u0435", "yı", before: any("АаЕеƏәОоӨөҮүУуЫыЭэЯяЪъЬь")
 
   # note[5]
-    sub "\u0423", "W", before: any("АаЕеƏәИиОоӨөҮүУуЫыЭэЮюЯяЪъЬь")
-    sub "\u0443", "w", before: any("АаЕеƏәИиОоӨөҮүУуЫыЭэЮюЯяЪъЬь")
-    sub "\u04AE", "W", before: any("АаЕеƏәИиОоӨөҮүУуЫыЭэЮюЯяЪъЬь")
-    sub "\u04AF", "w", before: any("АаЕеƏәИиОоӨөҮүУуЫыЭэЮюЯяЪъЬь")
+  sub "\u0423", "W", before: any("АаЕеƏәИиОоӨөҮүУуЫыЭэЮюЯяЪъЬь")
+  sub "\u0443", "w", before: any("АаЕеƏәИиОоӨөҮүУуЫыЭэЮюЯяЪъЬь")
+  sub "\u04AE", "W", before: any("АаЕеƏәИиОоӨөҮүУуЫыЭэЮюЯяЪъЬь")
+  sub "\u04AF", "w", before: any("АаЕеƏәИиОоӨөҮүУуЫыЭэЮюЯяЪъЬь")
 
   # note[6]
-    sub "ый", "i", before: any("Гг")
+  sub "ый", "i", before: any("Гг")
 
   # note[8]
-    sub "\u042E", "Ü", before: any("Ии")
-    sub "\u044E", "ü", before: any("Ии")
-    sub "\u042F", "Ä", before: any("Ии")
-    sub "\u044F", "ä", before: any("Ии")
+  sub "\u042E", "Ü", before: any("Ии")
+  sub "\u044E", "ü", before: any("Ии")
+  sub "\u042F", "Ä", before: any("Ии")
+  sub "\u044F", "ä", before: any("Ии")
 
 
   # CHARACTERS
@@ -183,4 +183,3 @@ stage {
   }
 
 }
-

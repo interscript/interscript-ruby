@@ -76,29 +76,29 @@ stage {
   # note[3(a)]
   sub boundary + capture("\u0787" + maybe("=")), "", after: any("\u07a6\u07a7\u07a8\u07a9\u07aa\u07ab\u07ac\u07ad\u07ae\u07af") # initial position with any vowel sign
   # note[3(c)]  a consonant follows އް in medial position
-  sub "\u0787\u07b0", "h", not_before: boundary, after: any("ހ")
-  sub "\u0787\u07b0", "ś", not_before: boundary, after: any("ށ")
-  sub "\u0787\u07b0", "n", not_before: boundary, after: any("ނ")
-  sub "\u0787\u07b0", "r", not_before: boundary, after: any("ރ")
-  sub "\u0787\u07b0", "b", not_before: boundary, after: any("ބ")
-  sub "\u0787\u07b0", "ḷ", not_before: boundary, after: any("ޅ")
-  sub "\u0787\u07b0", "k", not_before: boundary, after: any("ކ")
-  sub "\u0787\u07b0", "v", not_before: boundary, after: any("ވ")
-  sub "\u0787\u07b0", "m", not_before: boundary, after: any("މ")
-  sub "\u0787\u07b0", "f", not_before: boundary, after: any("ފ")
-  sub "\u0787\u07b0", "d", not_before: boundary, after: any("ދ")
-  sub "\u0787\u07b0", "t", not_before: boundary, after: any("ތ")
-  sub "\u0787\u07b0", "l", not_before: boundary, after: any("ލ")
-  sub "\u0787\u07b0", "g", not_before: boundary, after: any("ގ")
-  sub "\u0787\u07b0", "ñ", not_before: boundary, after: any("ޏ")
-  sub "\u0787\u07b0", "s", not_before: boundary, after: any("ސ")
-  sub "\u0787\u07b0", "ḍ", not_before: boundary, after: any("ޑ")
-  sub "\u0787\u07b0", "j", not_before: boundary, after: any("ޖ")
-  sub "\u0787\u07b0", "c", not_before: boundary, after: any("ޗ")
-  sub "\u0787\u07b0", "z", not_before: boundary, after: any("ޒ")
-  sub "\u0787\u07b0", "ṭ", not_before: boundary, after: any("ޓ")
-  sub "\u0787\u07b0", "p", not_before: boundary, after: any("ޕ")
-  sub "\u0787\u07b0", "y", not_before: boundary, after: any("ޔ")
+  sub "\u0787\u07b0", "h", not_before: boundary, after: "ހ"
+  sub "\u0787\u07b0", "ś", not_before: boundary, after: "ށ"
+  sub "\u0787\u07b0", "n", not_before: boundary, after: "ނ"
+  sub "\u0787\u07b0", "r", not_before: boundary, after: "ރ"
+  sub "\u0787\u07b0", "b", not_before: boundary, after: "ބ"
+  sub "\u0787\u07b0", "ḷ", not_before: boundary, after: "ޅ"
+  sub "\u0787\u07b0", "k", not_before: boundary, after: "ކ"
+  sub "\u0787\u07b0", "v", not_before: boundary, after: "ވ"
+  sub "\u0787\u07b0", "m", not_before: boundary, after: "މ"
+  sub "\u0787\u07b0", "f", not_before: boundary, after: "ފ"
+  sub "\u0787\u07b0", "d", not_before: boundary, after: "ދ"
+  sub "\u0787\u07b0", "t", not_before: boundary, after: "ތ"
+  sub "\u0787\u07b0", "l", not_before: boundary, after: "ލ"
+  sub "\u0787\u07b0", "g", not_before: boundary, after: "ގ"
+  sub "\u0787\u07b0", "ñ", not_before: boundary, after: "ޏ"
+  sub "\u0787\u07b0", "s", not_before: boundary, after: "ސ"
+  sub "\u0787\u07b0", "ḍ", not_before: boundary, after: "ޑ"
+  sub "\u0787\u07b0", "j", not_before: boundary, after: "ޖ"
+  sub "\u0787\u07b0", "c", not_before: boundary, after: "ޗ"
+  sub "\u0787\u07b0", "z", not_before: boundary, after: "ޒ"
+  sub "\u0787\u07b0", "ṭ", not_before: boundary, after: "ޓ"
+  sub "\u0787\u07b0", "p", not_before: boundary, after: "ޕ"
+  sub "\u0787\u07b0", "y", not_before: boundary, after: "ޔ"
   # note[3(d)]
   sub "\u0787\u07b0", "h", not_before: boundary, after: boundary # final position with sukun
   # note[3(b)]
@@ -169,4 +169,3 @@ stage {
   }
 
 }
-

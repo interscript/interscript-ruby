@@ -53,40 +53,40 @@ stage {
 
   # RULES
   # to cover diacritic and vowel less consonants
-    sub "ಕ", "k", after: characters_set1
-    sub "ಖ", "kh", after: characters_set1
-    sub "ಗ", "g", after: characters_set1
-    sub "ಘ", "gh", after: characters_set1
-    sub "ಙ", "ṅ", after: characters_set1
-    sub "ಚ", "ch", after: characters_set1
-    sub "ಛ", "chh", after: characters_set1
-    sub "ಜ", "j", after: characters_set1
-    sub "ಝ", "jh", after: characters_set1
-    sub "ಞ", "ñ", after: characters_set1
-    sub "ಟ", "ṭ", after: characters_set1
-    sub "ಠ", "ṭh", after: characters_set1
-    sub "ಡ", "ḍ", after: characters_set1
-    sub "ಢ", "ḍh", after: characters_set1
-    sub "ಣ", "ṇ", after: characters_set1
-    sub "ತ", "t", after: characters_set1
-    sub "ಥ", "th", after: characters_set1
-    sub "ದ", "d", after: characters_set1
-    sub "ಧ", "dh", after: characters_set1
-    sub "ನ", "n", after: characters_set1
-    sub "ಪ", "p", after: characters_set1
-    sub "ಫ", "ph", after: characters_set1
-    sub "ಬ", "b", after: characters_set1
-    sub "ಭ", "bh", after: characters_set1
-    sub "ಮ", "m", after: characters_set1
-    sub "ಯ", "y", after: characters_set1
-    sub "ರ", "r", after: characters_set1
-    sub "ಲ", "l", after: characters_set1
-    sub "ಳ", "ḷ", after: characters_set1
-    sub "ವ", "v", after: characters_set1
-    sub "ಶ", "sh", after: characters_set1
-    sub "ಷ", "ṣh", after: characters_set1
-    sub "ಸ", "s", after: characters_set1
-    sub "ಹ", "h", after: characters_set1
+  sub "ಕ", "k", after: characters_set1
+  sub "ಖ", "kh", after: characters_set1
+  sub "ಗ", "g", after: characters_set1
+  sub "ಘ", "gh", after: characters_set1
+  sub "ಙ", "ṅ", after: characters_set1
+  sub "ಚ", "ch", after: characters_set1
+  sub "ಛ", "chh", after: characters_set1
+  sub "ಜ", "j", after: characters_set1
+  sub "ಝ", "jh", after: characters_set1
+  sub "ಞ", "ñ", after: characters_set1
+  sub "ಟ", "ṭ", after: characters_set1
+  sub "ಠ", "ṭh", after: characters_set1
+  sub "ಡ", "ḍ", after: characters_set1
+  sub "ಢ", "ḍh", after: characters_set1
+  sub "ಣ", "ṇ", after: characters_set1
+  sub "ತ", "t", after: characters_set1
+  sub "ಥ", "th", after: characters_set1
+  sub "ದ", "d", after: characters_set1
+  sub "ಧ", "dh", after: characters_set1
+  sub "ನ", "n", after: characters_set1
+  sub "ಪ", "p", after: characters_set1
+  sub "ಫ", "ph", after: characters_set1
+  sub "ಬ", "b", after: characters_set1
+  sub "ಭ", "bh", after: characters_set1
+  sub "ಮ", "m", after: characters_set1
+  sub "ಯ", "y", after: characters_set1
+  sub "ರ", "r", after: characters_set1
+  sub "ಲ", "l", after: characters_set1
+  sub "ಳ", "ḷ", after: characters_set1
+  sub "ವ", "v", after: characters_set1
+  sub "ಶ", "sh", after: characters_set1
+  sub "ಷ", "ṣh", after: characters_set1
+  sub "ಸ", "s", after: characters_set1
+  sub "ಹ", "h", after: characters_set1
 
 
   # CHARACTERS
@@ -212,4 +212,3 @@ stage {
 
   compose
 }
-

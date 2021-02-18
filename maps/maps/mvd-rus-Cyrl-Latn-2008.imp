@@ -18,26 +18,15 @@ tests {
   test "Адъютантов", "Adjutantov"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
-stage {
-
+stage(translit) {
   # RULES
   # note[5]
-  sub "(?<=[ЗзЛлНнСсЦц])\\u044C", "\\1́" # ь after consonants
-  sub "(?<=[ЗзЛлНнСсЦц])\\u02B9", "\\1́" # Ь after consonants
-  sub "([’Ъъ]\\u042E)", "Ju"
-  sub "([’Ъъ]\\u044E)", "ju"
-  sub "([’Ъъ]\\u042F)", "Ja"
-  sub "([’Ъъ]\\u044F)", "ja"
-
+  sub "\u044C", "́", before: any("ЗзЛлНнСсЦц") # ь after consonants
+  sub "\u02B9", "́", before: any("ЗзЛлНнСсЦц") # Ь after consonants
+  sub any("’Ъъ")+"\u042E", "Ju"
+  sub any("’Ъъ")+"\u044E", "ju"
+  sub any("’Ъъ")+"\u042F", "Ja"
+  sub any("’Ъъ")+"\u044F", "ja"
 
   # CHARACTERS
   parallel {
@@ -113,6 +102,9 @@ stage {
     sub "\u044E", "iu" # ю
     sub "\u044F", "ia" # я
   }
-
 }
 
+stage {
+  run stage.translit
+  compose
+}

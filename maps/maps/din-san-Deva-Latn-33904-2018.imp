@@ -75,48 +75,48 @@ aliases {
 stage {
 
   # RULES
-    sub "\u0902", "ṅ", after: any("कक़खख़गग़घङ")
-    sub "\u0902", "ñ", after: any("चछजज़झञ")
-    sub "\u0902", "ṇ", after: any("टट़ठडड़ढढ़ण")
-    sub "\u0902", "n", after: any("तथदधन")
-    sub "\u0902", "m", after: any("पफबभम")
+  sub "\u0902", "ṅ", after: any("कक़खख़गग़घङ")
+  sub "\u0902", "ñ", after: any("चछजज़झञ")
+  sub "\u0902", "ṇ", after: any("टट़ठडड़ढढ़ण")
+  sub "\u0902", "n", after: any("तथदधन")
+  sub "\u0902", "m", after: any("पफबभम")
 
-    sub "\u0902", "ñ", after: any("कखगघचछजझतथदधपफबभटठडढ")
+  sub "\u0902", "ñ", after: any("कखगघचछजझतथदधपफबभटठडढ")
 
-    sub "क", "k", after: deva_chars_1
-    sub "ख", "kh", after: deva_chars_1
-    sub "ग", "g", after: deva_chars_1
-    sub "घ", "gh", after: deva_chars_1
-    sub "ङ", "ṅ", after: deva_chars_1
-    sub "च", "c", after: deva_chars_1
-    sub "छ", "ch", after: deva_chars_1
-    sub "ज", "j", after: deva_chars_1
-    sub "झ", "jh", after: deva_chars_1
-    sub "ञ", "ñ", after: deva_chars_1
-    sub "ट", "ṭ", after: deva_chars_1
-    sub "ठ", "ṭh", after: deva_chars_1
-    sub "ड", "ḍ", after: deva_chars_1
-    sub "ढ", "ḍh", after: deva_chars_1
-    sub "ण", "ṇ", after: deva_chars_1
-    sub "त", "t", after: deva_chars_1
-    sub "थ", "th", after: deva_chars_1
-    sub "द", "d", after: deva_chars_1
-    sub "ध", "dh", after: deva_chars_1
-    sub "न", "n", after: deva_chars_1
-    sub "प", "p", after: deva_chars_1
-    sub "फ", "ph", after: deva_chars_1
-    sub "ब", "b", after: deva_chars_1
-    sub "भ", "bh", after: deva_chars_1
-    sub "म", "m", after: deva_chars_1
-    sub "य", "y", after: deva_chars_1
-    sub "र", "r", after: deva_chars_1
-    sub "ल", "l", after: deva_chars_1
-    sub "ळ", "ḷ", after: deva_chars_1
-    sub "व", "v", after: deva_chars_1
-    sub "श", "ś", after: deva_chars_1
-    sub "ष", "ṣ", after: deva_chars_1
-    sub "स", "s", after: deva_chars_1
-    sub "ह", "h", after: deva_chars_1
+  sub "क", "k", after: deva_chars_1
+  sub "ख", "kh", after: deva_chars_1
+  sub "ग", "g", after: deva_chars_1
+  sub "घ", "gh", after: deva_chars_1
+  sub "ङ", "ṅ", after: deva_chars_1
+  sub "च", "c", after: deva_chars_1
+  sub "छ", "ch", after: deva_chars_1
+  sub "ज", "j", after: deva_chars_1
+  sub "झ", "jh", after: deva_chars_1
+  sub "ञ", "ñ", after: deva_chars_1
+  sub "ट", "ṭ", after: deva_chars_1
+  sub "ठ", "ṭh", after: deva_chars_1
+  sub "ड", "ḍ", after: deva_chars_1
+  sub "ढ", "ḍh", after: deva_chars_1
+  sub "ण", "ṇ", after: deva_chars_1
+  sub "त", "t", after: deva_chars_1
+  sub "थ", "th", after: deva_chars_1
+  sub "द", "d", after: deva_chars_1
+  sub "ध", "dh", after: deva_chars_1
+  sub "न", "n", after: deva_chars_1
+  sub "प", "p", after: deva_chars_1
+  sub "फ", "ph", after: deva_chars_1
+  sub "ब", "b", after: deva_chars_1
+  sub "भ", "bh", after: deva_chars_1
+  sub "म", "m", after: deva_chars_1
+  sub "य", "y", after: deva_chars_1
+  sub "र", "r", after: deva_chars_1
+  sub "ल", "l", after: deva_chars_1
+  sub "ळ", "ḷ", after: deva_chars_1
+  sub "व", "v", after: deva_chars_1
+  sub "श", "ś", after: deva_chars_1
+  sub "ष", "ṣ", after: deva_chars_1
+  sub "स", "s", after: deva_chars_1
+  sub "ह", "h", after: deva_chars_1
 
 
   # CHARACTERS
@@ -292,4 +292,3 @@ stage {
 
   compose
 }
-

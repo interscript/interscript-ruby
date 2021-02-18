@@ -56,22 +56,21 @@ tests {
   test "Гульжигит Калыков", "Guljigit Kalykov"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
 stage {
-
   # RULES
   # note[1]
-  sub "(?i)(Ё|Ң|Х|Ц|Ч|Ш|Щ|Ю|Я)\\1(?-i)", "\\1"
+  # generated with: "ЁҢХЦЧШЩЮЯ".split("").each { |i| puts %{sub capture(any("#{i}#{i.downcase}"))+any("#{i}#{i.downcase}"), ref(1)} }
+  sub capture(any("Ёё"))+any("Ёё"), ref(1)
+  sub capture(any("Ңң"))+any("Ңң"), ref(1)
+  sub capture(any("Хх"))+any("Хх"), ref(1)
+  sub capture(any("Цц"))+any("Цц"), ref(1)
+  sub capture(any("Чч"))+any("Чч"), ref(1)
+  sub capture(any("Шш"))+any("Шш"), ref(1)
+  sub capture(any("Щщ"))+any("Щщ"), ref(1)
+  sub capture(any("Юю"))+any("Юю"), ref(1)
+  sub capture(any("Яя"))+any("Яя"), ref(1)
   # note[3]
-  sub "\\u044A|\\u044C", ""
+  sub any("\u044A\u044C"), none
 
 
   # CHARACTERS
@@ -148,4 +147,3 @@ stage {
   }
 
 }
-

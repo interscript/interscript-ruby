@@ -55,10 +55,10 @@ stage {
 
   # RULES
   # note[3]
-    sub "\u0902", "ṅ", after: any("कखगघङ")
-    sub "\u0902", "ñ", after: any("चछजझञ")
-    sub "\u0902", "ṇ", after: any("टठडढण")
-    sub "\u0902", "n", after: any("तथदधन")
+  sub "\u0902", "ṅ", after: any("कखगघङ")
+  sub "\u0902", "ñ", after: any("चछजझञ")
+  sub "\u0902", "ṇ", after: any("टठडढण")
+  sub "\u0902", "n", after: any("तथदधन")
 
 
   # CHARACTERS
@@ -176,4 +176,3 @@ stage {
 
   compose
 }
-

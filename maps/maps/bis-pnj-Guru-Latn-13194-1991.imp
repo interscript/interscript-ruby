@@ -41,11 +41,11 @@ stage {
 
   # RULES
   # note
-    sub "\u0A70", "ṅ", after: any("ਕਖਖ਼ਗਗ਼ਘਙ") # ੰ  before gutturals
-    sub "\u0A70", "ñ", after: any("ਚਛਜਜ਼ਝਞ") # ੰ  before palatals
-    sub "\u0A70", "ṇ", after: any("ਟਠਡਢਣ") # ੰ  before cerebrals
-    sub "\u0A70", "n", after: any("ਤਥਦਧਨ") # ੰ  before dentals
-    sub "\u0A70", "m", after: any("ਪਫਬਭਮ")
+  sub "\u0A70", "ṅ", after: any("ਕਖਖ਼ਗਗ਼ਘਙ") # ੰ  before gutturals
+  sub "\u0A70", "ñ", after: any("ਚਛਜਜ਼ਝਞ") # ੰ  before palatals
+  sub "\u0A70", "ṇ", after: any("ਟਠਡਢਣ") # ੰ  before cerebrals
+  sub "\u0A70", "n", after: any("ਤਥਦਧਨ") # ੰ  before dentals
+  sub "\u0A70", "m", after: any("ਪਫਬਭਮ")
 
 
 
@@ -167,4 +167,3 @@ stage {
 
   compose
 }
-

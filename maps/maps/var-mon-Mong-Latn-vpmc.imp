@@ -81,7 +81,7 @@ tests {
   test "ᠳᠠᠯᠠᠳ ᠬᠣᠰᠢᠭᠤ", "dalad qosiγu" # Dalad Banner
   test "ᠵᠡᠭᠦᠨᠭᠠᠷ ᠬᠣᠰᠢᠭᠤ", "ǰegünγar qosiγu" # Jungar Banner
   test "ᠣᠲᠣᠭ ᠤᠨ ᠡᠮᠦᠨᠡᠳᠦ ᠬᠣᠰᠢᠭᠤ", "otoγ-un emünedü qosiγu" # Otog Front Banner
-  test "ᠬᠠᠩᠭᠢᠨ ᠬᠣᠰᠢᠭᠤ", "qangγin qosiγu" # Hanggin Banner
+  test "ᠬᠠᠩᠭᠢᠨ ᠬᠣᠰᠢᠭᠤ", "qanggin qosiγu" # Hanggin Banner
   test "ᠦᠦᠰᠢᠨ ᠬᠣᠰᠢᠭᠤ", "üüsin qosiγu" # Uxin Banner
   test "ᠡᠵᠢᠨ ᠬᠣᠷᠣᠭ᠎ᠠ ᠬᠣᠰᠢᠭᠤ", "eǰin qoroγ-a qosiγu" # Эзэн Хороо хошуу
   test "ᠵᠠᠯᠠᠨ ᠠᠢ᠌ᠯ ᠬᠣᠲᠠ", "ǰalan ai᠌l qota" # Жалан-Айл хот
@@ -126,20 +126,20 @@ tests {
   test "ᠰᠥᠨᠡᠳ ᠪᠠᠷᠠᠭᠤᠨ ᠬᠣᠰᠢᠭᠤ", "söned baraγun qosiγu" # Sonid Right Banner
   test "ᠣᠩᠨᠢᠭᠤᠳ ᠬᠣᠰᠢᠭᠤ", "ongniγud qosiγu" # Ongniud Banner
   test "ᠵᠠᠯᠠᠢᠳ ᠬᠣᠰᠢᠭᠤ", "ǰalaid qosiγu" # Jalaid Banner
-  test "ᠬᠠᠩᠭᠢᠨ ᠬᠣᠶᠢᠲᠤ ᠬᠣᠰᠢᠭᠤ", "qangγin qoyitu qosiγu" # Hanggin Rear Banner
+  test "ᠬᠠᠩᠭᠢᠨ ᠬᠣᠶᠢᠲᠤ ᠬᠣᠰᠢᠭᠤ", "qanggin qoyitu qosiγu" # Hanggin Rear Banner
   test "ᠵᠡᠭᠦᠨ ᠤᠵᠤᠮᠤᠴᠢᠨ ᠬᠣᠰᠢᠭᠤ", "ǰegün uǰumučin qosiγu" # East Ujimqin Banner
   test "ᠠᠷᠤ ᠬᠣᠷᠴᠢᠨ ᠬᠣᠰᠢᠭᠤ", "aru qorčin qosiγu" # Ar Horqin Banner
   test "ᠠᠪᠠᠭ᠎ᠠ ᠬᠣᠰᠢᠭᠤ", "abaγ-a qosiγu" # Abag Banner
   test "ᠪᠤᠷᠢᠶᠠᠳ", "buriyad" # Буриад
   test "ᠤᠯᠠᠭᠠᠨᠪᠠᠭᠠᠲᠤᠷ", "ulaγanbaγatur" # Улаанбаатар
-  test "ᠴᠢᠩᠭᠢᠰ ᠬᠠᠭᠠᠨ", "čingγis qaγan" # Чингис Хаан
+  test "ᠴᠢᠩᠭᠢᠰ ᠬᠠᠭᠠᠨ", "činggis qaγan" # Чингис Хаан
 }
 
 stage {
 
   # RULES
-  sub "\u182c" + capture(any("\u1821", "u1822", "\u1825", "\u1826")), "k" + ref( 1 )
-  sub "\u182d" + capture(any("\u1821", "u1822", "\u1825", "\u1826")), "g" + ref( 1 )
+  sub "\u182c", "k", after: any("\u1821\u1822\u1825\u1826")
+  sub "\u182d", "g", after: any("\u1821\u1822\u1825\u1826")
 
 
   # CHARACTERS
@@ -180,4 +180,3 @@ stage {
   }
 
 }
-

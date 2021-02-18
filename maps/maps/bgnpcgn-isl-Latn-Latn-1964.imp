@@ -37,7 +37,6 @@ stage {
     sub "þ", "th" # þ
   }
 
-  sub "Th", "TH", before: any("A".."Z")
-  sub "Dh", "DH", before: any("A".."Z")
-
+  sub any(["Th", "Dh"]), upcase, before: any("A".."Z")
+  sub any(["Th", "Dh"]), upcase, after: any("A".."Z")
 }

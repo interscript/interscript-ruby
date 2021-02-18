@@ -41,11 +41,11 @@ stage {
 
   # RULES
   # note
-    sub "\u0C82", "ṅ", after: any("ಕಖಗಘಙ")
-    sub "\u0C82", "ñ", after: any("ಚಛಜಝಞ")
-    sub "\u0C82", "ṇ", after: any("ಟಠಡಢಣ")
-    sub "\u0C82", "n", after: any("ತಥದಧನ")
-    sub "\u0C82", "m", after: any("ಪಫಬಭಮ")
+  sub "\u0C82", "ṅ", after: any("ಕಖಗಘಙ")
+  sub "\u0C82", "ñ", after: any("ಚಛಜಝಞ")
+  sub "\u0C82", "ṇ", after: any("ಟಠಡಢಣ")
+  sub "\u0C82", "n", after: any("ತಥದಧನ")
+  sub "\u0C82", "m", after: any("ಪಫಬಭಮ")
 
 
   # CHARACTERS
@@ -164,4 +164,3 @@ stage {
 
   compose
 }
-

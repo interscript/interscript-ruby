@@ -105,8 +105,8 @@ stage {
   sub "\u044F", "ja", before: any("АаЕеЁёИиОоУуЭэЮюЯяЬьЎў") # я after vowels
 
   # note[5]
-  sub "\u044C", ref( 1 ) + "́", before: any("ЗзЛлНнСсЦц") # ь after consonants
-  sub "\u02B9", ref( 1 ) + "́", before: any("ЗзЛлНнСсЦц") # Ь after consonants
+  sub "\u044C", "́", before: any("ЗзЛлНнСсЦц") # ь after consonants
+  sub "\u02B9", "́", before: any("ЗзЛлНнСсЦц") # Ь after consonants
 
   # vowels initially
   sub boundary + "\u0415", "Je" # Е
@@ -117,8 +117,6 @@ stage {
   sub boundary + "\u044E", "ju" # ю
   sub boundary + "\u042F", "Ja" # Я
   sub boundary + "\u044F", "ja" # я
-
-
 
 
   # CHARACTERS
@@ -192,8 +190,7 @@ stage {
   }
 
   # POSTRULES
-    sub "\u2019", "j"
+  sub "\u2019", "j"
 
   compose
 }
-

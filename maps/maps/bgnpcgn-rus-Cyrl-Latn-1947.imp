@@ -79,6 +79,8 @@ aliases {
   def_alias rus_cons, any("БбВвГгДдЖжЗзКкЛлМмНнПпРрСсТтФфХхЦцЧчШшЩщ")
 
   def_alias rus_latupper, any([any("A".."Z"), any("Ë")])
+
+  def_alias rus_multichar, any(["Ye", "Yë", "Sh", "Ch", "Shch", "Ya", "Zh", "Yu", "Ts"])
 }
 
 stage {
@@ -180,47 +182,14 @@ stage {
   }
 
   # POSTRULES
+  sub rus_multichar, upcase, before: rus_latupper
+  sub rus_multichar, upcase, before: rus_latupper + "·"
+  sub rus_multichar, upcase, after: "·" + rus_latupper
+  sub rus_multichar, upcase, after: rus_latupper
 
-  # Possibly find a way to limit this... maybe a syntax like
-  # sub any(["Ye", "Ch"]), upcase, before: rus_latupper
-  #YE
-  sub "Ye", "YE", before: rus_latupper
-  sub "Ye", "YE", before: rus_latupper + "·"
-  sub "Ye", "YE", after: "·" + rus_latupper
-  sub "Ye", "YE", after: rus_latupper
-  #YË
-  sub "Yë", "YË", before: rus_latupper
-  sub "Yë", "YË", before: rus_latupper + "·"
-  sub "Yë", "YË", after: "·" + rus_latupper
-  sub "Yë", "YË", after: rus_latupper
-  #SH
-  sub "Sh", "SH", before: rus_latupper
-  sub "Sh", "SH", before: rus_latupper + "·"
-  sub "Sh", "SH", after: "·" + rus_latupper
-  sub "Sh", "SH", after: rus_latupper
-  #CH
-  sub "Ch", "CH", before: rus_latupper
-  sub "Ch", "CH", before: rus_latupper + "·"
-  sub "Ch", "CH", after: "·" + rus_latupper
-  sub "Ch", "CH", after: rus_latupper
-  #YA
-  sub "Ya", "YA", before: rus_latupper
-  sub "Ya", "YA", before: rus_latupper + "·"
-  sub "Ya", "YA", after: "·" + rus_latupper
-  sub "Ya", "YA", after: rus_latupper
-  #ZH
-  sub "Zh", "ZH", before: rus_latupper
-  sub "Zh", "ZH", before: rus_latupper + "·"
-  sub "Zh", "ZH", after: "·" + rus_latupper
-  sub "Zh", "ZH", after: rus_latupper
-  #YU
-  sub "Yu", "YU", before: rus_latupper
-  sub "Yu", "YU", before: rus_latupper + "·"
-  sub "Yu", "YU", after: "·" + rus_latupper
-  sub "Yu", "YU", after: rus_latupper
-  #TS
-  sub "Ts", "TS", before: rus_latupper
-  sub "Ts", "TS", before: rus_latupper + "·"
-  sub "Ts", "TS", after: "·" + rus_latupper
-  sub "Ts", "TS", after: rus_latupper
+  # Run twice to find more cases
+  sub rus_multichar, upcase, before: rus_latupper
+  sub rus_multichar, upcase, before: rus_latupper + "·"
+  sub rus_multichar, upcase, after: "·" + rus_latupper
+  sub rus_multichar, upcase, after: rus_latupper
 }

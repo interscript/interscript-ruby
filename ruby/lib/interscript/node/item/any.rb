@@ -1,10 +1,6 @@
 class Interscript::Node::Item::Any < Interscript::Node::Item
   attr_accessor :value
-  def initialize *data
-    if data.size == 1
-      data = data[0]
-    end
-
+  def initialize data
     case data
     when Array, ::String, Range
       self.value = data

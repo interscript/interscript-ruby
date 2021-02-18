@@ -76,7 +76,7 @@ stage {
   sub "Шш", "Sh" # Шш -> Sh
   sub "ШШ", "SH" # ШШ -> SH
   sub "шШ", "sH" # шШ -> sH
-  sub any("Ь", "ь"), "" # remove Ь and ь
+  sub any("Ьь"), none # remove Ь and ь
 
 
   # CHARACTERS
@@ -157,4 +157,3 @@ stage {
   }
 
 }
-

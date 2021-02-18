@@ -42,11 +42,11 @@ stage {
 
   # RULES
   # note
-    sub "\u0B02", "ṅ", after: any("କଖଗଘଙ")
-    sub "\u0B02", "ñ", after: any("ଚଛଜଝଞ")
-    sub "\u0B02", "ṇ", after: any("ଟଠଡଡ଼ଢଣଢ଼")
-    sub "\u0B02", "n", after: any("ତଥଦଧନ")
-    sub "\u0B02", "m", after: any("ପଫବଭମ")
+  sub "\u0B02", "ṅ", after: any("କଖଗଘଙ")
+  sub "\u0B02", "ñ", after: any("ଚଛଜଝଞ")
+  sub "\u0B02", "ṇ", after: any("ଟଠଡଡ଼ଢଣଢ଼")
+  sub "\u0B02", "n", after: any("ତଥଦଧନ")
+  sub "\u0B02", "m", after: any("ପଫବଭମ")
 
 
 
@@ -166,4 +166,3 @@ stage {
 
   compose
 }
-

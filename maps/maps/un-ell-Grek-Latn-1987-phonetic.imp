@@ -270,66 +270,66 @@ tests {
 stage {
 
   # RULES
-    sub "\u03A5", "f", before: any("ΑαΕεΗη"), after: any("θΘκΚξΞπΠσΣςτΤφΦχΧψΨ") # Υ (after Α, Ε, Η)
-    sub "\u03A5", "f", before: any("ΑαΕεΗη"), after: boundary # Υ (after Α, Ε, Η)
-    sub "\u03C5", "f", before: any("ΑαΕεΗη"), after: any("θΘκΚξΞπΠσΣςτΤφΦχΧψΨ") # υ (after Α, Ε, Η)
-    sub "\u03C5", "f", before: any("ΑαΕεΗη"), after: boundary # υ (after Α, Ε, Η)
-    sub "\u03A5", "v", before: any("ΑαΕεΗη") # Υ (after Α, Ε, Η)
-    sub "\u03C5", "v", before: any("ΑαΕεΗη") # υ (after Α, Ε, Η)
-    sub "\u0391\u03CD", "ɑf", after: any("θΘκΚξΞπΠσΣςτΤφΦχΧψΨ") # Αύ
-    sub "\u0391\u03CD", "ɑf", after: boundary # Αύ
-    sub "\u0391\u03CD", "ɑv" # Αύ
-    sub "\u03B1\u03CD", "ɑf", after: any("θΘκΚξΞπΠσΣςτΤφΦχΧψΨ") # Αύ
-    sub "\u03B1\u03CD", "ɑf", after: boundary # Αύ
-    sub "\u03B1\u03CD", "ɑv" # Αύ
-    sub "\u0395\u03CD", "ɛf", after: any("θΘκΚξΞπΠσΣςτΤφΦχΧψΨ") # Εύ
-    sub "\u0395\u03CD", "ɛf", after: boundary # Εύ
-    sub "\u0395\u03CD", "ɛv" # Εύ
-    sub "\u03B5\u03CD", "ɛf", after: any("θΘκΚξΞπΠσΣςτΤφΦχΧψΨ") # Εύ
-    sub "\u03B5\u03CD", "ɛf", after: boundary # Εύ
-    sub "\u03B5\u03CD", "ɛv" # Εύ
-    sub "\u0397\u03CD", "if", after: any("θΘκΚξΞπΠσΣςτΤφΦχΧψΨ") # Εύ
-    sub "\u0397\u03CD", "if", after: boundary # Εύ
-    sub "\u0397\u03CD", "iv" # Εύ
-    sub "\u03B7\u03CD", "if", after: any("θΘκΚξΞπΠσΣςτΤφΦχΧψΨ") # Εύ
-    sub "\u03B7\u03CD", "if", after: boundary # Εύ
-    sub "\u03B7\u03CD", "iv" # Εύ
-    sub "\u039F" + any("υΥύ"), "u" # Υ (after Ο)
-    sub "\u03BF" + any("υΥύ"), "u" # υ (after Ο)
-    sub "\u03A5", "i", before: any("ΆάΈέΉήΌό") # Άυ, Έυ, Ήυ, Όυ
-    sub "\u03C5", "i", before: any("ΆάΈέΉήΌό") # Άυ, Έυ, Ήυ, Όυ
-    sub "\u0393", "n", after: any("ξΞχΧ") # Γ (before Γ, Ξ, Χ)
-    sub "\u03B3", "n", after: any("ξΞχΧ") # γ (before Γ, Ξ, Χ)
-    sub "\u0393" + any("Γγ"), "ŋɡ", not_before: boundary # Γ (before Γ)
-    sub "\u03B3\u03B3", "ŋɡ", not_before: boundary # γ (before Γ)
-    sub "\u0393" + any("Κκ"), "ŋɡ", not_before: boundary # Γ (before Κ)
-    sub "\u03B3" + any("Κκ"), "ŋɡ", not_before: boundary # γ (before Κ)
-    sub "\u0393" + any("Γγ"), "ɡ", before: boundary # Γ (before Γ)
-    sub "\u03B3\u03B3", "ɡ", before: boundary # γ (before Γ)
-    sub "\u0393" + any("Κκ"), "ɡ", before: boundary # Γ (before Κ)
-    sub "\u03B3" + any("Κκ"), "ɡ", before: boundary # γ (before Κ)
-    sub "\u039C" + any("πΠ"), "b", before: boundary # ΜΠ (initially)
-    sub "\u03BC" + any("πΠ"), "b", before: boundary # μπ (initially)
-    sub "\u039C" + any("πΠ"), "b", after: boundary # ΜΠ (finally)
-    sub "\u03BC" + any("πΠ"), "b", after: boundary # μπ (finally)
-    sub "\u039C" + any("πΠ"), "mb", not_before: boundary, not_after: boundary # ΜΠ (medially)
-    sub "\u03BC" + any("πΠ"), "mb", not_before: boundary, not_after: boundary # μπ (medially)
-    sub any("Νν") + any("ττ"), "d", before: boundary # Ντ (initial)
-    sub any("Νν") + any("ττ"), "nd", not_before: boundary # Ντ (medial, final)
-    sub "\u03A3", "z", after: any("ΒβΓγΔδΖζΛλΜμΝνΡρ") # Σ (before voiced consonants)
-    sub "\u03C3", "z", after: any("ΒβΓγΔδΖζΛλΜμΝνΡρ") # Σ (before voiced consonants)
-    sub "\u0391" + any("Ιιί"), "ɛ" # Αι
-    sub "\u03B1" + any("Ιιί"), "ɛ" # αι
-    sub "\u03A5" + any("Ιιί"), "i" # Υι
-    sub "\u03C5" + any("Ιιί"), "i" # υι
-    sub "\u0395" + any("Ιιί"), "i" # Ει
-    sub "\u03B5" + any("Ιιί"), "i" # ει
-    sub "\u039F" + any("Ιιί"), "i" # Οι
-    sub "\u03BF" + any("Ιιί"), "i" # οι
-    sub "\u03A4" + any("ζΖ"), "dz" # Τζ
-    sub "\u03c4" + any("ζΖ"), "dz" # Τζ
-    sub "\u037E", "?" # ;
-    sub "\u003B", "?" # ;
+  sub "\u03A5", "f", before: any("ΑαΕεΗη"), after: any("θΘκΚξΞπΠσΣςτΤφΦχΧψΨ") # Υ (after Α, Ε, Η)
+  sub "\u03A5", "f", before: any("ΑαΕεΗη"), after: boundary # Υ (after Α, Ε, Η)
+  sub "\u03C5", "f", before: any("ΑαΕεΗη"), after: any("θΘκΚξΞπΠσΣςτΤφΦχΧψΨ") # υ (after Α, Ε, Η)
+  sub "\u03C5", "f", before: any("ΑαΕεΗη"), after: boundary # υ (after Α, Ε, Η)
+  sub "\u03A5", "v", before: any("ΑαΕεΗη") # Υ (after Α, Ε, Η)
+  sub "\u03C5", "v", before: any("ΑαΕεΗη") # υ (after Α, Ε, Η)
+  sub "\u0391\u03CD", "ɑf", after: any("θΘκΚξΞπΠσΣςτΤφΦχΧψΨ") # Αύ
+  sub "\u0391\u03CD", "ɑf", after: boundary # Αύ
+  sub "\u0391\u03CD", "ɑv" # Αύ
+  sub "\u03B1\u03CD", "ɑf", after: any("θΘκΚξΞπΠσΣςτΤφΦχΧψΨ") # Αύ
+  sub "\u03B1\u03CD", "ɑf", after: boundary # Αύ
+  sub "\u03B1\u03CD", "ɑv" # Αύ
+  sub "\u0395\u03CD", "ɛf", after: any("θΘκΚξΞπΠσΣςτΤφΦχΧψΨ") # Εύ
+  sub "\u0395\u03CD", "ɛf", after: boundary # Εύ
+  sub "\u0395\u03CD", "ɛv" # Εύ
+  sub "\u03B5\u03CD", "ɛf", after: any("θΘκΚξΞπΠσΣςτΤφΦχΧψΨ") # Εύ
+  sub "\u03B5\u03CD", "ɛf", after: boundary # Εύ
+  sub "\u03B5\u03CD", "ɛv" # Εύ
+  sub "\u0397\u03CD", "if", after: any("θΘκΚξΞπΠσΣςτΤφΦχΧψΨ") # Εύ
+  sub "\u0397\u03CD", "if", after: boundary # Εύ
+  sub "\u0397\u03CD", "iv" # Εύ
+  sub "\u03B7\u03CD", "if", after: any("θΘκΚξΞπΠσΣςτΤφΦχΧψΨ") # Εύ
+  sub "\u03B7\u03CD", "if", after: boundary # Εύ
+  sub "\u03B7\u03CD", "iv" # Εύ
+  sub "\u039F" + any("υΥύ"), "u" # Υ (after Ο)
+  sub "\u03BF" + any("υΥύ"), "u" # υ (after Ο)
+  sub "\u03A5", "i", before: any("ΆάΈέΉήΌό") # Άυ, Έυ, Ήυ, Όυ
+  sub "\u03C5", "i", before: any("ΆάΈέΉήΌό") # Άυ, Έυ, Ήυ, Όυ
+  sub "\u0393", "n", after: any("ξΞχΧ") # Γ (before Γ, Ξ, Χ)
+  sub "\u03B3", "n", after: any("ξΞχΧ") # γ (before Γ, Ξ, Χ)
+  sub "\u0393" + any("Γγ"), "ŋɡ", not_before: boundary # Γ (before Γ)
+  sub "\u03B3\u03B3", "ŋɡ", not_before: boundary # γ (before Γ)
+  sub "\u0393" + any("Κκ"), "ŋɡ", not_before: boundary # Γ (before Κ)
+  sub "\u03B3" + any("Κκ"), "ŋɡ", not_before: boundary # γ (before Κ)
+  sub "\u0393" + any("Γγ"), "ɡ", before: boundary # Γ (before Γ)
+  sub "\u03B3\u03B3", "ɡ", before: boundary # γ (before Γ)
+  sub "\u0393" + any("Κκ"), "ɡ", before: boundary # Γ (before Κ)
+  sub "\u03B3" + any("Κκ"), "ɡ", before: boundary # γ (before Κ)
+  sub "\u039C" + any("πΠ"), "b", before: boundary # ΜΠ (initially)
+  sub "\u03BC" + any("πΠ"), "b", before: boundary # μπ (initially)
+  sub "\u039C" + any("πΠ"), "b", after: boundary # ΜΠ (finally)
+  sub "\u03BC" + any("πΠ"), "b", after: boundary # μπ (finally)
+  sub "\u039C" + any("πΠ"), "mb", not_before: boundary, not_after: boundary # ΜΠ (medially)
+  sub "\u03BC" + any("πΠ"), "mb", not_before: boundary, not_after: boundary # μπ (medially)
+  sub any("Νν") + any("ττ"), "d", before: boundary # Ντ (initial)
+  sub any("Νν") + any("ττ"), "nd", not_before: boundary # Ντ (medial, final)
+  sub "\u03A3", "z", after: any("ΒβΓγΔδΖζΛλΜμΝνΡρ") # Σ (before voiced consonants)
+  sub "\u03C3", "z", after: any("ΒβΓγΔδΖζΛλΜμΝνΡρ") # Σ (before voiced consonants)
+  sub "\u0391" + any("Ιιί"), "ɛ" # Αι
+  sub "\u03B1" + any("Ιιί"), "ɛ" # αι
+  sub "\u03A5" + any("Ιιί"), "i" # Υι
+  sub "\u03C5" + any("Ιιί"), "i" # υι
+  sub "\u0395" + any("Ιιί"), "i" # Ει
+  sub "\u03B5" + any("Ιιί"), "i" # ει
+  sub "\u039F" + any("Ιιί"), "i" # Οι
+  sub "\u03BF" + any("Ιιί"), "i" # οι
+  sub "\u03A4" + any("ζΖ"), "dz" # Τζ
+  sub "\u03c4" + any("ζΖ"), "dz" # Τζ
+  sub "\u037E", "?" # ;
+  sub "\u003B", "?" # ;
 
 
   # CHARACTERS
@@ -435,4 +435,3 @@ stage {
 
   downcase
 }
-

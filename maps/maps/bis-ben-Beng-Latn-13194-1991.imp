@@ -41,11 +41,11 @@ stage {
 
   # RULES
   # note
-    sub "\u0982", "ṅ", after: any("কখগঘঙ")
-    sub "\u0982", "ñ", after: any("চছজঝঞ")
-    sub "\u0982", "ṇ", after: any("টঠডড়ঢঢ়ণ")
-    sub "\u0982", "n", after: any("তৎথদধন")
-    sub "\u0982", "m", after: any("পফবভম")
+  sub "\u0982", "ṅ", after: any("কখগঘঙ")
+  sub "\u0982", "ñ", after: any("চছজঝঞ")
+  sub "\u0982", "ṇ", after: any("টঠডড়ঢঢ়ণ")
+  sub "\u0982", "n", after: any("তৎথদধন")
+  sub "\u0982", "m", after: any("পফবভম")
 
 
 
@@ -149,4 +149,3 @@ stage {
 
   compose
 }
-

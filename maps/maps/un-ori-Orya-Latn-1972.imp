@@ -48,43 +48,43 @@ aliases {
 stage {
 
   # RULES
-    sub "କ", "k", after: orya_chars_1
-    sub "ଖ", "kh", after: orya_chars_1
-    sub "ଗ", "g", after: orya_chars_1
-    sub "ଘ", "gh", after: orya_chars_1
-    sub "ଙ", "ṅ", after: orya_chars_1
-    sub "ଚ", "ch", after: orya_chars_1
-    sub "ଛ", "chhh", after: orya_chars_1
-    sub "ଜ", "j", after: orya_chars_1
-    sub "ଝ", "jh", after: orya_chars_1
-    sub "ଞ", "ñ", after: orya_chars_1
-    sub "ଟ", "ṭ", after: orya_chars_1
-    sub "ଠ", "ṭh", after: orya_chars_1
-    sub "ଡ", "ḍ", after: orya_chars_1
-    sub "ଡ଼", "ṙ", after: orya_chars_1
-    sub "ଢ", "ḍh", after: orya_chars_1
-    sub "ଢ଼", "ṙh", after: orya_chars_1
-    sub "ଣ", "ṇ", after: orya_chars_1
-    sub "ତ", "t", after: orya_chars_1
-    sub "ଥ", "th", after: orya_chars_1
-    sub "ଦ", "d", after: orya_chars_1
-    sub "ଧ", "dh", after: orya_chars_1
-    sub "ନ", "n", after: orya_chars_1
-    sub "ପ", "p", after: orya_chars_1
-    sub "ଫ", "ph", after: orya_chars_1
-    sub "ବ", "b", after: orya_chars_1
-    sub "ଭ", "bh", after: orya_chars_1
-    sub "ମ", "m", after: orya_chars_1
-    sub "ଯ", "ỵ", after: orya_chars_1
-    sub "ୟ", "y", after: orya_chars_1
-    sub "ର", "r", after: orya_chars_1
-    sub "ଲ", "l", after: orya_chars_1
-    sub "ଳ", "ḷ", after: orya_chars_1
-    sub "ଶ", "sh", after: orya_chars_1
-    sub "ଷ", "ṣh", after: orya_chars_1
-    sub "ସ", "s", after: orya_chars_1
-    sub "ହ", "h", after: orya_chars_1
-    sub "କ୍ଷ", "kṣh", after: orya_chars_1
+  sub "କ", "k", after: orya_chars_1
+  sub "ଖ", "kh", after: orya_chars_1
+  sub "ଗ", "g", after: orya_chars_1
+  sub "ଘ", "gh", after: orya_chars_1
+  sub "ଙ", "ṅ", after: orya_chars_1
+  sub "ଚ", "ch", after: orya_chars_1
+  sub "ଛ", "chhh", after: orya_chars_1
+  sub "ଜ", "j", after: orya_chars_1
+  sub "ଝ", "jh", after: orya_chars_1
+  sub "ଞ", "ñ", after: orya_chars_1
+  sub "ଟ", "ṭ", after: orya_chars_1
+  sub "ଠ", "ṭh", after: orya_chars_1
+  sub "ଡ", "ḍ", after: orya_chars_1
+  sub "ଡ଼", "ṙ", after: orya_chars_1
+  sub "ଢ", "ḍh", after: orya_chars_1
+  sub "ଢ଼", "ṙh", after: orya_chars_1
+  sub "ଣ", "ṇ", after: orya_chars_1
+  sub "ତ", "t", after: orya_chars_1
+  sub "ଥ", "th", after: orya_chars_1
+  sub "ଦ", "d", after: orya_chars_1
+  sub "ଧ", "dh", after: orya_chars_1
+  sub "ନ", "n", after: orya_chars_1
+  sub "ପ", "p", after: orya_chars_1
+  sub "ଫ", "ph", after: orya_chars_1
+  sub "ବ", "b", after: orya_chars_1
+  sub "ଭ", "bh", after: orya_chars_1
+  sub "ମ", "m", after: orya_chars_1
+  sub "ଯ", "ỵ", after: orya_chars_1
+  sub "ୟ", "y", after: orya_chars_1
+  sub "ର", "r", after: orya_chars_1
+  sub "ଲ", "l", after: orya_chars_1
+  sub "ଳ", "ḷ", after: orya_chars_1
+  sub "ଶ", "sh", after: orya_chars_1
+  sub "ଷ", "ṣh", after: orya_chars_1
+  sub "ସ", "s", after: orya_chars_1
+  sub "ହ", "h", after: orya_chars_1
+  sub "କ୍ଷ", "kṣh", after: orya_chars_1
 
 
   # CHARACTERS
@@ -206,4 +206,3 @@ stage {
 
   compose
 }
-

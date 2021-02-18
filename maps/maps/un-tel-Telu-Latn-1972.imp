@@ -73,41 +73,41 @@ aliases {
 stage {
 
   # RULES
-    sub "క", "k", after: telu_chars_1
-    sub "ఖ", "kh", after: telu_chars_1
-    sub "గ", "g", after: telu_chars_1
-    sub "ఘ", "gh", after: telu_chars_1
-    sub "ఙ", "ṅ", after: telu_chars_1
-    sub "చ", "ch", after: telu_chars_1
-    sub "ఛ", "chh", after: telu_chars_1
-    sub "జ", "j", after: telu_chars_1
-    sub "ఝ", "jh", after: telu_chars_1
-    sub "ఞ", "ñ", after: telu_chars_1
-    sub "ట", "ṭ", after: telu_chars_1
-    sub "ఠ", "ṭh", after: telu_chars_1
-    sub "డ", "ḍ", after: telu_chars_1
-    sub "ఢ", "ḍh", after: telu_chars_1
-    sub "ణ", "ṇ", after: telu_chars_1
-    sub "త", "t", after: telu_chars_1
-    sub "థ", "th", after: telu_chars_1
-    sub "ద", "d", after: telu_chars_1
-    sub "ధ", "dh", after: telu_chars_1
-    sub "న", "n", after: telu_chars_1
-    sub "ప", "p", after: telu_chars_1
-    sub "ఫ", "ph", after: telu_chars_1
-    sub "బ", "b", after: telu_chars_1
-    sub "భ", "bh", after: telu_chars_1
-    sub "మ", "m", after: telu_chars_1
-    sub "య", "y", after: telu_chars_1
-    sub "ర", "r", after: telu_chars_1
-    sub "ఱ", "r", after: telu_chars_1
-    sub "ల", "l", after: telu_chars_1
-    sub "వ", "v", after: telu_chars_1
-    sub "శ", "sh", after: telu_chars_1
-    sub "ష", "ṣh", after: telu_chars_1
-    sub "స", "s", after: telu_chars_1
-    sub "హ", "h", after: telu_chars_1
-    sub "ళ", "ḷ", after: telu_chars_1
+  sub "క", "k", after: telu_chars_1
+  sub "ఖ", "kh", after: telu_chars_1
+  sub "గ", "g", after: telu_chars_1
+  sub "ఘ", "gh", after: telu_chars_1
+  sub "ఙ", "ṅ", after: telu_chars_1
+  sub "చ", "ch", after: telu_chars_1
+  sub "ఛ", "chh", after: telu_chars_1
+  sub "జ", "j", after: telu_chars_1
+  sub "ఝ", "jh", after: telu_chars_1
+  sub "ఞ", "ñ", after: telu_chars_1
+  sub "ట", "ṭ", after: telu_chars_1
+  sub "ఠ", "ṭh", after: telu_chars_1
+  sub "డ", "ḍ", after: telu_chars_1
+  sub "ఢ", "ḍh", after: telu_chars_1
+  sub "ణ", "ṇ", after: telu_chars_1
+  sub "త", "t", after: telu_chars_1
+  sub "థ", "th", after: telu_chars_1
+  sub "ద", "d", after: telu_chars_1
+  sub "ధ", "dh", after: telu_chars_1
+  sub "న", "n", after: telu_chars_1
+  sub "ప", "p", after: telu_chars_1
+  sub "ఫ", "ph", after: telu_chars_1
+  sub "బ", "b", after: telu_chars_1
+  sub "భ", "bh", after: telu_chars_1
+  sub "మ", "m", after: telu_chars_1
+  sub "య", "y", after: telu_chars_1
+  sub "ర", "r", after: telu_chars_1
+  sub "ఱ", "r", after: telu_chars_1
+  sub "ల", "l", after: telu_chars_1
+  sub "వ", "v", after: telu_chars_1
+  sub "శ", "sh", after: telu_chars_1
+  sub "ష", "ṣh", after: telu_chars_1
+  sub "స", "s", after: telu_chars_1
+  sub "హ", "h", after: telu_chars_1
+  sub "ళ", "ḷ", after: telu_chars_1
 
 
   # CHARACTERS
@@ -227,4 +227,3 @@ stage {
 
   compose
 }
-

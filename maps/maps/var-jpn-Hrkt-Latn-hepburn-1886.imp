@@ -53,10 +53,10 @@ stage {
 
   # RULES
   # Add a dash (-) between ん and a vowel sound or ya, yu, yo
-    sub capture(any("んン")), ref( 1 ) + "-", after: any("あいうえおやゆよアイウエオヤユヨ")
+  sub none, "-", before: any("んン"), after: any("あいうえおやゆよアイウエオヤユヨ")
 
   # Convert ん into m before b, m, p
-    sub any("んン"), "m", after: any("ばびぶべぼまみむめもぱぴぷぺぽバビブベボマミムメモパピプペポ")
+  sub any("んン"), "m", after: any("ばびぶべぼまみむめもぱぴぷぺぽバビブベボマミムメモパピプペポ")
 
 
 
@@ -377,9 +377,9 @@ stage {
   # the previous syllable. There is no documented or commonly
   # accepted way to transliterate this sound.
 
-    sub any("っッ") + capture(any("BbDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz")), ref( 1 ) + ref( 1 )
-    sub any("っッ") + capture(any("Cc")), "t" + ref( 1 ) # ッ followed by ch-
-    sub any("っッ"), "" # drop all other っッ.
+  sub any("っッ") + capture(any("BbDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz")), ref( 1 ) + ref( 1 )
+  sub any("っッ") + capture(any("Cc")), "t" + ref( 1 ) # ッ followed by ch-
+  sub any("っッ"), "" # drop all other っッ.
 
   # In Traditional Hepburn, long o (which can be o+o or o+u), and long u
   # are transliterated as ō and ū.
@@ -390,11 +390,10 @@ stage {
   # Long vowels in loanwords are indicated with a macron instead
   # of letter doubling.
 
-    sub "a" + any("ー"), "ā"
-    sub "i" + any("ー"), "ī"
-    sub "u" + any("ーu"), "ū"
-    sub "e" + any("ー"), "ē"
-    sub "o" + any("ーo"), "ō"
+  sub "a" + any("ー"), "ā"
+  sub "i" + any("ー"), "ī"
+  sub "u" + any("ーu"), "ū"
+  sub "e" + any("ー"), "ē"
+  sub "o" + any("ーo"), "ō"
 
 }
-
