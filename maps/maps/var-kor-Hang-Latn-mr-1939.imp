@@ -1,0 +1,574 @@
+metadata {
+  authority_id: bgn
+  id: mr-1939
+  language: iso-639-2:kor
+  source_script: Hang
+  destination_script: Latn
+  name: McCune-Reischauer System
+  url:
+  creation_date: 1939
+  adoption_date:
+  description:
+    E. O. Reischauer and G. M. McCune
+    The Romanization of the Korean Language Based on Its Phonetic Structure. XXIX:1-55.
+    Korea Branch of the Royal Asiatic Society. Volume XXIX (PDF)
+  notes:
+    This file only handles Hangul to Latin.
+}
+
+tests {
+  test "구경", "kugyŏng"
+  test "금광", "kŭmgwang"
+  test "뎐기", "chŏn’gi"
+  test "양국", "yangguk"
+  test "물건", "mulgŏn"
+  test "국민", "kungmin"
+  test "막내", "mangnae"
+  test "작란", "changnan"
+  test "락심", "naksim"
+  test "합계", "hapkye"
+  test "각각", "kakkak"
+  test "속히", "sokhi"
+  test "독", "tok"
+  test "니", "i"
+  test "녀인", "yŏin"
+  test "녯적", "yetchŏk"
+  test "날", "nal"
+  test "농민", "nongmin"
+  test "얼는", "ŏllŭn"
+  test "련락", "yŏllak"
+  test "하나님", "hananim"
+  test "한문", "hanmun"
+  test "산", "san"
+  test "디방", "chibang"
+  test "다섯", "tasŏt"
+  test "뎐디", "chŏnji"
+  test "슈뎐", "sujŏn"
+  test "감뎡", "kamjŏng"
+  test "당됴", "tangjo"
+  test "무당", "mudang"
+  test "어드메", "ŏdŭme"
+  test "삼등", "samdŭng"
+  test "만두", "mandu"
+  test "앵도", "aengdo"
+  test "약됴", "yakcho"
+  test "박디", "pakchi"
+  test "협뎡", "hyŏpchŏng"
+  test "일뎡", "ilchŏng"
+  test "놋뎜", "notchŏm"
+  test "벽돌", "pyŏktol"
+  test "합동", "haptong"
+  test "열도", "yŏlto"
+  test "잇다가", "ittaga"
+  test "린근", "in’gŭn"
+  test "력사", "yŏksa"
+  test "령반", "yŏngban"
+  test "락뎨", "nakche"
+  test "마루", "maru"
+  test "일홈", "irhom"
+  test "할머니", "halmŏni"
+  test "신라", "silla"
+  test "물리학", "mullihak"
+  test "죵로", "chongno"
+  test "독립", "tongnip"
+  test "십리", "simni"
+  test "발", "pal"
+  test "말", "mal"
+  test "나무", "namu"
+  test "음식", "ŭmsik"
+  test "밤", "pam"
+  test "사발", "sabal"
+  test "담배", "tambae"
+  test "준비", "chunbi"
+  test "갈비", "kalbi"
+  test "십명", "simmyŏng"
+  test "입내", "imnae"
+  test "셥리", "sŏmni"
+  test "답장", "tapchang"
+  test "약방", "yakpang"
+  test "뎝시", "chŏpsi"
+  test "밥", "pap"
+  test "쉽다", "shwipta"
+  test "손쉽다", "sonshwipta"
+  test "목사", "moksa"
+  test "랭슈", "naengsu"
+  test "무식", "musik"
+  test "겻슌", "kyŏssun"
+  test "갓사기", "kassagi"
+  test "갓모", "kanmo"
+  test "잣나비", "channabi"
+  test "닷량", "tannyang"
+  test "잇해", "ithae"
+  test "졋통", "chŏtt’ong"
+  test "낫잠", "natcham"
+  test "붓채", "putch’ae"
+  test "갓방", "katpang"
+  test "엿가락", "yŏtkarak"
+  # - source: "밋음"      # Obsolete
+  #   expected: "midŭm"
+  # - source: "깃브다"      # Obsolete
+  #   expected: "kippŭda"
+  # - source: "엇개"      # Obsolete
+  #   expected: "ŏkkae"
+  test "갓", "kat"
+  test "알", "al"
+  test "독일", "togil"
+  test "농민", "nongmin"
+  test "방", "pang"
+  test "장", "chang"
+  test "도쟝", "tojang"
+  test "감자", "kamja"
+  test "민족", "minjok"
+  test "명지", "myŏngji"
+  test "목쟝", "mokchang"
+  test "압집", "apchip"
+  test "물질", "mulchil"
+  test "차", "ch’a"
+  test "김치", "kimch’i"
+  test "코", "k’o"
+  test "왜콩", "waek’ong"
+  test "텬당", "ch’ŏndang"
+  test "타산", "t’asan"
+  test "토끼", "t’okki"
+  test "동텰", "tongch’ŏl"
+  test "조타", "chot’a"
+  test "팔", "p’al"
+  test "셔판", "sŏp’an"
+  test "하나", "hana"
+  test "만히", "manhi"
+  test "학회", "hakhoe"
+  test "깍지", "kkakchi"
+  test "박꼿", "pakkot"
+  test "땅", "ttang"
+  test "허리띠", "hŏritti"
+  test "엿때", "yŏttae"
+  test "뿌리", "ppuri"
+  test "쇠뿔", "soeppul"
+  test "쓰다", "ssŭda"
+  test "콩씨", "k’ongssi"
+  test "좁쌀", "chopssal"
+  test "갓싸기", "kassagi"
+  test "짜르다", "tcharŭda"
+  test "꼼짝", "kkomtchak"
+  test "밋짝", "mitchak"
+  test "갉이", "kalgi"
+  test "멁금하다", "mŏlgŭmhada" # Example gives mŏlk-, but spec requires mŏlg-
+  test "얽매다", "ŏngmaeda"
+  test "붉히다", "pulkhida"
+  test "긁적대다", "kŭkchŏktaeda"
+  test "닭", "tak"
+  test "넓이", "nŏlbi"
+  test "얇판하다", "yalp’anhada"
+  test "넓나물", "nŏmnamul"
+  test "슯흠", "sŭlphŭm"
+  test "넓치", "nŏpch’i"
+  test "얾마가다", "ŏlmagada"
+  test "긂기다", "kŭmgida"
+}
+
+dependency "var-kor-Hang-Hang-jamo", as: hanghang
+
+aliases {
+  def_alias kor_beforeterm, any([any("A".."Z"), any("a".."z"), any("0".."9"), any("ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ")])
+
+  def_alias kor_maybedash, capture(maybe("-"))
+}
+
+stage {
+  run map.hanghang.stage.main
+
+  # RULES
+
+
+  # POSTRULES
+
+  # Add space to the two ends of the string for easier word boundary handling
+  sub line_start, " "
+  sub line_end, " "
+
+  # HANGUL JONGSEONG SSANGKIYEOK
+  sub "ᆩ" + kor_maybedash + "ᄋ", "ᆨ" + ref( 1 ) + "ᄁ"
+  sub "ᆩ" + kor_maybedash, "ᆨ" + ref( 1 )
+
+  # HANGUL JONGSEONG SSANGKIYEOK
+  sub "ᆪ" + kor_maybedash + "ᄋ", "ᆨ" + ref( 1 ) + "ᄉ"
+  sub "ᆪ" + kor_maybedash, "ᆨ" + ref( 1 )
+
+  # HANGUL JONGSEONG NIEUN-CIEUC
+  sub "ᆬ" + kor_maybedash + "ᄋ", "ᆫ" + ref( 1 ) + "ᄌ"
+  sub "ᆬ" + kor_maybedash, "ᆫ" + ref( 1 )
+
+  # HANGUL JONGSEONG NIEUN-CIEUC
+  sub "ᆭ" + kor_maybedash + "ᄀ", "ᆫ" + ref( 1 ) + "ᄏ"
+  sub "ᆭ" + kor_maybedash + "ᄃ", "ᆫ" + ref( 1 ) + "ᄐ"
+  sub "ᆭ" + kor_maybedash + "ᄇ", "ᆫ" + ref( 1 ) + "ᄑ"
+  sub "ᆭ" + kor_maybedash + "ᄌ", "ᆫ" + ref( 1 ) + "ᄎ"
+  sub "ᆭ" + kor_maybedash, "ᆫ" + ref( 1 )
+
+  # HANGUL JONGSEONG TIEUT
+  sub "ᆮ" + kor_maybedash, "ᆺ" + ref( 1 ), after: any("ᄀᄁᄂᄃᄄᄅᄆᄇᄈᄉᄊᄌᄍᄎᄏᄐᄑᄒ")
+
+  # HANGUL JONGSEONG RIEUL-SIOS
+  sub "ᆳ" + kor_maybedash + "ᄋ", "ᆯ" + ref( 1 ) + "ᄉ"
+  sub "ᆳ" + kor_maybedash, "ᆯ" + ref( 1 )
+
+  # HANGUL JONGSEONG RIEUL-THIEUTH
+  sub "ᆴ" + kor_maybedash + "ᄋ", "ᆯ" + ref( 1 ) + "ᄐ"
+  sub "ᆴ" + kor_maybedash, "ᆯ" + ref( 1 )
+
+  # HANGUL JONGSEONG RIEUL-PHIEUPH
+  sub "ᆵ" + kor_maybedash + "ᄋ", "ᆯ" + ref( 1 ) + "ᄑ"
+  sub "ᆵ" + kor_maybedash, "ᆯ" + ref( 1 ), after: any("ᄃᄄᄐ")
+  sub "ᆵ" + kor_maybedash, "ᄇ" + ref( 1 )
+
+  # HANGUL JONGSEONG RIEUL-HIEUH
+  sub "ᆶ" + kor_maybedash + "ᄀ", "ᆯ" + ref( 1 ) + "ᄏ"
+  sub "ᆶ" + kor_maybedash + "ᄃ", "ᆯ" + ref( 1 ) + "ᄐ"
+  sub "ᆶ" + kor_maybedash + "ᄇ", "ᆯ" + ref( 1 ) + "ᄑ"
+  sub "ᆶ" + kor_maybedash + "ᄌ", "ᆯ" + ref( 1 ) + "ᄎ"
+  sub "ᆶ" + kor_maybedash, "ᆯ" + ref( 1 )
+
+  # HANGUL JONGSEONG PIEUP-SIOS
+  sub "ᆹ" + kor_maybedash + "ᄋ", "ᄇ" + ref( 1 ) + "ᄉ"
+  sub "ᆹ" + kor_maybedash, "ᄇ" + ref( 1 )
+
+  # HANGUL JONGSEONG SSANG-SIOS
+  sub "ᆻ" + kor_maybedash + "ᄋ", "ᆺ" + ref( 1 ) + "ᄊ"
+  sub "ᆻ" + kor_maybedash, "ᆺ" + ref( 1 )
+
+  # HANGUL JONGSEONG CIEUC
+  sub "ᆽ" + kor_maybedash + "ᄋ", "ᆺ" + ref( 1 ) + "ᄌ"
+  sub "ᆽ" + kor_maybedash, "ᆺ" + ref( 1 )
+
+  # HANGUL JONGSEONG CHIEUCH
+  sub "ᆾ" + kor_maybedash + "ᄋ", "ᆺ" + ref( 1 ) + "ᄎ"
+  sub "ᆾ" + kor_maybedash, "ᆺ" + ref( 1 )
+
+  # HANGUL JONGSEONG KHIEUKH
+  sub "ᆿ" + kor_maybedash + "ᄋ", "ᆨ" + ref( 1 ) + "ᄏ"
+  sub "ᆿ" + kor_maybedash, "ᆨ" + ref( 1 )
+
+  # HANGUL JONGSEONG THIEUTH
+  sub "ᇀ" + kor_maybedash + "ᄋ", "ᆺ" + ref( 1 ) + "ᄐ"
+  sub "ᇀ" + kor_maybedash, "ᆺ" + ref( 1 )
+
+  # HANGUL JONGSEONG PHIEUPH
+  sub "ᇁ" + kor_maybedash + "ᄋ", "ᆸ" + ref( 1 ) + "ᄑ"
+  sub "ᇁ" + kor_maybedash, "ᆸ" + ref( 1 )
+
+  # HANGUL JONGSEONG HIEUH
+  sub "ᇂ" + kor_maybedash + "ᄀ", ref( 1 ) + "ᄏ"
+  sub "ᇂ" + kor_maybedash + "ᄃ", ref( 1 ) + "ᄐ"
+  sub "ᇂ" + kor_maybedash + "ᄇ", ref( 1 ) + "ᄑ"
+  sub "ᇂ" + kor_maybedash + "ᄌ", ref( 1 ) + "ᄎ"
+  sub "ᇂ" + kor_maybedash, ref( 1 )
+
+  # From Unicode Chart
+  # https://github.com/unicode-org/cldr/blob/master/common/transforms/Korean-Latin-BGN.xml
+
+  sub "ᆮ" + kor_maybedash + "ᄋ", ref( 1 ) + "d" # HANGUL JONGSEONG TIEUT + CHOSEONG IEUNG
+
+  sub "ᆨ" + kor_maybedash + "ᄀ", "k" + ref( 1 ) + "k" # HANGUL JONGSEONG KIYEOK + CHOSEONG KIYEOK
+  sub "ᆨ" + kor_maybedash + "ᄂ", "ng" + ref( 1 ) + "n" # HANGUL JONGSEONG KIYEOK + CHOSEONG NIEUN
+  sub "ᆨ" + kor_maybedash + "ᄃ", "k" + ref( 1 ) + "ch", after: any("ᅵᅣᅤᅧᅨᅭᅲ") # HANGUL JONGSEONG KIYEOK + CHOSEONG TIEUT + YOTIZED VOWELS
+  sub "ᆨ" + kor_maybedash + "ᄃ", "k" + ref( 1 ) + "t" # HANGUL JONGSEONG KIYEOK + CHOSEONG TIEUT
+  sub "ᆨ" + kor_maybedash + "ᄅ", "ng" + ref( 1 ) + "n" # HANGUL JONGSEONG KIYEOK + CHOSEONG RIEUL
+  sub "ᆨ" + kor_maybedash + "ᄆ", "ng" + ref( 1 ) + "m" # HANGUL JONGSEONG KIYEOK + CHOSEONG MIEUM
+  sub "ᆨ" + kor_maybedash + "ᄇ", "k" + ref( 1 ) + "p" # HANGUL JONGSEONG KIYEOK + CHOSEONG PIEUP
+  sub "ᆨ" + kor_maybedash + "ᄉ", "k" + ref( 1 ) + "s" # HANGUL JONGSEONG KIYEOK + CHOSEONG SIOS
+  sub "ᆨ" + kor_maybedash + "ᄋ", ref( 1 ) + "g" # HANGUL JONGSEONG KIYEOK + CHOSEONG IEUNG
+  sub "ᆨ" + kor_maybedash + "ᄌ", "k" + ref( 1 ) + "ch" # HANGUL JONGSEONG KIYEOK + CHOSEONG CIEUC
+  sub "ᆨ" + kor_maybedash + "ᄎ", "k" + ref( 1 ) + "ch’" # HANGUL JONGSEONG KIYEOK + CHOSEONG CHIEUCH
+  sub "ᆨ" + kor_maybedash + "ᄏ", "k" + ref( 1 ) + "k’" # HANGUL JONGSEONG KIYEOK + CHOSEONG KHIEUKH
+  sub "ᆨ" + kor_maybedash + "ᄐ", "k" + ref( 1 ) + "ch’", after: any("ᅵᅣᅤᅧᅨᅭᅲ") # HANGUL JONGSEONG KIYEOK + CHOSEONG THIEUTH + YOTIZED VOWELS
+  sub "ᆨ" + kor_maybedash + "ᄐ", "k" + ref( 1 ) + "t’" # HANGUL JONGSEONG KIYEOK + CHOSEONG THIEUTH
+  sub "ᆨ" + kor_maybedash + "ᄑ", "k" + ref( 1 ) + "p’" # HANGUL JONGSEONG KIYEOK + CHOSEONG PHIEUPH
+  sub "ᆨ" + kor_maybedash + "ᄒ", "k" + ref( 1 ) + "h" # HANGUL JONGSEONG KIYEOK + CHOSEONG HIEUH
+  sub "ᆨ" + kor_maybedash + "ᄁ", "k" + ref( 1 ) + "k" # HANGUL JONGSEONG KIYEOK + CHOSEONG SSANGKIYEOK
+  sub "ᆨ" + kor_maybedash + "ᄄ", "k" + ref( 1 ) + "tt" # HANGUL JONGSEONG KIYEOK + CHOSEONG SSANGTIEUT
+  sub "ᆨ" + kor_maybedash + "ᄈ", "k" + ref( 1 ) + "pp" # HANGUL JONGSEONG KIYEOK + CHOSEONG SSANGPIEUP
+  sub "ᆨ" + kor_maybedash + "ᄊ", "k" + ref( 1 ) + "ss" # HANGUL JONGSEONG KIYEOK + CHOSEONG SSANGSIOS
+  sub "ᆨ" + kor_maybedash + "ᄍ", "k" + ref( 1 ) + "tch" # HANGUL JONGSEONG KIYEOK + CHOSEONG SSANGCIEUC
+  sub "ᆫᄀ", "n’g" # HANGUL JONGSEONG NIEUN + CHOSEONG KIYEOK
+  sub "ᆫ" + capture("-") + "ᄀ", "n" + ref( 1 ) + "g" # HANGUL JONGSEONG NIEUN + CHOSEONG KIYEOK
+  sub "ᆫ" + kor_maybedash + "ᄂ", "n" + ref( 1 ) + "n" # HANGUL JONGSEONG NIEUN + CHOSEONG NIEUN
+  sub "ᆫ" + kor_maybedash + "ᄃ", "n" + ref( 1 ) + "j", after: any("ᅵᅣᅤᅧᅨᅭᅲ") # HANGUL JONGSEONG NIEUN + CHOSEONG TIEUT + YOTIZED VOWELS
+  sub "ᆫ" + kor_maybedash + "ᄃ", "n" + ref( 1 ) + "d" # HANGUL JONGSEONG NIEUN + CHOSEONG TIEUT
+  sub "ᆫ" + kor_maybedash + "ᄅ", "l" + ref( 1 ) + "l" # HANGUL JONGSEONG NIEUN + CHOSEONG RIEUL
+  sub "ᆫ" + kor_maybedash + "ᄆ", "n" + ref( 1 ) + "m" # HANGUL JONGSEONG NIEUN + CHOSEONG MIEUM
+  sub "ᆫ" + kor_maybedash + "ᄇ", "n" + ref( 1 ) + "b" # HANGUL JONGSEONG NIEUN + CHOSEONG PIEUP
+  sub "ᆫ" + kor_maybedash + "ᄉ", "n" + ref( 1 ) + "s" # HANGUL JONGSEONG NIEUN + CHOSEONG SIOS
+  sub "ᆫ" + kor_maybedash + "ᄋ", "n" + ref( 1 ) # HANGUL JONGSEONG NIEUN + CHOSEONG IEUNG
+  sub "ᆫ" + kor_maybedash + "ᄌ", "n" + ref( 1 ) + "j" # HANGUL JONGSEONG NIEUN + CHOSEONG CIEUC
+  sub "ᆫ" + kor_maybedash + "ᄎ", "n" + ref( 1 ) + "ch’" # HANGUL JONGSEONG NIEUN + CHOSEONG CHIEUCH
+  sub "ᆫ" + kor_maybedash + "ᄏ", "n" + ref( 1 ) + "k’" # HANGUL JONGSEONG NIEUN + CHOSEONG KHIEUKH
+  sub "ᆫ" + kor_maybedash + "ᄐ", "n" + ref( 1 ) + "ch’", after: any("ᅵᅣᅤᅧᅨᅭᅲ") # HANGUL JONGSEONG NIEUN + CHOSEONG THIEUTH + YOTIZED VOWELS
+  sub "ᆫ" + kor_maybedash + "ᄐ", "n" + ref( 1 ) + "t’" # HANGUL JONGSEONG NIEUN + CHOSEONG THIEUTH
+  sub "ᆫ" + kor_maybedash + "ᄑ", "n" + ref( 1 ) + "p’" # HANGUL JONGSEONG NIEUN + CHOSEONG PHIEUPH
+  sub "ᆫ" + kor_maybedash + "ᄒ", "n" + ref( 1 ) + "h" # HANGUL JONGSEONG NIEUN + CHOSEONG HIEUH
+  sub "ᆫ" + kor_maybedash + "ᄁ", "n" + ref( 1 ) + "kk" # HANGUL JONGSEONG NIEUN + CHOSEONG SSANGKIYEOK
+  sub "ᆫ" + kor_maybedash + "ᄄ", "n" + ref( 1 ) + "tt" # HANGUL JONGSEONG NIEUN + CHOSEONG SSANGTIEUT
+  sub "ᆫ" + kor_maybedash + "ᄈ", "n" + ref( 1 ) + "pp" # HANGUL JONGSEONG NIEUN + CHOSEONG SSANGPIEUP
+  sub "ᆫ" + kor_maybedash + "ᄊ", "n" + ref( 1 ) + "ss" # HANGUL JONGSEONG NIEUN + CHOSEONG SSANGSIOS
+  sub "ᆫ" + kor_maybedash + "ᄍ", "n" + ref( 1 ) + "tch" # HANGUL JONGSEONG NIEUN + CHOSEONG SSANGCIEUC
+  sub "ᆯ" + kor_maybedash + "ᄀ", "l" + ref( 1 ) + "g" # HANGUL JONGSEONG RIEUL + CHOSEONG KIYEOK
+  sub "ᆯ" + kor_maybedash + "ᄂ", "l" + ref( 1 ) + "l" # HANGUL JONGSEONG RIEUL + CHOSEONG NIEUN
+  sub "ᆯ" + kor_maybedash + "ᄃ", "l" + ref( 1 ) + "ch", after: any("ᅵᅣᅤᅧᅨᅭᅲ") # HANGUL JONGSEONG RIEUL + CHOSEONG TIEUT + YOTIZED VOWELS
+  sub "ᆯ" + kor_maybedash + "ᄃ", "l" + ref( 1 ) + "t" # HANGUL JONGSEONG RIEUL + CHOSEONG TIEUT
+  sub "ᆯ" + kor_maybedash + "ᄅ", "l" + ref( 1 ) + "l" # HANGUL JONGSEONG RIEUL + CHOSEONG RIEUL
+  sub "ᆯ" + kor_maybedash + "ᄆ", "l" + ref( 1 ) + "m" # HANGUL JONGSEONG RIEUL + CHOSEONG MIEUM
+  sub "ᆯ" + kor_maybedash + "ᄇ", "l" + ref( 1 ) + "b" # HANGUL JONGSEONG RIEUL + CHOSEONG PIEUP
+  sub "ᆯ" + kor_maybedash + "ᄉ", "l" + ref( 1 ) + "s" # HANGUL JONGSEONG RIEUL + CHOSEONG SIOS
+  sub "ᆯ" + kor_maybedash + "ᄋ", ref( 1 ) + "r" # HANGUL JONGSEONG RIEUL + CHOSEONG IEUNG
+  sub "ᆯ" + kor_maybedash + "ᄌ", "l" + ref( 1 ) + "ch" # HANGUL JONGSEONG RIEUL + CHOSEONG CIEUC
+  sub "ᆯ" + kor_maybedash + "ᄎ", "l" + ref( 1 ) + "ch’" # HANGUL JONGSEONG RIEUL + CHOSEONG CHIEUCH
+  sub "ᆯ" + kor_maybedash + "ᄏ", "l" + ref( 1 ) + "k’" # HANGUL JONGSEONG RIEUL + CHOSEONG KHIEUKH
+  sub "ᆯ" + kor_maybedash + "ᄐ", "l" + ref( 1 ) + "ch’", after: any("ᅵᅣᅤᅧᅨᅭᅲ") # HANGUL JONGSEONG RIEUL + CHOSEONG THIEUTH + YOTIZED VOWELS
+  sub "ᆯ" + kor_maybedash + "ᄐ", "l" + ref( 1 ) + "t’" # HANGUL JONGSEONG RIEUL + CHOSEONG THIEUTH
+  sub "ᆯ" + kor_maybedash + "ᄑ", "l" + ref( 1 ) + "p’" # HANGUL JONGSEONG RIEUL + CHOSEONG PHIEUPH
+  sub "ᆯ" + kor_maybedash + "ᄒ", "r" + ref( 1 ) + "h" # HANGUL JONGSEONG RIEUL + CHOSEONG HIEUH
+  sub "ᆯ" + kor_maybedash + "ᄁ", "l" + ref( 1 ) + "kk" # HANGUL JONGSEONG RIEUL + CHOSEONG SSANGKIYEOK
+  sub "ᆯ" + kor_maybedash + "ᄄ", "l" + ref( 1 ) + "tt" # HANGUL JONGSEONG RIEUL + CHOSEONG SSANGTIEUT
+  sub "ᆯ" + kor_maybedash + "ᄈ", "l" + ref( 1 ) + "pp" # HANGUL JONGSEONG RIEUL + CHOSEONG SSANGPIEUP
+  sub "ᆯ" + kor_maybedash + "ᄊ", "l" + ref( 1 ) + "ss" # HANGUL JONGSEONG RIEUL + CHOSEONG SSANGSIOS
+  sub "ᆯ" + kor_maybedash + "ᄍ", "l" + ref( 1 ) + "tch" # HANGUL JONGSEONG RIEUL + CHOSEONG SSANGCIEUC
+  sub "ᆷ" + kor_maybedash + "ᄀ", "m" + ref( 1 ) + "g" # HANGUL JONGSEONG MIEUM + CHOSEONG KIYEOK
+  sub "ᆷ" + kor_maybedash + "ᄂ", "m" + ref( 1 ) + "n" # HANGUL JONGSEONG MIEUM + CHOSEONG NIEUN
+  sub "ᆷ" + kor_maybedash + "ᄃ", "m" + ref( 1 ) + "j", after: any("ᅵᅣᅤᅧᅨᅭᅲ") # HANGUL JONGSEONG MIEUM + CHOSEONG TIEUT + YOTIZED VOWELS
+  sub "ᆷ" + kor_maybedash + "ᄃ", "m" + ref( 1 ) + "d" # HANGUL JONGSEONG MIEUM + CHOSEONG TIEUT
+  sub "ᆷ" + kor_maybedash + "ᄅ", "m" + ref( 1 ) + "n" # HANGUL JONGSEONG MIEUM + CHOSEONG RIEUL
+  sub "ᆷ" + kor_maybedash + "ᄆ", "m" + ref( 1 ) + "m" # HANGUL JONGSEONG MIEUM + CHOSEONG MIEUM
+  sub "ᆷ" + kor_maybedash + "ᄇ", "m" + ref( 1 ) + "b" # HANGUL JONGSEONG MIEUM + CHOSEONG PIEUP
+  sub "ᆷ" + kor_maybedash + "ᄉ", "m" + ref( 1 ) + "s" # HANGUL JONGSEONG MIEUM + CHOSEONG SIOS
+  sub "ᆷ" + kor_maybedash + "ᄋ", "m" + ref( 1 ) # HANGUL JONGSEONG MIEUM + CHOSEONG IEUNG
+  sub "ᆷ" + kor_maybedash + "ᄌ", "m" + ref( 1 ) + "j" # HANGUL JONGSEONG MIEUM + CHOSEONG CIEUC
+  sub "ᆷ" + kor_maybedash + "ᄎ", "m" + ref( 1 ) + "ch’" # HANGUL JONGSEONG MIEUM + CHOSEONG CHIEUCH
+  sub "ᆷ" + kor_maybedash + "ᄏ", "m" + ref( 1 ) + "k’" # HANGUL JONGSEONG MIEUM + CHOSEONG KHIEUKH
+  sub "ᆷ" + kor_maybedash + "ᄐ", "m" + ref( 1 ) + "ch’", after: any("ᅵᅣᅤᅧᅨᅭᅲ") # HANGUL JONGSEONG MIEUM + CHOSEONG THIEUTH + YOTIZED VOWELS
+  sub "ᆷ" + kor_maybedash + "ᄐ", "m" + ref( 1 ) + "t’" # HANGUL JONGSEONG MIEUM + CHOSEONG THIEUTH
+  sub "ᆷ" + kor_maybedash + "ᄑ", "m" + ref( 1 ) + "p’" # HANGUL JONGSEONG MIEUM + CHOSEONG PHIEUPH
+  sub "ᆷ" + kor_maybedash + "ᄒ", "m" + ref( 1 ) + "h" # HANGUL JONGSEONG MIEUM + CHOSEONG HIEUH
+  sub "ᆷ" + kor_maybedash + "ᄁ", "m" + ref( 1 ) + "kk" # HANGUL JONGSEONG MIEUM + CHOSEONG SSANGKIYEOK
+  sub "ᆷ" + kor_maybedash + "ᄄ", "m" + ref( 1 ) + "tt" # HANGUL JONGSEONG MIEUM + CHOSEONG SSANGTIEUT
+  sub "ᆷ" + kor_maybedash + "ᄈ", "m" + ref( 1 ) + "pp" # HANGUL JONGSEONG MIEUM + CHOSEONG SSANGPIEUP
+  sub "ᆷ" + kor_maybedash + "ᄊ", "m" + ref( 1 ) + "ss" # HANGUL JONGSEONG MIEUM + CHOSEONG SSANGSIOS
+  sub "ᆷ" + kor_maybedash + "ᄍ", "m" + ref( 1 ) + "tch" # HANGUL JONGSEONG MIEUM + CHOSEONG SSANGCIEUC
+  sub "ᆸ" + kor_maybedash + "ᄀ", "p" + ref( 1 ) + "k" # HANGUL JONGSEONG PIEUP + CHOSEONG KIYEOK
+  sub "ᆸ" + kor_maybedash + "ᄂ", "m" + ref( 1 ) + "n" # HANGUL JONGSEONG PIEUP + CHOSEONG NIEUN
+  sub "ᆸ" + kor_maybedash + "ᄃ", "p" + ref( 1 ) + "ch", after: any("ᅵᅣᅤᅧᅨᅭᅲ") # HANGUL JONGSEONG PIEUP + CHOSEONG TIEUT + YOTIZED VOWELS
+  sub "ᆸ" + kor_maybedash + "ᄃ", "p" + ref( 1 ) + "t" # HANGUL JONGSEONG PIEUP + CHOSEONG TIEUT
+  sub "ᆸ" + kor_maybedash + "ᄅ", "m" + ref( 1 ) + "n" # HANGUL JONGSEONG PIEUP + CHOSEONG RIEUL
+  sub "ᆸ" + kor_maybedash + "ᄆ", "m" + ref( 1 ) + "m" # HANGUL JONGSEONG PIEUP + CHOSEONG MIEUM
+  sub "ᆸ" + kor_maybedash + "ᄇ", "p" + ref( 1 ) + "p" # HANGUL JONGSEONG PIEUP + CHOSEONG PIEUP
+  sub "ᆸ" + kor_maybedash + "ᄉ", "p" + ref( 1 ) + "s" # HANGUL JONGSEONG PIEUP + CHOSEONG SIOS
+  sub "ᆸ" + kor_maybedash + "ᄋ", "p" + ref( 1 ) # HANGUL JONGSEONG PIEUP + CHOSEONG IEUNG
+  sub "ᆸ" + kor_maybedash + "ᄌ", "p" + ref( 1 ) + "ch" # HANGUL JONGSEONG PIEUP + CHOSEONG CIEUC
+  sub "ᆸ" + kor_maybedash + "ᄎ", "p" + ref( 1 ) + "ch’" # HANGUL JONGSEONG PIEUP + CHOSEONG CHIEUCH
+  sub "ᆸ" + kor_maybedash + "ᄏ", "p" + ref( 1 ) + "k’" # HANGUL JONGSEONG PIEUP + CHOSEONG KHIEUKH
+  sub "ᆸ" + kor_maybedash + "ᄐ", "p" + ref( 1 ) + "ch’", after: any("ᅵᅣᅤᅧᅨᅭᅲ") # HANGUL JONGSEONG PIEUP + CHOSEONG THIEUTH + YOTIZED VOWELS
+  sub "ᆸ" + kor_maybedash + "ᄐ", "p" + ref( 1 ) + "t’" # HANGUL JONGSEONG PIEUP + CHOSEONG THIEUTH
+  sub "ᆸ" + kor_maybedash + "ᄑ", "p" + ref( 1 ) + "p’" # HANGUL JONGSEONG PIEUP + CHOSEONG PHIEUPH
+  sub "ᆸ" + kor_maybedash + "ᄒ", "p" + ref( 1 ) + "h" # HANGUL JONGSEONG PIEUP + CHOSEONG HIEUH
+  sub "ᆸ" + kor_maybedash + "ᄁ", "p" + ref( 1 ) + "kk" # HANGUL JONGSEONG PIEUP + CHOSEONG SSANGKIYEOK
+  sub "ᆸ" + kor_maybedash + "ᄄ", "p" + ref( 1 ) + "tt" # HANGUL JONGSEONG PIEUP + CHOSEONG SSANGTIEUT
+  sub "ᆸ" + kor_maybedash + "ᄈ", "p" + ref( 1 ) + "p" # HANGUL JONGSEONG PIEUP + CHOSEONG SSANGPIEUP
+  sub "ᆸ" + kor_maybedash + "ᄊ", "p" + ref( 1 ) + "ss" # HANGUL JONGSEONG PIEUP + CHOSEONG SSANGSIOS
+  sub "ᆸ" + kor_maybedash + "ᄍ", "p" + ref( 1 ) + "tch" # HANGUL JONGSEONG PIEUP + CHOSEONG SSANGCIEUC
+  sub "ᆺ" + kor_maybedash + "ᄀ", "t" + ref( 1 ) + "k" # HANGUL JONGSEONG SIOS + CHOSEONG KIYEOK
+  sub "ᆺ" + kor_maybedash + "ᄂ", "n" + ref( 1 ) + "n" # HANGUL JONGSEONG SIOS + CHOSEONG NIEUN
+  sub "ᆺ" + kor_maybedash + "ᄃ", "t" + ref( 1 ) + "ch", after: any("ᅵᅣᅤᅧᅨᅭᅲ") # HANGUL JONGSEONG SIOS + CHOSEONG TIEUT + YOTIZED VOWELS
+  sub "ᆺ" + kor_maybedash + "ᄃ", "t" + ref( 1 ) + "t" # HANGUL JONGSEONG SIOS + CHOSEONG TIEUT
+  sub "ᆺ" + kor_maybedash + "ᄅ", "n" + ref( 1 ) + "n" # HANGUL JONGSEONG SIOS + CHOSEONG RIEUL
+  sub "ᆺ" + kor_maybedash + "ᄆ", "n" + ref( 1 ) + "m" # HANGUL JONGSEONG SIOS + CHOSEONG MIEUM
+  sub "ᆺ" + kor_maybedash + "ᄇ", "t" + ref( 1 ) + "p" # HANGUL JONGSEONG SIOS + CHOSEONG PIEUP
+  sub "ᆺ" + kor_maybedash + "ᄉ", "s" + ref( 1 ) + "s" # HANGUL JONGSEONG SIOS + CHOSEONG SIOS
+  sub "ᆺ" + kor_maybedash + "ᄋ", "s" + ref( 1 ) # HANGUL JONGSEONG SIOS + CHOSEONG IEUNG
+  sub "ᆺ" + kor_maybedash + "ᄌ", "t" + ref( 1 ) + "ch" # HANGUL JONGSEONG SIOS + CHOSEONG CIEUC
+  sub "ᆺ" + kor_maybedash + "ᄎ", "t" + ref( 1 ) + "ch’" # HANGUL JONGSEONG SIOS + CHOSEONG CHIEUCH
+  sub "ᆺ" + kor_maybedash + "ᄏ", "t" + ref( 1 ) + "k’" # HANGUL JONGSEONG SIOS + CHOSEONG KHIEUKH
+  sub "ᆺ" + kor_maybedash + "ᄐ", "t" + ref( 1 ) + "ch’", after: any("ᅵᅣᅤᅧᅨᅭᅲ") # HANGUL JONGSEONG SIOS + CHOSEONG THIEUTH + YOTIZED VOWELS
+  sub "ᆺ" + kor_maybedash + "ᄐ", "t" + ref( 1 ) + "t’" # HANGUL JONGSEONG SIOS + CHOSEONG THIEUTH
+  sub "ᆺ" + kor_maybedash + "ᄑ", "t" + ref( 1 ) + "p’" # HANGUL JONGSEONG SIOS + CHOSEONG PHIEUPH
+  sub "ᆺ" + kor_maybedash + "ᄒ", "t" + ref( 1 ) + "h" # HANGUL JONGSEONG SIOS + CHOSEONG HIEUH
+  sub "ᆺ" + kor_maybedash + "ᄁ", "t" + ref( 1 ) + "kk" # HANGUL JONGSEONG SIOS + CHOSEONG SSANGKIYEOK
+  sub "ᆺ" + kor_maybedash + "ᄄ", "t" + ref( 1 ) + "t" # HANGUL JONGSEONG SIOS + CHOSEONG SSANGTIEUT
+  sub "ᆺ" + kor_maybedash + "ᄈ", "t" + ref( 1 ) + "pp" # HANGUL JONGSEONG SIOS + CHOSEONG SSANGPIEUP
+  sub "ᆺ" + kor_maybedash + "ᄊ", "s" + ref( 1 ) + "s" # HANGUL JONGSEONG SIOS + CHOSEONG SSANGSIOS
+  sub "ᆺ" + kor_maybedash + "ᄍ", "t" + ref( 1 ) + "ch" # HANGUL JONGSEONG SIOS + CHOSEONG SSANGCIEUC
+  sub "ᆼ" + kor_maybedash + "ᄀ", "ng" + ref( 1 ) + "g" # HANGUL JONGSEONG IEUNG + CHOSEONG KIYEOK
+  sub "ᆼ" + kor_maybedash + "ᄂ", "ng" + ref( 1 ) + "n" # HANGUL JONGSEONG IEUNG + CHOSEONG NIEUN
+  sub "ᆼ" + kor_maybedash + "ᄃ", "ng" + ref( 1 ) + "j", after: any("ᅵᅣᅤᅧᅨᅭᅲ") # HANGUL JONGSEONG IEUNG + CHOSEONG TIEUT + YOTIZED VOWELS
+  sub "ᆼ" + kor_maybedash + "ᄃ", "ng" + ref( 1 ) + "d" # HANGUL JONGSEONG IEUNG + CHOSEONG TIEUT
+  sub "ᆼ" + kor_maybedash + "ᄅ", "ng" + ref( 1 ) + "n" # HANGUL JONGSEONG IEUNG + CHOSEONG RIEUL
+  sub "ᆼ" + kor_maybedash + "ᄆ", "ng" + ref( 1 ) + "m" # HANGUL JONGSEONG IEUNG + CHOSEONG MIEUM
+  sub "ᆼ" + kor_maybedash + "ᄇ", "ng" + ref( 1 ) + "b" # HANGUL JONGSEONG IEUNG + CHOSEONG PIEUP
+  sub "ᆼ" + kor_maybedash + "ᄉ", "ng" + ref( 1 ) + "s" # HANGUL JONGSEONG IEUNG + CHOSEONG SIOS
+  sub "ᆼ" + kor_maybedash + "ᄋ", "ng" + ref( 1 ) # HANGUL JONGSEONG IEUNG + CHOSEONG IEUNG
+  sub "ᆼ" + kor_maybedash + "ᄌ", "ng" + ref( 1 ) + "j" # HANGUL JONGSEONG IEUNG + CHOSEONG CIEUC
+  sub "ᆼ" + kor_maybedash + "ᄎ", "ng" + ref( 1 ) + "ch’" # HANGUL JONGSEONG IEUNG + CHOSEONG CHIEUCH
+  sub "ᆼ" + kor_maybedash + "ᄏ", "ng" + ref( 1 ) + "k’" # HANGUL JONGSEONG IEUNG + CHOSEONG KHIEUKH
+  sub "ᆼ" + kor_maybedash + "ᄐ", "ng" + ref( 1 ) + "ch’", after: any("ᅵᅣᅤᅧᅨᅭᅲ") # HANGUL JONGSEONG IEUNG + CHOSEONG THIEUTH + YOTIZED VOWELS
+  sub "ᆼ" + kor_maybedash + "ᄐ", "ng" + ref( 1 ) + "t’" # HANGUL JONGSEONG IEUNG + CHOSEONG THIEUTH
+  sub "ᆼ" + kor_maybedash + "ᄑ", "ng" + ref( 1 ) + "p’" # HANGUL JONGSEONG IEUNG + CHOSEONG PHIEUPH
+  sub "ᆼ" + kor_maybedash + "ᄒ", "ng" + ref( 1 ) + "h" # HANGUL JONGSEONG IEUNG + CHOSEONG HIEUH
+  sub "ᆼ" + kor_maybedash + "ᄁ", "ng" + ref( 1 ) + "kk" # HANGUL JONGSEONG IEUNG + CHOSEONG SSANGKIYEOK
+  sub "ᆼ" + kor_maybedash + "ᄄ", "ng" + ref( 1 ) + "tt" # HANGUL JONGSEONG IEUNG + CHOSEONG SSANGTIEUT
+  sub "ᆼ" + kor_maybedash + "ᄈ", "ng" + ref( 1 ) + "pp" # HANGUL JONGSEONG IEUNG + CHOSEONG SSANGPIEUP
+  sub "ᆼ" + kor_maybedash + "ᄊ", "ng" + ref( 1 ) + "ss" # HANGUL JONGSEONG IEUNG + CHOSEONG SSANGSIOS
+  sub "ᆼ" + kor_maybedash + "ᄍ", "ng" + ref( 1 ) + "tch" # HANGUL JONGSEONG IEUNG + CHOSEONG SSANGCIEUC
+  sub kor_maybedash + "ᄀ", ref( 1 ) + "g", before: kor_beforeterm # VOWEL + CHOSEONG KIYEOK
+  sub kor_maybedash + "ᄂ", ref( 1 ) + "n", before: kor_beforeterm # VOWEL + CHOSEONG NIEUN
+  sub kor_maybedash + "ᄃ", ref( 1 ) + "j", before: kor_beforeterm, after: any("ᅵᅣᅤᅧᅨᅭᅲ") # VOWEL + CHOSEONG TIEUT + YOTIZED VOWELS
+  sub kor_maybedash + "ᄃ", ref( 1 ) + "d", before: kor_beforeterm # VOWEL + CHOSEONG TIEUT
+  sub kor_maybedash + "ᄅ", ref( 1 ) + "r", before: kor_beforeterm # VOWEL + CHOSEONG RIEUL
+  sub kor_maybedash + "ᄆ", ref( 1 ) + "m", before: kor_beforeterm # VOWEL + CHOSEONG MIEUM
+  sub kor_maybedash + "ᄇ", ref( 1 ) + "b", before: kor_beforeterm # VOWEL + CHOSEONG PIEUP
+  sub kor_maybedash + "ᄉ", ref( 1 ) + "s", before: kor_beforeterm # VOWEL + CHOSEONG SIOS
+  sub kor_maybedash + "ᄋ", ref( 1 ), before: kor_beforeterm # VOWEL + CHOSEONG IEUNG
+  sub kor_maybedash + "ᄌ", ref( 1 ) + "j", before: kor_beforeterm # VOWEL + CHOSEONG CIEUC
+  sub kor_maybedash + "ᄎ", ref( 1 ) + "ch’", before: kor_beforeterm # VOWEL + CHOSEONG CHIEUCH
+  sub kor_maybedash + "ᄏ", ref( 1 ) + "k’", before: kor_beforeterm # VOWEL + CHOSEONG KHIEUKH
+  sub kor_maybedash + "ᄐ", ref( 1 ) + "ch’", before: kor_beforeterm, after: any("ᅵᅣᅤᅧᅨᅭᅲ") # VOWEL + CHOSEONG THIEUTH + YOTIZED VOWELS
+  sub kor_maybedash + "ᄐ", ref( 1 ) + "t’", before: kor_beforeterm # VOWEL + CHOSEONG THIEUTH
+  sub kor_maybedash + "ᄑ", ref( 1 ) + "p’", before: kor_beforeterm # VOWEL + CHOSEONG PHIEUPH
+  sub kor_maybedash + "ᄒ", ref( 1 ) + "h", before: kor_beforeterm # VOWEL + CHOSEONG HIEUH
+  sub kor_maybedash + "ᄁ", ref( 1 ) + "kk", before: kor_beforeterm # VOWEL + CHOSEONG SSANGKIYEOK
+  sub kor_maybedash + "ᄄ", ref( 1 ) + "tt", before: kor_beforeterm # VOWEL + CHOSEONG SSANGTIEUT
+  sub kor_maybedash + "ᄈ", ref( 1 ) + "pp", before: kor_beforeterm # VOWEL + CHOSEONG SSANGPIEUP
+  sub kor_maybedash + "ᄊ", ref( 1 ) + "ss", before: kor_beforeterm # VOWEL + CHOSEONG SSANGSIOS
+  sub kor_maybedash + "ᄍ", ref( 1 ) + "tch", before: kor_beforeterm # VOWEL + CHOSEONG SSANGCIEUC
+  sub "ᆰ" + kor_maybedash + "ᄀ", "l" + ref( 1 ) + "g" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG KIYEOK
+  sub "ᆰ" + kor_maybedash + "ᄂ", "ng" + ref( 1 ) + "n" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG NIEUN
+  sub "ᆰ" + kor_maybedash + "ᄃ", "k" + ref( 1 ) + "t" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG TIEUT
+  sub "ᆰ" + kor_maybedash + "ᄅ", "ng" + ref( 1 ) + "n" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG RIEUL
+  sub "ᆰ" + kor_maybedash + "ᄆ", "ng" + ref( 1 ) + "m" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG MIEUM
+  sub "ᆰ" + kor_maybedash + "ᄇ", "k" + ref( 1 ) + "p" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG PIEUP
+  sub "ᆰ" + kor_maybedash + "ᄉ", "k" + ref( 1 ) + "s" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG SIOS
+  sub "ᆰ" + kor_maybedash + "ᄋ", "l" + ref( 1 ) + "g" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG IEUNG
+  sub "ᆰ" + kor_maybedash + "ᄌ", "k" + ref( 1 ) + "ch" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG CIEUC
+  sub "ᆰ" + kor_maybedash + "ᄎ", "k" + ref( 1 ) + "ch’" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG CHIEUCH
+  sub "ᆰ" + kor_maybedash + "ᄏ", "l" + ref( 1 ) + "k’" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG KHIEUKH
+  sub "ᆰ" + kor_maybedash + "ᄐ", "k" + ref( 1 ) + "ch’", after: any("ᅵᅣᅤᅧᅨᅭᅲ") # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG THIEUTH + YOTIZED VOWELS
+  sub "ᆰ" + kor_maybedash + "ᄐ", "k" + ref( 1 ) + "t’" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG THIEUTH
+  sub "ᆰ" + kor_maybedash + "ᄑ", "k" + ref( 1 ) + "p’" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG PHIEUPH
+  sub "ᆰ" + kor_maybedash + "ᄒ", "lk" + ref( 1 ) + "h" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG HIEUH
+  sub "ᆰ" + kor_maybedash + "ᄁ", "l" + ref( 1 ) + "kk" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG SSANGKIYEOK
+  sub "ᆰ" + kor_maybedash + "ᄄ", "k" + ref( 1 ) + "tt" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG SSANGTIEUT
+  sub "ᆰ" + kor_maybedash + "ᄈ", "k" + ref( 1 ) + "pp" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG SSANGPIEUP
+  sub "ᆰ" + kor_maybedash + "ᄊ", "k" + ref( 1 ) + "ss" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG SSANGSIOS
+  sub "ᆰ" + kor_maybedash + "ᄍ", "k" + ref( 1 ) + "tch" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG SSANGCIEUC
+  sub "ᆱ" + kor_maybedash + "ᄀ", "m" + ref( 1 ) + "g" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG KIYEOK
+  sub "ᆱ" + kor_maybedash + "ᄂ", "m" + ref( 1 ) + "n" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG NIEUN
+  sub "ᆱ" + kor_maybedash + "ᄃ", "m" + ref( 1 ) + "d" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG TIEUT
+  sub "ᆱ" + kor_maybedash + "ᄅ", "m" + ref( 1 ) + "n" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG RIEUL
+  sub "ᆱ" + kor_maybedash + "ᄆ", "l" + ref( 1 ) + "m" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG MIEUM
+  sub "ᆱ" + kor_maybedash + "ᄇ", "m" + ref( 1 ) + "b" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG PIEUP
+  sub "ᆱ" + kor_maybedash + "ᄉ", "m" + ref( 1 ) + "s" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG SIOS
+  sub "ᆱ" + kor_maybedash + "ᄋ", "l" + ref( 1 ) + "m" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG IEUNG
+  sub "ᆱ" + kor_maybedash + "ᄌ", "m" + ref( 1 ) + "j" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG CIEUC
+  sub "ᆱ" + kor_maybedash + "ᄎ", "m" + ref( 1 ) + "ch’" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG CHIEUCH
+  sub "ᆱ" + kor_maybedash + "ᄏ", "m" + ref( 1 ) + "k’" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG KHIEUKH
+  sub "ᆱ" + kor_maybedash + "ᄐ", "m" + ref( 1 ) + "ch’", after: any("ᅵᅣᅤᅧᅨᅭᅲ") # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG THIEUTH + YOTIZED VOWELS
+  sub "ᆱ" + kor_maybedash + "ᄐ", "m" + ref( 1 ) + "t’" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG THIEUTH
+  sub "ᆱ" + kor_maybedash + "ᄑ", "m" + ref( 1 ) + "p’" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG PHIEUPH
+  sub "ᆱ" + kor_maybedash + "ᄒ", "m" + ref( 1 ) + "h" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG HIEUH
+  sub "ᆱ" + kor_maybedash + "ᄁ", "m" + ref( 1 ) + "kk" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG SSANGKIYEOK
+  sub "ᆱ" + kor_maybedash + "ᄄ", "m" + ref( 1 ) + "tt" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG SSANGTIEUT
+  sub "ᆱ" + kor_maybedash + "ᄈ", "m" + ref( 1 ) + "pp" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG SSANGPIEUP
+  sub "ᆱ" + kor_maybedash + "ᄊ", "m" + ref( 1 ) + "ss" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG SSANGSIOS
+  sub "ᆱ" + kor_maybedash + "ᄍ", "m" + ref( 1 ) + "tch" # HANGUL JONGSEONG RIEUL-MIEUM + CHOSEONG SSANGCIEUC
+  sub "ᆲ" + kor_maybedash + "ᄀ", "pk" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG KIYEOK
+  sub "ᆲ" + kor_maybedash + "ᄂ", "mn" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG NIEUN
+  sub "ᆲ" + kor_maybedash + "ᄃ", "p" + ref( 1 ) + "t" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG TIEUT
+  sub "ᆲ" + kor_maybedash + "ᄅ", "m" + ref( 1 ) + "n" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG RIEUL
+  sub "ᆲ" + kor_maybedash + "ᄆ", "m" + ref( 1 ) + "m" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG MIEUM
+  sub "ᆲ" + kor_maybedash + "ᄇ", "l" + ref( 1 ) + "b" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG PIEUP
+  sub "ᆲ" + kor_maybedash + "ᄉ", "p" + ref( 1 ) + "s" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG SIOS
+  sub "ᆲ" + kor_maybedash + "ᄋ", "l" + ref( 1 ) + "b" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG IEUNG
+  sub "ᆲ" + kor_maybedash + "ᄌ", "p" + ref( 1 ) + "ch" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG CIEUC
+  sub "ᆲ" + kor_maybedash + "ᄎ", "p" + ref( 1 ) + "ch’" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG CHIEUCH
+  sub "ᆲ" + kor_maybedash + "ᄏ", "p" + ref( 1 ) + "k’" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG KHIEUKH
+  sub "ᆲ" + kor_maybedash + "ᄐ", "p" + ref( 1 ) + "ch’", after: any("ᅵᅣᅤᅧᅨᅭᅲ") # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG THIEUTH + YOTIZED VOWELS
+  sub "ᆲ" + kor_maybedash + "ᄐ", "p" + ref( 1 ) + "t’" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG THIEUTH
+  sub "ᆲ" + kor_maybedash + "ᄑ", "l" + ref( 1 ) + "p’" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG PHIEUPH
+  sub "ᆲ" + kor_maybedash + "ᄒ", "lp" + ref( 1 ) + "h" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG HIEUH
+  sub "ᆲ" + kor_maybedash + "ᄁ", "p" + ref( 1 ) + "kk" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG SSANGKIYEOK
+  sub "ᆲ" + kor_maybedash + "ᄄ", "p" + ref( 1 ) + "tt" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG SSANGTIEUT
+  sub "ᆲ" + kor_maybedash + "ᄈ", "l" + ref( 1 ) + "pp" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG SSANGPIEUP
+  sub "ᆲ" + kor_maybedash + "ᄊ", "p" + ref( 1 ) + "ss" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG SSANGSIOS
+  sub "ᆲ" + kor_maybedash + "ᄍ", "p" + ref( 1 ) + "tch" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG SSANGCIEUC
+  sub "ᄀ", "k", before: " " # HANGUL CHOSEONG KIYEOK
+  sub "ᄂ", "", before: " ", after: any("ᅵᅣᅤᅧᅨᅭᅲ") # HANGUL CHOSEONG NIEUN # N-onset rule
+  sub "ᄂ", "n", before: " " # HANGUL CHOSEONG NIEUN
+  sub "ᄃ", "ch", before: " ", after: any("ᅵᅣᅤᅧᅨᅭᅲ") # HANGUL CHOSEONG TIEUT # T -> Ch before yotized vowels
+  sub "ᄃ", "t", before: " " # HANGUL CHOSEONG TIEUT
+  sub "ᄅ", "", before: " ", after: any("ᅵᅣᅤᅧᅨᅭᅲ") # HANGUL CHOSEONG RIEUL # R-onset rule
+  sub "ᄅ", "n", before: " " # HANGUL CHOSEONG RIEUL # R-onset rule
+  sub "ᄆ", "m", before: " " # HANGUL CHOSEONG MIEUM
+  sub "ᄇ", "p", before: " " # HANGUL CHOSEONG PIEUP
+  sub "ᄉ", "sh", before: " ", after: "ᅱ" # HANGUL CHOSEONG SIOS
+  sub "ᄉ", "s", before: " " # HANGUL CHOSEONG SIOS
+  sub "ᄋ", "", before: " " # HANGUL CHOSEONG IEUNG
+  sub "ᄌ", "ch", before: " " # HANGUL CHOSEONG CIEUC
+  sub "ᄎ", "ch’", before: " " # HANGUL CHOSEONG CHIEUCH
+  sub "ᄏ", "k’", before: " " # HANGUL CHOSEONG KHIEUKH
+  sub "ᄐ", "ch’", before: " ", after: any("ᅵᅣᅤᅧᅨᅭᅲ") # HANGUL CHOSEONG THIEUTH + YOTIZED VOWELS
+  sub "ᄐ", "t’", before: " " # HANGUL CHOSEONG THIEUTH
+  sub "ᄑ", "p’", before: " " # HANGUL CHOSEONG PHIEUPH
+  sub "ᄒ", "h", before: " " # HANGUL CHOSEONG HIEUH
+  sub "ᄁ", "kk", before: " " # HANGUL CHOSEONG SSANGKIYEOK
+  sub "ᄭ", "kk", before: " " # HANGUL CHOSEONG SIOS-KIYEOK
+  sub "ᄄ", "tt", before: " " # HANGUL CHOSEONG SSANGTIEUT
+  sub "ᄯ", "tt", before: " " # HANGUL CHOSEONG SIOS-TIEUT
+  sub "ᄈ", "pp", before: " " # HANGUL CHOSEONG SSANGPIEUP
+  sub "ᄲ", "pp", before: " " # HANGUL CHOSEONG SIOS-PIEUP
+  sub "ᄊ", "ss", before: " " # HANGUL CHOSEONG SSANGSIOS
+  sub "ᄍ", "tch", before: " " # HANGUL CHOSEONG SSANGCIEUC
+  sub "ᄶ", "tch", before: " " # HANGUL CHOSEONG SIOS-CIEUC
+  sub "ᅡ", "a" # HANGUL JUNGSEONG A
+  sub "ᅣ", "ya" # HANGUL JUNGSEONG YA
+  sub "ᅥ", "ŏ" # HANGUL JUNGSEONG EO
+  sub "ᅧ", "yŏ" # HANGUL JUNGSEONG YEO
+  sub "ᅩ", "o" # HANGUL JUNGSEONG O
+  sub "ᅭ", "yo" # HANGUL JUNGSEONG YO
+  sub "ᅮ", "u" # HANGUL JUNGSEONG U
+  sub "ᅲ", "yu" # HANGUL JUNGSEONG YU
+  sub "ᅳ", "ŭ" # HANGUL JUNGSEONG EU
+  sub "ᅵ", "i" # HANGUL JUNGSEONG I
+  sub "ᅢ", "ae" # HANGUL JUNGSEONG AE
+  sub "ᅤ", "yae" # HANGUL JUNGSEONG YAE
+  sub "ᅦ", "e" # HANGUL JUNGSEONG E
+  sub "ᅨ", "ye" # HANGUL JUNGSEONG YE
+  sub "ᅬ", "oe" # HANGUL JUNGSEONG OE
+  sub "ᅱ", "wi" # HANGUL JUNGSEONG WI
+  sub "ᅴ", "ŭi" # HANGUL JUNGSEONG YI
+  sub "ᅪ", "wa" # HANGUL JUNGSEONG WA
+  sub "ᅯ", "wŏ" # HANGUL JUNGSEONG WEO
+  sub "ᅫ", "wae" # HANGUL JUNGSEONG WAE
+  sub "ᅰ", "we" # HANGUL JUNGSEONG WE
+  sub "ᆨ", "k", after: any(" -") # HANGUL JONGSEONG KIYEOK
+  sub "ᆫ", "n", after: any(" -") # HANGUL JONGSEONG NIEUN
+  sub "ᆮ", "t", after: any(" -") # HANGUL JONGSEONG TIEUT
+  sub "ᆯ", "l", after: any(" -") # HANGUL JONGSEONG RIEUL
+  sub "ᆷ", "m", after: any(" -") # HANGUL JONGSEONG MIEUM
+  sub "ᆸ", "p", after: any(" -") # HANGUL JONGSEONG PIEUP
+  sub "ᆺ", "t", after: any(" -") # HANGUL JONGSEONG SIOS
+  sub "ᆼ", "ng", after: any(" -") # HANGUL JONGSEONG IEUNG
+  sub "ᆽ", "t", after: any(" -") # HANGUL JONGSEONG CIEUC
+  sub "ᆾ", "t", after: any(" -") # HANGUL JONGSEONG CHIEUCH
+  sub "ᆿ", "k", after: any(" -") # HANGUL JONGSEONG KHIEUKH
+  sub "ᇀ", "t", after: any(" -") # HANGUL JONGSEONG THIEUTH
+  sub "ᇁ", "p", after: any(" -") # HANGUL JONGSEONG PHIEUPH
+  sub "ᆰ", "k", after: any(" -") # HANGUL JONGSEONG RIEUL-KIYEOK
+  sub "ᆲ", "p", after: any(" -") # HANGUL JONGSEONG RIEUL-PIEUP
+
+  sub capture(any(["ch", "ch’", "j", "s", "ss"])) + "y", ref( 1 )
+
+  sub "swi", "shwi"
+
+  # Remove space added
+  sub line_start + " ", ""
+  sub " " + line_end, ""
+
+  decompose # NB: better compose tests?
+}

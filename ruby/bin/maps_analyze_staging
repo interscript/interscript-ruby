@@ -17,14 +17,6 @@ def analyze_maps( filelist )
   bad_total = 0
   passed_total = 0
   for i in filelist
-    broken = <<~END
-      # broken syntax when generating at the moment
-      bas-rus-Cyrl-Latn-2017-oss
-      az-aze-Cyrl-Latn-1958
-      bgnpcgn-kor-Hang-Latn-kn-1945
-      mofa-jpn-Hrkt-Latn-1989
-      royin-tha-Thai-Latn-1999
-    END
     # used at the bottom
     raw_lines = File.open(i).read.split("\n")
     rules_line = raw_lines.index "  # RULES"
@@ -32,14 +24,6 @@ def analyze_maps( filelist )
     postrules_line = raw_lines.index "  # POSTRULES"
 
     system_name = File.basename(i, ".imp")
-    gonext = false
-    broken.split("\n").each do |b|
-      if i.include? b
-        puts "#{system_name} NEXT"
-        gonext = true
-      end
-    end
-    next if gonext
 
     print "#{system_name}: "
 
@@ -74,6 +58,9 @@ def analyze_maps( filelist )
         elsif result.unicode_normalize == expected.unicode_normalize
           print ","
           almost += 1
+        elsif result.unicode_normalize.chomp == expected.unicode_normalize.chomp
+          print ";"
+          almost += 1
         else
           print "#"
           bad += 1
@@ -101,8 +88,8 @@ def analyze_maps( filelist )
     puts "warning: postrules before rules\n\n" if (postrules_line||10000000) < (rules_line||0)
     puts "warning: postrules before characters\n\n" if (postrules_line||10000000) < (characters_line||0)
 
-    exceptions.each do |e|
-      puts e.full_message
+    Array(exceptions.first).compact.each do |e|
+      puts e #.full_message
     end
   end
   puts " #{good_total} (#{good_total+almost_total})/#{good_total+almost_total+bad_total}"

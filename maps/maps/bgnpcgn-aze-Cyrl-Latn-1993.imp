@@ -34,17 +34,8 @@ metadata {
 
 tests {
   test "Азәрбајҹан әлифбасы", "Azərbaycan əlifbası"
-  test "Бүтүн инсанлар ләјагәт вә һүгугларына ҝөрә азад бәрабәр доғулурлар.\nОнларын шүурлары вә виҹданлары вар вә бир-бирләринә мүнасибәтдә гардашлыг руһунда давранмалыдырлар.", "Bütün insanlar ləyaqət və hüquqlarına görə azad bərabər doğulurlar.\nOnların şüurları və vicdanları var və bir-birlərinə münasibətdə qardaşlıq ruhunda davranmalıdırlar.\n"
+  test "Бүтүн инсанлар ләјагәт вә һүгугларына ҝөрә азад бәрабәр доғулурлар.\nОнларын шүурлары вә виҹданлары вар вә бир-бирләринә мүнасибәтдә гардашлыг руһунда давранмалыдырлар.", "Bütün insanlar ləyaqət və hüquqlarına görə azad bərabər doğulurlar.\nOnların şüurları və vicdanları var və bir-birlərinə münasibətdə qardaşlıq ruhunda davranmalıdırlar."
 }
-
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
 
 stage {
 
@@ -118,4 +109,3 @@ stage {
   }
 
 }
-

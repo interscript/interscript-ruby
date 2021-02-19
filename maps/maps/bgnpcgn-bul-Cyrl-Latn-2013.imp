@@ -25,26 +25,14 @@ tests {
   test "България", "Bulgaria"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
 dependency "bgnpcgn-bul-Cyrl-Latn-1952", as: cyrllatn
 
 
 stage {
-
-  run map.cyrllatn.stage.main
-
   # RULES
   sub "България", "Bulgaria"
-  sub "(?<=\\u0418)\\u042f(?=\\b)", "A" # final position, “ИЯ” is romanized as “IA”
-  sub "(?<=\\u0438)\\u044f(?=\\b)", "a" # final position, “ия” is romanized as “ia”
+  sub "\u042f", "A", before: "\u0418", after: boundary # final position, “ИЯ” is romanized as “IA”
+  sub "\u044f", "a", before: "\u0438", after: boundary # final position, “ия” is romanized as “ia”
 
+  run map.cyrllatn.stage.main
 }
-

@@ -29,17 +29,6 @@ tests {
   test "南一高爾夫球場", "Nan-i Kao-erh-fu Ch’iu-ch’ang"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
-
-
 stage {
 
   # RULES
@@ -53,13 +42,12 @@ stage {
   # it as a separate generic item if the term is capitalized in over
   # 70% of all occurence.
   #
-  sub "(高爾夫球場|少年輔育院|海水浴場|通信中心|自來水廠|醫學中心)$", " \\1"
+  sub capture(any(["高爾夫球場", "少年輔育院", "海水浴場", "通信中心", "自來水廠", "醫學中心"])) + line_end, " " + ref( 1 )
 
-  sub "(?<=..)(球場|輔育院|浴場|中心|大橋|吊橋|陸橋|新村|漁港|分校|埤|政府|交流道|工業區|排水溝|發電廠|工作站|檢查哨|派出所|排水線|遊樂區|轉播站|防潮堤|檢查站|畜牧場|畜殖場|試驗所|防波堤|體育場|動物園|博物館|排水缐|瞭望台|瞭望臺|紀念碑|取水站|守衛站|實驗所|三角點|休息站|排水口|林務所|氣象站|水浴場|煉油廠|療養院|蓄殖場|蓄牧場|護管所|農牧區|造船廠|遊樂園|運動場|電信局|養殖帶|鹽田區|國小|國中|公墓|隧道|農場|堤防|溪口|車站|高中|公園|醫院|學院|中學|大學|水庫|山莊|石礦|公司|煤礦|社區|排水|礦場|學校|牧場|瀑布|溫泉|燈塔|鐵路|糖廠|墓園|碼頭|鹽場|山脈|苗圃|工廠|樂園|電臺|監獄|電台|水道|温泉|花園|飯店|教會|水壩|糖厰|賓館|公路|林場|油庫|港道|漁塭|船澳|農埸|電廠|魚池|倉庫|市場|水線|水閘|海峽|運河|三莊|列島|小學|山口|支流|水塔|池塘|沙洲|河口|法院|海岸|港口|砂礦|群島|船塢|船廠|農廠|酒廠|銅礦|鐵道|高工|堂|壇|宮|寺|尖|山|嶼|市|廟|村|橋|殿|池|河|溪|祠|站|鄉|里|鎮|鼻)$", " \\1"
+  sub capture(any(["球場", "輔育院", "浴場", "中心", "大橋", "吊橋", "陸橋", "新村", "漁港", "分校", "埤", "政府", "交流道", "工業區", "排水溝", "發電廠", "工作站", "檢查哨", "派出所", "排水線", "遊樂區", "轉播站", "防潮堤", "檢查站", "畜牧場", "畜殖場", "試驗所", "防波堤", "體育場", "動物園", "博物館", "排水缐", "瞭望台", "瞭望臺", "紀念碑", "取水站", "守衛站", "實驗所", "三角點", "休息站", "排水口", "林務所", "氣象站", "水浴場", "煉油廠", "療養院", "蓄殖場", "蓄牧場", "護管所", "農牧區", "造船廠", "遊樂園", "運動場", "電信局", "養殖帶", "鹽田區", "國小", "國中", "公墓", "隧道", "農場", "堤防", "溪口", "車站", "高中", "公園", "醫院", "學院", "中學", "大學", "水庫", "山莊", "石礦", "公司", "煤礦", "社區", "排水", "礦場", "學校", "牧場", "瀑布", "溫泉", "燈塔", "鐵路", "糖廠", "墓園", "碼頭", "鹽場", "山脈", "苗圃", "工廠", "樂園", "電臺", "監獄", "電台", "水道", "温泉", "花園", "飯店", "教會", "水壩", "糖厰", "賓館", "公路", "林場", "油庫", "港道", "漁塭", "船澳", "農埸", "電廠", "魚池", "倉庫", "市場", "水線", "水閘", "海峽", "運河", "三莊", "列島", "小學", "山口", "支流", "水塔", "池塘", "沙洲", "河口", "法院", "海岸", "港口", "砂礦", "群島", "船塢", "船廠", "農廠", "酒廠", "銅礦", "鐵道", "高工", "堂", "壇", "宮", "寺", "尖", "山", "嶼", "市", "廟", "村", "橋", "殿", "池", "河", "溪", "祠", "站", "鄉", "里", "鎮", "鼻"])) + line_end, " " + ref( 1 ), before: any_character + any_character
 
-
-  # POSTRULES
-
+  separate separator: "-"
+  sub "- -", " "
 
   # CHARACTERS
   parallel {
@@ -1802,7 +1790,7 @@ stage {
     sub "㫇", "mou"
     sub "㫈", "mou"
     sub "㫉", "ni"
-    sub "㫊", any("oi")
+    sub "㫊", any(["o", "i"])
     sub "㫋", any(["tan", "chan"])
     sub "㫌", "mou"
     sub "㫍", "yu"
@@ -4599,7 +4587,7 @@ stage {
     sub "䖵", "k’un"
     sub "䖶", "hui"
     sub "䖷", "hsi"
-    sub "䖸", any("oi")
+    sub "䖸", any(["o", "i"])
     sub "䖹", any(["yang", "mi"])
     sub "䖺", "t’iao"
     sub "䖻", any(["liu", "yu"])
@@ -5020,7 +5008,7 @@ stage {
     sub "䝚", "ni"
     sub "䝛", "po"
     sub "䝜", "suan"
-    sub "䝝", any("io")
+    sub "䝝", any(["i", "o"])
     sub "䝞", "hao"
     sub "䝟", any(["chia", "ya"])
     sub "䝠", "yüan"
@@ -8436,7 +8424,7 @@ stage {
     sub "唅", "han"
     sub "唆", "so"
     sub "唇", any(["chen", "ch’un"])
-    sub "唈", any("oi")
+    sub "唈", any(["o", "i"])
     sub "唉", "ai"
     sub "唊", "chia"
     sub "唋", "t’u"
@@ -8502,7 +8490,7 @@ stage {
     sub "啇", any(["shih", "ti"])
     sub "啈", "heng"
     sub "啉", "lan"
-    sub "啊", any("ao")
+    sub "啊", any(["a", "o"])
     sub "啋", "hsiao"
     sub "啌", any(["hsiang", "ch’iang"])
     sub "啍", "t’un"
@@ -16130,7 +16118,7 @@ stage {
     sub "猔", "tsung"
     sub "猕", "mi"
     sub "猖", "ch’ang"
-    sub "猗", any("io")
+    sub "猗", any(["i", "o"])
     sub "猘", "chih"
     sub "猙", "cheng"
     sub "猚", "ya"
@@ -21222,7 +21210,7 @@ stage {
     sub "蛻", any(["t’ui", "shui"])
     sub "蛼", "ch’e"
     sub "蛽", "pei"
-    sub "蛾", any("oi")
+    sub "蛾", any(["o", "i"])
     sub "蛿", any(["hsien", "han"])
     sub "蜀", "shu"
     sub "蜁", "hsüan"
@@ -25126,7 +25114,7 @@ stage {
     sub "阼", "tso"
     sub "阽", any(["yen", "tien"])
     sub "阾", "ling"
-    sub "阿", any("ao")
+    sub "阿", any(["a", "o"])
     sub "陀", "t’o"
     sub "陁", any(["i", "chih", "t’o"])
     sub "陂", any(["p’o", "p’i"])
@@ -27559,4 +27547,3 @@ stage {
 
   title_case
 }
-

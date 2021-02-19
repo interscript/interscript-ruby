@@ -159,9 +159,9 @@ def stringify(node)
   str.join.gsub('\\\\u', '\\u')
 end
 
-def stringify_root(root)
+def stringify_root(root, indent: 0)
   warning = ''
-  str = "    sub #{stringify(root[:from])}, #{root[:to]}"
+  str = " "*indent+"sub #{stringify(root[:from])}, #{root[:to]}"
   [:before, :not_before, :after, :not_after].each do |look|
     next unless root[look]
     str_look = stringify(root[look])
@@ -171,14 +171,14 @@ def stringify_root(root)
       str << ", #{look}: #{str_look}"
     #end
   end
-  str = "    # #{str} # warning: :missing unimplemented" if str.include?(':missing')
-  str = "    # #{str} # warning: :interval unimplemented" if str.include?(':interval')
-  str = "    # #{str} # warning: :adding_ranges unimplemented" if str.include?(':adding_ranges')
-  str = "    # #{str} # warning: zero_or_one" if str.include?('zero_or_one')
-  str = "    # #{str} # warning: one_or_more" if str.include?('one_or_more')
-  str = "    # #{str} # warning: :lookahead_start" if str.include?(':lookahead_start')
-  str = "    # #{str} # warning: :" if str =~ /:[^ ]/
-  str = "    # #{str} # #{warning}" if !warning.empty?
+  str = " "*indent+"# #{str} # warning: :missing unimplemented" if str.include?(':missing')
+  str = " "*indent+"# #{str} # warning: :interval unimplemented" if str.include?(':interval')
+  str = " "*indent+"# #{str} # warning: :adding_ranges unimplemented" if str.include?(':adding_ranges')
+  str = " "*indent+"# #{str} # warning: zero_or_one" if str.include?('zero_or_one')
+  str = " "*indent+"# #{str} # warning: one_or_more" if str.include?('one_or_more')
+  str = " "*indent+"# #{str} # warning: :lookahead_start" if str.include?(':lookahead_start')
+  str = " "*indent+"# #{str} # warning: :" if str =~ /:[^ ]/
+  str = " "*indent+"# #{str} # #{warning}" if !warning.empty?
   # str += " # original: #{root[:from]}"
   str
 end

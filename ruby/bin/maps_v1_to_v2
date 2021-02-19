@@ -21,14 +21,14 @@ require 'regexp_parser'
 require 'interscript/utils/regexp_converter.rb'
 
 
-def process_line( kkk, vvv)
+def process_line( kkk, vvv, indent: 0)
 
     parse_kkk = Regexp::Parser.parse(kkk, 'ruby/2.1')
     tokens_kkk = process(parse_kkk)
     # pp conv
     root_hash = process_root(tokens_kkk)
     # pp root
-    
+
     if vvv.class == String
       if vvv == '' or vvv =='""' or vvv == nil or vvv.include? '~'
         root_hash[:to] = '""'
@@ -50,7 +50,7 @@ def process_line( kkk, vvv)
       puts "unknown class #{vvv.inspect}"
     end
 
-    str = stringify_root(root_hash)
+    str = stringify_root(root_hash, indent: indent)
 
 end
 
@@ -347,7 +347,7 @@ old_maps.each do |old_map|
         kkk = kkk.gsub("\\\\u", "\\\\u")
         kkk = kkk.gsub("\\\\U", "\\\\u")
 
-        new << process_line( kkk,vvv )
+        new << process_line( kkk,vvv, indent: indent )
       when rules.object_id, postrules.object_id
         if i.strip =~ /\A- pattern\s*:/
           _, k = i.split(":", 2)
@@ -372,7 +372,7 @@ old_maps.each do |old_map|
         # kkk,vvv = kk.inspect, vv.inspect
         kkk,vvv = kk.dup,vv.dup
 
-        new << process_line( kkk,vvv )
+        new << process_line( kkk,vvv, indent: indent )
       end
 
       if cmt != ""
