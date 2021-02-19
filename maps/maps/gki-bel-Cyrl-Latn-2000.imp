@@ -68,17 +68,19 @@ tests {
   test "Валяр'яны", "Valiarjany"
 }
 
+dependency "var-Cyrl", import: true
+
 stage {
 
   # RULES
-  sub "\u0415", "IE", before: any("БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш") # Е after consonants
-  sub "\u0435", "ie", before: any("БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш") # е after consonants
-  sub "\u0401", "IO", before: any("БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш") # Ё after consonants
-  sub "\u0451", "io", before: any("БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш") # ё after consonants
-  sub "\u042E", "IU", before: any("БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш") # Ю after consonants
-  sub "\u044E", "iu", before: any("БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш") # ю after consonants
-  sub "\u042F", "IA", before: any("БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш") # Я after consonants
-  sub "\u044F", "ia", before: any("БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш") # я after consonants
+  sub "\u0415", "IE", before: bel_consonant # Е after consonants
+  sub "\u0435", "ie", before: bel_consonant # е after consonants
+  sub "\u0401", "IO", before: bel_consonant # Ё after consonants
+  sub "\u0451", "io", before: bel_consonant # ё after consonants
+  sub "\u042E", "IU", before: bel_consonant # Ю after consonants
+  sub "\u044E", "iu", before: bel_consonant # ю after consonants
+  sub "\u042F", "IA", before: bel_consonant # Я after consonants
+  sub "\u044F", "ia", before: bel_consonant # я after consonants
 
   # CHARACTERS
   parallel {
@@ -155,4 +157,3 @@ stage {
 
 
 }
-
