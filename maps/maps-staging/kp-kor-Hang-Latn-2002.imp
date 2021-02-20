@@ -141,29 +141,29 @@ stage {
 
   # Use voiced onset for geographical features
   # Note 4.3.1
-  sub "(?<=..)산( |$)", "san\\1"
-  sub "(?<=..)거리( |$)", "gŏri\\1"
-  sub "(?<=..)고개( |$)", "gogae\\1"
-  sub "(?<=..)대( |$)", "dae\\1"
-  sub "(?<=..)봉( |$)", "bong\\1"
-  sub "(?<=..)교( |$)", "gyo\\1"
-  sub "(?<=..)골( |$)", "gol\\1"
-  sub "(?<=..)각( |$)", "gak\\1"
-  sub "(?<=..)벌( |$)", "bŏl\\1"
-  sub "(?<=..)관( |$)", "gwan\\1"
-  sub "(?<=..)곶( |$)", "got\\1"
-  sub "(?<=..)강( |$)", "gang\\1"
+  sub "산" + capture(any([" ", line_end])), "san" + ref( 1 ), before: any_character + any_character
+  sub "거리" + capture(any([" ", line_end])), "gŏri" + ref( 1 ), before: any_character + any_character
+  sub "고개" + capture(any([" ", line_end])), "gogae" + ref( 1 ), before: any_character + any_character
+  sub "대" + capture(any([" ", line_end])), "dae" + ref( 1 ), before: any_character + any_character
+  sub "봉" + capture(any([" ", line_end])), "bong" + ref( 1 ), before: any_character + any_character
+  sub "교" + capture(any([" ", line_end])), "gyo" + ref( 1 ), before: any_character + any_character
+  sub "골" + capture(any([" ", line_end])), "gol" + ref( 1 ), before: any_character + any_character
+  sub "각" + capture(any([" ", line_end])), "gak" + ref( 1 ), before: any_character + any_character
+  sub "벌" + capture(any([" ", line_end])), "bŏl" + ref( 1 ), before: any_character + any_character
+  sub "관" + capture(any([" ", line_end])), "gwan" + ref( 1 ), before: any_character + any_character
+  sub "곶" + capture(any([" ", line_end])), "got" + ref( 1 ), before: any_character + any_character
+  sub "강" + capture(any([" ", line_end])), "gang" + ref( 1 ), before: any_character + any_character
 
   # add hyphen in front of generics
   # Only add hyphen if the name is three syllables or longer
-  sub "(?<=..)도( |$)", "-do\\1"
-  sub "(?<=..)시( |$)", "-si\\1"
-  sub "(?<=..)군( |$)", "-gun\\1"
-  sub "(?<=..)면( |$)", "-myŏn\\1"
-  sub "(?<=..)리( |$)", "-ri\\1"
-  sub "(?<=..)동( |$)", "-dong\\1"
-  sub "(?<=..)구( |$)", "-gu\\1"
-  sub "(?<=..)구역( |$)", "-guyŏk\\1"
+  sub "도" + capture(any([" ", line_end])), "-do" + ref( 1 ), before: any_character + any_character
+  sub "시" + capture(any([" ", line_end])), "-si" + ref( 1 ), before: any_character + any_character
+  sub "군" + capture(any([" ", line_end])), "-gun" + ref( 1 ), before: any_character + any_character
+  sub "면" + capture(any([" ", line_end])), "-myŏn" + ref( 1 ), before: any_character + any_character
+  sub "리" + capture(any([" ", line_end])), "-ri" + ref( 1 ), before: any_character + any_character
+  sub "동" + capture(any([" ", line_end])), "-dong" + ref( 1 ), before: any_character + any_character
+  sub "구" + capture(any([" ", line_end])), "-gu" + ref( 1 ), before: any_character + any_character
+  sub "구역" + capture(any([" ", line_end])), "-guyŏk" + ref( 1 ), before: any_character + any_character
 
   # The name Pyongyang will be an exception
   # Not Phyŏngyang
@@ -174,8 +174,8 @@ stage {
   # POSTRULES
 
   # Add space to the two ends of the string for easier word boundary handling
-  sub "^", " "
-  sub "$", " "
+  sub line_start, " "
+  sub line_end, " "
 
   # HANGUL JONGSEONG SSANGKIYEOK
   sub "ᆩᄋ", "ᆨᄁ"
@@ -197,7 +197,7 @@ stage {
   sub "ᆭ", "ᆫ"
 
   # HANGUL JONGSEONG TIEUT
-  sub "ᆮ(?=[ᄀᄁᄂᄃᄄᄅᄆᄇᄈᄉᄊᄌᄍᄎᄏᄐᄑᄒ])", "ᆺ"
+  sub "ᆮ", "ᆺ", after: any("ᄀᄁᄂᄃᄄᄅᄆᄇᄈᄉᄊᄌᄍᄎᄏᄐᄑᄒ")
 
   # HANGUL JONGSEONG RIEUL-SIOS
   sub "ᆳᄋ", "ᆯᄉ"
@@ -209,7 +209,7 @@ stage {
 
   # HANGUL JONGSEONG RIEUL-PHIEUPH
   sub "ᆵᄋ", "ᆯᄑ"
-  sub "ᆵ(?=[ᄃᄄᄐ])", "ᆯ"
+  sub "ᆵ", "ᆯ", after: any("ᄃᄄᄐ")
   sub "ᆵ", "ᄇ"
 
   # HANGUL JONGSEONG RIEUL-HIEUH
@@ -389,25 +389,25 @@ stage {
   sub "ᆼᄈ", "ngpp" # HANGUL JONGSEONG IEUNG + CHOSEONG SSANGPIEUP
   sub "ᆼᄊ", "ngss" # HANGUL JONGSEONG IEUNG + CHOSEONG SSANGSIOS
   sub "ᆼᄍ", "ngjj" # HANGUL JONGSEONG IEUNG + CHOSEONG SSANGCIEUC
-  sub "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄀ", "g" # VOWEL + CHOSEONG KIYEOK # c.f. Note 3.3
-  sub "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄂ", "n" # VOWEL + CHOSEONG NIEUN # c.f. Note 3.3
-  sub "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄃ", "d" # VOWEL + CHOSEONG TIEUT # c.f. Note 3.3
-  sub "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄅ", "r" # VOWEL + CHOSEONG RIEUL
-  sub "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄆ", "m" # VOWEL + CHOSEONG MIEUM # c.f. Note 3.3
-  sub "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄇ", "b" # VOWEL + CHOSEONG PIEUP # c.f. Note 3.3
-  sub "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄉ", "s" # VOWEL + CHOSEONG SIOS
-  sub "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄋ", "" # VOWEL + CHOSEONG IEUNG
-  sub "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄌ", "j" # VOWEL + CHOSEONG CIEUC
-  sub "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄎ", "ch" # VOWEL + CHOSEONG CHIEUCH
-  sub "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄏ", "kh" # VOWEL + CHOSEONG KHIEUKH
-  sub "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄐ", "th" # VOWEL + CHOSEONG THIEUTH
-  sub "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄑ", "ph" # VOWEL + CHOSEONG PHIEUPH
-  sub "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄒ", "h" # VOWEL + CHOSEONG HIEUH
-  sub "(?<=[-A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄁ", "kk" # VOWEL + CHOSEONG SSANGKIYEOK
-  sub "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄄ", "tt" # VOWEL + CHOSEONG SSANGTIEUT
-  sub "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄈ", "pp" # VOWEL + CHOSEONG SSANGPIEUP
-  sub "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄊ", "ss" # VOWEL + CHOSEONG SSANGSIOS
-  sub "(?<=[A-Za-z0-9ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ])ᄍ", "jj" # VOWEL + CHOSEONG SSANGCIEUC
+  sub "ᄀ", "g", before: any(["-" + any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG KIYEOK # c.f. Note 3.3
+  sub "ᄂ", "n", before: any(["-" + any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG NIEUN # c.f. Note 3.3
+  sub "ᄃ", "d", before: any(["-" + any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG TIEUT # c.f. Note 3.3
+  sub "ᄅ", "r", before: any(["-" + any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG RIEUL
+  sub "ᄆ", "m", before: any(["-" + any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG MIEUM # c.f. Note 3.3
+  sub "ᄇ", "b", before: any(["-" + any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG PIEUP # c.f. Note 3.3
+  sub "ᄉ", "s", before: any(["-" + any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG SIOS
+  sub "ᄋ", "", before: any(["-" + any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG IEUNG
+  sub "ᄌ", "j", before: any(["-" + any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG CIEUC
+  sub "ᄎ", "ch", before: any(["-" + any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG CHIEUCH
+  sub "ᄏ", "kh", before: any(["-" + any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG KHIEUKH
+  sub "ᄐ", "th", before: any(["-" + any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG THIEUTH
+  sub "ᄑ", "ph", before: any(["-" + any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG PHIEUPH
+  sub "ᄒ", "h", before: any(["-" + any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG HIEUH
+  sub "ᄁ", "kk", before: any(["-" + any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG SSANGKIYEOK
+  sub "ᄄ", "tt", before: any([any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG SSANGTIEUT
+  sub "ᄈ", "pp", before: any([any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG SSANGPIEUP
+  sub "ᄊ", "ss", before: any([any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG SSANGSIOS
+  sub "ᄍ", "jj", before: any([any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG SSANGCIEUC
   sub "ᆰᄀ", "lg" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG KIYEOK
   sub "ᆰᄂ", "ngn" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG NIEUN
   sub "ᆰᄃ", "kt" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG TIEUT
@@ -465,34 +465,34 @@ stage {
   sub "ᆲᄈ", "lpp" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG SSANGPIEUP
   sub "ᆲᄊ", "pss" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG SSANGSIOS
   sub "ᆲᄍ", "pjj" # HANGUL JONGSEONG RIEUL-PIEUP + CHOSEONG SSANGCIEUC
-  sub "(?<= )ᄀ", "k" # HANGUL CHOSEONG KIYEOK
-  sub "(?<= )ᄂ", "n" # HANGUL CHOSEONG NIEUN
-  sub "(?<= )ᄃ", "t" # HANGUL CHOSEONG TIEUT
+  sub "ᄀ", "k", before: " " # HANGUL CHOSEONG KIYEOK
+  sub "ᄂ", "n", before: " " # HANGUL CHOSEONG NIEUN
+  sub "ᄃ", "t", before: " " # HANGUL CHOSEONG TIEUT
 
   # DPRK does not follow the R-onset rule
   # - pattern: "(?<= )ᄅ(?=[ᅣᅤᅧᅨᅭᅲ])"
   #   result: "" # HANGUL CHOSEONG RIEUL # R-onset rule
-  sub "(?<= )ᄅ", "r" # result: "n" # HANGUL CHOSEONG RIEUL
+  sub "ᄅ", "r", before: " " # result: "n" # HANGUL CHOSEONG RIEUL
 
-  sub "(?<= )ᄆ", "m" # HANGUL CHOSEONG MIEUM
-  sub "(?<= )ᄇ", "p" # HANGUL CHOSEONG PIEUP
-  sub "(?<= )ᄉ", "s" # HANGUL CHOSEONG SIOS
-  sub "(?<= )ᄋ", "" # HANGUL CHOSEONG IEUNG
-  sub "(?<= )ᄌ", "j" # HANGUL CHOSEONG CIEUC
-  sub "(?<= )ᄎ", "ch" # HANGUL CHOSEONG CHIEUCH
-  sub "(?<= )ᄏ", "kh" # HANGUL CHOSEONG KHIEUKH
-  sub "(?<= )ᄐ", "th" # HANGUL CHOSEONG THIEUTH
-  sub "(?<= )ᄑ", "ph" # HANGUL CHOSEONG PHIEUPH
-  sub "(?<= )ᄒ", "h" # HANGUL CHOSEONG HIEUH
-  sub "(?<= )ᄁ", "kk" # HANGUL CHOSEONG SSANGKIYEOK
-  sub "(?<= )ᄭ", "kk" # HANGUL CHOSEONG SIOS-KIYEOK
-  sub "(?<= )ᄄ", "tt" # HANGUL CHOSEONG SSANGTIEUT
-  sub "(?<= )ᄯ", "tt" # HANGUL CHOSEONG SIOS-TIEUT
-  sub "(?<= )ᄈ", "pp" # HANGUL CHOSEONG SSANGPIEUP
-  sub "(?<= )ᄲ", "pp" # HANGUL CHOSEONG SIOS-PIEUP
-  sub "(?<= )ᄊ", "ss" # HANGUL CHOSEONG SSANGSIOS
-  sub "(?<= )ᄍ", "jj" # HANGUL CHOSEONG SSANGCIEUC
-  sub "(?<= )ᄶ", "jj" # HANGUL CHOSEONG SIOS-CIEUC
+  sub "ᄆ", "m", before: " " # HANGUL CHOSEONG MIEUM
+  sub "ᄇ", "p", before: " " # HANGUL CHOSEONG PIEUP
+  sub "ᄉ", "s", before: " " # HANGUL CHOSEONG SIOS
+  sub "ᄋ", "", before: " " # HANGUL CHOSEONG IEUNG
+  sub "ᄌ", "j", before: " " # HANGUL CHOSEONG CIEUC
+  sub "ᄎ", "ch", before: " " # HANGUL CHOSEONG CHIEUCH
+  sub "ᄏ", "kh", before: " " # HANGUL CHOSEONG KHIEUKH
+  sub "ᄐ", "th", before: " " # HANGUL CHOSEONG THIEUTH
+  sub "ᄑ", "ph", before: " " # HANGUL CHOSEONG PHIEUPH
+  sub "ᄒ", "h", before: " " # HANGUL CHOSEONG HIEUH
+  sub "ᄁ", "kk", before: " " # HANGUL CHOSEONG SSANGKIYEOK
+  sub "ᄭ", "kk", before: " " # HANGUL CHOSEONG SIOS-KIYEOK
+  sub "ᄄ", "tt", before: " " # HANGUL CHOSEONG SSANGTIEUT
+  sub "ᄯ", "tt", before: " " # HANGUL CHOSEONG SIOS-TIEUT
+  sub "ᄈ", "pp", before: " " # HANGUL CHOSEONG SSANGPIEUP
+  sub "ᄲ", "pp", before: " " # HANGUL CHOSEONG SIOS-PIEUP
+  sub "ᄊ", "ss", before: " " # HANGUL CHOSEONG SSANGSIOS
+  sub "ᄍ", "jj", before: " " # HANGUL CHOSEONG SSANGCIEUC
+  sub "ᄶ", "jj", before: " " # HANGUL CHOSEONG SIOS-CIEUC
   sub "ᅡ", "a" # HANGUL JUNGSEONG A
   sub "ᅣ", "ya" # HANGUL JUNGSEONG YA
   sub "ᅥ", "ŏ" # HANGUL JUNGSEONG EO
@@ -514,25 +514,25 @@ stage {
   sub "ᅯ", "wo" # HANGUL JUNGSEONG WEO
   sub "ᅫ", "wae" # HANGUL JUNGSEONG WAE
   sub "ᅰ", "we" # HANGUL JUNGSEONG WE
-  sub "ᆨ(?!\\p{Hangul})", "k" # HANGUL JONGSEONG KIYEOK
-  sub "ᆫ(?!\\p{Hangul})", "n" # HANGUL JONGSEONG NIEUN
-  sub "ᆮ(?!\\p{Hangul})", "t" # HANGUL JONGSEONG TIEUT
-  sub "ᆯ(?!\\p{Hangul})", "l" # HANGUL JONGSEONG RIEUL
-  sub "ᆷ(?!\\p{Hangul})", "m" # HANGUL JONGSEONG MIEUM
-  sub "ᆸ(?!\\p{Hangul})", "p" # HANGUL JONGSEONG PIEUP
-  sub "ᆺ(?!\\p{Hangul})", "t" # HANGUL JONGSEONG SIOS
-  sub "ᆼ(?!\\p{Hangul})", "ng" # HANGUL JONGSEONG IEUNG
-  sub "ᆽ(?!\\p{Hangul})", "t" # HANGUL JONGSEONG CIEUC
-  sub "ᆾ(?!\\p{Hangul})", "t" # HANGUL JONGSEONG CHIEUCH
-  sub "ᆿ(?!\\p{Hangul})", "k" # HANGUL JONGSEONG KHIEUKH
-  sub "ᇀ(?!\\p{Hangul})", "t" # HANGUL JONGSEONG THIEUTH
-  sub "ᇁ(?!\\p{Hangul})", "p" # HANGUL JONGSEONG PHIEUPH
-  sub "ᆰ(?!\\p{Hangul})", "k" # HANGUL JONGSEONG RIEUL-KIYEOK
-  sub "ᆲ(?!\\p{Hangul})", "p" # HANGUL JONGSEONG RIEUL-PIEUP
+  #   #   sub "ᆨ", "k", not_after:  :missing  Regexp::Expression::UnicodeProperty::Script  # warning: :missing unimplemented # warning: : # HANGUL JONGSEONG KIYEOK
+  #   #   sub "ᆫ", "n", not_after:  :missing  Regexp::Expression::UnicodeProperty::Script  # warning: :missing unimplemented # warning: : # HANGUL JONGSEONG NIEUN
+  #   #   sub "ᆮ", "t", not_after:  :missing  Regexp::Expression::UnicodeProperty::Script  # warning: :missing unimplemented # warning: : # HANGUL JONGSEONG TIEUT
+  #   #   sub "ᆯ", "l", not_after:  :missing  Regexp::Expression::UnicodeProperty::Script  # warning: :missing unimplemented # warning: : # HANGUL JONGSEONG RIEUL
+  #   #   sub "ᆷ", "m", not_after:  :missing  Regexp::Expression::UnicodeProperty::Script  # warning: :missing unimplemented # warning: : # HANGUL JONGSEONG MIEUM
+  #   #   sub "ᆸ", "p", not_after:  :missing  Regexp::Expression::UnicodeProperty::Script  # warning: :missing unimplemented # warning: : # HANGUL JONGSEONG PIEUP
+  #   #   sub "ᆺ", "t", not_after:  :missing  Regexp::Expression::UnicodeProperty::Script  # warning: :missing unimplemented # warning: : # HANGUL JONGSEONG SIOS
+  #   #   sub "ᆼ", "ng", not_after:  :missing  Regexp::Expression::UnicodeProperty::Script  # warning: :missing unimplemented # warning: : # HANGUL JONGSEONG IEUNG
+  #   #   sub "ᆽ", "t", not_after:  :missing  Regexp::Expression::UnicodeProperty::Script  # warning: :missing unimplemented # warning: : # HANGUL JONGSEONG CIEUC
+  #   #   sub "ᆾ", "t", not_after:  :missing  Regexp::Expression::UnicodeProperty::Script  # warning: :missing unimplemented # warning: : # HANGUL JONGSEONG CHIEUCH
+  #   #   sub "ᆿ", "k", not_after:  :missing  Regexp::Expression::UnicodeProperty::Script  # warning: :missing unimplemented # warning: : # HANGUL JONGSEONG KHIEUKH
+  #   #   sub "ᇀ", "t", not_after:  :missing  Regexp::Expression::UnicodeProperty::Script  # warning: :missing unimplemented # warning: : # HANGUL JONGSEONG THIEUTH
+  #   #   sub "ᇁ", "p", not_after:  :missing  Regexp::Expression::UnicodeProperty::Script  # warning: :missing unimplemented # warning: : # HANGUL JONGSEONG PHIEUPH
+  #   #   sub "ᆰ", "k", not_after:  :missing  Regexp::Expression::UnicodeProperty::Script  # warning: :missing unimplemented # warning: : # HANGUL JONGSEONG RIEUL-KIYEOK
+  #   #   sub "ᆲ", "p", not_after:  :missing  Regexp::Expression::UnicodeProperty::Script  # warning: :missing unimplemented # warning: : # HANGUL JONGSEONG RIEUL-PIEUP
 
   # Remove space added
-  sub "^ ", ""
-  sub " $", ""
+  sub line_start + " ", ""
+  sub " " + line_end, ""
 
 
   # CHARACTERS

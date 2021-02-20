@@ -94,7 +94,7 @@ stage {
     sub "\u0636", "z"
     sub "\u0637", "t"
     sub "\u0638", "z"
-    sub "\u0639", "\\u2018"
+    sub "\u0639", "\u2018"
     sub "\u063a", "gh"
     sub "\u0641", "f"
     sub "\u0642", "q"

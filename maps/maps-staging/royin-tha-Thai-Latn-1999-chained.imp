@@ -102,12 +102,12 @@ tests {
 stage {
 
   # RULES
-  sub "[˩˨˧˦˥]", ""
-  sub "^", "."
+  sub any("˩˨˧˦˥"), ""
+  sub line_start, any_character
 
 
   # POSTRULES
-  sub "\\.", ""
+  sub "\.", ""
 
 
   # CHARACTERS

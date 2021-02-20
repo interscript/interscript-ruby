@@ -298,45 +298,45 @@ tests {
 stage {
 
   # RULES
-  sub "(?<=[ΑαΕεΗηΟο])[ΥΎῪὙ]", "U"
-  sub "(?<=[ΑαΕεΗηΟο])[υύύύὺῦὐὔὒὖ]", "u"
-  sub "\\u037E", "?" # ;
-  sub "\\u003B", "?" # ;
-  sub "Γ(?=[γΓξΞχΧ])", "N" # Γ (before Γ, Ξ, Χ)
-  sub "γ(?=[γΓξΞχΧ])", "n" # γ (before Γ, Ξ, Χ)
-  sub "(?<=[[:alpha:]])Γ(?=[κΚ][[:alpha:]])", "N" # Γ (before Κ medially)
-  sub "(?<=[[:alpha:]])γ(?=[κΚ][[:alpha:]])", "n" # Γ (before Κ medially)
+  sub any("ΥΎῪὙ"), "U", before: any("ΑαΕεΗηΟο")
+  sub any("υύύύὺῦὐὔὒὖ"), "u", before: any("ΑαΕεΗηΟο")
+  sub "\u037E", "?" # ;
+  sub "\u003B", "?" # ;
+  sub "Γ", "N", after: any("γΓξΞχΧ") # Γ (before Γ, Ξ, Χ)
+  sub "γ", "n", after: any("γΓξΞχΧ") # γ (before Γ, Ξ, Χ)
+  #   #   sub "Γ", "N", before: any( :missing  Regexp::Expression::PosixClass ), after: any("κΚ") + any( :missing  Regexp::Expression::PosixClass ) # warning: :missing unimplemented # warning: : # Γ (before Κ medially)
+  #   #   sub "γ", "n", before: any( :missing  Regexp::Expression::PosixClass ), after: any("κΚ") + any( :missing  Regexp::Expression::PosixClass ) # warning: :missing unimplemented # warning: : # Γ (before Κ medially)
 
   # POSTRULES
-  sub "(?<=[AEIOUYĒŌaeiouyēō])[Hh]", ""
+  sub any("Hh"), "", before: any("AEIOUYĒŌaeiouyēō")
 
 
   # CHARACTERS
   parallel {
-    sub "[Αα][ὙὝὛὟ]", "HAU"
-    sub "[Εε][ὙὝὛὟ]", "HEU"
-    sub "[Ηη][ὙὝὛὟ]", "HĒU"
-    sub "[Οο][ὙὝὛὟ]", "HOU"
-    sub "Α[ὑὕὓὗ]", "Hau"
-    sub "α[ὑὕὓὗ]", "hau"
-    sub "Ε[ὑὕὓὗ]", "Heu"
-    sub "ε[ὑὕὓὗ]", "heu"
-    sub "Η[ὑὕὓὗ]", "Hēu"
-    sub "η[ὑὕὓὗ]", "hēu"
-    sub "Ο[ὑὕὓὗ]", "Hou"
-    sub "ο[ὑὕὓὗ]", "hou"
-    sub "[Αα][ἹἽἻἿ]", "HAI"
-    sub "[Εε][ἹἽἻἿ]", "HEI"
-    sub "[Οο][ἹἽἻἿ]", "HOI"
-    sub "[Υυ][ἹἽἻἿ]", "HYI"
-    sub "Α[ἱἵἳἷ]", "Hai"
-    sub "α[ἱἵἳἷ]", "hai"
-    sub "Ε[ἱἵἳἷ]", "Hei"
-    sub "ε[ἱἵἳἷ]", "hei"
-    sub "Ο[ἱἵἳἷ]", "Hoi"
-    sub "ο[ἱἵἳἷ]", "hoi"
-    sub "Υ[ἱἵἳἷ]", "Hyi"
-    sub "υ[ἱἵἳἷ]", "hyi"
+    sub any("Αα") + any("ὙὝὛὟ"), "HAU"
+    sub any("Εε") + any("ὙὝὛὟ"), "HEU"
+    sub any("Ηη") + any("ὙὝὛὟ"), "HĒU"
+    sub any("Οο") + any("ὙὝὛὟ"), "HOU"
+    sub "Α" + any("ὑὕὓὗ"), "Hau"
+    sub "α" + any("ὑὕὓὗ"), "hau"
+    sub "Ε" + any("ὑὕὓὗ"), "Heu"
+    sub "ε" + any("ὑὕὓὗ"), "heu"
+    sub "Η" + any("ὑὕὓὗ"), "Hēu"
+    sub "η" + any("ὑὕὓὗ"), "hēu"
+    sub "Ο" + any("ὑὕὓὗ"), "Hou"
+    sub "ο" + any("ὑὕὓὗ"), "hou"
+    sub any("Αα") + any("ἹἽἻἿ"), "HAI"
+    sub any("Εε") + any("ἹἽἻἿ"), "HEI"
+    sub any("Οο") + any("ἹἽἻἿ"), "HOI"
+    sub any("Υυ") + any("ἹἽἻἿ"), "HYI"
+    sub "Α" + any("ἱἵἳἷ"), "Hai"
+    sub "α" + any("ἱἵἳἷ"), "hai"
+    sub "Ε" + any("ἱἵἳἷ"), "Hei"
+    sub "ε" + any("ἱἵἳἷ"), "hei"
+    sub "Ο" + any("ἱἵἳἷ"), "Hoi"
+    sub "ο" + any("ἱἵἳἷ"), "hoi"
+    sub "Υ" + any("ἱἵἳἷ"), "Hyi"
+    sub "υ" + any("ἱἵἳἷ"), "hyi"
 
     sub "Α", "A"
     sub "Ά", "A"

@@ -119,9 +119,9 @@ stage {
   parallel {
     # special rules
 
-    sub "\\s(?=\u0622\u0628\u064E\u0627\u062F)", "" # space followed by abad is removed
+    sub space, "", after: "\u0622\u0628\u064E\u0627\u062F" # space followed by abad is removed
     sub "\ufdf2", "Allah" # See note 5
-    sub "\\s\u0627\u0644\u0644\u0651\u064e\u0647", "ollah" # NOTE 9
+    sub space + "\u0627\u0644\u0644\u0651\u064e\u0647", "ollah" # NOTE 9
 
     sub "\u0652", "" # ْ sokoon
     sub "\u0659", "ê"
@@ -144,34 +144,34 @@ stage {
     sub "\u0625", "" # إ
 
     # See note B
-    sub "\\b\u0627\u0644", "al " # ال
-    sub "\\b\u0622\\\u0644", "Al " # ‫آل‬
+    sub boundary + "\u0627\u0644", "al " # ال
+    sub boundary + "\u0622\u0644", "Al " # ‫آل‬
     # '\uFE8E' : ''  # ﺎ
 
     # Sun letters
-    sub "\\b\u0627\u0644\u062a", "at t" # الت
-    sub "\\b\u0627\u0644\u062b", "as s" # الث
-    sub "\\b\u0627\u0644\u062f", "ad d" # الد
-    sub "\\b\u0627\u0644\u0630", "az z" # الذ
-    sub "\\b\u0627\u0644\u0631", "ar r" # الر
-    sub "\\b\u0627\u0644\u0632", "az z" # الز
-    sub "\\b\u0627\u0644\u0633", "as s" # الس
-    sub "\\b\u0627\u0644\u0634", "ash sh" # الش
-    sub "\\b\u0627\u0644\u0635", "as s" # الص
-    sub "\\b\u0627\u0644\u0636", "az z" # الض
-    sub "\\b\u0627\u0644\u0637", "at t" # الط
-    sub "\\b\u0627\u0644\u0638", "az z" # الظ
-    sub "\\b\u0627\u0644\u0644", "al l" # الل
-    sub "\\b\u0627\u0644\u0646", "an n" # الن
+    sub boundary + "\u0627\u0644\u062a", "at t" # الت
+    sub boundary + "\u0627\u0644\u062b", "as s" # الث
+    sub boundary + "\u0627\u0644\u062f", "ad d" # الد
+    sub boundary + "\u0627\u0644\u0630", "az z" # الذ
+    sub boundary + "\u0627\u0644\u0631", "ar r" # الر
+    sub boundary + "\u0627\u0644\u0632", "az z" # الز
+    sub boundary + "\u0627\u0644\u0633", "as s" # الس
+    sub boundary + "\u0627\u0644\u0634", "ash sh" # الش
+    sub boundary + "\u0627\u0644\u0635", "as s" # الص
+    sub boundary + "\u0627\u0644\u0636", "az z" # الض
+    sub boundary + "\u0627\u0644\u0637", "at t" # الط
+    sub boundary + "\u0627\u0644\u0638", "az z" # الظ
+    sub boundary + "\u0627\u0644\u0644", "al l" # الل
+    sub boundary + "\u0627\u0644\u0646", "an n" # الن
 
     # Farsi Vowel (Pointing)
     sub "\u0622", "a" # آ alef maddeh
     sub "\u064e", "a" # َ fatha
-    sub "(?<=\u064e)\u0627", "" # ا
-    sub "(?<!\\b)\u0627", "a" # ا
-    sub "\\b\u0627\u064e", "a" # ا initial followed by fatha
-    sub "\\b\u0627\u064f", "o" # ا initial followed by damma
-    sub "\\b\u0627\u0650", "e" # ِ ا initial followed by kasra
+    sub "\u0627", "", before: "\u064e" # ا
+    sub "\u0627", "a", not_before: boundary # ا
+    sub boundary + "\u0627\u064e", "a" # ا initial followed by fatha
+    sub boundary + "\u0627\u064f", "o" # ا initial followed by damma
+    sub boundary + "\u0627\u0650", "e" # ِ ا initial followed by kasra
 
     sub "\u064f", "o" # damma
     sub "\u064f\u0648", "u" # ـُو damma followed by و
@@ -184,7 +184,7 @@ stage {
     sub "\u0650\u06cc", "i" # ـِي kasra followed by ي
     sub "\u0650\u064a\u0651\u064e", "iy" # ـِيَّ
     sub "\u0650\u06cc\u0651\u064e", "iy" # ـِيَّ
-    sub "\u0650\u064a(?=\u064e|u064f)", "iy" # ـِي kasra followed by ي
+    sub "\u0650\u064a", "iy", after: any(["\u064e", "u064f"]) # ـِي kasra followed by ي
     # '\u064e\u064a' : 'aī'  # ـَي
     # '\u064e\u06cc' : 'aī'  # ـَي
     # '\u064e\u0649' : 'ay'  # ـَى fatha followed by ى which is ا not ي
@@ -220,7 +220,7 @@ stage {
     sub "\u0648\u0651", "vv" # و
     sub "\u064a\u0651", "yy" # ي
 
-    sub "(?<=\\b)\u0621", "" # ء
+    sub "\u0621", "", before: boundary # ء
     sub "\u0621", "’" # ء
 
     # FROM NOTES
@@ -231,8 +231,8 @@ stage {
     sub "\u064a\u064a", "’i" # NOTE 4 (2)
     sub "\u06cc\u06cc", "’i"
 
-    sub "\u0627\u064a\\b", "’i" # NOTE 4 (3)
-    sub "\u0627\u06cc\\b", "’i"
+    sub "\u0627\u064a" + boundary, "’i" # NOTE 4 (3)
+    sub "\u0627\u06cc" + boundary, "’i"
 
     # Farsi consonant characters
 
@@ -256,7 +256,7 @@ stage {
     sub "\u0637", "t" # ط
     sub "\u0638", "z" # ظ
     sub "\u0639", "‘" # ع
-    sub "(?<=\\b)\u0639", "" # ع not represented initially
+    sub "\u0639", "", before: boundary # ع not represented initially
     sub "\u063a", "gh" # غ
     sub "\u0641", "f" # ف
     sub "\u0642", "gh" # ق

@@ -241,7 +241,7 @@ stage {
   run map.arablatn.stage.main
 
   # POSTRULES
-  sub "(?<=\\b)(?<!\\b[‘|’|'|-])[\\u0061-\\uFFFF]", "upcase"
+  sub any([any("\u0061".."\uFFFF")]), "upcase", before: boundary, not_before: boundary + any("‘|’|'|-")
   # don't capitalize defined article in the middle of a sentence
   sub " Ut T", " ut T" # الت
   sub " Us̄ S̄", " us̄ S̄" # الث
@@ -264,31 +264,31 @@ stage {
     sub "\u0650", "i" # ِ kasra
     sub "\u064f", "u" # ُ damma
 
-    sub "\u0650\\b", "-e" # ِ kasra
+    sub "\u0650" + boundary, "-e" # ِ kasra
 
-    sub "\\s\u0627\u0644\u0644\u0651\u064e\u0647", "ullāh" # Note5
-    sub "\\s\u062E\u0648\u0627", "khwā" # Note5
-    sub "\\s\u0634\u064E\u0647\u0631", "shahr" # Note5
-    sub "\\s\u0632\u0627\u062F\u0629", "zādah" # Note5
-    sub "\\s\u0632\u064E\u064a", "zay" # Note5
+    sub space + "\u0627\u0644\u0644\u0651\u064e\u0647", "ullāh" # Note5
+    sub space + "\u062E\u0648\u0627", "khwā" # Note5
+    sub space + "\u0634\u064E\u0647\u0631", "shahr" # Note5
+    sub space + "\u0632\u0627\u062F\u0629", "zādah" # Note5
+    sub space + "\u0632\u064E\u064a", "zay" # Note5
     sub "\u0652", "" # ْ sokoon
     sub "\u0659", "ê"
 
     # Sun letters
-    sub "\\b\u0627\u0644\u062a", "ut t" # الت
-    sub "\\b\u0627\u0644\u062b", "us̄ s̄" # الث
-    sub "\\b\u0627\u0644\u062f", "ud d" # الد
-    sub "\\b\u0627\u0644\u0630", "uz̄ z̄" # الذ
-    sub "\\b\u0627\u0644\u0631", "ur r" # الر
-    sub "\\b\u0627\u0644\u0632", "uz z" # الز
-    sub "\\b\u0627\u0644\u0633", "us s" # الس
-    sub "\\b\u0627\u0644\u0634", "ush sh" # الش
-    sub "\\b\u0627\u0644\u0635", "uş ş" # الص
-    sub "\\b\u0627\u0644\u0636", "uẕ ẕ" # الض
-    sub "\\b\u0627\u0644\u0637", "uţ ţ" # الط
-    sub "\\b\u0627\u0644\u0638", "uz̧ z̧" # الظ
-    sub "\\b\u0627\u0644\u0644", "ul l" # الل
-    sub "\\b\u0627\u0644\u0646", "un n" # الن
+    sub boundary + "\u0627\u0644\u062a", "ut t" # الت
+    sub boundary + "\u0627\u0644\u062b", "us̄ s̄" # الث
+    sub boundary + "\u0627\u0644\u062f", "ud d" # الد
+    sub boundary + "\u0627\u0644\u0630", "uz̄ z̄" # الذ
+    sub boundary + "\u0627\u0644\u0631", "ur r" # الر
+    sub boundary + "\u0627\u0644\u0632", "uz z" # الز
+    sub boundary + "\u0627\u0644\u0633", "us s" # الس
+    sub boundary + "\u0627\u0644\u0634", "ush sh" # الش
+    sub boundary + "\u0627\u0644\u0635", "uş ş" # الص
+    sub boundary + "\u0627\u0644\u0636", "uẕ ẕ" # الض
+    sub boundary + "\u0627\u0644\u0637", "uţ ţ" # الط
+    sub boundary + "\u0627\u0644\u0638", "uz̧ z̧" # الظ
+    sub boundary + "\u0627\u0644\u0644", "ul l" # الل
+    sub boundary + "\u0627\u0644\u0646", "un n" # الن
 
     sub "\u0626", "êy" # ئ
   }

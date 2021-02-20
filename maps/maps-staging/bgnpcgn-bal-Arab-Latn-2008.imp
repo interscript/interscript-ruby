@@ -123,7 +123,7 @@ tests {
 stage {
 
   # POSTRULES
-  sub "(?<=\\b)(?<!\\b[‘|’|'])[\\u0061-\\uFFFF]", "upcase"
+  sub any([any("\u0061".."\uFFFF")]), "upcase", before: boundary, not_before: boundary + any("‘|’|'")
 
 
   # CHARACTERS
@@ -205,7 +205,7 @@ stage {
     sub "\u0688\u06BE", "ḍh"
 
     # Aspiration is only contrastive in Eastern Baluchi
-    sub "\u0631\u06BE", "\\u1E5B\\u0068"
+    sub "\u0631\u06BE", "\u1E5B\u0068"
 
     # Aspiration is only contrastive in Eastern Baluchi.
     # Apostrophe distinguishes from fricative /kh/
@@ -224,7 +224,7 @@ stage {
     sub "\u0650\u0649", "ī" # ـِي
     sub "\u0650", "i" #  ِ
     sub "\u06D2", "e" # ـے
-    sub "\\b\u0627", "" # ا
+    sub boundary + "\u0627", "" # ا
     sub "\u0627", "ā" # ا
     sub "\u0622", "ā" # آ
     sub "\u064E", "a" #  َ

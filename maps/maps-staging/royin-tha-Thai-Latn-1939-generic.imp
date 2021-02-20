@@ -45,11 +45,11 @@ tests {
 stage {
 
   # RULES
-  sub "[˩˨˧˦˥]", ""
+  sub any("˩˨˧˦˥"), ""
 
 
   # POSTRULES
-  sub "\\.", ""
+  sub "\.", ""
 
 
   # CHARACTERS

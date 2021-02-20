@@ -51,7 +51,7 @@ tests {
 stage {
 
   # RULES
-  sub "([んン])(?=[あいうえおやゆよアイウエオヤユヨ])", "\\1’"
+  sub capture(any("んン")), ref( 1 ) + "’", after: any("あいうえおやゆよアイウエオヤユヨ")
 
 
   # POSTRULES
@@ -67,9 +67,9 @@ stage {
   # the previous syllable. There is no documented or commonly
   # accepted way to transliterate this sound.
 
-  sub "[っッ]([BbDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz])", "\\1\\1" # っ or ッ folloved by consonant
-  sub "[っッ]([Cc])", "t\\1" # ッ followed by ch-
-  sub "[っッ]", "" # drop all other っッ.
+  sub any("っッ") + capture(any("BbDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz")), ref( 1 ) + ref( 1 ) # っ or ッ folloved by consonant
+  sub any("っッ") + capture(any("Cc")), "t" + ref( 1 ) # ッ followed by ch-
+  sub any("っッ"), "" # drop all other っッ.
 
   # In Modified Hepburn, long vowels within the same morpheme are
   # transliterated using a macron, i.e. ā, ī, ū, ē, ō.
@@ -80,11 +80,11 @@ stage {
   # Long vowels in loanwords are indicated with a macron instead
   # of letter doubling.
 
-  sub "a[ーa]", "ā"
-  sub "i[ーi]", "ī"
-  sub "u[ーu]", "ū"
-  sub "e[ーe]", "ē"
-  sub "o[ーo]", "ō"
+  sub "a" + any("ーa"), "ā"
+  sub "i" + any("ーi"), "ī"
+  sub "u" + any("ーu"), "ū"
+  sub "e" + any("ーe"), "ē"
+  sub "o" + any("ーo"), "ō"
 
 
   # CHARACTERS

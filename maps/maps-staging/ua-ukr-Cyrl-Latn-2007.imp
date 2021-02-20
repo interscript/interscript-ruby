@@ -45,13 +45,13 @@ stage {
 
   # RULES
   # override parent rules
-  sub "\\u0027", ""
-  sub "\\u2019", ""
-  sub "(?<=[З])\\u0413", "GH" # Г after З or з
-  sub "\\b\\u0404", "YE" # Є in initial position -> YE
-  sub "\\b\\u0407", "I" # Ї in initial position -> I
-  sub "\\b\\u042e", "YU" # Ю in initial position -> YU
-  sub "\\b\\u042f", "YA" # Я in initial position -> YA
+  sub "\u0027", ""
+  sub "\u2019", ""
+  sub "\u0413", "GH", before: any("З") # Г after З or з
+  sub boundary + "\u0404", "YE" # Є in initial position -> YE
+  sub boundary + "\u0407", "I" # Ї in initial position -> I
+  sub boundary + "\u042e", "YU" # Ю in initial position -> YU
+  sub boundary + "\u042f", "YA" # Я in initial position -> YA
 
 
   # CHARACTERS

@@ -51,8 +51,8 @@ tests {
 stage {
 
   # RULES
-  sub "\\u042c(?=[ЕеЁёИиОоЭэ])", "Y" # Ь (before Е, Ё, И, O, Э)
-  sub "\\u044c(?=[ЕеЁёИиОоЭэ])", "y" # ь (before Е, Ё, И, O, Э)
+  sub "\u042c", "Y", after: any("ЕеЁёИиОоЭэ") # Ь (before Е, Ё, И, O, Э)
+  sub "\u044c", "y", after: any("ЕеЁёИиОоЭэ") # ь (before Е, Ё, И, O, Э)
 
 
   # CHARACTERS

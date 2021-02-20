@@ -101,10 +101,10 @@ stage {
   parallel {
 
     # sun letters
-    sub "\\b\u0627\u0644\u062b", "at͟h t͟h" # الث
-    sub "\\b\u0627\u0644\u0630", "ad͟h d͟h" # الذ
-    sub "\\b\u0627\u0644\u0634", "as͟h s͟h" # الش
-    sub "\\b\u0627\u0644\u0638", "az͟h z͟h" # الظ
+    sub boundary + "\u0627\u0644\u062b", "at͟h t͟h" # الث
+    sub boundary + "\u0627\u0644\u0630", "ad͟h d͟h" # الذ
+    sub boundary + "\u0627\u0644\u0634", "as͟h s͟h" # الش
+    sub boundary + "\u0627\u0644\u0638", "az͟h z͟h" # الظ
 
     # shadda
     sub "\u062e\u0651", "k͟hk͟h" # خ

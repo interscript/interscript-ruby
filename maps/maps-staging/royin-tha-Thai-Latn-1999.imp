@@ -53,7 +53,7 @@ stage {
 
   # CHARACTERS
   parallel {
-    sub "[0-9]", ""
+    sub any([any("0".."9")]), ""
 
   }
 
@@ -71,7 +71,7 @@ stage {
     sub "ɯ", "ue"
     sub "ʔ", ""
     sub "t͡ɕ", "c"
-    sub ".", ""
+    sub any_character, ""
   }
 
 }

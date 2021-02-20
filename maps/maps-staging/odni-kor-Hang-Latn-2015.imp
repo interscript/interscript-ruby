@@ -62,28 +62,28 @@ stage {
   run map.hanghang.stage.main
 
   # RULES
-  sub "^ | $", ""
+  sub any([line_start + " ", " " + line_end]), ""
 
-  sub " +", " "
+  #   #   sub  :one_or_more_start " " :one_or_more_stop , " " # warning: one_or_more # warning: :
 
   # 2 character inputs will have a space between them
-  sub "^(\\p{Hangul})(\\p{Hangul})$", "\\1 \\2"
+  #   #   sub line_start + capture( :missing  Regexp::Expression::UnicodeProperty::Script ) + capture( :missing  Regexp::Expression::UnicodeProperty::Script ) + line_end, ref( 1 ) + " " + ref( 2 ) # warning: :missing unimplemented # warning: :
 
   # 4 character inputs will have a space as in XXXX -> XX XX
-  sub "^(\\p{Hangul}{2})(\\p{Hangul}{2})$", "\\1 \\2"
+  #   #   sub line_start + capture( :missing  Regexp::Expression::UnicodeProperty::Script  :missing  Regexp::Expression::UnicodeProperty::Script ) + capture( :missing  Regexp::Expression::UnicodeProperty::Script  :missing  Regexp::Expression::UnicodeProperty::Script ) + line_end, ref( 1 ) + " " + ref( 2 ) # warning: :missing unimplemented # warning: :
 
   # 3 character inputs are more complicated. We enumerate all possible 2
   # letter surnames according to: https://en.wikipedia.org/wiki/List_of_Korean_surnames
-  sub "^(독고|동방|등정|망절|무본|부여|사공|서문|선우|어금|제갈|황목|황보)(\\p{Hangul})$", "\\1 \\2"
+  #   #   sub line_start + capture(any(["독고", "동방", "등정", "망절", "무본", "부여", "사공", "서문", "선우", "어금", "제갈", "황목", "황보"])) + capture( :missing  Regexp::Expression::UnicodeProperty::Script ) + line_end, ref( 1 ) + " " + ref( 2 ) # warning: :missing unimplemented # warning: :
 
   # Otherwise the first character is probably a surname
-  sub "^(\\p{Hangul})(\\p{Hangul}{2})$", "\\1 \\2"
+  #   #   sub line_start + capture( :missing  Regexp::Expression::UnicodeProperty::Script ) + capture( :missing  Regexp::Expression::UnicodeProperty::Script  :missing  Regexp::Expression::UnicodeProperty::Script ) + line_end, ref( 1 ) + " " + ref( 2 ) # warning: :missing unimplemented # warning: :
 
   # In case of uncertainity, user needs to add a space himself.
 
-  sub " +", " "
+  #   #   sub  :one_or_more_start " " :one_or_more_stop , " " # warning: one_or_more # warning: :
 
-  sub "^ | $", ""
+  sub any([line_start + " ", " " + line_end]), ""
 
 
   # POSTRULES
@@ -281,13 +281,13 @@ stage {
   sub "ᅴ", "ui"
 
   # Remove before the first syllable dash
-  sub "(?<=^| )-", ""
+  sub "-", "", before: any([line_start, " "])
 
   # Remove dash in surname
-  sub "(^[^ ]*)-", "\\1"
+  #   sub capture(line_start :zero_or_more_start any(" ") :zero_or_more_stop ) + "-", ref( 1 ) # warning: :
 
   # Change the surname I to Yi
-  sub "^i", "yi"
+  sub line_start + "i", "yi"
 
 
   # CHARACTERS

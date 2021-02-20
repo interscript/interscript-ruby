@@ -20,21 +20,12 @@ tests {
   # missing
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
 stage {
 
   # RULES
   # note[1]
-  sub "(?<=)\\u042a(?=\\b)", "ʺ"
-  sub "(?<=)u044a(?=\\b)", "ʺ"
+  sub "\u042a", "ʺ", after: boundary
+  sub "u044a", "ʺ", after: boundary
 
 
   # CHARACTERS
@@ -66,7 +57,7 @@ stage {
     sub "\u0428", "Sh"
     sub "\u0429", "Sht"
     sub "\u042a", "Ŭ" # or ʺ check note[1]
-    sub "\u042c", "\\u02B9"
+    sub "\u042c", "\u02B9"
     sub "\u0462", "I͡E" # Ѣ check note [2]
     sub "\u042e", "I͡U"
     sub "\u042f", "I͡A"
@@ -99,7 +90,7 @@ stage {
     sub "\u0448", "sh"
     sub "\u0449", "sht"
     sub "\u044a", "ŭ" # or ʺ check note[1]
-    sub "\u044c", "\\u02B9"
+    sub "\u044c", "\u02B9"
     sub "\u0463", "i͡e" # ѣ check note [2]
     sub "\u044e", "i͡u"
     sub "\u044f", "i͡a"
@@ -107,4 +98,3 @@ stage {
   }
 
 }
-

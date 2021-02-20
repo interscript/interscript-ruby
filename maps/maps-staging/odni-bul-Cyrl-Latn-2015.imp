@@ -84,15 +84,15 @@ stage {
 
   # RULES
   # note[1]
-  sub "(.)\\1{1,}", "\\1"
+  #   #   sub capture(any_character) :interval_start ref( 1 ) :interval_stop , ref( 1 ) # warning: :interval unimplemented # warning: :
 
-  sub "\\u042C", "Y" # # Ь
+  sub "\u042C", "Y" # # Ь
 
-  sub "\\u042A", "A" # Ъ
+  sub "\u042A", "A" # Ъ
 
-  sub "\\u044C", "y" # ь
+  sub "\u044C", "y" # ь
 
-  sub "\\u044A", "a" # ъ
+  sub "\u044A", "a" # ъ
 
 }
 

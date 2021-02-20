@@ -53,11 +53,11 @@ stage {
 
   # RULES
   # note[5]
-  sub "(?<=[ЗзЛлНнСсЦц])\\u044C", "\\1" # ь after consonants
-  sub "(?<=[ЗзЛлНнСсЦц])\\u02B9", "\\1" # Ь after consonants
+  sub "\u044C", ref( 1 ), before: any("ЗзЛлНнСсЦц") # ь after consonants
+  sub "\u02B9", ref( 1 ), before: any("ЗзЛлНнСсЦц") # Ь after consonants
   # Й at end
-  sub "(?<=[ЕеЁёЫыЮюЯя])\\u0419$", "" # Я after vowels
-  sub "(?<=[ЕеЁёЫыЮюЯя])\\u0439$", "" # я after vowels
+  sub "\u0419" + line_end, "", before: any("ЕеЁёЫыЮюЯя") # Я after vowels
+  sub "\u0439" + line_end, "", before: any("ЕеЁёЫыЮюЯя") # я after vowels
 
 
   # CHARACTERS

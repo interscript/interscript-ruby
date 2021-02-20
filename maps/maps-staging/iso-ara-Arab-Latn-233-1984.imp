@@ -65,7 +65,7 @@ tests {
 stage {
 
   # POSTRULES
-  sub "(?<=\\b)(?<!\\b[‘|’|'])[\\u0061-\\uFFFF]", "upcase"
+  sub any([any("\u0061".."\uFFFF")]), "upcase", before: boundary, not_before: boundary + any("‘|’|'")
   # don't capitalize defined article in the middle of a sentence
   sub " At T", " at T" # الت
   sub " Aṯ Ṯ", " aṯ Ṯ" # الث
@@ -89,7 +89,7 @@ stage {
 
     # pointing
     sub "\u064e", "a" # َ fatha
-    sub "\u064e(?=\u0629)", "" # َ fatha followed by ta' marboota
+    sub "\u064e", "", after: "\u0629" # َ fatha followed by ta' marboota
     sub "\u0650", "i" # ِ kasra
     sub "\u064f", "u" # ُ damma
     sub "\u0652", "" # ْ sokoon, see note A below
@@ -104,7 +104,7 @@ stage {
 
     sub "\u0650\u064a", "iy" # ـِي kasra followed by ي
     sub "\u0650\u064a\u0651\u064e", "iy" # ـِيَّ
-    sub "\u0650\u064a(?=\u064e|u064f)", "iy" # ـِي kasra followed by ي
+    sub "\u0650\u064a", "iy", after: any(["\u064e", "u064f"]) # ـِي kasra followed by ي
     sub "\u064e\u0627", "a’" # ـَا fatha followed by ا
     sub "\u064e\u0649", "aỳ" # ـَى fatha followed by ى which is ا not ي
     sub "\u064f\u0648", "uw" # ـُو damma followed by و
@@ -113,20 +113,20 @@ stage {
 
     # Sun letters
 
-    sub "\\b\u0627\u0644\u062a", "at t" # الت
-    sub "\\b\u0627\u0644\u062b", "aṯ ṯ" # الث
-    sub "\\b\u0627\u0644\u062f", "ad d" # الد
-    sub "\\b\u0627\u0644\u0630", "aḏ ḏ" # الذ
-    sub "\\b\u0627\u0644\u0631", "ar r" # الر
-    sub "\\b\u0627\u0644\u0632", "az z" # الز
-    sub "\\b\u0627\u0644\u0633", "as s" # الس
-    sub "\\b\u0627\u0644\u0634", "aš š" # الش
-    sub "\\b\u0627\u0644\u0635", "aṣ ṣ" # الص
-    sub "\\b\u0627\u0644\u0636", "aḍ ḍ" # الض
-    sub "\\b\u0627\u0644\u0637", "aṭ ṭ" # الط
-    sub "\\b\u0627\u0644\u0638", "aẓ ẓ" # الظ
-    sub "\\b\u0627\u0644\u0644", "al l" # الل
-    sub "\\b\u0627\u0644\u0646", "an n" # الن
+    sub boundary + "\u0627\u0644\u062a", "at t" # الت
+    sub boundary + "\u0627\u0644\u062b", "aṯ ṯ" # الث
+    sub boundary + "\u0627\u0644\u062f", "ad d" # الد
+    sub boundary + "\u0627\u0644\u0630", "aḏ ḏ" # الذ
+    sub boundary + "\u0627\u0644\u0631", "ar r" # الر
+    sub boundary + "\u0627\u0644\u0632", "az z" # الز
+    sub boundary + "\u0627\u0644\u0633", "as s" # الس
+    sub boundary + "\u0627\u0644\u0634", "aš š" # الش
+    sub boundary + "\u0627\u0644\u0635", "aṣ ṣ" # الص
+    sub boundary + "\u0627\u0644\u0636", "aḍ ḍ" # الض
+    sub boundary + "\u0627\u0644\u0637", "aṭ ṭ" # الط
+    sub boundary + "\u0627\u0644\u0638", "aẓ ẓ" # الظ
+    sub boundary + "\u0627\u0644\u0644", "al l" # الل
+    sub boundary + "\u0627\u0644\u0646", "an n" # الن
 
     # ta' marboota in iso-233-1984 is all the same `aẗ`
     sub "\u0629", "aẗ" # ة in the middle of the sentence
@@ -176,7 +176,7 @@ stage {
     sub "\u0623", "a" # أ
 
     # See note B
-    sub "\\b\u0627\u0644", "al " # ال
+    sub boundary + "\u0627\u0644", "al " # ال
     # '\uFE8E' : ''  # ﺎ
 
     sub "\u0628", "b" # ب

@@ -3697,7 +3697,7 @@ stage {
     sub "蝥", "mao"
     sub "蟊", "mao"
     sub "髦", "mao"
-    sub "么", "(me, yao)"
+    sub "么", capture("me, yao")
     sub "玫", "mei"
     sub "枚", "mei"
     sub "梅", "mei"
@@ -4533,7 +4533,7 @@ stage {
     sub "吣", "qin"
     sub "嗪", "qin"
     sub "噙", "qin"
-    sub "溱", "(qin, zhen)"
+    sub "溱", capture("qin, zhen")
     sub "檎", "qin"
     sub "锓", "qin"
     sub "覃", "qin"
@@ -6077,7 +6077,7 @@ stage {
     sub "姓", "xing"
     sub "陉", "xing"
     sub "荇", "xing"
-    sub "荥", "(xing, ying)"
+    sub "荥", capture("xing, ying")
     sub "擤", "xing"
     sub "悻", "xing"
     sub "硎", "xing"

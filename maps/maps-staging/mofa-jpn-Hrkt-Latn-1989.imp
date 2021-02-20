@@ -106,16 +106,16 @@ stage {
   # Convert ん into m before b, m, p
   # 撥音：B、M、Pの前の「ん」は、NではなくMで表記します。
 
-  sub "[んン](?=[ばびぶべぼまみむめもぱぴぷぺぽバビブベボマミムメモパピプペポ])", "M"
+  sub any("んン"), "M", after: any("ばびぶべぼまみむめもぱぴぷぺぽバビブベボマミムメモパピプペポ")
 
   # Long O and U will not be recorded.
   # 長音：OやUは記入しません。
   #
   # Exception: when OO appears at the end of the word
 
-  sub "([おこそとのほもよろをごぞどぼぽょぉオコソトノホモヨロヲゴゾドボポョォ])[おオ](?=[^\\s])", "\\1"
+  sub capture(any("おこそとのほもよろをごぞどぼぽょぉオコソトノホモヨロヲゴゾドボポョォ")) + any("おオ"), ref( 1 ), after: any(space)
 
-  sub "([うくすつぬふむゆるぐずづぶぷゅぅウクスツヌフムユルグズヅブプュゥ])[うウ]", "\\1"
+  sub capture(any("うくすつぬふむゆるぐずづぶぷゅぅウクスツヌフムユルグズヅブプュゥ")) + any("うウ"), ref( 1 )
 
 
   # POSTRULES
@@ -133,9 +133,9 @@ stage {
   # accepted way to transliterate this sound.
   #
 
-  sub "[っッ]([BbDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz])", "\\1\\1"
-  sub "[っッ]([Cc])", "T\\1" # ッ followed by ch-
-  sub "[っッ]", "" # drop all other っッ.
+  sub any("っッ") + capture(any("BbDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz")), ref( 1 ) + ref( 1 )
+  sub any("っッ") + capture(any("Cc")), "T" + ref( 1 ) # ッ followed by ch-
+  sub any("っッ"), "" # drop all other っッ.
 
 
   # CHARACTERS

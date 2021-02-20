@@ -53,7 +53,7 @@ stage {
 
   # RULES
   # Remove morpheme boundary marker after sokuon っ/ッ
-  sub "([っッ])•", "\\1"
+  sub capture(any("っッ")) + "•", ref( 1 )
 
 
   # POSTRULES

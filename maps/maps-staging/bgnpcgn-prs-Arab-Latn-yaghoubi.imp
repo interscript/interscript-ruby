@@ -251,35 +251,35 @@ stage {
     sub "\u06CC", "ya" # Or 'yā'
 
     sub "\u0648", "w"
-    sub "\u06C0", ". . .h-e"
+    sub "\u06C0", any_character + " " + any_character + " " + any_character + "h-e"
 
 
 
     # special rules
 
-    sub "\\s(?=\u0622\u0628\u064E\u0627\u062F)", "" # space followed by abad is removed
+    sub space, "", after: "\u0622\u0628\u064E\u0627\u062F" # space followed by abad is removed
     sub "\ufdf2", "Allāh" # See note 5
 
     # pointing
 
-    sub "\u064E", any("aâ") # fatha
+    sub "\u064E", any(["a", "â"]) # fatha
 
-    sub "\u064e(?=\u0629)", "" # َ fatha followed by ta' marboota
-    sub "\u064e(?=a[h|t])", "" # َ fatha followed by ta' marboota, handling different order of conversion
+    sub "\u064e", "", after: "\u0629" # َ fatha followed by ta' marboota
+    sub "\u064e", "", after: "a" + any("h|t") # َ fatha followed by ta' marboota, handling different order of conversion
 
     # Both e and i are available to romanize this short vowel,
     # depending on local usage and/or root language. In cases where the sound
     # is uncertain, i is the default romanization in BGN/PCGN standardization
     # procedures.
-    sub "\u0650", any("ie")
+    sub "\u0650", any(["i", "e"])
 
-    sub "\u0650\\b", "-e" # ِ kasra at the end of a word
+    sub "\u0650" + boundary, "-e" # ِ kasra at the end of a word
 
     # Both o and u are available to romanize this short vowel,
     # depending on local usage and/or root language. In cases where the sound
     # is uncertain, u is the default romanization in BGN/PCGN standardization
     # procedures.
-    sub "\u064f", any("uo") # ُ damma
+    sub "\u064f", any(["u", "o"]) # ُ damma
 
     # An alif with mad ( آ ) is written only in the initial position by
     # BGN/PCGN standardization procedures, in keeping with Persian language
@@ -288,11 +288,11 @@ stage {
     sub "\u064e\u0627", "ā" # ـَا fatha followed by ا
     sub "\u0622", "ā" # آ
 
-    sub "\u0659", any("əê") # ٙ madda
+    sub "\u0659", any(["ə", "ê"]) # ٙ madda
 
     sub "\u0648", "ō"
 
-    sub "\u0648", any("uū")
+    sub "\u0648", any(["u", "ū"])
 
     sub "\u064e\u0648", any(["aw", "āw"]) # ـَو
 
@@ -313,7 +313,7 @@ stage {
     sub "\u0650\u064a", "ī" # ـِي kasra followed by ي
     sub "\u0650\u06cc", "ī" # ـِي kasra followed by ي
     sub "\u0650\u064a\u0651\u064e", "īy" # ـِيَّ
-    sub "\u0650\u064a(?=\u064e|u064f)", "iy" # ـِي kasra followed by ي
+    sub "\u0650\u064a", "iy", after: any(["\u064e", "u064f"]) # ـِي kasra followed by ي
     sub "\u064f\u0648", "ō" # ـُو damma followed by و
     sub "\u064e\u0649", "ay" # ـَى fatha followed by ى which is ا not ي
     sub "\u064e\u0648\u0652", "aw" # ـَوْ
@@ -330,19 +330,19 @@ stage {
 
     # ta' marboota
     sub "\u0629", "at" # ة in the middle of the sentence
-    sub "\u0629$", "ah"
-    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{2})\u0629", "ah"
-    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{3})\u0629", "ah"
-    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{4})\u0629", "ah"
-    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{5})\u0629", "ah"
-    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{6})\u0629", "ah"
-    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{7})\u0629", "ah"
-    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{8})\u0629", "ah"
-    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{9})\u0629", "ah"
-    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{10})\u0629", "ah"
-    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{11})\u0629", "ah"
-    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{12})\u0629", "ah"
-    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{13})\u0629", "ah"
+    sub "\u0629" + line_end, "ah"
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")])
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")])
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")])
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")])
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")])
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")])
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")])
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")])
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")])
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")])
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")])
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")])
 
 
     # shadda
@@ -383,25 +383,25 @@ stage {
     sub "\u0627", "ā" # ا
 
     # See note B
-    sub "\\b\u0627\u0644", "al " # ال
+    sub boundary + "\u0627\u0644", "al " # ال
     # '\uFE8E' : ''  # ﺎ
 
 
     # Sun letters
-    sub "\\b\u0627\u0644\u062a", "at̄ t̄" # الت
-    sub "\\b\u0627\u0644\u062b", "as̄ s̄" # الث
-    sub "\\b\u0627\u0644\u062f", "aḏ ḏ" # الد
-    sub "\\b\u0627\u0644\u0630", "az̄ z̄" # الذ
-    sub "\\b\u0627\u0644\u0631", "aṟ ṟ" # الر
-    sub "\\b\u0627\u0644\u0632", "az z" # الز
-    sub "\\b\u0627\u0644\u0633", "as s" # الس
-    sub "\\b\u0627\u0644\u0634", "aš š" # الش
-    sub "\\b\u0627\u0644\u0635", "as̱ s̱" # الص
-    sub "\\b\u0627\u0644\u0636", "ad͟z d͟z" # الض
-    sub "\\b\u0627\u0644\u0637", "aṯ ṯ" # الط
-    sub "\\b\u0627\u0644\u0638", "aẕ ẕ" # الظ
-    sub "\\b\u0627\u0644\u0644", "al l" # الل
-    sub "\\b\u0627\u0644\u0646", "an n" # الن
+    sub boundary + "\u0627\u0644\u062a", "at̄ t̄" # الت
+    sub boundary + "\u0627\u0644\u062b", "as̄ s̄" # الث
+    sub boundary + "\u0627\u0644\u062f", "aḏ ḏ" # الد
+    sub boundary + "\u0627\u0644\u0630", "az̄ z̄" # الذ
+    sub boundary + "\u0627\u0644\u0631", "aṟ ṟ" # الر
+    sub boundary + "\u0627\u0644\u0632", "az z" # الز
+    sub boundary + "\u0627\u0644\u0633", "as s" # الس
+    sub boundary + "\u0627\u0644\u0634", "aš š" # الش
+    sub boundary + "\u0627\u0644\u0635", "as̱ s̱" # الص
+    sub boundary + "\u0627\u0644\u0636", "ad͟z d͟z" # الض
+    sub boundary + "\u0627\u0644\u0637", "aṯ ṯ" # الط
+    sub boundary + "\u0627\u0644\u0638", "aẕ ẕ" # الظ
+    sub boundary + "\u0627\u0644\u0644", "al l" # الل
+    sub boundary + "\u0627\u0644\u0646", "an n" # الن
 
     # consonant characters
 

@@ -119,11 +119,11 @@ stage {
   # RULES
   # Add Zero-width White-space U+200B after spaces (i.e. before word boundaries)
   # So that the word-initial conversion rules will be blocked.
-  sub "^", "​"
-  sub "(?<= )", "​"
+  sub line_start, "​"
+  sub , "​", before: " "
 
   # convert numbers to space + Hangul
-  sub "([^0-9 ])(?=[0-9])", "\\1 "
+  sub capture(any([any("0".."9") + " "])), ref( 1 ) + " ", after: any([any("0".."9")])
   sub "1", "일"
   sub "2", "이"
   sub "3", "삼"
@@ -142,43 +142,43 @@ stage {
   # POSTRULES
 
   # Add space to the two ends of the string for easier word boundary handling
-  sub "^", " "
-  sub "$", " "
+  sub line_start, " "
+  sub line_end, " "
 
   # Initial rules in the inherited map were blocked, so that
   # this set of updated rules (with the onset rules removed) will be used instead.
   sub "​", ""
 
-  sub "(?<= )ᄀ", "k" # HANGUL CHOSEONG KIYEOK
-  sub "(?<= )ᄂ", "n" # HANGUL CHOSEONG NIEUN
-  sub "(?<= )ᄃ(?=[ᅵᅣᅤᅧᅨᅭᅲ])", "ch" # HANGUL CHOSEONG TIEUT # T -> Ch before yotized vowels
-  sub "(?<= )ᄃ", "t" # HANGUL CHOSEONG TIEUT
-  sub "(?<= )ᄅ", "r" # HANGUL CHOSEONG RIEUL
-  sub "(?<= )ᄆ", "m" # HANGUL CHOSEONG MIEUM
-  sub "(?<= )ᄇ", "p" # HANGUL CHOSEONG PIEUP
-  sub "(?<= )ᄉ(?=ᅱ)", "sh" # HANGUL CHOSEONG SIOS
-  sub "(?<= )ᄉ", "s" # HANGUL CHOSEONG SIOS
-  sub "(?<= )ᄋ", "" # HANGUL CHOSEONG IEUNG
-  sub "(?<= )ᄌ", "ch" # HANGUL CHOSEONG CIEUC
-  sub "(?<= )ᄎ", "ch’" # HANGUL CHOSEONG CHIEUCH
-  sub "(?<= )ᄏ", "k’" # HANGUL CHOSEONG KHIEUKH
-  sub "(?<= )ᄐ(?=[ᅵᅣᅤᅧᅨᅭᅲ])", "ch’" # HANGUL CHOSEONG THIEUTH + YOTIZED VOWELS
-  sub "(?<= )ᄐ", "t’" # HANGUL CHOSEONG THIEUTH
-  sub "(?<= )ᄑ", "p’" # HANGUL CHOSEONG PHIEUPH
-  sub "(?<= )ᄒ", "h" # HANGUL CHOSEONG HIEUH
-  sub "(?<= )ᄁ", "kk" # HANGUL CHOSEONG SSANGKIYEOK
-  sub "(?<= )ᄭ", "kk" # HANGUL CHOSEONG SIOS-KIYEOK
-  sub "(?<= )ᄄ", "tt" # HANGUL CHOSEONG SSANGTIEUT
-  sub "(?<= )ᄯ", "tt" # HANGUL CHOSEONG SIOS-TIEUT
-  sub "(?<= )ᄈ", "pp" # HANGUL CHOSEONG SSANGPIEUP
-  sub "(?<= )ᄲ", "pp" # HANGUL CHOSEONG SIOS-PIEUP
-  sub "(?<= )ᄊ", "ss" # HANGUL CHOSEONG SSANGSIOS
-  sub "(?<= )ᄍ", "tch" # HANGUL CHOSEONG SSANGCIEUC
-  sub "(?<= )ᄶ", "tch" # HANGUL CHOSEONG SIOS-CIEUC
+  sub "ᄀ", "k", before: " " # HANGUL CHOSEONG KIYEOK
+  sub "ᄂ", "n", before: " " # HANGUL CHOSEONG NIEUN
+  sub "ᄃ", "ch", before: " ", after: any("ᅵᅣᅤᅧᅨᅭᅲ") # HANGUL CHOSEONG TIEUT # T -> Ch before yotized vowels
+  sub "ᄃ", "t", before: " " # HANGUL CHOSEONG TIEUT
+  sub "ᄅ", "r", before: " " # HANGUL CHOSEONG RIEUL
+  sub "ᄆ", "m", before: " " # HANGUL CHOSEONG MIEUM
+  sub "ᄇ", "p", before: " " # HANGUL CHOSEONG PIEUP
+  sub "ᄉ", "sh", before: " ", after: "ᅱ" # HANGUL CHOSEONG SIOS
+  sub "ᄉ", "s", before: " " # HANGUL CHOSEONG SIOS
+  sub "ᄋ", "", before: " " # HANGUL CHOSEONG IEUNG
+  sub "ᄌ", "ch", before: " " # HANGUL CHOSEONG CIEUC
+  sub "ᄎ", "ch’", before: " " # HANGUL CHOSEONG CHIEUCH
+  sub "ᄏ", "k’", before: " " # HANGUL CHOSEONG KHIEUKH
+  sub "ᄐ", "ch’", before: " ", after: any("ᅵᅣᅤᅧᅨᅭᅲ") # HANGUL CHOSEONG THIEUTH + YOTIZED VOWELS
+  sub "ᄐ", "t’", before: " " # HANGUL CHOSEONG THIEUTH
+  sub "ᄑ", "p’", before: " " # HANGUL CHOSEONG PHIEUPH
+  sub "ᄒ", "h", before: " " # HANGUL CHOSEONG HIEUH
+  sub "ᄁ", "kk", before: " " # HANGUL CHOSEONG SSANGKIYEOK
+  sub "ᄭ", "kk", before: " " # HANGUL CHOSEONG SIOS-KIYEOK
+  sub "ᄄ", "tt", before: " " # HANGUL CHOSEONG SSANGTIEUT
+  sub "ᄯ", "tt", before: " " # HANGUL CHOSEONG SIOS-TIEUT
+  sub "ᄈ", "pp", before: " " # HANGUL CHOSEONG SSANGPIEUP
+  sub "ᄲ", "pp", before: " " # HANGUL CHOSEONG SIOS-PIEUP
+  sub "ᄊ", "ss", before: " " # HANGUL CHOSEONG SSANGSIOS
+  sub "ᄍ", "tch", before: " " # HANGUL CHOSEONG SSANGCIEUC
+  sub "ᄶ", "tch", before: " " # HANGUL CHOSEONG SIOS-CIEUC
 
   # Remove space added
-  sub "^ ", ""
-  sub " $", ""
+  sub line_start + " ", ""
+  sub " " + line_end, ""
 
   title_case
 }

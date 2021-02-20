@@ -59,66 +59,66 @@ stage {
 
   # POSTRULES
   # Add space to the two ends of the string for easier word boundary handling
-  sub "^", " "
-  sub "$", " "
+  sub line_start, " "
+  sub line_end, " "
 
   # Marks A, B, C
-  sub "(?<!\\p{Hangul})ᄋ", "" # Word initially
+  #   #   sub "ᄋ", "", not_before:  :missing  Regexp::Expression::UnicodeProperty::Script  # warning: :missing unimplemented # warning: : # Word initially
   sub "ᄋ", "'" # See notes 2, 3 and 4.
   sub "ᆼ", "ng" # At the end of a syllable.
 
   # Note 4: add apostrophe before 5 double consonants at initial position
   #         unless start of the word
-  sub "(?<=\\p{Hangul})([ᄁᄄᄈᄍᄊ])", "'\\1"
+  #   #   sub capture(any("ᄁᄄᄈᄍᄊ")), "'" + ref( 1 ), before:  :missing  Regexp::Expression::UnicodeProperty::Script  # warning: :missing unimplemented # warning: :
   # Note 4: (only method 1) same but with 4 aspirated
   #- pattern: "(?<=\\p{Hangul})([ᄏᄐᄑᄎ])"
   #  result: "'\\1"
 
   # Consonants differing between method1 and method2
-  sub "[ᄀᆨ]", "g"
-  sub "[ᄏᆿ]", "k"
-  sub "[ᄁᆩ]", "gg"
-  sub "[ᄃᆮ]", "d"
-  sub "[ᄐᇀ]", "t"
-  sub "[ᄄퟍ]", "dd"
-  sub "[ᄇᆸ]", "b"
-  sub "[ᄑᇁ]", "p"
-  sub "[ᄈퟦ]", "bb"
-  sub "[ᄌᆽ]", "j"
-  sub "[ᄎᆾ]", "c"
-  sub "[ᄍퟹ]", "jj"
+  sub any("ᄀᆨ"), "g"
+  sub any("ᄏᆿ"), "k"
+  sub any("ᄁᆩ"), "gg"
+  sub any("ᄃᆮ"), "d"
+  sub any("ᄐᇀ"), "t"
+  sub any("ᄄퟍ"), "dd"
+  sub any("ᄇᆸ"), "b"
+  sub any("ᄑᇁ"), "p"
+  sub any("ᄈퟦ"), "bb"
+  sub any("ᄌᆽ"), "j"
+  sub any("ᄎᆾ"), "c"
+  sub any("ᄍퟹ"), "jj"
   # End
 
   # Composite differing consonants (cons. https://en.wikipedia.org/wiki/ISO/TR_11941 )
-  sub "[ᆪ]", "gs"
-  sub "[ꥤ]", "rg" # D. R at the beginning of a syllable
-  sub "[ᆰ]", "lg"
-  sub "[ᆴ]", "lt"
-  sub "[ꥩ]", "rb" # D. R at the beginning of a syllable
-  sub "[ᆲ]", "lb"
-  sub "[ᆵ]", "lp"
-  sub "[ᅜᆬ]", "nj"
-  sub "[ᄡᆹ]", "bs"
+  sub any("ᆪ"), "gs"
+  sub any("ꥤ"), "rg" # D. R at the beginning of a syllable
+  sub any("ᆰ"), "lg"
+  sub any("ᆴ"), "lt"
+  sub any("ꥩ"), "rb" # D. R at the beginning of a syllable
+  sub any("ᆲ"), "lb"
+  sub any("ᆵ"), "lp"
+  sub any("ᅜᆬ"), "nj"
+  sub any("ᄡᆹ"), "bs"
   # End
 
   # Other consonants
-  sub "[ᄉᆺ]", "s"
-  sub "[ᄊᆻ]", "ss"
-  sub "[ᄒᇂ]", "h"
-  sub "[ᄂᆫ]", "n"
-  sub "[ᄅ]", "r" # D. R at the beginning of a syllable.
-  sub "[ᆯ]", "l"
-  sub "[ᄆᆷ]", "m"
+  sub any("ᄉᆺ"), "s"
+  sub any("ᄊᆻ"), "ss"
+  sub any("ᄒᇂ"), "h"
+  sub any("ᄂᆫ"), "n"
+  sub any("ᄅ"), "r" # D. R at the beginning of a syllable.
+  sub any("ᆯ"), "l"
+  sub any("ᄆᆷ"), "m"
   # End
 
   # Other composite consonants (cons. https://en.wikipedia.org/wiki/ISO/TR_11941 )
-  sub "[ꥬ]", "rs" # D. R at the beginning of a syllable
-  sub "[ᆳ]", "ls"
-  sub "[ꥨ]", "rm" # D. R at the beginning of a syllable
-  sub "[ᆱ]", "lm"
-  sub "[ᄚ]", "rh" # D. R at the beginning of a syllable
-  sub "[ᆶ]", "lh"
-  sub "[ᅝᆭ]", "nh"
+  sub any("ꥬ"), "rs" # D. R at the beginning of a syllable
+  sub any("ᆳ"), "ls"
+  sub any("ꥨ"), "rm" # D. R at the beginning of a syllable
+  sub any("ᆱ"), "lm"
+  sub any("ᄚ"), "rh" # D. R at the beginning of a syllable
+  sub any("ᆶ"), "lh"
+  sub any("ᅝᆭ"), "nh"
   # End
 
   # Vowels
@@ -146,8 +146,8 @@ stage {
   # End
 
   # Remove space added
-  sub "^ ", ""
-  sub " $", ""
+  sub line_start + " ", ""
+  sub " " + line_end, ""
 
 
   # CHARACTERS

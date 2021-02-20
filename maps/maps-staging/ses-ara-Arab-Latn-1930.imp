@@ -120,43 +120,43 @@ stage {
     sub "\u0650\u064a", "î" # ـِي kasra followed by ي
     sub "\u0650\u064a\u0651\u064e", "îy" # ـِيَّ
     sub "\u064f\u0648", "û" # ـُو damma followed by و
-    sub "\u064e\u0627", any("âa") # ـَا fatha followed by ا
+    sub "\u064e\u0627", any(["â", "a"]) # ـَا fatha followed by ا
     sub "\u064e\u0649", "a" # ـَى fatha followed by ى which is ا not ي
     sub "\u064e\u0648\u0652", any(["ô", "au"]) # ـَوْ
     sub "\u064e\u064a\u0652", any(["ei", "ai"]) # ـَيْ
-    sub "\u0622", any("âa") # آ
+    sub "\u0622", any(["â", "a"]) # آ
 
     # ta' marboota  in iso-233-1984 is all the same `a`
-    sub "\u0629$", "a"
-    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{2})\u0629", "a"
-    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{3})\u0629", "a"
-    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{4})\u0629", "a"
-    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{5})\u0629", "a"
-    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{6})\u0629", "a"
-    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{7})\u0629", "a"
-    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{8})\u0629", "a"
-    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{9})\u0629", "a"
-    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{10})\u0629", "a"
-    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{11})\u0629", "a"
-    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{12})\u0629", "a"
-    sub "(?<=\\b\u0627\u0644[\u0600-\u06ff]{13})\u0629", "a"
+    sub "\u0629" + line_end, "a"
+    sub "\u0629", "a", before: boundary + "\u0627\u0644" + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")])
+    sub "\u0629", "a", before: boundary + "\u0627\u0644" + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")])
+    sub "\u0629", "a", before: boundary + "\u0627\u0644" + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")])
+    sub "\u0629", "a", before: boundary + "\u0627\u0644" + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")])
+    sub "\u0629", "a", before: boundary + "\u0627\u0644" + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")])
+    sub "\u0629", "a", before: boundary + "\u0627\u0644" + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")])
+    sub "\u0629", "a", before: boundary + "\u0627\u0644" + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")])
+    sub "\u0629", "a", before: boundary + "\u0627\u0644" + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")])
+    sub "\u0629", "a", before: boundary + "\u0627\u0644" + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")])
+    sub "\u0629", "a", before: boundary + "\u0627\u0644" + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")])
+    sub "\u0629", "a", before: boundary + "\u0627\u0644" + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")])
+    sub "\u0629", "a", before: boundary + "\u0627\u0644" + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")])
 
 
     # Sun letters
-    sub "\\b\u0627\u0644\u062a", "el-t" # الت
-    sub "\\b\u0627\u0644\u062b", any(["el-th", "el-t"]) # الث
-    sub "\\b\u0627\u0644\u062f", "el-d" # الد
-    sub "\\b\u0627\u0644\u0630", any(["el-dh", "el-z"]) # الذ
-    sub "\\b\u0627\u0644\u0631", "el-r" # الر
-    sub "\\b\u0627\u0644\u0632", "el-z" # الز
-    sub "\\b\u0627\u0644\u0633", any(["el-s", "el-c"]) # الس
-    sub "\\b\u0627\u0644\u0634", "el-sh" # الش
-    sub "\\b\u0627\u0644\u0635", "el-ṣ" # الص
-    sub "\\b\u0627\u0644\u0636", "el-ḍ" # الض
-    sub "\\b\u0627\u0644\u0637", "el-ṭ" # الط
-    sub "\\b\u0627\u0644\u0638", any(["el-ẓ", "el-d"]) # الظ
-    sub "\\b\u0627\u0644\u0644", "el-l" # الل
-    sub "\\b\u0627\u0644\u0646", "el-n" # الن
+    sub boundary + "\u0627\u0644\u062a", "el-t" # الت
+    sub boundary + "\u0627\u0644\u062b", any(["el-th", "el-t"]) # الث
+    sub boundary + "\u0627\u0644\u062f", "el-d" # الد
+    sub boundary + "\u0627\u0644\u0630", any(["el-dh", "el-z"]) # الذ
+    sub boundary + "\u0627\u0644\u0631", "el-r" # الر
+    sub boundary + "\u0627\u0644\u0632", "el-z" # الز
+    sub boundary + "\u0627\u0644\u0633", any(["el-s", "el-c"]) # الس
+    sub boundary + "\u0627\u0644\u0634", "el-sh" # الش
+    sub boundary + "\u0627\u0644\u0635", "el-ṣ" # الص
+    sub boundary + "\u0627\u0644\u0636", "el-ḍ" # الض
+    sub boundary + "\u0627\u0644\u0637", "el-ṭ" # الط
+    sub boundary + "\u0627\u0644\u0638", any(["el-ẓ", "el-d"]) # الظ
+    sub boundary + "\u0627\u0644\u0644", "el-l" # الل
+    sub boundary + "\u0627\u0644\u0646", "el-n" # الن
 
 
     # shadda
@@ -172,13 +172,13 @@ stage {
     sub "\u0638\u0651", any(["ẓẓ", "dd"]) # ظ
     sub "\u0642\u0651", any(["qq", "kk"]) # ق
 
-    sub "\\b\u0627\u0644", "el-" # ال
+    sub boundary + "\u0627\u0644", "el-" # ال
 
     # normal letters
-    sub "\u062c", any("gj") # ج
-    sub "\ufe9f", any("gj") # ﺟ
-    sub "\ufea0", any("gj") # ﺠ
-    sub "\ufe9e", any("gj") # ﺞ
+    sub "\u062c", any(["g", "j"]) # ج
+    sub "\ufe9f", any(["g", "j"]) # ﺟ
+    sub "\ufea0", any(["g", "j"]) # ﺠ
+    sub "\ufe9e", any(["g", "j"]) # ﺞ
 
     sub "\u062d", "ḥ" # ح
     sub "\ufea3", "ḥ" # ﺣ
@@ -194,10 +194,10 @@ stage {
     sub "\ufeac", any(["dh", "z"]) # ﺬ
 
 
-    sub "\u0633", any("sc") # س
-    sub "\ufeb3", any("sc") # ﺳ
-    sub "\ufeb4", any("sc") # ﺴ
-    sub "\ufeb2", any("sc") # ﺲ
+    sub "\u0633", any(["s", "c"]) # س
+    sub "\ufeb3", any(["s", "c"]) # ﺳ
+    sub "\ufeb4", any(["s", "c"]) # ﺴ
+    sub "\ufeb2", any(["s", "c"]) # ﺲ
 
     sub "\u0635", "ṣ" # ص
     sub "\ufebb", "ṣ" # ﺻ
@@ -219,15 +219,15 @@ stage {
     sub "\ufecc", "‛" # ﻌ
     sub "\ufeca", "‛" # ﻊ
 
-    sub "\u0638", any("ẓd") # ظ
-    sub "\ufec7", any("ẓd") # ظ
-    sub "\ufec8", any("ẓd") # ظ
-    sub "\ufec6", any("ẓd") # ظ
+    sub "\u0638", any(["ẓ", "d"]) # ظ
+    sub "\ufec7", any(["ẓ", "d"]) # ظ
+    sub "\ufec8", any(["ẓ", "d"]) # ظ
+    sub "\ufec6", any(["ẓ", "d"]) # ظ
 
-    sub "\u0642", any("qk") # ق
-    sub "\ufed7", any("qk") # ﻗ
-    sub "\ufed8", any("qk") # ﻘ
-    sub "\ufed6", any("qk") # ﻖ
+    sub "\u0642", any(["q", "k"]) # ق
+    sub "\ufed7", any(["q", "k"]) # ﻗ
+    sub "\ufed8", any(["q", "k"]) # ﻘ
+    sub "\ufed6", any(["q", "k"]) # ﻖ
   }
 
 }

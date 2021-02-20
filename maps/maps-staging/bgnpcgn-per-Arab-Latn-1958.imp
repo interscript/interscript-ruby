@@ -180,7 +180,7 @@ tests {
 stage {
 
   # POSTRULES
-  sub "(?<=\\b)(?<!\\b[‘|’|'|-])[\\u0061-\\uFFFF]", "upcase"
+  sub any([any("\u0061".."\uFFFF")]), "upcase", before: boundary, not_before: boundary + any("‘|’|'|-")
 
   sub " Ol", " ol"
 
@@ -188,10 +188,10 @@ stage {
   # CHARACTERS
   parallel {
 
-    sub "\\s\u0622\u0628\u064E\u0627\u062F", "ābād" # Special Rule 3
+    sub space + "\u0622\u0628\u064E\u0627\u062F", "ābād" # Special Rule 3
 
-    sub "\u064e(?=\u0629)", "" # َ fatha followed by ta' marboota
-    sub "\u064e(?=a[h|t])", "" # َ fatha followed by ta' marboota, handling different order of conversion
+    sub "\u064e", "", after: "\u0629" # َ fatha followed by ta' marboota
+    sub "\u064e", "", after: "a" + any("h|t") # َ fatha followed by ta' marboota, handling different order of conversion
 
     # pointing
     sub "\u064e", "a" # َ fatha
@@ -200,19 +200,19 @@ stage {
     sub "\u064e\u0627", "ā" # ـَا fatha followed by ا
     sub "\u0649\u0670", "á" # ىٰ
     sub "\u0622", "’ā" # آ
-    sub "\\b\u0622", "ā" # آ
-    sub "\u0650[\u064a|\u06cc]", "ī" # ـِي kasra followed by ي
+    sub boundary + "\u0622", "ā" # آ
+    sub "\u0650" + any("\u064a|\u06cc"), "ī" # ـِي kasra followed by ي
     # '\u0650\u06cc' : 'ī' # ـِي kasra followed by ي
     sub "\u064f\u0648", "ū" # ـُو damma followed by و
-    sub "\u064e[\u064a|\u06cc]\u0652", "ey" # ـَيْ
-    sub "\u0650[\u064a|\u06cc]\u0652", "ey" # ـِيْ
+    sub "\u064e" + any("\u064a|\u06cc") + "\u0652", "ey" # ـَيْ
+    sub "\u0650" + any("\u064a|\u06cc") + "\u0652", "ey" # ـِيْ
     sub "\u064e\u0648", "ow" # ـَو
     sub "\u0652", "" # ْ sokoon
     sub "\u0650\u064a\u0651", "īy" # ـِيّ
-    sub "[\u0654|\u0674]", "-e" # ٴ ezafeh
-    sub "(?<=[\u064a|\u0647])[\u0654|\u0674]", "-ye" # ٴ ezafeh
-    sub "\u0650\\b", "-e" # ِ kasra
-    sub "[\u064a|\u06cc]\u0650\\b", "-ye" # ِ kasra
+    sub any("\u0654|\u0674"), "-e" # ٴ ezafeh
+    sub any("\u0654|\u0674"), "-ye", before: any("\u064a|\u0647") # ٴ ezafeh
+    sub "\u0650" + boundary, "-e" # ِ kasra
+    sub any("\u064a|\u06cc") + "\u0650" + boundary, "-ye" # ِ kasra
     # shadda
 
     sub "\u0628\u0651", "bb" # ب
@@ -247,28 +247,28 @@ stage {
     # ta' marboota
     sub "\u0629", "eh"
 
-    sub "\\b\u0627\u0644", "al " # ال
-    sub "\\s\\b\u0627\u0644", " ol " # ال #special Rule 1
+    sub boundary + "\u0627\u0644", "al " # ال
+    sub space + boundary + "\u0627\u0644", " ol " # ال #special Rule 1
     sub "\ufdf2", "Allāh" # See note 5
     sub "\u0627\u0644\u0644\u0651\u064e\u0647", "Allāh"
-    sub "(?<!\\b)\u0627\u0644\u0644\u0651\u064e\u0647", "ollāh" # Special Rule 1
+    sub "\u0627\u0644\u0644\u0651\u064e\u0647", "ollāh", not_before: boundary # Special Rule 1
     # '\uFE8E' : ''  # ﺎ
 
     # Sun letters
-    sub "\\b\u0627\u0644\u062a", "at t" # الت
-    sub "\\b\u0627\u0644\u062b", "as̄ s̄" # الث
-    sub "\\b\u0627\u0644\u062f", "ad d" # الد
-    sub "\\b\u0627\u0644\u0630", "az̄ z̄" # الذ
-    sub "\\b\u0627\u0644\u0631", "ar r" # الر
-    sub "\\b\u0627\u0644\u0632", "az z" # الز
-    sub "\\b\u0627\u0644\u0633", "as s" # الس
-    sub "\\b\u0627\u0644\u0634", "ash sh" # الش
-    sub "\\b\u0627\u0644\u0635", "aş ş" # الص
-    sub "\\b\u0627\u0644\u0636", "aẕ ẕ" # الض
-    sub "\\b\u0627\u0644\u0637", "aţ ţ" # الط
-    sub "\\b\u0627\u0644\u0638", "az̧ z̧" # الظ
-    sub "\\b\u0627\u0644\u0644", "al l" # الل
-    sub "\\b\u0627\u0644\u0646", "an n" # الن
+    sub boundary + "\u0627\u0644\u062a", "at t" # الت
+    sub boundary + "\u0627\u0644\u062b", "as̄ s̄" # الث
+    sub boundary + "\u0627\u0644\u062f", "ad d" # الد
+    sub boundary + "\u0627\u0644\u0630", "az̄ z̄" # الذ
+    sub boundary + "\u0627\u0644\u0631", "ar r" # الر
+    sub boundary + "\u0627\u0644\u0632", "az z" # الز
+    sub boundary + "\u0627\u0644\u0633", "as s" # الس
+    sub boundary + "\u0627\u0644\u0634", "ash sh" # الش
+    sub boundary + "\u0627\u0644\u0635", "aş ş" # الص
+    sub boundary + "\u0627\u0644\u0636", "aẕ ẕ" # الض
+    sub boundary + "\u0627\u0644\u0637", "aţ ţ" # الط
+    sub boundary + "\u0627\u0644\u0638", "az̧ z̧" # الظ
+    sub boundary + "\u0627\u0644\u0644", "al l" # الل
+    sub boundary + "\u0627\u0644\u0646", "an n" # الن
 
 
     sub "\u0621", "’" # ء
@@ -277,7 +277,7 @@ stage {
     sub "\u0623", "" # أ
     sub "\u0625", "" # إ
     sub "\u0627", "ā" # ا
-    sub "\\b\u0627", "" # ا
+    sub boundary + "\u0627", "" # ا
 
     # consonant characters
 

@@ -279,11 +279,11 @@ tests {
 stage {
 
   # RULES
-  sub "(?<=[ΑαΕεΟο])\\u03A5", "U" # Υ (after Α, Ε, Η)
-  sub "(?<=[ΑαΕεΟο])\\u03C5", "u" # υ (after Α, Ε, Η)
-  sub "(?<=[ΑαΕεΟο])\\u03CD", "ú" # ύ (after Ο)
-  sub "\\u037E", "?" # ;
-  sub "\\u003B", "?" # ;
+  sub "\u03A5", "U", before: any("ΑαΕεΟο") # Υ (after Α, Ε, Η)
+  sub "\u03C5", "u", before: any("ΑαΕεΟο") # υ (after Α, Ε, Η)
+  sub "\u03CD", "ú", before: any("ΑαΕεΟο") # ύ (after Ο)
+  sub "\u037E", "?" # ;
+  sub "\u003B", "?" # ;
 
 
   # CHARACTERS

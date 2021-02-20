@@ -275,21 +275,21 @@ tests {
 stage {
 
   # RULES
-  sub "(?<=[ΑαΕεΟοΗηΩω])\\u03A5", "U" # Υ (after Α, Ε, Ο, Η, Ω)
-  sub "(?<=[ΑαΕεΟοΗηΩω])\\u03C5", "u" # υ (after Α, Ε, Ο, Η, Ω)
-  sub "(?<=[ΑαΕεΟοΗηΩω])\\u03CD", "u" # ύ (after Α, Ε, Ο, Η, Ω)
-  sub "\\u03A5(?=[Ιιί])", "U" # Υ (before Ι)
-  sub "\\u03C5(?=[Ιιί])", "u" # Υ (before Ι)
-  sub "\\u0393(?=[γΓκΚξΞχΧ])", "N" # Γ (before Γ, Κ, Ξ, Χ)
-  sub "\\u03B3(?=[γΓκΚξΞχΧ])", "n" # γ (before Γ, Κ, Ξ, Χ)
-  sub "(?<=\\b)\\u039D\\u03A4", "Ḏ" # ΝΤ
-  sub "(?<=\\b)\\u039D\\u03C4", "Ḏ" # Ντ
-  sub "(?<=\\b)\\u03BD\\u03C4", "ḏ" # ντ
-  sub "(?<=\\b)\\u039C\\u03A0", "B" # ΜΠ
-  sub "(?<=\\b)\\u039C\\u03C0", "B" # Μπ
-  sub "(?<=\\b)\\u03BC\\u03C0", "b" # μπ
-  sub "\\u037E", "?" # ;
-  sub "\\u003B", "?" # ;
+  sub "\u03A5", "U", before: any("ΑαΕεΟοΗηΩω") # Υ (after Α, Ε, Ο, Η, Ω)
+  sub "\u03C5", "u", before: any("ΑαΕεΟοΗηΩω") # υ (after Α, Ε, Ο, Η, Ω)
+  sub "\u03CD", "u", before: any("ΑαΕεΟοΗηΩω") # ύ (after Α, Ε, Ο, Η, Ω)
+  sub "\u03A5", "U", after: any("Ιιί") # Υ (before Ι)
+  sub "\u03C5", "u", after: any("Ιιί") # Υ (before Ι)
+  sub "\u0393", "N", after: any("γΓκΚξΞχΧ") # Γ (before Γ, Κ, Ξ, Χ)
+  sub "\u03B3", "n", after: any("γΓκΚξΞχΧ") # γ (before Γ, Κ, Ξ, Χ)
+  sub "\u039D\u03A4", "Ḏ", before: boundary # ΝΤ
+  sub "\u039D\u03C4", "Ḏ", before: boundary # Ντ
+  sub "\u03BD\u03C4", "ḏ", before: boundary # ντ
+  sub "\u039C\u03A0", "B", before: boundary # ΜΠ
+  sub "\u039C\u03C0", "B", before: boundary # Μπ
+  sub "\u03BC\u03C0", "b", before: boundary # μπ
+  sub "\u037E", "?" # ;
+  sub "\u003B", "?" # ;
 
 
   # CHARACTERS

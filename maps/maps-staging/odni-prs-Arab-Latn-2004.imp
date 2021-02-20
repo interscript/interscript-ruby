@@ -113,8 +113,8 @@ stage {
     sub "\u064a\u064a", "i" # NOTE 4 (2)
     sub "\u06cc\u06cc", "i"
 
-    sub "\u0627\u064a\\b", "i" # NOTE 4 (3)
-    sub "\u0627\u06cc\\b", "i"
+    sub "\u0627\u064a" + boundary, "i" # NOTE 4 (3)
+    sub "\u0627\u06cc" + boundary, "i"
 
     # Farsi consonant characters
 

@@ -107,7 +107,7 @@ stage {
 
   # RULES
   # Convert ん into m before b, m, p
-  sub "[んン](?=[ばびぶべぼまみむめもぱぴぷぺぽバビブベボマミムメモパピプペポ])", "m"
+  sub any("んン"), "m", after: any("ばびぶべぼまみむめもぱぴぷぺぽバビブベボマミムメモパピプペポ")
 
   # POSTRULES
   # Handle obsolete forms

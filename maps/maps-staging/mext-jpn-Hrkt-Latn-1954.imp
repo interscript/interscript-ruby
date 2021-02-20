@@ -65,7 +65,7 @@ tests {
 stage {
 
   # RULES
-  sub "([んン])(?=[あいうえおやゆよアイウエオヤユヨ])", "\\1'"
+  sub capture(any("んン")), ref( 1 ) + "'", after: any("あいうえおやゆよアイウエオヤユヨ")
 
 
   # POSTRULES
@@ -80,14 +80,14 @@ stage {
   # the previous syllable. There is no documented or commonly
   # accepted way to transliterate this sound.
 
-  sub "[っッ]([BbCcDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz])", "\\1\\1" # っ or ッ folloved by consonant
-  sub "[っッ]", "" # drop all other っッ.
+  sub any("っッ") + capture(any("BbCcDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz")), ref( 1 ) + ref( 1 ) # っ or ッ folloved by consonant
+  sub any("っッ"), "" # drop all other っッ.
 
-  sub "a[ーa]", "â"
-  sub "i[ーi]", "î"
-  sub "u[ーu]", "û"
-  sub "e[ーe]", "ê"
-  sub "o[ーo]", "ô"
+  sub "a" + any("ーa"), "â"
+  sub "i" + any("ーi"), "î"
+  sub "u" + any("ーu"), "û"
+  sub "e" + any("ーe"), "ê"
+  sub "o" + any("ーo"), "ô"
 
 
   # CHARACTERS

@@ -55,68 +55,68 @@ stage {
 
   # Handle Consonantal อ, which can never be part of a consonant cluster
   # in phonemic Thai
-  sub "(^| |-|[เแไใโ])(อ)(็|[ัำ-ู])?([่̄-๋])?([^ -]*)", "\\1\\2–\\3\\5_M\\4"
+  #   sub capture(any([line_start, " ", "-", any("เแไใโ")])) + capture("อ") + maybe(capture(any(["็", any(["ั" + any("ำ".."ู")])]))) + maybe(capture(any(["̄" + any("่".."๋")]))) + capture( :zero_or_more_start any(" -") :zero_or_more_stop ), ref( 1 ) + ref( 2 ) + "–" + ref( 3 ) + ref( 5 ) + "_M" + ref( 4 ) # warning: :
 
   # Handle Consonantal ยว
-  sub "(^| |-|[เแไใโ])([ยว])(็|[ัำ-ู])?([่̄-๋])?([^ -]*)", "\\1\\2–\\3\\5_L\\4"
+  #   sub capture(any([line_start, " ", "-", any("เแไใโ")])) + capture(any("ยว")) + maybe(capture(any(["็", any(["ั" + any("ำ".."ู")])]))) + maybe(capture(any(["̄" + any("่".."๋")]))) + capture( :zero_or_more_start any(" -") :zero_or_more_stop ), ref( 1 ) + ref( 2 ) + "–" + ref( 3 ) + ref( 5 ) + "_L" + ref( 4 ) # warning: :
 
-  sub "(^| |-|[เแไใโ])([ขผสห]ฺ[ยว])(็|[ัำ-ู]็?)?([่̄-๋])?([^ -]*)", "\\1\\2–\\3\\5_H\\4"
-  sub "(^| |-|[เแไใโ])([คทพฟ]ฺ[ยว])(็|[ัำ-ู]็?)?([่̄-๋])?([^ -]*)", "\\1\\2–\\3\\5_L\\4"
-  sub "(^| |-|[เแไใโ])([กดตบป]ฺ[ยว])(็|[ัำ-ู]็?)?([่̄-๋])?([^ -]*)", "\\1\\2–\\3\\5_M\\4"
+  #   sub capture(any([line_start, " ", "-", any("เแไใโ")])) + capture(any("ขผสห") + "ฺ" + any("ยว")) + maybe(capture(any(["็", any(["ั" + any("ำ".."ู")]) + maybe("็")]))) + maybe(capture(any(["̄" + any("่".."๋")]))) + capture( :zero_or_more_start any(" -") :zero_or_more_stop ), ref( 1 ) + ref( 2 ) + "–" + ref( 3 ) + ref( 5 ) + "_H" + ref( 4 ) # warning: :
+  #   sub capture(any([line_start, " ", "-", any("เแไใโ")])) + capture(any("คทพฟ") + "ฺ" + any("ยว")) + maybe(capture(any(["็", any(["ั" + any("ำ".."ู")]) + maybe("็")]))) + maybe(capture(any(["̄" + any("่".."๋")]))) + capture( :zero_or_more_start any(" -") :zero_or_more_stop ), ref( 1 ) + ref( 2 ) + "–" + ref( 3 ) + ref( 5 ) + "_L" + ref( 4 ) # warning: :
+  #   sub capture(any([line_start, " ", "-", any("เแไใโ")])) + capture(any("กดตบป") + "ฺ" + any("ยว")) + maybe(capture(any(["็", any(["ั" + any("ำ".."ู")]) + maybe("็")]))) + maybe(capture(any(["̄" + any("่".."๋")]))) + capture( :zero_or_more_start any(" -") :zero_or_more_stop ), ref( 1 ) + ref( 2 ) + "–" + ref( 3 ) + ref( 5 ) + "_M" + ref( 4 ) # warning: :
 
   # Move tones to the end of the syllable
-  sub "(^| |-|[เแไใโ])([ขผสห]ฺ[กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมรลศษสหฬอฮ]|[ขฃฉฐถผฝศษสห])(็|[ัำ-ู]็?)?([่̄-๋])?([^- ฺ]*)(?= |-|$)", "\\1\\2–\\3\\5_H\\4"
-  sub "(^| |-|[เแไใโ])([กดตบป]ฺ[กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมรลศษสหฬฮ]|[กจฎฏดตบป])(็|[ัำ-ู]็?)?([่̄-๋])?([^- ฺ]*)(?= |-|$)", "\\1\\2–\\3\\5_M\\4"
-  sub "(^| |-|[เแไใโ])([คทพฟ]ฺ[กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมรลศษสหฬอฮ]|[คฅฆงชซฌญฑฒณทธนพฟภมรลฬฮ])(็|[ัำ-ู]็?)?([่̄-๋])?([^- ฺ]*)(?= |-|$)", "\\1\\2–\\3\\5_L\\4"
+  #   sub capture(any([line_start, " ", "-", any("เแไใโ")])) + capture(any([any("ขผสห") + "ฺ" + any("กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมรลศษสหฬอฮ"), any("ขฃฉฐถผฝศษสห")])) + maybe(capture(any(["็", any(["ั" + any("ำ".."ู")]) + maybe("็")]))) + maybe(capture(any(["̄" + any("่".."๋")]))) + capture( :zero_or_more_start any("- ฺ") :zero_or_more_stop ), ref( 1 ) + ref( 2 ) + "–" + ref( 3 ) + ref( 5 ) + "_H" + ref( 4 ), after: any([" ", "-", line_end]) # warning: :
+  #   sub capture(any([line_start, " ", "-", any("เแไใโ")])) + capture(any([any("กดตบป") + "ฺ" + any("กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมรลศษสหฬฮ"), any("กจฎฏดตบป")])) + maybe(capture(any(["็", any(["ั" + any("ำ".."ู")]) + maybe("็")]))) + maybe(capture(any(["̄" + any("่".."๋")]))) + capture( :zero_or_more_start any("- ฺ") :zero_or_more_stop ), ref( 1 ) + ref( 2 ) + "–" + ref( 3 ) + ref( 5 ) + "_M" + ref( 4 ), after: any([" ", "-", line_end]) # warning: :
+  #   sub capture(any([line_start, " ", "-", any("เแไใโ")])) + capture(any([any("คทพฟ") + "ฺ" + any("กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมรลศษสหฬอฮ"), any("คฅฆงชซฌญฑฒณทธนพฟภมรลฬฮ")])) + maybe(capture(any(["็", any(["ั" + any("ำ".."ู")]) + maybe("็")]))) + maybe(capture(any(["̄" + any("่".."๋")]))) + capture( :zero_or_more_start any("- ฺ") :zero_or_more_stop ), ref( 1 ) + ref( 2 ) + "–" + ref( 3 ) + ref( 5 ) + "_L" + ref( 4 ), after: any([" ", "-", line_end]) # warning: :
 
   # If ว is followed by another vowel, than it is actually part of the cluster
-  sub "(^| |-|[เแไใโ])([ขผสหกดตบปคทพฟ])–([วรล])([าอำะัำ-ู]็?)([่̄-๋])?([^ -]*_[HML])", "\\1\\2\\3–\\4\\6\\5"
+  #   sub capture(any([line_start, " ", "-", any("เแไใโ")])) + capture(any("ขผสหกดตบปคทพฟ")) + "–" + capture(any("วรล")) + capture(any(["าอำะั" + any("ำ".."ู")]) + maybe("็")) + maybe(capture(any(["̄" + any("่".."๋")]))) + capture( :zero_or_more_start any(" -") :zero_or_more_stop "_" + any("HML")), ref( 1 ) + ref( 2 ) + ref( 3 ) + "–" + ref( 4 ) + ref( 6 ) + ref( 5 ) # warning: :
 
-  sub "([เแไใโ])([ขผสหกดตบปคทพฟ])–([วรล])([าอำะัำ-ู]?็?)([่̄-๋])?([คฅฆกขฃพภบปฟฌฑฒทธจฎฏดตฐถศษสชมญณนรลฬง]+_[HML])", "\\1\\2\\3–\\4\\6\\5"
+  #   #   sub capture(any("เแไใโ")) + capture(any("ขผสหกดตบปคทพฟ")) + "–" + capture(any("วรล")) + capture(maybe(any(["าอำะั" + any("ำ".."ู")])) + maybe("็")) + maybe(capture(any(["̄" + any("่".."๋")]))) + capture( :one_or_more_start any("คฅฆกขฃพภบปฟฌฑฒทธจฎฏดตฐถศษสชมญณนรลฬง") :one_or_more_stop "_" + any("HML")), ref( 1 ) + ref( 2 ) + ref( 3 ) + "–" + ref( 4 ) + ref( 6 ) + ref( 5 ) # warning: one_or_more # warning: :
 
   # Move preceding vowels to the right position
-  sub "(^| |-|[เแไใโ])([เแไใโ])([ปคฟตดผทพกขบหส]ฺ?[กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษสหฬอฮ])", "\\1\\3\\2"
-  sub "(^| |-|[เแไใโ])([เแไใโ])([กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษสหฬอฮ])", "\\1\\3\\2"
+  sub capture(any([line_start, " ", "-", any("เแไใโ")])) + capture(any("เแไใโ")) + capture(any("ปคฟตดผทพกขบหส") + maybe("ฺ") + any("กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษสหฬอฮ")), ref( 1 ) + ref( 3 ) + ref( 2 )
+  sub capture(any([line_start, " ", "-", any("เแไใโ")])) + capture(any("เแไใโ")) + capture(any("กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษสหฬอฮ")), ref( 1 ) + ref( 3 ) + ref( 2 )
 
   # Add inherit vowel if there is nothing between the onset and final consonants
-  sub "([กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษสหฬอฮ])(–)([คฅฆกขฃพฟภบปชฌฑฒทธจฎฏดตฐถศษสมญณนรลฬง]_)", "\\1โ\\2ะ\\3"
+  sub capture(any("กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษสหฬอฮ")) + capture("–") + capture(any("คฅฆกขฃพฟภบปชฌฑฒทธจฎฏดตฐถศษสมญณนรลฬง") + "_"), ref( 1 ) + "โ" + ref( 2 ) + "ะ" + ref( 3 )
 
   # Add inherit vowel for single letters
-  sub "(^| |-|ฺ)([ก-ฮ])–(?=_[HML])", "\\1\\2–ะ"
+  sub capture(any([line_start, " ", "-", "ฺ"])) + capture(any([any("ก".."ฮ")])) + "–", ref( 1 ) + ref( 2 ) + "–ะ", after: "_" + any("HML")
 
   #Change tones to correct tone values
   # IPA Tones:        0 ˧ , 1 ˨˩ , 2 ˥˩, 3 ˦˥, 4 ˩˩˦
 
-  sub "_[HM]่", "˨˩"
-  sub "_[HM]้", "˥˩"
-  sub "_[HML]๊", "˦˥"
-  sub "_[HML]๋", "˩˩˦"
+  sub "_" + any("HM") + "่", "˨˩"
+  sub "_" + any("HM") + "้", "˥˩"
+  sub "_" + any("HML") + "๊", "˦˥"
+  sub "_" + any("HML") + "๋", "˩˩˦"
   sub "_L่", "˥˩"
   sub "_L้", "˦˥"
-  sub "_[HML]̄", "˧"
+  sub "_" + any("HML") + "̄", "˧"
 
   # Syllables ending in –ะ (U+0E30), –ิ (U+0E34), –ึ (U+0E36), –ุ (U+0E38)
   # are dead syllables and follow a different set of tone rules
   # The combination เ–ิ is an exception.
 
-  sub "([^เ]–ิ)_[HM]", "\\1˨˩"
-  sub "([^เ]–ิ)_L", "\\1˦˥"
-  sub "([ะึุ])_[HM]", "\\1˨˩"
-  sub "([ะึุ])_L", "\\1˦˥"
+  sub capture(any("เ") + "–ิ") + "_" + any("HM"), ref( 1 ) + "˨˩"
+  sub capture(any("เ") + "–ิ") + "_L", ref( 1 ) + "˦˥"
+  sub capture(any("ะึุ")) + "_" + any("HM"), ref( 1 ) + "˨˩"
+  sub capture(any("ะึุ")) + "_L", ref( 1 ) + "˦˥"
 
   # Syllables with stop finals
-  sub "([ะคกขฃพฟภบปชฌฑฒทธจฎฏดตฐถศษส]ส?)_[HM]", "\\1˨˩"
-  sub "([^เ]–ิ[คฅฆกขฃพฟภบปชฌฑฒทธจฎฏดตฐถศษส]ส?)_L", "\\1˦˥"
-  sub "([ะัึุ็][คฅฆกขฃพฟภบปชฌฑฒทธจฎฏดตฐถศษส]ส?)_L", "\\1˦˥"
-  sub "(็อ[คฅฆกขฃพฟภบปชฌฑฒทธจฎฏดตฐถศษส]ส?)_L", "\\1˦˥"
-  sub "((?<=[^มนง])[คฅฆกขฃพฟภบปชฌฑฒทธจฎฏดตฐถศษส]ส?)_L", "\\1˥˩"
+  sub capture(any("ะคกขฃพฟภบปชฌฑฒทธจฎฏดตฐถศษส") + maybe("ส")) + "_" + any("HM"), ref( 1 ) + "˨˩"
+  sub capture(any("เ") + "–ิ" + any("คฅฆกขฃพฟภบปชฌฑฒทธจฎฏดตฐถศษส") + maybe("ส")) + "_L", ref( 1 ) + "˦˥"
+  sub capture(any("ะัึุ็") + any("คฅฆกขฃพฟภบปชฌฑฒทธจฎฏดตฐถศษส") + maybe("ส")) + "_L", ref( 1 ) + "˦˥"
+  sub capture("็อ" + any("คฅฆกขฃพฟภบปชฌฑฒทธจฎฏดตฐถศษส") + maybe("ส")) + "_L", ref( 1 ) + "˦˥"
+  #   sub capture( :lookbehind_start any("มนง") :lookbehind_stop any("คฅฆกขฃพฟภบปชฌฑฒทธจฎฏดตฐถศษส") + maybe("ส")) + "_L", ref( 1 ) + "˥˩" # warning: :
 
   # Assign the default tones if no tone mark is present.
-  sub "_[ML]", "˧"
+  sub "_" + any("ML"), "˧"
   sub "_H", "˩˩˦"
 
   # Remove tone-marking unpronounced ห
-  sub "ห?ฺ", ""
+  sub maybe("ห") + "ฺ", ""
 
 
   # POSTRULES
@@ -134,7 +134,7 @@ stage {
   sub "็", ""
 
   # Using . instead of - as syllable delimiter in IPA
-  sub "-", "."
+  sub "-", any_character
 
 
   # CHARACTERS
@@ -203,16 +203,16 @@ stage {
     sub "เ–อ", "ɤː"
 
     # FINAL CONSONANTS
-    sub "[คฅฆกขฃ](?=ส?[˩˨˧˦˥])", "k̚"
-    sub "[พภบป](?=[˩˨˧˦˥])", "p̚"
-    sub "ฟ(?=[˩˨˧˦˥])", "f"
-    sub "[ฌฑฒทธจฎฏดตฐถ](?=[˩˨˧˦˥])", "t̚"
-    sub "[ศษส](?=[˩˨˧˦˥])", "s"
-    sub "ช(?=[˩˨˧˦˥])", "t͡ɕʰ"
-    sub "ม(?=[˩˨˧˦˥])", "m"
-    sub "[ญณนร](?=[˩˨˧˦˥])", "n"
-    sub "[ลฬ](?=[˩˨˧˦˥])", "l"
-    sub "ง(?=[˩˨˧˦˥])", "ŋ"
+    sub any("คฅฆกขฃ"), "k̚", after: maybe("ส") + any("˩˨˧˦˥")
+    sub any("พภบป"), "p̚", after: any("˩˨˧˦˥")
+    sub "ฟ", "f", after: any("˩˨˧˦˥")
+    sub any("ฌฑฒทธจฎฏดตฐถ"), "t̚", after: any("˩˨˧˦˥")
+    sub any("ศษส"), "s", after: any("˩˨˧˦˥")
+    sub "ช", "t͡ɕʰ", after: any("˩˨˧˦˥")
+    sub "ม", "m", after: any("˩˨˧˦˥")
+    sub any("ญณนร"), "n", after: any("˩˨˧˦˥")
+    sub any("ลฬ"), "l", after: any("˩˨˧˦˥")
+    sub "ง", "ŋ", after: any("˩˨˧˦˥")
 
     # ​ONSET CONSONANTS
 

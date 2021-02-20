@@ -121,8 +121,8 @@ stage {
   run map.cyrllatn.stage.main
 
   # RULES
-  sub "\\u0027", ""
-  sub "\\u2019", ""
+  sub "\u0027", ""
+  sub "\u2019", ""
 
 
   # CHARACTERS

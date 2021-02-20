@@ -75,7 +75,7 @@ stage {
 
   # RULES
   # note[3]
-  sub "(?<=)\\U+0939(?=\\b)", "h"
+  #   #   sub  :one_or_more_start "\U" :one_or_more_stop "0939", "h", before: , after: boundary # warning: one_or_more # warning: :
 
 
   # CHARACTERS

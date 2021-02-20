@@ -82,11 +82,11 @@ stage {
 
   # POSTRULES
   #LJ
-  sub "((?<=[[:upper:]])Lj(?=[[:upper:]])?|(?<=[[:upper:]])?Lj(?=[[:upper:]]))", "LJ"
+  #   #   #   sub capture(any([ :lookbehind_start any( :missing  Regexp::Expression::PosixClass ) :lookbehind_stop "Lj" + maybe( :lookahead_start any( :missing  Regexp::Expression::PosixClass ) :lookahead_stop ), maybe( :lookbehind_start any( :missing  Regexp::Expression::PosixClass ) :lookbehind_stop ) + "Lj" :lookahead_start any( :missing  Regexp::Expression::PosixClass ) :lookahead_stop ])), "LJ" # warning: :missing unimplemented # warning: :lookahead_start # warning: :
   #NJ
-  sub "((?<=[[:upper:]])Nj(?=[[:upper:]])?|(?<=[[:upper:]])?Nj(?=[[:upper:]]))", "NJ"
+  #   #   #   sub capture(any([ :lookbehind_start any( :missing  Regexp::Expression::PosixClass ) :lookbehind_stop "Nj" + maybe( :lookahead_start any( :missing  Regexp::Expression::PosixClass ) :lookahead_stop ), maybe( :lookbehind_start any( :missing  Regexp::Expression::PosixClass ) :lookbehind_stop ) + "Nj" :lookahead_start any( :missing  Regexp::Expression::PosixClass ) :lookahead_stop ])), "NJ" # warning: :missing unimplemented # warning: :lookahead_start # warning: :
   #DŽ
-  sub "((?<=[[:upper:]])Dž(?=[[:upper:]])?|(?<=[[:upper:]])?Dž(?=[[:upper:]]))", "DŽ"
+  #   #   #   sub capture(any([ :lookbehind_start any( :missing  Regexp::Expression::PosixClass ) :lookbehind_stop "Dž" + maybe( :lookahead_start any( :missing  Regexp::Expression::PosixClass ) :lookahead_stop ), maybe( :lookbehind_start any( :missing  Regexp::Expression::PosixClass ) :lookbehind_stop ) + "Dž" :lookahead_start any( :missing  Regexp::Expression::PosixClass ) :lookahead_stop ])), "DŽ" # warning: :missing unimplemented # warning: :lookahead_start # warning: :
 
 
   # CHARACTERS

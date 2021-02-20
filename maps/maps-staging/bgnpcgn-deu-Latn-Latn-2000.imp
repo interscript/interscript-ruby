@@ -41,10 +41,10 @@ tests {
 stage {
 
   # RULES
-  sub "(?<=[[:upper:]])β(?=[[:upper:]])?", "SS"
-  sub "(?<=[[:upper:]])Ä(?=[[:upper:]])?", "AE"
-  sub "(?<=[[:upper:]])Ö(?=[[:upper:]])?", "OE"
-  sub "(?<=[[:upper:]])Ü(?=[[:upper:]])?", "UE"
+  #   #   #   sub "β" + maybe( :lookahead_start any( :missing  Regexp::Expression::PosixClass ) :lookahead_stop ), "SS", before: any( :missing  Regexp::Expression::PosixClass ) # warning: :missing unimplemented # warning: :lookahead_start # warning: :
+  #   #   #   sub "Ä" + maybe( :lookahead_start any( :missing  Regexp::Expression::PosixClass ) :lookahead_stop ), "AE", before: any( :missing  Regexp::Expression::PosixClass ) # warning: :missing unimplemented # warning: :lookahead_start # warning: :
+  #   #   #   sub "Ö" + maybe( :lookahead_start any( :missing  Regexp::Expression::PosixClass ) :lookahead_stop ), "OE", before: any( :missing  Regexp::Expression::PosixClass ) # warning: :missing unimplemented # warning: :lookahead_start # warning: :
+  #   #   #   sub "Ü" + maybe( :lookahead_start any( :missing  Regexp::Expression::PosixClass ) :lookahead_stop ), "UE", before: any( :missing  Regexp::Expression::PosixClass ) # warning: :missing unimplemented # warning: :lookahead_start # warning: :
 
 
   # CHARACTERS
