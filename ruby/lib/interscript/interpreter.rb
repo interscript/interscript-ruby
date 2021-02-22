@@ -18,21 +18,21 @@ class Interscript::Interpreter < Interscript::Compiler
     def execute_rule r
       case r
       when Interscript::Node::Group::Parallel
-        if r.cached_tree
-          @str = Interscript::Stdlib.parallel_replace_tree(@str, r.cached_tree)
+        if r.subs_regexp and r.subs_hash
+          @str = Interscript::Stdlib.regexp_gsub(@str, r.subs_regexp, r.subs_hash)
         else
           a = []
-          r.children.each do |i|
+          r.children.sort_by{|rule| -rule.from.max_length}.each do |i|
             raise ArgumentError, "Can't parallelize #{i.class}" unless Interscript::Node::Rule::Sub === i
             raise ArgumentError, "Can't parallelize rules with :before" if i.before
             raise ArgumentError, "Can't parallelize rules with :after" if i.after
             raise ArgumentError, "Can't parallelize rules with :not_before" if i.not_before
             raise ArgumentError, "Can't parallelize rules with :not_after" if i.not_after
-
             a << [build_item(i.from, :par), build_item(i.to, :parstr)]
           end
-          r.cached_tree = Interscript::Stdlib.parallel_replace_compile_tree(a)
-          @str = Interscript::Stdlib.parallel_replace_tree(@str, r.cached_tree)
+          r.subs_regexp = Interscript::Stdlib.regexp_compile(a)
+          r.subs_hash = Hash[a]
+          @str = Interscript::Stdlib.regexp_gsub(@str, r.subs_regexp, r.subs_hash)
         end
       when Interscript::Node::Group
         r.children.each do |t|
