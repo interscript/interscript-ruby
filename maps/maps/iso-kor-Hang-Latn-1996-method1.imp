@@ -47,28 +47,11 @@ tests {
   test "꽃에", "kkoch'e"
 }
 
-# We will work out the correct location for those
-#character_separator none
-#word_separator space
-#title_case false
-
-# The following line means "importing a supposed korean library" containing some maybe useful korean aliases
-# import means move to our namespace (we will be able to call just: `hangul` instead of `map[:hang].alias[:hangul]`)
 dependency "var-kor", import: true
 dependency "var-kor-Hang-Hang-jamo", as: hangjamo
 
-# Those may be parts of this supposed korean library
-aliases {
-  def_alias double_cons_jamo, any("ᄁᄄᄈᄍᄊ")
-  def_alias aspirated_cons_jamo, any("ᄏᄐᄑᄎ")
-}
-
 stage {
   run map.hangjamo.stage.main
-
-  # Add space to the two ends of the string for easier word boundary handling
-  #sub line_start, space
-  #sub line_end, space
 
   # Marks A, B, C
   sub "ᄋ", "", not_before: jamo # Word initially
@@ -154,9 +137,4 @@ stage {
     sub "ᅴ", "yi"
     # End
   }
-
-
-  # Remove space added
-  #sub line_start + space, none
-  #sub space + line_end, none
 }

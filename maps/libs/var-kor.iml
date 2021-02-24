@@ -11,4 +11,7 @@ aliases {
   def_alias jamo, any([jamo_leading_cons, jamo_vowel, jamo_trailing_cons])
   # Any hangul or jamo
   def_alias hangul_or_jamo, any([hangul, jamo])
+
+  def_alias double_cons_jamo, any("ᄁᄄᄈᄍᄊ")
+  def_alias aspirated_cons_jamo, any("ᄏᄐᄑᄎ")
 }
