@@ -38,53 +38,10 @@ tests {
   #   expected: nyahhō
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
-
 stage {
 
   # RULES
   sub capture(any("んン")), ref( 1 ) + "’", after: any("あいうえおやゆよアイウエオヤユヨ")
-
-
-  # POSTRULES
-  # Handling of っ/ッ
-  #
-  # The kana っ/ッ is a geminate marker.
-  # When followed by a consonant, repeat the first letter of
-  # the following syllable. Exception: the combination -cch-
-  # should be transliterated as -tch-
-  #
-  # If っ/ッ is not followed by a consonant, then it is usually
-  # phonetically realised as an abrupt stop or shorterning of
-  # the previous syllable. There is no documented or commonly
-  # accepted way to transliterate this sound.
-
-  sub any("っッ") + capture(any("BbDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz")), ref( 1 ) + ref( 1 ) # っ or ッ folloved by consonant
-  sub any("っッ") + capture(any("Cc")), "t" + ref( 1 ) # ッ followed by ch-
-  sub any("っッ"), "" # drop all other っッ.
-
-  # In Modified Hepburn, long vowels within the same morpheme are
-  # transliterated using a macron, i.e. ā, ī, ū, ē, ō.
-  #
-  # If two repeating letters are split across a morpheme boundary
-  # then they should not be changed into macron.
-  #
-  # Long vowels in loanwords are indicated with a macron instead
-  # of letter doubling.
-
-  sub "a" + any("ーa"), "ā"
-  sub "i" + any("ーi"), "ī"
-  sub "u" + any("ーu"), "ū"
-  sub "e" + any("ーe"), "ē"
-  sub "o" + any("ーo"), "ō"
 
 
   # CHARACTERS
@@ -391,5 +348,35 @@ stage {
     sub "ン", "n"
   }
 
-}
+  # POSTRULES
+  # Handling of っ/ッ
+  #
+  # The kana っ/ッ is a geminate marker.
+  # When followed by a consonant, repeat the first letter of
+  # the following syllable. Exception: the combination -cch-
+  # should be transliterated as -tch-
+  #
+  # If っ/ッ is not followed by a consonant, then it is usually
+  # phonetically realised as an abrupt stop or shorterning of
+  # the previous syllable. There is no documented or commonly
+  # accepted way to transliterate this sound.
 
+  sub any("っッ") + capture(any("BbDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz")), ref( 1 ) + ref( 1 ) # っ or ッ folloved by consonant
+  sub any("っッ") + capture(any("Cc")), "t" + ref( 1 ) # ッ followed by ch-
+  sub any("っッ"), "" # drop all other っッ.
+
+  # In Modified Hepburn, long vowels within the same morpheme are
+  # transliterated using a macron, i.e. ā, ī, ū, ē, ō.
+  #
+  # If two repeating letters are split across a morpheme boundary
+  # then they should not be changed into macron.
+  #
+  # Long vowels in loanwords are indicated with a macron instead
+  # of letter doubling.
+
+  sub "a" + any("ーa"), "ā"
+  sub "i" + any("ーi"), "ī"
+  sub "u" + any("ーu"), "ū"
+  sub "e" + any("ーe"), "ē"
+  sub "o" + any("ーo"), "ō"
+}
