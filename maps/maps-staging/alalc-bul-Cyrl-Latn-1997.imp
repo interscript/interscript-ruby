@@ -25,7 +25,7 @@ stage {
   # RULES
   # note[1]
   sub "\u042a", "ʺ", after: boundary
-  sub "u044a", "ʺ", after: boundary
+  sub "\u044a", "ʺ", after: boundary
 
 
   # CHARACTERS

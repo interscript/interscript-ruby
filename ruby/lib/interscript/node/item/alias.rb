@@ -6,8 +6,16 @@ class Interscript::Node::Item::Alias < Interscript::Node::Item
     self.map = map
   end
 
+  def stdlib?
+    !map && Interscript::Stdlib::ALIASES.has_key?(name)
+  end
+
   def max_length
-    raise NotImplementedError, "#max_length not implemented for alias"
+    if stdlib?
+      (name == :none) ? 0 : 1
+    else
+      raise NotImplementedError, "can't get a max length of this alias"
+    end
   end
 
   def first_string

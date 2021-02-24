@@ -166,27 +166,6 @@ tests {
 # of particular parts of the stage.
 
 stage {
-
-  # POSTRULES
-  sub any([any("\u0061".."\uFFFF")]), "upcase", before: boundary, not_before: boundary + any("‘|’")
-  # don't capitalize defined article in the middle of a sentence
-  sub " At T", " at T" # الت
-  sub " Ath Th", " ath th" # الث
-  sub " Ad D", " ad D" # الد
-  sub " Adh Dh", " adh Dh" # الذ
-  sub " Ar R", " ar R" # الر
-  sub " Az Z", " az Z" # الز
-  sub " As S", " as S" # الس
-  sub " Ash Sh", " ash Sh" # الش
-  sub " Aş Ş", " aş Ş" # الص
-  sub " Aḑ Ḑ", " aḑ Ḑ" # الض
-  sub " Aţ Ţ", " aţ Ţ" # الط
-  sub " Az̧ Z̧", " az̧ Z̧" # الظ
-  sub " Al L", " al L" # الل
-  sub " An N", " an N" # الن
-  sub " Al ", " al " # ال
-
-
   # CHARACTERS
   parallel {
 
@@ -479,5 +458,23 @@ stage {
     sub "۹", "9"
   }
 
-}
+  # POSTRULES
+  sub any([any("\u0061".."\uFFFF")]), upcase, before: boundary, not_before: boundary + any("‘|’")
+  # don't capitalize defined article in the middle of a sentence
+  sub " At T", " at T" # الت
+  sub " Ath Th", " ath th" # الث
+  sub " Ad D", " ad D" # الد
+  sub " Adh Dh", " adh Dh" # الذ
+  sub " Ar R", " ar R" # الر
+  sub " Az Z", " az Z" # الز
+  sub " As S", " as S" # الس
+  sub " Ash Sh", " ash Sh" # الش
+  sub " Aş Ş", " aş Ş" # الص
+  sub " Aḑ Ḑ", " aḑ Ḑ" # الض
+  sub " Aţ Ţ", " aţ Ţ" # الط
+  sub " Az̧ Z̧", " az̧ Z̧" # الظ
+  sub " Al L", " al L" # الل
+  sub " An N", " an N" # الن
+  sub " Al ", " al " # ال
 
+}

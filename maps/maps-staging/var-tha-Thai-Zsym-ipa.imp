@@ -119,24 +119,6 @@ stage {
   sub maybe("ห") + "ฺ", ""
 
 
-  # POSTRULES
-  # If a syllable ends with a short vowel, the vowel is sometimes
-  # followed by glottal constriction. On Wiktionary, this is
-  # sometimes transcribed as ʔ, but usage has been inconsistent.
-  # This glottal stop is not phonemic and is not written in most
-  # existing transcription systems. Therefore all syllable-final
-  # ʔ will be removed from Wiktionary data.
-  #
-  # - pattern: "([aieuoɯɔɛɤ])(?=[˩˨˧˦˥]*( |$))"
-  #   result: "\\1ʔ"
-
-  # Remove unprocessed short vowel marks
-  sub "็", ""
-
-  # Using . instead of - as syllable delimiter in IPA
-  sub "-", any_character
-
-
   # CHARACTERS
   parallel {
     # Part 1
@@ -267,9 +249,21 @@ stage {
 
   }
 
-  # DICTIONARY
-  parallel {
-  }
+  # POSTRULES
+  # If a syllable ends with a short vowel, the vowel is sometimes
+  # followed by glottal constriction. On Wiktionary, this is
+  # sometimes transcribed as ʔ, but usage has been inconsistent.
+  # This glottal stop is not phonemic and is not written in most
+  # existing transcription systems. Therefore all syllable-final
+  # ʔ will be removed from Wiktionary data.
+  #
+  # - pattern: "([aieuoɯɔɛɤ])(?=[˩˨˧˦˥]*( |$))"
+  #   result: "\\1ʔ"
+
+  # Remove unprocessed short vowel marks
+  sub "็", ""
+
+  # Using . instead of - as syllable delimiter in IPA
+  sub "-", "."
 
 }
-

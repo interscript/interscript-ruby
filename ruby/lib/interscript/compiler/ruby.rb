@@ -4,6 +4,7 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
   def compile(map)
     @map = map
     @parallel_trees = {}
+    @parallel_regexps = {}
     c = "require 'interscript/stdlib'\n"
     c << "if !defined?(Interscript::Maps); module Interscript; module Maps\n"
     c << "module Cache; end\n"
@@ -32,6 +33,9 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
     @parallel_trees.each do |k,v|
       c << "Interscript::Maps::Cache::PTREE_#{k} ||= #{v.inspect}\n"
     end
+    @parallel_regexps.each do |k,v|
+      c << "Interscript::Maps::Cache::PRE_#{k} ||= #{v.inspect}\n"
+    end
     @code = c
   end
 
@@ -47,22 +51,39 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
       c += "s\n"
       c += "end\n"
     when Interscript::Node::Group::Parallel
-      a = []
-      r.children.each do |i|
-        raise ArgumentError, "Can't parallelize #{i.class}" unless Interscript::Node::Rule::Sub === i
-        raise ArgumentError, "Can't parallelize rules with :before" if i.before
-        raise ArgumentError, "Can't parallelize rules with :after" if i.after
-        raise ArgumentError, "Can't parallelize rules with :not_before" if i.not_before
-        raise ArgumentError, "Can't parallelize rules with :not_after" if i.not_after
+      begin
+        # Try to build a tree
+        a = []
+        r.children.each do |i|
+          raise ArgumentError, "Can't parallelize #{i.class}" unless Interscript::Node::Rule::Sub === i
+          raise ArgumentError, "Can't parallelize rules with :before" if i.before
+          raise ArgumentError, "Can't parallelize rules with :after" if i.after
+          raise ArgumentError, "Can't parallelize rules with :not_before" if i.not_before
+          raise ArgumentError, "Can't parallelize rules with :not_after" if i.not_after
 
-        a << [compile_item(i.from, map, :par), compile_item(i.to, map, :parstr)]
+          a << [compile_item(i.from, map, :par), compile_item(i.to, map, :parstr)]
+        end
+        ah = a.hash.abs
+        unless @parallel_trees.include? ah
+          tree = Interscript::Stdlib.parallel_replace_compile_tree(a)
+          @parallel_trees[ah] = tree
+        end
+        c += "s = Interscript::Stdlib.parallel_replace_tree(s, Interscript::Maps::Cache::PTREE_#{ah})\n"
+      rescue
+        # Otherwise let's build a megaregexp
+        a = []
+        r.children.sort_by{ |rule| -rule.max_length }.each do |i|
+          raise ArgumentError, "Can't parallelize #{i.class}" unless Interscript::Node::Rule::Sub === i
+
+          a << [build_regexp(i, map), compile_item(i.to, map, :parstr)]
+        end
+        ah = a.hash.abs
+        unless @parallel_regexps.include? ah
+          re = Interscript::Stdlib.regexp_compile(a)
+          @parallel_regexps[ah] = [re, Hash[a]]
+        end
+        c += "s = Interscript::Stdlib.regexp_gsub(s, *Interscript::Maps::Cache::PRE_#{ah})\n"
       end
-      ah = a.hash.abs
-      unless @parallel_trees.include? ah
-        tree = Interscript::Stdlib.parallel_replace_compile_tree(a)
-        @parallel_trees[ah] = tree
-      end
-      c += "s = Interscript::Stdlib.parallel_replace_tree(s, Interscript::Maps::Cache::PTREE_#{ah})\n"
     when Interscript::Node::Rule::Sub
       from = "/#{build_regexp(r, map).gsub("/", "\\\\/")}/"
       if r.to == :upcase

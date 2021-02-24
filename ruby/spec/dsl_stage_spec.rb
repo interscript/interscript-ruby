@@ -110,6 +110,30 @@ RSpec.describe Interscript::DSL::Stage do
           }
           expect(s.("abbacus")).to eq("XXXXcus")
         end
+
+        context "extended engine" do
+          it "falls back to an extended engine when needed" do
+            s = stage {
+              parallel {
+                sub "a", "A", not_before: space, not_after: space
+                sub "b", "B", not_before: space, not_after: space
+              }
+            }
+            expect(s.("abcda abcda abada")).to eq("ABcda aBcda aBAdA")
+          end
+
+          it "sorts arguments correctly with an extended engine" do
+            s = stage {
+              parallel {
+                sub "aaaa", "c", not_before: "doesntmatter"
+                sub "a",    "d", not_before: "doesntmatter"
+                sub "aa",   "e", not_before: "doesntmatter"
+                sub "aaa",  "f", not_before: "doesntmatter"
+              }
+            }
+            expect(s.("aaaaa")).to eq("cd")
+          end
+        end
       end
 
       context "#run" do

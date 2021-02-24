@@ -19,6 +19,15 @@ class Interscript::Node::Rule::Sub < Interscript::Node::Rule
     self.not_after = Interscript::Node::Item.try_convert(not_after) if not_after
   end
 
+  def max_length
+    len = self.from.max_length
+    len += self.before.max_length if self.before
+    len += self.after.max_length if self.after
+    len += self.not_before.max_length if self.not_before
+    len += self.not_after.max_length if self.not_after
+    len
+  end
+
   def to_hash
     puts self.from.inspect if $DEBUG
     puts params.inspect if $DEBUG

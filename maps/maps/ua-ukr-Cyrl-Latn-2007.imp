@@ -27,22 +27,10 @@ tests {
   test "КИЇВ", "KYIV"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
 dependency "ua-ukr-Cyrl-Latn-1996", as: cyrllatn
 
 
 stage {
-
-  run map.cyrllatn.stage.main
-
   # RULES
   # override parent rules
   sub "\u0027", ""
@@ -52,7 +40,6 @@ stage {
   sub boundary + "\u0407", "I" # Ї in initial position -> I
   sub boundary + "\u042e", "YU" # Ю in initial position -> YU
   sub boundary + "\u042f", "YA" # Я in initial position -> YA
-
 
   # CHARACTERS
   parallel {
@@ -78,5 +65,5 @@ stage {
     sub "’", "" # ’ ->
   }
 
+  run map.cyrllatn.stage.main
 }
-
