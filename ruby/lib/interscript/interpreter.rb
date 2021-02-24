@@ -43,7 +43,7 @@ class Interscript::Interpreter < Interscript::Compiler
             r.children.sort_by{ |rule| -rule.max_length }.each do |i|
               raise ArgumentError, "Can't parallelize #{i.class}" unless Interscript::Node::Rule::Sub === i
 
-              a << [build_regexp(i), build_item(i.to, :str)]
+              a << [build_regexp(i), build_item(i.to, :parstr)]
             end
             r.subs_regexp = Interscript::Stdlib.regexp_compile(a)
             r.subs_hash = Hash[a]

@@ -85,7 +85,7 @@ class Interscript::Stdlib
           branch = branch[cc.ord]
           sub << cc
           if branch.include? nil
-            match = sub
+            match = sub.dup
             repl = branch[nil]
           end
           j += 1
