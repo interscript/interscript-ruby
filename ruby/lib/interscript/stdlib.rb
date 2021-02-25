@@ -5,6 +5,7 @@ class Interscript::Stdlib
     space: " ",
     whitespace: "[\\b \\t\\0\\r\\n]",
     boundary: "\\b",
+    non_word_boundary: "\\B",
     word: "\\w",
     not_word: "\\W",
     alpha: "[a-zA-Z]",

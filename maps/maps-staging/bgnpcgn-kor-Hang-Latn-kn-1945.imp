@@ -56,16 +56,16 @@ metadata {
 }
 
 tests {
-  test "평양", "P’yŏngyang"
+  test "평양", "P’yŏngyang"
   test "용화", "Yonghwa"
-  test "개성", "Kaesŏng"
+  test "개성", "Kaesŏng"
   test "남포", "Namp’o"
   test "안양", "Anyang"
-  test "영진-리", "Yŏngjil-li"
-  test "덕흥-리", "Tŏkhŭng-ni"
+  test "영진-리", "Yŏngjil-li"
+  test "덕흥-리", "Tŏkhŭng-ni"
   test "압록-강", "Amnok-kang"
   test "대동-강", "Taedong-gang"
-  test "라선특별시", "Rasŏnt’ŭkpyŏlsi"
+  test "라선특별시", "Rasŏnt’ŭkpyŏlsi"
   test "은하-리", "Ŭnha-ri"
   test "은중-리", "Ŭnjung-ni"
   test "은장-령", "Ŭnjang-nyŏng"
@@ -120,7 +120,7 @@ stage {
   # Add Zero-width White-space U+200B after spaces (i.e. before word boundaries)
   # So that the word-initial conversion rules will be blocked.
   sub line_start, "​"
-  sub , "​", before: " "
+  sub "", "​", before: " "
 
   # convert numbers to space + Hangul
   sub capture(any([any("0".."9") + " "])), ref( 1 ) + " ", after: any([any("0".."9")])

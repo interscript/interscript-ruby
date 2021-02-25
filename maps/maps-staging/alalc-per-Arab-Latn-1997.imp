@@ -177,11 +177,6 @@ tests {
 
 stage {
 
-  # POSTRULES
-  sub any([any("\u0061".."\uFFFF")]), upcase, before: boundary, not_before: any("‘|’")
-  sub "Al-", "al-" # ال
-
-
   # CHARACTERS
   parallel {
     # special rules
@@ -321,6 +316,11 @@ stage {
     sub "\u0647", "h" # ه
     sub "\u064a", "y" # ي
   }
+
+  # POSTRULES
+  sub any([any("\u0061".."\uFFFF")]), upcase, before: boundary, not_before: any("‘|’")
+  sub "Al-", "al-" # ال
+
 
 }
 

@@ -121,11 +121,6 @@ tests {
 # of particular parts of the stage.
 
 stage {
-
-  # POSTRULES
-  sub any([any("\u0061".."\uFFFF")]), upcase, before: boundary, not_before: boundary + any("‘|’|'")
-
-
   # CHARACTERS
   parallel {
 
@@ -300,6 +295,11 @@ stage {
     # written from left to right. A comma is inserted into
     # longer sequences, either after thousands, millions,     etc.
   }
+
+
+  # POSTRULES
+  sub any([any("\u0061".."\uFFFF")]), upcase, before: boundary, not_before: boundary + any("‘|’|'")
+
 
 }
 

@@ -4,7 +4,12 @@ class Interscript::Node::Item::Any < Interscript::Node::Item
     case data
     when Array, ::String, Range
       self.value = data
+    when Interscript::Node::Item::Group # debug alalc-ara-Arab-Latn-1997  line 683
+      self.value = data.children
+    when Interscript::Node::Item::Alias # debug mofa-jpn-Hrkt-Latn-1989 line 116
+      self.value = Interscript::Stdlib::ALIASES[data.name]
     else
+      puts data.inspect
       raise TypeError, "Wrong type #{data[0].class}, excepted Array, String or Range"
     end
   end

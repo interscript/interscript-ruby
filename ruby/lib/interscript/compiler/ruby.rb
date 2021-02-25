@@ -159,8 +159,8 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
       elsif parstr && stdlib_alias
         astr = Interscript::Stdlib::ALIASES[i.name]
       elsif target == :par
-        raise NotImplementedError, "Can't use aliases in parallel mode yet"
-        # astr = Interscript::Stdlib::ALIASES[i.name]
+        # raise NotImplementedError, "Can't use aliases in parallel mode yet"
+        astr = Interscript::Stdlib::ALIASES[i.name]
       end
     when Interscript::Node::Item::String
       if target == :str
@@ -196,6 +196,24 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
         "(?:" + compile_item(i.data, doc, target) + ")?"
       else
         compile_item(i.data, doc, target) + "?"
+      end
+    when Interscript::Node::Item::MaybeN
+      if target == :par
+        raise ArgumentError, "Can't use a MaybeN in a #{target} context"
+      end
+      if Interscript::Node::Item::String === i.data
+        "(?:" + compile_item(i.data, doc, target) + ")*"
+      else
+        compile_item(i.data, doc, target) + "*"
+      end
+    when Interscript::Node::Item::Some
+      if target == :par
+        raise ArgumentError, "Can't use a Some in a #{target} context"
+      end
+      if Interscript::Node::Item::String === i.data
+        "(?:" + compile_item(i.data, doc, target) + ")+"
+      else
+        compile_item(i.data, doc, target) + "+"
       end
     when Interscript::Node::Item::CaptureRef
       if target == :par

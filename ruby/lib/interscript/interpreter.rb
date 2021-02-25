@@ -144,6 +144,25 @@ class Interscript::Interpreter < Interscript::Compiler
         else
           build_item(i.data, target, doc) + "?"
         end
+      when Interscript::Node::Item::MaybeN
+        if target == :par
+          raise ArgumentError, "Can't use a MaybeN in a #{target} context"
+        end
+        if Interscript::Node::Item::String === i.data
+          "(?:" + build_item(i.data, target, doc) + ")*"
+        else
+          build_item(i.data, target, doc) + "*"
+        end
+
+      when Interscript::Node::Item::Some
+        if target == :par
+          raise ArgumentError, "Can't use a Some in a #{target} context"
+        end
+        if Interscript::Node::Item::String === i.data
+          "(?:" + build_item(i.data, target, doc) + ")+"
+        else
+          build_item(i.data, target, doc) + "+"
+        end
       when Interscript::Node::Item::CaptureRef
         if target == :par
           raise ArgumentError, "Can't use CaptureRef in parallel mode"

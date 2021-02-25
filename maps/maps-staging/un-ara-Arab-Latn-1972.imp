@@ -92,7 +92,7 @@ tests {
   # Examples taken from:
   # https://unstats.un.org/unsd/geoinfo/geonames/
   test "مِصر", "Mişr"
-  test "قَطَر", "Qaţar"
+  test "قَطَر", "Qaţar"
   test "الجُمهُورِيَّة العِراقِيَّة", "Al Jumhūrīyah al ‘Irāqīyah"
   test "جُمهُورِيَّة مِصر العَرَبِيَّة", "Jumhūrīyat Mişr al ‘Arabīyah"
   test "الرِيَاض", "Ar Riyāḑ"
@@ -113,12 +113,6 @@ dependency "un-ara-Arab-Latn-2017", as: arablatn
 stage {
 
   run map.arablatn.stage.main
-
-  # POSTRULES
-  sub " Aş Ş", " aş Ş" # الص
-  sub " Aḑ Ḑ", " aḑ Ḑ" # الض
-  sub " Aţ Ţ", " aţ Ţ" # الط
-
 
   # CHARACTERS
   parallel {
@@ -158,6 +152,12 @@ stage {
     sub "\ufec8", "z̧" # ﻈ
     sub "\ufec6", "z̧" # ﻆ
   }
+
+  # POSTRULES
+  sub " Aş Ş", " aş Ş" # الص
+  sub " Aḑ Ḑ", " aḑ Ḑ" # الض
+  sub " Aţ Ţ", " aţ Ţ" # الط
+
 
 }
 

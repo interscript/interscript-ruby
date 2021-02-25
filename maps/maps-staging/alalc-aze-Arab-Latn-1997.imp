@@ -176,12 +176,6 @@ tests {
 
 stage {
 
-  # POSTRULES
-  sub any([any("\u0061".."\uFFFF")]), upcase, before: boundary, not_before: boundary + any("‘|’|'")
-
-  sub boundary + "Al", "al" # الت
-
-
   # CHARACTERS
   parallel {
 
@@ -283,7 +277,7 @@ stage {
     sub "\u0624", "’" # ؤ
     sub "\u0626", "’" # ئ
     sub boundary + "\u0622", "ā" # آ
-    #     #     sub  :negative_lookbehind_start boundary :negative_lookbehind_stop "\u0622", "’ā", not_before: boundary + "\u0627\u0644", not_after: any( :missing  Regexp::Expression::EscapeSequence::Backspace "|\u0621") # warning: :missing unimplemented # warning: : # آ in middle, not final, or initial, or after ال
+    sub "\u0622", "’ā", not_before: any([boundary + "\u0627\u0644", boundary]), not_after: any(boundary + "|\u0621") # آ in middle, not final, or initial, or after ال
     sub "\u064e\u0622", "ā" # ـَآ fatha followed by ا
     sub "\u0622", "" # آ
 
@@ -325,6 +319,12 @@ stage {
     sub "\u0650\u064a", "iy", after: any(["\u064e", "u064f"]) # ـِي kasra followed by ي
     sub "\u064e\u0649", "á" # ـَى fatha followed by ى which is ا not ي
   }
+
+  # POSTRULES
+  sub any([any("\u0061".."\uFFFF")]), upcase, before: boundary, not_before: boundary + any("‘|’|'")
+
+  sub boundary + "Al", "al" # الت
+
 
 }
 

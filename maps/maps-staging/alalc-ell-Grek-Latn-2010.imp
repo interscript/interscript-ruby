@@ -281,8 +281,8 @@ stage {
   sub "\u03C5", "u", after: any("Ιιί") # Υ (before Ι)
   sub "\u0393", "N", after: any("γΓξΞχΧ") # Γ (before Γ, Ξ, Χ)
   sub "\u03B3", "n", after: any("γΓξΞχΧ") # γ (before Γ, Ξ, Χ)
-  #   #   sub "\u0393", "N", before: any( :missing  Regexp::Expression::PosixClass ), after: any("κΚ") + any( :missing  Regexp::Expression::PosixClass ) # warning: :missing unimplemented # warning: : # Γ (before Κ medially)
-  #   #   sub "\u03B3", "n", before: any( :missing  Regexp::Expression::PosixClass ), after: any("κΚ") + any( :missing  Regexp::Expression::PosixClass ) # warning: :missing unimplemented # warning: : # Γ (before Κ medially)
+  sub "\u0393", "N", before: any("[[:alpha:]]"), after: any("κΚ") + any("[[:alpha:]]") # Γ (before Κ medially)
+  sub "\u03B3", "n", before: any("[[:alpha:]]"), after: any("κΚ") + any("[[:alpha:]]") # Γ (before Κ medially)
   sub "\u039D\u03A4", "Ḏ", before: boundary # ΝΤ
   sub "\u039D\u03C4", "Ḏ", before: boundary # Ντ
   sub "\u03BD\u03C4", "ḏ", before: boundary # ντ

@@ -40,18 +40,18 @@ stage {
   # CHARACTERS
   parallel {
     sub "Ј", "Y" # Ј note[2]
-    sub "Й",  # Й note[2]
-    sub "Ц",  # Ц note[1]
-    sub "Э",  # Э note[2]
-    sub "Ю",  # Ю note[2]
-    sub "Я",  # Я note[2]
+    sub "Й", "" # Й note[2]
+    sub "Ц", "" # Ц note[1]
+    sub "Э", "" # Э note[2]
+    sub "Ю", "" # Ю note[2]
+    sub "Я", "" # Я note[2]
 
     sub "ј", "y" # ј note[2]
-    sub "й",  # й note[2]
-    sub "ц",  # ц note[1]
-    sub "э",  # э note[2]
-    sub "ю",  # ю note[2]
-    sub "я",  # я note[2]
+    sub "й", "" # й note[2]
+    sub "ц", "" # ц note[1]
+    sub "э", "" # э note[2]
+    sub "ю", "" # ю note[2]
+    sub "я", "" # я note[2]
   }
 
 }

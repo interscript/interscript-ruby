@@ -53,41 +53,10 @@ tests {
   test "ゴッホ", "gohho"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
 stage {
 
   # RULES
   sub capture(any("んン")), ref( 1 ) + "'", after: any("あいうえおやゆよアイウエオヤユヨ")
-
-
-  # POSTRULES
-  # Handling of っ/ッ
-  #
-  # The kana っ/ッ is a geminate marker.
-  # When followed by a consonant, repeat the first letter of
-  # the following syllable.
-  #
-  # If っ/ッ is not followed by a consonant, then it is usually
-  # phonetically realised as an abrupt stop or shorterning of
-  # the previous syllable. There is no documented or commonly
-  # accepted way to transliterate this sound.
-
-  sub any("っッ") + capture(any("BbCcDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz")), ref( 1 ) + ref( 1 ) # っ or ッ folloved by consonant
-  sub any("っッ"), "" # drop all other っッ.
-
-  sub "a" + any("ーa"), "â"
-  sub "i" + any("ーi"), "î"
-  sub "u" + any("ーu"), "û"
-  sub "e" + any("ーe"), "ê"
-  sub "o" + any("ーo"), "ô"
 
 
   # CHARACTERS
@@ -407,6 +376,28 @@ stage {
     # Note 3. つまる音は、最初の子音字を重ねて表わす。
     # Handled by postrules
   }
+
+  # POSTRULES
+  # Handling of っ/ッ
+  #
+  # The kana っ/ッ is a geminate marker.
+  # When followed by a consonant, repeat the first letter of
+  # the following syllable.
+  #
+  # If っ/ッ is not followed by a consonant, then it is usually
+  # phonetically realised as an abrupt stop or shorterning of
+  # the previous syllable. There is no documented or commonly
+  # accepted way to transliterate this sound.
+
+  sub any("っッ") + capture(any("BbCcDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz")), ref( 1 ) + ref( 1 ) # っ or ッ folloved by consonant
+  sub any("っッ"), "" # drop all other っッ.
+
+  sub "a" + any("ーa"), "â"
+  sub "i" + any("ーi"), "î"
+  sub "u" + any("ーu"), "û"
+  sub "e" + any("ーe"), "ê"
+  sub "o" + any("ーo"), "ô"
+
 
 }
 

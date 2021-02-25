@@ -11,7 +11,12 @@ Dir.chdir(__dir__ + "/../")
 FileUtils.rm_rf(Dir.glob("../maps/maps-staging/*"))
 #FileUtils.mkdir_p("../maps/maps-staging/")
 
-old_maps = Dir["../../interscript/maps/*.yaml"]
+old_maps = []
+#old_maps = Dir["../../interscript/maps/*.yaml"]
+#old_maps = Dir["../../interscript/maps/alalc-aze-Arab-Latn-1997.yaml"]
+#old_maps = Dir["../../interscript/maps/mofa-jpn-Hrkt-Latn-1989.yaml"]
+
+
 ex_maps = Dir["../maps/maps/*.imp"]
 ex_map_names = ex_maps.map { |i| File.basename(i, ".imp") }
 
@@ -27,11 +32,13 @@ def process_line( kkk, vvv, indent: 0)
     tokens_kkk = process(parse_kkk)
     # pp conv
     root_hash = process_root(tokens_kkk)
-    # pp root
-
+    # pp root_hash
+    # puts "vvv = #{vvv.inspect}"
     if vvv.class == String
       if vvv == '' or vvv =='""' or vvv == nil or vvv.include? '~'
         root_hash[:to] = '""'
+      elsif vvv == '"'
+        root_hash[:to] = '"\""'
       else
         if vvv == "?" #un-ell-Grek-Latn-1987-phonetic has "?" as a target alalc-ell-Grek-Latn-1997.imp also
           root_hash[:to] = "?".inspect
@@ -42,20 +49,24 @@ def process_line( kkk, vvv, indent: 0)
           string_vvv = stringify(tokens_vvv)
           # puts string_vvv
           root_hash[:to] = string_vvv
+          root_hash[:to] = 'upcase' if string_vvv.include? 'upcase'
         end
       end
     elsif vvv.class == Array
       root_hash[:to] = "any(#{vvv.inspect})"
     else
-      puts "unknown class #{vvv.inspect}"
+      root_hash[:to] = "\"\""
+      # puts "unknown class #{vvv.inspect}"
     end
 
     str = stringify_root(root_hash, indent: indent)
-
+    # puts str
+    # puts ""
+    str
 end
 
 
-old_maps.each do |old_map|
+old_maps.sort.each do |old_map|
   old_map_name = File.basename(old_map, ".yaml")
 
   if ex_map_names.include? old_map_name
@@ -180,7 +191,7 @@ old_maps.each do |old_map|
         new << "  test #{YAML.load($1).inspect}, "
         cmt = $2 if $2
       when re_expect
-        new << "#{YAML.load($1).inspect}"
+        new << "#{YAML.load($1).inspect}".unicode_normalize
         new << cmt
         new << $2 if $2
         new << "\n"

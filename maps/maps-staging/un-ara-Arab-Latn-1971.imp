@@ -91,12 +91,6 @@ stage {
 
   run map.arablatn.stage.main
 
-  # POSTRULES
-  sub " At͟h T͟h", " at͟h T͟h" # الث
-  sub " Ad͟h D͟h", " ad͟h D͟h" # الذ
-  sub " As͟h S͟h", " as͟h S͟h" # الش
-  sub " Az͟h Z͟h", " az͟h Z͟h" # الظ
-
   # CHARACTERS
   parallel {
 
@@ -141,6 +135,12 @@ stage {
     sub "\ufec8", "z͟h" # ﻈ
     sub "\ufec6", "z͟h" # ﻆ
   }
+
+  # POSTRULES
+  sub " At͟h T͟h", " at͟h T͟h" # الث
+  sub " Ad͟h D͟h", " ad͟h D͟h" # الذ
+  sub " As͟h S͟h", " as͟h S͟h" # الش
+  sub " Az͟h Z͟h", " az͟h Z͟h" # الظ
 
 }
 

@@ -64,26 +64,40 @@ stage {
   # RULES
   sub any([line_start + " ", " " + line_end]), ""
 
-  #   #   sub  :one_or_more_start " " :one_or_more_stop , " " # warning: one_or_more # warning: :
+  sub some(" "), " "
 
   # 2 character inputs will have a space between them
-  #   #   sub line_start + capture( :missing  Regexp::Expression::UnicodeProperty::Script ) + capture( :missing  Regexp::Expression::UnicodeProperty::Script ) + line_end, ref( 1 ) + " " + ref( 2 ) # warning: :missing unimplemented # warning: :
+  sub line_start + capture("\p{Hangul}") + capture("\p{Hangul}") + line_end, ref( 1 ) + " " + ref( 2 )
 
   # 4 character inputs will have a space as in XXXX -> XX XX
-  #   #   sub line_start + capture( :missing  Regexp::Expression::UnicodeProperty::Script  :missing  Regexp::Expression::UnicodeProperty::Script ) + capture( :missing  Regexp::Expression::UnicodeProperty::Script  :missing  Regexp::Expression::UnicodeProperty::Script ) + line_end, ref( 1 ) + " " + ref( 2 ) # warning: :missing unimplemented # warning: :
+  sub line_start + capture("\p{Hangul}\p{Hangul}") + capture("\p{Hangul}\p{Hangul}") + line_end, ref( 1 ) + " " + ref( 2 )
 
   # 3 character inputs are more complicated. We enumerate all possible 2
   # letter surnames according to: https://en.wikipedia.org/wiki/List_of_Korean_surnames
-  #   #   sub line_start + capture(any(["독고", "동방", "등정", "망절", "무본", "부여", "사공", "서문", "선우", "어금", "제갈", "황목", "황보"])) + capture( :missing  Regexp::Expression::UnicodeProperty::Script ) + line_end, ref( 1 ) + " " + ref( 2 ) # warning: :missing unimplemented # warning: :
+  sub line_start + capture(any(["독고", "동방", "등정", "망절", "무본", "부여", "사공", "서문", "선우", "어금", "제갈", "황목", "황보"])) + capture("\p{Hangul}") + line_end, ref( 1 ) + " " + ref( 2 )
 
   # Otherwise the first character is probably a surname
-  #   #   sub line_start + capture( :missing  Regexp::Expression::UnicodeProperty::Script ) + capture( :missing  Regexp::Expression::UnicodeProperty::Script  :missing  Regexp::Expression::UnicodeProperty::Script ) + line_end, ref( 1 ) + " " + ref( 2 ) # warning: :missing unimplemented # warning: :
+  sub line_start + capture("\p{Hangul}") + capture("\p{Hangul}\p{Hangul}") + line_end, ref( 1 ) + " " + ref( 2 )
 
   # In case of uncertainity, user needs to add a space himself.
 
-  #   #   sub  :one_or_more_start " " :one_or_more_stop , " " # warning: one_or_more # warning: :
+  sub some(" "), " "
 
   sub any([line_start + " ", " " + line_end]), ""
+
+
+  # CHARACTERS
+  parallel {
+    # This is based on Jamo
+
+  }
+
+  # DICTIONARY
+  parallel {
+    #
+  }
+
+
 
 
   # POSTRULES
@@ -284,22 +298,11 @@ stage {
   sub "-", "", before: any([line_start, " "])
 
   # Remove dash in surname
-  #   sub capture(line_start :zero_or_more_start any(" ") :zero_or_more_stop ) + "-", ref( 1 ) # warning: :
+  sub capture(line_start + maybe_n(any(" "))) + "-", ref( 1 )
 
   # Change the surname I to Yi
   sub line_start + "i", "yi"
 
-
-  # CHARACTERS
-  parallel {
-    # This is based on Jamo
-
-  }
-
-  # DICTIONARY
-  parallel {
-    #
-  }
 
   title_case
 }

@@ -103,10 +103,6 @@ stage {
 
   run map.arablatn.stage.main
 
-  # POSTRULES
-  sub " El-", " el-" # الص
-
-
   # CHARACTERS
   parallel {
 
@@ -229,6 +225,10 @@ stage {
     sub "\ufed8", any(["q", "k"]) # ﻘ
     sub "\ufed6", any(["q", "k"]) # ﻖ
   }
+
+  # POSTRULES
+  sub " El-", " el-" # الص
+
 
 }
 
