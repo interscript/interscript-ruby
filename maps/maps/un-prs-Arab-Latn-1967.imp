@@ -59,13 +59,13 @@ metadata {
 }
 
 tests {
-  test "اَنجِيرة", "Anjīrah"
-  test "اِيْوَانِي", "Eyvānī"
-  test "آبَادَان", "Ābādān"
-  test "قُرآن", "Qor’ān"
-  test "مَآب", "Ma’āb"
+  test "اَنجِيرة", "Anjīrah"
+  test "اِيْوَانِي", "Eyvānī"
+  test "آبَادَان", "Ābādān"
+  test "قُرآن", "Qor’ān"
+  test "مَآب", "Ma’āb"
   test "مُحَمَّد", "Moḩammad"
-  test "كُوهِ مَرغُوب", "Kūh-e Marghūb"
+  test "كُوهِ مَرغُوب", "Kūh-e Marghūb"
   test "پَايِ آب", "Pā-ye Āb"
   test "جُويِ آس", "Jū-ye Ās"
   test "دَهَانِهٴ مَمبَر", "Dahāneh-ye Mambar"
@@ -73,25 +73,7 @@ tests {
   test "ذُو الفَقَار", "Z̄ū ol Faqār"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
 stage {
-
-  # POSTRULES
-  sub any([any("\u0061".."\uFFFF")]), "upcase", before: boundary, not_before: boundary + any("‘|’|'|-")
-
-  sub " Al", " al"
-
-  sub " Ol", " ol"
-
-
   # CHARACTERS
   parallel {
 
@@ -224,5 +206,9 @@ stage {
     sub "\u064a", "y" # ي
   }
 
-}
+  # POSTRULES
+  sub any([any("\u0061".."\uFFFF")]), upcase, before: boundary, not_before: boundary + any("‘|’|'|-")
 
+  sub " Al", " al"
+  sub " Ol", " ol"
+}

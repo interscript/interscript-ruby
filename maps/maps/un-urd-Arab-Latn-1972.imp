@@ -93,35 +93,9 @@ tests {
   test "مُلَّا بَاغ", "Mullā Bāgh"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
 stage {
-
-  # POSTRULES
-  sub any([any("\u0061".."\uFFFF")]), "upcase", before: boundary, not_before: boundary + any("‘|’|'|-")
-  # don't capitalize defined article in the middle of a sentence
-  sub " At T", " at T" # الت
-  sub " As̄ S̄", " as̄ S̄" # الث
-  sub " Ad D", " ad D" # الد
-  sub " Az Z", " az Z" # الذ
-  sub " Ar R", " ar R" # الر
-  sub " Az Z", " az Z" # الز
-  sub " As S", " as S" # الس
-  sub " Ash Sh", " ash Sh" # الش
-  sub " As S", " as S" # الص
-  sub " Az Z", " az Z" # الض
-  sub " At T", " at T" # الط
-  sub " Az Z", " az Z" # الظ
-  sub " Al L", " al L" # الل
-  sub " An N", " an N" # الن
-  sub " Al ", " al " # ال
+  # Somehow, this should execute first to pass the test.
+  sub any("\u064a\u06cc") + "\u0651", "yy" # ي
 
   # CHARACTERS
   parallel {
@@ -139,13 +113,13 @@ stage {
     sub "\u0622", "ā" # آ
     sub boundary + "\u0627", "" # ا
     sub "\u064e", "", after: "\u0629" # َ fatha followed by ta' marboota
-    sub "\u064e", "", after: "a" + any("h|t") # َ fatha followed by ta' marboota, handling different order of conversion
+    sub "\u064e", "", after: "a" + any("ht") # َ fatha followed by ta' marboota, handling different order of conversion
 
     sub "\u0652", "" # ْ sokoon
     sub "\u0659", "ê"
 
     sub "\u0650", "i" # karsra
-    sub "\u0650" + any("\u064a|\u06cc"), "ī" # ـِي kasra followed by ي
+    sub "\u0650" + any("\u064a\u06cc"), "ī" # ـِي kasra followed by ي
     sub "\u0650\u06d2\u0652", "e" # ـے
     sub "\u0650\u06d2", "e" # ـے
     sub "\u06d2", "e" # ـے
@@ -186,7 +160,6 @@ stage {
     sub "\u0646\u0651", "nn" # ن
     sub "\u0647\u0651", "hh" # ه
     sub "\u0648\u0651", "vv" # و
-    sub any("\u064a|\u06cc") + "\u0651", "yy" # ي
 
     # NOTE 1
     sub "\u0650" + boundary, "-e" # ِ kasra
@@ -204,6 +177,7 @@ stage {
     # - '-ye'
 
 
+    # TODO: compress this
     # ta' marboota
     sub "\u0629", "at" # ة in the middle of the sentence
     sub "\u0629" + line_end, "ah"
@@ -283,10 +257,10 @@ stage {
     sub "\u06AF", "g" # ‫گ‬
     sub "\u0644", "l" # ل
     sub "\u0645", "m" # م
-    sub any("\u06BA|\u0646"), "n" # ن, ں
-    sub any("\ufba9|\u06c1"), "h" # ہ , ﮩ
-    sub any("\ufba9|\u06c1") + boundary, "ḥ", before: any("\u064e|\u0650|\u064f") # ہ , ﮩ NOTE C
-    sub any("\u0647|\u06be"), "h" # ه, ھ
+    sub any("\u06BA\u0646"), "n" # ن, ں
+    sub any("\ufba9\u06c1"), "h" # ہ , ﮩ
+    sub any("\ufba9\u06c1") + boundary, "ḥ", before: any("\u064e\u0650\u064f") # ہ , ﮩ NOTE C
+    sub any("\u0647\u06be"), "h" # ه, ھ
     sub "\u0648", "v" # و
     sub "\u0648", "ẉ", before: "\u062e" # و NOTE B
     sub any("\u064a|\u06cc"), "y" # ي
@@ -295,5 +269,22 @@ stage {
     sub "\u06CD", "êy" # ‫ۍ‬
   }
 
+  # POSTRULES
+  sub any("\u0061".."\uFFFF"), upcase, before: boundary, not_before: boundary + any("‘’'-")
+  # don't capitalize defined article in the middle of a sentence
+  sub " At T", " at T" # الت
+  sub " As̄ S̄", " as̄ S̄" # الث
+  sub " Ad D", " ad D" # الد
+  sub " Az Z", " az Z" # الذ
+  sub " Ar R", " ar R" # الر
+  sub " Az Z", " az Z" # الز
+  sub " As S", " as S" # الس
+  sub " Ash Sh", " ash Sh" # الش
+  sub " As S", " as S" # الص
+  sub " Az Z", " az Z" # الض
+  sub " At T", " at T" # الط
+  sub " Az Z", " az Z" # الظ
+  sub " Al L", " al L" # الل
+  sub " An N", " an N" # الن
+  sub " Al ", " al " # ال
 }
-
