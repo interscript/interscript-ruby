@@ -418,20 +418,20 @@ stage {
   }
 
   # POSTRULES
-    sub "vv", "v"
-    sub "ðð", "ð"
-    sub "zz", "z"
-    sub "θθ", "θ"
-    sub "kk", "k"
-    sub "ll", "l"
-    sub "mm", "m"
-    sub "nn", "n"
-    sub "pp", "p"
-    sub "rr", "r"
-    sub "ss", "s"
-    sub "tt", "t"
-    sub "ff", "f"
-    sub "xx", "x"
+  sub "vv", "v"
+  sub "ðð", "ð"
+  sub "zz", "z"
+  sub "θθ", "θ"
+  sub "kk", "k"
+  sub "ll", "l"
+  sub "mm", "m"
+  sub "nn", "n"
+  sub "pp", "p"
+  sub "rr", "r"
+  sub "ss", "s"
+  sub "tt", "t"
+  sub "ff", "f"
+  sub "xx", "x"
 
   downcase
 }

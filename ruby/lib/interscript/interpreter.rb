@@ -122,7 +122,11 @@ class Interscript::Interpreter < Interscript::Compiler
         end
       when Interscript::Node::Item::Group
         if target == :par
-          raise NotImplementedError, "Can't concatenate in parallel mode yet"
+          i.children.map do |j|
+            build_item(j, target, doc)
+          end.reduce([""]) do |j,k|
+            Array(j).product(Array(k)).map(&:join)
+          end
         else
           i.children.map { |j| build_item(j, target, doc) }.join
         end

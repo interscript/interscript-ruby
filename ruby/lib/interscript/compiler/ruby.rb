@@ -173,7 +173,11 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
       end
     when Interscript::Node::Item::Group
       if target == :par
-        raise NotImplementedError, "Can't concatenate in parallel mode yet"
+        i.children.map do |j|
+          compile_item(j, doc, target)
+        end.reduce([""]) do |j,k|
+          Array(j).product(Array(k)).map(&:join)
+        end
       elsif target == :str
         i.children.map { |j| compile_item(j, doc, target) }.join("+")
       elsif target == :re
