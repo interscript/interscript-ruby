@@ -180,7 +180,7 @@ tests {
 stage {
 
   # POSTRULES
-  sub any([any("\u0061".."\uFFFF")]), "upcase", before: boundary, not_before: boundary + any("‘|’|'|-")
+  sub any([any("\u0061".."\uFFFF")]), upcase, before: boundary, not_before: boundary + any("‘|’|'|-")
 
   sub " Ol", " ol"
 

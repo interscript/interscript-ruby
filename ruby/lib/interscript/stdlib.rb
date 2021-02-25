@@ -23,7 +23,6 @@ class Interscript::Stdlib
 
   @treecache = {}
 
-
   def self.parallel_regexp_compile(subs_hash)
     # puts subs_hash.inspect
     regexp = subs_hash.each_with_index.map do |p,i|
@@ -36,9 +35,9 @@ class Interscript::Stdlib
   def self.parallel_regexp_gsub(string, subs_regexp, subs_hash)
     string.gsub(subs_regexp) do |match|
       lm = Regexp.last_match
-      idx = lm.named_captures.compact.first.first[1..-1].to_i
-      offset = lm.offset(idx+1)
-      subs_hash.values[idx]
+      # Extract the match name
+      idx = lm.named_captures.compact.keys.first[1..-1].to_i
+      subs_hash[idx]
     end
   end
 

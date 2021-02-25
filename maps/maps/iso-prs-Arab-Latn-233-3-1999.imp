@@ -220,43 +220,6 @@ stage {
     sub "\u0629", "h", before: boundary + "\u0627\u0644" + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")])
     sub "\u0629", "h", before: boundary + "\u0627\u0644" + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")]) + any([any("\u0600".."\u06ff")])
 
-    # shadda
-    sub "\u0628", "bb" # ب
-    sub "\u067E", "pp" # پ
-    sub "\u062a", "tt" # ت
-    sub "\u062B", "s̱s̱" # ث
-    sub "\u062c", "jj" # ج
-    sub "\u0686", "č̱č̱" # ‫چ‬‬
-    sub "\u062d", "ḥḥ" # ح
-    sub "\u062e", "ḵḵ" # خ
-    sub "\u062f", "dd" # د
-    sub "\u0689", "ḏḏ" # ‫ډ‬
-    sub "\u0630", "ẕẕ" # ذ
-    sub "\u0631", "rr" # ر
-    sub "\u0632", "zz" # ز
-    sub "\u0698", "zz" # ‫ژ‬
-    sub "\u0633", "ss" # س
-    sub "\u0634", "šš" # ش
-    sub "\u0635", "ṣṣ" # ص
-    sub "\u0636", "żż" # ض
-    sub "\u0637", "ṭṭ" # ط
-    sub "\u0638", "zz" # ظ
-    sub "\u0639", "‘" # ع
-    sub "\u063a", "gh" # غ
-    sub "\u0641", "ff" # ف
-    sub "\u0642", "qq" # ق
-    sub "\u06A9", "kk" # ک
-    sub "\u06AF", "gg" # ‫گ‬
-    sub "\u0644", "ll" # ل
-    sub "\u0645", "mm" # م
-    sub "\u0646", "nn" # ن
-    sub "\u0648", "vv" # و
-    sub "\u0647", "hh" # ه
-    sub "\u064a", "yy" # ي
-    sub "\u0649", "yy" # ي
-    sub "\u06D0", "ēē" # ې
-    sub "\u06CD", "êy" # ‫ۍ
-
     # Tanvin
     sub "\u064b", "´´" #  ً
     sub "\u064c", "" #  ٌ
@@ -347,6 +310,43 @@ stage {
     sub "\u0649", "y" # ي
     sub "\u06D0", "ē" # ې
     sub "\u06CD", "êy" # ‫ۍ‬
+
+    # shadda
+    sub "\u0628", "bb" # ب
+    sub "\u067E", "pp" # پ
+    sub "\u062a", "tt" # ت
+    sub "\u062B", "s̱s̱" # ث
+    sub "\u062c", "jj" # ج
+    sub "\u0686", "č̱č̱" # ‫چ‬‬
+    sub "\u062d", "ḥḥ" # ح
+    sub "\u062e", "ḵḵ" # خ
+    sub "\u062f", "dd" # د
+    sub "\u0689", "ḏḏ" # ‫ډ‬
+    sub "\u0630", "ẕẕ" # ذ
+    sub "\u0631", "rr" # ر
+    sub "\u0632", "zz" # ز
+    sub "\u0698", "zz" # ‫ژ‬
+    sub "\u0633", "ss" # س
+    sub "\u0634", "šš" # ش
+    sub "\u0635", "ṣṣ" # ص
+    sub "\u0636", "żż" # ض
+    sub "\u0637", "ṭṭ" # ط
+    sub "\u0638", "zz" # ظ
+    sub "\u0639", "‘" # ع
+    sub "\u063a", "gh" # غ
+    sub "\u0641", "ff" # ف
+    sub "\u0642", "qq" # ق
+    sub "\u06A9", "kk" # ک
+    sub "\u06AF", "gg" # ‫گ‬
+    sub "\u0644", "ll" # ل
+    sub "\u0645", "mm" # م
+    sub "\u0646", "nn" # ن
+    sub "\u0648", "vv" # و
+    sub "\u0647", "hh" # ه
+    sub "\u064a", "yy" # ي
+    sub "\u0649", "yy" # ي
+    sub "\u06D0", "ēē" # ې
+    sub "\u06CD", "êy" # ‫ۍ
   }
 
 }

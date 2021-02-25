@@ -104,37 +104,7 @@ tests {
   test "الرِيَاض", "Ar Riyāḏ"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
 stage {
-
-  # POSTRULES
-  sub any([any("\u0061".."\uFFFF")]), "upcase", before: boundary, not_before: boundary + any("‘|’|'")
-  # don't capitalize defined article in the middle of a sentence
-  sub " At T", " at T" # الت
-  sub " Ath Th", " ath th" # الث
-  sub " Ad D", " ad D" # الد
-  sub " Adh Dh", " adh Dh" # الذ
-  sub " Ar R", " ar R" # الر
-  sub " Az Z", " az Z" # الز
-  sub " As S", " as S" # الس
-  sub " Ash Sh", " ash Sh" # الش
-  sub " As̱ S̱", " as̱ S̱" # الص
-  sub " Aḏ Ḏ", " aḏ Ḏ" # الض
-  sub " Aṯ Ṯ", " aṯ Ṯ" # الط
-  sub " Ad͟h D͟h", " ad͟h D͟h" # الظ
-  sub " Al L", " al L" # الل
-  sub " An N", " an N" # الن
-  sub " Al ", " al " # ال
-
-
   # CHARACTERS
   parallel {
 
@@ -144,7 +114,7 @@ stage {
     # pointing
     sub "\u064e", "a" # َ fatha
     sub "\u064e", "", after: "\u0629" # َ fatha followed by ta' marboota
-    sub "\u064e", "", after: "a" + any("h|t") # َ fatha followed by ta' marboota, handling different order of conversion
+    sub "\u064e", "", after: "a" + any("ht") # َ fatha followed by ta' marboota, handling different order of conversion
     sub "\u0650", "i" # ِ kasra
     sub "\u064f", "u" # ُ damma
     sub "\u0652", "" # ْ sokoon, see note A below
@@ -159,7 +129,7 @@ stage {
 
     sub "\u0650\u064a", "ī" # ـِي kasra followed by ي
     sub "\u0650\u064a\u0651\u064e", "īy" # ـِيَّ
-    sub "\u0650\u064a", "iy", after: any(["\u064e", "u064f"]) # ـِي kasra followed by ي
+    sub "\u0650\u064a", "iy", after: any("\u064e\u064f") # ـِي kasra followed by ي
     sub "\u064f\u0648", "ū" # ـُو damma followed by و
     sub "\u064e\u0627", "ā" # ـَا fatha followed by ا
     sub "\u064e\u0649", "á" # ـَى fatha followed by ى which is ا not ي
@@ -186,6 +156,7 @@ stage {
     sub boundary + "\u0627\u0644\u0644", "al l" # الل
     sub boundary + "\u0627\u0644\u0646", "an n" # الن
 
+    # TODO: shorten this fragment
     # ta' marboota
     sub "\u0629", "at" # ة in the middle of the sentence
     sub "\u0629" + line_end, "ah"
@@ -381,5 +352,24 @@ stage {
     # (ـ stands for any consonant)
   }
 
-}
 
+  # POSTRULES
+  sub any("\u0061".."\uFFFF"), upcase, before: boundary, not_before: boundary + any("‘’'")
+  # don't capitalize defined article in the middle of a sentence
+  sub " At T", " at T" # الت
+  sub " Ath Th", " ath th" # الث
+  sub " Ad D", " ad D" # الد
+  sub " Adh Dh", " adh Dh" # الذ
+  sub " Ar R", " ar R" # الر
+  sub " Az Z", " az Z" # الز
+  sub " As S", " as S" # الس
+  sub " Ash Sh", " ash Sh" # الش
+  sub " As̱ S̱", " as̱ S̱" # الص
+  sub " Aḏ Ḏ", " aḏ Ḏ" # الض
+  sub " Aṯ Ṯ", " aṯ Ṯ" # الط
+  sub " Ad͟h D͟h", " ad͟h D͟h" # الظ
+  sub " Al L", " al L" # الل
+  sub " An N", " an N" # الن
+  sub " Al ", " al " # ال
+
+}

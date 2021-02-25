@@ -12,7 +12,7 @@ class Interscript::Node::Item::Alias < Interscript::Node::Item
 
   def max_length
     if stdlib?
-      (name == :none) ? 0 : 1
+      ([:none].include? name) ? 0 : 1
     else
       raise NotImplementedError, "can't get a max length of this alias"
     end
