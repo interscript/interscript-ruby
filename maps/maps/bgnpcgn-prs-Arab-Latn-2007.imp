@@ -200,7 +200,7 @@ metadata {
 
 tests {
   test "بَغْلان", "Baghlān"
-  test "پُوټَكَى", "Pōṯakay"
+  test "پُوټَكَى", "Pōṯakay"
   test "شِيرِين تَگَاب", "Shīrīn Tagāb"
   test "کُوْټ", "Kōṯ"
   test "ثَابِر", "S̄ābir"
@@ -211,7 +211,7 @@ tests {
   test "حَضْرَتِ إِمَام", "Ḩaẕrat-e Imām"
   test "خُوْسْت", "Khōst"
   test "سْپِين بُوْلْدَک", "Spīn Bōldak"
-  test "ډَنْډ وَ پَتَان", "Ḏanḏ Wa Patān"
+  test "ډَنْډ وَ پَتَان", "Ḏanḏ Wa Patān"
   # - source: گُذَرْگَاهٔ نور
   #   expected: Guz̄argāh-e nūr
   test "كَنْدَهَار", "Kandahār"
@@ -275,36 +275,7 @@ tests {
   test "جَبَل السَرَاج", "Jabal as Sarāj"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
 stage {
-
-  # POSTRULES
-  sub any([any("\u0061".."\uFFFF")]), upcase, before: boundary, not_before: boundary + any("‘|’|'|-")
-  # don't capitalize defined article in the middle of a sentence
-  sub " At T", " at T" # الت
-  sub " As̄ S̄", " as̄ S̄" # الث
-  sub " Ad D", " ad D" # الد
-  sub " Az̄ Z̄", " az̄ Z̄" # الذ
-  sub " Ar R", " ar R" # الر
-  sub " Az Z", " az Z" # الز
-  sub " As S", " as S" # الس
-  sub " Ash Sh", " ash Sh" # الش
-  sub " Aş Ş", " aş Ş" # الص
-  sub " Aẕ Ẕ", " aẕ Ẕ" # الض
-  sub " Aţ Ţ", " aţ Ţ" # الط
-  sub " Az̧ Z̧", " az̧ Z̧" # الظ
-  sub " Al L", " al L" # الل
-  sub " An N", " an N" # الن
-  sub " Al ", " al " # ال
-
   # CHARACTERS
   parallel {
 
@@ -383,20 +354,20 @@ stage {
     # pointing
     sub "\u064e", "a" # َ fatha
     sub "\u064e", "", after: "\u0629" # َ fatha followed by ta' marboota
-    sub "\u064e", "", after: "a" + any("h|t") # َ fatha followed by ta' marboota, handling different order of conversion
+    sub "\u064e", "", after: "a" + any("ht") # َ fatha followed by ta' marboota, handling different order of conversion
 
     # Both e and i are available to romanize this short vowel,
     # depending on local usage and/or root language. In cases where the sound
     # is uncertain, i is the default romanization in BGN/PCGN standardization
     # procedures.
-    sub "\u0650", any(["i", "e"])
+    sub "\u0650", any("ie")
     sub "\u0650" + boundary, "-e" # ِ kasra
 
     # Both o and u are available to romanize this short vowel,
     # depending on local usage and/or root language. In cases where the sound
     # is uncertain, u is the default romanization in BGN/PCGN standardization
     # procedures.
-    sub "\u064f", any(["u", "o"]) # ُ damma
+    sub "\u064f", any("uo") # ُ damma
 
     sub "\u0652", "" # ْ sokoon
     sub "\u0659", "ê"
@@ -558,5 +529,24 @@ stage {
     sub "\u06CD", "êy" # ‫ۍ‬
   }
 
-}
+  # POSTRULES
+  sub any("\u0061".."\uFFFF"), upcase, before: boundary, not_before: boundary + any("‘|’|'|-")
+  # don't capitalize defined article in the middle of a sentence
+  sub " At T", " at T" # الت
+  sub " As̄ S̄", " as̄ S̄" # الث
+  sub " Ad D", " ad D" # الد
+  sub " Az̄ Z̄", " az̄ Z̄" # الذ
+  sub " Ar R", " ar R" # الر
+  sub " Az Z", " az Z" # الز
+  sub " As S", " as S" # الس
+  sub " Ash Sh", " ash Sh" # الش
+  sub " Aş Ş", " aş Ş" # الص
+  sub " Aẕ Ẕ", " aẕ Ẕ" # الض
+  sub " Aţ Ţ", " aţ Ţ" # الط
+  sub " Az̧ Z̧", " az̧ Z̧" # الظ
+  sub " Al L", " al L" # الل
+  sub " An N", " an N" # الن
+  sub " Al ", " al " # ال
 
+  compose
+}

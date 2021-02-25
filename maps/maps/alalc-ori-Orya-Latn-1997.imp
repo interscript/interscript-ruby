@@ -52,57 +52,51 @@ tests {
   test "ତିର୍ତ୍ତୋଲର ବିକାଶ ନେଇ ବିଷ୍ଣୁବାବୁ ମୋତେ ବହୁ ବାର ଭେଟୁଥିଲେ: ନବୀନ", "tirtteālara bikāśa nei bishṇubābu mote bahu bāra bheṭuthile: nabīna"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
+aliases {
+  def_alias cons_or_cluster, any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
+}
 
 stage {
 
   # RULES
   # Rule II
-  sub "କ", "k", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ଖ", "kh", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ଗ", "g", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ଘ", "gh", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ଙ", "ṅ", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ଚ", "c", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ଛ", "ch", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ଜ", "j", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ଝ", "jh", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ଞ", "ñ", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ଟ", "ṭ", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ଠ", "ṭh", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ଡ", "ḍ", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ଢ", "ḍh", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ଣ", "ṇ", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ତ", "t", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ଥ", "th", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ଦ", "d", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ଧ", "dh", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ନ", "n", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ପ", "p", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ଫ", "ph", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ବ", "b", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ଭ", "bh", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ମ", "m", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ଯ", "y", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ୟ", "ẏ", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ର", "r", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ଲ", "l", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ଳ", "ḷ", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ଶ", "ś", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ଷ", "sh", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ସ", "s", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ହ", "h", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ୱ", "b", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ଡ଼", "ṙ", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
-  sub "ଢ଼", "ṙh", after: any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
+  sub "କ", "k", after: cons_or_cluster
+  sub "ଖ", "kh", after: cons_or_cluster
+  sub "ଗ", "g", after: cons_or_cluster
+  sub "ଘ", "gh", after: cons_or_cluster
+  sub "ଙ", "ṅ", after: cons_or_cluster
+  sub "ଚ", "c", after: cons_or_cluster
+  sub "ଛ", "ch", after: cons_or_cluster
+  sub "ଜ", "j", after: cons_or_cluster
+  sub "ଝ", "jh", after: cons_or_cluster
+  sub "ଞ", "ñ", after: cons_or_cluster
+  sub "ଟ", "ṭ", after: cons_or_cluster
+  sub "ଠ", "ṭh", after: cons_or_cluster
+  sub "ଡ", "ḍ", after: cons_or_cluster
+  sub "ଢ", "ḍh", after: cons_or_cluster
+  sub "ଣ", "ṇ", after: cons_or_cluster
+  sub "ତ", "t", after: cons_or_cluster
+  sub "ଥ", "th", after: cons_or_cluster
+  sub "ଦ", "d", after: cons_or_cluster
+  sub "ଧ", "dh", after: cons_or_cluster
+  sub "ନ", "n", after: cons_or_cluster
+  sub "ପ", "p", after: cons_or_cluster
+  sub "ଫ", "ph", after: cons_or_cluster
+  sub "ବ", "b", after: cons_or_cluster
+  sub "ଭ", "bh", after: cons_or_cluster
+  sub "ମ", "m", after: cons_or_cluster
+  sub "ଯ", "y", after: cons_or_cluster
+  sub "ୟ", "ẏ", after: cons_or_cluster
+  sub "ର", "r", after: cons_or_cluster
+  sub "ଲ", "l", after: cons_or_cluster
+  sub "ଳ", "ḷ", after: cons_or_cluster
+  sub "ଶ", "ś", after: cons_or_cluster
+  sub "ଷ", "sh", after: cons_or_cluster
+  sub "ସ", "s", after: cons_or_cluster
+  sub "ହ", "h", after: cons_or_cluster
+  sub "ୱ", "b", after: cons_or_cluster
+  sub "ଡ଼", "ṙ", after: cons_or_cluster
+  sub "ଢ଼", "ṙh", after: cons_or_cluster
 
   # Rule III
   sub "ବ", "bba", after: any("\u0b2c")
@@ -113,7 +107,7 @@ stage {
   sub "\u0902", "n", after: any("ତଥଦଧନ")
   # Rule V
   sub "\u0b01", "m̐", after: any("ପଫବଭମଯୟରଲଳଶଷସହଅଆଇଈଉଊଋୠଌଏଐଓଔ")
-  sub "\u0b01", "m̐", before: , after: boundary
+  sub "\u0b01", "m̐", after: boundary
 
 
   # CHARACTERS
@@ -213,7 +207,7 @@ stage {
     sub "୍", ""
     sub "़", ""
     sub "଼", ""
-    sub "।", any_character
+    sub "।", "."
     sub "‍", "" # Used for joining
     sub "‌", "" # Used for non joining
 
@@ -236,5 +230,5 @@ stage {
     sub "୯", "9"
   }
 
+  compose
 }
-

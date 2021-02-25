@@ -74,11 +74,11 @@ tests {
 # of particular parts of the stage.
 
 stage {
-
-  # RULES
-  # note[1]
-  #   #   sub capture(any_character) :interval_start ref( 1 ) :interval_stop , ref( 1 ) # warning: :interval unimplemented # warning: :
-
+  sub capture(any_character) + ref(1), ref(1)
+  sub capture(any_character) + ref(1), ref(1)
+  sub capture(any_character) + ref(1), ref(1)
+  sub capture(any_character) + ref(1), ref(1)
+  sub capture(any_character) + ref(1), ref(1)
 
   # CHARACTERS
   parallel {
@@ -172,4 +172,3 @@ stage {
   }
 
 }
-
