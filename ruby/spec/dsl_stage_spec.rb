@@ -143,6 +143,20 @@ RSpec.describe Interscript::DSL::Stage do
             }
             expect(s.("aaaddd")).to eq("bbbeee")
           end
+
+          it "doesn't trigger a weird off-by-one error" do
+            s = stage {
+              parallel {
+                sub "\u064f", "u" # ُ damma
+                sub "\u0650" + boundary, "-e" # ِ kasra # needed to trigger the extended engine
+                sub "\u064f", any("uo") # ُ damma
+                sub "\u0627", "a" # ا
+                sub "\u0648", "o" # و
+              }
+            }
+
+            expect(s.("\u0627")).to eq("a")
+          end
         end
       end
 
