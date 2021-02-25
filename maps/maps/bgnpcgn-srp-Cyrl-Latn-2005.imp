@@ -74,7 +74,6 @@ aliases {
   def_alias srp_latupper, any("A".."Z")
 }
 
-
 stage {
   # CHARACTERS
   parallel {
@@ -143,5 +142,5 @@ stage {
   # POSTRULES
   sub srp_multichar, upcase, before: srp_latupper
   sub srp_multichar, upcase, after: srp_latupper
-
+  compose
 }
