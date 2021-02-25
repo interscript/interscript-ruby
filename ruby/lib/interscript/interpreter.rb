@@ -21,7 +21,7 @@ class Interscript::Interpreter < Interscript::Compiler
         if r.cached_tree
           @str = Interscript::Stdlib.parallel_replace_tree(@str, r.cached_tree)
         elsif r.subs_regexp && r.subs_hash
-          @str = Interscript::Stdlib.regexp_gsub(@str, r.subs_regexp, r.subs_hash)
+          @str = Interscript::Stdlib.parallel_regexp_gsub(@str, r.subs_regexp, r.subs_hash)
         else
           begin
             # Try to build a tree
@@ -45,9 +45,9 @@ class Interscript::Interpreter < Interscript::Compiler
 
               a << [build_regexp(i), build_item(i.to, :parstr)]
             end
-            r.subs_regexp = Interscript::Stdlib.regexp_compile(a)
+            r.subs_regexp = Interscript::Stdlib.parallel_regexp_compile(a)
             r.subs_hash = Hash[a]
-            @str = Interscript::Stdlib.regexp_gsub(@str, r.subs_regexp, r.subs_hash)
+            @str = Interscript::Stdlib.parallel_regexp_gsub(@str, r.subs_regexp, r.subs_hash)
           end
         end
       when Interscript::Node::Group

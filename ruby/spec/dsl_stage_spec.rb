@@ -133,6 +133,16 @@ RSpec.describe Interscript::DSL::Stage do
             }
             expect(s.("aaaaa")).to eq("cd")
           end
+
+          it "works with multiple replacements" do
+            s = stage {
+              parallel {
+                sub "a", any("bc"), not_before: "doesntmatter"
+                sub "d", any("ef"), not_before: "doesntmatter"
+              }
+            }
+            expect(s.("aaaddd")).to eq("bbbeee")
+          end
         end
       end
 

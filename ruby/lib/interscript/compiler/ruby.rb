@@ -79,10 +79,10 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
         end
         ah = a.hash.abs
         unless @parallel_regexps.include? ah
-          re = Interscript::Stdlib.regexp_compile(a)
+          re = Interscript::Stdlib.parallel_regexp_compile(a)
           @parallel_regexps[ah] = [re, Hash[a]]
         end
-        c += "s = Interscript::Stdlib.regexp_gsub(s, *Interscript::Maps::Cache::PRE_#{ah})\n"
+        c += "s = Interscript::Stdlib.parallel_regexp_gsub(s, *Interscript::Maps::Cache::PRE_#{ah})\n"
       end
     when Interscript::Node::Rule::Sub
       from = "/#{build_regexp(r, map).gsub("/", "\\\\/")}/"

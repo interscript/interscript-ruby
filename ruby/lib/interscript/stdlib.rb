@@ -24,17 +24,16 @@ class Interscript::Stdlib
   @treecache = {}
 
 
-  def self.regexp_compile(subs_hash)
+  def self.parallel_regexp_compile(subs_hash)
     # puts subs_hash.inspect
     regexp = subs_hash.each_with_index.map do |p,i|
       "(?<_%d>%s)" % [i,p[0]]
     end.join("|")
     subs_regexp = Regexp.compile(regexp)
     # puts subs_regexp.inspect
-    subs_regexp
   end
 
-  def self.regexp_gsub(string, subs_regexp, subs_hash)
+  def self.parallel_regexp_gsub(string, subs_regexp, subs_hash)
     string.gsub(subs_regexp) do |match|
       lm = Regexp.last_match
       idx = lm.named_captures.compact.first.first[1..-1].to_i
