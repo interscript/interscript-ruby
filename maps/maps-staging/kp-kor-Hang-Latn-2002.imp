@@ -107,12 +107,12 @@ tests {
 # advanced expressions in parallel {} parts, and also about the order
 # of particular parts of the stage.
 
+dependency "unicode", import: true
 dependency "var-kor-Hang-Hang-jamo", as: hanghang
 
 
 stage {
 
-  run map.hanghang.stage.main
 
   # RULES
 
@@ -171,6 +171,9 @@ stage {
   sub "평양", "Pyongyang"
 
 
+  run map.hanghang.stage.main
+
+  
   # POSTRULES
 
   # Add space to the two ends of the string for easier word boundary handling
@@ -254,6 +257,8 @@ stage {
   sub "ᇂᄌ", "ᄎ"
   sub "ᇂ", ""
 
+  # CHARACTERS
+  parallel {
   # From Unicode Chart
   # https://github.com/unicode-org/cldr/blob/master/common/transforms/Korean-Latin-BGN.xml
   sub "ᆨᄀ", "kk" # HANGUL JONGSEONG KIYEOK + CHOSEONG KIYEOK
@@ -514,29 +519,27 @@ stage {
   sub "ᅯ", "wo" # HANGUL JUNGSEONG WEO
   sub "ᅫ", "wae" # HANGUL JUNGSEONG WAE
   sub "ᅰ", "we" # HANGUL JUNGSEONG WE
-  #   #   sub "ᆨ", "k", not_after:  :missing  Regexp::Expression::UnicodeProperty::Script  # warning: :missing unimplemented # warning: : # HANGUL JONGSEONG KIYEOK
-  #   #   sub "ᆫ", "n", not_after:  :missing  Regexp::Expression::UnicodeProperty::Script  # warning: :missing unimplemented # warning: : # HANGUL JONGSEONG NIEUN
-  #   #   sub "ᆮ", "t", not_after:  :missing  Regexp::Expression::UnicodeProperty::Script  # warning: :missing unimplemented # warning: : # HANGUL JONGSEONG TIEUT
-  #   #   sub "ᆯ", "l", not_after:  :missing  Regexp::Expression::UnicodeProperty::Script  # warning: :missing unimplemented # warning: : # HANGUL JONGSEONG RIEUL
-  #   #   sub "ᆷ", "m", not_after:  :missing  Regexp::Expression::UnicodeProperty::Script  # warning: :missing unimplemented # warning: : # HANGUL JONGSEONG MIEUM
-  #   #   sub "ᆸ", "p", not_after:  :missing  Regexp::Expression::UnicodeProperty::Script  # warning: :missing unimplemented # warning: : # HANGUL JONGSEONG PIEUP
-  #   #   sub "ᆺ", "t", not_after:  :missing  Regexp::Expression::UnicodeProperty::Script  # warning: :missing unimplemented # warning: : # HANGUL JONGSEONG SIOS
-  #   #   sub "ᆼ", "ng", not_after:  :missing  Regexp::Expression::UnicodeProperty::Script  # warning: :missing unimplemented # warning: : # HANGUL JONGSEONG IEUNG
-  #   #   sub "ᆽ", "t", not_after:  :missing  Regexp::Expression::UnicodeProperty::Script  # warning: :missing unimplemented # warning: : # HANGUL JONGSEONG CIEUC
-  #   #   sub "ᆾ", "t", not_after:  :missing  Regexp::Expression::UnicodeProperty::Script  # warning: :missing unimplemented # warning: : # HANGUL JONGSEONG CHIEUCH
-  #   #   sub "ᆿ", "k", not_after:  :missing  Regexp::Expression::UnicodeProperty::Script  # warning: :missing unimplemented # warning: : # HANGUL JONGSEONG KHIEUKH
-  #   #   sub "ᇀ", "t", not_after:  :missing  Regexp::Expression::UnicodeProperty::Script  # warning: :missing unimplemented # warning: : # HANGUL JONGSEONG THIEUTH
-  #   #   sub "ᇁ", "p", not_after:  :missing  Regexp::Expression::UnicodeProperty::Script  # warning: :missing unimplemented # warning: : # HANGUL JONGSEONG PHIEUPH
-  #   #   sub "ᆰ", "k", not_after:  :missing  Regexp::Expression::UnicodeProperty::Script  # warning: :missing unimplemented # warning: : # HANGUL JONGSEONG RIEUL-KIYEOK
-  #   #   sub "ᆲ", "p", not_after:  :missing  Regexp::Expression::UnicodeProperty::Script  # warning: :missing unimplemented # warning: : # HANGUL JONGSEONG RIEUL-PIEUP
+  sub "ᆨ", "k", not_after: unicode_hangul # HANGUL JONGSEONG KIYEOK
+  sub "ᆫ", "n", not_after: unicode_hangul # HANGUL JONGSEONG NIEUN
+  sub "ᆮ", "t", not_after: unicode_hangul # HANGUL JONGSEONG TIEUT
+  sub "ᆯ", "l", not_after: unicode_hangul # HANGUL JONGSEONG RIEUL
+  sub "ᆷ", "m", not_after: unicode_hangul # HANGUL JONGSEONG MIEUM
+  sub "ᆸ", "p", not_after: unicode_hangul # HANGUL JONGSEONG PIEUP
+  sub "ᆺ", "t", not_after: unicode_hangul # HANGUL JONGSEONG SIOS
+  sub "ᆼ", "ng", not_after: unicode_hangul # HANGUL JONGSEONG IEUNG
+  sub "ᆽ", "t", not_after: unicode_hangul # HANGUL JONGSEONG CIEUC
+  sub "ᆾ", "t", not_after: unicode_hangul # HANGUL JONGSEONG CHIEUCH
+  sub "ᆿ", "k", not_after: unicode_hangul # HANGUL JONGSEONG KHIEUKH
+  sub "ᇀ", "t", not_after: unicode_hangul # HANGUL JONGSEONG THIEUTH
+  sub "ᇁ", "p", not_after: unicode_hangul # HANGUL JONGSEONG PHIEUPH
+  sub "ᆰ", "k", not_after: unicode_hangul # HANGUL JONGSEONG RIEUL-KIYEOK
+  sub "ᆲ", "p", not_after: unicode_hangul # HANGUL JONGSEONG RIEUL-PIEUP
 
   # Remove space added
   sub line_start + " ", ""
   sub " " + line_end, ""
 
 
-  # CHARACTERS
-  parallel {
     # This is based on Jamo
   }
 

@@ -42,6 +42,34 @@ class Interscript::Stdlib
     end
   end
 
+  def self.parallel_replace_compile_hash(a)
+    h = {}
+    a.each do |from,to|
+      h[from] = to
+    end
+    h
+  end
+
+  def self.parallel_replace_hash(str,h)
+    newstr = ""
+    len = str.length
+    max_key_len = h.keys.map(&:length).max
+    i = 0
+    while i < len
+      max_key_len.downto(1).each do |checked_len|
+        substr = str[i,checked_len]
+        if h[substr]
+          newstr << h[substr]
+          i += substr.length
+        elsif checked_len==1
+          newstr << str[i,1]
+          i += 1
+        end
+      end
+    end
+    newstr
+  end
+
   # hash can be either a hash or a hash-like array
   def self.parallel_replace_compile_tree(hash)
     hh = hash.hash
@@ -59,7 +87,7 @@ class Interscript::Stdlib
             branch = branch[c.ord]
           end
           branch[chars.last.ord] ||= {}
-          branch[chars.last.ord][nil] ||= to
+          branch[chars.last.ord][nil] = to
         end
       end
       @treecache[hh] = tree

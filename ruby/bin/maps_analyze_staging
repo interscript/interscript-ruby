@@ -4,6 +4,8 @@ require "bundler/setup"
 require "interscript"
 require "interscript/compiler/ruby"
 
+$map_name = ARGV[0]
+
 
 # surpress warnings
 def warn(*)
@@ -29,12 +31,12 @@ def analyze_maps( filelist )
 
     exceptions = []
 
-    begin
+    # begin
       system = Interscript.parse(system_name)
-    rescue Exception => e
-      exceptions << e
-    end
-
+    # rescue Exception => e
+    #   exceptions << e
+    # end
+    # puts $using_tree.inspect
     if exceptions.length == 0 && system.tests && system.tests.data && system.tests.data.length > 0
       good = 0
       bad = 0
@@ -63,6 +65,19 @@ def analyze_maps( filelist )
           almost += 1
         else
           print "#"
+          if $map_name
+            puts ""
+            puts from
+            puts from.chars.inspect
+            puts from.codepoints.map{|cp| '\\u%04x' % cp}.join(' ')
+            puts expected.bytes.inspect
+            puts result.bytes.inspect
+            puts result2.bytes.inspect
+            puts expected
+            puts result
+            puts result2
+            puts ''
+          end
           bad += 1
         end
       rescue Exception => e
@@ -97,4 +112,8 @@ def analyze_maps( filelist )
 end
 
 #analyze_maps Dir[__dir__+"/../../maps/maps/*.imp"].sort
-analyze_maps Dir[__dir__+"/../../maps/maps-staging/*.imp"].sort
+if $map_name
+  analyze_maps Dir[__dir__+"/../../maps/maps-staging/#{$map_name}.imp"].sort
+else
+  analyze_maps Dir[__dir__+"/../../maps/maps-staging/*.imp"].sort
+end

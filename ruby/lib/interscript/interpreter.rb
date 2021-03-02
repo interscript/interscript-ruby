@@ -1,4 +1,5 @@
 class Interscript::Interpreter < Interscript::Compiler
+  attr_accessor :map
   def compile(map)
     @map = map
     self
@@ -19,7 +20,7 @@ class Interscript::Interpreter < Interscript::Compiler
       case r
       when Interscript::Node::Group::Parallel
         if r.cached_tree
-          @str = Interscript::Stdlib.parallel_replace_tree(@str, r.cached_tree)
+          @str = Interscript::Stdlib.parallel_replace_hash(@str, r.cached_tree)
         elsif r.subs_regexp && r.subs_replacements
           @str = Interscript::Stdlib.parallel_regexp_gsub(@str, r.subs_regexp, r.subs_replacements)
         else
@@ -34,13 +35,15 @@ class Interscript::Interpreter < Interscript::Compiler
               raise ArgumentError, "Can't parallelize rules with :not_after" if i.not_after
               a << [build_item(i.from, :par), build_item(i.to, :parstr)]
             end
-            tree = Interscript::Stdlib.parallel_replace_compile_tree(a)
-            @str = Interscript::Stdlib.parallel_replace_tree(@str, tree)
+            tree = Interscript::Stdlib.parallel_replace_compile_hash(a) #.sort_by{|k,v| -k.length})
+            @str = Interscript::Stdlib.parallel_replace_hash(@str, tree)
             r.cached_tree = tree
+            $using_tree = true
           rescue
+            $using_tree = false
             # Otherwise let's build a megaregexp
             a = []
-            r.children.sort_by{ |rule| -rule.max_length }.each do |i|
+            r.children.sort_by{ |rule| -rule.max_length }.each do |i|  # rule.from.max_length gives somewhat better test results, why is that
               raise ArgumentError, "Can't parallelize #{i.class}" unless Interscript::Node::Rule::Sub === i
 
               a << [build_regexp(i), build_item(i.to, :parstr)]

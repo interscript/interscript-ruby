@@ -11,8 +11,8 @@ Dir.chdir(__dir__ + "/../")
 FileUtils.rm_rf(Dir.glob("../maps/maps-staging/*"))
 #FileUtils.mkdir_p("../maps/maps-staging/")
 
-old_maps = []
-#old_maps = Dir["../../interscript/maps/*.yaml"]
+#old_maps = []
+old_maps = Dir["../../interscript/maps/*.yaml"]
 #old_maps = Dir["../../interscript/maps/alalc-aze-Arab-Latn-1997.yaml"]
 #old_maps = Dir["../../interscript/maps/mofa-jpn-Hrkt-Latn-1989.yaml"]
 
@@ -40,7 +40,7 @@ def process_line( kkk, vvv, indent: 0)
       elsif vvv == '"'
         root_hash[:to] = '"\""'
       else
-        if vvv == "?" #un-ell-Grek-Latn-1987-phonetic has "?" as a target alalc-ell-Grek-Latn-1997.imp also
+        if vvv == "?" #alalc-ell-Grek-Latn-1997.imp un-ell-Grek-Latn-1987-phonetic have to "?"
           root_hash[:to] = "?".inspect
         #if root_hash[:from].to_s.include?('capture') or root_hash[:to] =~ /\\\\([0-9]+)/
         else

@@ -29,23 +29,15 @@ tests {
   test "Mährisch-Ostrau", "Maehrisch-Ostrau"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
+dependency "posix", import: true
 
 stage {
 
   # RULES
-  #   #   sub "β" + maybe( :lookahead_start any("[[:upper:]]") :lookahead_stop ), "SS", before: any("[[:upper:]]") # warning: : # warning: :lookahead_start
-  #   #   sub "Ä" + maybe( :lookahead_start any("[[:upper:]]") :lookahead_stop ), "AE", before: any("[[:upper:]]") # warning: : # warning: :lookahead_start
-  #   #   sub "Ö" + maybe( :lookahead_start any("[[:upper:]]") :lookahead_stop ), "OE", before: any("[[:upper:]]") # warning: : # warning: :lookahead_start
-  #   #   sub "Ü" + maybe( :lookahead_start any("[[:upper:]]") :lookahead_stop ), "UE", before: any("[[:upper:]]") # warning: : # warning: :lookahead_start
-
+  sub "β" + capture(upper), "SS" + ref(1), before: any(upper)
+  sub "Ä" + capture(upper), "AE" + ref(1), before: any(upper)
+  sub "Ö" + capture(upper), "OE" + ref(1), before: any(upper)
+  sub "Ü" + capture(upper), "UE" + ref(1), before: any(upper)
 
   # CHARACTERS
   parallel {
