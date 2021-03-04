@@ -139,15 +139,6 @@ tests {
   test "مُلَّا بَاغ", "Mullā Bāgh"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
 stage {
 
   # CHARACTERS
@@ -180,6 +171,8 @@ stage {
 
     sub "\u064e\u06d2", "ai" # ـے
     sub "\u064e\u0648", "au" # ـَو
+    sub "\u064e\u064a\u0651", "ayy" # ـَو
+
     sub "\u0670", "á" # ىٰ
     sub "\u0649", "á" # ىٰ
 
@@ -210,6 +203,7 @@ stage {
     sub "\u0647\u0651", "hh" # ه
     sub "\u0648\u0651", "ww" # و
     sub any("\u064a|\u06cc") + "\u0651", "yy" # ي
+    sub "\u064e\u064a", "yy" # ي
 
     # NOTE 1
     sub "\u0650" + boundary, "-e" # ِ kasra
@@ -335,5 +329,6 @@ stage {
   sub " An N", " an N" # الن
   sub " Al ", " al " # ال
 
+  compose
 }
 

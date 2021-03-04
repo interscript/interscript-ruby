@@ -20,37 +20,47 @@ class Interscript::Interpreter < Interscript::Compiler
       case r
       when Interscript::Node::Group::Parallel
         if r.cached_tree
-          @str = Interscript::Stdlib.parallel_replace_hash(@str, r.cached_tree)
+          @str = Interscript::Stdlib.parallel_replace_tree(@str, r.cached_tree)
         elsif r.subs_regexp && r.subs_replacements
-          @str = Interscript::Stdlib.parallel_regexp_gsub(@str, r.subs_regexp, r.subs_replacements)
+          if $DEBUG_RE
+            @str = Interscript::Stdlib.parallel_regexp_gsub_debug(@str, r.subs_regexp, r.subs_replacements)
+          else
+            @str = Interscript::Stdlib.parallel_regexp_gsub(@str, r.subs_regexp, r.subs_replacements)
+          end
         else
           begin
             # Try to build a tree
-            a = []
+            subs_array = []
             r.children.each do |i|
               raise ArgumentError, "Can't parallelize #{i.class}" unless Interscript::Node::Rule::Sub === i
               raise ArgumentError, "Can't parallelize rules with :before" if i.before
               raise ArgumentError, "Can't parallelize rules with :after" if i.after
               raise ArgumentError, "Can't parallelize rules with :not_before" if i.not_before
               raise ArgumentError, "Can't parallelize rules with :not_after" if i.not_after
-              a << [build_item(i.from, :par), build_item(i.to, :parstr)]
+              subs_array << [build_item(i.from, :par), build_item(i.to, :parstr)]
             end
-            tree = Interscript::Stdlib.parallel_replace_compile_hash(a) #.sort_by{|k,v| -k.length})
-            @str = Interscript::Stdlib.parallel_replace_hash(@str, tree)
+            tree = Interscript::Stdlib.parallel_replace_compile_tree(subs_array) #.sort_by{|k,v| -k.length})
+            @str = Interscript::Stdlib.parallel_replace_tree(@str, tree)
             r.cached_tree = tree
             $using_tree = true
           rescue
             $using_tree = false
             # Otherwise let's build a megaregexp
-            a = []
+            subs_array = []
             r.children.sort_by{ |rule| -rule.max_length }.each do |i|  # rule.from.max_length gives somewhat better test results, why is that
               raise ArgumentError, "Can't parallelize #{i.class}" unless Interscript::Node::Rule::Sub === i
 
-              a << [build_regexp(i), build_item(i.to, :parstr)]
+              subs_array << [build_regexp(i), build_item(i.to, :parstr)]
             end
-            r.subs_regexp = Interscript::Stdlib.parallel_regexp_compile(a)
-            r.subs_replacements = a.map(&:last)
-            @str = Interscript::Stdlib.parallel_regexp_gsub(@str, r.subs_regexp, r.subs_replacements)
+            r.subs_regexp = Interscript::Stdlib.parallel_regexp_compile(subs_array)
+            r.subs_replacements = subs_array.map(&:last)
+            if $DEBUG_RE
+              # puts subs_array.inspect
+              $subs_array = subs_array
+              @str = Interscript::Stdlib.parallel_regexp_gsub_debug(@str, r.subs_regexp, r.subs_replacements)
+            else
+              @str = Interscript::Stdlib.parallel_regexp_gsub(@str, r.subs_regexp, r.subs_replacements)
+            end
           end
         end
       when Interscript::Node::Group

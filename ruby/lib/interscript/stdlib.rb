@@ -42,6 +42,26 @@ class Interscript::Stdlib
     end
   end
 
+  def self.parallel_regexp_gsub_debug(string, subs_regexp, subs_array)
+    # only gathering debug info, test data is available in maps_analyze_staging
+    $subs_matches = []
+    $subs_regexp = subs_regexp
+    #$subs_array = subs_array
+    string.gsub(subs_regexp) do |match|
+      lm = Regexp.last_match
+      # puts lm.inspect
+      # Extract the match name
+      matched = lm.named_captures.compact.keys.first
+      # puts matched.inspect
+      # puts [lm.begin(matched), lm.end(matched)].inspect
+      idx = matched[1..-1].to_i
+      debug_info = {begin: lm.begin(matched), end: lm.end(matched), idx: idx, result: subs_array[idx]}
+      $subs_matches << debug_info
+      subs_array[idx]
+    end
+  end
+
+
   def self.parallel_replace_compile_hash(a)
     h = {}
     a.each do |from,to|

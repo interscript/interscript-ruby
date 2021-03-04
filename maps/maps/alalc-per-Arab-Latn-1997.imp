@@ -166,15 +166,6 @@ tests {
   test "قُوَّة", "Qūvah"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
 stage {
 
   # CHARACTERS
@@ -192,6 +183,7 @@ stage {
     sub "\u064e\u0627", "ā" # ـَا fatha followed by ا
     sub boundary + "\u0622", "ā" # آ
     sub "\u0622", "’ā" # آ
+    sub "\u0622", "ā", before: "\u0644" # added after debugging
 
     sub "\u0650", "i" # ِ kasra
     sub "\u0650" + any("\u064a|\u06cc"), "ī" # ـِي kasra followed by ي
@@ -321,6 +313,6 @@ stage {
   sub any([any("\u0061".."\uFFFF")]), upcase, before: boundary, not_before: any("‘|’")
   sub "Al-", "al-" # ال
 
-
+  compose
 }
 

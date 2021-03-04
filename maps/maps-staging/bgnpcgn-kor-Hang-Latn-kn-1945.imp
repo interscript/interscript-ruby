@@ -181,5 +181,6 @@ stage {
   sub " " + line_end, ""
 
   title_case
+  compose
 }
 

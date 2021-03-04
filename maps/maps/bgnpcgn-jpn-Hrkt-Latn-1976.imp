@@ -110,7 +110,6 @@ dependency "var-jpn-Hrkt-Latn-hepburn-1954", as: hrktlatn
 
 stage {
 
-  run map.hrktlatn.stage.main
 
   # CHARACTERS
   parallel {
@@ -195,6 +194,7 @@ stage {
     sub "ゔ", "vu"
     sub "ヴ", "vu"
   }
+  run map.hrktlatn.stage.main
 
   title_case
 }

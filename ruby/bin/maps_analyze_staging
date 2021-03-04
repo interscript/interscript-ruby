@@ -6,9 +6,64 @@ require "interscript/compiler/ruby"
 
 $map_name = ARGV[0]
 
-
 # surpress warnings
 def warn(*)
+end
+
+
+def debug_single_map(from, expected, result, result2)
+  puts ""
+  # puts $subs_array.inspect
+  # puts $subs_matches.inspect
+  puts from.inspect  
+  puts from.chars.inspect
+  puts from.codepoints.map{|cp| '\\u%04x' % cp}.join(' ')
+  puts expected
+  puts result
+  puts result2
+  #return nil unless $subs_matches
+  first_mismatch = $subs_matches.select{|match_data|
+    exp = expected[match_data[:begin]...match_data[:end]]
+    res = result[match_data[:begin]...match_data[:end]]
+    exp != res
+  }.first
+
+  # puts $subs_matches.inspect
+  # puts first_mismatch.inspect
+  output_string = ''
+  last_end = 0
+  $subs_matches.each do |match_data|
+    substr = from[match_data[:begin]...match_data[:end]]
+    if match_data[:begin] != last_end
+      output_string << '_' * (match_data[:begin] - last_end)
+    end
+    output_string << match_data[:result]
+
+    puts ''
+    puts "ERROR " if match_data == first_mismatch
+    indent = ' ' * match_data[:begin]
+    # puts indent + substr
+
+    
+
+    matched_rule = $subs_array[match_data[:idx]]
+
+    if match_data == first_mismatch
+      puts indent + matched_rule.inspect + "   (#{matched_rule[0].codepoints.map{|cp| '\\u%04x' % cp}.join(' ')})"
+    else
+      puts indent + matched_rule.inspect + "    (#{matched_rule[0].codepoints.map{|cp| '\\u%04x' % cp}.join(' ')})"
+    end
+
+    puts from[0,match_data[:end]]
+    
+    puts expected[0,output_string.size]
+    puts output_string
+    last_end = match_data[:end]
+    
+    
+    #return if match_data == first_mismatch
+  end
+  puts ''
 end
 
 def analyze_maps( filelist )
@@ -65,25 +120,13 @@ def analyze_maps( filelist )
           almost += 1
         else
           print "#"
-          if $map_name
-            puts ""
-            puts from
-            puts from.chars.inspect
-            puts from.codepoints.map{|cp| '\\u%04x' % cp}.join(' ')
-            puts expected.bytes.inspect
-            puts result.bytes.inspect
-            puts result2.bytes.inspect
-            puts expected
-            puts result
-            puts result2
-            puts ''
-          end
+          debug_single_map(from, expected, result, result2) if $map_name
           bad += 1
         end
       rescue Exception => e
         print "%"
         bad += 1
-        exceptions << e
+        #exceptions << e
       end
 
       if bad == 0
@@ -113,6 +156,7 @@ end
 
 #analyze_maps Dir[__dir__+"/../../maps/maps/*.imp"].sort
 if $map_name
+  $DEBUG_RE = true
   analyze_maps Dir[__dir__+"/../../maps/maps/#{$map_name}.imp"].sort
   analyze_maps Dir[__dir__+"/../../maps/maps-staging/#{$map_name}.imp"].sort
 else

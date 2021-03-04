@@ -274,8 +274,10 @@ stage {
   sub "\u03C5", "u", after: any("Ιιί") # Υ (before Ι)
   sub "\u0393", "N", after: any("γΓξΞχΧ") # Γ (before Γ, Ξ, Χ)
   sub "\u03b3", "n", after: any("γΓξΞχΧ") # γ (before Γ, Ξ, Χ)
-  sub "\u0393", "N", before: any(greek), after: any("κΚ") + any(greek) # Γ (before Κ medially)
-  sub "\u03b3", "n", before: any(greek), after: any("κΚ") + any(greek) # Γ (before Κ medially)
+  sub "\u0393", "N", after: "Ν", before: "Κ"
+  sub "\u03b3", "n", after: "ν", before: "κ"
+  sub "\u0393", "N", before: any(greek), not_before: boundary, after: any("κΚ") + any(greek), not_after: any("κΚ") + boundary # Γ (before Κ medially)
+  sub "\u03b3", "n", before: any(greek), not_before: boundary, after: any("κΚ") + any(greek), not_after: any("κΚ") + boundary # Γ (before Κ medially)
   sub "\u039D\u03A4", "Ḏ", before: boundary # ΝΤ
   sub "\u039D\u03C4", "Ḏ", before: boundary # Ντ
   sub "\u03BD\u03C4", "ḏ", before: boundary # ντ

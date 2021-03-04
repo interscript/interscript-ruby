@@ -66,25 +66,15 @@ tests {
   test "ччччч", "ch"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
 dependency "bgnpcgn-bul-Cyrl-Latn-2013", as: cyrllatn
-
 
 stage {
 
-  run map.cyrllatn.stage.main
 
   # RULES
   # note[1]
   #   #   sub capture(any_character) :interval_start ref( 1 ) :interval_stop , ref( 1 ) # warning: :interval unimplemented # warning: :
+  #sub capture(any_character), ref( 1 )
 
   sub "\u042C", "Y" # # Ь
 
@@ -94,5 +84,20 @@ stage {
 
   sub "\u044A", "a" # ъ
 
+parallel{
+  sub "\u0448", "sh" # ш
+  sub "\u0448\u0448", "sh" # шш
+  sub "\u0448\u0448\u0448", "sh" # шшш
+  sub "\u0448\u0448\u0448\u0448", "sh" # шшшш
+  sub "\u0448\u0448\u0448\u0448\u0448", "sh" # шшшшш
+  sub "\u0448\u0448\u0448\u0448\u0448\u0448", "sh" # шшшшшш
+  sub "\u0447", "ch" # ч
+  sub "\u0447\u0447", "ch" # чч
+  sub "\u0447\u0447\u0447", "ch" # ччч
+  sub "\u0447\u0447\u0447\u0447", "ch" # чччч
+  sub "\u0447\u0447\u0447\u0447\u0447", "ch" # ччччч
+  sub "\u0447\u0447\u0447\u0447\u0447\u0447", "ch" # чччччч
+}
+  run map.cyrllatn.stage.main
 }
 

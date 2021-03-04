@@ -29,15 +29,6 @@ tests {
   test "ПАПАПАЧУКА Респект!", "PAPAPACHUKA Respekt!"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
 aliases {
   
 def_alias uzbek_upper, any("\u0410\u0411\u0412\u0413\u0492\u0414\u0415\u0401\u0416\u0417\u0418\u0419\u041A\u049A\u041B\u041C\u041D\u041E\u041F\u0420\u0421\u0422\u0423\u040E\u0424\u04B2\u0426\u0427\u0428\u042a\u042c\u042D\u042E\u042F")

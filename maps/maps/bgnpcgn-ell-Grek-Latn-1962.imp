@@ -263,15 +263,6 @@ tests {
   test "Χονγκ Κονγκ", "Khonng Konng"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
 # https://en.wikipedia.org/wiki/Romanization_of_Greek
 stage {
 
@@ -334,16 +325,40 @@ stage {
     sub "ΕΙ", "I" # ΕΙ
     sub "Ει", "I" # Ει
     sub "Εί", "Í" # Εί
-    sub "ΕΪ", "Εï" # ΕΪ
-    sub "Εϊ", "Εï" # Εϊ
+    sub "ΕΪ", "Eï" # ΕΪ
+    sub "ΕΪ", "EÏ", after: any("ΆΑΒΓΔΕΕΕΕΕΕΈΈΑΕΗΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΈΉΊΌΎΏΪΫ")
+    sub "ΕΪ", "EÏ", before: any("ΆΑΒΓΔΕΕΕΕΕΕΈΈΑΕΗΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΈΉΊΌΎΏΪΫ")
+
+    sub "Εϊ", "Eï" # Εϊ
+    sub "Εϊ", "EÏ", after: any("ΆΑΒΓΔΕΕΕΕΕΕΈΈΑΕΗΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΈΉΊΌΎΏΪΫ")
+    sub "Εϊ", "EÏ", before: any("ΆΑΒΓΔΕΕΕΕΕΕΈΈΑΕΗΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΈΉΊΌΎΏΪΫ")
+
     sub "Έϊ", "Éï" # Έϊ
+    sub "Έϊ", "ÉÏ", after: any("ΆΑΒΓΔΕΕΕΕΕΕΈΈΑΕΗΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΈΉΊΌΎΏΪΫ")
+    sub "Έϊ", "ÉÏ", before: any("ΆΑΒΓΔΕΕΕΕΕΕΈΈΑΕΗΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΈΉΊΌΎΏΪΫ")
+
     sub "Έϊ", "Éï" # Έι
+    sub "Έϊ", "Éï", after: any("ΆΑΒΓΔΕΕΕΕΕΕΈΈΑΕΗΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΈΉΊΌΎΏΪΫ")
+    sub "Έϊ", "Éï", before: any("ΆΑΒΓΔΕΕΕΕΕΕΈΈΑΕΗΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΈΉΊΌΎΏΪΫ")
+
     sub "Αύ", "Áv" # Αύ
+    sub "Αύ", "ÁV", after: any("ΆΑΒΓΔΕΕΕΕΕΕΈΈΑΕΗΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΈΉΊΌΎΏΪΫ")
+    sub "Αύ", "ÁV", before: any("ΆΑΒΓΔΕΕΕΕΕΕΈΈΑΕΗΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΈΉΊΌΎΏΪΫ")
+
     sub "Εύ", "Év" # Εύ
+    sub "Εύ", "ÉV", after: any("ΆΑΒΓΔΕΕΕΕΕΕΈΈΑΕΗΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΈΉΊΌΎΏΪΫ")
+    sub "Εύ", "ÉV", before: any("ΆΑΒΓΔΕΕΕΕΕΕΈΈΑΕΗΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΈΉΊΌΎΏΪΫ")
+
     sub "Ηύ", "Ív" # Ηύ
+    sub "Ηύ", "ÍV", after: any("ΆΑΒΓΔΕΕΕΕΕΕΈΈΑΕΗΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΈΉΊΌΎΏΪΫ")
+    sub "Ηύ", "ÍV", before: any("ΆΑΒΓΔΕΕΕΕΕΕΈΈΑΕΗΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΈΉΊΌΎΏΪΫ")
+
     sub "Ζ", "Z" # Ζ
     sub "Η", "I" # Η
     sub "Θ", "Th" # Θ
+    sub "Θ", "TH", after: any("ΆΑΒΓΔΕΕΕΕΕΕΈΈΑΕΗΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΈΉΊΌΎΏΪΫ")
+    sub "Θ", "TH", before: any("ΆΑΒΓΔΕΕΕΕΕΕΈΈΑΕΗΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΈΉΊΌΎΏΪΫ")
+
     sub "Ι", "I" # Ι
     sub "Κ", "K" # Κ
     sub "Λ", "L" # Λ
@@ -358,7 +373,13 @@ stage {
     sub "Υ", "I" # Υ
     sub "Φ", "F" # Φ
     sub "Χ", "Kh" # Χ
+    sub "Χ", "KH", after: any("ΆΑΒΓΔΕΕΕΕΕΕΈΈΑΕΗΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΈΉΊΌΎΏΪΫ")
+    sub "Χ", "KH", before: any("ΆΑΒΓΔΕΕΕΕΕΕΈΈΑΕΗΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΈΉΊΌΎΏΪΫ")
+
     sub "Ψ", "Ps" # Ψ
+    sub "Ψ", "PS", after: any("ΆΑΒΓΔΕΕΕΕΕΕΈΈΑΕΗΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΈΉΊΌΎΏΪΫ")
+    sub "Ψ", "PS", before: any("ΆΑΒΓΔΕΕΕΕΕΕΈΈΑΕΗΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΈΉΊΌΎΏΪΫ")
+
     sub "Ω", "O" # Ω
     sub "Έ", "É" # Έ
     sub "Ή", "Í" # Ή
