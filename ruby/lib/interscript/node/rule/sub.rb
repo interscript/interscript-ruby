@@ -1,8 +1,9 @@
 class Interscript::Node::Rule::Sub < Interscript::Node::Rule
   attr_accessor :from, :to
   attr_accessor :before, :not_before, :after, :not_after
+  attr_accessor :priority
 
-  def initialize from, to, before: nil, not_before: nil, after: nil, not_after: nil
+  def initialize from, to, before: nil, not_before: nil, after: nil, not_after: nil, priority: nil
     self.from = Interscript::Node::Item.try_convert from
     if to == :upcase
       self.to = :upcase
@@ -25,6 +26,7 @@ class Interscript::Node::Rule::Sub < Interscript::Node::Rule
     len += self.after.max_length if self.after
     len += self.not_before.max_length if self.not_before
     len += self.not_after.max_length if self.not_after
+    len += self.priority if self.priority
     len
   end
 

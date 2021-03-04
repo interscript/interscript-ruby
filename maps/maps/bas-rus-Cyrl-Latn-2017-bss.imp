@@ -48,6 +48,8 @@ tests {
 # advanced expressions in parallel {} parts, and also about the order
 # of particular parts of the stage.
 
+dependency "posix", import: true
+
 stage {
 
   # RULES
@@ -66,6 +68,9 @@ stage {
     sub "Ё", "E" # Ё
     sub "Е", "E" # Е
     sub "Ж", "Zh" # Ж
+    sub "Ж", "ZH", before: any('AБBГДЕЁЖЗИЙКЛМНОПРСТУЎФХЦЧШЩЪЫЬЭЮЯІ')
+    sub "Ж", "ZH", after: any('AБBГДЕЁЖЗИЙКЛМНОПРСТУЎФХЦЧШЩЪЫЬЭЮЯІ')
+
     sub "З", "Z" # З
     sub "Э", "E" # Э
     sub "И", "I" # И
@@ -83,12 +88,24 @@ stage {
     sub "Ф", "F" # Ф
     sub "Х", "H" # Х
     sub "Ц", "Ts" # Ц
+    sub "Ц", "TS", before: any('AБBГДЕЁЖЗИЙКЛМНОПРСТУЎФХЦЧШЩЪЫЬЭЮЯІ')
+    sub "Ц", "TS", after: any('AБBГДЕЁЖЗИЙКЛМНОПРСТУЎФХЦЧШЩЪЫЬЭЮЯІ')
     sub "Ч", "Ch" # Ч
+    sub "Ч", "CH", before: any('AБBГДЕЁЖЗИЙКЛМНОПРСТУЎФХЦЧШЩЪЫЬЭЮЯІ')
+    sub "Ч", "CH", after: any('AБBГДЕЁЖЗИЙКЛМНОПРСТУЎФХЦЧШЩЪЫЬЭЮЯІ')
     sub "Ш", "Sh" # Ш
+    sub "Ш", "SH", before: any('AБBГДЕЁЖЗИЙКЛМНОПРСТУЎФХЦЧШЩЪЫЬЭЮЯІ')
+    sub "Ш", "SH", after: any('AБBГДЕЁЖЗИЙКЛМНОПРСТУЎФХЦЧШЩЪЫЬЭЮЯІ')
     sub "Щ", "Shch" # Щ
+    sub "Щ", "SHCH", before: any('AБBГДЕЁЖЗИЙКЛМНОПРСТУЎФХЦЧШЩЪЫЬЭЮЯІ')
+    sub "Щ", "SHCH", after: any('AБBГДЕЁЖЗИЙКЛМНОПРСТУЎФХЦЧШЩЪЫЬЭЮЯІ')
     sub "Ы", "I" # Ы
     sub "Я", "Ya" # Я
+    sub "Я", "YA", before: any('AБBГДЕЁЖЗИЙКЛМНОПРСТУЎФХЦЧШЩЪЫЬЭЮЯІ')
+    sub "Я", "YA", after: any('AБBГДЕЁЖЗИЙКЛМНОПРСТУЎФХЦЧШЩЪЫЬЭЮЯІ')
     sub "Ю", "Yu" # Ю
+    sub "Ю", "YU", before: any('AБBГДЕЁЖЗИЙКЛМНОПРСТУЎФХЦЧШЩЪЫЬЭЮЯІ')
+    sub "Ю", "YU", after: any('AБBГДЕЁЖЗИЙКЛМНОПРСТУЎФХЦЧШЩЪЫЬЭЮЯІ')
 
     # Ь (before Е, Ё, И, O, Э)
     # "\u042c\u0401": "YE"    # Ё

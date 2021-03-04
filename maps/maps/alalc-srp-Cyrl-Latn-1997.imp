@@ -27,26 +27,9 @@ tests {
   test "ЌАРУВАЊЕ ќарување", "ḰARUVANJE ḱaruvanje"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
+dependency "posix", import: true
 
 stage {
-
-  # POSTRULES
-  # DZ
-  #   #   sub capture(any([ :lookbehind_start any("[[:upper:]]") :lookbehind_stop "Dz" + maybe( :lookahead_start any("[[:upper:]]") :lookahead_stop ), maybe( :lookbehind_start any("[[:upper:]]") :lookbehind_stop ) + "Dz" :lookahead_start any("[[:upper:]]") :lookahead_stop ])), "DZ" # warning: : # warning: :lookahead_start
-  #LJ
-  #   #   sub capture(any([ :lookbehind_start any("[[:upper:]]") :lookbehind_stop "Lj" + maybe( :lookahead_start any("[[:upper:]]") :lookahead_stop ), maybe( :lookbehind_start any("[[:upper:]]") :lookbehind_stop ) + "Lj" :lookahead_start any("[[:upper:]]") :lookahead_stop ])), "LJ" # warning: : # warning: :lookahead_start
-  #NJ
-  #   #   sub capture(any([ :lookbehind_start any("[[:upper:]]") :lookbehind_stop "Nj" + maybe( :lookahead_start any("[[:upper:]]") :lookahead_stop ), maybe( :lookbehind_start any("[[:upper:]]") :lookbehind_stop ) + "Nj" :lookahead_start any("[[:upper:]]") :lookahead_stop ])), "NJ" # warning: : # warning: :lookahead_start
-  #DŽ
-  #   #   sub capture(any([ :lookbehind_start any("[[:upper:]]") :lookbehind_stop "Dž" + maybe( :lookahead_start any("[[:upper:]]") :lookahead_stop ), maybe( :lookbehind_start any("[[:upper:]]") :lookbehind_stop ) + "Dž" :lookahead_start any("[[:upper:]]") :lookahead_stop ])), "DŽ" # warning: : # warning: :lookahead_start
 
 
   # CHARACTERS
@@ -118,6 +101,24 @@ stage {
     sub "џ", "dž" # dž
     sub "ш", "š" # š
   }
+  # POSTRULES
+  # rewritten by hand to work properly
+  # DZ
+  sub capture(maybe(upper)) + "Dz" + capture(upper), ref(1) + "DZ" + ref(2)
+  sub capture(upper) + "Dz" +  capture(maybe(upper)), ref(1) + "DZ" + ref(2)
+
+  #LJ
+  sub capture(upper) + "Lj" + capture(maybe(upper)), ref(1) + "LJ" + ref(2)
+  sub capture(maybe(upper)) + "Lj" + capture(upper), ref(1) + "LJ" + ref(2)
+
+  #NJ
+  sub capture(upper) + "Nj" + capture(maybe(upper)), ref(1) + "NJ" + ref(2)
+  sub capture(maybe(upper)) + "Nj" + capture(upper), ref(1) + "NJ" + ref(2)
+
+  #DŽ
+  sub capture(upper) + "Dž" + capture(maybe(upper)), ref(1) + "DŽ" + ref(2)
+  sub capture(maybe(upper)) + "Dž" + capture(upper), ref(1) + "DŽ" + ref(2)
+
 
 }
 

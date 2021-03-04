@@ -113,6 +113,7 @@ end
 
 #analyze_maps Dir[__dir__+"/../../maps/maps/*.imp"].sort
 if $map_name
+  analyze_maps Dir[__dir__+"/../../maps/maps/#{$map_name}.imp"].sort
   analyze_maps Dir[__dir__+"/../../maps/maps-staging/#{$map_name}.imp"].sort
 else
   analyze_maps Dir[__dir__+"/../../maps/maps-staging/*.imp"].sort

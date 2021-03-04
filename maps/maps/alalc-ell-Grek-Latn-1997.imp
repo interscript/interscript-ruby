@@ -271,6 +271,13 @@ tests {
 # advanced expressions in parallel {} parts, and also about the order
 # of particular parts of the stage.
 
+aliases{
+  
+
+  def_alias greek_upper, any("ΆΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΈΉΊΌΏΪΫ")
+}
+
+
 # https://en.wikipedia.org/wiki/Romanization_of_Greek
 stage {
 
@@ -304,6 +311,8 @@ stage {
     sub "Ζ", "Z" # Ζ
     sub "Η", "Ē" # Η
     sub "Θ", "Th" # Θ
+    sub "Θ", "TH", after: any("ΆΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΈΉΊΌΏΪΫ") # Θ
+    sub "Θ", "TH", before: any("ΆΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΈΉΊΌΏΪΫ") # Θ
     sub "Ι", "I" # Ι
     sub "Κ", "K" # Κ
     sub "Λ", "L" # Λ
@@ -317,8 +326,17 @@ stage {
     sub "Τ", "T" # Τ
     sub "Υ", "Y" # Υ
     sub "Φ", "Ph" # Φ
+    sub "Φ", "PH", after: any("ΆΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΈΉΊΌΏΪΫ") # Φ
+    sub "Φ", "PH", before: any("ΆΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΈΉΊΌΏΪΫ") # Φ
+
     sub "Χ", "Ch" # Χ
+    sub "Χ", "CH", after: any("ΆΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΈΉΊΌΏΪΫ") # Χ
+    sub "Χ", "CH", before: any("ΆΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΈΉΊΌΏΪΫ") # Χ
+
     sub "Ψ", "Ps" # Ψ
+    sub "Ψ", "PS", after: any("ΆΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΈΉΊΌΏΪΫ") # Ψ
+    sub "Ψ", "PS", before: any("ΆΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΈΉΊΌΏΪΫ") # Ψ
+
     sub "Ω", "Ō" # Ω
     sub "Έ", "E" # Έ
     sub "Ή", "Ē" # Ή

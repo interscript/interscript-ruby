@@ -52,8 +52,6 @@ dependency "bgnpcgn-uzb-Cyrl-Latn-1979", as: cyrllatn
 
 stage {
 
-  run map.cyrllatn.stage.main
-
   # RULES
   # note[1]
   sub "\u0415", "Ye", before: any("АаЕеЁёИиОоУуЭэЮюЯяЙйЬь")
@@ -78,6 +76,8 @@ stage {
     sub "\u044a", "’" # ъ note[2]
     sub "\u044c", "’" # ь note[2]
   }
+
+  run map.cyrllatn.stage.main
 
 }
 
