@@ -14,6 +14,7 @@ class Interscript::Node::Item::Alias < Interscript::Node::Item
     if stdlib?
       ([:none].include? name) ? 0 : 1
     else
+      return 1 if name == :unicode_hangul
       raise NotImplementedError, "can't get a max length of this alias"
     end
   end

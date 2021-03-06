@@ -89,7 +89,6 @@ dependency "un-ara-Arab-Latn-2017", as: arablatn
 
 stage {
 
-  run map.arablatn.stage.main
 
   # CHARACTERS
   parallel {
@@ -136,6 +135,8 @@ stage {
     sub "\ufec6", "z͟h" # ﻆ
   }
 
+  run map.arablatn.stage.main
+  
   # POSTRULES
   sub " At͟h T͟h", " at͟h T͟h" # الث
   sub " Ad͟h D͟h", " ad͟h D͟h" # الذ

@@ -119,6 +119,6 @@ stage {
   sub capture(upper) + "Dž" + capture(maybe(upper)), ref(1) + "DŽ" + ref(2)
   sub capture(maybe(upper)) + "Dž" + capture(upper), ref(1) + "DŽ" + ref(2)
 
-
+  compose
 }
 

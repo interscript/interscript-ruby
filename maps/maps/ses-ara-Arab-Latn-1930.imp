@@ -101,7 +101,6 @@ dependency "un-ara-Arab-Latn-2017", as: arablatn
 
 stage {
 
-  run map.arablatn.stage.main
 
   # CHARACTERS
   parallel {
@@ -226,6 +225,8 @@ stage {
     sub "\ufed6", any(["q", "k"]) # ﻖ
   }
 
+  run map.arablatn.stage.main
+  
   # POSTRULES
   sub " El-", " el-" # الص
 
