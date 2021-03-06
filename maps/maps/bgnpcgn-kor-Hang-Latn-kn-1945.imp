@@ -114,29 +114,32 @@ dependency "var-kor-Hang-Latn-mr-1939", as: hanglatn
 
 stage {
 
-  run map.hanglatn.stage.main
+
 
   # RULES
   # Add Zero-width White-space U+200B after spaces (i.e. before word boundaries)
   # So that the word-initial conversion rules will be blocked.
-  sub line_start, "​"
-  sub "", "​", before: " "
+  sub "^", "\u200B"
+  sub "", "\u200B", before: " "
 
   # convert numbers to space + Hangul
   sub capture(any([any("0".."9") + " "])), ref( 1 ) + " ", after: any([any("0".."9")])
-  sub "1", "일"
-  sub "2", "이"
-  sub "3", "삼"
-  sub "4", "사"
-  sub "5", "오"
-  sub "6", "육"
-  sub "7", "칠"
-  sub "8", "팔"
-  sub "9", "구"
+  sub "1", " 일"
+  sub "2", " 이"
+  sub "3", " 삼"
+  sub "4", " 사"
+  sub "5", " 오"
+  sub "6", " 육"
+  sub "7", " 칠"
+  sub "8", " 팔"
+  sub "9", " 구"
 
   # This is a logic to add hyphen in front of generics
   # - pattern: "(?<=.)(구역|동|리|도|고개|골|로동자구|사무소|초등학교|중학교|고등학교|강|포|령|역|봉|사|천|교|제|저수지|소류지|재|못|말|면|암|교회|촌|병원|바위|공원|섬|우체국|대학교|보건소|굴|치|대교|지구|폭포|해수욕장|휴게소|중고교|읍|보건진료소|마을|톨게이트|대학|시장|경찰서|학교)$" #to be expanded
   #   result: "-\\1"
+
+
+  run map.hanglatn.stage.main
 
 
   # POSTRULES
@@ -147,7 +150,7 @@ stage {
 
   # Initial rules in the inherited map were blocked, so that
   # this set of updated rules (with the onset rules removed) will be used instead.
-  sub "​", ""
+  sub "\u200B", ""
 
   sub "ᄀ", "k", before: " " # HANGUL CHOSEONG KIYEOK
   sub "ᄂ", "n", before: " " # HANGUL CHOSEONG NIEUN

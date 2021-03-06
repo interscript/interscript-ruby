@@ -251,7 +251,7 @@ stage {
     sub "\u06CC", "ya" # Or 'yā'
 
     sub "\u0648", "w"
-    sub "\u06C0", any_character + " " + any_character + " " + any_character + "h-e"
+    sub "\u06C0", '. . .h-e'
 
 
 

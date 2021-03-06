@@ -503,7 +503,7 @@ stage {
   sub "ᄃ", "ch", before: " ", after: any("ᅵᅣᅤᅧᅨᅭᅲ") # HANGUL CHOSEONG TIEUT # T -> Ch before yotized vowels
   sub "ᄃ", "t", before: " " # HANGUL CHOSEONG TIEUT
   sub "ᄅ", "", before: " ", after: any("ᅵᅣᅤᅧᅨᅭᅲ") # HANGUL CHOSEONG RIEUL # R-onset rule
-  sub "ᄅ", "n", before: " " # HANGUL CHOSEONG RIEUL # R-onset rule
+  sub "ᄅ", "r", before: " " # HANGUL CHOSEONG RIEUL # R-onset rule
   sub "ᄆ", "m", before: " " # HANGUL CHOSEONG MIEUM
   sub "ᄇ", "p", before: " " # HANGUL CHOSEONG PIEUP
   sub "ᄉ", "sh", before: " ", after: "ᅱ" # HANGUL CHOSEONG SIOS

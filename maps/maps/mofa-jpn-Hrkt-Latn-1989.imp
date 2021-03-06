@@ -113,7 +113,7 @@ stage {
   #
   # Exception: when OO appears at the end of the word
 
-  sub capture(any("おこそとのほもよろをごぞどぼぽょぉオコソトノホモヨロヲゴゾドボポョォ")) + any("おオ"), ref( 1 ), after: any(space)
+  sub capture(any("おこそとのほもよろをごぞどぼぽょぉオコソトノホモヨロヲゴゾドボポョォ")) + any("おオ"), ref( 1 ), not_after: any(space+line_end)
 
   sub capture(any("うくすつぬふむゆるぐずづぶぷゅぅウクスツヌフムユルグズヅブプュゥ")) + any("うウ"), ref( 1 )
 
