@@ -192,7 +192,7 @@ stage {
     sub "ः", "ḥ"
 
     # Anunāsika
-    sub "ँ", ""
+    sub "ँ", "~"
 
     sub "ॅ", "r"
 
@@ -214,6 +214,6 @@ stage {
     sub "८", "8"
     sub "९", "9"
   }
-
+  compose
 }
 

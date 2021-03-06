@@ -49,11 +49,12 @@ dependency "mext-jpn-Hrkt-Latn-1954", as: hrktlatn
 
 stage {
 
-  run map.hrktlatn.stage.main
-
   # RULES
   # Remove morpheme boundary marker after sokuon っ/ッ
   sub capture(any("っッ")) + "•", ref( 1 )
+
+
+  run map.hrktlatn.stage.main
 
 
   # POSTRULES
@@ -62,6 +63,7 @@ stage {
 
   # Use ’ instead of '
   sub "'", "’"
+
 
 }
 
