@@ -10,4 +10,6 @@ gem "interscript-maps", path: "../maps"
 
 gem 'regexp_parser'
 
+gem 'mini_racer'
+
 gem 'simplecov', require: false, group: :test

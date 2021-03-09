@@ -8,6 +8,7 @@ end
 require "bundler/setup"
 require "interscript"
 require "interscript/compiler/ruby"
+require "interscript/compiler/javascript"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -41,7 +42,8 @@ RSpec.configure do |config|
     # Use ENV to select compilers?
     compilers = [
       Interscript::Interpreter,
-      Interscript::Compiler::Ruby
+      Interscript::Compiler::Ruby,
+      Interscript::Compiler::Javascript
     ]
 
     compilers.each do |compiler|
