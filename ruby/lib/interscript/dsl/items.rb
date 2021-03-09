@@ -22,9 +22,9 @@ module Interscript::DSL::Items
     Interscript::Node::Item::Maybe.new(*chars)
   end
 
-  def maybe_n(*chars)
-    puts "maybe_n(#{chars.inspect}) from #{self.inspect}" if $DEBUG
-    Interscript::Node::Item::MaybeN.new(*chars)
+  def maybe_some(*chars)
+    puts "maybe_some(#{chars.inspect}) from #{self.inspect}" if $DEBUG
+    Interscript::Node::Item::MaybeSome.new(*chars)
   end
 
   def some(*chars)

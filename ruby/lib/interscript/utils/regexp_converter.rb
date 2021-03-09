@@ -171,7 +171,7 @@ def stringify(node)
     capture_stop: ')',
     zero_or_one_start: 'maybe(',
     zero_or_one_stop: ')',
-    zero_or_more_start: 'maybe_n(',
+    zero_or_more_start: 'maybe_some(',
     zero_or_more_stop: ')',
     one_or_more_start: 'some(',
     one_or_more_stop: ')',

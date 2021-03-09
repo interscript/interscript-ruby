@@ -19,7 +19,7 @@ class Interscript::Node::Item::Maybe < Interscript::Node::Item
       :data => self.data.to_hash }
   end
 end
-class Interscript::Node::Item::MaybeN < Interscript::Node::Item::Maybe
+class Interscript::Node::Item::MaybeSome < Interscript::Node::Item::Maybe
 end
 class Interscript::Node::Item::Some < Interscript::Node::Item::Maybe
 end

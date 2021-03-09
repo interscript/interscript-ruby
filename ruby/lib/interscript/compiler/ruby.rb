@@ -188,18 +188,9 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
         raise ArgumentError, "Can't use a CaptureGroup in a #{target} context"
       end
       "(" + compile_item(i.data, doc, target) + ")"
-    when Interscript::Node::Item::Maybe
+    when Interscript::Node::Item::MaybeSome
       if target == :par
-        raise ArgumentError, "Can't use a Maybe in a #{target} context"
-      end
-      if Interscript::Node::Item::String === i.data
-        "(?:" + compile_item(i.data, doc, target) + ")?"
-      else
-        compile_item(i.data, doc, target) + "?"
-      end
-    when Interscript::Node::Item::MaybeN
-      if target == :par
-        raise ArgumentError, "Can't use a MaybeN in a #{target} context"
+        raise ArgumentError, "Can't use a MaybeSome in a #{target} context"
       end
       if Interscript::Node::Item::String === i.data
         "(?:" + compile_item(i.data, doc, target) + ")*"
@@ -214,6 +205,15 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
         "(?:" + compile_item(i.data, doc, target) + ")+"
       else
         compile_item(i.data, doc, target) + "+"
+      end
+    when Interscript::Node::Item::Maybe
+      if target == :par
+        raise ArgumentError, "Can't use a Maybe in a #{target} context"
+      end
+      if Interscript::Node::Item::String === i.data
+        "(?:" + compile_item(i.data, doc, target) + ")?"
+      else
+        compile_item(i.data, doc, target) + "?"
       end
     when Interscript::Node::Item::CaptureRef
       if target == :par

@@ -148,25 +148,15 @@ class Interscript::Interpreter < Interscript::Compiler
           raise ArgumentError, "Can't use a CaptureGroup in a #{target} context"
         end
         "(" + build_item(i.data, target, doc) + ")"
-      when Interscript::Node::Item::Maybe
+      when Interscript::Node::Item::MaybeSome
         if target == :par
-          raise ArgumentError, "Can't use a Maybe in a #{target} context"
-        end
-        if Interscript::Node::Item::String === i.data
-          "(?:" + build_item(i.data, target, doc) + ")?"
-        else
-          build_item(i.data, target, doc) + "?"
-        end
-      when Interscript::Node::Item::MaybeN
-        if target == :par
-          raise ArgumentError, "Can't use a MaybeN in a #{target} context"
+          raise ArgumentError, "Can't use a MaybeSome in a #{target} context"
         end
         if Interscript::Node::Item::String === i.data
           "(?:" + build_item(i.data, target, doc) + ")*"
         else
           build_item(i.data, target, doc) + "*"
         end
-
       when Interscript::Node::Item::Some
         if target == :par
           raise ArgumentError, "Can't use a Some in a #{target} context"
@@ -175,6 +165,15 @@ class Interscript::Interpreter < Interscript::Compiler
           "(?:" + build_item(i.data, target, doc) + ")+"
         else
           build_item(i.data, target, doc) + "+"
+        end
+      when Interscript::Node::Item::Maybe
+        if target == :par
+          raise ArgumentError, "Can't use a Maybe in a #{target} context"
+        end
+        if Interscript::Node::Item::String === i.data
+          "(?:" + build_item(i.data, target, doc) + ")?"
+        else
+          build_item(i.data, target, doc) + "?"
         end
       when Interscript::Node::Item::CaptureRef
         if target == :par

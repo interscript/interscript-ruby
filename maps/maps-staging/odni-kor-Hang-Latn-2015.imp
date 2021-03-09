@@ -298,7 +298,7 @@ stage {
   sub "-", "", before: any([line_start, " "])
 
   # Remove dash in surname
-  sub capture(line_start + maybe_n(any(" "))) + "-", ref( 1 )
+  sub capture(line_start + maybe_some(any(" "))) + "-", ref( 1 )
 
   # Change the surname I to Yi
   sub line_start + "i", "yi"
