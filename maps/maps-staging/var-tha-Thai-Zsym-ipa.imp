@@ -39,6 +39,7 @@ tests {
 
 
 stage {
+  secryst model: "thai-ipa"
 
   # RULES
   # Cluster Onsets:   กขคดตทบปผพฟสห
@@ -117,25 +118,6 @@ stage {
 
   # Remove tone-marking unpronounced ห
   sub maybe("ห") + "ฺ", ""
-
-
-  # POSTRULES
-  # If a syllable ends with a short vowel, the vowel is sometimes
-  # followed by glottal constriction. On Wiktionary, this is
-  # sometimes transcribed as ʔ, but usage has been inconsistent.
-  # This glottal stop is not phonemic and is not written in most
-  # existing transcription systems. Therefore all syllable-final
-  # ʔ will be removed from Wiktionary data.
-  #
-  # - pattern: "([aieuoɯɔɛɤ])(?=[˩˨˧˦˥]*( |$))"
-  #   result: "\\1ʔ"
-
-  # Remove unprocessed short vowel marks
-  sub "็", ""
-
-  # Using . instead of - as syllable delimiter in IPA
-  sub "-", any_character
-
 
   # CHARACTERS
   parallel {
@@ -267,9 +249,25 @@ stage {
 
   }
 
-  # DICTIONARY
-  parallel {
-  }
+  # POSTRULES
+  # If a syllable ends with a short vowel, the vowel is sometimes
+  # followed by glottal constriction. On Wiktionary, this is
+  # sometimes transcribed as ʔ, but usage has been inconsistent.
+  # This glottal stop is not phonemic and is not written in most
+  # existing transcription systems. Therefore all syllable-final
+  # ʔ will be removed from Wiktionary data.
+  #
+  # - pattern: "([aieuoɯɔɛɤ])(?=[˩˨˧˦˥]*( |$))"
+  #   result: "\\1ʔ"
+
+  # Remove unprocessed short vowel marks
+  sub "็", ""
+
+  # Using . instead of - as syllable delimiter in IPA
+  sub "-", "."
+
+  # Remove... spaces? Related to secryst. We will work it out, but for now let's
+  # have some commit :D
+  sub " ", none
 
 }
-

@@ -58,10 +58,17 @@ module Interscript
       @map_locations ||= map_gems.map do |i,v|
         paths = v["paths"].dup
         paths += v["staging"] if ENV["INTERSCRIPT_STAGING"] && v["staging"]
+
         paths.map do |j|
           File.expand_path(j, File.dirname(i))
         end
       end.flatten
+    end
+
+    def secryst_index_locations
+      @secryst_index_locations ||= map_gems.map do |i,v|
+        v["secryst-models"]
+      end.compact.flatten
     end
 
     def map_aliases

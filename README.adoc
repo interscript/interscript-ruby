@@ -55,29 +55,7 @@ bundle install
 ==== Additional prerequisites for Thai systems
 
 If you want to transliterate Thai systems, you will need to install some additional
-requirements:
-
-Linux:
-
-[source,sh]
-----
-apt-get install swig python3-setuptools
-----
-
-Windows:
-
-[source,sh]
-----
-choco install --no-progress swig
-----
-
-Thai maps depends on Python and the https://github.com/sequitur-g2p/sequitur-g2p[`sequitur-g2p`] module
-
-[source,sh]
-----
-cd python
-pip3 install -r requirments.txt
-----
+requirements. Please consult: link:docs/Usage_with_Secryst.adoc[Usage with Secryst].
 
 == Usage
 

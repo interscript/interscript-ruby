@@ -41,16 +41,15 @@ tests {
 # advanced expressions in parallel {} parts, and also about the order
 # of particular parts of the stage.
 
+dependency "var-tha-Thai-Thai-phonemic", as: thaiphonemic
+dependency "var-tha-Thai-Zsym-ipa", as: thaizsym
 
 stage {
+  run map.thaiphonemic.stage.main
+  run map.thaizsym.stage.main
 
   # RULES
   sub any("˩˨˧˦˥"), ""
-
-
-  # POSTRULES
-  sub "\.", ""
-
 
   # CHARACTERS
   parallel {
@@ -99,9 +98,6 @@ stage {
     sub "uj", "ui"
   }
 
+  # POSTRULES
+  sub ".", ""
 }
-
-# This map is chained and probably depends on seq2seq:
-# chain: ["var-tha-Thai-Thai-phonemic" ,"var-tha-Thai-Zsym-ipa"]
-# transcription:
-

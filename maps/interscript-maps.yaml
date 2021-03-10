@@ -12,8 +12,12 @@ paths:
 staging:
   - maps-staging
 
+# Index files for Secryst
+secryst-models:
+  - https://raw.githubusercontent.com/secryst/data-thai-interscript/master/index.yaml
+
 # This part registers aliases. Those were previously a part of maps themselves,
-# moving this here saves us from a burden of having to load all the maps to 
+# moving this here saves us from a burden of having to load all the maps to
 # locate one that we are tyring to access.
 aliases:
   ogc11122:

@@ -8,6 +8,12 @@ gem "rspec", "~> 3.0"
 
 gem "interscript-maps", path: "../maps"
 
+if File.exist? "../../secryst"
+  gem "secryst", path: "../../secryst"
+else
+  gem "secryst"
+end
+
 gem 'regexp_parser'
 
 gem 'mini_racer'

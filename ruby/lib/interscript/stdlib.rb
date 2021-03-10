@@ -158,7 +158,7 @@ class Interscript::Stdlib
   end
 
   def self.available_functions
-    %i[title_case downcase compose decompose separate]
+    %i[title_case downcase compose decompose separate secryst]
   end
 
   module Functions
@@ -182,6 +182,21 @@ class Interscript::Stdlib
 
     def self.separate(output, separator: " ")
       output.split("").join(separator)
+    end
+
+    @secryst_models = {}
+    def self.secryst(output, model:)
+      require "secryst" rescue nil # Try to load secryst, but don't fail hard if not possible.
+      unless defined? Secryst
+        raise StandardError, "Secryst is not loaded. Please read docs/Usage_with_Secryst.adoc"
+      end
+      Interscript.secryst_index_locations.each do |remote|
+        Secryst::Provisioning.add_remote(remote)
+      end
+      @secryst_models[model] ||= Secryst::Translator.new(model_file: model)
+      output.split("\n").map(&:chomp).map do |i|
+        @secryst_models[model].translate(i)
+      end.join("\n")
     end
   end
 end

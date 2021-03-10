@@ -47,10 +47,6 @@ stage {
   # RULES
 
 
-  # POSTRULES
-  sub "chh", "ch"
-
-
   # CHARACTERS
   parallel {
     sub any([any("0".."9")]), ""
@@ -74,5 +70,10 @@ stage {
     sub any_character, ""
   }
 
+  # POSTRULES
+  sub "chh", "ch"
+
 }
 
+# This map contains transcription and probably depends on seq2seq:
+# transcription: sequitur.pythainlp_lexicon

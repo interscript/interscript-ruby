@@ -279,8 +279,8 @@ stage {
 
 A parallel block can be defined as a subsection of a `stage` part. It indicates
 that the steps inside need to be executed in parallel. At the current time, only
-`sub` calls can be executed in parallel (with a limited functionality). It also
-means, that those steps will try to find the longest substrings first.
+`sub` calls can be executed in parallel. It also means, that those steps will try
+to find the longest substrings first.
 
 [source,ruby]
 ----
@@ -293,6 +293,12 @@ stage {
   }
 }
 ----
+
+==== Simple mode
+
+If there are only rules with simple sub rules, we are using a fast track
+implementation. By simple sub rules we mean those rules that lack a before/after
+part and ones that only use string and possibly `any` items with concatenation.
 
 === `run` call
 
@@ -346,6 +352,7 @@ the table below and they may be omitted if a default value is specified.
 | `compose`         |                       | `"ᄆ"+"ᅮ"`            | `"무"`
 | `decompose`       |                       | `"무"`                | `"ᄆ"+"ᅮ"`
 | `separate`        | `separator: " "`      | `"こんいちは"`         | `"こ ん い ち は"`
+| `secryst`         | `model:`           2+>| Consult: link:docs/Usage_with_Secryst.adoc[Usage with Secryst].
 |===
 
 == Items
@@ -379,6 +386,21 @@ Any can be also used with other kinds of items than String, for instance:
 ----
 stage {
   sub any([line_start + "a", "a" + line_end]), none
+}
+----
+
+=== `maybe`, `some`, `maybe_some` items
+
+If you want a given item to be allowed to be repeated respectively: 0 to 1 times,
+1 to Infinity times, 0 to Infinity times, you can surround it with respectively:
+`maybe()`, `some()`, `maybe_some()`.
+
+[source,ruby]
+----
+stage {
+  sub "a"+maybe("-")+"b", "AB"       # Equivalent to regexp: a-?b
+  sub "a"+some("-")+"b", "AB"        # Equivalent to regexp: a-+b
+  sub "a"+maybe_some("-")+"b", "AB"  # Equivalent to regexp: a-*b
 }
 ----
 

@@ -65,3 +65,6 @@ stage {
 
 }
 
+# This map contains transcription and probably depends on seq2seq:
+# transcription: sequitur.wiktionary_phonemic
+

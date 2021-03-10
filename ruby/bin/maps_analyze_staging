@@ -15,7 +15,7 @@ def debug_single_map(from, expected, result, result2)
   puts ""
   # puts $subs_array.inspect
   # puts $subs_matches.inspect
-  puts from.inspect  
+  puts from.inspect
   puts from.chars.inspect
   puts from.codepoints.map{|cp| '\\u%04x' % cp}.join(' ')
   puts expected
@@ -44,7 +44,7 @@ def debug_single_map(from, expected, result, result2)
     indent = ' ' * match_data[:begin]
     # puts indent + substr
 
-    
+
 
     matched_rule = $subs_array[match_data[:idx]]
 
@@ -55,12 +55,12 @@ def debug_single_map(from, expected, result, result2)
     end
 
     puts from[0,match_data[:end]]
-    
+
     puts expected[0,output_string.size]
     puts output_string
     last_end = match_data[:end]
-    
-    
+
+
     #return if match_data == first_mismatch
   end
   puts ''
@@ -161,6 +161,8 @@ if $map_name
   analyze_maps Dir[__dir__+"/../../maps/maps-staging/#{$map_name}.imp"].sort
 else
   analyze_maps Dir[__dir__+"/../../maps/maps-staging/*.imp"].sort
-  puts "\n" * 5
-  analyze_maps Dir[__dir__+"/../../maps/maps/*.imp"].sort
+  if ENV['NONSTAGING']
+    puts "\n" * 5
+    analyze_maps Dir[__dir__+"/../../maps/maps/*.imp"].sort
+  end
 end

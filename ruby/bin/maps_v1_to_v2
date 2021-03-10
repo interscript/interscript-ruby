@@ -408,7 +408,11 @@ old_maps.sort.each do |old_map|
 
   if chain
     new << "# This map is chained and probably depends on seq2seq:\n"
-    new << "# #{chain}\n"
+    new << "# #{chain}\n\n"
+  end
+
+  if transcription
+    new << "# This map contains transcription and probably depends on seq2seq:\n"
     new << "# transcription: #{transcription}\n\n"
   end
 
