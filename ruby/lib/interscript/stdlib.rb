@@ -168,15 +168,15 @@ class Interscript::Stdlib
       output
     end
 
-    def self.downcase(output)
+    def self.downcase(output, _:nil)
       output.downcase
     end
 
-    def self.compose(output)
+    def self.compose(output, _:nil)
       output.unicode_normalize(:nfc)
     end
 
-    def self.decompose(output)
+    def self.decompose(output, _:nil)
       output.unicode_normalize(:nfd)
     end
 
