@@ -98,15 +98,6 @@ tests {
   test "구현, 글꼴, 문자 배열, 다국어 컴퓨팅.", "Kuhyŏn, Külkkol, Munja Paeyŏl, Tagugŏ Khŏmphyuthing."
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
 dependency "unicode", import: true
 dependency "var-kor-Hang-Hang-jamo", as: hanghang
 
@@ -258,9 +249,10 @@ stage {
   sub "ᇂ", ""
 
   # CHARACTERS
-  parallel {
+  # parallel {
   # From Unicode Chart
   # https://github.com/unicode-org/cldr/blob/master/common/transforms/Korean-Latin-BGN.xml
+  parallel {
   sub "ᆨᄀ", "kk" # HANGUL JONGSEONG KIYEOK + CHOSEONG KIYEOK
   sub "ᆨᄂ", "ngn" # HANGUL JONGSEONG KIYEOK + CHOSEONG NIEUN
   sub "ᆨᄃ", "kt" # HANGUL JONGSEONG KIYEOK + CHOSEONG TIEUT
@@ -394,25 +386,25 @@ stage {
   sub "ᆼᄈ", "ngpp" # HANGUL JONGSEONG IEUNG + CHOSEONG SSANGPIEUP
   sub "ᆼᄊ", "ngss" # HANGUL JONGSEONG IEUNG + CHOSEONG SSANGSIOS
   sub "ᆼᄍ", "ngjj" # HANGUL JONGSEONG IEUNG + CHOSEONG SSANGCIEUC
-  sub "ᄀ", "g", before: any(["-" + any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG KIYEOK # c.f. Note 3.3
-  sub "ᄂ", "n", before: any(["-" + any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG NIEUN # c.f. Note 3.3
-  sub "ᄃ", "d", before: any(["-" + any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG TIEUT # c.f. Note 3.3
-  sub "ᄅ", "r", before: any(["-" + any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG RIEUL
-  sub "ᄆ", "m", before: any(["-" + any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG MIEUM # c.f. Note 3.3
-  sub "ᄇ", "b", before: any(["-" + any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG PIEUP # c.f. Note 3.3
-  sub "ᄉ", "s", before: any(["-" + any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG SIOS
-  sub "ᄋ", "", before: any(["-" + any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG IEUNG
-  sub "ᄌ", "j", before: any(["-" + any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG CIEUC
-  sub "ᄎ", "ch", before: any(["-" + any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG CHIEUCH
-  sub "ᄏ", "kh", before: any(["-" + any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG KHIEUKH
-  sub "ᄐ", "th", before: any(["-" + any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG THIEUTH
-  sub "ᄑ", "ph", before: any(["-" + any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG PHIEUPH
-  sub "ᄒ", "h", before: any(["-" + any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG HIEUH
-  sub "ᄁ", "kk", before: any(["-" + any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG SSANGKIYEOK
-  sub "ᄄ", "tt", before: any([any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG SSANGTIEUT
-  sub "ᄈ", "pp", before: any([any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG SSANGPIEUP
-  sub "ᄊ", "ss", before: any([any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG SSANGSIOS
-  sub "ᄍ", "jj", before: any([any("A".."Z") + any("a".."z") + any("0".."9") + "ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ"]) # VOWEL + CHOSEONG SSANGCIEUC
+  sub "ᄀ", "g", before: any([any("-"), any("A".."Z"), any("a".."z"), any("0".."9"), any("ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ") ]) # VOWEL + CHOSEONG KIYEOK # c.f. Note 3.3
+  sub "ᄂ", "n", before: any([any("-"), any("A".."Z"), any("a".."z"), any("0".."9"), any("ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ") ]) # VOWEL + CHOSEONG NIEUN # c.f. Note 3.3
+  sub "ᄃ", "d", before: any([any("-"), any("A".."Z"), any("a".."z"), any("0".."9"), any("ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ") ]) # VOWEL + CHOSEONG TIEUT # c.f. Note 3.3
+  sub "ᄅ", "r", before: any([any("-"), any("A".."Z"), any("a".."z"), any("0".."9"), any("ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ") ]) # VOWEL + CHOSEONG RIEUL
+  sub "ᄆ", "m", before: any([any("-"), any("A".."Z"), any("a".."z"), any("0".."9"), any("ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ") ]) # VOWEL + CHOSEONG MIEUM # c.f. Note 3.3
+  sub "ᄇ", "b", before: any([any("-"), any("A".."Z"), any("a".."z"), any("0".."9"), any("ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ") ]) # VOWEL + CHOSEONG PIEUP # c.f. Note 3.3
+  sub "ᄉ", "s", before: any([any("-"), any("A".."Z"), any("a".."z"), any("0".."9"), any("ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ") ]) # VOWEL + CHOSEONG SIOS
+  sub "ᄋ", "", before: any([any("-"), any("A".."Z"), any("a".."z"), any("0".."9"), any("ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ") ]) # VOWEL + CHOSEONG IEUNG
+  sub "ᄌ", "j", before: any([any("-"), any("A".."Z"), any("a".."z"), any("0".."9"), any("ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ") ]) # VOWEL + CHOSEONG CIEUC
+  sub "ᄎ", "ch", before: any([any("-"), any("A".."Z"), any("a".."z"), any("0".."9"), any("ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ") ]) # VOWEL + CHOSEONG CHIEUCH
+  sub "ᄏ", "kh", before: any([any("-"), any("A".."Z"), any("a".."z"), any("0".."9"), any("ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ") ]) # VOWEL + CHOSEONG KHIEUKH
+  sub "ᄐ", "th", before: any([any("-"), any("A".."Z"), any("a".."z"), any("0".."9"), any("ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ") ]) # VOWEL + CHOSEONG THIEUTH
+  sub "ᄑ", "ph", before: any([any("-"), any("A".."Z"), any("a".."z"), any("0".."9"), any("ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ") ]) # VOWEL + CHOSEONG PHIEUPH
+  sub "ᄒ", "h", before: any([any("-"), any("A".."Z"), any("a".."z"), any("0".."9"), any("ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ") ]) # VOWEL + CHOSEONG HIEUH
+  sub "ᄁ", "kk", before: any([any("-"), any("A".."Z"), any("a".."z"), any("0".."9"), any("ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ") ]) # VOWEL + CHOSEONG SSANGKIYEOK
+  sub "ᄄ", "tt", before: any([any("A".."Z"), any("a".."z"), any("0".."9"), any("ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ") ]) # VOWEL + CHOSEONG SSANGTIEUT
+  sub "ᄈ", "pp", before: any([any("A".."Z"), any("a".."z"), any("0".."9"), any("ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ") ]) # VOWEL + CHOSEONG SSANGPIEUP
+  sub "ᄊ", "ss", before: any([any("A".."Z"), any("a".."z"), any("0".."9"), any("ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ") ]) # VOWEL + CHOSEONG SSANGSIOS
+  sub "ᄍ", "jj", before: any([any("A".."Z"), any("a".."z"), any("0".."9"), any("ᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵ") ]) # VOWEL + CHOSEONG SSANGCIEUC
   sub "ᆰᄀ", "lg" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG KIYEOK
   sub "ᆰᄂ", "ngn" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG NIEUN
   sub "ᆰᄃ", "kt" # HANGUL JONGSEONG RIEUL-KIYEOK + CHOSEONG TIEUT
@@ -534,14 +526,14 @@ stage {
   sub "ᇁ", "p", not_after: unicode_hangul # HANGUL JONGSEONG PHIEUPH
   sub "ᆰ", "k", not_after: unicode_hangul # HANGUL JONGSEONG RIEUL-KIYEOK
   sub "ᆲ", "p", not_after: unicode_hangul # HANGUL JONGSEONG RIEUL-PIEUP
-
+  }
   # Remove space added
   sub line_start + " ", ""
   sub " " + line_end, ""
 
 
     # This is based on Jamo
-  }
+
 
   title_case
 }
