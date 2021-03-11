@@ -107,6 +107,25 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
     c
   end
 
+  def build_boundary(reverse=false)
+    @boundary ||= {}
+    return @boundary[reverse] if @boundary[reverse]
+    iter = 0
+    z = ""
+    (0..65535).select do |i|
+      ("" << i) =~ (reverse ? /\B/ : /\b/) rescue false
+    end.each do |i|
+      if iter == 0
+        z << "\\u%04x"%i
+      elsif iter+1 != i
+        z << "-\\u%04x\\u%04x" % [iter,i]
+      end
+      iter = i
+    end
+    z << "\\u%04x" % iter
+    @boundary[reverse] = z.gsub(/\\u(....)-\1/, "\\\\u\\1")
+  end
+
   def build_regexp(r, map=@map)
     from = compile_item(r.from, map, :re)
     before = compile_item(r.before, map, :re) if r.before
@@ -114,14 +133,37 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
     not_before = compile_item(r.not_before, map, :re) if r.not_before
     not_after = compile_item(r.not_after, map, :re) if r.not_after
 
-    boundary = "\"+Interscript.aliases[\"boundary\"]+\""
+    w_boundary = "\"+Interscript.aliases[\"boundary\"]+\""
+    n_boundary = "\"+Interscript.aliases[\"non_word_boundary\"]+\""
 
-    if from.start_with? boundary
-      from = "(?<=[\\x00-\\x40\\x5b-\\x60]|^|$)"+from[boundary.length..-1]
-    end
+    [[w_boundary, false], [n_boundary, true]].each do |boundary, f|
+      if from == boundary
+        from = "(?<![#{build_boundary(f)}])(?![#{build_boundary(f)}])"
+      end
 
-    if from.end_with? boundary
-      from = from[0..-1-boundary.length]+"(?=[\\x00-\\x40\\x5b-\\x60]|^|$)"
+      if from.start_with? boundary
+        from = "(?<![#{build_boundary(f)}])"+from[boundary.length..-1]
+      end
+
+      if from.end_with? boundary
+        from = from[0..-1-boundary.length]+"(?![#{build_boundary(f)}])"
+      end
+
+      if before && before.start_with?(boundary)
+        before = "(?:[#{build_boundary(!f)}]|^)" + before[boundary.length..-1]
+      end
+
+      if after && after.end_with?(boundary)
+        after = after[0..-1-boundary.length] + "(?:[#{build_boundary(!f)}]|$)"
+      end
+
+      #if not_before && not_before.start_with?(boundary)
+      #  not_before = "[#{build_boundary(f)}]" + not_before[boundary.length..-1]
+      #end
+
+      #if not_after && not_after.end_with?(boundary)
+      #  not_after = not_after[0..-1-boundary.length] + "[#{build_boundary(f)}]"
+      #end
     end
 
     re = ""
