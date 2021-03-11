@@ -123,7 +123,6 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
     if from.end_with? boundary
       from = from[0..-1-boundary.length]+"(?=[\\x00-\\x40\\x5b-\\x60]|^|$)"
     end
-    p from
 
     re = ""
     re += "(?<=#{before})" if before
