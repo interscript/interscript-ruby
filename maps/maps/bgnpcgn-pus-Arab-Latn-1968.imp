@@ -178,7 +178,7 @@ metadata {
 
 tests {
   test "بَغْلان", "Baghlān"
-  test "پُوټَكَى", "Pōṯakay"
+  test "پُوټَكَى", "Pōṯakay"
   test "شِيرِين تَگَاب", "Shīrīn Tagāb"
   test "کُوْټ", "Kōṯ"
   test "ثَابِر", "S̄ābir"
@@ -189,7 +189,7 @@ tests {
   test "حَضْرَتِ إِمَام", "Ḩaẕrat-e Imām"
   test "خُوْسْت", "Khōst"
   test "سْپِين بُوْلْدَک", "Spīn Bōldak"
-  test "ډَنْډ وَ پَتَان", "Ḏanḏ Wa Patān"
+  test "ډَنْډ وَ پَتَان", "Ḏanḏ Wa Patān"
   test "كَنْدَهَار", "Kandahār"
   test "أَنْدَړ", "Andaṟ"
   test "كُنْدُز", "Kunduz"
@@ -285,6 +285,5 @@ stage {
   sub " Ul L", " ul L" # الل
   sub " Un n", " un N" # الن
 
-  compose 
+  compose
 }
-

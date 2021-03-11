@@ -18,7 +18,7 @@ tests {
   # test "Юя", "Юя" # TODO why should it be left unchanged? this is the only test that's failing
   # from internet
   test "Азәрбајҹан әлифбасы", "Azərbaycan əlifbası"
-  test "Бүтүн инсанлар ләјагәт вә һүгугларына ҝөрә азад бәрабәр доғулурлар.\nОнларын шүурлары вә виҹданлары вар вә бир-бирләринә мүнасибәтдә гардашлыг руһунда давранмалыдырлар.", "Bütün insanlar ləyaqət və hüquqlarına görə azad bərabər doğulurlar.\nOnların şüurları və vicdanları var və bir-birlərinə münasibətdə qardaşlıq ruhunda davranmalıdırlar.\n"
+  test "Бүтүн инсанлар ләјагәт вә һүгугларына ҝөрә азад бәрабәр доғулурлар.\nОнларын шүурлары вә виҹданлары вар вә бир-бирләринә мүнасибәтдә гардашлыг руһунда давранмалыдырлар.", "Bütün insanlar ləyaqət və hüquqlarına görə azad bərabər doğulurlar.\nOnların şüurları və vicdanları var və bir-birlərinə münasibətdə qardaşlıq ruhunda davranmalıdırlar."
 }
 
 dependency "az-aze-Cyrl-Latn-1939", as: cyrllatn
@@ -48,4 +48,3 @@ stage {
   }
 
 }
-

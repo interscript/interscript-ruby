@@ -100,26 +100,15 @@ tests {
   test "문암 오-동", "Munam O-dong"
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
 dependency "var-kor-Hang-Latn-mr-1939", as: hanglatn
 
 
 stage {
 
-
-
   # RULES
   # Add Zero-width White-space U+200B after spaces (i.e. before word boundaries)
   # So that the word-initial conversion rules will be blocked.
-  sub "^", "\u200B"
+  sub line_start, "\u200B"
   sub "", "\u200B", before: " "
 
   # convert numbers to space + Hangul
@@ -186,4 +175,3 @@ stage {
   title_case
   compose
 }
-

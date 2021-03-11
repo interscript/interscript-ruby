@@ -66,7 +66,7 @@ tests {
   test "सुस्मिताका काका हेमबहादुर र काकीलाई पनि पहिरोले बगायो", "susamitākā kākā hembhādur r kākīlāī pni phirole bgāyo"
   test "चैत पहिलो साता घर आएका उनी लकडाउन भएपछि यतै रोकिए", "chait philo sātā ghr āekā unī lkḍāun bhepchhi ytai rokie"
   test "काम गर्न जानेको हकमा रोजगारदाता कम्पनीको पत्रसँगै वडा र जिल्ला प्रशासनको सिफारिस अनिवार्य गरिएको छ", "kām gran jāneko hkmā rojgārdātā kmapnīko ptrs~gai vḍā r jilalā parshāsnko siphāris anivāray grieko chh"
-  test "दुःख", "duḥkh"
+  test "दुःख", "duḥkh"
   test "निकुञ्जको स्थानीय पोस्टका कर्मचारी पनि त्यहीँ थिए", "nikuñajko sathānīy posaṭkā kramchārī pni tayhī~ thie"
   test "युद्धकालको मनोविज्ञान", "yudadhkālko mnovijñān"
   test "जर्मन वायुसेवाको आक्रमणमा दुई लाख पचास हजार मानिसको ज्यान जानसक्ने र करिब ३० देखि ४० लाख मान्छे विस्थापित हुने अनुमान बेलायत सरकारको थियो", "jramn vāyusevāko ākarmṇmā duī lākh pchās hjār mānisko jayān jānskane r krib 30 dekhi 40 lākh mānachhe visathāpit hune anumān belāyt srkārko thiyo"
@@ -77,16 +77,6 @@ tests {
   test "संख्या", "sṅkhayā"
   test "गौरीटारस्थित रंगशाला", "gaurīṭārsathit rṅgshālā"
 }
-
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
 
 stage {
 
@@ -216,4 +206,3 @@ stage {
   }
   compose
 }
-
