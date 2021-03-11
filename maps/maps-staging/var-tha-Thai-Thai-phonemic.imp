@@ -47,24 +47,7 @@ tests {
 # Not yet implemented
 
 stage {
-
-  # RULES
-
-
-  # POSTRULES
-
-
-  # CHARACTERS
-  parallel {
-
-  }
-
-  # DICTIONARY
-  parallel {
-  }
-
 }
 
 # This map contains transcription and probably depends on seq2seq:
 # transcription: sequitur.wiktionary_phonemic
-

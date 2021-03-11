@@ -48,14 +48,6 @@ stage {
   run map.thaiphonemic.stage.main
   run map.thaizsym.stage.main
 
-  # RULES
-  sub any("˩˨˧˦˥"), ""
-
-  # CHARACTERS
-  parallel {
-
-  }
-
   # DICTIONARY
   parallel {
 
@@ -97,6 +89,9 @@ stage {
     sub "uːj", "ui"
     sub "uj", "ui"
   }
+
+  # RULES
+  sub any("˩˨˧˦˥"), ""
 
   # POSTRULES
   sub ".", ""

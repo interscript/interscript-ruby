@@ -105,15 +105,6 @@ stage {
   run map.thaiphonemic.stage.main
   run map.thaizsym.stage.main
 
-  # RULES
-  sub any("˩˨˧˦˥"), ""
-  sub line_start, "."
-
-  # CHARACTERS
-  parallel {
-
-  }
-
   # DICTIONARY
   parallel {
 
@@ -154,6 +145,15 @@ stage {
     sub "ɤj", "oei"
     sub "uːj", "ui"
     sub "uj", "ui"
+  }
+
+  # RULES
+  sub any("˩˨˧˦˥"), ""
+  sub line_start, "."
+
+  # CHARACTERS
+  parallel {
+
   }
 
   # POSTRULES

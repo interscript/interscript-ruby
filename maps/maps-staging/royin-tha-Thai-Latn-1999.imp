@@ -44,15 +44,6 @@ tests {
 
 stage {
 
-  # RULES
-
-
-  # CHARACTERS
-  parallel {
-    sub any([any("0".."9")]), ""
-
-  }
-
   # DICTIONARY
   parallel {
     sub "ʰ", "h"
@@ -68,6 +59,14 @@ stage {
     sub "ʔ", ""
     sub "t͡ɕ", "c"
     sub any_character, ""
+  }
+
+  # RULES
+
+  # CHARACTERS
+  parallel {
+    sub any([any("0".."9")]), ""
+
   }
 
   # POSTRULES
