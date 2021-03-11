@@ -114,6 +114,17 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
     not_before = compile_item(r.not_before, map, :re) if r.not_before
     not_after = compile_item(r.not_after, map, :re) if r.not_after
 
+    boundary = "\"+Interscript.aliases[\"boundary\"]+\""
+
+    if from.start_with? boundary
+      from = "(?<=[\\x00-\\x40\\x5b-\\x60]|^|$)"+from[boundary.length..-1]
+    end
+
+    if from.end_with? boundary
+      from = from[0..-1-boundary.length]+"(?=[\\x00-\\x40\\x5b-\\x60]|^|$)"
+    end
+    p from
+
     re = ""
     re += "(?<=#{before})" if before
     re += "(?<!#{not_before})" if not_before
