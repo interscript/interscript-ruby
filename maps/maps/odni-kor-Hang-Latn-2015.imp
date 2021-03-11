@@ -54,36 +54,44 @@ tests {
 # advanced expressions in parallel {} parts, and also about the order
 # of particular parts of the stage.
 
+dependency "unicode", import: true
 dependency "var-kor-Hang-Hang-jamo", as: hanghang
 
+aliases{
+  
+  def_alias alpha_plus, any("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ’")
+}
 
 stage {
 
-  run map.hanghang.stage.main
 
   # RULES
   sub any([line_start + " ", " " + line_end]), ""
 
-  sub some(" "), " "
+  #sub some(" "), " "
 
   # 2 character inputs will have a space between them
-  sub line_start + capture("\p{Hangul}") + capture("\p{Hangul}") + line_end, ref( 1 ) + " " + ref( 2 )
+  sub line_start + capture(unicode_hangul) + capture(unicode_hangul) + line_end, ref( 1 ) + " " + ref( 2 )
 
   # 4 character inputs will have a space as in XXXX -> XX XX
-  sub line_start + capture("\p{Hangul}\p{Hangul}") + capture("\p{Hangul}\p{Hangul}") + line_end, ref( 1 ) + " " + ref( 2 )
+  sub line_start + capture(unicode_hangul + unicode_hangul) + capture(unicode_hangul + unicode_hangul) + line_end, ref( 1 ) + " " + ref( 2 )
 
   # 3 character inputs are more complicated. We enumerate all possible 2
   # letter surnames according to: https://en.wikipedia.org/wiki/List_of_Korean_surnames
-  sub line_start + capture(any(["독고", "동방", "등정", "망절", "무본", "부여", "사공", "서문", "선우", "어금", "제갈", "황목", "황보"])) + capture("\p{Hangul}") + line_end, ref( 1 ) + " " + ref( 2 )
+  sub line_start + capture(any(["독고", "동방", "등정", "망절", "무본", "부여", "사공", "서문", "선우", "어금", "제갈", "황목", "황보"])) + capture(unicode_hangul) + line_end, ref( 1 ) + " " + ref( 2 )
 
   # Otherwise the first character is probably a surname
-  sub line_start + capture("\p{Hangul}") + capture("\p{Hangul}\p{Hangul}") + line_end, ref( 1 ) + " " + ref( 2 )
+  sub line_start + capture(unicode_hangul) + capture(unicode_hangul + unicode_hangul) + line_end, ref( 1 ) + " " + ref( 2 )
 
   # In case of uncertainity, user needs to add a space himself.
 
-  sub some(" "), " "
+  #sub some(" "), " "
 
   sub any([line_start + " ", " " + line_end]), ""
+
+
+
+  run map.hanghang.stage.main
 
 
   # CHARACTERS
@@ -298,7 +306,7 @@ stage {
   sub "-", "", before: any([line_start, " "])
 
   # Remove dash in surname
-  sub capture(line_start + maybe_some(any(" "))) + "-", ref( 1 )
+  sub line_start + capture(some(alpha_plus)) + "-" + capture(some(alpha_plus)), ref( 1 ) + ref( 2 )
 
   # Change the surname I to Yi
   sub line_start + "i", "yi"
