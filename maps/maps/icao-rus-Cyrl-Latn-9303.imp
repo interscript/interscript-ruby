@@ -1,10 +1,10 @@
 metadata {
   authority_id: icao
   id: 9303
-  language: iso-639-2:bul
+  language: iso-639-2:rus
   source_script: Cyrl
   destination_script: Latn
-  name: ICAO Doc 9303 Machine Readable Travel Documents Part 3 -- Bulgarian Cyrillic to Latin
+  name: ICAO Doc 9303 Machine Readable Travel Documents Part 3 -- Russian Cyrillic to Latin
   url: https://www.icao.int/publications/pages/publication.aspx?docnum=9303
   creation_date: 2015
   description: |
@@ -24,15 +24,6 @@ metadata {
 
 tests {
 }
-
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
 
 # https://www.icao.int/publications/Documents/9303_p3_cons_en.pdf
 stage {
@@ -68,7 +59,7 @@ stage {
     sub "Ю", "IU" # Ю
     sub "Х", "KH" # Х
     sub "Ш", "SH" # Ш
-    sub "Щ", "SHT" # Щ
+    sub "Щ", "SHCH" # Щ
     sub "Ц", "TS" # Ц
     sub "Ж", "ZH" # Ж
     sub "Ґ", "G" # Ґ
@@ -84,7 +75,6 @@ stage {
     sub "Є", "IE" # Є
     sub "Ї", "I" # Ї
     sub "Ѓ", "G" # Ѓ
-    sub "'", "" # '
 
     sub "а", "a" # а
     sub "б", "b" # б
@@ -105,21 +95,21 @@ stage {
     sub "р", "r" # р
     sub "с", "s" # с
     sub "т", "t" # т
-    sub "у", "" # у
+    sub "у", "u" # у
     sub "в", "v" # в
     sub "ы", "y" # ы
     sub "з", "z" # з
     sub "ч", "ch" # ч
     sub "я", "ia" # я
-    sub "ю", "i" # ю
+    sub "ю", "iu" # ю
     sub "х", "kh" # х
     sub "ш", "sh" # ш
-    sub "щ", "sht" # щ
+    sub "щ", "shch" # щ
     sub "ц", "ts" # ц
     sub "ж", "zh" # ж
     sub "ґ", "g" # ґ
-    sub "ў", "" # ў
-    sub "ѫ", "" # ѫ
+    sub "ў", "u" # ў
+    sub "ѫ", "u" # ѫ
     sub "ђ", "d" # ђ
     sub "ѕ", "dz" # ѕ
     sub "ј", "j" # ј

@@ -1,10 +1,10 @@
 metadata {
   authority_id: icao
   id: 9303
-  language: iso-639-2:srp
+  language: iso-639-2:ukr
   source_script: Cyrl
   destination_script: Latn
-  name: ICAO Doc 9303 Machine Readable Travel Documents Part 3 -- Serbian Cyrillic to Latin
+  name: ICAO Doc 9303 Machine Readable Travel Documents Part 3 -- Ukranian Cyrillic to Latin
   url: https://www.icao.int/publications/pages/publication.aspx?docnum=9303
   creation_date: 2015
   description: |
@@ -25,15 +25,6 @@ metadata {
 tests {
 }
 
-# This map has been partially converted by the bin/maps_v1_to_v2 script
-# The section below requires human attention. Remember to remove this
-# comment and move the converted map to 'maps/' directory. Please also
-# take note that the maps-staging directory will be cleaned up whenever
-# you run the bin/maps_v1_to_v2 script. You should particularly be
-# concerned about any regular expressions found in this file and about
-# advanced expressions in parallel {} parts, and also about the order
-# of particular parts of the stage.
-
 # https://www.icao.int/publications/Documents/9303_p3_cons_en.pdf
 stage {
 
@@ -47,8 +38,8 @@ stage {
     sub "Е", "E" # Е
     sub "Э", "E" # Э
     sub "Ф", "F" # Ф
-    sub "Г", "H" # Г
-    sub "И", "I" # И
+    sub "Г", "G" # Г
+    sub "И", "Y" # И
     sub "Й", "I" # Й
     sub "К", "K" # К
     sub "Л", "L" # Л
@@ -63,14 +54,14 @@ stage {
     sub "В", "V" # В
     sub "Ы", "Y" # Ы
     sub "З", "Z" # З
-    sub "Ч", "C" # Ч
+    sub "Ч", "CH" # Ч
     sub "Я", "IA" # Я
     sub "Ю", "IU" # Ю
-    sub "Х", "H" # Х
-    sub "Ш", "S" # Ш
+    sub "Х", "KH" # Х
+    sub "Ш", "SH" # Ш
     sub "Щ", "SHCH" # Щ
-    sub "Ц", "C" # Ц
-    sub "Ж", "Z" # Ж
+    sub "Ц", "TS" # Ц
+    sub "Ж", "ZH" # Ж
     sub "Ґ", "G" # Ґ
     sub "Ў", "U" # Ў
     sub "Ѫ", "U" # Ѫ
@@ -84,6 +75,7 @@ stage {
     sub "Є", "IE" # Є
     sub "Ї", "I" # Ї
     sub "Ѓ", "G" # Ѓ
+    sub "І", "I" # І
 
     sub "а", "a" # а
     sub "б", "b" # б
@@ -92,8 +84,8 @@ stage {
     sub "е", "e" # e
     sub "э", "e" # э
     sub "ф", "f" # ф
-    sub "г", "h" # г
-    sub "и", "i" # и
+    sub "г", "g" # г
+    sub "и", "y" # и
     sub "й", "i" # й
     sub "к", "k" # к
     sub "л", "l" # л
@@ -108,14 +100,14 @@ stage {
     sub "в", "v" # в
     sub "ы", "y" # ы
     sub "з", "z" # з
-    sub "ч", "c" # ч
+    sub "ч", "ch" # ч
     sub "я", "ia" # я
     sub "ю", "i" # ю
-    sub "х", "h" # х
-    sub "ш", "s" # ш
-    sub "щ", "shch" # щ
-    sub "ц", "c" # ц
-    sub "ж", "z" # ж
+    sub "х", "kh" # х
+    sub "ш", "sh" # ш
+    sub "щ", "shch" # щщ
+    sub "ц", "ts" # ц
+    sub "ж", "zh" # ж
     sub "ґ", "g" # ґ
     sub "ў", "" # ў
     sub "ѫ", "" # ѫ
