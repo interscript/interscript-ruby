@@ -530,7 +530,7 @@ stage {
   }
 
   # POSTRULES
-  sub any("\u0061".."\uFFFF"), upcase, before: boundary, not_before: boundary + any("‘|’|'|-")
+  sub any("\u0061".."\uFFFF"), upcase, before: boundary, not_before: boundary + any("‘’'-")
   # don't capitalize defined article in the middle of a sentence
   sub " At T", " at T" # الت
   sub " As̄ S̄", " as̄ S̄" # الث

@@ -84,14 +84,14 @@ tests {
 stage {
 
   # RULES
-    sub boundary + "\u0404", "Ye", not_before: boundary + "\u2019" # Є in initial position -> Ye
-    sub boundary + "\u0454", "ye", not_before: boundary + "\u2019" # є in initial position -> ye
-    sub boundary + "\u0419", "Y", not_before: boundary + "\u2019" # Й in initial position -> Y
-    sub boundary + "\u0419", "y", not_before: boundary + "\u2019" # й in initial position -> y
-    sub boundary + "\u042e", "Yu", not_before: boundary + "\u2019" # Ю in initial position -> Yu
-    sub boundary + "\u044e", "yu", not_before: boundary + "\u2019" # ю in initial position -> yu
-    sub boundary + "\u042f", "Ya", not_before: boundary + "\u2019" # Я in initial position -> Ya
-    sub boundary + "\u044f", "ya", not_before: boundary + "\u2019" # я in initial position -> ya
+    sub boundary + "\u0404", "Ye", not_before: "\u2019" # Є in initial position -> Ye
+    sub boundary + "\u0454", "ye", not_before: "\u2019" # є in initial position -> ye
+    sub boundary + "\u0419", "Y", not_before: "\u2019" # Й in initial position -> Y
+    sub boundary + "\u0419", "y", not_before: "\u2019" # й in initial position -> y
+    sub boundary + "\u042e", "Yu", not_before: "\u2019" # Ю in initial position -> Yu
+    sub boundary + "\u044e", "yu", not_before: "\u2019" # ю in initial position -> yu
+    sub boundary + "\u042f", "Ya", not_before: "\u2019" # Я in initial position -> Ya
+    sub boundary + "\u044f", "ya", not_before: "\u2019" # я in initial position -> ya
   # note[1]
     sub boundary + "\u2019" + boundary, "" # remove ’
     sub "\u042c\u041e", "IO"
@@ -169,4 +169,3 @@ stage {
   }
 
 }
-

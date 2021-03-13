@@ -253,8 +253,8 @@ For example:
 [source,ruby]
 ----
 stage {
-  sub boundary + "Е", "Ye", not_before: boundary + "’"
-  sub boundary + "е", "ye", not_before: boundary + "’"
+  sub boundary + "Е", "Ye", not_before: "’"
+  sub boundary + "е", "ye", not_before: "’"
 
   sub none, "'", not_before: hangul, after: aspirated_cons
 }

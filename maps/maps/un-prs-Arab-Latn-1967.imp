@@ -79,7 +79,7 @@ stage {
 
     sub "\u064e", "a" # َ fatha
     sub "\u064e", "", after: "\u0629" # َ fatha followed by ta' marboota
-    sub "\u064e", "", after: "a" + any("h|t") # َ fatha followed by ta' marboota, handling different order of conversion
+    sub "\u064e", "", after: "a" + any("ht") # َ fatha followed by ta' marboota, handling different order of conversion
     sub "\u0650", "e" # ِ kasra
     sub "\u064f", "o" # ُ damma
     sub "\u0652", "" # ْ sokoon, see Note B
@@ -90,15 +90,15 @@ stage {
     sub "\u0622", "’ā" # آ
     sub "\u0650\u064a", "ī" # ـِي kasra followed by ي
     sub "\u064f\u0648", "ū" # ـُو damma followed by و
-    sub any("\u064e|\u0650") + "\u064a\u0652", "ey" # ـَيْ
-    sub any("\u064e|\u064f") + "\u0648\u0652", "ow" # ـَوْ
+    sub any("\u064e\u0650") + "\u064a\u0652", "ey" # ـَيْ
+    sub any("\u064e\u064f") + "\u0648\u0652", "ow" # ـَوْ
     sub "\u0621", "’" # ء
     sub "\u2013", "–"
-    sub "\u2013" + any("\u0649|\u064a") + "\u0647", "-īyeh"
-    sub any("\u0654|\u0674"), "-e" # ٴ ezafeh
-    sub any("\u0654|\u0674"), "-ye", before: any("\u064a|\u0647") # ٴ ezafeh
+    sub "\u2013" + any("\u0649\u064a") + "\u0647", "-īyeh"
+    sub any("\u0654\u0674"), "-e" # ٴ ezafeh
+    sub any("\u0654\u0674"), "-ye", before: any("\u064a\u0647") # ٴ ezafeh
     sub "\u0650" + boundary, "-e" # ِ kasra
-    sub any("\u064a|\u06cc") + "\u0650" + boundary, "-ye" # ِ kasra
+    sub any("\u064a\u06cc") + "\u0650" + boundary, "-ye" # ِ kasra
 
     # NOTE C
     sub "\u0628\u0651", "bb" # ب
@@ -146,7 +146,7 @@ stage {
     sub boundary + "\u0627\u0644\u0646", "on n" # الن
 
     sub "\u0650\u064a\u0651", "īy" # ـِيَّ
-    sub "\u0650\u064a", "iy", after: any(["\u064e", "u064f"]) # ـِي kasra followed by ي
+    sub "\u0650\u064a", "iy", after: any("\u064e\u064f") # ـِي kasra followed by ي
 
     # ta' marboota
     sub "\u0629", "at" # ة in the middle of the sentence
@@ -207,7 +207,7 @@ stage {
   }
 
   # POSTRULES
-  sub any([any("\u0061".."\uFFFF")]), upcase, before: boundary, not_before: boundary + any("‘|’|'|-")
+  sub any("\u0061".."\uFFFF"), upcase, before: boundary, not_before: boundary + any("‘’'-")
 
   sub " Al", " al"
   sub " Ol", " ol"

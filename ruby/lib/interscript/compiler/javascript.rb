@@ -1,4 +1,5 @@
 require 'mini_racer'
+require 'json'
 
 class Interscript::Compiler::Javascript < Interscript::Compiler
   def compile(map, debug: false)
@@ -130,31 +131,31 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
 
     [[w_boundary, true, '\b'], [n_boundary, false, '\B']].each do |boundary, a, bdr|
       if from == boundary
-        from = "(?<![#{is_alpha(a)}])(?![#{is_alpha(a)}])"
+        from = "(?:(?<=[#{is_alpha(a)}]|^)|(?=[#{is_alpha(a)}]|$))"
       end
 
       if from.start_with? boundary
-        from = "(?<![#{is_alpha(a)}])"+from[boundary.length..-1]
+        from = "(?<=[#{is_alpha(a)}]|^)"+from[boundary.length..-1]
       end
 
       if from.end_with? boundary
-        from = from[0..-1-boundary.length]+"(?![#{is_alpha(a)}])"
+        from = from[0..-1-boundary.length]+"(?=[#{is_alpha(a)}]|$)"
       end
 
       if before && before.start_with?(boundary)
-        before = "(?:[#{is_alpha(!a)}]|^)" + before[boundary.length..-1]
+        before = "(?:[#{is_alpha(a)}]|^)" + before[boundary.length..-1]
       end
 
       if after && after.end_with?(boundary)
-        after = after[0..-1-boundary.length] + "(?:[#{is_alpha(!a)}]|$)"
+        after = after[0..-1-boundary.length] + "(?:[#{is_alpha(a)}]|$)"
       end
 
       if not_before && not_before.start_with?(boundary)
-        not_before = "(?:[#{is_alpha(!a)}]|^)" + not_before[boundary.length..-1]
+        not_before = "(?:[#{is_alpha(a)}]|^)" + not_before[boundary.length..-1]
       end
 
       if not_after && not_after.end_with?(boundary)
-        not_after = not_after[0..-1-boundary.length] + "(?:[#{is_alpha(!a)}]|$)"
+        not_after = not_after[0..-1-boundary.length] + "(?:[#{is_alpha(a)}]|$)"
       end
     end
 
