@@ -30,6 +30,10 @@ class Interscript::Node::Item::String < Interscript::Node::Item
       super
     end
   end
+
+  def inspect
+    @data.inspect
+  end
 end
 
 # stdext

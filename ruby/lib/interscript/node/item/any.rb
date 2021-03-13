@@ -44,4 +44,8 @@ class Interscript::Node::Item::Any < Interscript::Node::Item
     { :class => self.class.to_s,
       :data => self.data.map { |i| i.to_hash } }
   end
+
+  def inspect
+    "any(#{value.inspect})"
+  end
 end

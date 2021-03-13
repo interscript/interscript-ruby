@@ -2,12 +2,12 @@
 class Interscript::Compiler
   attr_accessor :code
 
-  def self.call(map)
+  def self.call(map, **kwargs)
     if String === map
       map = Interscript::DSL.parse(map)
     end
     compiler = new
-    compiler.compile(map)
+    compiler.compile(map, **kwargs)
     compiler
   end
 

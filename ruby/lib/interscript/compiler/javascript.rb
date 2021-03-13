@@ -1,29 +1,31 @@
 require 'mini_racer'
 
 class Interscript::Compiler::Javascript < Interscript::Compiler
-  def compile(map)
+  def compile(map, debug: false)
     @map = map
     @parallel_trees = {}
     @parallel_regexps = {}
+    @debug = debug
     c = "Interscript.define_map(#{map.name.inspect}, function(Interscript, map) {\n";
+    c << "map.dependencies = #{map.dependencies.map(&:full_name).to_json};\n"
     c
 
     map.aliases.each do |name, value|
       val = compile_item(value.data, map, :str)
-      c << "map.aliases[#{name.to_json}] = #{val};\n"
+      c << "map.aliases.#{name} = #{val};\n"
       val = '"'+compile_item(value.data, map, :re)+'"'
-      c << "map.aliases_re[#{name.to_json}] = #{val};\n"
+      c << "map.aliases_re.#{name} = #{val};\n"
     end
 
     map.stages.each do |_, stage|
       c << compile_rule(stage, @map, true)
     end
     @parallel_trees.each do |k,v|
-      c << "map.cache.PTREE_#{k} = #{v.to_json}\n"
+      c << "map.cache.PTREE_#{k} = #{v.to_json};\n"
     end
     @parallel_regexps.each do |k,v|
       v = "[\"#{v[0]}\", #{v[1].to_json}]"
-      c << "map.cache.PRE_#{k} = #{v}\n"
+      c << "map.cache.PRE_#{k} = #{v};\n"
     end
 
     c << "});"
@@ -43,9 +45,12 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
     c = ""
     case r
     when Interscript::Node::Stage
-      c += "map.stages[#{r.name.to_json}] = function(s) {\n"
+      c += "map.stages.#{r.name} = function(s) {\n"
+      c += "globalThis.map_debug = globalThis.map_debug || [];\n" if @debug
       r.children.each do |t|
-        c += compile_rule(t, map)
+        comp = compile_rule(t, map)
+        c += comp
+        c += %{globalThis.map_debug.push([s, #{@map.name.to_s.to_json}, #{r.name.to_s.to_json}, #{t.inspect.to_json}, #{comp.to_json}]);\n} if @debug
       end
       c += "return s;\n"
       c += "};\n"
@@ -107,23 +112,10 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
     c
   end
 
-  def build_boundary(reverse=false)
-    @boundary ||= {}
-    return @boundary[reverse] if @boundary[reverse]
-    iter = 0
-    z = ""
-    (0..65535).select do |i|
-      ("" << i) =~ (reverse ? /\B/ : /\b/) rescue false
-    end.each do |i|
-      if iter == 0
-        z << "\\u%04x"%i
-      elsif iter+1 != i
-        z << "-\\u%04x\\u%04x" % [iter,i]
-      end
-      iter = i
-    end
-    z << "\\u%04x" % iter
-    @boundary[reverse] = z.gsub(/\\u(....)-\1/, "\\\\u\\1")
+  def is_alpha(alpha, reverse=false)
+    alpha ?
+      "\"+Interscript.boundary.alpha#{reverse ? "_rev" : ""}+\"" :
+      "\"+Interscript.boundary.non_alpha#{reverse ? "_rev" : ""}+\""
   end
 
   def build_regexp(r, map=@map)
@@ -133,38 +125,44 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
     not_before = compile_item(r.not_before, map, :re) if r.not_before
     not_after = compile_item(r.not_after, map, :re) if r.not_after
 
-    w_boundary = "\"+Interscript.aliases[\"boundary\"]+\""
-    n_boundary = "\"+Interscript.aliases[\"non_word_boundary\"]+\""
+    w_boundary = "\"+Interscript.aliases.boundary+\""
+    n_boundary = "\"+Interscript.aliases.non_word_boundary+\""
 
-    [[w_boundary, false], [n_boundary, true]].each do |boundary, f|
+    [[w_boundary, true, '\b'], [n_boundary, false, '\B']].each do |boundary, a, bdr|
       if from == boundary
-        from = "(?<![#{build_boundary(f)}])(?![#{build_boundary(f)}])"
+        from = "(?<![#{is_alpha(a)}])(?![#{is_alpha(a)}])"
       end
 
       if from.start_with? boundary
-        from = "(?<![#{build_boundary(f)}])"+from[boundary.length..-1]
+        from = "(?<![#{is_alpha(a)}])"+from[boundary.length..-1]
       end
 
       if from.end_with? boundary
-        from = from[0..-1-boundary.length]+"(?![#{build_boundary(f)}])"
+        from = from[0..-1-boundary.length]+"(?![#{is_alpha(a)}])"
       end
 
       if before && before.start_with?(boundary)
-        before = "(?:[#{build_boundary(!f)}]|^)" + before[boundary.length..-1]
+        before = "(?:[#{is_alpha(!a)}]|^)" + before[boundary.length..-1]
       end
 
       if after && after.end_with?(boundary)
-        after = after[0..-1-boundary.length] + "(?:[#{build_boundary(!f)}]|$)"
+        after = after[0..-1-boundary.length] + "(?:[#{is_alpha(!a)}]|$)"
       end
 
-      #if not_before && not_before.start_with?(boundary)
-      #  not_before = "[#{build_boundary(f)}]" + not_before[boundary.length..-1]
-      #end
+      if not_before && not_before.start_with?(boundary)
+        not_before = "(?:[#{is_alpha(!a)}]|^)" + not_before[boundary.length..-1]
+      end
 
-      #if not_after && not_after.end_with?(boundary)
-      #  not_after = not_after[0..-1-boundary.length] + "[#{build_boundary(f)}]"
-      #end
+      if not_after && not_after.end_with?(boundary)
+        not_after = not_after[0..-1-boundary.length] + "(?:[#{is_alpha(!a)}]|$)"
+      end
     end
+
+    # Make the regexps a bit finer.
+    before     =     before.gsub("\"+Interscript.aliases.line_start+\"", "(?:\\n|^)") if before
+    not_before = not_before.gsub("\"+Interscript.aliases.line_start+\"", "(?:\\n|^)") if not_before
+    after      =      after.gsub("\"+Interscript.aliases.line_end+\"",   "(?:\\n|$)") if after
+    not_after  =  not_after.gsub("\"+Interscript.aliases.line_end+\"",   "(?:\\n|$)") if not_after
 
     re = ""
     re += "(?<=#{before})" if before
@@ -195,7 +193,7 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
           raise ArgumentError, "Can't use #{i.name} in a #{target} context"
         end
         stdlib_alias = true
-        "Interscript.aliases[#{i.name.to_json}]"
+        "Interscript.aliases.#{i.name}"
       else
         a = doc.imported_aliases[i.name]
         raise ArgumentError, "Alias #{i.name} not found" unless a
@@ -239,32 +237,21 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
         raise ArgumentError, "Can't use a CaptureGroup in a #{target} context"
       end
       "(" + compile_item(i.data, doc, target) + ")"
-    when Interscript::Node::Item::MaybeSome
+    when Interscript::Node::Item::Maybe,
+         Interscript::Node::Item::MaybeSome,
+         Interscript::Node::Item::Some
+
+      resuffix = { Interscript::Node::Item::Maybe     => "?" ,
+                   Interscript::Node::Item::Some      => "+" ,
+                   Interscript::Node::Item::MaybeSome => "*" }[i.class]
+
       if target == :par
         raise ArgumentError, "Can't use a MaybeSome in a #{target} context"
       end
-      if Interscript::Node::Item::String === i.data
-        "(?:" + compile_item(i.data, doc, target) + ")*"
+      if Interscript::Node::Item::String === i.data && i.data.data.length != 1
+        "(?:" + compile_item(i.data, doc, target) + ")" + resuffix
       else
-        compile_item(i.data, doc, target) + "*"
-      end
-    when Interscript::Node::Item::Some
-      if target == :par
-        raise ArgumentError, "Can't use a Some in a #{target} context"
-      end
-      if Interscript::Node::Item::String === i.data
-        "(?:" + compile_item(i.data, doc, target) + ")+"
-      else
-        compile_item(i.data, doc, target) + "+"
-      end
-    when Interscript::Node::Item::Maybe
-      if target == :par
-        raise ArgumentError, "Can't use a Maybe in a #{target} context"
-      end
-      if Interscript::Node::Item::String === i.data
-        "(?:" + compile_item(i.data, doc, target) + ")?"
-      else
-        compile_item(i.data, doc, target) + "?"
+        compile_item(i.data, doc, target) + resuffix
       end
     when Interscript::Node::Item::CaptureRef
       if target == :par
@@ -327,5 +314,13 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
   def call(str, stage=:main)
     load
     self.class.ctx.eval "Interscript.transcribe(#{@map.name.to_json}, #{str.to_json}, #{stage.to_json})"
+  end
+
+  def self.read_debug_data
+    self.ctx.eval "globalThis.map_debug || []"
+  end
+
+  def self.reset_debug_data
+    self.ctx.eval "globalThis.map_debug = []"
   end
 end

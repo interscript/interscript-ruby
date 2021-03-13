@@ -15,6 +15,10 @@ class Interscript::Node::Item::CaptureGroup < Interscript::Node::Item
     { :class => self.class.to_s,
       :data => self.data.to_hash }
   end
+
+  def inspect
+    "capture(#{@data.inspect})"
+  end
 end
 
 # \1
@@ -32,5 +36,9 @@ class Interscript::Node::Item::CaptureRef < Interscript::Node::Item
   def to_hash
     { :class => self.class.to_s,
       :id => self.id }
+  end
+
+  def inspect
+    "ref(#{@id.inspect})"
   end
 end

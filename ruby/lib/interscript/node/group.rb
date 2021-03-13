@@ -7,7 +7,7 @@ class Interscript::Node::Group < Interscript::Node
 
   def reorder_children(source,target)
     @children[source], @children[target] = @children[target], @children[source]
-    self 
+    self
   end
 
   def apply_order(order)
@@ -17,12 +17,16 @@ class Interscript::Node::Group < Interscript::Node
     end
     @children = children_new
     #@children[source], @children[target] = @children[target], @children[source]
-    self 
+    self
   end
 
   def to_hash
     { :class => self.class.to_s,
       :children => @children.map{|x| x.to_hash} }
+  end
+
+  def inspect
+    @children.map(&:inspect).join("\n").gsub("^", "  ")
   end
 end
 

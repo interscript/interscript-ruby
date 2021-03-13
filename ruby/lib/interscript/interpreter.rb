@@ -1,6 +1,6 @@
 class Interscript::Interpreter < Interscript::Compiler
   attr_accessor :map
-  def compile(map)
+  def compile(map, _:nil)
     @map = map
     self
   end
@@ -148,32 +148,21 @@ class Interscript::Interpreter < Interscript::Compiler
           raise ArgumentError, "Can't use a CaptureGroup in a #{target} context"
         end
         "(" + build_item(i.data, target, doc) + ")"
-      when Interscript::Node::Item::MaybeSome
+      when Interscript::Node::Item::Maybe,
+           Interscript::Node::Item::MaybeSome,
+           Interscript::Node::Item::Some
+
+        resuffix = { Interscript::Node::Item::Maybe     => "?" ,
+                     Interscript::Node::Item::Some      => "+" ,
+                     Interscript::Node::Item::MaybeSome => "*" }[i.class]
+
         if target == :par
           raise ArgumentError, "Can't use a MaybeSome in a #{target} context"
         end
-        if Interscript::Node::Item::String === i.data
-          "(?:" + build_item(i.data, target, doc) + ")*"
+        if Interscript::Node::Item::String === i.data && i.data.data.length != 1
+          "(?:" + build_item(i.data, target, doc) + ")" + resuffix
         else
-          build_item(i.data, target, doc) + "*"
-        end
-      when Interscript::Node::Item::Some
-        if target == :par
-          raise ArgumentError, "Can't use a Some in a #{target} context"
-        end
-        if Interscript::Node::Item::String === i.data
-          "(?:" + build_item(i.data, target, doc) + ")+"
-        else
-          build_item(i.data, target, doc) + "+"
-        end
-      when Interscript::Node::Item::Maybe
-        if target == :par
-          raise ArgumentError, "Can't use a Maybe in a #{target} context"
-        end
-        if Interscript::Node::Item::String === i.data
-          "(?:" + build_item(i.data, target, doc) + ")?"
-        else
-          build_item(i.data, target, doc) + "?"
+          build_item(i.data, target, doc) + resuffix
         end
       when Interscript::Node::Item::CaptureRef
         if target == :par

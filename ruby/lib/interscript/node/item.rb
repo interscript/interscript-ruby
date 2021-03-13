@@ -35,7 +35,7 @@ class Interscript::Node::Item < Interscript::Node
     { :class => self.class.to_s,
       :item => self.item }
   end
-  
+
   def self.try_convert(i)
     i = Interscript::Node::Item::String.new(i) if i.class == ::String
     raise TypeError, "Wrong type #{i.class}, expected I::Node::Item" unless Interscript::Node::Item === i
@@ -49,4 +49,4 @@ require "interscript/node/item/group"
 require "interscript/node/item/any"
 require "interscript/node/item/stage"
 require "interscript/node/item/capture"
-require "interscript/node/item/maybe"
+require "interscript/node/item/repeat"

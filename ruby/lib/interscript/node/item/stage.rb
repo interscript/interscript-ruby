@@ -12,4 +12,12 @@ class Interscript::Node::Item::Stage < Interscript::Node::Item
       :map => map,
     }
   end
+
+  def inspect
+    if map
+      "map.#{@map}.stage.#{@name}"
+    else
+      "stage.#{@name}"
+    end
+  end
 end

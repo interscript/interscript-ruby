@@ -40,4 +40,8 @@ class Interscript::Node::Item::Group < Interscript::Node::Item
     { :class => self.class.to_s,
       :children => self.children.map{|x| x.to_hash} }
   end
+
+  def inspect
+    @children.map(&:inspect).join("+")
+  end
 end

@@ -29,4 +29,12 @@ class Interscript::Node::Item::Alias < Interscript::Node::Item
       :map => map,
     }
   end
+
+  def inspect
+    if map
+      "map.#{map}.#{name}"
+    else
+      "#{name}"
+    end
+  end
 end

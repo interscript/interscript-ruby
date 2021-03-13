@@ -3,4 +3,26 @@ require "rspec/core/rake_task"
 
 RSpec::Core::RakeTask.new(:spec)
 
+task :compile, [:compiler, :target] do |t, args|
+  require "bundler/setup"
+  require "interscript"
+
+  compiler, ext = case args[:compiler]
+  when "ruby"
+    require "interscript/compiler/ruby"
+    [Interscript::Compiler::Ruby, "rb"]
+  when "javascript"
+    require "interscript/compiler/javascript"
+    [Interscript::Compiler::Javascript, "js"]
+  end
+
+  FileUtils.mkdir_p(args[:target])
+
+  Interscript.maps.each do |map|
+    code = compiler.(map).code
+
+    File.write(args[:target] + "/" + map + "." + ext, code)
+  end
+end
+
 task :default => :spec

@@ -11,4 +11,8 @@ class Interscript::Node::Rule::Funcall < Interscript::Node::Rule
       :kwargs => self.kwargs
     }
   end
+
+  def inspect
+    "#{@name} #{kwargs.inspect[1..-2]}"
+  end
 end

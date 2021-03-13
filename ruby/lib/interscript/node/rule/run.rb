@@ -8,4 +8,8 @@ class Interscript::Node::Rule::Run < Interscript::Node::Rule
     { :class => self.class.to_s,
       :stage => self.stage.to_hash }
   end
+
+  def inspect
+    "run #{@stage.inspect}"
+  end
 end

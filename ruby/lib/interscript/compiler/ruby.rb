@@ -1,8 +1,9 @@
 $main_binding = binding
 
 class Interscript::Compiler::Ruby < Interscript::Compiler
-  def compile(map)
+  def compile(map, debug: false)
     @map = map
+    @debug = debug
     @parallel_trees = {}
     @parallel_regexps = {}
     c = "require 'interscript/stdlib'\n"
@@ -44,9 +45,12 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
     case r
     when Interscript::Node::Stage
       c += "Interscript::Maps.add_map_stage \"#{@map.name}\", #{r.name.inspect} do |s|\n"
+      c += "$map_debug ||= []\n" if @debug
       c += "s = s.dup\n"
       r.children.each do |t|
-        c += compile_rule(t, map)
+        comp = compile_rule(t, map)
+        c += comp
+        c += %{$map_debug << [s.dup, #{@map.name.to_s.inspect}, #{r.name.to_s.inspect}, #{t.inspect.inspect}, #{comp.inspect}]\n} if @debug
       end
       c += "s\n"
       c += "end\n"
@@ -188,32 +192,21 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
         raise ArgumentError, "Can't use a CaptureGroup in a #{target} context"
       end
       "(" + compile_item(i.data, doc, target) + ")"
-    when Interscript::Node::Item::MaybeSome
-      if target == :par
-        raise ArgumentError, "Can't use a MaybeSome in a #{target} context"
-      end
-      if Interscript::Node::Item::String === i.data
-        "(?:" + compile_item(i.data, doc, target) + ")*"
-      else
-        compile_item(i.data, doc, target) + "*"
-      end
-    when Interscript::Node::Item::Some
-      if target == :par
-        raise ArgumentError, "Can't use a Some in a #{target} context"
-      end
-      if Interscript::Node::Item::String === i.data
-        "(?:" + compile_item(i.data, doc, target) + ")+"
-      else
-        compile_item(i.data, doc, target) + "+"
-      end
-    when Interscript::Node::Item::Maybe
+    when Interscript::Node::Item::Maybe,
+         Interscript::Node::Item::MaybeSome,
+         Interscript::Node::Item::Some
+
+      resuffix = { Interscript::Node::Item::Maybe     => "?" ,
+                   Interscript::Node::Item::Some      => "+" ,
+                   Interscript::Node::Item::MaybeSome => "*" }[i.class]
+
       if target == :par
         raise ArgumentError, "Can't use a Maybe in a #{target} context"
       end
-      if Interscript::Node::Item::String === i.data
-        "(?:" + compile_item(i.data, doc, target) + ")?"
+      if Interscript::Node::Item::String === i.data && i.data.data.length != 1
+        "(?:" + compile_item(i.data, doc, target) + ")" + resuffix
       else
-        compile_item(i.data, doc, target) + "?"
+        compile_item(i.data, doc, target) + resuffix
       end
     when Interscript::Node::Item::CaptureRef
       if target == :par
@@ -257,5 +250,13 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
   def call(str, stage=:main)
     load
     Interscript::Maps.transcribe(@map.name, str, stage)
+  end
+
+  def self.read_debug_data
+    $map_debug || []
+  end
+
+  def self.reset_debug_data
+    $map_debug = []
   end
 end

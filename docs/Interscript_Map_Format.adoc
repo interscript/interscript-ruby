@@ -318,13 +318,6 @@ stage {
 }
 ----
 
-=== `external` call
-
-The external call is not defined yet. It exists for compatibility with older
-maps.
-
-Question: shouldn't they be implemented using standard library functions?
-
 === Standard library functions
 
 There are certain conversions that may be hard to be achieved using stages, those
