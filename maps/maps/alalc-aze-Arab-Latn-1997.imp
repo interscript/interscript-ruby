@@ -249,7 +249,7 @@ stage {
     sub "\u064f\u0648", "ū" # ـُو damma followed by و
     sub "\u064e\u0627", "ā" # ـَا fatha followed by ا
     sub "\u0622", "ā" # آ
-    sub "\u0650" + any("\u0621|\u0623|\u0624|\u0626"), "e" # ـِأ kasra followed by hamza
+    sub "\u0650" + any("\u0621\u0623\u0624\u0626"), "e" # ـِأ kasra followed by hamza
     sub "\u0650\u064a", "ī" # ـِي kasra followed by ي
     sub "\u0650\u0627\u064a", "ī" # ـِي kasra followed by ي
     sub maybe(any("\u064f")) + "\u0627\u064f\u0648", "o" # ـُاُو
@@ -269,7 +269,7 @@ stage {
     sub "\u0624", "’" # ؤ
     sub "\u0626", "’" # ئ
     sub boundary + "\u0622", "ā" # آ
-    sub "\u0622", "’ā", not_before: any([boundary + "\u0627\u0644", boundary]), not_after: any(boundary + "|\u0621") # آ in middle, not final, or initial, or after ال
+    sub "\u0622", "’ā", not_before: any([boundary + "\u0627\u0644", boundary]), not_after: any([boundary, "\u0621"]) # آ in middle, not final, or initial, or after ال
     sub "\u064e\u0622", "ā" # ـَآ fatha followed by ا
     sub "\u0622", "" # آ
 
@@ -308,7 +308,7 @@ stage {
     sub "\u0629", "h", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
 
 
-    sub "\u0650\u064a", "iy", after: any(["\u064e", "u064f"]) # ـِي kasra followed by ي
+    sub "\u0650\u064a", "iy", after: any("\u064e\u064f") # ـِي kasra followed by ي
     sub "\u064e\u0649", "á" # ـَى fatha followed by ى which is ا not ي
   }
 
