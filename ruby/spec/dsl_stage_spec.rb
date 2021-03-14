@@ -385,7 +385,14 @@ RSpec.describe Interscript::DSL::Stage do
             s = stage {
               sub boundary, "|"
             }
-            expect(s.("Mary had A littlë lámb")).to eq("|Mary| |had| |A| |littlë| |lámb|")
+            expect(s.("Mary had A   littlë lámb!")).to eq("|Mary| |had| |A|   |littlë| |lámb|!")
+          end
+
+          it "handles non_word_boundary correctly" do
+            s = stage {
+              sub non_word_boundary, "|"
+            }
+            expect(s.("Mary had A   littlë lámb!")).to eq("M|a|r|y h|a|d A | | l|i|t|t|l|ë l|á|m|b!|")
           end
         end
 

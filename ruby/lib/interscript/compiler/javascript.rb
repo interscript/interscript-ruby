@@ -113,12 +113,6 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
     c
   end
 
-  def is_alpha(alpha, reverse=false)
-    alpha ?
-      "\"+Interscript.boundary.alpha#{reverse ? "_rev" : ""}+\"" :
-      "\"+Interscript.boundary.non_alpha#{reverse ? "_rev" : ""}+\""
-  end
-
   def build_regexp(r, map=@map)
     from = compile_item(r.from, map, :re)
     before = compile_item(r.before, map, :re) if r.before
@@ -126,51 +120,13 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
     not_before = compile_item(r.not_before, map, :re) if r.not_before
     not_after = compile_item(r.not_after, map, :re) if r.not_after
 
-    w_boundary = "\"+Interscript.aliases.boundary+\""
-    n_boundary = "\"+Interscript.aliases.non_word_boundary+\""
-
-    [[w_boundary, true, '\b'], [n_boundary, false, '\B']].each do |boundary, a, bdr|
-      if from == boundary
-        from = "(?:(?<=[#{is_alpha(a)}]|^)|(?=[#{is_alpha(a)}]|$))"
-      end
-
-      if from.start_with? boundary
-        from = "(?<=[#{is_alpha(a)}]|^)"+from[boundary.length..-1]
-      end
-
-      if from.end_with? boundary
-        from = from[0..-1-boundary.length]+"(?=[#{is_alpha(a)}]|$)"
-      end
-
-      if before && before.start_with?(boundary)
-        before = "(?:[#{is_alpha(a)}]|^)" + before[boundary.length..-1]
-      end
-
-      if after && after.end_with?(boundary)
-        after = after[0..-1-boundary.length] + "(?:[#{is_alpha(a)}]|$)"
-      end
-
-      if not_before && not_before.start_with?(boundary)
-        not_before = "(?:[#{is_alpha(a)}]|^)" + not_before[boundary.length..-1]
-      end
-
-      if not_after && not_after.end_with?(boundary)
-        not_after = not_after[0..-1-boundary.length] + "(?:[#{is_alpha(a)}]|$)"
-      end
-    end
-
-    # Make the regexps a bit finer.
-    before     =     before.gsub("\"+Interscript.aliases.line_start+\"", "(?:\\n|^)") if before
-    not_before = not_before.gsub("\"+Interscript.aliases.line_start+\"", "(?:\\n|^)") if not_before
-    after      =      after.gsub("\"+Interscript.aliases.line_end+\"",   "(?:\\n|$)") if after
-    not_after  =  not_after.gsub("\"+Interscript.aliases.line_end+\"",   "(?:\\n|$)") if not_after
-
     re = ""
     re += "(?<=#{before})" if before
     re += "(?<!#{not_before})" if not_before
     re += from
     re += "(?!#{not_after})" if not_after
     re += "(?=#{after})" if after
+
     re
   end
 
