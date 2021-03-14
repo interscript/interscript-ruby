@@ -101,15 +101,18 @@ RSpec.describe Interscript::DSL::Stage do
           expect(s.("ABfghiabcdCD")).to eq("ZYYYYXXXXZ")
         end
 
-        it "prefers the first given replacement" do
-          s = stage {
-            parallel {
-              sub any("ab"), "X"
-              sub any("ab"), "Y"
-            }
-          }
-          expect(s.("abbacus")).to eq("XXXXcus")
-        end
+        # The old behaviour was to take the LAST one. We may reintroduce this
+        # behavior in the future, but the maps will need to be rearranged.
+        #
+        # it "prefers the first given replacement" do
+        #   s = stage {
+        #     parallel {
+        #       sub any("ab"), "X"
+        #       sub any("ab"), "Y"
+        #     }
+        #   }
+        #   expect(s.("abbacus")).to eq("XXXXcus")
+        # end
 
         context "extended engine" do
           it "falls back to an extended engine when needed" do

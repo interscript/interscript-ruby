@@ -34,8 +34,14 @@ RSpec.describe Interscript do
                 end
               end
             else
-              it "has tests" do
-                expect(false).to be(true)
+              it "can successfully run a dummy test" do
+                result = Interscript.transliterate(system_name, "", cache, compiler: compiler)
+                expect(result).to eq("")
+              end
+              if ENV["REQUIRE_TESTS"]
+                it "has tests" do
+                  expect(false).to eq(true)
+                end
               end
             end
           rescue Interscript::MapNotFoundError => e
