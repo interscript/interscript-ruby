@@ -112,7 +112,7 @@ stage {
   sub "", "\u200B", before: " "
 
   # convert numbers to space + Hangul
-  sub capture(any([any("0".."9") + " "])), ref( 1 ) + " ", after: any([any("0".."9")])
+  sub capture(any([any("0".."9") + " "])), ref( 1 ) + " ", after: any("0".."9")
   sub "1", " 일"
   sub "2", " 이"
   sub "3", " 삼"

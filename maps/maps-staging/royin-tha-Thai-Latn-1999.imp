@@ -65,7 +65,7 @@ stage {
 
   # CHARACTERS
   parallel {
-    sub any([any("0".."9")]), ""
+    sub any("0".."9"), ""
 
   }
 

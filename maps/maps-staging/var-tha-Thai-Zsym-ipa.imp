@@ -83,7 +83,7 @@ stage {
   sub capture(any("กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษสหฬอฮ")) + capture("–") + capture(any("คฅฆกขฃพฟภบปชฌฑฒทธจฎฏดตฐถศษสมญณนรลฬง") + "_"), ref( 1 ) + "โ" + ref( 2 ) + "ะ" + ref( 3 )
 
   # Add inherit vowel for single letters
-  sub capture(any([line_start, " ", "-", "ฺ"])) + capture(any([any("ก".."ฮ")])) + "–", ref( 1 ) + ref( 2 ) + "–ะ", after: "_" + any("HML")
+  sub capture(any([line_start, " ", "-", "ฺ"])) + capture(any("ก".."ฮ")) + "–", ref( 1 ) + ref( 2 ) + "–ะ", after: "_" + any("HML")
 
   #Change tones to correct tone values
   # IPA Tones:        0 ˧ , 1 ˨˩ , 2 ˥˩, 3 ˦˥, 4 ˩˩˦

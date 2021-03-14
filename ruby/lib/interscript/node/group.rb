@@ -26,7 +26,7 @@ class Interscript::Node::Group < Interscript::Node
   end
 
   def inspect
-    @children.map(&:inspect).join("\n").gsub("^", "  ")
+    @children.map(&:inspect).join("\n").gsub(/^/, "  ")
   end
 end
 
