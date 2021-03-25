@@ -1,4 +1,4 @@
-require 'mini_racer'
+require 'mini_racer' rescue nil
 require 'json'
 
 class Interscript::Compiler::Javascript < Interscript::Compiler
