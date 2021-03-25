@@ -11,7 +11,8 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
     @parallel_trees = {}
     @parallel_regexps = {}
     @debug = debug
-    c = "Interscript.define_map(#{map.name.inspect}, function(Interscript, map) {\n";
+    c = "var map = function(Interscript) {"
+    c << "Interscript.define_map(#{map.name.inspect}, function(Interscript, map) {\n";
     c << "map.dependencies = #{map.dependencies.map(&:full_name).to_json};\n"
     c
 
@@ -34,6 +35,10 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
     end
 
     c << "});"
+    c << "};"
+    c << "if (typeof module !== 'undefined') { module.exports = map; }"
+    c << "else if (typeof Interscript !== 'undefined') { map(Interscript); }"
+    c << 'else { throw "We couldn\'t dispatch Interscript from a map!"; }'
     @code = c
   end
 

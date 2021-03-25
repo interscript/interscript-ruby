@@ -1,6 +1,8 @@
 "use strict";
 
 var Interscript = {
+  XRegExp: typeof XRegExp !== 'undefined' ? XRegExp : require('xregexp'),
+
   aliases: {
     any_character: '.',
     none: "",
@@ -21,34 +23,38 @@ var Interscript = {
   },
   map_dependencies: function (depsList) {
     const promises = depsList.map(function (dep) {
-      return new load_script(url);
-    });
+      return this.load_map(dep);
+    }.bind(this));
     return Promise.all(promises);
   },
-  load_script: function (url) {
+  map_path: "./maps/",
+  load_map: function (map) {
     // adding the script tag to the head as suggested before
     return new Promise(function (resolve, reject) {
-      const name = url.replace('.js', '').replace('src/maps/','');
-      if (this.maps[name]) {
-        reject('already exists');
+      if (this.maps[map]) {
+        resolve();
         return;
       }
       try {
-        var head = document.getElementsByTagName('head')[0];
-        var script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.src = url;
-        // then bind the event to the callback function
-        // there are several events for cross browser compatibility
-        script.onreadystatechange = resolve;
-        script.onload = function (scr) {
-          console.log('loaded script', scr);
-          // map dependencies
-          this.map_dependencies(this.maps[name].dependencies);
-          resolve();
-        }.bind(this);
-        // fire the loading
-        head.appendChild(script);
+        if (typeof document !== 'undefined') {
+          var head = document.getElementsByTagName('head')[0];
+          var script = document.createElement('script');
+          script.type = 'text/javascript';
+          script.src = this.map_path+map+".js";
+          // then bind the event to the callback function
+          // there are several events for cross browser compatibility
+          script.onload = function (scr) {
+            // map dependencies
+            this.map_dependencies(this.maps[map].dependencies).then(resolve);
+          }.bind(this);
+          // fire the loading
+          head.appendChild(script);
+        }
+        else if (typeof global !== 'undefined') {
+          var node_require = eval('require'); // webpack hack
+          node_require(this.map_path + map)(this);
+          this.map_dependencies(this.maps[map].dependencies).then(resolve);
+        }
       } catch (e) {
         reject(e);
       }
@@ -66,7 +72,7 @@ var Interscript = {
   available_functions: ["title_case", "downcase", "compose", "decompose", "separate"],
 
   mkregexp: function (str) {
-    return XRegExp(str, "g");
+    return this.XRegExp(str, "g");
   },
 
   regexp_escape: function (a) {
@@ -115,7 +121,7 @@ var Interscript = {
   },
 
   parallel_regexp_gsub: function (s, data) {
-    return XRegExp.replace(s, this.mkregexp(data[0]), function (match) {
+    return this.XRegExp.replace(s, this.mkregexp(data[0]), function (match) {
       var matches = arguments[arguments.length - 1];
       var idx;
       for (var i in matches) {
@@ -190,3 +196,7 @@ var Interscript = {
 };
 
 Interscript.correct_boundaries();
+
+if (typeof module !== 'undefined') {
+  module.exports = Interscript;
+}
