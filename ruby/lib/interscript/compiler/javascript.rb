@@ -260,10 +260,10 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
       ctx = self.class.ctx
       unless ctx
         ctx = MiniRacer::Context.new
-        ctx.eval File.read(__dir__+"/../../../../js/xregexp.js")
+        ctx.eval File.read(__dir__+"/../../../../js/test-compiler/xregexp.js")
         # Compatibility with Safari: will come later
         #ctx.eval File.read(__dir__+"/../../../js/xregexp-oniguruma.js")
-        ctx.eval File.read(__dir__+"/../../../../js/stdlib.js")
+        ctx.eval File.read(__dir__+"/../../../../js/src/stdlib.js")
         self.class.ctx = ctx
       end
       #puts @code
