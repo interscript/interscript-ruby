@@ -1,4 +1,8 @@
-require 'mini_racer' rescue nil
+begin
+  require 'mini_racer'
+rescue LoadError
+  # Ignore loading error
+end
 require 'json'
 
 class Interscript::Compiler::Javascript < Interscript::Compiler
