@@ -1,274 +1,233 @@
----
-authority_id: alalc
-id: 1997
-language: iso-639-2:kan
-source_script: Kana
-destination_script: Latn
-name: Kannada Romanization, 1997
-url: http://catdir.loc.gov/catdir/cpso/romanization/kannada.pdf
-creation_date: 1997
-description: |
-  ALA-LC Romanization table for Kannada
+metadata {
+  authority_id: alalc
+  id: 1997
+  language: iso-639-2:kan
+  source_script: Kana
+  destination_script: Latn
+  name: Kannada Romanization, 1997
+  url: http://catdir.loc.gov/catdir/cpso/romanization/kannada.pdf
+  creation_date: 1997
+  description: |
+    ALA-LC Romanization table for Kannada
 
-notes:
+  notes:
 
-  - Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for
-    vowels following a consonant can be found in grammars; no distinction between the two is
-    made in transliteration.
+    - Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for
+      vowels following a consonant can be found in grammars; no distinction between the two is
+      made in transliteration.
 
-  - |
-    The vowel a is implicit after all consonants and consonant clusters and is supplied in
-    transliteration, with the following exceptions:
+    - |
+      The vowel a is implicit after all consonants and consonant clusters and is supplied in
+      transliteration, with the following exceptions:
 
-    a) when another vowel is indicated by its appropriate sign; and
-    b) when the absence of any vowel is indicated by the superscript sign (◌್).
+      a) when another vowel is indicated by its appropriate sign; and
+      b) when the absence of any vowel is indicated by the superscript sign (◌್).
 
-  - |
-    Exception: Anusvāra is transliterated by:
+    - |
+      Exception: Anusvāra is transliterated by:
 
-    a) ṅ before gutturals,
-    b) ñ before palatals,
-    c) ṇ before cerebrals,
-    d) n before dentals, and
-    e) m before labials.
+      a) ṅ before gutturals,
+      b) ñ before palatals,
+      c) ṇ before cerebrals,
+      d) n before dentals, and
+      e) m before labials.
+}
+
+tests {
+  test "ಕರ್ಣಾಟಕ", "karṇāṭaka"
+  test "ಬೆಂಗಳೂರು", "beṅgaḷūru"
+  test "ಉಡುಪಿಯಲ್ಲಿ ಪ್ರಪ್ರಥಮ ಬಾರಿಗೆ ಪ್ರಾರಂಭವಾಗಿರುವ ದೇಶಿ ಉತ್ಪನ್ನಗಳ ಮಳಿಗೆ", "uḍupiyalli praprathama bārige prāraṃbhavāgiruva dēśi utpannagaḷa maḷige"
+  test "ದೇವರ ಹೆಸರು ಬಳಸಿ ಆನ್‌ಲೈನ್‌ ಬೆಟ್ಟಿಂಗ್‌!", "dēvara hesaru baḷasi ānlain beṭṭiṃg!"
+  test "ಚಿಕ್ಕಮಗಳೂರು : ಪುಷ್ಪ ಸಮರ್ಪಣೆ ವೇಳೆ ಮಗಳನ್ನ ನೆನೆದು ಕಣ್ಣೀರಿಟ್ಟ ಮೃತ ಪೇದೆ ತಾಯಿ", "cikkamagaḷūru : puṣpa samarpaṇe vēḷe magaḷanna nenedu kaṇṇīriṭṭa mṛta pēde tāyi"
+  test "ಸ್ವಾಮಿತ್ವ: ಹೊಸ ಯೋಜನೆಯಿಂದ ನಮಗೆ ಏನು ಲಾಭ ?", "svāmitva: hosa yōjaneyinda namage ēnu lābha ?"
+  test "ಮರಳು ಸಾಗಾಣಿಕೆ ವ್ಯವಹಾರ ಆಗಬಾರದು :ಅಧಿಕಾರಿಗಳಿಗೆ ಖಡಕ್ ಸೂಚನೆ ನೀಡಿದ ಜಿಲ್ಲಾಧಿಕಾರಿ", "maraḷu sāgāṇike vyavahāra āgabāradu :adhikārigaḷige khaḍak sūcane nīḍida jillādhikāri"
+  test "ಹಾವೇರಿ ಜಿಲ್ಲೆಯಲ್ಲಿ ೯೭ ಜನರಲ್ಲಿ ಕೋವಿಡ್ ಸೋಂಕು ಪತ್ತೆ ; 54 ಮಂದಿ ಗುಣಮುಖ", "hāvēri jilleyalli 97 janaralli kōviḍ sōṃku patte ; 54 maṃdi guṇamukha"
+  test "ಸಿಂದಗಿ ಐಸಿಐಸಿಐ ಬ್ಯಾಂಕ್ ಸೆಕ್ಯುರಿಟಿ ಗಾರ್ಡ್ ಹತ್ಯೆ ಪ್ರಕರಣ ಭೇದಿಸಿದ ಪೊಲೀಸರು", "sindagi aisiaisiai byāṃk sekyuriṭi gārḍ hatye prakaraṇa bhēdisida polīsaru"
+  test "ಬ್ಯಾಂಕರ್‌ಗಳೊಂದಿಗೆ ಡಿವಿ ಸಭೆ : ಆಧ್ಯತಾ ವಲಯ, ಸಾಲ ಯೋಜನೆ ತ್ವರಿತ ಮಂಜೂರಿಗೆ ಸೂಚನೆ", "byāṅkargaḷoṃdige ḍivi sabhe : ādhyatā valaya, sāla yōjane tvarita maṃjūrige sūcane"
+  test "ಪೊಲೀಸ್‌ ಇಲಾಖೆ ಸಮಗ್ರ ಅಭಿವೃದ್ಧಿ; ಡಿಜಿಪಿ ನೇತೃತ್ವದಲ್ಲಿ ಸಮಿತಿ ರಚನೆ: ಬೊಮ್ಮಾಯಿ", "polīs ilākhe samagra abhivṛddhi; ḍijipi nētṛtvadalli samiti racane: beūmmāyi"
+  test "ಕೆಟ್ಟಿರುವ ರಸ್ತೆಗಳ ದುರಸ್ತಿಗೆ ಸರಕಾರದ ಯೋಜನೆ", "keṭṭiruva rastegaḷa durastige sarakārada yōjane"
+}
+
+aliases {
+  def_alias kana_chars_1, any("\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd")
+}
+
+stage {
+
+  # RULES
+  # to cover diacritic and vowel less consonants rule II
+    sub "ಕ", "k", after: kana_chars_1
+    sub "ಖ", "kh", after: kana_chars_1
+    sub "ಗ", "g", after: kana_chars_1
+    sub "ಘ", "gh", after: kana_chars_1
+    sub "ಙ", "ṅ", after: kana_chars_1
+    sub "ಚ", "c", after: kana_chars_1
+    sub "ಛ", "ch", after: kana_chars_1
+    sub "ಜ", "j", after: kana_chars_1
+    sub "ಝ", "jh", after: kana_chars_1
+    sub "ಞ", "ñ", after: kana_chars_1
+    sub "ಟ", "ṭ", after: kana_chars_1
+    sub "ಠ", "ṭh", after: kana_chars_1
+    sub "ಡ", "ḍ", after: kana_chars_1
+    sub "ಢ", "ḍh", after: kana_chars_1
+    sub "ಣ", "ṇ", after: kana_chars_1
+    sub "ತ", "t", after: kana_chars_1
+    sub "ಥ", "th", after: kana_chars_1
+    sub "ದ", "d", after: kana_chars_1
+    sub "ಧ", "dh", after: kana_chars_1
+    sub "ನ", "n", after: kana_chars_1
+    sub "ಪ", "p", after: kana_chars_1
+    sub "ಫ", "ph", after: kana_chars_1
+    sub "ಬ", "b", after: kana_chars_1
+    sub "ಭ", "bh", after: kana_chars_1
+    sub "ಮ", "m", after: kana_chars_1
+    sub "ಯ", "y", after: kana_chars_1
+    sub "ರ", "r", after: kana_chars_1
+    sub "ಱ", "ṟ", after: kana_chars_1
+    sub "ಲ", "l", after: kana_chars_1
+    sub "ಳ", "ḷ", after: kana_chars_1
+    sub "ೞ", "l̤", after: kana_chars_1
+    sub "ವ", "v", after: kana_chars_1
+    sub "ಶ", "ś", after: kana_chars_1
+    sub "ಷ", "ṣ", after: kana_chars_1
+    sub "ಸ", "s", after: kana_chars_1
+    sub "ಹ", "h", after: kana_chars_1
+
+  # rule[III]
+    sub "\u0C82", "ṅ", after: any("ಕಖಗಘಙ")
+    sub "\u0C82", "ñ", after: any("ಚಛಜಝಞ")
+    sub "\u0C82", "ṇ", after: any("ಟಠಡಢಣ")
+    sub "\u0C82", "n", after: any("ತಥದಧನ")
 
 
-tests:
-  - source: "ಕರ್ಣಾಟಕ"
-    expected: "karṇāṭaka"
-  - source: "ಬೆಂಗಳೂರು"
-    expected: "beṅgaḷūru"
-  - source: "ಉಡುಪಿಯಲ್ಲಿ ಪ್ರಪ್ರಥಮ ಬಾರಿಗೆ ಪ್ರಾರಂಭವಾಗಿರುವ ದೇಶಿ ಉತ್ಪನ್ನಗಳ ಮಳಿಗೆ"
-    expected: "uḍupiyalli praprathama bārige prāraṃbhavāgiruva dēśi utpannagaḷa maḷige"
-  - source: "ದೇವರ ಹೆಸರು ಬಳಸಿ ಆನ್‌ಲೈನ್‌ ಬೆಟ್ಟಿಂಗ್‌!"
-    expected: "dēvara hesaru baḷasi ānlain beṭṭiṃg!"
-  - source: "ಚಿಕ್ಕಮಗಳೂರು : ಪುಷ್ಪ ಸಮರ್ಪಣೆ ವೇಳೆ ಮಗಳನ್ನ ನೆನೆದು ಕಣ್ಣೀರಿಟ್ಟ ಮೃತ ಪೇದೆ ತಾಯಿ"
-    expected: "cikkamagaḷūru : puṣpa samarpaṇe vēḷe magaḷanna nenedu kaṇṇīriṭṭa mṛta pēde tāyi"
-  - source: "ಸ್ವಾಮಿತ್ವ: ಹೊಸ ಯೋಜನೆಯಿಂದ ನಮಗೆ ಏನು ಲಾಭ ?"
-    expected: "svāmitva: hosa yōjaneyinda namage ēnu lābha ?"
-  - source: "ಮರಳು ಸಾಗಾಣಿಕೆ ವ್ಯವಹಾರ ಆಗಬಾರದು :ಅಧಿಕಾರಿಗಳಿಗೆ ಖಡಕ್ ಸೂಚನೆ ನೀಡಿದ ಜಿಲ್ಲಾಧಿಕಾರಿ"
-    expected: "maraḷu sāgāṇike vyavahāra āgabāradu :adhikārigaḷige khaḍak sūcane nīḍida jillādhikāri"
-  - source: "ಹಾವೇರಿ ಜಿಲ್ಲೆಯಲ್ಲಿ ೯೭ ಜನರಲ್ಲಿ ಕೋವಿಡ್ ಸೋಂಕು ಪತ್ತೆ ; 54 ಮಂದಿ ಗುಣಮುಖ"
-    expected: "hāvēri jilleyalli 97 janaralli kōviḍ sōṃku patte ; 54 maṃdi guṇamukha"
-  - source: "ಸಿಂದಗಿ ಐಸಿಐಸಿಐ ಬ್ಯಾಂಕ್ ಸೆಕ್ಯುರಿಟಿ ಗಾರ್ಡ್ ಹತ್ಯೆ ಪ್ರಕರಣ ಭೇದಿಸಿದ ಪೊಲೀಸರು"
-    expected: "sindagi aisiaisiai byāṃk sekyuriṭi gārḍ hatye prakaraṇa bhēdisida polīsaru"
-  - source: "ಬ್ಯಾಂಕರ್‌ಗಳೊಂದಿಗೆ ಡಿವಿ ಸಭೆ : ಆಧ್ಯತಾ ವಲಯ, ಸಾಲ ಯೋಜನೆ ತ್ವರಿತ ಮಂಜೂರಿಗೆ ಸೂಚನೆ"
-    expected: "byāṅkargaḷoṃdige ḍivi sabhe : ādhyatā valaya, sāla yōjane tvarita maṃjūrige sūcane"
-  - source: "ಪೊಲೀಸ್‌ ಇಲಾಖೆ ಸಮಗ್ರ ಅಭಿವೃದ್ಧಿ; ಡಿಜಿಪಿ ನೇತೃತ್ವದಲ್ಲಿ ಸಮಿತಿ ರಚನೆ: ಬೊಮ್ಮಾಯಿ"
-    expected: "polīs ilākhe samagra abhivṛddhi; ḍijipi nētṛtvadalli samiti racane: beūmmāyi"
-  - source: "ಕೆಟ್ಟಿರುವ ರಸ್ತೆಗಳ ದುರಸ್ತಿಗೆ ಸರಕಾರದ ಯೋಜನೆ"
-    expected: "keṭṭiruva rastegaḷa durastige sarakārada yōjane"
+  # CHARACTERS
+  parallel {
+    sub "ಅ", "a"
+    sub "ಆ", "ā"
+    sub "ಇ", "i"
+    sub "ಈ", "ī"
+    sub "ಉ", "u"
+    sub "ಊ", "ū"
+    sub "ಋ", "ṛ"
+    sub "ೠ", "ṝ"
 
-map:
+    sub "ಌ", "ḻ"
 
+    sub "ಎ", "e"
+    sub "ಏ", "ē"
+    sub "ಐ", "ai"
 
-  rules:
-    # to cover diacritic and vowel less consonants rule II
-    - pattern: ಕ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  'k'
-    - pattern: ಖ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  'kh'
-    - pattern: ಗ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  'g'
-    - pattern: ಘ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  'gh'
-    - pattern: ಙ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  'ṅ'
-    - pattern: ಚ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  'c'
-    - pattern: ಛ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  'ch'
-    - pattern: ಜ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  'j'
-    - pattern: ಝ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  'jh'
-    - pattern: ಞ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  'ñ'
-    - pattern: ಟ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  'ṭ'
-    - pattern: ಠ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  'ṭh'
-    - pattern: ಡ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  'ḍ'
-    - pattern: ಢ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  'ḍh'
-    - pattern: ಣ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  'ṇ'
-    - pattern: ತ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  't'
-    - pattern: ಥ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  'th'
-    - pattern: ದ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  'd'
-    - pattern: ಧ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  'dh'
-    - pattern: ನ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  'n'
-    - pattern: ಪ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  'p'
-    - pattern: ಫ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  'ph'
-    - pattern: ಬ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  'b'
-    - pattern: ಭ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  'bh'
-    - pattern: ಮ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  'm'
-    - pattern: ಯ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  'y'
-    - pattern: ರ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  'r'
-    - pattern: ಱ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  'ṟ'
-    - pattern: ಲ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  'l'
-    - pattern: ಳ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  'ḷ'
-    - pattern: ೞ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  'l̤'
-    - pattern: ವ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  'v'
-    - pattern: ಶ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  'ś'
-    - pattern: ಷ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  'ṣ'
-    - pattern: ಸ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  's'
-    - pattern: ಹ(?=[\u0cbe\u0cbf\u0cc0\u0cc1\u0cc2\u0cc3\u0cc6\u0cc7\u0cc8\u0cca\u0ccb\u0ccc\u0ccd])
-      result:  'h'
-
-    # rule[III]
-    - pattern: \u0C82(?=[ಕಖಗಘಙ])
-      result: ṅ
-    - pattern: \u0C82(?=[ಚಛಜಝಞ])
-      result: ñ
-    - pattern: \u0C82(?=[ಟಠಡಢಣ])
-      result: ṇ
-    - pattern: \u0C82(?=[ತಥದಧನ])
-      result: n
-
-  characters:
-    'ಅ': 'a'
-    'ಆ': 'ā'
-    'ಇ': 'i'
-    'ಈ': 'ī'
-    'ಉ': 'u'
-    'ಊ': 'ū'
-    'ಋ': 'ṛ'
-    'ೠ': 'ṝ'
-
-    'ಌ': 'ḻ'
-
-    'ಎ': 'e'
-    'ಏ': 'ē'
-    'ಐ': 'ai'
-
-    'ಒ': 'o'
-    'ಓ': 'ō'
-    'ಔ': 'au'
+    sub "ಒ", "o"
+    sub "ಓ", "ō"
+    sub "ಔ", "au"
 
     # Gutturals
-    'ಕ': 'ka'
-    'ಖ': 'kha'
-    'ಗ': 'ga'
-    'ಘ': 'gha'
-    'ಙ': 'ṅa'
+    sub "ಕ", "ka"
+    sub "ಖ", "kha"
+    sub "ಗ", "ga"
+    sub "ಘ", "gha"
+    sub "ಙ", "ṅa"
 
     # Palatals
-    'ಚ': 'ca'
-    'ಛ': 'cha'
-    'ಜ': 'ja'
-    'ಝ': 'jha'
-    'ಞ': 'ña'
+    sub "ಚ", "ca"
+    sub "ಛ", "cha"
+    sub "ಜ", "ja"
+    sub "ಝ", "jha"
+    sub "ಞ", "ña"
 
     # Cerebrals
-    'ಟ': 'ṭa'
-    'ಠ': 'ṭha'
-    'ಡ': 'ḍa'
-    'ಢ': 'ḍha'
-    'ಣ': 'ṇa'
+    sub "ಟ", "ṭa"
+    sub "ಠ", "ṭha"
+    sub "ಡ", "ḍa"
+    sub "ಢ", "ḍha"
+    sub "ಣ", "ṇa"
 
     # Dentals
-    'ತ': 'ta'
-    'ಥ': 'tha'
-    'ದ': 'da'
-    'ಧ': 'dha'
-    'ನ': 'na'
+    sub "ತ", "ta"
+    sub "ಥ", "tha"
+    sub "ದ", "da"
+    sub "ಧ", "dha"
+    sub "ನ", "na"
 
     # Labials
-    'ಪ': 'pa'
-    'ಫ': 'pha'
-    'ಬ': 'ba'
-    'ಭ': 'bha'
-    'ಮ': 'ma'
+    sub "ಪ", "pa"
+    sub "ಫ", "pha"
+    sub "ಬ", "ba"
+    sub "ಭ", "bha"
+    sub "ಮ", "ma"
 
     # Semivowels
-    'ಯ': 'ya'
-    'ರ': 'ra'
-    'ಱ': 'ṟa'
-    'ಲ': 'la'
-    'ಳ': 'ḷa'
-    'ೞ': 'l̤a'
+    sub "ಯ", "ya"
+    sub "ರ", "ra"
+    sub "ಱ", "ṟa"
+    sub "ಲ", "la"
+    sub "ಳ", "ḷa"
+    sub "ೞ", "l̤a"
 
 
-    'ವ': 'va'
+    sub "ವ", "va"
 
     # Sibilants
-    'ಶ': 'śa'
-    'ಷ': 'ṣa'
-    'ಸ': 'sa'
+    sub "ಶ", "śa"
+    sub "ಷ", "ṣa"
+    sub "ಸ", "sa"
 
 
     # Aspirate
-    'ಹ': 'ha'
+    sub "ಹ", "ha"
 
 
     # Bisarga
-    'ಃ': 'ḥ'
+    sub "ಃ", "ḥ"
 
     # Anusvāra
-    'ಂ': 'ṃ'
+    sub "ಂ", "ṃ"
 
-    '\u0cbc': '' #nukta
+    sub "\u0cbc", "" #nukta
 
     # Medials # Needed for connecting constants
-    'ಾ': "ā"
-    'ಿ': "i"
-    'ೀ': "ī"
-    'ು': "u"
-    'ೂ': "ū"
-    'ೃ': "ṛ"
-    'ೄ': "ṝ"
-    '\u0CE2': 'ḻ' # KANNADA VOWEL SIGN VOCALIC L ( ೢ)
+    sub "ಾ", "ā"
+    sub "ಿ", "i"
+    sub "ೀ", "ī"
+    sub "ು", "u"
+    sub "ೂ", "ū"
+    sub "ೃ", "ṛ"
+    sub "ೄ", "ṝ"
+    sub "\u0CE2", "ḻ" # KANNADA VOWEL SIGN VOCALIC L ( ೢ)
 
 
-    'ೆ': "e"
-    'ೇ': "ē"
-    'ೈ': "ai"
+    sub "ೆ", "e"
+    sub "ೇ", "ē"
+    sub "ೈ", "ai"
 
 
-    'ೊ': 'o'
-    'ೋ': 'ō'
-    'ೌ': 'au'
+    sub "ೊ", "o"
+    sub "ೋ", "ō"
+    sub "ೌ", "au"
 
 
-    '्': ''
-    '़': ''
-    '್': '' # used for pronounciation without vowel
-    "‍": '' # no need for zero with joiner
-    "‌": '' # no need for zero with non joiner
+    sub "्", ""
+    sub "़", ""
+    sub "್", "" # used for pronounciation without vowel
+    sub "‍", "" # no need for zero with joiner
+    sub "‌", "" # no need for zero with non joiner
 
 
 
     # Digits
 
-    '೦': '0'
-    '೧': '1'
-    '೨': '2'
-    '೩': '3'
-    '೪': '4'
-    '೫': '5'
-    '೬': '6'
-    '೭': '7'
-    '೮': '8'
-    '೯': '9'
+    sub "೦", "0"
+    sub "೧", "1"
+    sub "೨", "2"
+    sub "೩", "3"
+    sub "೪", "4"
+    sub "೫", "5"
+    sub "೬", "6"
+    sub "೭", "7"
+    sub "೮", "8"
+    sub "೯", "9"
+  }
+
+  compose
+}
+

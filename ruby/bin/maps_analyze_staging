@@ -1,0 +1,168 @@
+#!/usr/bin/env ruby
+ENV["INTERSCRIPT_STAGING"] = "1"
+require "bundler/setup"
+require "interscript"
+require "interscript/compiler/ruby"
+
+$map_name = ARGV[0]
+
+# surpress warnings
+def warn(*)
+end
+
+
+def debug_single_map(from, expected, result, result2)
+  puts ""
+  # puts $subs_array.inspect
+  # puts $subs_matches.inspect
+  puts from.inspect
+  puts from.chars.inspect
+  puts from.codepoints.map{|cp| '\\u%04x' % cp}.join(' ')
+  puts expected
+  puts result
+  puts result2
+  return nil unless $subs_matches
+  first_mismatch = $subs_matches.select{|match_data|
+    exp = expected[match_data[:begin]...match_data[:end]]
+    res = result[match_data[:begin]...match_data[:end]]
+    exp != res
+  }.first
+
+  # puts $subs_matches.inspect
+  # puts first_mismatch.inspect
+  output_string = ''
+  last_end = 0
+  $subs_matches.each do |match_data|
+    substr = from[match_data[:begin]...match_data[:end]]
+    if match_data[:begin] != last_end
+      output_string << '_' * (match_data[:begin] - last_end)
+    end
+    output_string << match_data[:result]
+
+    puts ''
+    puts "ERROR " if match_data == first_mismatch
+    indent = ' ' * match_data[:begin]
+    # puts indent + substr
+
+
+
+    matched_rule = $subs_array[match_data[:idx]]
+
+    if match_data == first_mismatch
+      puts indent + matched_rule.inspect + "   (#{matched_rule[0].codepoints.map{|cp| '\\u%04x' % cp}.join(' ')})"
+    else
+      puts indent + matched_rule.inspect + "    (#{matched_rule[0].codepoints.map{|cp| '\\u%04x' % cp}.join(' ')})"
+    end
+
+    puts from[0,match_data[:end]]
+
+    puts expected[0,output_string.size]
+    puts output_string
+    last_end = match_data[:end]
+
+
+    #return if match_data == first_mismatch
+  end
+  puts ''
+end
+
+def analyze_maps( filelist )
+  cache = {}
+
+  good_total = 0
+  almost_total = 0
+  bad_total = 0
+  passed_total = 0
+  for i in filelist
+    # used at the bottom
+    raw_lines = File.open(i).read.split("\n")
+    rules_line = raw_lines.index "  # RULES"
+    characters_line = raw_lines.index "  # CHARACTERS"
+    postrules_line = raw_lines.index "  # POSTRULES"
+
+    system_name = File.basename(i, ".imp")
+
+    print "#{system_name}: "
+
+    exceptions = []
+
+    # begin
+      system = Interscript.parse(system_name)
+    # rescue Exception => e
+    #   exceptions << e
+    # end
+    # puts $using_tree.inspect
+    if exceptions.length == 0 && system.tests && system.tests.data && system.tests.data.length > 0
+      good = 0
+      bad = 0
+      almost = 0
+
+      system.tests.data.each do |from,expected|
+        testname = from[0...300].gsub("\n", " / ")
+
+        result = Interscript.transliterate(system_name, from, cache, compiler: Interscript::Interpreter)
+        result2 = Interscript.transliterate(system_name, from, cache, compiler: Interscript::Compiler::Ruby)
+        if result == nil or result2 == nil
+          print '0'
+          bad += 1
+        elsif result != result2
+          # Compiler / Interpreter bug!
+          print "!"
+          bad += 1
+        elsif result == expected
+          print "."
+          good += 1
+        elsif result.unicode_normalize == expected.unicode_normalize
+          print ","
+          almost += 1
+        elsif result.unicode_normalize.chomp == expected.unicode_normalize.chomp
+          print ";"
+          almost += 1
+        else
+          print "#"
+          debug_single_map(from, expected, result, result2) if $map_name
+          bad += 1
+        end
+      rescue Exception => e
+        print "%"
+        bad += 1
+        exceptions << e
+      end
+
+      if bad == 0
+        passed_total += 1
+        puts " all tests passed!"
+        `git mv #{i} #{i.sub("-staging", "")}`   if i.include? '-staging'
+      else
+        puts " (#{good}/#{good+almost+bad})"
+      end
+      good_total += good
+      almost_total += almost
+      bad_total += bad
+    elsif exceptions.length != 0
+    else
+      puts "no tests!"
+    end
+    puts "warning: postrules before rules\n\n" if (postrules_line||10000000) < (rules_line||0)
+    puts "warning: postrules before characters\n\n" if (postrules_line||10000000) < (characters_line||0)
+
+    Array(exceptions.first).compact.each do |e|
+      puts e.full_message
+    end
+  end
+  puts " #{good_total} (#{good_total+almost_total})/#{good_total+almost_total+bad_total}"
+  puts " #{passed_total} passed!"
+end
+
+#analyze_maps Dir[__dir__+"/../../maps/maps/*.imp"].sort
+if $map_name
+  $DEBUG_RE = true
+  analyze_maps Dir[__dir__+"/../../maps/maps/#{$map_name}.imp"].sort
+  analyze_maps Dir[__dir__+"/../../maps/maps-staging/#{$map_name}.imp"].sort
+else
+  analyze_maps Dir[__dir__+"/../../maps/maps-staging/*.imp"].sort
+  if ENV['NONSTAGING']
+    puts "\n" * 5
+    analyze_maps Dir[__dir__+"/../../maps/maps/*.imp"].sort
+  end
+end

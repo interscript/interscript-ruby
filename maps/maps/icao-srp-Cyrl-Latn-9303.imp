@@ -1,117 +1,126 @@
----
-authority_id: icao
-id: 9303
-language: iso-639-2:srp
-source_script: Cyrl
-destination_script: Latn
-name: ICAO Doc 9303 Machine Readable Travel Documents Part 3 -- Serbian Cyrillic to Latin
-url: https://www.icao.int/publications/pages/publication.aspx?docnum=9303
-creation_date: 2015
-description: |
-  Part 3 defines specifications that are common to TD1, TD2 and TD3
-  size machine readable travel documents (MRTDs) including those
-  necessary for global interoperability using visual inspection and
-  machine readable (optical character recognition) means.
+metadata {
+  authority_id: icao
+  id: 9303
+  language: iso-639-2:srp
+  source_script: Cyrl
+  destination_script: Latn
+  name: ICAO Doc 9303 Machine Readable Travel Documents Part 3 -- Serbian Cyrillic to Latin
+  url: https://www.icao.int/publications/pages/publication.aspx?docnum=9303
+  creation_date: 2015
+  description: |
+    Part 3 defines specifications that are common to TD1, TD2 and TD3
+    size machine readable travel documents (MRTDs) including those
+    necessary for global interoperability using visual inspection and
+    machine readable (optical character recognition) means.
 
-  Since only Latin-alphabet characters are allowed in the VIZ, if
-  mandatory data elements are in a national language that does not use
-  the Latin alphabet, a transcription or transliteration shall also be
-  provided.
+    Since only Latin-alphabet characters are allowed in the VIZ, if
+    mandatory data elements are in a national language that does not use
+    the Latin alphabet, a transcription or transliteration shall also be
+    provided.
 
-  This document defines the transliteration mappings used to produce
-  this transcription or transliteration.
-tests:
+    This document defines the transliteration mappings used to produce
+    this transcription or transliteration.
+}
 
-map:
-  # https://www.icao.int/publications/Documents/9303_p3_cons_en.pdf
-  characters:
-    "\u0027": ""     # '
-    "\u0410": "A"    # А
-    "\u0411": "B"    # Б
-    "\u0414": "D"    # Д
-    "\u0401": "E"    # Ё
-    "\u0415": "E"    # Е
-    "\u042D": "E"    # Э
-    "\u0424": "F"    # Ф
-    "\u0413": "H"    # Г
-    "\u0418": "I"    # И
-    "\u0419": "I"    # Й
-    "\u041A": "K"    # К
-    "\u041B": "L"    # Л
-    "\u041C": "M"    # М
-    "\u041D": "N"    # Н
-    "\u041E": "O"    # О
-    "\u041F": "P"    # П
-    "\u0420": "R"    # Р
-    "\u0421": "S"    # С
-    "\u0422": "T"    # Т
-    "\u0423": "U"    # У
-    "\u0412": "V"    # В
-    "\u042B": "Y"    # Ы
-    "\u0417": "Z"    # З
-    "\u0427": "C"    # Ч
-    "\u042F": "IA"   # Я
-    "\u042E": "IU"   # Ю
-    "\u0425": "H"    # Х
-    "\u0428": "S"    # Ш
-    "\u0429": "SHCH" # Щ
-    "\u0426": "C"    # Ц
-    "\u0416": "Z"    # Ж
-    "\u0490": "G"    # Ґ
-    "\u040E": "U"    # Ў
-    "\u046A": "U"    # Ѫ
-    "\u0402": "D"    # Ђ
-    "\u0405": "DZ"   # Ѕ
-    "\u0408": "J"    # Ј
-    "\u0409": "LJ"   # Љ
-    "\u040A": "NJ"   # Њ
-    "\u04BA": "C"    # Һ
-    "\u040F": "DZ"   # Џ
-    "\u0404": "IE"   # Є
-    "\u0407": "I"    # Ї
-    "\u0403": "G"    # Ѓ
+tests {
+}
 
-    "\u0430": "a"    # а
-    "\u0431": "b"    # б
-    "\u0434": "d"    # д
-    "\u0451": "e"    # ё
-    "\u0435": "e"    # e
-    "\u044D": "e"    # э
-    "\u0444": "f"    # ф
-    "\u0433": "h"    # г
-    "\u0438": "i"    # и
-    "\u0439": "i"    # й
-    "\u043A": "k"    # к
-    "\u043B": "l"    # л
-    "\u043C": "m"    # м
-    "\u043D": "n"    # н
-    "\u043E": "o"    # о
-    "\u043F": "p"    # п
-    "\u0440": "r"    # р
-    "\u0441": "s"    # с
-    "\u0442": "t"    # т
-    "\u0443": ""    # у
-    "\u0432": "v"    # в
-    "\u044B": "y"    # ы
-    "\u0437": "z"    # з
-    "\u0447": "c"    # ч
-    "\u044F": "ia"   # я
-    "\u044E": "i"   # ю
-    "\u0445": "h"    # х
-    "\u0448": "s"    # ш
-    "\u0449": "shch" # щ
-    "\u0446": "c"    # ц
-    "\u0436": "z"    # ж
-    "\u0491": "g"    # ґ
-    "\u045E": ""    # ў
-    "\u046B": ""    # ѫ
-    "\u0452": "d"    # ђ
-    "\u0455": "dz"   # ѕ
-    "\u0458": "j"    # ј
-    "\u0459": "lj"   # љ
-    "\u045A": "nj"   # њ
-    "\u04BB": "c"    # һ
-    "\u045F": "dz"   # џ
-    "\u0454": "ie"   # є
-    "\u0457": "i"    # ї
-    "\u0453": "g"    # ѓ
+# https://www.icao.int/publications/Documents/9303_p3_cons_en.pdf
+stage {
+
+  # CHARACTERS
+  parallel {
+    sub "'", "" # '
+    sub "А", "A" # А
+    sub "Б", "B" # Б
+    sub "Д", "D" # Д
+    sub "Ё", "E" # Ё
+    sub "Е", "E" # Е
+    sub "Э", "E" # Э
+    sub "Ф", "F" # Ф
+    sub "Г", "H" # Г
+    sub "И", "I" # И
+    sub "Й", "I" # Й
+    sub "К", "K" # К
+    sub "Л", "L" # Л
+    sub "М", "M" # М
+    sub "Н", "N" # Н
+    sub "О", "O" # О
+    sub "П", "P" # П
+    sub "Р", "R" # Р
+    sub "С", "S" # С
+    sub "Т", "T" # Т
+    sub "У", "U" # У
+    sub "В", "V" # В
+    sub "Ы", "Y" # Ы
+    sub "З", "Z" # З
+    sub "Ч", "C" # Ч
+    sub "Я", "IA" # Я
+    sub "Ю", "IU" # Ю
+    sub "Х", "H" # Х
+    sub "Ш", "S" # Ш
+    sub "Щ", "SHCH" # Щ
+    sub "Ц", "C" # Ц
+    sub "Ж", "Z" # Ж
+    sub "Ґ", "G" # Ґ
+    sub "Ў", "U" # Ў
+    sub "Ѫ", "U" # Ѫ
+    sub "Ђ", "D" # Ђ
+    sub "Ѕ", "DZ" # Ѕ
+    sub "Ј", "J" # Ј
+    sub "Љ", "LJ" # Љ
+    sub "Њ", "NJ" # Њ
+    sub "Һ", "C" # Һ
+    sub "Џ", "DZ" # Џ
+    sub "Є", "IE" # Є
+    sub "Ї", "I" # Ї
+    sub "Ѓ", "G" # Ѓ
+
+    sub "а", "a" # а
+    sub "б", "b" # б
+    sub "д", "d" # д
+    sub "ё", "e" # ё
+    sub "е", "e" # e
+    sub "э", "e" # э
+    sub "ф", "f" # ф
+    sub "г", "h" # г
+    sub "и", "i" # и
+    sub "й", "i" # й
+    sub "к", "k" # к
+    sub "л", "l" # л
+    sub "м", "m" # м
+    sub "н", "n" # н
+    sub "о", "o" # о
+    sub "п", "p" # п
+    sub "р", "r" # р
+    sub "с", "s" # с
+    sub "т", "t" # т
+    sub "у", "" # у
+    sub "в", "v" # в
+    sub "ы", "y" # ы
+    sub "з", "z" # з
+    sub "ч", "c" # ч
+    sub "я", "ia" # я
+    sub "ю", "i" # ю
+    sub "х", "h" # х
+    sub "ш", "s" # ш
+    sub "щ", "shch" # щ
+    sub "ц", "c" # ц
+    sub "ж", "z" # ж
+    sub "ґ", "g" # ґ
+    sub "ў", "" # ў
+    sub "ѫ", "" # ѫ
+    sub "ђ", "d" # ђ
+    sub "ѕ", "dz" # ѕ
+    sub "ј", "j" # ј
+    sub "љ", "lj" # љ
+    sub "њ", "nj" # њ
+    sub "һ", "c" # һ
+    sub "џ", "dz" # џ
+    sub "є", "ie" # є
+    sub "ї", "i" # ї
+    sub "ѓ", "g" # ѓ
+  }
+
+}
+

@@ -1,221 +1,212 @@
----
-authority_id: var
-id: 1872
-language: iso-639-2:hin
-source_script: Deva
-destination_script: Latn
-name: Hindi Hunterian system
-url: https://transliteration.eki.ee/pdf/Hindi-Marathi-Nepali.pdf
-creation_date: 1872
-description:
-  The Hunterian system is the national system of romanization in India.
+metadata {
+  authority_id: var
+  id: 1872
+  language: iso-639-2:hin
+  source_script: Deva
+  destination_script: Latn
+  name: Hindi Hunterian system
+  url: https://transliteration.eki.ee/pdf/Hindi-Marathi-Nepali.pdf
+  creation_date: 1872
+  description:
+    The Hunterian system is the national system of romanization in India.
 
-notes:
+  notes:
 
-  -  a, i and u are used in word-final position. The a in gaon and the u in pur are not accented.
-  -  ज्ञ is transliterated gy.
-  -  v is used before i.
+    -  a, i and u are used in word-final position. The a in gaon and the u in pur are not accented.
+    -  ज्ञ is transliterated gy.
+    -  v is used before i.
+}
 
-tests:
-  - source: "परिपक्क"
-    expected: "paraipakka"
-  - source: "जगत्"
-    expected: "jagat"
-  - source: "संख्या"
-    expected: "sankhyaā"
-  - source: "गंभीर मरीजों के मामले में भारत दूसरे नंबर पर"
-    expected: "ganbhaīra maraījaon kae maāmalae maen bhaārata daūsarae nanbara para"
-  - source: "कोरोना अपडेट्स"
-    expected: "kaoraonaā apadaetsa"
-  - source: "सीडीसी चीफ का बयान अहम"
-    expected: "saīdaīsaī chaīpha kaā bayaāna ahama"
-  - source: "गूगल प्ले स्टोर पर पेटीएम की वापसी"
-    expected: "gaūgala plae staora para paetaīema kaī waāpasaī"
-  - source: "भारत में गैंबलिंग की इजाजत नहीं"
-    expected: "bhaārata maen gaainbalainga kaī ijaājata nahaīn"
-  - source: "कोरोना वैक्सीन मुद्दे पर घिरे राष्ट्रपति; जो बाइडेन बोले- मुझे और देश को वैज्ञानिकों पर भरोसा है, डोनाल्ड ट्रम्प पर नहीं"
-    expected: "kaoraonaā waaiksaīna mauddae para ghairae raāshtrapatai; jao baāidaena baolae- maujhae aura daesa kao waaigyānaikaon para bharaosaā haai, daonaālda trampa para nahaīn"
-  - source: "गूगल की कार्रवाई पर पेटीएम ने कहा था कि ऐप को अस्थायी तौर पर प्ले-स्टोर से हटाया गया है, आपके पैसे सुरक्षित हैं"
-    expected: "gaūgala kaī kaārrawaāi para paetaīema nae kahaā thaā kai aipa kao asthaāyaī taaura para plae-staora sae hataāyaā gayaā haai, āpakae paaisae saurakshaita haain"
+tests {
+  test "परिपक्क", "paraipakka"
+  test "जगत्", "jagat"
+  test "संख्या", "sankhyaā"
+  test "गंभीर मरीजों के मामले में भारत दूसरे नंबर पर", "ganbhaīra maraījaon kae maāmalae maen bhaārata daūsarae nanbara para"
+  test "कोरोना अपडेट्स", "kaoraonaā apadaetsa"
+  test "सीडीसी चीफ का बयान अहम", "saīdaīsaī chaīpha kaā bayaāna ahama"
+  test "गूगल प्ले स्टोर पर पेटीएम की वापसी", "gaūgala plae staora para paetaīema kaī waāpasaī"
+  test "भारत में गैंबलिंग की इजाजत नहीं", "bhaārata maen gaainbalainga kaī ijaājata nahaīn"
+  test "कोरोना वैक्सीन मुद्दे पर घिरे राष्ट्रपति; जो बाइडेन बोले- मुझे और देश को वैज्ञानिकों पर भरोसा है, डोनाल्ड ट्रम्प पर नहीं", "kaoraonaā waaiksaīna mauddae para ghairae raāshtrapatai; jao baāidaena baolae- maujhae aura daesa kao waaigyānaikaon para bharaosaā haai, daonaālda trampa para nahaīn"
+  test "गूगल की कार्रवाई पर पेटीएम ने कहा था कि ऐप को अस्थायी तौर पर प्ले-स्टोर से हटाया गया है, आपके पैसे सुरक्षित हैं", "gaūgala kaī kaārrawaāi para paetaīema nae kahaā thaā kai aipa kao asthaāyaī taaura para plae-staora sae hataāyaā gayaā haai, āpakae paaisae saurakshaita haain"
+}
 
-map:
+stage {
 
-  rules:
-    # note[1]
-    - pattern: (?<=)\u0906(?=\b)
-      result: "a"
-    - pattern: (?<=)\u0908(?=\b)
-      result: "i"
-    - pattern: (?<=)\u090A(?=\b)
-      result: "u"
+  # RULES
+  # note[1]
+  sub "\u0906", "a", after: boundary
+  sub "\u0908", "i", after: boundary
+  sub "\u090A", "u", after: boundary
 
-    # note[3]
-    - pattern: \u0935(?=[इई])
-      result: "v"
+  # note[3]
+  sub "\u0935", "v", after: any("इई")
 
 
-
-  characters:
+  # CHARACTERS
+  parallel {
 
     # I. Vowels and Diphthongs (see Note 1)
 
-    'अ': 'a'
-    'आ': 'ā'
-    'इ': 'i'
-    'ई': 'ī'
-    'उ': 'u'
-    'ऊ': 'ū'
-    'ऋ': 'ri'
-    'ए': 'e'
-    'ऐ': 'ai'
-    'ओ': 'o'
-    'औ': 'au'
+    sub "अ", "a"
+    sub "आ", "ā"
+    sub "इ", "i"
+    sub "ई", "ī"
+    sub "उ", "u"
+    sub "ऊ", "ū"
+    sub "ऋ", "ri"
+    sub "ए", "e"
+    sub "ऐ", "ai"
+    sub "ओ", "o"
+    sub "औ", "au"
 
     # II. Consonants (see Note 2)
     # Gutturals
-    'क': 'ka'
-    'ख': 'kha'
-    'ग': 'ga'
-    'घ': 'gha'
-    'ङ': 'nga'
+    sub "क", "ka"
+    sub "ख", "kha"
+    sub "ग", "ga"
+    sub "घ", "gha"
+    sub "ङ", "nga"
 
     # Palatals
-    'च': 'cha'
-    'छ': 'chha'
-    'ज': 'ja'
-    'झ': 'jha'
-    'ञ': 'nya'
+    sub "च", "cha"
+    sub "छ", "chha"
+    sub "ज", "ja"
+    sub "झ", "jha"
+    sub "ञ", "nya"
 
     # Cerebrals
-    'ट': 'ta'
-    'ठ': 'tha'
-    'ड': 'da'
-    'ढ': 'dha'
-    'ण': 'na'
+    sub "ट", "ta"
+    sub "ठ", "tha"
+    sub "ड", "da"
+    sub "ढ", "dha"
+    sub "ण", "na"
 
     # Dentals
-    'त': 'ta'
-    'थ': 'tha'
-    'द': 'da'
-    'ध': 'dha'
-    'न': 'na'
+    sub "त", "ta"
+    sub "थ", "tha"
+    sub "द", "da"
+    sub "ध", "dha"
+    sub "न", "na"
 
     # Labials
-    'प': 'pa'
-    'फ': 'pha'
-    'ब': 'ba'
-    'भ': 'bha'
-    'म': 'ma'
+    sub "प", "pa"
+    sub "फ", "pha"
+    sub "ब", "ba"
+    sub "भ", "bha"
+    sub "म", "ma"
 
     # Semivowels
-    'य': 'ya'
-    'र': 'ra'
-    'ल': 'la'
-    'व': 'wa'
+    sub "य", "ya"
+    sub "र", "ra"
+    sub "ल", "la"
+    sub "व", "wa"
 
     # Sibilants
-    'श': 'sa'
-    'ष': 'sha'
-    'स': 'sa'
+    sub "श", "sa"
+    sub "ष", "sha"
+    sub "स", "sa"
 
     # Aspirate
-    'ह': 'ha'
+    sub "ह", "ha"
 
 
     # Additional consonants
-    'क़': 'qa'
-    'ख़': 'kha'
-    'ग़': 'ġa'
-    'ज़': 'za'
-    'ड़': 'ṙa'
-    'ढ़': 'ṙha'
-    'फ़': 'fa'
-    'ळ': 'la'
+    sub "क़", "qa"
+    sub "ख़", "kha"
+    sub "ग़", "ġa"
+    sub "ज़", "za"
+    sub "ड़", "ṙa"
+    sub "ढ़", "ṙha"
+    sub "फ़", "fa"
+    sub "ळ", "la"
 
     # Anusvāra
-    'ं': 'n'
+    sub "ं", "n"
 
     # Bisarga
-    'ः': 'h'
+    sub "ः", "h"
 
     # Anunāsika
-    'ँ': 'm'
+    sub "ँ", "m"
 
     # Note 2
-    'ज्ञ': 'gy'
+    sub "ज्ञ", "gy"
 
 
     # Medials # Needed for connecting constants
-    'ा': "ā"
-    'ि': "i"
-    'ी': "ī"
-    'ु': "u"
-    'ू': "ū"
-    'ृ': "ri"
-    'े': "e"
-    'ै': "ai"
-    'ो': "o"
-    'ौ': "au"
-    '‍': ''# Used for joining
+    sub "ा", "ā"
+    sub "ि", "i"
+    sub "ी", "ī"
+    sub "ु", "u"
+    sub "ू", "ū"
+    sub "ृ", "ri"
+    sub "े", "e"
+    sub "ै", "ai"
+    sub "ो", "o"
+    sub "ौ", "au"
+    sub "‍", "" # Used for joining
 
 
     #V. Vowelless with halanta (्)
 
     # Gutturals
-    'क्': 'k'
-    'ख्': 'kh'
-    'ग्': 'g'
-    'घ्': 'gh'
-    'ङ्': 'ng'
+    sub "क्", "k"
+    sub "ख्", "kh"
+    sub "ग्", "g"
+    sub "घ्", "gh"
+    sub "ङ्", "ng"
 
     # Palatals
-    'च्': 'ch'
-    'छ्': 'chh'
-    'ज्': 'j'
-    'झ्': 'jh'
-    'ञ्': 'ny'
+    sub "च्", "ch"
+    sub "छ्", "chh"
+    sub "ज्", "j"
+    sub "झ्", "jh"
+    sub "ञ्", "ny"
 
     # Cerebrals
-    'ट्': 't'
-    'ठ्': 'th'
-    'ड्': 'd'
-    'ढ्': 'dh'
-    'ण्': 'n'
+    sub "ट्", "t"
+    sub "ठ्", "th"
+    sub "ड्", "d"
+    sub "ढ्", "dh"
+    sub "ण्", "n"
 
     # Dentals
-    'त्': 't'
-    'थ्': 'th'
-    'द्': 'd'
-    'ध्': 'dh'
-    'न्': 'n'
+    sub "त्", "t"
+    sub "थ्", "th"
+    sub "द्", "d"
+    sub "ध्", "dh"
+    sub "न्", "n"
 
     # Labials
-    'प्': 'p'
-    'फ्': 'ph'
-    'ब्': 'b'
-    'भ्': 'bh'
-    'म्': 'm'
+    sub "प्", "p"
+    sub "फ्", "ph"
+    sub "ब्", "b"
+    sub "भ्", "bh"
+    sub "म्", "m"
 
     # Semivowels
-    'य्': 'y'
-    'र्': 'r'
-    'ल्': 'l'
-    'व्': 'w'
+    sub "य्", "y"
+    sub "र्", "r"
+    sub "ल्", "l"
+    sub "व्", "w"
 
     # Sibilants
-    'श्': 's'
-    'ष्': 'sh'
-    'स्': 's'
+    sub "श्", "s"
+    sub "ष्", "sh"
+    sub "स्", "s"
 
     # Aspirate
-    'ह्': 'h'
+    sub "ह्", "h"
 
     # Additional consonants
-    'क़्': 'q'
-    'ख़्': 'kh'
-    'ग़्': 'ġ'
-    'ज़्': 'z'
-    'ड़्': 'ṙ'
-    'ढ़्': 'ṙh'
-    'फ़्': 'f'
-    'ळ्': 'l'
+    sub "क़्", "q"
+    sub "ख़्", "kh"
+    sub "ग़्", "ġ"
+    sub "ज़्", "z"
+    sub "ड़्", "ṙ"
+    sub "ढ़्", "ṙh"
+    sub "फ़्", "f"
+    sub "ळ्", "l"
+  }
+
+}

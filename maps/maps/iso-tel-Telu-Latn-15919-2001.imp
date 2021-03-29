@@ -1,220 +1,214 @@
----
-authority_id: iso
-id: 15919-2001
-language: iso-639-2:tel
-source_script: Telu
-destination_script: Latn
-name: "Information and documentation — Transliteration of Devanagari and related Indic scripts into Latin characters"
-url: https://www.chatranjali.fr/Scripts/Standards/ISO15919.pdf
-creation_date: 2001
-adoption_date: 2001
-description: |
-  Script conversion is often required for documents such as historical and literary texts, geographical texts (including
-  maps and atlases), bibliographies, catalogues, lists and passports (and other identification documents).
+metadata {
+  authority_id: iso
+  id: 15919-2001
+  language: iso-639-2:tel
+  source_script: Telu
+  destination_script: Latn
+  name: "Information and documentation — Transliteration of Devanagari and related Indic scripts into Latin characters"
+  url: https://www.chatranjali.fr/Scripts/Standards/ISO15919.pdf
+  creation_date: 2001
+  adoption_date: 2001
+  description: |
+    Script conversion is often required for documents such as historical and literary texts, geographical texts (including
+    maps and atlases), bibliographies, catalogues, lists and passports (and other identification documents).
 
-  Text in Devanagari script or other Indic scripts sometimes needs to be shown in Latin script, where users, or
-  equipment that they are using, cannot read or write the text
+    Text in Devanagari script or other Indic scripts sometimes needs to be shown in Latin script, where users, or
+    equipment that they are using, cannot read or write the text
 
-  This International Standard applies to transliteration of Devanagari, and to Indic scripts related to Devanagari,
-  independent of the period in which it is or was used.
+    This International Standard applies to transliteration of Devanagari, and to Indic scripts related to Devanagari,
+    independent of the period in which it is or was used.
 
-notes:
+  notes:
 
-  - All transliterations made using this International Standard shall be case-insensitive.
-  - Inherent a with a consonant shall always be transliterated.
-  - anusvara (including Vedic anusvara) shall be transliterated as ṁ
-  - candrabindu shall be transliterated as m̐
-  - When m̐, ṃ or ṁ are associated with a vowel, they shall be placed after the vowel. When m̐ is associated
-    with a semivowel, it shall be placed before the semivowel.
-  - Latin punctuation signs and Hindu-Arabic numerals shall remain unchanged in transliteration.
-    Indic punctuation is outside the scope of this International Standard.
-  - The Vedic accent Udatta shall be transliterated as an acute accent over the transliterated vowel, and the
-    independent Svarita as a grave accent over the transliterated vowel. In the case of the digraphs ai, au, the accent
-    shall be attached to the second vowel.
-  - |
-    A colon: before a Latin character shall be used to resolve ambiguity. Some normative cases are as
-    follows.
-     -  :’ for avagraha in modern text. (The apostrophe in modern text remains unchanged in accordance with previous rule.
-  - If a character in an Indic script is defined in such a way as to be equivalent to another character in any
-    script, where the second character has a transliteration in this International Standard, then the first character shall
-    be transliterated in the same way as the second character.
-  - When the half-nasal in Telugu script is used for modern nasalization in writing Hindi or
-    any other language, it shall be transliterated as a tilde above the transliterated vowel. In the case of the digraphs ai,
-    au, the tilde shall be attached to the second vowel
-  - Where it is desired to show the Vedic accent Anudatta, it should be transliterated as an underscore. In the case of
-    the digraphs ai, au, both Latin vowels should be underscored.
-    Where word boundaries are not shown in the original text (as happens commonly in Sanskrit) and a word ends in a
-    consonant, the transliteration should show word division by a space; but when phonological processes result in two
-    words sharing a common vowel, no attempt should be made to separate them. This will require a good knowledge
-    of the language in question.
+    - All transliterations made using this International Standard shall be case-insensitive.
+    - Inherent a with a consonant shall always be transliterated.
+    - anusvara (including Vedic anusvara) shall be transliterated as ṁ
+    - candrabindu shall be transliterated as m̐
+    - When m̐, ṃ or ṁ are associated with a vowel, they shall be placed after the vowel. When m̐ is associated
+      with a semivowel, it shall be placed before the semivowel.
+    - Latin punctuation signs and Hindu-Arabic numerals shall remain unchanged in transliteration.
+      Indic punctuation is outside the scope of this International Standard.
+    - The Vedic accent Udatta shall be transliterated as an acute accent over the transliterated vowel, and the
+      independent Svarita as a grave accent over the transliterated vowel. In the case of the digraphs ai, au, the accent
+      shall be attached to the second vowel.
+    - |
+      A colon: before a Latin character shall be used to resolve ambiguity. Some normative cases are as
+      follows.
+       -  :’ for avagraha in modern text. (The apostrophe in modern text remains unchanged in accordance with previous rule.
+    - If a character in an Indic script is defined in such a way as to be equivalent to another character in any
+      script, where the second character has a transliteration in this International Standard, then the first character shall
+      be transliterated in the same way as the second character.
+    - When the half-nasal in Telugu script is used for modern nasalization in writing Hindi or
+      any other language, it shall be transliterated as a tilde above the transliterated vowel. In the case of the digraphs ai,
+      au, the tilde shall be attached to the second vowel
+    - Where it is desired to show the Vedic accent Anudatta, it should be transliterated as an underscore. In the case of
+      the digraphs ai, au, both Latin vowels should be underscored.
+      Where word boundaries are not shown in the original text (as happens commonly in Sanskrit) and a word ends in a
+      consonant, the transliteration should show word division by a space; but when phonological processes result in two
+      words sharing a common vowel, no attempt should be made to separate them. This will require a good knowledge
+      of the language in question.
+}
 
+tests {
+  test "ఇప్పుడు ఇదే కోవలో టాలీవుడ్‌లో మరో మల్టీస్టారర్‌ రూపొందనుందని సినీ వర్గాల్లో వార్తలు వినిపిస్తున్నాయి", "ipapauḍau idaē kaōvalaō ṭaālaīvauḍalaō maraō malaṭaīsaṭaārara raūpaoṁdanauṁdanai sainaī varagaālalaō vaāratalau vainaipaisataunanaāyai"
+  test "అంటే ఉంటాయి, అయితే అవి చాలా పెద్దవై ఉండాల్సిన అవసరం లేదు అంటున్నారు మమ్ముట్టి", "aṁṭaē uṁṭaāyai, ayaitaē avai caālaā paedadavaai uṁḍaālasaina avasaraṁ laēdau aṁṭaunanaārau mamamauṭaṭai"
+  test "ఆ సంతోషాన్ని అభిమానులతో పంచుకున్నారు", "ā saṁtaōṣaānanai abhaimaānaulataō paṁcaukaunanaārau"
+  test "కెమెరాను అన్‌బాక్స్‌ చేసే వీడియోను సోషల్‌ మీడియాలో అభిమానులతో పంచుకున్నారు", "kaemaeraānau anabaākasa caēsaē vaīḍaiyaōnau saōṣala maīḍaiyaālaō abhaimaānaulataō paṁcaukaunanaārau"
+  test "ఇన్నాళ్లకు నిజమయింది. ఇక ఇప్పటి నుంచి దీంతో ఫొటోలు క్లిక్‌ మనిపిస్తా’’ అని ఆ వీడియోలో పేర్కొన్నారు", "inanaāḷalakau naijamayaiṁdai. ika ipapaṭai nauṁcai daīṁtaō phaoṭaōlau kalaika manaipaisataā’’ anai ā vaīḍaiyaōlaō paērakaonanaārau"
+  test "గవర్నర్‌తో కంగనా భేటీ", "gavaranarataō kaṁganaā bhaēṭaī"
+  test "శ్రియ సినిమా సెట్‌లో అడుగుపెట్టి ఆరు నెలలు కావొస్తోంది", "śaraiya sainaimaā saeṭalaō aḍaugaupaeṭaṭai ārau naelalau kaāvaosataōṁdai"
+  test "ఇప్పుడు తను కోరుకున్న కెమెరా చేతికి రావడంతో త్వరలో మమ్ముట్టి నుంచి స్టన్నింగ్‌ ఫొటోస్‌ రావడం ఖాయం అంటున్నారు ఆయన అభిమానులు", "ipapauḍau tanau kaōraukaunana kaemaeraā caētaikai raāvaḍaṁtaō tavaralaō mamamauṭaṭai nauṁcai saṭananaiṁga phaoṭaōsa raāvaḍaṁ khaāyaṁ aṁṭaunanaārau āyana abhaimaānaulau"
+  test "ఇప్పుడు ఆ వీడియో వైరల్‌ అయింది. ‘ఆ కెమెరాను కొనాలనేది చాలాకాలంగా నా కల.", "ipapauḍau ā vaīḍaiyaō vaairala ayaiṁdai. ‘ā kaemaeraānau kaonaālanaēdai caālaākaālaṁgaā naā kala."
+  test "మరో వైపు ఎన్టీఆర్‌, రామ్‌చరణ్‌ కలిసి ట్రిపుల్‌ ఆర్‌ సినిమాలో నటిస్తున్నారు", "maraō vaaipau enaṭaīāra, raāmacaraṇa kalaisai ṭaraipaula āra sainaimaālaō naṭaisataunanaārau"
+  test "౪౬౨౬౯", "46269"
+}
 
-tests:
-  - source: "ఇప్పుడు ఇదే కోవలో టాలీవుడ్‌లో మరో మల్టీస్టారర్‌ రూపొందనుందని సినీ వర్గాల్లో వార్తలు వినిపిస్తున్నాయి"
-    expected: "ipapauḍau idaē kaōvalaō ṭaālaīvauḍalaō maraō malaṭaīsaṭaārara raūpaoṁdanauṁdanai sainaī varagaālalaō vaāratalau vainaipaisataunanaāyai"
-  - source: "అంటే ఉంటాయి, అయితే అవి చాలా పెద్దవై ఉండాల్సిన అవసరం లేదు అంటున్నారు మమ్ముట్టి"
-    expected: "aṁṭaē uṁṭaāyai, ayaitaē avai caālaā paedadavaai uṁḍaālasaina avasaraṁ laēdau aṁṭaunanaārau mamamauṭaṭai"
-  - source: "ఆ సంతోషాన్ని అభిమానులతో పంచుకున్నారు"
-    expected: "ā saṁtaōṣaānanai abhaimaānaulataō paṁcaukaunanaārau"
-  - source: "కెమెరాను అన్‌బాక్స్‌ చేసే వీడియోను సోషల్‌ మీడియాలో అభిమానులతో పంచుకున్నారు"
-    expected: "kaemaeraānau anabaākasa caēsaē vaīḍaiyaōnau saōṣala maīḍaiyaālaō abhaimaānaulataō paṁcaukaunanaārau"
-  - source: "ఇన్నాళ్లకు నిజమయింది. ఇక ఇప్పటి నుంచి దీంతో ఫొటోలు క్లిక్‌ మనిపిస్తా’’ అని ఆ వీడియోలో పేర్కొన్నారు"
-    expected: "inanaāḷalakau naijamayaiṁdai. ika ipapaṭai nauṁcai daīṁtaō phaoṭaōlau kalaika manaipaisataā’’ anai ā vaīḍaiyaōlaō paērakaonanaārau"
-  - source: "గవర్నర్‌తో కంగనా భేటీ"
-    expected: "gavaranarataō kaṁganaā bhaēṭaī"
-  - source: "శ్రియ సినిమా సెట్‌లో అడుగుపెట్టి ఆరు నెలలు కావొస్తోంది"
-    expected: "śaraiya sainaimaā saeṭalaō aḍaugaupaeṭaṭai ārau naelalau kaāvaosataōṁdai"
-  - source: "ఇప్పుడు తను కోరుకున్న కెమెరా చేతికి రావడంతో త్వరలో మమ్ముట్టి నుంచి స్టన్నింగ్‌ ఫొటోస్‌ రావడం ఖాయం అంటున్నారు ఆయన అభిమానులు"
-    expected: "ipapauḍau tanau kaōraukaunana kaemaeraā caētaikai raāvaḍaṁtaō tavaralaō mamamauṭaṭai nauṁcai saṭananaiṁga phaoṭaōsa raāvaḍaṁ khaāyaṁ aṁṭaunanaārau āyana abhaimaānaulau"
-  - source: "ఇప్పుడు ఆ వీడియో వైరల్‌ అయింది. ‘ఆ కెమెరాను కొనాలనేది చాలాకాలంగా నా కల."
-    expected: "ipapauḍau ā vaīḍaiyaō vaairala ayaiṁdai. ‘ā kaemaeraānau kaonaālanaēdai caālaākaālaṁgaā naā kala."
-  - source: "మరో వైపు ఎన్టీఆర్‌, రామ్‌చరణ్‌ కలిసి ట్రిపుల్‌ ఆర్‌ సినిమాలో నటిస్తున్నారు"
-    expected: "maraō vaaipau enaṭaīāra, raāmacaraṇa kalaisai ṭaraipaula āra sainaimaālaō naṭaisataunanaārau"
-  - source: "౪౬౨౬౯"
-    expected: "46269"
+stage {
 
-map:
-
-
-  characters:
-    'అ': 'a'
-    'ఆ': 'ā'
-    'ఇ': 'i'
-    'ఈ': 'ī'
-    'ఉ': 'u'
-    'ఊ': 'ū'
-    'ఋ': 'ṛ'
-    'ౠ': 'ṝ'
-    'ఌ': 'ḻ'
-    'ౡ': 'ḹ'
-    'ఎ': 'e'
-    'ఏ': 'ē'
-    'ఐ': 'ai'
-    'ఒ': 'o'
-    'ఓ': 'ō'
-    'ఔ': 'au'
+  # CHARACTERS
+  parallel {
+    sub "అ", "a"
+    sub "ఆ", "ā"
+    sub "ఇ", "i"
+    sub "ఈ", "ī"
+    sub "ఉ", "u"
+    sub "ఊ", "ū"
+    sub "ఋ", "ṛ"
+    sub "ౠ", "ṝ"
+    sub "ఌ", "ḻ"
+    sub "ౡ", "ḹ"
+    sub "ఎ", "e"
+    sub "ఏ", "ē"
+    sub "ఐ", "ai"
+    sub "ఒ", "o"
+    sub "ఓ", "ō"
+    sub "ఔ", "au"
 
 
     # II. Consonants (see Note 2)
     # Gutturals  క ఖ గ ఘ ఙ
-    'క': 'ka'
-    'ఖ': 'kha'
-    'గ': 'ga'
-    'ఘ': 'gha'
-    'ఙ': 'ṅa'
+    sub "క", "ka"
+    sub "ఖ", "kha"
+    sub "గ", "ga"
+    sub "ఘ", "gha"
+    sub "ఙ", "ṅa"
 
     # Palatals చ ఛ జ ఝ ఞ
-    'చ': 'ca'
-    'ఛ': 'cha'
-    'జ': 'ja'
-    'ఝ': 'jha'
-    'ఞ': 'ña'
+    sub "చ", "ca"
+    sub "ఛ", "cha"
+    sub "జ", "ja"
+    sub "ఝ", "jha"
+    sub "ఞ", "ña"
 
     # Cerebrals ట ఠ డ ఢ ణ
-    'ట':  'ṭa'
-    'ఠ':  'ṭha'
-    'డ':  'ḍa'
-    'ఢ':  'ḍha'
-    'ణ':  'ṇa'
+    sub "ట", "ṭa"
+    sub "ఠ", "ṭha"
+    sub "డ", "ḍa"
+    sub "ఢ", "ḍha"
+    sub "ణ", "ṇa"
 
     # Dentals త థ ద ధ న
-    'త': 'ta'
-    'థ': 'tha'
-    'ద': 'da'
-    'ధ': 'dha'
-    'న': 'na'
+    sub "త", "ta"
+    sub "థ", "tha"
+    sub "ద", "da"
+    sub "ధ", "dha"
+    sub "న", "na"
 
     # Labials ప ఫ బ భ మ
-    'ప': 'pa'
-    'ఫ': 'pha'
-    'బ': 'ba'
-    'భ': 'bha'
-    'మ': 'ma'
+    sub "ప", "pa"
+    sub "ఫ", "pha"
+    sub "బ", "ba"
+    sub "భ", "bha"
+    sub "మ", "ma"
 
     # Semivowels య ర ల వ
-    'య': 'ya'
-    'ర': 'ra'
-    'ఱ': 'ṛa'
-    'ల': 'la'
-    'ళ': 'ḷa'
-    'వ': 'va'
+    sub "య", "ya"
+    sub "ర", "ra"
+    sub "ఱ", "ṛa"
+    sub "ల", "la"
+    sub "ళ", "ḷa"
+    sub "వ", "va"
 
     # Sibilants శ ష స హ
-    'శ': 'śa'
-    'ష': 'ṣa'
-    'స': 'sa'
+    sub "శ", "śa"
+    sub "ష", "ṣa"
+    sub "స", "sa"
 
 
 
     # Aspirate
-    'హ': 'ha'
+    sub "హ", "ha"
 
-    'ౙ': 'za'
-    'ౘ': 'ĉa'
-    'ౚ': 'ṟa'
-    '\u0C34': 'ḻa'
+    sub "ౙ", "za"
+    sub "ౘ", "ĉa"
+    sub "ౚ", "ṟa"
+    sub "\u0C34", "ḻa"
 
 
     # Chandrabindu
-    'ঁ': 'm̐'
+    sub "ঁ", "m̐"
 
     # Bisarga
-    'ః': 'ḥ'
+    sub "ః", "ḥ"
 
     # Anusvāra
-    'ం': 'ṁ'
+    sub "ం", "ṁ"
 
     # Medials # Needed for connecting constants
 
-    'ా': 'ā'
-    'ి': 'i'
-    'ీ': 'ī'
-    'ు': 'u'
-    'ూ': 'ū'
-    'ృ': 'ṛ'
-    'ౄ': "ṝ"
-    ' ౢ': "ḷ" # \u0C62
-    ' ౣ': "ḹ" # \u0C63
-    'ె': 'e'
-    'ే': 'ē'
-    'ై': 'ai'
-    'ొ': 'o'
-    'ో': 'ō'
-    'ౌ': 'au'
-    'ఁ': 'ň'
+    sub "ా", "ā"
+    sub "ి", "i"
+    sub "ీ", "ī"
+    sub "ు", "u"
+    sub "ూ", "ū"
+    sub "ృ", "ṛ"
+    sub "ౄ", "ṝ"
+    sub " ౢ", "ḷ" # \u0C62
+    sub " ౣ", "ḹ" # \u0C63
+    sub "ె", "e"
+    sub "ే", "ē"
+    sub "ై", "ai"
+    sub "ొ", "o"
+    sub "ో", "ō"
+    sub "ౌ", "au"
+    sub "ఁ", "ň"
 
 
     # Abagraha
-    'ఽ': ':’' # (apostrophe)
+    sub "ఽ", ":’" # (apostrophe)
 
 
-    '\u0c4d': '' #verma sign for halanta
-    'ౕ	': ''
-    'ౖ	': ''
-    '्': ''
-    '़': ''
-    '\u09CD': '' # Used for joining
-    "‍": ''# Used for joining
-    "‌": ''# Used for non joining
+    sub "\u0c4d", "" #verma sign for halanta
+    sub "ౕ\t", ""
+    sub "ౖ\t", ""
+    sub "्", ""
+    sub "़", ""
+    sub "\u09CD", "" # Used for joining
+    sub "‍", "" # Used for joining
+    sub "‌", "" # Used for non joining
 
 
-    'యঁ': 'm̐ya'
-    'రঁ': 'm̐ra'
-    'ఱঁ': 'm̐ṛa'
-    'లঁ': 'm̐la'
-    'ళঁ': 'm̐ḷa'
-    'వঁ': 'm̐va'
+    sub "యঁ", "m̐ya"
+    sub "రঁ", "m̐ra"
+    sub "ఱঁ", "m̐ṛa"
+    sub "లঁ", "m̐la"
+    sub "ళঁ", "m̐ḷa"
+    sub "వঁ", "m̐va"
 
 
     # numbers
 
-    '౦': '0'
-    '౧': '1'
-    '౨': '2'
-    '౩': '3'
-    '౪': '4'
-    '౫': '5'
-    '౬': '6'
-    '౭': '7'
-    '౮': '8'
-    '౯': '9'
+    sub "౦", "0"
+    sub "౧", "1"
+    sub "౨", "2"
+    sub "౩", "3"
+    sub "౪", "4"
+    sub "౫", "5"
+    sub "౬", "6"
+    sub "౭", "7"
+    sub "౮", "8"
+    sub "౯", "9"
+  }
+
+  compose
+}

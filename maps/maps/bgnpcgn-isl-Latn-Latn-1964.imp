@@ -1,37 +1,42 @@
----
-authority_id: bgnpcgn
-id: 1964
-language: iso-639-2:isl
-source_script: Latn
-destination_script: Latn
-name: TRANSLITERATION OF ICELANDIC BGN/PCGN 1947 System
-url: https://github.com/interscript/interscript/files/5180785/BGN_Romanization_Guide_1964_icelandic_1947.pdf
-creation_date: 1964
-description: |
-  The BGN and the PCGn in 1947 jointly agreed to the transliteration of two letters of the Icelandic alphabet which,
-  although used in writing Old English, have disappeared from the modern English alphabet.
+metadata {
+  authority_id: bgnpcgn
+  id: 1964
+  language: iso-639-2:isl
+  source_script: Latn
+  destination_script: Latn
+  name: TRANSLITERATION OF ICELANDIC BGN/PCGN 1947 System
+  url: https://github.com/interscript/interscript/files/5180785/BGN_Romanization_Guide_1964_icelandic_1947.pdf
+  creation_date: 1964
+  description: |
+    The BGN and the PCGn in 1947 jointly agreed to the transliteration of two letters of the Icelandic alphabet which,
+    although used in writing Old English, have disappeared from the modern English alphabet.
 
-  The transliterated letters are the edh (Ð ð) and the thorn (Þ þ), pronounved as th in "thus" and th in "think," respectively.
+    The transliterated letters are the edh (Ð ð) and the thorn (Þ þ), pronounved as th in "thus" and th in "think," respectively.
 
-  It was felt that it was better to transliterate these letters into familiar symbols than preserve such unfamiliar letters in the nomenclature.
+    It was felt that it was better to transliterate these letters into familiar symbols than preserve such unfamiliar letters in the nomenclature.
 
-notes:
-  - More about "edh" letter - https://en.wikipedia.org/wiki/Eth
-  - More about "thorn" letter - https://en.wikipedia.org/wiki/Thorn_(letter)
+  notes:
+    - More about "edh" letter - https://en.wikipedia.org/wiki/Eth
+    - More about "thorn" letter - https://en.wikipedia.org/wiki/Thorn_(letter)
+}
 
-tests:
-  - source: Fyrirgefðu
-    expected: Fyrirgefdhu
-  - source: þu ert velkominn
-    expected: thu ert velkominn
-  - source: GOÐAN DAGINN
-    expected: GODHAN DAGINN
-  - source: Þakka
-    expected: Thakka
+tests {
+  test "Fyrirgefðu", "Fyrirgefdhu"
+  test "þu ert velkominn", "thu ert velkominn"
+  test "GOÐAN DAGINN", "GODHAN DAGINN"
+  test "Þakka", "Thakka"
+}
 
-map:
-  characters:
-    "\u00D0": "Dh" # Ð
-    "\u00F0": "dh" # ð
-    "\u00DE": "Th" # Þ
-    "\u00FE": "th" # þ
+stage {
+
+  # CHARACTERS
+  parallel {
+    sub "Ð", "Dh" # Ð
+    sub "ð", "dh" # ð
+    sub "Þ", "Th" # Þ
+    sub "þ", "th" # þ
+  }
+
+  sub any(["Th", "Dh"]), upcase, before: any("A".."Z")
+  sub any(["Th", "Dh"]), upcase, after: any("A".."Z")
+}

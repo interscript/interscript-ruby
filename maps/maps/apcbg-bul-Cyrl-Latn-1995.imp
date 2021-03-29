@@ -1,283 +1,194 @@
----
-authority_id: apcbg
-id: 1995
-language: iso-639-2:bul
-source_script: Cyrl
-destination_script: Latn
-name: Toponymic Guidelines for Antarctica, Lyubomir Ivanov. Antarctic Place-names Commission of Bulgaria, Sofia, 1995.
-url: http://www.apcbg.org/Toponymic-Guidelines.htm
-creation_date: 1995
-description: |
-  In Antarctica geographical names are important elements of identification, orientation, localization and navigation,
-  providing an essential reference system for logistic operations, including search and rescue measures, and for
-  international scientific research.  They facilitate information exchange in the field, in scientific publications and in
-  administrative measures under the Antarctic Treaty System. Geographical names also reflect the history of Antarctic
-  exploration.
+metadata {
+  authority_id: apcbg
+  id: 1995
+  language: iso-639-2:bul
+  source_script: Cyrl
+  destination_script: Latn
+  name: Toponymic Guidelines for Antarctica, Lyubomir Ivanov. Antarctic Place-names Commission of Bulgaria, Sofia, 1995.
+  url: http://www.apcbg.org/Toponymic-Guidelines.htm
+  creation_date: 1995
+  description: |
+    In Antarctica geographical names are important elements of identification, orientation, localization and navigation,
+    providing an essential reference system for logistic operations, including search and rescue measures, and for
+    international scientific research.  They facilitate information exchange in the field, in scientific publications and in
+    administrative measures under the Antarctic Treaty System. Geographical names also reflect the history of Antarctic
+    exploration.
+}
 
-tests:
-  - source: нунатак Абрит
-    expected: nunatak Abrit
-  - source: връх Академия
-    expected: vrah Akademiya
-  - source: връх Ами Буе
-    expected: vrah Ami Bue
-  - source: нос Айтос
-    expected: nos Aytos
-  - source: залив Баба Тонка
-    expected: zaliv Baba Tonka
-  - source: Балабански камък
-    expected: Balabanski kamak
-  - source: Бедечки поток
-    expected: Bedechki potok
-  - source: нос Бяга
-    expected: nos Byaga
-  - source: остров Качо
-    expected: ostrov Kacho # wiki ostrov Cacho
-  - source: Чакъров остров
-    expected: Chakarov ostrov
-  - source: връх Дъбник
-    expected: vrah Dabnik
-  - source: залив Десислава
-    expected: zaliv Desislava
-  - source: ледник Джераси
-    expected: lednik Dzherasi
-  - source: Джегова скала
-    expected: Dzhegova skala
-  - source: Нунатак Едуард
-    expected: Nunatak Eduard
-  - source: Елховска седловина
-    expected: Elhovska sedlovina
-  - source: ледник Етър
-    expected: lednik Etar
-  - source: нунатак Филип Тотю
-    expected: nunatak Filip Totyu
-  - source: ледник Габаре
-    expected: lednik Gabare
-  - source: риф Гергини
-    expected: rif Gergini
-  - source: Гяуров връх
-    expected: Gyaurov vrah
-  - source: Гуцалски рид
-    expected: Gutsalski rid # not found
-  - source: Хараламбиев остров
-    expected: Haralambiev ostrov
-  - source: връх Ичера
-    expected: vrah Ichera
-  - source: полуостров Йоан Павел II
-    expected: poluostrov Yoan Pavel II
-  - source: нос Иван Александър
-    expected: nos Ivan Aleksandar
-  - source: нос Иречек
-    expected: nos Irechek
-  - source: нос Кърджали
-    expected: nos Kardzhali
-  - source: седловина Кърнаре
-    expected: sedlovina Karnare
-  - source: нунатак Керсеблепт
-    expected: nunatak Kerseblept
-  - source: Кондофрейски възвишения
-    expected: Kondofreyski vazvisheniya
-  - source: Костинбродски проход
-    expected: Kostinbrodski prohod
-  - source: връх Кожух
-    expected: vrah Kozhuh
-  - source: Кукерски нунатаци
-    expected: Kukerski nunatatsi
-  - source: залив Лазурен бряг
-    expected: zaliv Lazuren bryag
-  - source: връх Лудогорие
-    expected: vrah Ludogorie
-  - source: Лютибродски скали
-    expected: Lyutibrodski skali
-  - source: Масларов нунатак
-    expected: Maslarov nunatak
-  - source: Михневски връх
-    expected: Mihnevski vrah
-  - source: рид Митино
-    expected: rid Mitino
-  - source: езеро Наяда
-    expected: ezero Nayada
-  - source: нос Никюп
-    expected: nos Nikyup
-  - source: рид Оборище
-    expected: rid Oborishte
-  - source: залив Олуша
-    expected: zaliv Olusha
-  - source: Оряховски възвишения
-    expected: Oryahovski vazvisheniya
-  - source: нунатак Памидово
-    expected: nunatak Pamidovo
-  - source: връх Парангалица
-    expected: vrah Parangalitsa
-  - source: Първомайски провлак
-    expected: Parvomayski provlak
-  - source: ледник Патлейна
-    expected: lednik Patleyna
-  - source: полуостров Перник
-    expected: poluostrov Pernik
-  - source: връх Петко Войвода
-    expected: vrah Petko Voyvoda
-  - source: остров Фанагория
-    expected: ostrov Fanagoriya
-  - source: нос Плас
-    expected: nos Plas
-  - source: Пресиянов рид
-    expected: Presiyanov rid
-  - source: връх Принсипе де Астуриас
-    expected: vrah Prinsipe de Asturias # wiki: vrah Príncipe de Asturias
-  - source: нунатак Ръченица
-    expected: nunatak Rachenitsa
-  - source: връх Райна Княгиня
-    expected: vrah Rayna Knyaginya
-  - source: Рид Ръжана
-    expected: Rid Razhana
-  - source: връх Ригс
-    expected: vrah Rigs
-  - source: остров Рогулят
-    expected: ostrov Rogulyat
-  - source: ледник Сабазий
-    expected: lednik Sabaziy
-  - source: ледник Съединение
-    expected: lednik Saedinenie
-  - source: нунатак Сенокос
-    expected: nunatak Senokos
-  - source: Сейдолски камък
-    expected: Seydolski kamak
-  - source: ледник Щерна
-    expected: lednik Shterna
-  - source: връх Шишман
-    expected: vrah Shishman
-  - source: ледник Сигмен
-    expected: lednik Sigmen
-  - source: Седловина Синитово
-    expected: Sedlovina Sinitovo
-  - source: Ледник Скаплизо
-    expected: Lednik Skaplizo
-  - source: залив Слънчев бряг
-    expected: zaliv Slanchev bryag
-  - source: остров Соатрис
-    expected: ostrov Soatris
-  - source: планина Софийски Университет
-    expected: planina Sofiyski Universitet
-  - source: ледник Сребърна
-    expected: lednik Srebarna
-  - source: Средногорски възвишения
-    expected: Srednogorski vazvisheniya
-  - source: Св. Евтимиев камък
-    expected: Sv. Evtimiev kamak
-  - source: база Св. Климент Охридски
-    expected: baza Sv. Kliment Ohridski
-  - source: връх Стъргел
-    expected: vrah Stargel
-  - source: нунатак Сторгозия
-    expected: nunatak Storgoziya # nunatak Storgozia according to wiki
-  - source: нунатак Сурвакари
-    expected: nunatak Survakari
-  - source: ледник Световрачене
-    expected: lednik Svetovrachene
-  - source: остров Теменуга
-    expected: ostrov Temenuga
-  - source: Тракийски възвишения
-    expected: Trakiyski vazvisheniya
-  - source: хълм Цамблак
-    expected: halm Tsamblak
-  - source: ледник Урдовиза
-    expected: lednik Urdoviza
-  - source: остров Вълчедръм
-    expected: ostrov Valchedram
-  - source: острови Вардим
-    expected: ostrovi Vardim
-  - source: Владигеров проток
-    expected: Vladigerov protok
-  - source: ледник Ябланица
-    expected: lednik Yablanitsa
-  - source: залив Ямфорина
-    expected: zaliv Yamforina
-  - source: Йовков нос
-    expected: Yovkov nos
-  - source: рид Заберново
-    expected: rid Zabernovo
-  - source: ледник Збелсурд
-    expected: lednik Zbelsurd
-  - source: Жефарович камък
-    expected: Zhefarovich kamak
-  - source: връх Зиези
-    expected: vrah Ziezi
-  - source: залив Златни пясъци
-    expected: zaliv Zlatni pyasatsi
-  - source: ледник Злокучене
-    expected: lednik Zlokuchene
-  - source: проток Злогош
-    expected: protok Zlogosh
+tests {
+  test "нунатак Абрит", "nunatak Abrit"
+  test "връх Академия", "vrah Akademiya"
+  test "връх Ами Буе", "vrah Ami Bue"
+  test "нос Айтос", "nos Aytos"
+  test "залив Баба Тонка", "zaliv Baba Tonka"
+  test "Балабански камък", "Balabanski kamak"
+  test "Бедечки поток", "Bedechki potok"
+  test "нос Бяга", "nos Byaga"
+  test "остров Качо", "ostrov Kacho" # wiki ostrov Cacho
+  test "Чакъров остров", "Chakarov ostrov"
+  test "връх Дъбник", "vrah Dabnik"
+  test "залив Десислава", "zaliv Desislava"
+  test "ледник Джераси", "lednik Dzherasi"
+  test "Джегова скала", "Dzhegova skala"
+  test "Нунатак Едуард", "Nunatak Eduard"
+  test "Елховска седловина", "Elhovska sedlovina"
+  test "ледник Етър", "lednik Etar"
+  test "нунатак Филип Тотю", "nunatak Filip Totyu"
+  test "ледник Габаре", "lednik Gabare"
+  test "риф Гергини", "rif Gergini"
+  test "Гяуров връх", "Gyaurov vrah"
+  test "Гуцалски рид", "Gutsalski rid" # not found
+  test "Хараламбиев остров", "Haralambiev ostrov"
+  test "връх Ичера", "vrah Ichera"
+  test "полуостров Йоан Павел II", "poluostrov Yoan Pavel II"
+  test "нос Иван Александър", "nos Ivan Aleksandar"
+  test "нос Иречек", "nos Irechek"
+  test "нос Кърджали", "nos Kardzhali"
+  test "седловина Кърнаре", "sedlovina Karnare"
+  test "нунатак Керсеблепт", "nunatak Kerseblept"
+  test "Кондофрейски възвишения", "Kondofreyski vazvisheniya"
+  test "Костинбродски проход", "Kostinbrodski prohod"
+  test "връх Кожух", "vrah Kozhuh"
+  test "Кукерски нунатаци", "Kukerski nunatatsi"
+  test "залив Лазурен бряг", "zaliv Lazuren bryag"
+  test "връх Лудогорие", "vrah Ludogorie"
+  test "Лютибродски скали", "Lyutibrodski skali"
+  test "Масларов нунатак", "Maslarov nunatak"
+  test "Михневски връх", "Mihnevski vrah"
+  test "рид Митино", "rid Mitino"
+  test "езеро Наяда", "ezero Nayada"
+  test "нос Никюп", "nos Nikyup"
+  test "рид Оборище", "rid Oborishte"
+  test "залив Олуша", "zaliv Olusha"
+  test "Оряховски възвишения", "Oryahovski vazvisheniya"
+  test "нунатак Памидово", "nunatak Pamidovo"
+  test "връх Парангалица", "vrah Parangalitsa"
+  test "Първомайски провлак", "Parvomayski provlak"
+  test "ледник Патлейна", "lednik Patleyna"
+  test "полуостров Перник", "poluostrov Pernik"
+  test "връх Петко Войвода", "vrah Petko Voyvoda"
+  test "остров Фанагория", "ostrov Fanagoriya"
+  test "нос Плас", "nos Plas"
+  test "Пресиянов рид", "Presiyanov rid"
+  test "връх Принсипе де Астуриас", "vrah Prinsipe de Asturias" # wiki: vrah Príncipe de Asturias
+  test "нунатак Ръченица", "nunatak Rachenitsa"
+  test "връх Райна Княгиня", "vrah Rayna Knyaginya"
+  test "Рид Ръжана", "Rid Razhana"
+  test "връх Ригс", "vrah Rigs"
+  test "остров Рогулят", "ostrov Rogulyat"
+  test "ледник Сабазий", "lednik Sabaziy"
+  test "ледник Съединение", "lednik Saedinenie"
+  test "нунатак Сенокос", "nunatak Senokos"
+  test "Сейдолски камък", "Seydolski kamak"
+  test "ледник Щерна", "lednik Shterna"
+  test "връх Шишман", "vrah Shishman"
+  test "ледник Сигмен", "lednik Sigmen"
+  test "Седловина Синитово", "Sedlovina Sinitovo"
+  test "Ледник Скаплизо", "Lednik Skaplizo"
+  test "залив Слънчев бряг", "zaliv Slanchev bryag"
+  test "остров Соатрис", "ostrov Soatris"
+  test "планина Софийски Университет", "planina Sofiyski Universitet"
+  test "ледник Сребърна", "lednik Srebarna"
+  test "Средногорски възвишения", "Srednogorski vazvisheniya"
+  test "Св. Евтимиев камък", "Sv. Evtimiev kamak"
+  test "база Св. Климент Охридски", "baza Sv. Kliment Ohridski"
+  test "връх Стъргел", "vrah Stargel"
+  test "нунатак Сторгозия", "nunatak Storgoziya" # nunatak Storgozia according to wiki
+  test "нунатак Сурвакари", "nunatak Survakari"
+  test "ледник Световрачене", "lednik Svetovrachene"
+  test "остров Теменуга", "ostrov Temenuga"
+  test "Тракийски възвишения", "Trakiyski vazvisheniya"
+  test "хълм Цамблак", "halm Tsamblak"
+  test "ледник Урдовиза", "lednik Urdoviza"
+  test "остров Вълчедръм", "ostrov Valchedram"
+  test "острови Вардим", "ostrovi Vardim"
+  test "Владигеров проток", "Vladigerov protok"
+  test "ледник Ябланица", "lednik Yablanitsa"
+  test "залив Ямфорина", "zaliv Yamforina"
+  test "Йовков нос", "Yovkov nos"
+  test "рид Заберново", "rid Zabernovo"
+  test "ледник Збелсурд", "lednik Zbelsurd"
+  test "Жефарович камък", "Zhefarovich kamak"
+  test "връх Зиези", "vrah Ziezi"
+  test "залив Златни пясъци", "zaliv Zlatni pyasatsi"
+  test "ледник Злокучене", "lednik Zlokuchene"
+  test "проток Злогош", "protok Zlogosh"
+}
 
-map:
-  characters:
-    '\u0410': 'A'
-    '\u0411': 'B'
-    '\u0412': 'V'
-    '\u0413': 'G'
-    '\u0414': 'D'
-    '\u0415': 'E'
-    '\u0416': 'Zh'
-    '\u0417': 'Z'
-    '\u0418': 'I'
-    '\u0419': 'Y'
-    '\u041a': 'K'
-    '\u041b': 'L'
-    '\u041c': 'M'
-    '\u041d': 'N'
-    '\u041e': 'O'
-    '\u041f': 'P'
-    '\u0420': 'R'
-    '\u0421': 'S'
-    '\u0422': 'T'
-    '\u0423': 'U'
-    '\u0424': 'F'
-    '\u0425': 'H'
-    '\u0426': 'Ts'
-    '\u0427': 'Ch'
-    '\u0428': 'Sh'
-    '\u0429': 'Sht'
-    '\u042a': 'A'
-    '\u042c': 'Y'
-    '\u042e': 'Yu'
-    '\u042f': 'Ya'
+stage {
 
-    '\u0430': 'a'
-    '\u0431': 'b'
-    '\u0432': 'v'
-    '\u0433': 'g'
-    '\u0434': 'd'
-    '\u0435': 'e'
-    '\u0436': 'zh'
-    '\u0437': 'z'
-    '\u0438': 'i'
-    '\u0439': 'y'
-    '\u043a': 'k'
-    '\u043b': 'l'
-    '\u043c': 'm'
-    '\u043d': 'n'
-    '\u043e': 'o'
-    '\u043f': 'p'
-    '\u0440': 'r'
-    '\u0441': 's'
-    '\u0442': 't'
-    '\u0443': 'u'
-    '\u0444': 'f'
-    '\u0445': 'h'
-    '\u0446': 'ts'
-    '\u0447': 'ch'
-    '\u0448': 'sh'
-    '\u0449': 'sht'
-    '\u044a': 'a'
-    '\u044c': 'y'
-    '\u044e': 'yu'
-    '\u044f': 'ya'
-
+  # CHARACTERS
+  parallel {
+    sub "\u0410", "A"
+    sub "\u0411", "B"
+    sub "\u0412", "V"
+    sub "\u0413", "G"
+    sub "\u0414", "D"
+    sub "\u0415", "E"
+    sub "\u0416", "Zh"
+    sub "\u0417", "Z"
+    sub "\u0418", "I"
+    sub "\u0419", "Y"
+    sub "\u041a", "K"
+    sub "\u041b", "L"
+    sub "\u041c", "M"
+    sub "\u041d", "N"
+    sub "\u041e", "O"
+    sub "\u041f", "P"
+    sub "\u0420", "R"
+    sub "\u0421", "S"
+    sub "\u0422", "T"
+    sub "\u0423", "U"
+    sub "\u0424", "F"
+    sub "\u0425", "H"
+    sub "\u0426", "Ts"
+    sub "\u0427", "Ch"
+    sub "\u0428", "Sh"
+    sub "\u0429", "Sht"
+    sub "\u042a", "A"
+    sub "\u042c", "Y"
+    sub "\u042e", "Yu"
+    sub "\u042f", "Ya"
+    
+    sub "\u0430", "a"
+    sub "\u0431", "b"
+    sub "\u0432", "v"
+    sub "\u0433", "g"
+    sub "\u0434", "d"
+    sub "\u0435", "e"
+    sub "\u0436", "zh"
+    sub "\u0437", "z"
+    sub "\u0438", "i"
+    sub "\u0439", "y"
+    sub "\u043a", "k"
+    sub "\u043b", "l"
+    sub "\u043c", "m"
+    sub "\u043d", "n"
+    sub "\u043e", "o"
+    sub "\u043f", "p"
+    sub "\u0440", "r"
+    sub "\u0441", "s"
+    sub "\u0442", "t"
+    sub "\u0443", "u"
+    sub "\u0444", "f"
+    sub "\u0445", "h"
+    sub "\u0446", "ts"
+    sub "\u0447", "ch"
+    sub "\u0448", "sh"
+    sub "\u0449", "sht"
+    sub "\u044a", "a"
+    sub "\u044c", "y"
+    sub "\u044e", "yu"
+    sub "\u044f", "ya"
+    
     # note 2
-    '\u046A': "U\u0306" # Ѫ
-    '\u046B': "u\u0306" # ѫ
-
+    sub "\u046A", "Ŭ" # Ѫ
+    sub "\u046B", "ŭ" # ѫ
+    
     # note[3]
-    '\u0462': "YE" # Ѣ
-    '\u0463': "ye" # ѣ
+    sub "\u0462", "YE" # Ѣ
+    sub "\u0463", "ye" # ѣ
+  }
+
+}
+

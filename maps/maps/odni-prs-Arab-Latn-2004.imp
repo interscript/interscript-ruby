@@ -1,123 +1,120 @@
----
-authority_id: odni
-id: 2004
-language: iso-639-3:prs
-source_script: Arab
-destination_script: Latn
-name: Intelligence Community (IC) Standard for the Transliteration of Dari Personal Names (2004)
-url: https://github.com/interscript/interscript-private-references/blob/master/odni/Farsi_(Persian)_%26_Dari_IC_Standards.doc
-creation_date: 2004
-confirmation_date: 2004-11
-description: |
+metadata {
+  authority_id: odni
+  id: 2004
+  language: iso-639-3:prs
+  source_script: Arab
+  destination_script: Latn
+  name: Intelligence Community (IC) Standard for the Transliteration of Dari Personal Names (2004)
+  url: https://github.com/interscript/interscript-private-references/blob/master/odni/Farsi_(Persian)_%26_Dari_IC_Standards.doc
+  creation_date: 2004
+  confirmation_date: 2004-11
+  description: |
 
-notes:
-  - This standard is intended only for those Afghan names
-    that have a common bond or similarity with Iranian or
-    Arabic names.  They should not, for example, be used for
-    Pashto names, for which a separate standard should be used.
-  - Long/short vowels:- There is no distinction made in Roman
-    between long and short a:-  E.g., Farhad (first a is short,
-    second is long).
-  - Double consonants:-  Double consonants represented by the
-    tashdid are shown by doubling the Roman letter:-  Mohammad.
-    Exceptions:-  Consonants represented by Roman digraphs (
-    e.g., sh, ch) are not doubled:-  Mobasher [not:-  Mobashsher]
-    .  Double letters are only used for tashdid (thus, Hosein [
-    not Hossein]) or to reflect the ‘sun letter’ assimilation (
-    see below).
-  - Hamzeh:-  The hamzeh is represented name-internally by an
-    apostrophe, as is the ain.  Name-initially, however,
-    neither hamzeh nor ain are indicated in transliteration (
-    e.g., Abdorrahman, not 'Abdorrahman).
-  - Digraphs:-  No distinction is drawn in Roman between
-    digraphs such as sh and single contiguous letters (e.g., s
-    followed by h).
-  - Arabic definite article "al" ('the'):-  Common in many
-    names borrowed from Arabic, the transliteration should show
-    the 'sun letter' assimilation rather than the “l” for the
-    lam.  That  is:-  Abdorrahman.  Note also that the "Abdol +
-    attribute of Allah" names are written as one unanalyzed
-    word, as are other names that contain the definite
-    article:-  Shamsoddin (not Shams al-Din), Nezamoddin, etc.
-  - Diphthongs:-  Diphthongs are written ei and ow
-    respectively:-  Hosein; Khosrow.
-  - Yeh maqsura (final yeh pronounced as “a”):-  should be
-    written as “a” as in “Musa”.
+  notes:
+    - This standard is intended only for those Afghan names
+      that have a common bond or similarity with Iranian or
+      Arabic names.  They should not, for example, be used for
+      Pashto names, for which a separate standard should be used.
+    - Long/short vowels:- There is no distinction made in Roman
+      between long and short a:-  E.g., Farhad (first a is short,
+      second is long).
+    - Double consonants:-  Double consonants represented by the
+      tashdid are shown by doubling the Roman letter:-  Mohammad.
+      Exceptions:-  Consonants represented by Roman digraphs (
+      e.g., sh, ch) are not doubled:-  Mobasher [not:-  Mobashsher]
+      .  Double letters are only used for tashdid (thus, Hosein [
+      not Hossein]) or to reflect the ‘sun letter’ assimilation (
+      see below).
+    - Hamzeh:-  The hamzeh is represented name-internally by an
+      apostrophe, as is the ain.  Name-initially, however,
+      neither hamzeh nor ain are indicated in transliteration (
+      e.g., Abdorrahman, not 'Abdorrahman).
+    - Digraphs:-  No distinction is drawn in Roman between
+      digraphs such as sh and single contiguous letters (e.g., s
+      followed by h).
+    - Arabic definite article "al" ('the'):-  Common in many
+      names borrowed from Arabic, the transliteration should show
+      the 'sun letter' assimilation rather than the “l” for the
+      lam.  That  is:-  Abdorrahman.  Note also that the "Abdol +
+      attribute of Allah" names are written as one unanalyzed
+      word, as are other names that contain the definite
+      article:-  Shamsoddin (not Shams al-Din), Nezamoddin, etc.
+    - Diphthongs:-  Diphthongs are written ei and ow
+      respectively:-  Hosein; Khosrow.
+    - Yeh maqsura (final yeh pronounced as “a”):-  should be
+      written as “a” as in “Musa”.
 
-  - Special Rules
+    - Special Rules
 
-  - Hyphens:-  A hyphen is used to indicate the ezafeh
-    construction:-  Arshad-e Ameri
-  - Borrowed names that incorporate the name of God (Allah)
-    are transliterated as one word, with the letter "o":-  E.g.,
-    Abdollah, Ayatollah, Azizollah.
-  - Foreign names borrowed or appearing in Dari are spelled
-    according to the standard Western tradition (even if there
-    is an Arabic or Dari version of the same name):-  Joseph,
-    Michael.
-  - Common suffixes, such as gol, pur, mand, yar, zadeh,
-    etc., as well as nesbeh (‘relationship’ (to place of birth,
-    etc.)) names derived with these suffixes  (e.g., abadi) are
-    written as part of the name:-
+    - Hyphens:-  A hyphen is used to indicate the ezafeh
+      construction:-  Arshad-e Ameri
+    - Borrowed names that incorporate the name of God (Allah)
+      are transliterated as one word, with the letter "o":-  E.g.,
+      Abdollah, Ayatollah, Azizollah.
+    - Foreign names borrowed or appearing in Dari are spelled
+      according to the standard Western tradition (even if there
+      is an Arabic or Dari version of the same name):-  Joseph,
+      Michael.
+    - Common suffixes, such as gol, pur, mand, yar, zadeh,
+      etc., as well as nesbeh (‘relationship’ (to place of birth,
+      etc.)) names derived with these suffixes  (e.g., abadi) are
+      written as part of the name:-
 
-    gol		Parigol, Ziagol
-    pur		Shahpur, Mehrpur
-    mand		Gulahmand
-    yar		Aminyar
-    zadeh		Ismailzadeh, Karimzadeh
+      gol		Parigol, Ziagol
+      pur		Shahpur, Mehrpur
+      mand		Gulahmand
+      yar		Aminyar
+      zadeh		Ismailzadeh, Karimzadeh
 
-    abadi		Kamalabadi
+      abadi		Kamalabadi
+}
+
+tests {
+  test "مُوسَى", "musa"
+  test "مُؤمِن", "momen"
+  test "رِضايي", "rezai"
+  test "مُبَشِّر", "mobasher"
+  test "حَسَّان", "hassan"
+  test "حَسَن", "hasan"
+  test "صَفَّار", "saffar"
+  test "صَفَر", "safar"
+}
+
+dependency "odni-fas-Arab-Latn-2004", as: arablatn
+
+stage {
 
 
-tests:
-  - source: مُوسَى
-    expected: musa
-
-  - source: مُؤمِن
-    expected: momen
-
-  - source: رِضايي
-    expected: rezai
-
-  - source: مُبَشِّر
-    expected: mobasher
-
-  - source: حَسَّان
-    expected: hassan
-
-  - source: حَسَن
-    expected: hasan
-
-  - source: صَفَّار
-    expected: saffar
-
-  - source: صَفَر
-    expected: safar
-
-map:
-  inherit: odni-fas-Arab-Latn-2004
-  characters:
-
-    '\u0626' : '' # ئ
-    '\u0624' : '' # ؤ
+  # CHARACTERS
+  parallel {
+s
+    sub "\u0626", "" # ئ
+    sub "\u0624", "" # ؤ
 
     # shadda
 
-    '\u0642\u0651' : 'qq'  # ق
-    '\u0648\u0651' : 'ww'  # و
+    sub "\u0642\u0651", "qq" # ق
+    sub "\u0648\u0651", "ww" # و
 
-    '\u0621': '' # ء
+    sub "\u0621", "" # ء
 
     # FROM NOTES
 
-    '\u064a\u064a' : 'i' # NOTE 4 (2)
-    '\u06cc\u06cc' : 'i'
+    sub "\u064a\u064a", "i" # NOTE 4 (2)
+    sub "\u06cc\u06cc", "i"
 
-    '\u0627\u064a\b' : 'i' # NOTE 4 (3)
-    '\u0627\u06cc\b' : 'i'
+    sub "\u0627\u064a" + boundary, "i" # NOTE 4 (3)
+    sub "\u0627\u06cc" + boundary, "i"
+
+    sub "\u064f\u0648", "u" # ـُو damma followed by و     #gets broken by "w" lower
 
     # Farsi consonant characters
 
-    '\u0639' : ''  # ع # new
-    '\u0642' : 'q'  # ق
-    '\u0648' : 'w'  # و
+    sub "\u0639", "" # ع # new
+    sub "\u0642", "q" # ق
+    sub "\u0648", "w" # و
+  }
+
+  run map.arablatn.stage.main
+}
+

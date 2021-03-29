@@ -1,55 +1,56 @@
----
-authority_id: bgnpcgn
-id: 2000
-language: iso-639-2:deu
-source_script: Latn
-destination_script: Latn
-name: BGN/PCGN German 2000 Roman-Script Spelling Convention Agreement
-url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/693794/ROMAN-SCRIPT_SPELLING_CONVENTIONS.pdf
-creation_date: 2000
+metadata {
+  authority_id: bgnpcgn
+  id: 2000
+  language: iso-639-2:deu
+  source_script: Latn
+  destination_script: Latn
+  name: BGN/PCGN German 2000 Roman-Script Spelling Convention Agreement
+  url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/693794/ROMAN-SCRIPT_SPELLING_CONVENTIONS.pdf
+  creation_date: 2000
 
-notes:
-  - |
-    The special letter β, known as eszett, [Unicode: 03B2] is a standard letter of the German alphabet and occurs
-    only in word-medial and word-final positions. It is a lowercase letter only, and when a word and/or a name is
-    written entirely in uppercase letters, it is always rendered as SS. As a result of the orthographic reform of
-    German, implemented in August 1998, the β is now rendered ss if it follows a short vowel, but it is still used
-    if it follows a long vowel or a diphthong. In those instances where β cannot be reproduced, the digraph ss
-    may be substituted for it. For alphabetization and sorting purposes, β should be treated as ss.
-  - |
-    In those instances when the vowel letters ä [Unicode: 00E4], ö [Unicode: 00F6], and ü [Unicode: 00FC]
-    cannot be reproduced, the alternate spellings ae, oe, and ue may be substituted.
+  notes:
+    - |
+      The special letter β, known as eszett, [Unicode: 03B2] is a standard letter of the German alphabet and occurs
+      only in word-medial and word-final positions. It is a lowercase letter only, and when a word and/or a name is
+      written entirely in uppercase letters, it is always rendered as SS. As a result of the orthographic reform of
+      German, implemented in August 1998, the β is now rendered ss if it follows a short vowel, but it is still used
+      if it follows a long vowel or a diphthong. In those instances where β cannot be reproduced, the digraph ss
+      may be substituted for it. For alphabetization and sorting purposes, β should be treated as ss.
+    - |
+      In those instances when the vowel letters ä [Unicode: 00E4], ö [Unicode: 00F6], and ü [Unicode: 00FC]
+      cannot be reproduced, the alternate spellings ae, oe, and ue may be substituted.
+}
 
-tests:
-  - source: Dein weiβes Fleisch erregt mich so
-    expected: Dein weisses Fleisch erregt mich so
-  - source: GROβSTÄDTE
-    expected: GROSSSTAEDTE
-  - source: Göttingen
-    expected: Goettingen
-  - source: Gütersloh
-    expected: Guetersloh
-  - source: Mährisch-Ostrau
-    expected: Maehrisch-Ostrau
+tests {
+  test "Dein weiβes Fleisch erregt mich so", "Dein weisses Fleisch erregt mich so"
+  test "GROβSTÄDTE", "GROSSSTAEDTE"
+  test "Göttingen", "Goettingen"
+  test "Gütersloh", "Guetersloh"
+  test "Mährisch-Ostrau", "Maehrisch-Ostrau"
+}
 
-map:
-  rules:
-    - pattern: "(?<=[[:upper:]])\u03B2(?=[[:upper:]])?"
-      result: "SS"
-    - pattern: "(?<=[[:upper:]])\u00C4(?=[[:upper:]])?"
-      result: "AE"
-    - pattern: "(?<=[[:upper:]])\u00D6(?=[[:upper:]])?"
-      result: "OE"
-    - pattern: "(?<=[[:upper:]])\u00DC(?=[[:upper:]])?"
-      result: "UE"
+dependency "posix", import: true
 
-  characters:
-    "\u00C4": Ae # Ä
-    "\u00D6": Oe # Ö
-    "\u00DC": Ue # Ü
+stage {
 
-    "\u00E4": ae # ä
-    "\u00F6": oe # ö
-    "\u00FC": ue # ü
+  # RULES
+  sub "β" + capture(upper), "SS" + ref(1), before: any(upper)
+  sub "Ä" + capture(upper), "AE" + ref(1), before: any(upper)
+  sub "Ö" + capture(upper), "OE" + ref(1), before: any(upper)
+  sub "Ü" + capture(upper), "UE" + ref(1), before: any(upper)
 
-    "\u03B2": ss # β
+  # CHARACTERS
+  parallel {
+    sub "Ä", "Ae" # Ä
+    sub "Ö", "Oe" # Ö
+    sub "Ü", "Ue" # Ü
+
+    sub "ä", "ae" # ä
+    sub "ö", "oe" # ö
+    sub "ü", "ue" # ü
+
+    sub "β", "ss" # β
+  }
+
+}
+

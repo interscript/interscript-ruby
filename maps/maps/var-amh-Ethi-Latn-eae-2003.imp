@@ -1,466 +1,414 @@
----
-authority_id: var
-id: 2003
-language: amh
-source_script: Ethi
-destination_script: Latn
-name: Encyclopaedia Aethiopica Amharic transliteration system (2003)
-url: https://brill.com/view/book/edcoll/9789004419582/front-11.xml?language=en
-creation_date: 2003
-description: |
-  The Encyclopaedia Aethiopica (EAe) is a basic encyclopedia for Ethiopian and Eritrean studies. It employs an in-house form of romanization of Geez, Amharic, and other languages, which varies greatly from standard formats, such as BGN/PCGN: the emperor Menelek II's name, for example, is written as "Mənilək II".
+metadata {
+  authority_id: var
+  id: 2003
+  language: amh
+  source_script: Ethi
+  destination_script: Latn
+  name: Encyclopaedia Aethiopica Amharic transliteration system (2003)
+  url: https://brill.com/view/book/edcoll/9789004419582/front-11.xml?language=en
+  creation_date: 2003
+  description: |
+    The Encyclopaedia Aethiopica (EAe) is a basic encyclopedia for Ethiopian and Eritrean studies. It employs an in-house form of romanization of Geez, Amharic, and other languages, which varies greatly from standard formats, such as BGN/PCGN: the emperor Menelek II's name, for example, is written as "Mənilək II".
+}
 
-tests:
-  - source: የዜግነት ክብር በ ኢትዮጵያችን ጸንቶ
-    expected: yäzegənätə kəbərə bä ʾitəyoṗəyačənə ṣänəto
-  - source: ታየ ሕዝባዊነት ዳር እስከዳር በርቶ
-    expected: tayä ḥəzəbawinätə darə ʾəsəkädarə bärəto
-  - source: ለሰላም ለፍትህ ለሕዝቦች ነጻነት
-    expected: läsälamə läfətəhə läḥəzəbočə näṣanätə
-  - source: በእኩልነት በፍቅር ቆመናል ባንድነት
-    expected: bäʾəkulənätə bäfəqərə qomänalə banədənätə
-  - source: መሠረተ ፅኑ ሰብዕናን ያልሻርን
-    expected: mäśärätä ṣ̓ənu säbəʿənanə yaləšarənə
-  - source: ሕዝቦች ነን ለሥራ በሥራ የኖርን
-    expected: ḥəzəbočə nänə läśəra bäśəra yänorənə
-  - source: ድንቅ የባህል መድረክ ያኩሪ ቅርስ ባለቤት
-    expected: dənəqə yäbahələ mädəräkə yakuri qərəsə baläbetə
-  - source: የተፈጥሮ ጸጋ የጀግና ሕዝብ እናት
-    expected: yätäfäṭəro ṣäga yäǧägəna ḥəzəbə ʾənatə
-  - source: እንጠብቅሻለን አለብን አደራ
-    expected: ʾənəṭäbəqəšalänə ʾaläbənə ʾadära
-  - source: ኢትዮጵያችን ኑሪ እኛም ባንቺ እንኩራ
-    expected: ʾitəyoṗəyačənə nuri ʾəñamə banəči ʾənəkura
-  - source: ቋንቋ የድምጽ፣ የምልክት ወይም የምስል ቅንብር ሆኖ
-    expected: qʷanəqʷa yädəməṣə፣ yämələkətə wäyəmə yäməsələ qənəbərə hono
-  - source: ለማሰብ ወይም የታሰበን ሃሳብ ለሌላ ለማስተላለፍ የሚረዳ መሳሪያ ነው
-    expected: lämasäbə wäyəmə yätasäbänə hasabə lälela lämasətälaläfə yämiräda mäsariya näwə
-  - source: በአጭሩ ቋንቋ የምልክቶች ስርዓትና እኒህን ምልክቶች ለማቀናበር
-    expected: bäʾač̣əru qʷanəqʷa yämələkətočə sərəʿatəna ʾənihənə mələkətočə lämaqänabärə
-  - source: የሚያስፈልጉ ህጎች ጥንቅር ነው። ቋንቋወችን ለመፈረጅ እንዲሁም
-    expected: yämiyasəfäləgu həጎčə ṭənəqərə näwə። qʷanəqʷawäčənə lämäfäräǧə ʾənədihumə
-  - source: ለምክፈል የሚያስችሉ መስፈርቶችን ለማስቀመጥ ባለው ችግር
-    expected: läməkəfälə yämiyasəčəlu mäsəfärətočənə lämasəqämäṭə baläwə čəgərə
-  - source: ምክንያት በአሁኑ ሰዓት በርግጠኝነት ስንት ቋንቋ በዓለም ላይ
-    expected: məkənəyatə bäʾahunu säʿatə bärəgəṭäñənätə sənətə qʷanəqʷa bäʿalämə layə
-  - source: እንዳለ ማወቅ አስቸጋሪ ነው
-    expected: ʾənədalä mawäqə ʾasəčägari näwə
-  - source: አሰላ
-    expected: ʾasäla
-  - source: አሶሳ
-    expected: ʾasosa
-  - source: አንኮበር
-    expected: ʾanəkobärə
-  - source: አክሱም
-    expected: ʾakəsumə
-  - source: አዋሳ
-    expected: ʾawasa
-  - source: አዲስ ዘመን (ከተማ)
-    expected: ʾadisə zämänə (kätäma)
-  - source: አዲግራት
-    expected: ʾadigəratə
-  - source: አዳማ
-    expected: ʾadama
-  - source: ደምበጫ
-    expected: däməbäč̣a
-  - source: ደርባ
-    expected: därəba
-  - source: ደብረ ማርቆስ
-    expected: däbərä marəqosə
-  - source: ደብረ ብርሃን
-    expected: däbərä bərəhanə
-  - source: ደብረ ታቦር (ከተማ)
-    expected: däbərä taborə (kätäma)
-  - source: ደብረ ዘይት
-    expected: däbərä zäyətə
-  - source: ደገሃቡር
-    expected: dägähaburə
-  - source: ወልቂጤ
-    expected: wäləqiṭe
-  - source: ወልወል
-    expected: wäləwälə
-  - source: ወልደያ
-    expected: wälədäya
-  - source: ናይሎ ሳህራን
-    expected: nayəlo sahəranə
-  - source: አኙዋክኛ
-    expected: ʾañuwakəña
-  - source: ኡዱክኛ
-    expected: ʾudukəña
-  - source: ኦፓኛ
-    expected: ʾopaña
-  - source: ጉምዝኛ
-    expected: guməzəña
-  - source: አፋርኛ
-    expected: ʾafarəña
-  - source: አላባኛ
-    expected: ʾalabaña
-  - source: አርቦርኛ
-    expected: ʾarəborəña
-  - source: ባይሶኛ
-    expected: bayəsoña
-  - source: ቡሳኛ
-    expected: busaña
-  - source: ሁለተኛ ጥፋት ከገበያ ማንቀላፋት
-    expected: hulätäña ṭəfatə kägäbäya manəqälafatə
-  - source: ሁሉም ከልኩ አያልፍም
-    expected: hulumə käləku ʾayaləfəmə
-  - source: አልሞት ባይ ተጋዳይ
-    expected: ʾaləmotə bayə tägadayə
-  - source: ውርድ ከራሴ
-    expected: wərədə kärase
-  - source: ፀጉር መሰንጠቅ
-    expected: ṣ̓ägurə mäsänəṭäqə
-  - source: ግንትር ፀሐይ
-    expected: gənətərə ṣ̓äḥayə
-  - source: በሬ ወለደ
-    expected: bäre wälädä
-  - source: ራስ ሳይጠና ጉተና
-    expected: rasə sayəṭäna gutäna
-  - source: ለሆዴ ጠግቤ በልብሴ አንግቤ
-    expected: lähode ṭägəbe bäləbəse ʾanəgəbe
-  - source: ለልጅ ከሳቁለት ለውሻ ከሮጡለት
-    expected: läləǧə käsaqulätə läwəša käroṭulätə
-  - source: መልካም ባል መጥፎ ሴት ይገራል
-    expected: mäləkamə balə mäṭəfo setə yəgäralə
-  - source: ሆድና ግንባር አይሸሸግም
-    expected: hodəna gənəbarə ʾayəšäšägəmə
-  - source: ቀሊል አማት ሲሶ በትር አላት
-    expected: qälilə ʾamatə siso bätərə ʾalatə
-  - source: ጨው ለራስህ ብለህ ጣፍጥ አለበለዚያ ድንጋይ ነው ብለው ይወረውሩሀል
-    expected: č̣äwə lärasəhə bəlähə ṭafəṭə ʾaläbäläziya dənəgayə näwə bəläwə yəwäräwəruhalə
-  - source: ጀምሮ ይጨርሳል አልሞ ይተኩሳል
-    expected: ǧäməro yəč̣ärəsalə ʾaləmo yətäkusalə
+tests {
+  test "የዜግነት ክብር በ ኢትዮጵያችን ጸንቶ", "yäzegənätə kəbərə bä ʾitəyoṗəyačənə ṣänəto"
+  test "ታየ ሕዝባዊነት ዳር እስከዳር በርቶ", "tayä ḥəzəbawinätə darə ʾəsəkädarə bärəto"
+  test "ለሰላም ለፍትህ ለሕዝቦች ነጻነት", "läsälamə läfətəhə läḥəzəbočə näṣanätə"
+  test "በእኩልነት በፍቅር ቆመናል ባንድነት", "bäʾəkulənätə bäfəqərə qomänalə banədənätə"
+  test "መሠረተ ፅኑ ሰብዕናን ያልሻርን", "mäśärätä ṣ̓ənu säbəʿənanə yaləšarənə"
+  test "ሕዝቦች ነን ለሥራ በሥራ የኖርን", "ḥəzəbočə nänə läśəra bäśəra yänorənə"
+  test "ድንቅ የባህል መድረክ ያኩሪ ቅርስ ባለቤት", "dənəqə yäbahələ mädəräkə yakuri qərəsə baläbetə"
+  test "የተፈጥሮ ጸጋ የጀግና ሕዝብ እናት", "yätäfäṭəro ṣäga yäǧägəna ḥəzəbə ʾənatə"
+  test "እንጠብቅሻለን አለብን አደራ", "ʾənəṭäbəqəšalänə ʾaläbənə ʾadära"
+  test "ኢትዮጵያችን ኑሪ እኛም ባንቺ እንኩራ", "ʾitəyoṗəyačənə nuri ʾəñamə banəči ʾənəkura"
+  test "ቋንቋ የድምጽ፣ የምልክት ወይም የምስል ቅንብር ሆኖ", "qʷanəqʷa yädəməṣə፣ yämələkətə wäyəmə yäməsələ qənəbərə hono"
+  test "ለማሰብ ወይም የታሰበን ሃሳብ ለሌላ ለማስተላለፍ የሚረዳ መሳሪያ ነው", "lämasäbə wäyəmə yätasäbänə hasabə lälela lämasətälaläfə yämiräda mäsariya näwə"
+  test "በአጭሩ ቋንቋ የምልክቶች ስርዓትና እኒህን ምልክቶች ለማቀናበር", "bäʾač̣əru qʷanəqʷa yämələkətočə sərəʿatəna ʾənihənə mələkətočə lämaqänabärə"
+  test "የሚያስፈልጉ ህጎች ጥንቅር ነው። ቋንቋወችን ለመፈረጅ እንዲሁም", "yämiyasəfäləgu həጎčə ṭənəqərə näwə። qʷanəqʷawäčənə lämäfäräǧə ʾənədihumə"
+  test "ለምክፈል የሚያስችሉ መስፈርቶችን ለማስቀመጥ ባለው ችግር", "läməkəfälə yämiyasəčəlu mäsəfärətočənə lämasəqämäṭə baläwə čəgərə"
+  test "ምክንያት በአሁኑ ሰዓት በርግጠኝነት ስንት ቋንቋ በዓለም ላይ", "məkənəyatə bäʾahunu säʿatə bärəgəṭäñənätə sənətə qʷanəqʷa bäʿalämə layə"
+  test "እንዳለ ማወቅ አስቸጋሪ ነው", "ʾənədalä mawäqə ʾasəčägari näwə"
+  test "አሰላ", "ʾasäla"
+  test "አሶሳ", "ʾasosa"
+  test "አንኮበር", "ʾanəkobärə"
+  test "አክሱም", "ʾakəsumə"
+  test "አዋሳ", "ʾawasa"
+  test "አዲስ ዘመን (ከተማ)", "ʾadisə zämänə (kätäma)"
+  test "አዲግራት", "ʾadigəratə"
+  test "አዳማ", "ʾadama"
+  test "ደምበጫ", "däməbäč̣a"
+  test "ደርባ", "därəba"
+  test "ደብረ ማርቆስ", "däbərä marəqosə"
+  test "ደብረ ብርሃን", "däbərä bərəhanə"
+  test "ደብረ ታቦር (ከተማ)", "däbərä taborə (kätäma)"
+  test "ደብረ ዘይት", "däbərä zäyətə"
+  test "ደገሃቡር", "dägähaburə"
+  test "ወልቂጤ", "wäləqiṭe"
+  test "ወልወል", "wäləwälə"
+  test "ወልደያ", "wälədäya"
+  test "ናይሎ ሳህራን", "nayəlo sahəranə"
+  test "አኙዋክኛ", "ʾañuwakəña"
+  test "ኡዱክኛ", "ʾudukəña"
+  test "ኦፓኛ", "ʾopaña"
+  test "ጉምዝኛ", "guməzəña"
+  test "አፋርኛ", "ʾafarəña"
+  test "አላባኛ", "ʾalabaña"
+  test "አርቦርኛ", "ʾarəborəña"
+  test "ባይሶኛ", "bayəsoña"
+  test "ቡሳኛ", "busaña"
+  test "ሁለተኛ ጥፋት ከገበያ ማንቀላፋት", "hulätäña ṭəfatə kägäbäya manəqälafatə"
+  test "ሁሉም ከልኩ አያልፍም", "hulumə käləku ʾayaləfəmə"
+  test "አልሞት ባይ ተጋዳይ", "ʾaləmotə bayə tägadayə"
+  test "ውርድ ከራሴ", "wərədə kärase"
+  test "ፀጉር መሰንጠቅ", "ṣ̓ägurə mäsänəṭäqə"
+  test "ግንትር ፀሐይ", "gənətərə ṣ̓äḥayə"
+  test "በሬ ወለደ", "bäre wälädä"
+  test "ራስ ሳይጠና ጉተና", "rasə sayəṭäna gutäna"
+  test "ለሆዴ ጠግቤ በልብሴ አንግቤ", "lähode ṭägəbe bäləbəse ʾanəgəbe"
+  test "ለልጅ ከሳቁለት ለውሻ ከሮጡለት", "läləǧə käsaqulätə läwəša käroṭulätə"
+  test "መልካም ባል መጥፎ ሴት ይገራል", "mäləkamə balə mäṭəfo setə yəgäralə"
+  test "ሆድና ግንባር አይሸሸግም", "hodəna gənəbarə ʾayəšäšägəmə"
+  test "ቀሊል አማት ሲሶ በትር አላት", "qälilə ʾamatə siso bätərə ʾalatə"
+  test "ጨው ለራስህ ብለህ ጣፍጥ አለበለዚያ ድንጋይ ነው ብለው ይወረውሩሀል", "č̣äwə lärasəhə bəlähə ṭafəṭə ʾaläbäläziya dənəgayə näwə bəläwə yəwäräwəruhalə"
+  test "ጀምሮ ይጨርሳል አልሞ ይተኩሳል", "ǧäməro yəč̣ärəsalə ʾaləmo yətäkusalə"
+}
 
-map:
-  characters:
-    '\u1200': "ha" # ሀ
-    '\u1201': "hu" # ሁ
-    '\u1202': "hi" # ሂ
-    '\u1203': "ha" # ሃ
-    '\u1204': "he" # ሄ
-    '\u1205': "hə" # ህ
-    '\u1206': "ho" # ሆ
+stage {
 
-    '\u1208': "lä" # ለ
-    '\u1209': "lu" # ሉ
-    '\u120A': "li" # ሊ
-    '\u120B': "la" # ላ
-    '\u120C': "le" # ሌ
-    '\u120D': "lə" # ል
-    '\u120E': "lo" # ሎ
-
-    '\u1210': "ḥa" # ሐ
-    '\u1211': "ḥu" # ሑ
-    '\u1212': "ḥi" # ሒ
-    '\u1213': "ḥa" # ሓ
-    '\u1214': "ḥe" # ሔ
-    '\u1215': "ḥə" # ሕ
-    '\u1216': "ḥo" # ሖ
-
-    '\u1218': "mä" # መ
-    '\u1219': "mu" # ሙ
-    '\u121A': "mi" # ሚ
-    '\u121B': "ma" # ማ
-    '\u121C': "me" # ሜ
-    '\u121D': "mə" # ም
-    '\u121E': "mo" # ሞ
-
-    '\u1220': "śä" # ሠ
-    '\u1221': "śu" # ሡ
-    '\u1222': "śi" # ሢ
-    '\u1223': "śa" # ሣ
-    '\u1224': "śe" # ሤ
-    '\u1225': "śə" # ሥ
-    '\u1226': "śo" # ሦ
-
-    '\u1228': "rä" # ረ
-    '\u1229': "ru" # ሩ
-    '\u122A': "ri" # ሪ
-    '\u122B': "ra" # ራ
-    '\u122C': "re" # ሬ
-    '\u122D': "rə" # ር
-    '\u122E': "ro" # ሮ
-
-    '\u1230': "sä" # ሰ
-    '\u1231': "su" # ሱ
-    '\u1232': "si" # ሲ
-    '\u1233': "sa" # ሳ
-    '\u1234': "se" # ሴ
-    '\u1235': "sə" # ስ
-    '\u1236': "so" # ሶ
-
-    '\u1238': "šä" # ሸ
-    '\u1239': "šu" # ሹ
-    '\u123A': "ši" # ሺ
-    '\u123B': "ša" # ሻ
-    '\u123C': "še" # ሼ
-    '\u123D': "šə" # ሽ
-    '\u123E': "šo" # ሾ
-
-    '\u1240': "qä" # ቀ
-    '\u1241': "qu" # ቁ
-    '\u1242': "qi" # ቂ
-    '\u1243': "qa" # ቃ
-    '\u1244': "qe" # ቄ
-    '\u1245': "qə" # ቅ
-    '\u1246': "qo" # ቆ
-
-    '\u1260': "bä" # በ
-    '\u1261': "bu" # ቡ
-    '\u1262': "bi" # ቢ
-    '\u1263': "ba" # ባ
-    '\u1264': "be" # ቤ
-    '\u1265': "bə" # ብ
-    '\u1266': "bo" # ቦ
-
-    '\u1270': "tä" # ተ
-    '\u1271': "tu" # ቱ
-    '\u1272': "ti" # ቲ
-    '\u1273': "ta" # ታ
-    '\u1274': "te" # ቴ
-    '\u1275': "tə" # ት
-    '\u1276': "to" # ቶ
-
-    '\u1278': "čä" # ቸ
-    '\u1279': "ču" # ቹ
-    '\u127A': "či" # ቺ
-    '\u127B': "ča" # ቻ
-    '\u127C': "če" # ቼ
-    '\u127D': "čə" # ች
-    '\u127E': "čo" # ቾ
-
-    '\u1280': "ḫa" # ኀ
-    '\u1281': "ḫu" # ኁ
-    '\u1282': "ḫi" # ኂ
-    '\u1283': "ḫa" # ኃ
-    '\u1284': "ḫe" # ኄ
-    '\u1285': "ḫə" # ኅ
-    '\u1286': "ḫo" # ኆ
-
-    '\u1290': "nä" # ነ
-    '\u1291': "nu" # ኑ
-    '\u1292': "ni" # ኒ
-    '\u1293': "na" # ና
-    '\u1294': "ne" # ኔ
-    '\u1295': "nə" # ን
-    '\u1296': "no" # ኖ
-
-    '\u1298': "ñä" # ኘ
-    '\u1299': "ñu" # ኙ
-    '\u129A': "ñi" # ኚ
-    '\u129B': "ña" # ኛ
-    '\u129C': "ñe" # ኜ
-    '\u129D': "ñə" # ኝ
-    '\u129E': "ño" # ኞ
-
-    '\u12A0': "ʾa" # አ
-    '\u12A1': "ʾu" # ኡ
-    '\u12A2': "ʾi" # ኢ
-    '\u12A3': "ʾa" # ኣ
-    '\u12A4': "ʾe" # ኤ
-    '\u12A5': "ʾə" # እ
-    '\u12A6': "ʾo" # ኦ
-
-    '\u12A8': "kä" # ከ
-    '\u12A9': "ku" # ኩ
-    '\u12AA': "ki" # ኪ
-    '\u12AB': "ka" # ካ
-    '\u12AC': "ke" # ኬ
-    '\u12AD': "kə" # ክ
-    '\u12AE': "ko" # ኮ
-
-    '\u12B8': "ḵä" # ኸ
-    '\u12B9': "ḵu" # ኹ
-    '\u12BA': "ḵi" # ኺ
-    '\u12BB': "ḵa" # ኻ
-    '\u12BC': "ḵe" # ኼ
-    '\u12BD': "ḵə" # ኽ
-    '\u12BE': "ḵo" # ኾ
-
-    '\u12C8': "wä" # ወ
-    '\u12C9': "wu" # ዉ
-    '\u12CA': "wi" # ዊ
-    '\u12CB': "wa" # ዋ
-    '\u12CC': "we" # ዌ
-    '\u12CD': "wə" # ው
-    '\u12CE': "wo" # ዎ
-
-    '\u12D0': "ʿa" # ዐ
-    '\u12D1': "ʿu" # ዑ
-    '\u12D2': "ʿi" # ዒ
-    '\u12D3': "ʿa" # ዓ
-    '\u12D4': "ʿe" # ዔ
-    '\u12D5': "ʿə" # ዕ
-    '\u12D6': "ʿo" # ዖ
-
-    '\u12D8': "zä" # ዘ
-    '\u12D9': "zu" # ዙ
-    '\u12DA': "zi" # ዚ
-    '\u12DB': "za" # ዛ
-    '\u12DC': "ze" # ዜ
-    '\u12DD': "zə" # ዝ
-    '\u12DE': "zo" # ዞ
-
-    '\u12E0': "žä" # ዠ
-    '\u12E1': "žu" # ዡ
-    '\u12E2': "ži" # ዢ
-    '\u12E3': "ža" # ዣ
-    '\u12E4': "že" # ዤ
-    '\u12E5': "žə" # ዥ
-    '\u12E6': "žo" # ዦ
-
-    '\u12E8': "yä" # የ
-    '\u12E9': "yu" # ዩ
-    '\u12EA': "yi" # ዪ
-    '\u12EB': "ya" # ያ
-    '\u12EC': "ye" # ዬ
-    '\u12ED': "yə" # ይ
-    '\u12EE': "yo" # ዮ
-
-    '\u12F0': "dä" # ደ
-    '\u12F1': "du" # ዱ
-    '\u12F2': "di" # ዲ
-    '\u12F3': "da" # ዳ
-    '\u12F4': "de" # ዴ
-    '\u12F5': "də" # ድ
-    '\u12F6': "do" # ዶ
-
-    '\u1300': "ǧä" # ጀ
-    '\u1301': "ǧu" # ጁ
-    '\u1302': "ǧi" # ጂ
-    '\u1303': "ǧa" # ጃ
-    '\u1304': "ǧe" # ጄ
-    '\u1305': "ǧə" # ጅ
-    '\u1306': "ǧo" # ጆ
-
-    '\u1308': "gä" # ገ
-    '\u1309': "gu" # ጉ
-    '\u130A': "gi" # ጊ
-    '\u130B': "ga" # ጋ
-    '\u130C': "ge" # ጌ
-    '\u130D': "gə" # ግ
-
-    '\u1320': "ṭä" # ጠ
-    '\u1321': "ṭu" # ጡ
-    '\u1322': "ṭi" # ጢ
-    '\u1323': "ṭa" # ጣ
-    '\u1324': "ṭe" # ጤ
-    '\u1325': "ṭə" # ጥ
-    '\u1326': "ṭo" # ጦ
-
-    '\u1328': "č̣ä" # ጨ
-    '\u1329': "č̣u" # ጩ
-    '\u132A': "č̣i" # ጪ
-    '\u132B': "č̣a" # ጫ
-    '\u132C': "č̣e" # ጬ
-    '\u132D': "č̣ə" # ጭ
-    '\u132E': "č̣o" # ጮ
-
-    '\u1330': "ṗä" # ጰ
-    '\u1331': "ṗu" # ጱ
-    '\u1332': "ṗi" # ጲ
-    '\u1333': "ṗa" # ጳ
-    '\u1334': "ṗe" # ጴ
-    '\u1335': "ṗə" # ጵ
-    '\u1336': "ṗo" # ጶ
-
-    '\u1338': "ṣä" # ጸ
-    '\u1339': "ṣu" # ጹ
-    '\u133A': "ṣi" # ጺ
-    '\u133B': "ṣa" # ጻ
-    '\u133C': "ṣe" # ጼ
-    '\u133D': "ṣə" # ጽ
-    '\u133E': "ṣo" # ጾ
-
-    '\u1340': "ṣ̓ä" # ፀ
-    '\u1341': "ṣ̓u" # ፁ
-    '\u1342': "ṣ̓i" # ፂ
-    '\u1343': "ṣ̓a" # ፃ
-    '\u1344': "ṣ̓e" # ፄ
-    '\u1345': "ṣ̓ə" # ፅ
-    '\u1346': "ṣ̓o" # ፆ
-
-    '\u1348': "fä" # ፈ
-    '\u1349': "fu" # ፉ
-    '\u134A': "fi" # ፊ
-    '\u134B': "fa" # ፋ
-    '\u134C': "fe" # ፌ
-    '\u134D': "fə" # ፍ
-    '\u134E': "fo" # ፎ
-
-    '\u1350': "pä" # ፐ
-    '\u1351': "pu" # ፑ
-    '\u1352': "pi" # ፒ
-    '\u1353': "pa" # ፓ
-    '\u1354': "pe" # ፔ
-    '\u1355': "pə" # ፕ
-    '\u1356': "po" # ፖ
-
-    '\u1268': "vä" # ቨ
-    '\u1269': "vu" # ቩ
-    '\u126A': "vi" # ቪ
-    '\u126B': "va" # ቫ
-    '\u126C': "ve" # ቬ
-    '\u126D': "və" # ቭ
-    '\u126E': "vo" # ቮ
-
+  # CHARACTERS
+  parallel {
+    sub "\u1200", "ha" # ሀ
+    sub "\u1201", "hu" # ሁ
+    sub "\u1202", "hi" # ሂ
+    sub "\u1203", "ha" # ሃ
+    sub "\u1204", "he" # ሄ
+    sub "\u1205", "hə" # ህ
+    sub "\u1206", "ho" # ሆ
+    
+    sub "\u1208", "lä" # ለ
+    sub "\u1209", "lu" # ሉ
+    sub "\u120A", "li" # ሊ
+    sub "\u120B", "la" # ላ
+    sub "\u120C", "le" # ሌ
+    sub "\u120D", "lə" # ል
+    sub "\u120E", "lo" # ሎ
+    
+    sub "\u1210", "ḥa" # ሐ
+    sub "\u1211", "ḥu" # ሑ
+    sub "\u1212", "ḥi" # ሒ
+    sub "\u1213", "ḥa" # ሓ
+    sub "\u1214", "ḥe" # ሔ
+    sub "\u1215", "ḥə" # ሕ
+    sub "\u1216", "ḥo" # ሖ
+    
+    sub "\u1218", "mä" # መ
+    sub "\u1219", "mu" # ሙ
+    sub "\u121A", "mi" # ሚ
+    sub "\u121B", "ma" # ማ
+    sub "\u121C", "me" # ሜ
+    sub "\u121D", "mə" # ም
+    sub "\u121E", "mo" # ሞ
+    
+    sub "\u1220", "śä" # ሠ
+    sub "\u1221", "śu" # ሡ
+    sub "\u1222", "śi" # ሢ
+    sub "\u1223", "śa" # ሣ
+    sub "\u1224", "śe" # ሤ
+    sub "\u1225", "śə" # ሥ
+    sub "\u1226", "śo" # ሦ
+    
+    sub "\u1228", "rä" # ረ
+    sub "\u1229", "ru" # ሩ
+    sub "\u122A", "ri" # ሪ
+    sub "\u122B", "ra" # ራ
+    sub "\u122C", "re" # ሬ
+    sub "\u122D", "rə" # ር
+    sub "\u122E", "ro" # ሮ
+    
+    sub "\u1230", "sä" # ሰ
+    sub "\u1231", "su" # ሱ
+    sub "\u1232", "si" # ሲ
+    sub "\u1233", "sa" # ሳ
+    sub "\u1234", "se" # ሴ
+    sub "\u1235", "sə" # ስ
+    sub "\u1236", "so" # ሶ
+    
+    sub "\u1238", "šä" # ሸ
+    sub "\u1239", "šu" # ሹ
+    sub "\u123A", "ši" # ሺ
+    sub "\u123B", "ša" # ሻ
+    sub "\u123C", "še" # ሼ
+    sub "\u123D", "šə" # ሽ
+    sub "\u123E", "šo" # ሾ
+    
+    sub "\u1240", "qä" # ቀ
+    sub "\u1241", "qu" # ቁ
+    sub "\u1242", "qi" # ቂ
+    sub "\u1243", "qa" # ቃ
+    sub "\u1244", "qe" # ቄ
+    sub "\u1245", "qə" # ቅ
+    sub "\u1246", "qo" # ቆ
+    
+    sub "\u1260", "bä" # በ
+    sub "\u1261", "bu" # ቡ
+    sub "\u1262", "bi" # ቢ
+    sub "\u1263", "ba" # ባ
+    sub "\u1264", "be" # ቤ
+    sub "\u1265", "bə" # ብ
+    sub "\u1266", "bo" # ቦ
+    
+    sub "\u1270", "tä" # ተ
+    sub "\u1271", "tu" # ቱ
+    sub "\u1272", "ti" # ቲ
+    sub "\u1273", "ta" # ታ
+    sub "\u1274", "te" # ቴ
+    sub "\u1275", "tə" # ት
+    sub "\u1276", "to" # ቶ
+    
+    sub "\u1278", "čä" # ቸ
+    sub "\u1279", "ču" # ቹ
+    sub "\u127A", "či" # ቺ
+    sub "\u127B", "ča" # ቻ
+    sub "\u127C", "če" # ቼ
+    sub "\u127D", "čə" # ች
+    sub "\u127E", "čo" # ቾ
+    
+    sub "\u1280", "ḫa" # ኀ
+    sub "\u1281", "ḫu" # ኁ
+    sub "\u1282", "ḫi" # ኂ
+    sub "\u1283", "ḫa" # ኃ
+    sub "\u1284", "ḫe" # ኄ
+    sub "\u1285", "ḫə" # ኅ
+    sub "\u1286", "ḫo" # ኆ
+    
+    sub "\u1290", "nä" # ነ
+    sub "\u1291", "nu" # ኑ
+    sub "\u1292", "ni" # ኒ
+    sub "\u1293", "na" # ና
+    sub "\u1294", "ne" # ኔ
+    sub "\u1295", "nə" # ን
+    sub "\u1296", "no" # ኖ
+    
+    sub "\u1298", "ñä" # ኘ
+    sub "\u1299", "ñu" # ኙ
+    sub "\u129A", "ñi" # ኚ
+    sub "\u129B", "ña" # ኛ
+    sub "\u129C", "ñe" # ኜ
+    sub "\u129D", "ñə" # ኝ
+    sub "\u129E", "ño" # ኞ
+    
+    sub "\u12A0", "ʾa" # አ
+    sub "\u12A1", "ʾu" # ኡ
+    sub "\u12A2", "ʾi" # ኢ
+    sub "\u12A3", "ʾa" # ኣ
+    sub "\u12A4", "ʾe" # ኤ
+    sub "\u12A5", "ʾə" # እ
+    sub "\u12A6", "ʾo" # ኦ
+    
+    sub "\u12A8", "kä" # ከ
+    sub "\u12A9", "ku" # ኩ
+    sub "\u12AA", "ki" # ኪ
+    sub "\u12AB", "ka" # ካ
+    sub "\u12AC", "ke" # ኬ
+    sub "\u12AD", "kə" # ክ
+    sub "\u12AE", "ko" # ኮ
+    
+    sub "\u12B8", "ḵä" # ኸ
+    sub "\u12B9", "ḵu" # ኹ
+    sub "\u12BA", "ḵi" # ኺ
+    sub "\u12BB", "ḵa" # ኻ
+    sub "\u12BC", "ḵe" # ኼ
+    sub "\u12BD", "ḵə" # ኽ
+    sub "\u12BE", "ḵo" # ኾ
+    
+    sub "\u12C8", "wä" # ወ
+    sub "\u12C9", "wu" # ዉ
+    sub "\u12CA", "wi" # ዊ
+    sub "\u12CB", "wa" # ዋ
+    sub "\u12CC", "we" # ዌ
+    sub "\u12CD", "wə" # ው
+    sub "\u12CE", "wo" # ዎ
+    
+    sub "\u12D0", "ʿa" # ዐ
+    sub "\u12D1", "ʿu" # ዑ
+    sub "\u12D2", "ʿi" # ዒ
+    sub "\u12D3", "ʿa" # ዓ
+    sub "\u12D4", "ʿe" # ዔ
+    sub "\u12D5", "ʿə" # ዕ
+    sub "\u12D6", "ʿo" # ዖ
+    
+    sub "\u12D8", "zä" # ዘ
+    sub "\u12D9", "zu" # ዙ
+    sub "\u12DA", "zi" # ዚ
+    sub "\u12DB", "za" # ዛ
+    sub "\u12DC", "ze" # ዜ
+    sub "\u12DD", "zə" # ዝ
+    sub "\u12DE", "zo" # ዞ
+    
+    sub "\u12E0", "žä" # ዠ
+    sub "\u12E1", "žu" # ዡ
+    sub "\u12E2", "ži" # ዢ
+    sub "\u12E3", "ža" # ዣ
+    sub "\u12E4", "že" # ዤ
+    sub "\u12E5", "žə" # ዥ
+    sub "\u12E6", "žo" # ዦ
+    
+    sub "\u12E8", "yä" # የ
+    sub "\u12E9", "yu" # ዩ
+    sub "\u12EA", "yi" # ዪ
+    sub "\u12EB", "ya" # ያ
+    sub "\u12EC", "ye" # ዬ
+    sub "\u12ED", "yə" # ይ
+    sub "\u12EE", "yo" # ዮ
+    
+    sub "\u12F0", "dä" # ደ
+    sub "\u12F1", "du" # ዱ
+    sub "\u12F2", "di" # ዲ
+    sub "\u12F3", "da" # ዳ
+    sub "\u12F4", "de" # ዴ
+    sub "\u12F5", "də" # ድ
+    sub "\u12F6", "do" # ዶ
+    
+    sub "\u1300", "ǧä" # ጀ
+    sub "\u1301", "ǧu" # ጁ
+    sub "\u1302", "ǧi" # ጂ
+    sub "\u1303", "ǧa" # ጃ
+    sub "\u1304", "ǧe" # ጄ
+    sub "\u1305", "ǧə" # ጅ
+    sub "\u1306", "ǧo" # ጆ
+    
+    sub "\u1308", "gä" # ገ
+    sub "\u1309", "gu" # ጉ
+    sub "\u130A", "gi" # ጊ
+    sub "\u130B", "ga" # ጋ
+    sub "\u130C", "ge" # ጌ
+    sub "\u130D", "gə" # ግ
+    
+    sub "\u1320", "ṭä" # ጠ
+    sub "\u1321", "ṭu" # ጡ
+    sub "\u1322", "ṭi" # ጢ
+    sub "\u1323", "ṭa" # ጣ
+    sub "\u1324", "ṭe" # ጤ
+    sub "\u1325", "ṭə" # ጥ
+    sub "\u1326", "ṭo" # ጦ
+    
+    sub "\u1328", "č̣ä" # ጨ
+    sub "\u1329", "č̣u" # ጩ
+    sub "\u132A", "č̣i" # ጪ
+    sub "\u132B", "č̣a" # ጫ
+    sub "\u132C", "č̣e" # ጬ
+    sub "\u132D", "č̣ə" # ጭ
+    sub "\u132E", "č̣o" # ጮ
+    
+    sub "\u1330", "ṗä" # ጰ
+    sub "\u1331", "ṗu" # ጱ
+    sub "\u1332", "ṗi" # ጲ
+    sub "\u1333", "ṗa" # ጳ
+    sub "\u1334", "ṗe" # ጴ
+    sub "\u1335", "ṗə" # ጵ
+    sub "\u1336", "ṗo" # ጶ
+    
+    sub "\u1338", "ṣä" # ጸ
+    sub "\u1339", "ṣu" # ጹ
+    sub "\u133A", "ṣi" # ጺ
+    sub "\u133B", "ṣa" # ጻ
+    sub "\u133C", "ṣe" # ጼ
+    sub "\u133D", "ṣə" # ጽ
+    sub "\u133E", "ṣo" # ጾ
+    
+    sub "\u1340", "ṣ̓ä" # ፀ
+    sub "\u1341", "ṣ̓u" # ፁ
+    sub "\u1342", "ṣ̓i" # ፂ
+    sub "\u1343", "ṣ̓a" # ፃ
+    sub "\u1344", "ṣ̓e" # ፄ
+    sub "\u1345", "ṣ̓ə" # ፅ
+    sub "\u1346", "ṣ̓o" # ፆ
+    
+    sub "\u1348", "fä" # ፈ
+    sub "\u1349", "fu" # ፉ
+    sub "\u134A", "fi" # ፊ
+    sub "\u134B", "fa" # ፋ
+    sub "\u134C", "fe" # ፌ
+    sub "\u134D", "fə" # ፍ
+    sub "\u134E", "fo" # ፎ
+    
+    sub "\u1350", "pä" # ፐ
+    sub "\u1351", "pu" # ፑ
+    sub "\u1352", "pi" # ፒ
+    sub "\u1353", "pa" # ፓ
+    sub "\u1354", "pe" # ፔ
+    sub "\u1355", "pə" # ፕ
+    sub "\u1356", "po" # ፖ
+    
+    sub "\u1268", "vä" # ቨ
+    sub "\u1269", "vu" # ቩ
+    sub "\u126A", "vi" # ቪ
+    sub "\u126B", "va" # ቫ
+    sub "\u126C", "ve" # ቬ
+    sub "\u126D", "və" # ቭ
+    sub "\u126E", "vo" # ቮ
+    
     # Labiovelars
-    '\u1248': "qʷä" # ቈ
-    '\u124a': "qʷi" # ቊ
-    '\u124b': "qʷa" # ቋ
-    '\u124c': "qʷe" # ቌ
-    '\u124d': "qʷə" # ቍ
-
-    '\u1288': "ḫʷä" # ኈ
-    '\u128a': "ḫʷi" # ኊ
-    '\u128b': "ḫʷa" # ኋ
-    '\u128c': "ḫʷe" # ኌ
-    '\u128d': "ḫʷə" # ኍ
-
-    '\u12b0': "kʷä" # ኰ
-    '\u12b2': "kʷi" # ኲ
-    '\u12b3': "kʷa" # ኳ
-    '\u12b4': "kʷe" # ኴ
-    '\u12b5': "kʷə" # ኵ
-
-    '\u1310': "gʷä" # ጐ
-    '\u1312': "gʷi" # ጒ
-    '\u1313': "gʷa" # ጓ
-    '\u1314': "gʷe" # ጔ
-    '\u1315': "gʷə" # ጕ
-
-    '\u12c0': "ḵʷä" # ዀ
-    '\u12c2': "ḵʷi" # ዂ
-    '\u12c3': "ḵʷa" # ዃ
-    '\u12c4': "ḵʷe" # ዄ
-    '\u12c5': "ḵʷə" # ዅ
-
-    '\u1258': "q̱ʷä" # ቘ
-    '\u125a': "q̱ʷi" # ቚ
-    '\u125b': "q̱ʷa" # ቛ
-    '\u125c': "q̱ʷe" # ቜ
-    '\u125d': "q̱ʷə" # ቝ
-
+    sub "\u1248", "qʷä" # ቈ
+    sub "\u124a", "qʷi" # ቊ
+    sub "\u124b", "qʷa" # ቋ
+    sub "\u124c", "qʷe" # ቌ
+    sub "\u124d", "qʷə" # ቍ
+    
+    sub "\u1288", "ḫʷä" # ኈ
+    sub "\u128a", "ḫʷi" # ኊ
+    sub "\u128b", "ḫʷa" # ኋ
+    sub "\u128c", "ḫʷe" # ኌ
+    sub "\u128d", "ḫʷə" # ኍ
+    
+    sub "\u12b0", "kʷä" # ኰ
+    sub "\u12b2", "kʷi" # ኲ
+    sub "\u12b3", "kʷa" # ኳ
+    sub "\u12b4", "kʷe" # ኴ
+    sub "\u12b5", "kʷə" # ኵ
+    
+    sub "\u1310", "gʷä" # ጐ
+    sub "\u1312", "gʷi" # ጒ
+    sub "\u1313", "gʷa" # ጓ
+    sub "\u1314", "gʷe" # ጔ
+    sub "\u1315", "gʷə" # ጕ
+    
+    sub "\u12c0", "ḵʷä" # ዀ
+    sub "\u12c2", "ḵʷi" # ዂ
+    sub "\u12c3", "ḵʷa" # ዃ
+    sub "\u12c4", "ḵʷe" # ዄ
+    sub "\u12c5", "ḵʷə" # ዅ
+    
+    sub "\u1258", "q̱ʷä" # ቘ
+    sub "\u125a", "q̱ʷi" # ቚ
+    sub "\u125b", "q̱ʷa" # ቛ
+    sub "\u125c", "q̱ʷe" # ቜ
+    sub "\u125d", "q̱ʷə" # ቝ
+    
     # Numbers
+    
+    sub "\u1369", "1" # ፩
+    sub "\u136A", "2" # ፪
+    sub "\u136B", "3" # ፫
+    sub "\u136C", "4" # ፬
+    sub "\u136D", "5" # ፭
+    sub "\u136E", "6" # ፮
+    sub "\u136F", "7" # ፯
+    sub "\u1370", "8" # ፰
+    sub "\u1371", "9" # ፱
+    sub "\u1372", "10" # ፲
+    sub "\u1373", "20" # ፳
+    sub "\u1374", "30" # ፴
+    sub "\u1375", "40" # ፵
+    sub "\u1376", "50" # ፶
+    sub "\u1377", "60" # ፷
+    sub "\u1379", "80" # ፹
+    sub "\u137A", "90" # ፺
+    sub "\u137B", "100" # ፻
+    sub "\u1372\u137B", "1000" # ፲፻
+    sub "\u137B\u137B", "10000" # ፻፻
+  }
 
-    '\u1369': "1"    # ፩
-    '\u136A': "2"    # ፪
-    '\u136B': "3"    # ፫
-    '\u136C': "4"    # ፬
-    '\u136D': "5"    # ፭
-    '\u136E': "6"    # ፮
-    '\u136F': "7"    # ፯
-    '\u1370': "8"    # ፰
-    '\u1371': "9"    # ፱
-    '\u1372': "10"   # ፲
-    '\u1373': "20"   # ፳
-    '\u1374': "30"   # ፴
-    '\u1375': "40"   # ፵
-    '\u1376': "50"   # ፶
-    '\u1377': "60"   # ፷
-    '\u1379': "80"   # ፹
-    '\u137A': "90"   # ፺
-    '\u137B': "100"  # ፻
-    '\u1372\u137B': "1000"  # ፲፻
-    '\u137B\u137B': "10000"  # ፻፻
+}
+

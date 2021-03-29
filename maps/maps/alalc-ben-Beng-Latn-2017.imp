@@ -1,130 +1,135 @@
----
-authority_id: alalc
-id: 2017
-language: iso-639-2:ben
-source_script: Beng
-destination_script: Latn
-name: Bengali Romanization, 2017
-url: https://www.loc.gov/catdir/cpso/romanization/bengali.pdf
-creation_date: 2017
-description: |
-  ALA-LC Romanization table for Bengali
+metadata {
+  authority_id: alalc
+  id: 2017
+  language: iso-639-2:ben
+  source_script: Beng
+  destination_script: Latn
+  name: Bengali Romanization, 2017
+  url: https://www.loc.gov/catdir/cpso/romanization/bengali.pdf
+  creation_date: 2017
+  description: |
+    ALA-LC Romanization table for Bengali
 
-notes:
+  notes:
 
-  - Only the vowel forms that appear at the beginning of a syllable are
-    listed; the forms used for vowels following a consonant can be found in
-    grammars; no distinction between the two is made in transliteration.
+    - Only the vowel forms that appear at the beginning of a syllable are
+      listed; the forms used for vowels following a consonant can be found in
+      grammars; no distinction between the two is made in transliteration.
 
-  - |
-    The vowel a is implicit after all consonants and consonant clusters
-    and is supplied in transliteration, with the following exceptions:
+    - |
+      The vowel a is implicit after all consonants and consonant clusters
+      and is supplied in transliteration, with the following exceptions:
 
-    a) when another vowel is indicated by its appropriate sign; and
-    b) when the absence of any vowel is indicated by the subscript symbol ( ্ )
-      called hasanta or birāma.
+      a) when another vowel is indicated by its appropriate sign; and
+      b) when the absence of any vowel is indicated by the subscript symbol ( ্ )
+        called hasanta or birāma.
 
-  - ব is used both as a labial and as a semivowel. When it occurs as the
-    second or subsequent consonant of a consonant cluster, it is
-    transliterated va. When ব is doubled, it is transliterated bba.
+    - ব is used both as a labial and as a semivowel. When it occurs as the
+      second or subsequent consonant of a consonant cluster, it is
+      transliterated va. When ব is doubled, it is transliterated bba.
 
-  - Candrabindu before guttural, palatal, cerebral, and dental occlusives
-    is transliterated n̐. Before labials, sibilants, semivowels, the
-    aspirate, vowels, and in final position it is transliterated m̐.
+    - Candrabindu before guttural, palatal, cerebral, and dental occlusives
+      is transliterated n̐. Before labials, sibilants, semivowels, the
+      aspirate, vowels, and in final position it is transliterated m̐.
 
-  - When doubled, abagraha is transliterated by two apostrophes ( ’’ ).
+    - When doubled, abagraha is transliterated by two apostrophes ( ’’ ).
+}
 
-tests:
-  - source: "র্ক"
-    expected: "rka"
-  - source: "গ্র"
-    expected: "gra"
-  - source: "ত্য"
-    expected: "tya"
+tests {
+  test "র্ক", "rka"
+  test "গ্র", "gra"
+  test "ত্য", "tya"
+}
 
-map:
-  inherit: "un-ben-Beng-Latn-2016"
+dependency "un-ben-Beng-Latn-2016", as: benglatn
 
-  characters:
+
+stage {
+  run map.benglatn.stage.main
+
+  # CHARACTERS
+  parallel {
 
     # I. Vowels and Diphthongs (see Note 1)
 
-    'অ': 'a'
-    'ৠ': 'ṝ'
-    'আ': 'ā'
-    'ঌ': 'ḹ'
-    'ই': 'I'
-    'এ': 'e'
-    'ঈ': 'ī'
-    'ঐ': 'ai'
-    'উ': 'u'
-    'ও': 'o'
-    'ঊ': 'ū'
-    'ঔ': 'au'
-    'ঋ': 'ṛ'
+    sub "অ", "a"
+    sub "ৠ", "ṝ"
+    sub "আ", "ā"
+    sub "ঌ", "ḹ"
+    sub "ই", "I"
+    sub "এ", "e"
+    sub "ঈ", "ī"
+    sub "ঐ", "ai"
+    sub "উ", "u"
+    sub "ও", "o"
+    sub "ঊ", "ū"
+    sub "ঔ", "au"
+    sub "ঋ", "ṛ"
 
     # II. Consonants (see Note 2)
     # Gutturals
-    'ক': 'ka'
-    'খ': 'kha'
-    'গ': 'ga'
-    'ঘ': 'gha'
-    'ঙ': 'ṅa'
+    sub "ক", "ka"
+    sub "খ", "kha"
+    sub "গ", "ga"
+    sub "ঘ", "gha"
+    sub "ঙ", "ṅa"
 
     # Palatals
-    'চ': 'ca'
-    'ছ': 'cha'
-    'জ': 'ja'
-    'ঝ': 'jha'
-    'ঞ': 'ña'
+    sub "চ", "ca"
+    sub "ছ", "cha"
+    sub "জ", "ja"
+    sub "ঝ", "jha"
+    sub "ঞ", "ña"
 
     # Cerebrals
-    'ট': 'ṭa'
-    'ঠ': 'ṭha'
-    'ড': 'ḍa'
-    'ড়': 'ṛa'
-    'ঢ': 'ḍha'
-    'ঢ়': 'ṛha'
-    'ণ': 'ṇa'
+    sub "ট", "ṭa"
+    sub "ঠ", "ṭha"
+    sub "ড", "ḍa"
+    sub "ড়", "ṛa"
+    sub "ঢ", "ḍha"
+    sub "ঢ়", "ṛha"
+    sub "ণ", "ṇa"
 
     # Dentals
-    'ত': 'ta'
-    'ৎ': 't'
-    'থ': 'tha'
-    'দ': 'da'
-    'ধ': 'dha'
-    'ন': 'na'
+    sub "ত", "ta"
+    sub "ৎ", "t"
+    sub "থ", "tha"
+    sub "দ", "da"
+    sub "ধ", "dha"
+    sub "ন", "na"
 
     # Labials
-    'প': 'pa'
-    'ফ': 'pha'
-    'ব': 'ba' # see Note 3
-    'ভ': 'bha'
-    'ম': 'ma'
+    sub "প", "pa"
+    sub "ফ", "pha"
+    sub "ব", "ba" # see Note 3
+    sub "ভ", "bha"
+    sub "ম", "ma"
 
     # Semivowels
-    'য': 'ya'
-    'য়': 'ẏa'
-    'র': 'ra'
-    'ল': 'la'
-    'ব': 'ba' # see Note 3
+    sub "য", "ya"
+    sub "য়", "ẏa"
+    sub "র", "ra"
+    sub "ল", "la"
+    sub "ব", "ba" # see Note 3
 
     # Sibilants
-    'শ': 'śa'
-    'ষ': 'sha'
-    'স': 'sa'
+    sub "শ", "śa"
+    sub "ষ", "sha"
+    sub "স", "sa"
 
     # Aspirate
-    'হ': 'ha'
+    sub "হ", "ha"
 
     # Anusvāra
-    ' ং': 'ṃ'
+    sub " ং", "ṃ"
 
     # Bisarga
-    ' ঃ': 'ḥ'
+    sub " ঃ", "ḥ"
 
     # Candrabindu (anunāsika) see note 4
-    '\u0981': 'n̐' # ঁ : n̐, m̐
+    sub "\u0981", "n̐" # ঁ : n̐, m̐
 
     # Abagraha (see Note 5)
-    'ऽ': '’' # (apostrophe)
+    sub "ऽ", "’" # (apostrophe)
+  }
+}

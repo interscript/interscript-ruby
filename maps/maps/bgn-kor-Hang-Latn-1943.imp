@@ -1,35 +1,31 @@
----
-authority_id: bgn
-id: 1943
-language: iso-639-2:kor
-source_script: Hang
-destination_script: Latn
-name: BGN Agreement -- Korean McCune-Reischauer System (1943)
-alias:
-  ogc11122:
-    code: kor_Hang2Latn_MR_1939
-    description: Korean McCune-Reischauer System, 1943 US Board on Geographic Names (BGN) Agreement
-url:
-creation_date: 1943
-adoption_date:
-description:
+metadata {
+  authority_id: bgn
+  id: 1943
+  language: iso-639-2:kor
+  source_script: Hang
+  destination_script: Latn
+  name: BGN Agreement -- Korean McCune-Reischauer System (1943)
+  url:
+  creation_date: 1943
+  adoption_date:
+  description:
 
-notes:
+  notes:
+}
 
-tests:
-  - source: 서울
-    expected: "Sŏul"
-  - source: 평양
-    expected: "P’yŏngyang"
-  - source: 부산
-    expected: "Pusan"
-  - source: 대구
-    expected: "Taegu"
-  - source: 경상남도
-    expected: "Kyŏngsangnamdo"
+tests {
+  test "서울", "Sŏul"
+  test "평양", "P’yŏngyang"
+  test "부산", "Pusan"
+  test "대구", "Taegu"
+  test "경상남도", "Kyŏngsangnamdo"
+}
 
-map:
-  character_separator: ""
-  word_separator: " "
-  title_case: True
-  inherit: var-kor-Hang-Latn-mr-1939
+dependency "var-kor-Hang-Latn-mr-1939", as: hanglatn
+
+stage {
+
+  run map.hanglatn.stage.main
+  compose
+  title_case
+}

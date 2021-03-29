@@ -1,899 +1,627 @@
----
-authority_id: din
-id: 2011
-language: din-31634:grc
-source_script: Grek
-destination_script: Latn
-name: "DIN 31634:2011 Information und Dokumentation — Unschrift des griechischen Alphabets"
-url: https://byzantinistik.phil-fak.uni-koeln.de/sites/IfA/Byzantinistik/Allgemeine_Bilder/DIN_31634_2011.pdf
-creation_date: 2011
-description: |
-  Establishes a system for the transliteration and/or transcription
-  of Greek characters into Latin characters. This system applies to
-  the characters of the Greek script, independent of the period in
-  which it is or was used, i.e. scripts from all periods of Classic
-  or Modern Greek. It therefore allows for polytonic Greek, though
-  it only acknowlegdges rough breathing, and ignores all other diacritics.
+metadata {
+  authority_id: din
+  id: 2011
+  language: din-31634:grc
+  source_script: Grek
+  destination_script: Latn
+  name: "DIN 31634:2011 Information und Dokumentation — Unschrift des griechischen Alphabets"
+  url: https://byzantinistik.phil-fak.uni-koeln.de/sites/IfA/Byzantinistik/Allgemeine_Bilder/DIN_31634_2011.pdf
+  creation_date: 2011
+  description: |
+    Establishes a system for the transliteration and/or transcription
+    of Greek characters into Latin characters. This system applies to
+    the characters of the Greek script, independent of the period in
+    which it is or was used, i.e. scripts from all periods of Classic
+    or Modern Greek. It therefore allows for polytonic Greek, though
+    it only acknowlegdges rough breathing, and ignores all other diacritics.
 
-note:
-  - Have not included transliteration of Greek numerals (e.g. ͵ΑϠΜΔʹ = 1944)
-  - |
-    Have not introduced rules to infer the presence of diaeresis (e.g.
-    ἄυλος is rendered as aylos, but not aÿlos; Ἀιβαλί as Aibali not Aïbali)
+  notes:
+    - Have not included transliteration of Greek numerals (e.g. ͵ΑϠΜΔʹ = 1944)
+    - |
+      Have not introduced rules to infer the presence of diaeresis (e.g.
+      ἄυλος is rendered as aylos, but not aÿlos; Ἀιβαλί as Aibali not Aïbali)
+}
 
-tests:
+tests {
+  test "Ένα πράμα μόνον με παρακίνησε κι εμένα να γράψω ότι τούτην την πατρίδα την έχομεν όλοι μαζί, και σοφοί κι αμαθείς και πλούσιοι και φτωχοί και πολιτικοί και στρατιωτικοί και οι πλέον μικρότεροι άνθρωποι· όσοι αγωνιστήκαμεν, αναλόγως ο καθείς, έχομεν να ζήσομεν εδώ. Το λοιπόν δουλέψαμεν όλοι μαζί, να την φυλάμεν κι όλοι μαζί και να μην λέγει ούτε ο δυνατός «εγώ» ούτε ο αδύνατος. Ξέρετε πότε να λέγει ο καθείς «εγώ»; Όταν αγωνιστεί μόνος του και φκιάσει ή χαλάσει, να λέγει «εγώ»· όταν όμως αγωνίζονται πολλοί και φκιάνουν, τότε να λένε «εμείς». Είμαστε εις το «εμείς» κι όχι εις το «εγώ». Και εις το εξής να μάθομεν γνώση, αν θέλομεν να φκιάσομεν χωριόν, να ζήσομεν όλοι μαζί.\n\nΓιάννης Μακρυγιάννης.", "Ena prama monon me parakinēse ki emena na grapsō oti toutēn tēn patrida tēn echomen oloi mazi, kai sophoi ki amatheis kai plousioi kai phtōchoi kai politikoi kai stratiōtikoi kai oi pleon mikroteroi anthrōpoi; osoi agōnistēkamen, analogōs o katheis, echomen na zēsomen edō. To loipon doulepsamen oloi mazi, na tēn phylamen ki oloi mazi kai na mēn legei oute o dynatos «egō» oute o adynatos. Xerete pote na legei o katheis «egō»? Otan agōnistei monos tou kai phkiasei ē chalasei, na legei «egō»; otan omōs agōnizontai polloi kai phkianoun, tote na lene «emeis». Eimaste eis to «emeis» ki ochi eis to «egō». Kai eis to exēs na mathomen gnōsē, an thelomen na phkiasomen chōrion, na zēsomen oloi mazi.\n\nGiannēs Makrygiannēs."
+  test "Ἐμὲ οὖν νῦν τραχηλοκοπεῖσθαι μόνον;\" τί οὖν; ἤθελες πάντας τραχηλοκοπηθῆναι, ἵνα σὺ παραμυθίαν ἔχῃς; οὐ θέλεις οὕτως ἐκτεῖναι τὸν τράχηλον, ὡς Λατερανός τις ἐν τῇ Ῥώμῃ κελευσθεὶς ὑπὸ τοῦ Νέρωνος ἀποκεφαλισθῆναι; ἐκτείνας γὰρ τὸν τράχηλον καὶ πληγεὶς καὶ πρὸς αὐτὴν τὴν πληγὴν ἀσθενῆ γενομένην ἐπ' ὀλίγον συνελκυσθεὶς πάλιν ἐξέτεινεν. ἀλλὰ καὶ ἔτι πρότερον προσελθόντι τις Ἐπαφροδίτῳ τῷ κυρίῳ τοῦ Νέρωνος καὶ ἀνακρίνοντι αὐτὸν ὑπὲρ τοῦ συγκρουσθῆναι \"Ἄν τί θέλω,\" φησίν, \"ἐρῶ σου τῷ κυρίῳ\".\n\n\"Τί οὖν δεῖ πρόχειρον ἔχειν ἐν τοῖς τοιούτοις;\" τί γὰρ ἄλλο ἢ τί ἐμὸν καὶ τί οὐκ ἐμὸν καὶ τί μοι ἔξεστιν καὶ τί μοι οὐκ ἔξεστιν; ἀποθανεῖν με δεῖ: μή τι οὖν καὶ στένοντα; δεθῆναι: μή τι καὶ θρηνοῦντα; φυγαδευθῆναι: μή τις οὖν κωλύει γελῶντα καὶ εὐθυμοῦντα καὶ εὐροοῦντα; \"εἰπὲ τὰ ἀπόῤῥητα.\" οὐ λέγω: τοῦτο γὰρ ἐπ' ἐμοί ἐστιν. \"ἀλλὰ δήσω σε.\" ἄνθρωπε. τί λέγεις; ἐμέ; τὸ σκέλος μου δήσεις, τὴν προαίρεσιν δὲ οὐδ' ὁ Ζεὺς νικῆσαι δύναται. \"εἰς φυλακήν σε βαλῶ.\" τὸ σωμάτιον. \"ἀποκεφαλίσω σε.\" πότε οὖν σοὶ εἶπον, ὅτι μόνου ἐμοῦ ὁ τράχηλος ἀναπότμητός ἐστιν; ταῦτα ἔδει μελετᾶν τοὺς φιλοσοφοῦντας, ταῦτα καθ' ἡμέραν γράφειν, ἐν τούτοις γυμνάζεσθαι.", "Eme oun nyn trachēlokopeisthai monon?\" ti oun? ētheles pantas trachēlokopēthēnai, hina sy paramythian echēs? ou theleis houtōs ekteinai ton trachēlon, hōs Lateranos tis en tē Rhōmē keleustheis hypo tou Nerōnos apokephalisthēnai? ekteinas gar ton trachēlon kai plēgeis kai pros autēn tēn plēgēn asthenē genomenēn ep' oligon synelkystheis palin exeteinen. alla kai eti proteron proselthonti tis Epaphroditō tō kyriō tou Nerōnos kai anakrinonti auton hyper tou synkrousthēnai \"An ti thelō,\" phēsin, \"erō sou tō kyriō\".\n\n\"Ti oun dei procheiron echein en tois toioutois?\" ti gar allo ē ti emon kai ti ouk emon kai ti moi exestin kai ti moi ouk exestin? apothanein me dei: mē ti oun kai stenonta? dethēnai: mē ti kai thrēnounta? phygadeuthēnai: mē tis oun kōlyei gelōnta kai euthymounta kai euroounta? \"eipe ta aporrhēta.\" ou legō: touto gar ep' emoi estin. \"alla dēsō se.\" anthrōpe. ti legeis? eme? to skelos mou dēseis, tēn proairesin de oud' ho Zeus nikēsai dynatai. \"eis phylakēn se balō.\" to sōmation. \"apokephalisō se.\" pote oun soi eipon, hoti monou emou ho trachēlos anapotmētos estin? tauta edei meletan tous philosophountas, tauta kath' hēmeran graphein, en toutois gymnazesthai."
+  test "ΑΘΗΝΑ", "ATHĒNA"
+  test "μπαμπάκι", "mpampaki"
+  test "νταντὰ", "ntanta"
+  test "γκέγκε", "gkenke"
+  test "Γκαμπὸν", "Gkampon"
+  test "Μάγχη", "Manchē"
+  test "κόγξ", "konx"
+  test "υἱὸς", "hyios"
+  test "Υἱὸς", "Hyios"
+  test "νεράντζι", "nerantzi"
+  test "Γοίθιος", "Goithios"
+  test "μπέικον", "mpeikon"
+  test "μπέϊκον", "mpeïkon"
+  test "βόλεϊ", "boleï"
+  test "ἀθεΐα", "atheïa"
+  test "Ἐϊγιαφιάτλαγιοκουτλ", "Eïgiaphiatlagiokoutl"
+  test "Ἐΐτζι", "Eïtzi"
+  test "Μυρτῷο", "Myrtōo"
+  test "ἀέρας", "aeras"
+  test "γαῦ γαῦ", "gau gau"
+  test "Ταΰγετος", "Taÿgetos"
+  test "σπρέυ", "sprey"
+  test "χαἱ", "chhai"
+  test "θοὗτος", "thhoutos"
+  test "Οὗγκο", "Hounko"
+  test "ΟΥΓΚΟ", "OUNKO"
+  test "Ἄυλος", "Aylos"
+  test "Αὐλός", "Aulos"
+  test "αὑτὸς", "hautos"
+  test "εὕρημα", "heurēma"
+  test "ηὗρον", "hēuron"
+  test "Εὕρημα", "Heurēma"
+  test "Ηὗρον", "Hēuron"
+  test "αἵτημα", "haitēma"
+  test "Αἵτημα", "Haitēma"
+  test "εἱλικόεις", "heilikoeis"
+  test "Εἱλικόεις", "Heilikoeis"
+  test "οἷος", "hoios"
+  test "Οἷος", "Hoios"
+  test "Ἀθῆναι", "Athēnai"
+  test "Ἅγιον Όρος", "Hagion Oros"
+  test "Ἄγραφα", "Agrapha"
+  test "Ἀγρίνιο", "Agrinio"
+  test "Αἴγινα", "Aigina"
+  test "Αἴγιο", "Aigio"
+  test "Ἀλεξανδρούπολη", "Alexandroupolē"
+  test "Ἀλεποχώρι", "Alepochōri"
+  test "Ἀμοργὸς", "Amorgos"
+  test "Ἄμφισσα", "Amphissa"
+  test "Ἀράχωβα", "Arachōba"
+  test "Ἄργος", "Argos"
+  test "Ἀρκαδία", "Arkadia"
+  test "Ἄρτα", "Arta"
+  test "Βελούχι", "Belouchi"
+  test "Βέροια", "Beroia"
+  test "Βοιωτία", "Boiōtia"
+  test "Βόλος", "Bolos"
+  test "Βόνιτσα", "Bonitsa"
+  test "Γαλαξίδι", "Galaxidi"
+  test "Γαλάτσι", "Galatsi"
+  test "Γιαννιτσὰ", "Giannitsa"
+  test "Γλυφάδα", "Glyphada"
+  test "Γρανίτσα", "Granitsa"
+  test "Γρεβενὰ", "Grebena"
+  test "Γύθειο", "Gytheio"
+  test "Διόνυσος", "Dionysos"
+  test "Δίστομο", "Distomo"
+  test "Δολιανὰ", "Doliana"
+  test "Δράμα", "Drama"
+  test "Δωδεκάνησα", "Dōdekanēsa"
+  test "Ἔδεσσα", "Edessa"
+  test "Ἐλευσίνα", "Eleusina"
+  test "Ἐπίδαυρος", "Epidauros"
+  test "Ἑπτάνησα", "Heptanēsa"
+  test "Ἑρμούπολη", "Hermoupolē"
+  test "Εὔβοια", "Euboia"
+  test "Ζάκυνθος", "Zakynthos"
+  test "Ἥπειρος", "Hēpeiros"
+  test "Ἡράκλειο", "Hērakleio"
+  test "Θάσος", "Thasos"
+  test "Θεσσαλονίκη", "Thessalonikē"
+  test "Θεσσαλία", "Thessalia"
+  test "Θεσπρωτία", "Thesprōtia"
+  test "Θήβα", "Thēba"
+  test "Θρᾴκη", "Thrakē"
+  test "Ἰθάκη", "Ithakē"
+  test "Ἴος", "Ios"
+  test "Ἰωάννινα", "Iōannina"
+  test "Καβάλα", "Kabala"
+  test "Καλάβρυτα", "Kalabryta"
+  test "Καλαμάτα", "Kalamata"
+  test "Καλαμπάκα", "Kalampaka"
+  test "Καλύβια", "Kalybia"
+  test "Κάλυμνος", "Kalymnos"
+  test "Καρδίτσα", "Karditsa"
+  test "Καρπενήσι", "Karpenēsi"
+  test "Κάρυστος", "Karystos"
+  test "Καστελλόριζο", "Kastellorizo"
+  test "Καστοριὰ", "Kastoria"
+  test "Κατερίνη", "Katerinē"
+  test "Κάτω Ἀχαΐα", "Katō Achaïa"
+  test "Κερατέα", "Keratea"
+  test "Κέρκυρα", "Kerkyra"
+  test "Κεφαλλονιὰ", "Kephallonia"
+  test "Κηφισιὰ", "Kēphisia"
+  test "Κιλκὶς", "Kilkis"
+  test "Κοζάνη", "Kozanē"
+  test "Κολωνὸς", "Kolōnos"
+  test "Κομοτηνή", "Komotēnē"
+  test "Κόρινθος", "Korinthos"
+  test "Κορώνη", "Korōnē"
+  test "Κρανίδι", "Kranidi"
+  test "Κρέστενα", "Krestena"
+  test "Κρήτη", "Krētē"
+  test "Κύθηρα", "Kythēra"
+  test "Κυκλάδες", "Kyklades"
+  test "Κύμη", "Kymē"
+  test "Κυψέλη", "Kypselē"
+  test "Κῶς", "Kōs"
+  test "Λαγκαδὰς", "Lankadas"
+  test "Λαμία", "Lamia"
+  test "Λάρισα", "Larisa"
+  test "Λαύριο", "Laurio"
+  test "Λέρος", "Leros"
+  test "Λέσβος", "Lesbos"
+  test "Λευκάδα", "Leukada"
+  test "Λῆμνος", "Lēmnos"
+  test "Λιβαδειὰ", "Libadeia"
+  test "Μακεδονία", "Makedonia"
+  test "Μάνη", "Manē"
+  test "Μαραθώνας", "Marathōnas"
+  test "Μαρκόπουλο", "Markopoulo"
+  test "Μαρούσι", "Marousi"
+  test "Μέγαρα", "Megara"
+  test "Μεσολόγγι", "Mesolongi"
+  test "Μεταξουργείο", "Metaxourgeio"
+  test "Μέτσοβο", "Metsobo"
+  test "Μῆλος", "Mēlos"
+  test "Μύκονος", "Mykonos"
+  test "Μυστρᾶς", "Mystras"
+  test "Μυτιλήνη", "Mytilēnē"
+  test "Νάξος", "Naxos"
+  test "Νάουσα", "Naousa"
+  test "Ναύπακτος", "Naupaktos"
+  test "Ναύπλιο", "Nauplio"
+  test "Νέα Σμύρνη", "Nea Smyrnē"
+  test "Νίσυρος", "Nisyros"
+  test "Ξάνθη", "Xanthē"
+  test "Ὄλυμπος", "Olympos"
+  test "Παγκράτι", "Pankrati"
+  test "Παπάγου", "Papagou"
+  test "Πᾶρος", "Paros"
+  test "Πασαλιμάνι", "Pasalimani"
+  test "Πατήσια", "Patēsia"
+  test "Πάτμος", "Patmos"
+  test "Πάτρα", "Patra"
+  test "Πειραιὰς", "Peiraias"
+  test "Πελοπόννησος", "Peloponnēsos"
+  test "Περιστέρι", "Peristeri"
+  test "Πεύκη", "Peukē"
+  test "Πήλιο", "Pēlio"
+  test "Πολύγυρος", "Polygyros"
+  test "Πόρος", "Poros"
+  test "Πρέβεζα", "Prebeza"
+  test "Πτολεμαΐδα", "Ptolemaïda"
+  test "Πύλος", "Pylos"
+  test "Πύργος", "Pyrgos"
+  test "Ῥέθυμνο", "Rhethymno"
+  test "Ῥόδος", "Rhodos"
+  test "Ῥούμελη", "Rhoumelē"
+  test "Σαλαμίνα", "Salamina"
+  test "Σαμοθρᾴκη", "Samothrakē"
+  test "Σάμος", "Samos"
+  test "Σαντορίνη", "Santorinē"
+  test "Σέρρες", "Serres"
+  test "Σίκινος", "Sikinos"
+  test "Σίφνος", "Siphnos"
+  test "Σκιάθος", "Skiathos"
+  test "Σκόπελος", "Skopelos"
+  test "Σούλι", "Souli"
+  test "Σπάρτη", "Spartē"
+  test "Στερεά Ελλάδα", "Sterea Ellada"
+  test "Στύρα", "Styra"
+  test "Σύμη", "Symē"
+  test "Σύρος", "Syros"
+  test "Σφακιὰ", "Sphakia"
+  test "Τῆλος", "Tēlos"
+  test "Τῆνος", "Tēnos"
+  test "Τρίκαλα", "Trikala"
+  test "Τρίπολη", "Tripolē"
+  test "Τσακωνιὰ", "Tsakōnia"
+  test "Ὕδρα", "Hydra"
+  test "Φάληρο", "Phalēro"
+  test "Φλώρινα", "Phlōrina"
+  test "Φολέγανδρος", "Pholegandros"
+  test "Χάλκη", "Chalkē"
+  test "Χαλκίδα", "Chalkida"
+  test "Χαλάνδρι", "Chalandri"
+  test "Χαλκιδικὴ", "Chalkidikē"
+  test "Χανιὰ", "Chania"
+  test "Χίος", "Chios"
+  test "Ψαρὰ", "Psara"
+  test "Ἁβάνα", "Habana"
+  test "Ἀγγλία", "Anglia"
+  test "Ἀιβαλὶ", "Aibali"
+  test "Ἀλεξάνδρεια", "Alexandreia"
+  test "Ἄμστερνταμ", "Amsterntam"
+  test "Βαυαρία", "Bauaria"
+  test "Βενετία", "Benetia"
+  test "Βερολῖνο", "Berolino"
+  test "Βερόνα", "Berona"
+  test "Βιέννη", "Biennē"
+  test "Γένοβα", "Genoba"
+  test "Δουβλῖνο", "Doublino"
+  test "Καλαβρία", "Kalabria"
+  test "Καλιφόρνια", "Kaliphornia"
+  test "Καύκασος", "Kaukasos"
+  test "Κονγκὸ", "Konnko"
+  test "Κορσικὴ", "Korsikē"
+  test "Κουρδιστάν", "Kourdistan"
+  test "Κωνσταντινούπολη", "Kōnstantinoupolē"
+  test "Κατεχόμενη Κύπρος", "Katechomenē Kypros"
+  test "Λαπωνία", "Lapōnia"
+  test "Λευκωσία", "Leukōsia"
+  test "Λιβόρνο", "Liborno"
+  test "Λονδῖνο", "Londino"
+  test "Λυὼν", "Lyōn"
+  test "Μάλαγα", "Malaga"
+  test "Μασσαλία", "Massalia"
+  test "Μικρονησία", "Mikronēsia"
+  test "Μιλάνο", "Milano"
+  test "Μόσχα", "Moscha"
+  test "Μπολόνια", "Mpolonia"
+  test "Νάπολη", "Napolē"
+  test "Νταγκεστὰν", "Ntankestan"
+  test "Νέα Ὑόρκη", "Nea Hyorkē"
+  test "Ὀξφόρδη", "Oxphordē"
+  test "Οὐαλία", "Oualia"
+  test "Παρίσι", "Parisi"
+  test "Πάφος", "Paphos"
+  test "Πολυνησία", "Polynēsia"
+  test "Ῥώμη", "Rhōmē"
+  test "Σαμάρεια", "Samareia"
+  test "Σικελία", "Sikelia"
+  test "Σκανδιναβία", "Skandinabia"
+  test "Σκόπια", "Skopia"
+  test "Σκωτία", "Skōtia"
+  test "Σμύρνη", "Smyrnē"
+  test "Ταϊτὴ", "Taïtē"
+  test "Ταταρστὰν", "Tatarstan"
+  test "Τζαμάικα", "Tzamaika"
+  test "Τηλλυρία", "Tēllyria"
+  test "Τιρόλο", "Tirolo"
+  test "Τορίνο", "Torino"
+  test "Φανάρι", "Phanari"
+  test "Φλωρεντία", "Phlōrentia"
+  test "Χαβάη", "Chabaē"
+  test "Χονγκ Κονγκ", "Chongk Kongk"
+}
 
-  - source: |
-      Ένα πράμα μόνον με παρακίνησε κι εμένα να γράψω ότι τούτην την πατρίδα την έχομεν όλοι μαζί, και σοφοί κι αμαθείς και πλούσιοι και φτωχοί και πολιτικοί και στρατιωτικοί και οι πλέον μικρότεροι άνθρωποι· όσοι αγωνιστήκαμεν, αναλόγως ο καθείς, έχομεν να ζήσομεν εδώ. Το λοιπόν δουλέψαμεν όλοι μαζί, να την φυλάμεν κι όλοι μαζί και να μην λέγει ούτε ο δυνατός «εγώ» ούτε ο αδύνατος. Ξέρετε πότε να λέγει ο καθείς «εγώ»; Όταν αγωνιστεί μόνος του και φκιάσει ή χαλάσει, να λέγει «εγώ»· όταν όμως αγωνίζονται πολλοί και φκιάνουν, τότε να λένε «εμείς». Είμαστε εις το «εμείς» κι όχι εις το «εγώ». Και εις το εξής να μάθομεν γνώση, αν θέλομεν να φκιάσομεν χωριόν, να ζήσομεν όλοι μαζί.
+aliases {
+  def_alias grek_any, any(["\u0386", any("\u0388".."\u03ff"), any("\u1f00".."\u1fbc")]) # A few more, but let's not bother
+  def_alias grek_latn_any, any([grek_any, any("a".."z"), any("A".."Z")])
+}
 
-      Γιάννης Μακρυγιάννης.
+# https://en.wikipedia.org/wiki/Romanization_of_Greek
+stage {
 
-    expected: |
-      Ena prama monon me parakinēse ki emena na grapsō oti toutēn tēn patrida tēn echomen oloi mazi, kai sophoi ki amatheis kai plousioi kai phtōchoi kai politikoi kai stratiōtikoi kai oi pleon mikroteroi anthrōpoi; osoi agōnistēkamen, analogōs o katheis, echomen na zēsomen edō. To loipon doulepsamen oloi mazi, na tēn phylamen ki oloi mazi kai na mēn legei oute o dynatos «egō» oute o adynatos. Xerete pote na legei o katheis «egō»? Otan agōnistei monos tou kai phkiasei ē chalasei, na legei «egō»; otan omōs agōnizontai polloi kai phkianoun, tote na lene «emeis». Eimaste eis to «emeis» ki ochi eis to «egō». Kai eis to exēs na mathomen gnōsē, an thelomen na phkiasomen chōrion, na zēsomen oloi mazi.
-
-      Giannēs Makrygiannēs.
-
-  - source: |
-      Ἐμὲ οὖν νῦν τραχηλοκοπεῖσθαι μόνον;" τί οὖν; ἤθελες πάντας τραχηλοκοπηθῆναι, ἵνα σὺ παραμυθίαν ἔχῃς; οὐ θέλεις οὕτως ἐκτεῖναι τὸν τράχηλον, ὡς Λατερανός τις ἐν τῇ Ῥώμῃ κελευσθεὶς ὑπὸ τοῦ Νέρωνος ἀποκεφαλισθῆναι; ἐκτείνας γὰρ τὸν τράχηλον καὶ πληγεὶς καὶ πρὸς αὐτὴν τὴν πληγὴν ἀσθενῆ γενομένην ἐπ' ὀλίγον συνελκυσθεὶς πάλιν ἐξέτεινεν. ἀλλὰ καὶ ἔτι πρότερον προσελθόντι τις Ἐπαφροδίτῳ τῷ κυρίῳ τοῦ Νέρωνος καὶ ἀνακρίνοντι αὐτὸν ὑπὲρ τοῦ συγκρουσθῆναι "Ἄν τί θέλω," φησίν, "ἐρῶ σου τῷ κυρίῳ".
-
-      "Τί οὖν δεῖ πρόχειρον ἔχειν ἐν τοῖς τοιούτοις;" τί γὰρ ἄλλο ἢ τί ἐμὸν καὶ τί οὐκ ἐμὸν καὶ τί μοι ἔξεστιν καὶ τί μοι οὐκ ἔξεστιν; ἀποθανεῖν με δεῖ: μή τι οὖν καὶ στένοντα; δεθῆναι: μή τι καὶ θρηνοῦντα; φυγαδευθῆναι: μή τις οὖν κωλύει γελῶντα καὶ εὐθυμοῦντα καὶ εὐροοῦντα; "εἰπὲ τὰ ἀπόῤῥητα." οὐ λέγω: τοῦτο γὰρ ἐπ' ἐμοί ἐστιν. "ἀλλὰ δήσω σε." ἄνθρωπε. τί λέγεις; ἐμέ; τὸ σκέλος μου δήσεις, τὴν προαίρεσιν δὲ οὐδ' ὁ Ζεὺς νικῆσαι δύναται. "εἰς φυλακήν σε βαλῶ." τὸ σωμάτιον. "ἀποκεφαλίσω σε." πότε οὖν σοὶ εἶπον, ὅτι μόνου ἐμοῦ ὁ τράχηλος ἀναπότμητός ἐστιν; ταῦτα ἔδει μελετᾶν τοὺς φιλοσοφοῦντας, ταῦτα καθ' ἡμέραν γράφειν, ἐν τούτοις γυμνάζεσθαι.
-
-    expected: |
-      Eme oun nyn trachēlokopeisthai monon?" ti oun? ētheles pantas trachēlokopēthēnai, hina sy paramythian echēs? ou theleis houtōs ekteinai ton trachēlon, hōs Lateranos tis en tē Rhōmē keleustheis hypo tou Nerōnos apokephalisthēnai? ekteinas gar ton trachēlon kai plēgeis kai pros autēn tēn plēgēn asthenē genomenēn ep' oligon synelkystheis palin exeteinen. alla kai eti proteron proselthonti tis Epaphroditō tō kyriō tou Nerōnos kai anakrinonti auton hyper tou synkrousthēnai "An ti thelō," phēsin, "erō sou tō kyriō".
-
-      "Ti oun dei procheiron echein en tois toioutois?" ti gar allo ē ti emon kai ti ouk emon kai ti moi exestin kai ti moi ouk exestin? apothanein me dei: mē ti oun kai stenonta? dethēnai: mē ti kai thrēnounta? phygadeuthēnai: mē tis oun kōlyei gelōnta kai euthymounta kai euroounta? "eipe ta aporrhēta." ou legō: touto gar ep' emoi estin. "alla dēsō se." anthrōpe. ti legeis? eme? to skelos mou dēseis, tēn proairesin de oud' ho Zeus nikēsai dynatai. "eis phylakēn se balō." to sōmation. "apokephalisō se." pote oun soi eipon, hoti monou emou ho trachēlos anapotmētos estin? tauta edei meletan tous philosophountas, tauta kath' hēmeran graphein, en toutois gymnazesthai.
-
-  - source: ΑΘΗΝΑ
-    expected: ATHĒNA
-  - source: μπαμπάκι
-    expected: mpampaki
-  - source: νταντὰ
-    expected: ntanta
-  - source: γκέγκε
-    expected: gkenke
-  - source: Γκαμπὸν
-    expected: Gkampon
-  - source: Μάγχη
-    expected: Manchē
-  - source: κόγξ
-    expected: konx
-  - source: υἱὸς
-    expected: hyios
-  - source: Υἱὸς
-    expected: Hyios
-  - source: νεράντζι
-    expected: nerantzi
-  - source: Γοίθιος
-    expected: Goithios
-  - source: μπέικον
-    expected: mpeikon
-  - source: μπέϊκον
-    expected: mpeïkon
-  - source: βόλεϊ
-    expected: boleï
-  - source: ἀθεΐα
-    expected: atheïa
-  - source: Ἐϊγιαφιάτλαγιοκουτλ
-    expected: Eïgiaphiatlagiokoutl
-  - source: Ἐΐτζι
-    expected: Eïtzi
-  - source: Μυρτῷο
-    expected: Myrtōo
-  - source: ἀέρας
-    expected: aeras
-  - source: γαῦ γαῦ
-    expected: gau gau
-  - source: Ταΰγετος
-    expected: Taÿgetos
-  - source: σπρέυ
-    expected: sprey
-  - source: χαἱ
-    expected: chhai
-  - source: θοὗτος
-    expected: thhoutos
-  - source: Οὗγκο
-    expected: Hounko
-  - source: ΟΥΓΚΟ
-    expected: OUNKO
-  - source: Ἄυλος
-    expected: Aylos
-  - source: Αὐλός
-    expected: Aulos
-  - source: αὑτὸς
-    expected: hautos
-  - source: εὕρημα
-    expected: heurēma
-  - source: ηὗρον
-    expected: hēuron
-  - source: Εὕρημα
-    expected: Heurēma
-  - source: Ηὗρον
-    expected: Hēuron
-  - source: αἵτημα
-    expected: haitēma
-  - source: Αἵτημα
-    expected: Haitēma
-  - source: εἱλικόεις
-    expected: heilikoeis
-  - source: Εἱλικόεις
-    expected: Heilikoeis
-  - source: οἷος
-    expected: hoios
-  - source: Οἷος
-    expected: Hoios
+  # RULES
+  sub any("ΥΎῪὙ"), "U", before: any("ΑαΕεΗηΟο")
+  sub any("υύύύὺῦὐὔὒὖ"), "u", before: any("ΑαΕεΗηΟο")
+  sub "\u037E", "?" # ;
+  sub "\u003B", "?" # ;
+  sub "Γ", "N", after: any("γΓξΞχΧ") # Γ (before Γ, Ξ, Χ)
+  sub "γ", "n", after: any("γΓξΞχΧ") # γ (before Γ, Ξ, Χ)
+  sub "Γ", "N", before: grek_latn_any, after: any("κΚ") + grek_latn_any # Γ (before Κ medially)
+  sub "γ", "n", before: grek_latn_any, after: any("κΚ") + grek_latn_any # warning: : # Γ (before Κ medially)
 
 
-  - source: Ἀθῆναι
-    expected: Athēnai
-  - source: Ἅγιον Όρος
-    expected: Hagion Oros
-  - source: Ἄγραφα
-    expected: Agrapha
-  - source: Ἀγρίνιο
-    expected: Agrinio
-  - source: Αἴγινα
-    expected: Aigina
-  - source: Αἴγιο
-    expected: Aigio
-  - source: Ἀλεξανδρούπολη
-    expected: Alexandroupolē
-  - source: Ἀλεποχώρι
-    expected: Alepochōri
-  - source: Ἀμοργὸς
-    expected: Amorgos
-  - source: Ἄμφισσα
-    expected: Amphissa
-  - source: Ἀράχωβα
-    expected: Arachōba
-  - source: Ἄργος
-    expected: Argos
-  - source: Ἀρκαδία
-    expected: Arkadia
-  - source: Ἄρτα
-    expected: Arta
-  - source: Βελούχι
-    expected: Belouchi
-  - source: Βέροια
-    expected: Beroia
-  - source: Βοιωτία
-    expected: Boiōtia
-  - source: Βόλος
-    expected: Bolos
-  - source: Βόνιτσα
-    expected: Bonitsa
-  - source: Γαλαξίδι
-    expected: Galaxidi
-  - source: Γαλάτσι
-    expected: Galatsi
-  - source: Γιαννιτσὰ
-    expected: Giannitsa
-  - source: Γλυφάδα
-    expected: Glyphada
-  - source: Γρανίτσα
-    expected: Granitsa
-  - source: Γρεβενὰ
-    expected: Grebena
-  - source: Γύθειο
-    expected: Gytheio
-  - source: Διόνυσος
-    expected: Dionysos
-  - source: Δίστομο
-    expected: Distomo
-  - source: Δολιανὰ
-    expected: Doliana
-  - source: Δράμα
-    expected: Drama
-  - source: Δωδεκάνησα
-    expected: Dōdekanēsa
-  - source: Ἔδεσσα
-    expected: Edessa
-  - source: Ἐλευσίνα
-    expected: Eleusina
-  - source: Ἐπίδαυρος
-    expected: Epidauros
-  - source: Ἑπτάνησα
-    expected: Heptanēsa
-  - source: Ἑρμούπολη
-    expected: Hermoupolē
-  - source: Εὔβοια
-    expected: Euboia
-  - source: Ζάκυνθος
-    expected: Zakynthos
-  - source: Ἥπειρος
-    expected: Hēpeiros
-  - source: Ἡράκλειο
-    expected: Hērakleio
-  - source: Θάσος
-    expected: Thasos
-  - source: Θεσσαλονίκη
-    expected: Thessalonikē
-  - source: Θεσσαλία
-    expected: Thessalia
-  - source: Θεσπρωτία
-    expected: Thesprōtia
-  - source: Θήβα
-    expected: Thēba
-  - source: Θρᾴκη
-    expected: Thrakē
-  - source: Ἰθάκη
-    expected: Ithakē
-  - source: Ἴος
-    expected: Ios
-  - source: Ἰωάννινα
-    expected: Iōannina
-  - source: Καβάλα
-    expected: Kabala
-  - source: Καλάβρυτα
-    expected: Kalabryta
-  - source: Καλαμάτα
-    expected: Kalamata
-  - source: Καλαμπάκα
-    expected: Kalampaka
-  - source: Καλύβια
-    expected: Kalybia
-  - source: Κάλυμνος
-    expected: Kalymnos
-  - source: Καρδίτσα
-    expected: Karditsa
-  - source: Καρπενήσι
-    expected: Karpenēsi
-  - source: Κάρυστος
-    expected: Karystos
-  - source: Καστελλόριζο
-    expected: Kastellorizo
-  - source: Καστοριὰ
-    expected: Kastoria
-  - source: Κατερίνη
-    expected: Katerinē
-  - source: Κάτω Ἀχαΐα
-    expected: Katō Achaïa
-  - source: Κερατέα
-    expected: Keratea
-  - source: Κέρκυρα
-    expected: Kerkyra
-  - source: Κεφαλλονιὰ
-    expected: Kephallonia
-  - source: Κηφισιὰ
-    expected: Kēphisia
-  - source: Κιλκὶς
-    expected: Kilkis
-  - source: Κοζάνη
-    expected: Kozanē
-  - source: Κολωνὸς
-    expected: Kolōnos
-  - source: Κομοτηνή
-    expected: Komotēnē
-  - source: Κόρινθος
-    expected: Korinthos
-  - source: Κορώνη
-    expected: Korōnē
-  - source: Κρανίδι
-    expected: Kranidi
-  - source: Κρέστενα
-    expected: Krestena
-  - source: Κρήτη
-    expected: Krētē
-  - source: Κύθηρα
-    expected: Kythēra
-  - source: Κυκλάδες
-    expected: Kyklades
-  - source: Κύμη
-    expected: Kymē
-  - source: Κυψέλη
-    expected: Kypselē
-  - source: Κῶς
-    expected: Kōs
-  - source: Λαγκαδὰς
-    expected: Lankadas
-  - source: Λαμία
-    expected: Lamia
-  - source: Λάρισα
-    expected: Larisa
-  - source: Λαύριο
-    expected: Laurio
-  - source: Λέρος
-    expected: Leros
-  - source: Λέσβος
-    expected: Lesbos
-  - source: Λευκάδα
-    expected: Leukada
-  - source: Λῆμνος
-    expected: Lēmnos
-  - source: Λιβαδειὰ
-    expected: Libadeia
-  - source: Μακεδονία
-    expected: Makedonia
-  - source: Μάνη
-    expected: Manē
-  - source: Μαραθώνας
-    expected: Marathōnas
-  - source: Μαρκόπουλο
-    expected: Markopoulo
-  - source: Μαρούσι
-    expected: Marousi
-  - source: Μέγαρα
-    expected: Megara
-  - source: Μεσολόγγι
-    expected: Mesolongi
-  - source: Μεταξουργείο
-    expected: Metaxourgeio
-  - source: Μέτσοβο
-    expected: Metsobo
-  - source: Μῆλος
-    expected: Mēlos
-  - source: Μύκονος
-    expected: Mykonos
-  - source: Μυστρᾶς
-    expected: Mystras
-  - source: Μυτιλήνη
-    expected: Mytilēnē
-  - source: Νάξος
-    expected: Naxos
-  - source: Νάουσα
-    expected: Naousa
-  - source: Ναύπακτος
-    expected: Naupaktos
-  - source: Ναύπλιο
-    expected: Nauplio
-  - source: Νέα Σμύρνη
-    expected: Nea Smyrnē
-  - source: Νίσυρος
-    expected: Nisyros
-  - source: Ξάνθη
-    expected: Xanthē
-  - source: Ὄλυμπος
-    expected: Olympos
-  - source: Παγκράτι
-    expected: Pankrati
-  - source: Παπάγου
-    expected: Papagou
-  - source: Πᾶρος
-    expected: Paros
-  - source: Πασαλιμάνι
-    expected: Pasalimani
-  - source: Πατήσια
-    expected: Patēsia
-  - source: Πάτμος
-    expected: Patmos
-  - source: Πάτρα
-    expected: Patra
-  - source: Πειραιὰς
-    expected: Peiraias
-  - source: Πελοπόννησος
-    expected: Peloponnēsos
-  - source: Περιστέρι
-    expected: Peristeri
-  - source: Πεύκη
-    expected: Peukē
-  - source: Πήλιο
-    expected: Pēlio
-  - source: Πολύγυρος
-    expected: Polygyros
-  - source: Πόρος
-    expected: Poros
-  - source: Πρέβεζα
-    expected: Prebeza
-  - source: Πτολεμαΐδα
-    expected: Ptolemaïda
-  - source: Πύλος
-    expected: Pylos
-  - source: Πύργος
-    expected: Pyrgos
-  - source: Ῥέθυμνο
-    expected: Rhethymno
-  - source: Ῥόδος
-    expected: Rhodos
-  - source: Ῥούμελη
-    expected: Rhoumelē
-  - source: Σαλαμίνα
-    expected: Salamina
-  - source: Σαμοθρᾴκη
-    expected: Samothrakē
-  - source: Σάμος
-    expected: Samos
-  - source: Σαντορίνη
-    expected: Santorinē
-  - source: Σέρρες
-    expected: Serres
-  - source: Σίκινος
-    expected: Sikinos
-  - source: Σίφνος
-    expected: Siphnos
-  - source: Σκιάθος
-    expected: Skiathos
-  - source: Σκόπελος
-    expected: Skopelos
-  - source: Σούλι
-    expected: Souli
-  - source: Σπάρτη
-    expected: Spartē
-  - source: Στερεά Ελλάδα
-    expected: Sterea Ellada
-  - source: Στύρα
-    expected: Styra
-  - source: Σύμη
-    expected: Symē
-  - source: Σύρος
-    expected: Syros
-  - source: Σφακιὰ
-    expected: Sphakia
-  - source: Τῆλος
-    expected: Tēlos
-  - source: Τῆνος
-    expected: Tēnos
-  - source: Τρίκαλα
-    expected: Trikala
-  - source: Τρίπολη
-    expected: Tripolē
-  - source: Τσακωνιὰ
-    expected: Tsakōnia
-  - source: Ὕδρα
-    expected: Hydra
-  - source: Φάληρο
-    expected: Phalēro
-  - source: Φλώρινα
-    expected: Phlōrina
-  - source: Φολέγανδρος
-    expected: Pholegandros
-  - source: Χάλκη
-    expected: Chalkē
-  - source: Χαλκίδα
-    expected: Chalkida
-  - source: Χαλάνδρι
-    expected: Chalandri
-  - source: Χαλκιδικὴ
-    expected: Chalkidikē
-  - source: Χανιὰ
-    expected: Chania
-  - source: Χίος
-    expected: Chios
-  - source: Ψαρὰ
-    expected: Psara
-  - source: Ἁβάνα
-    expected: Habana
-  - source: Ἀγγλία
-    expected: Anglia
-  - source: Ἀιβαλὶ
-    expected: Aibali
-  - source: Ἀλεξάνδρεια
-    expected: Alexandreia
-  - source: Ἄμστερνταμ
-    expected: Amsterntam
-  - source: Βαυαρία
-    expected: Bauaria
-  - source: Βενετία
-    expected: Benetia
-  - source: Βερολῖνο
-    expected: Berolino
-  - source: Βερόνα
-    expected: Berona
-  - source: Βιέννη
-    expected: Biennē
-  - source: Γένοβα
-    expected: Genoba
-  - source: Δουβλῖνο
-    expected: Doublino
-  - source: Καλαβρία
-    expected: Kalabria
-  - source: Καλιφόρνια
-    expected: Kaliphornia
-  - source: Καύκασος
-    expected: Kaukasos
-  - source: Κονγκὸ
-    expected: Konnko
-  - source: Κορσικὴ
-    expected: Korsikē
-  - source: Κουρδιστάν
-    expected: Kourdistan
-  - source: Κωνσταντινούπολη
-    expected: Kōnstantinoupolē
-  - source: Κατεχόμενη Κύπρος
-    expected: Katechomenē Kypros
-  - source: Λαπωνία
-    expected: Lapōnia
-  - source: Λευκωσία
-    expected: Leukōsia
-  - source: Λιβόρνο
-    expected: Liborno
-  - source: Λονδῖνο
-    expected: Londino
-  - source: Λυὼν
-    expected: Lyōn
-  - source: Μάλαγα
-    expected: Malaga
-  - source: Μασσαλία
-    expected: Massalia
-  - source: Μικρονησία
-    expected: Mikronēsia
-  - source: Μιλάνο
-    expected: Milano
-  - source: Μόσχα
-    expected: Moscha
-  - source: Μπολόνια
-    expected: Mpolonia
-  - source: Νάπολη
-    expected: Napolē
-  - source: Νταγκεστὰν
-    expected: Ntankestan
-  - source: Νέα Ὑόρκη
-    expected: Nea Hyorkē
-  - source: Ὀξφόρδη
-    expected: Oxphordē
-  - source: Οὐαλία
-    expected: Oualia
-  - source: Παρίσι
-    expected: Parisi
-  - source: Πάφος
-    expected: Paphos
-  - source: Πολυνησία
-    expected: Polynēsia
-  - source: Ῥώμη
-    expected: Rhōmē
-  - source: Σαμάρεια
-    expected: Samareia
-  - source: Σικελία
-    expected: Sikelia
-  - source: Σκανδιναβία
-    expected: Skandinabia
-  - source: Σκόπια
-    expected: Skopia
-  - source: Σκωτία
-    expected: Skōtia
-  - source: Σμύρνη
-    expected: Smyrnē
-  - source: Ταϊτὴ
-    expected: Taïtē
-  - source: Ταταρστὰν
-    expected: Tatarstan
-  - source: Τζαμάικα
-    expected: Tzamaika
-  - source: Τηλλυρία
-    expected: Tēllyria
-  - source: Τιρόλο
-    expected: Tirolo
-  - source: Τορίνο
-    expected: Torino
-  - source: Φανάρι
-    expected: Phanari
-  - source: Φλωρεντία
-    expected: Phlōrentia
-  - source: Χαβάη
-    expected: Chabaē
-  - source: Χονγκ Κονγκ
-    expected: Chongk Kongk
+  # CHARACTERS
+  parallel {
+    sub any("Αα") + any("ὙὝὛὟ"), "HAU"
+    sub any("Εε") + any("ὙὝὛὟ"), "HEU"
+    sub any("Ηη") + any("ὙὝὛὟ"), "HĒU"
+    sub any("Οο") + any("ὙὝὛὟ"), "HOU"
+    sub "Α" + any("ὑὕὓὗ"), "Hau"
+    sub "α" + any("ὑὕὓὗ"), "hau"
+    sub "Ε" + any("ὑὕὓὗ"), "Heu"
+    sub "ε" + any("ὑὕὓὗ"), "heu"
+    sub "Η" + any("ὑὕὓὗ"), "Hēu"
+    sub "η" + any("ὑὕὓὗ"), "hēu"
+    sub "Ο" + any("ὑὕὓὗ"), "Hou"
+    sub "ο" + any("ὑὕὓὗ"), "hou"
+    sub any("Αα") + any("ἹἽἻἿ"), "HAI"
+    sub any("Εε") + any("ἹἽἻἿ"), "HEI"
+    sub any("Οο") + any("ἹἽἻἿ"), "HOI"
+    sub any("Υυ") + any("ἹἽἻἿ"), "HYI"
+    sub "Α" + any("ἱἵἳἷ"), "Hai"
+    sub "α" + any("ἱἵἳἷ"), "hai"
+    sub "Ε" + any("ἱἵἳἷ"), "Hei"
+    sub "ε" + any("ἱἵἳἷ"), "hei"
+    sub "Ο" + any("ἱἵἳἷ"), "Hoi"
+    sub "ο" + any("ἱἵἳἷ"), "hoi"
+    sub "Υ" + any("ἱἵἳἷ"), "Hyi"
+    sub "υ" + any("ἱἵἳἷ"), "hyi"
 
-map:
-  # https://en.wikipedia.org/wiki/Romanization_of_Greek
-  rules:
-    - pattern: (?<=[ΑαΕεΗηΟο])[ΥΎῪὙ]
-      result: U
-    - pattern: (?<=[ΑαΕεΗηΟο])[υύύύὺῦὐὔὒὖ]
-      result: u
-    - pattern: \u037E   # ;
-      result: "?"
-    - pattern: \u003B   # ;
-      result: "?"
-    - pattern: Γ(?=[γΓξΞχΧ])    # Γ (before Γ, Ξ, Χ)
-      result: N
-    - pattern: γ(?=[γΓξΞχΧ])    # γ (before Γ, Ξ, Χ)
-      result: n
-    - pattern: (?<=[[:alpha:]])Γ(?=[κΚ][[:alpha:]])    # Γ (before Κ medially)
-      result: N
-    - pattern: (?<=[[:alpha:]])γ(?=[κΚ][[:alpha:]])    # Γ (before Κ medially)
-      result: n
-  postrules:
-    - pattern: (?<=[AEIOUYĒŌaeiouyēō])[Hh]
-      result: ""
+    sub "Α", "A"
+    sub "Ά", "A"
+    sub "Ὰ", "A"
+    sub "Ᾰ", "A"
+    sub "Ᾱ", "A"
+    sub "Ἀ", "A"
+    sub "Ἄ", "A"
+    sub "Ἆ", "A"
+    sub "Ἁ", "Ha"
+    sub "Ἅ", "Ha"
+    sub "Ἃ", "Ha"
+    sub "Ἇ", "Ha"
+    sub "ᾼ", "A"
+    sub "ᾈ", "A"
+    sub "ᾊ", "A"
+    sub "ᾌ", "A"
+    sub "ᾎ", "A"
+    sub "ᾉ", "Ha"
+    sub "ᾋ", "Ha"
+    sub "ᾍ", "Ha"
+    sub "ᾏ", "Ha"
+    sub "Β", "B"
+    sub "Γ", "G"
+    sub "Δ", "D"
+    sub "Ε", "E"
+    sub "Έ", "E"
+    sub "Ἐ", "E"
+    sub "Ὲ", "E"
+    sub "Ἒ", "E"
+    sub "Ἔ", "E"
+    sub "Ἑ", "He"
+    sub "Ἓ", "He"
+    sub "Ἕ", "He"
+    sub "Ζ", "Z"
+    sub "Η", "Ē"
+    sub "Ή", "Ē"
+    sub "Ἠ", "Ē"
+    sub "Ὴ", "Ē"
+    sub "Ἢ", "Ē"
+    sub "Ἤ", "Ē"
+    sub "Ἦ", "Ē"
+    sub "Ἡ", "Hē"
+    sub "Ἣ", "Hē"
+    sub "Ἥ", "Hē"
+    sub "Ἧ", "Hē"
+    sub "ῌ", "Ē"
+    sub "ᾘ", "Ē"
+    sub "ᾚ", "Ē"
+    sub "ᾜ", "Ē"
+    sub "ᾞ", "Ē"
+    sub "ᾙ", "Hē"
+    sub "ᾛ", "Hē"
+    sub "ᾝ", "Hē"
+    sub "ᾟ", "Hē"
+    sub "Θ", "Th"
+    sub "Ι", "I"
+    sub "Ί", "I"
+    sub "Ῐ", "I"
+    sub "Ῑ", "I"
+    sub "Ἰ", "I"
+    sub "Ὶ", "I"
+    sub "Ἲ", "I"
+    sub "Ἴ", "I"
+    sub "Ἶ", "I"
+    sub "Ἱ", "Hi"
+    sub "Ἳ", "Hi"
+    sub "Ἵ", "Hi"
+    sub "Ἷ", "Hi"
+    sub "Κ", "K"
+    sub "Λ", "L"
+    sub "Μ", "M"
+    sub "Ν", "N"
+    sub "Ξ", "X"
+    sub "Ο", "O"
+    sub "Ό", "O"
+    sub "Ὀ", "O"
+    sub "Ὸ", "O"
+    sub "Ὂ", "O"
+    sub "Ὄ", "O"
+    sub "Ὁ", "Ho"
+    sub "Ὃ", "Ho"
+    sub "Ὅ", "Ho"
+    sub "Π", "P"
+    sub "Ρ", "R"
+    sub "Ῥ", "Rh"
+    sub "Σ", "S"
+    sub "Τ", "T"
+    sub "Υ", "Y"
+    sub "Ύ", "Y"
+    sub "Ὺ", "Y"
+    sub "Ῠ", "Y"
+    sub "Ῡ", "Y"
+    sub "Ὑ", "Hy"
+    sub "Ὓ", "Hy"
+    sub "Ὕ", "Hy"
+    sub "Ὗ", "Hy"
+    sub "Φ", "Ph"
+    sub "Χ", "Ch"
+    sub "Ψ", "Ps"
+    sub "Ω", "Ō"
+    sub "Ώ", "Ō"
+    sub "Ὠ", "Ō"
+    sub "Ὼ", "Ō"
+    sub "Ὢ", "Ō"
+    sub "Ὤ", "Ō"
+    sub "Ὦ", "Ō"
+    sub "Ὡ", "Hō"
+    sub "Ὣ", "Hō"
+    sub "Ὥ", "Hō"
+    sub "Ὧ", "Hō"
+    sub "ῼ", "Ō"
+    sub "ᾨ", "Ō"
+    sub "ᾪ", "Ō"
+    sub "ᾬ", "Ō"
+    sub "ᾮ", "Ō"
+    sub "ᾩ", "Hō"
+    sub "ᾫ", "Hō"
+    sub "ᾭ", "Hō"
+    sub "ᾯ", "Hō"
+    sub "Ϊ", "Ï"
+    sub "Ϋ", "Ÿ"
 
-  characters:
-    "[Αα][ὙὝὛὟ]": "HAU"
-    "[Εε][ὙὝὛὟ]": "HEU"
-    "[Ηη][ὙὝὛὟ]": "HĒU"
-    "[Οο][ὙὝὛὟ]": "HOU"
-    "Α[ὑὕὓὗ]": "Hau"
-    "α[ὑὕὓὗ]": "hau"
-    "Ε[ὑὕὓὗ]": "Heu"
-    "ε[ὑὕὓὗ]": "heu"
-    "Η[ὑὕὓὗ]": "Hēu"
-    "η[ὑὕὓὗ]": "hēu"
-    "Ο[ὑὕὓὗ]": "Hou"
-    "ο[ὑὕὓὗ]": "hou"
-    "[Αα][ἹἽἻἿ]": "HAI"
-    "[Εε][ἹἽἻἿ]": "HEI"
-    "[Οο][ἹἽἻἿ]": "HOI"
-    "[Υυ][ἹἽἻἿ]": "HYI"
-    "Α[ἱἵἳἷ]": "Hai"
-    "α[ἱἵἳἷ]": "hai"
-    "Ε[ἱἵἳἷ]": "Hei"
-    "ε[ἱἵἳἷ]": "hei"
-    "Ο[ἱἵἳἷ]": "Hoi"
-    "ο[ἱἵἳἷ]": "hoi"
-    "Υ[ἱἵἳἷ]": "Hyi"
-    "υ[ἱἵἳἷ]": "hyi"
+    sub "α", "a"
+    sub "ά", "a"
+    sub "ά", "a"
+    sub "ἀ", "a"
+    sub "ὰ", "a"
+    sub "ᾰ", "a"
+    sub "ᾱ", "a"
+    sub "ᾶ", "a"
+    sub "ἂ", "a"
+    sub "ἄ", "a"
+    sub "ἆ", "a"
+    sub "ἁ", "ha"
+    sub "ἃ", "ha"
+    sub "ἅ", "ha"
+    sub "ἇ", "ha"
+    sub "ᾳ", "a"
+    sub "ᾲ", "a"
+    sub "ᾴ", "a"
+    sub "ᾷ", "a"
+    sub "ᾀ", "a"
+    sub "ᾂ", "a"
+    sub "ᾄ", "a"
+    sub "ᾆ", "a"
+    sub "ᾁ", "ha"
+    sub "ᾃ", "ha"
+    sub "ᾅ", "ha"
+    sub "ᾇ", "ha"
+    sub "β", "b"
+    sub "γ", "g"
+    sub "δ", "d"
+    sub "ε", "e"
+    sub "έ", "e"
+    sub "έ", "e"
+    sub "ἐ", "e"
+    sub "ὲ", "e"
+    sub "ἒ", "e"
+    sub "ἔ", "e"
+    sub "ἑ", "he"
+    sub "ἓ", "he"
+    sub "ἕ", "he"
+    sub "ζ", "z"
+    sub "η", "ē"
+    sub "ή", "ē"
+    sub "ή", "ē"
+    sub "ἠ", "ē"
+    sub "ὴ", "ē"
+    sub "ῆ", "ē"
+    sub "ἢ", "ē"
+    sub "ἤ", "ē"
+    sub "ἦ", "ē"
+    sub "ἡ", "hē"
+    sub "ἣ", "hē"
+    sub "ἥ", "hē"
+    sub "ἧ", "hē"
+    sub "ῃ", "ē"
+    sub "ᾐ", "ē"
+    sub "ῂ", "ē"
+    sub "ῄ", "ē"
+    sub "ῇ", "ē"
+    sub "ᾒ", "ē"
+    sub "ᾔ", "ē"
+    sub "ᾖ", "ē"
+    sub "ᾑ", "hē"
+    sub "ᾓ", "hē"
+    sub "ᾕ", "hē"
+    sub "ᾗ", "hē"
+    sub "θ", "th"
+    sub "ϑ", "th"
+    sub "ι", "i"
+    sub "ί", "i"
+    sub "ί", "i"
+    sub "ἰ", "i"
+    sub "ὶ", "i"
+    sub "ῐ", "i"
+    sub "ῑ", "i"
+    sub "ῖ", "i"
+    sub "ἲ", "i"
+    sub "ἴ", "i"
+    sub "ἶ", "i"
+    sub "ἱ", "hi"
+    sub "ἳ", "hi"
+    sub "ἵ", "hi"
+    sub "ἷ", "hi"
+    sub "κ", "k"
+    sub "λ", "l"
+    sub "μ", "m"
+    sub "ν", "n"
+    sub "ξ", "x"
+    sub "ο", "o"
+    sub "ό", "o"
+    sub "ό", "o"
+    sub "ό", "o"
+    sub "ὀ", "o"
+    sub "ὸ", "o"
+    sub "ὂ", "o"
+    sub "ὄ", "o"
+    sub "ὁ", "ho"
+    sub "ὃ", "ho"
+    sub "ὅ", "ho"
+    sub "π", "p"
+    sub "ρ", "r"
+    sub "ῤ", "r"
+    sub "ῥ", "rh"
+    sub "σ", "s"
+    sub "ς", "s"
+    sub "τ", "t"
+    sub "υ", "y"
+    sub "ύ", "y"
+    sub "ύ", "y"
+    sub "ὐ", "y"
+    sub "ὺ", "y"
+    sub "ῠ", "y"
+    sub "ῡ", "y"
+    sub "ῦ", "y"
+    sub "ὒ", "y"
+    sub "ὔ", "y"
+    sub "ὖ", "y"
+    sub "ὑ", "hy"
+    sub "ὓ", "hy"
+    sub "ὕ", "hy"
+    sub "ὗ", "hy"
+    sub "φ", "ph"
+    sub "χ", "ch"
+    sub "ψ", "ps"
+    sub "ω", "ō"
+    sub "ώ", "ō"
+    sub "ὠ", "ō"
+    sub "ὼ", "ō"
+    sub "ῶ", "ō"
+    sub "ὢ", "ō"
+    sub "ὤ", "ō"
+    sub "ὦ", "ō"
+    sub "ὡ", "hō"
+    sub "ὣ", "hō"
+    sub "ὥ", "hō"
+    sub "ὧ", "hō"
+    sub "ῳ", "ō"
+    sub "ᾠ", "ō"
+    sub "ῲ", "ō"
+    sub "ῴ", "ō"
+    sub "ῷ", "ō"
+    sub "ᾢ", "ō"
+    sub "ᾤ", "ō"
+    sub "ᾦ", "ō"
+    sub "ᾡ", "hō"
+    sub "ᾣ", "hō"
+    sub "ᾥ", "hō"
+    sub "ᾧ", "hō"
+    sub "ϊ", "ï"
+    sub "ϋ", "ÿ"
+    sub "ΐ", "ï"
+    sub "ῒ", "ï"
+    sub "ῗ", "ï"
+    sub "ΰ", "ÿ"
+    sub "ῢ", "ÿ"
+    sub "ῧ", "ÿ"
 
-    "Α": "A"
-    "Ά": "A"
-    "Ὰ": "A"
-    "Ᾰ": "A"
-    "Ᾱ": "A"
-    "Ἀ": "A"
-    "Ἄ": "A"
-    "Ἆ": "A"
-    "Ἁ": "Ha"
-    "Ἅ": "Ha"
-    "Ἃ": "Ha"
-    "Ἇ": "Ha"
-    "ᾼ": "A"
-    "ᾈ": "A"
-    "ᾊ": "A"
-    "ᾌ": "A"
-    "ᾎ": "A"
-    "ᾉ": "Ha"
-    "ᾋ": "Ha"
-    "ᾍ": "Ha"
-    "ᾏ": "Ha"
-    "Β": "B"
-    "Γ": "G"
-    "Δ": "D"
-    "Ε": "E"
-    "Έ": "E"
-    "Ἐ": "E"
-    "Ὲ": "E"
-    "Ἒ": "E"
-    "Ἔ": "E"
-    "Ἑ": "He"
-    "Ἓ": "He"
-    "Ἕ": "He"
-    "Ζ": "Z"
-    "Η": "Ē"
-    "Ή": "Ē"
-    "Ἠ": "Ē"
-    "Ὴ": "Ē"
-    "Ἢ": "Ē"
-    "Ἤ": "Ē"
-    "Ἦ": "Ē"
-    "Ἡ": "Hē"
-    "Ἣ": "Hē"
-    "Ἥ": "Hē"
-    "Ἧ": "Hē"
-    "ῌ": "Ē"
-    "ᾘ": "Ē"
-    "ᾚ": "Ē"
-    "ᾜ": "Ē"
-    "ᾞ": "Ē"
-    "ᾙ": "Hē"
-    "ᾛ": "Hē"
-    "ᾝ": "Hē"
-    "ᾟ": "Hē"
-    "Θ": "Th"
-    "Ι": "I"
-    "Ί": "I"
-    "Ῐ": "I"
-    "Ῑ": "I"
-    "Ἰ": "I"
-    "Ὶ": "I"
-    "Ἲ": "I"
-    "Ἴ": "I"
-    "Ἶ": "I"
-    "Ἱ": "Hi"
-    "Ἳ": "Hi"
-    "Ἵ": "Hi"
-    "Ἷ": "Hi"
-    "Κ": "K"
-    "Λ": "L"
-    "Μ": "M"
-    "Ν": "N"
-    "Ξ": "X"
-    "Ο": "O"
-    "Ό": "O"
-    "Ὀ": "O"
-    "Ὸ": "O"
-    "Ὂ": "O"
-    "Ὄ": "O"
-    "Ὁ": "Ho"
-    "Ὃ": "Ho"
-    "Ὅ": "Ho"
-    "Π": "P"
-    "Ρ": "R"
-    "Ῥ": "Rh"
-    "Σ": "S"
-    "Τ": "T"
-    "Υ": "Y"
-    "Ύ": "Y"
-    "Ὺ": "Y"
-    "Ῠ": "Y"
-    "Ῡ": "Y"
-    "Ὑ": "Hy"
-    "Ὓ": "Hy"
-    "Ὕ": "Hy"
-    "Ὗ": "Hy"
-    "Φ": "Ph"
-    "Χ": "Ch"
-    "Ψ": "Ps"
-    "Ω": "Ō"
-    "Ώ": "Ō"
-    "Ὠ": "Ō"
-    "Ὼ": "Ō"
-    "Ὢ": "Ō"
-    "Ὤ": "Ō"
-    "Ὦ": "Ō"
-    "Ὡ": "Hō"
-    "Ὣ": "Hō"
-    "Ὥ": "Hō"
-    "Ὧ": "Hō"
-    "ῼ": "Ō"
-    "ᾨ": "Ō"
-    "ᾪ": "Ō"
-    "ᾬ": "Ō"
-    "ᾮ": "Ō"
-    "ᾩ": "Hō"
-    "ᾫ": "Hō"
-    "ᾭ": "Hō"
-    "ᾯ": "Hō"
-    "Ϊ": "Ï"
-    "Ϋ": "Ÿ"
+    sub "Ϝ", "W"
+    sub "ϝ", "w"
+    sub "ϲ", "s"
+    sub "Ϲ", "S"
 
-    "α": "a"
-    "ά": "a"
-    "ά": "a"
-    "ἀ": "a"
-    "ὰ": "a"
-    "ᾰ": "a"
-    "ᾱ": "a"
-    "ᾶ": "a"
-    "ἂ": "a"
-    "ἄ": "a"
-    "ἆ": "a"
-    "ἁ": "ha"
-    "ἃ": "ha"
-    "ἅ": "ha"
-    "ἇ": "ha"
-    "ᾳ": "a"
-    "ᾲ": "a"
-    "ᾴ": "a"
-    "ᾷ": "a"
-    "ᾀ": "a"
-    "ᾂ": "a"
-    "ᾄ": "a"
-    "ᾆ": "a"
-    "ᾁ": "ha"
-    "ᾃ": "ha"
-    "ᾅ": "ha"
-    "ᾇ": "ha"
-    "β": "b"
-    "γ": "g"
-    "δ": "d"
-    "ε": "e"
-    "έ": "e"
-    "έ": "e"
-    "ἐ": "e"
-    "ὲ": "e"
-    "ἒ": "e"
-    "ἔ": "e"
-    "ἑ": "he"
-    "ἓ": "he"
-    "ἕ": "he"
-    "ζ": "z"
-    "η": "ē"
-    "ή": "ē"
-    "ή": "ē"
-    "ἠ": "ē"
-    "ὴ": "ē"
-    "ῆ": "ē"
-    "ἢ": "ē"
-    "ἤ": "ē"
-    "ἦ": "ē"
-    "ἡ": "hē"
-    "ἣ": "hē"
-    "ἥ": "hē"
-    "ἧ": "hē"
-    "ῃ": "ē"
-    "ᾐ": "ē"
-    "ῂ": "ē"
-    "ῄ": "ē"
-    "ῇ": "ē"
-    "ᾒ": "ē"
-    "ᾔ": "ē"
-    "ᾖ": "ē"
-    "ᾑ": "hē"
-    "ᾓ": "hē"
-    "ᾕ": "hē"
-    "ᾗ": "hē"
-    "θ": "th"
-    "ϑ": "th"
-    "ι": "i"
-    "ί": "i"
-    "ί": "i"
-    "ἰ": "i"
-    "ὶ": "i"
-    "ῐ": "i"
-    "ῑ": "i"
-    "ῖ": "i"
-    "ἲ": "i"
-    "ἴ": "i"
-    "ἶ": "i"
-    "ἱ": "hi"
-    "ἳ": "hi"
-    "ἵ": "hi"
-    "ἷ": "hi"
-    "κ": "k"
-    "λ": "l"
-    "μ": "m"
-    "ν": "n"
-    "ξ": "x"
-    "ο": "o"
-    "ό": "o"
-    "ό": "o"
-    "ό": "o"
-    "ὀ": "o"
-    "ὸ": "o"
-    "ὂ": "o"
-    "ὄ": "o"
-    "ὁ": "ho"
-    "ὃ": "ho"
-    "ὅ": "ho"
-    "π": "p"
-    "ρ": "r"
-    "ῤ": "r"
-    "ῥ": "rh"
-    "σ": "s"
-    "ς": "s"
-    "τ": "t"
-    "υ": "y"
-    "ύ": "y"
-    "ύ": "y"
-    "ὐ": "y"
-    "ὺ": "y"
-    "ῠ": "y"
-    "ῡ": "y"
-    "ῦ": "y"
-    "ὒ": "y"
-    "ὔ": "y"
-    "ὖ": "y"
-    "ὑ": "hy"
-    "ὓ": "hy"
-    "ὕ": "hy"
-    "ὗ": "hy"
-    "φ": "ph"
-    "χ": "ch"
-    "ψ": "ps"
-    "ω": "ō"
-    "ώ": "ō"
-    "ὠ": "ō"
-    "ὼ": "ō"
-    "ῶ": "ō"
-    "ὢ": "ō"
-    "ὤ": "ō"
-    "ὦ": "ō"
-    "ὡ": "hō"
-    "ὣ": "hō"
-    "ὥ": "hō"
-    "ὧ": "hō"
-    "ῳ": "ō"
-    "ᾠ": "ō"
-    "ῲ": "ō"
-    "ῴ": "ō"
-    "ῷ": "ō"
-    "ᾢ": "ō"
-    "ᾤ": "ō"
-    "ᾦ": "ō"
-    "ᾡ": "hō"
-    "ᾣ": "hō"
-    "ᾥ": "hō"
-    "ᾧ": "hō"
-    "ϊ": "ï"
-    "ϋ": "ÿ"
-    "ΐ": "ï"
-    "ῒ": "ï"
-    "ῗ": "ï"
-    "ΰ": "ÿ"
-    "ῢ": "ÿ"
-    "ῧ": "ÿ"
+    sub "·", ";"
+    sub "·", ";"
+  }
 
-    "Ϝ": "W"
-    "ϝ": "w"
-    "ϲ": "s"
-    "Ϲ": "S"
+  # POSTRULES
+  sub any("Hh"), "", before: any("AEIOUYĒŌaeiouyēō")
 
-    "·": ";"
-    "·": ";"
+  sub any(["Th", "Ch", "Ps"]), upcase, before: any("A".."Z")
+  sub any(["Th", "Ch", "Ps"]), upcase, after: any("A".."Z")
+}

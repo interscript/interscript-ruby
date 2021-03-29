@@ -1,63 +1,58 @@
----
-authority_id: alalc
-id: 2011
-language: iso-639-2:kan
-source_script: Kana
-destination_script: Latn
-name: Kannada Romanization, 2011
-url: http://catdir.loc.gov/catdir/cpso/romanization/kannada.pdf
-creation_date: 2011
-description: |
-  ALA-LC Romanization table for Kannada
+metadata {
+  authority_id: alalc
+  id: 2011
+  language: iso-639-2:kan
+  source_script: Kana
+  destination_script: Latn
+  name: Kannada Romanization, 2011
+  url: http://catdir.loc.gov/catdir/cpso/romanization/kannada.pdf
+  creation_date: 2011
+  description: |
+    ALA-LC Romanization table for Kannada
 
-notes:
+  notes:
 
-  - Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for
-    vowels following a consonant can be found in grammars; no distinction between the two is
-    made in transliteration.
+    - Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for
+      vowels following a consonant can be found in grammars; no distinction between the two is
+      made in transliteration.
 
-  - |
-    The vowel a is implicit after all consonants and consonant clusters and is supplied in
-    transliteration, with the following exceptions:
+    - |
+      The vowel a is implicit after all consonants and consonant clusters and is supplied in
+      transliteration, with the following exceptions:
 
-    a) when another vowel is indicated by its appropriate sign; and
-    b) when the absence of any vowel is indicated by the superscript sign (◌್).
+      a) when another vowel is indicated by its appropriate sign; and
+      b) when the absence of any vowel is indicated by the superscript sign (◌್).
 
-  - |
-    Exception: Anusvāra is transliterated by:
+    - |
+      Exception: Anusvāra is transliterated by:
 
-    a) ṅ before gutturals,
-    b) ñ before palatals,
-    c) ṇ before cerebrals,
-    d) n before dentals, and
-    e) m before labials.
+      a) ṅ before gutturals,
+      b) ñ before palatals,
+      c) ṇ before cerebrals,
+      d) n before dentals, and
+      e) m before labials.
+}
 
+tests {
+  test "ಕರ್ಣಾಟಕ", "karṇāṭaka"
+  test "ಬೆಂಗಳೂರು", "beṅgaḷūru"
+  test "ಭಾರತದಲ್ಲಿ ಗಾಳಿ ಕಲುಷಿತವಾಗಿದೆ: ಹವಾಮಾನ ಬದಲಾವಣೆ ಸಮರ್ಥನೆಗೆ ಭಾರತವನ್ನು ಟೀಕಿಸಿದ ಟ್ರಂಪ್", "bhāratadalli gāḷi kaluṣitavāgide: havāmāna badalāvaṇe samarthanege bhāratavannu ṭīkisida ṭraṃp"
+  test "ಅಮೆರಿಕ ಅಧ್ಯಕ್ಷೀಯ ಚುನಾವಣೆ ಅಂತಿಮ ಚರ್ಚೆ: ಭಾರತದ ವಿರುದ್ಧ ಟ್ರಂಪ್ ಆರೋಪವೇನು?!", "amerika adhyakṣīya cunāvaṇe aṃtima carce: bhāratada viruddha ṭraṃp ārōpavēnu?!"
+  test "ಹೇಗಿದೆ ಅಮೆರಿಕನ್‌ ಚುನಾವಣ ಕಣ?", "hēgide amerikan cunāvaṇa kaṇa?"
+  test "ಫ್ರೀಜರ್ ನಲ್ಲಿಟ್ಟ ನೂಡಲ್ಸ್ ತಿಂದು ಒಂದೇ ಕುಟುಂಬದ ೯ ಮಂದಿ ಸಾವು: ೩ ಮಕ್ಕಳು ಅಪಾಯದಿಂದ ಪಾರು", "phrījar nalliṭṭa nūḍals tiṃdu oṃdē kuṭuṃbada 9 maṃdi sāvu: 3 makkaḷu apāyadinda pāru"
+  test "ಉಡುಪಿಯಲ್ಲಿ ಪ್ರಪ್ರಥಮ ಬಾರಿಗೆ ಪ್ರಾರಂಭವಾಗಿರುವ ದೇಶಿ ಉತ್ಪನ್ನಗಳ ಮಳಿಗೆ", "uḍupiyalli praprathama bārige prāraṃbhavāgiruva dēśi utpannagaḷa maḷige"
+  test "ಚಿಕ್ಕಮಗಳೂರು : ಪುಷ್ಪ ಸಮರ್ಪಣೆ ವೇಳೆ ಮಗಳನ್ನ ನೆನೆದು ಕಣ್ಣೀರಿಟ್ಟ ಮೃತ ಪೇದೆ ತಾಯಿ", "cikkamagaḷūru : puṣpa samarpaṇe vēḷe magaḷanna nenedu kaṇṇīriṭṭa mṛta pēde tāyi"
+  test "ಸಮಂಗಳೂರು: ಡ್ರಗ್ಸ್ ಜಾಗೃತಿ ಬರಹದಿಂದ ಗಮನಸೆಳೆಯುತ್ತಿದೆ ಸಿಟಿ ಬಸ್", "samaṅgaḷūru: ḍrags jāgṛti barahadinda gamanaseḷeyuttide siṭi bas"
+  test "ಪುರಸಭೆ, ಪಪಂ ಅಧ್ಯಕ್ಷ-ಉಪಾಧ್ಯಕ್ಷ ಚುನಾವಣೆಗೆ ಹೈಕೋರ್ಟ್‌ ಅಸ್ತು", "purasabhe, papaṃ adhyakṣa-upādhyakṣa cunāvaṇege haikōrṭ astu"
+  test "ಅಮೆರಿಕ ಅಧ್ಯಕ್ಷೀಯ ಚುನಾವಣೆ ಅಂತಿಮ ಚರ್ಚೆ: ಭಾರತದ ವಿರುದ್ಧ ಟ್ರಂಪ್ ಆರೋಪವೇನು?", "amerika adhyakṣīya cunāvaṇe aṃtima carce: bhāratada viruddha ṭraṃp ārōpavēnu?"
+  test "ಮನೆ ಕುಸಿದು ತಂದೆ ಮತ್ತು ಮಗ ಸಾವು, ಇನ್ನಿಬ್ಬರಿಗೆ ಗಾಯ: ಸ್ಥಳಕ್ಕೆ ಶಾಸಕರ ಭೇಟಿ", "mane kusidu taṃde mattu maga sāvu, innibbarige gāya: sthaḷakke śāsakara bhēṭi"
+}
 
-tests:
-  - source: "ಕರ್ಣಾಟಕ"
-    expected: "karṇāṭaka"
-  - source: "ಬೆಂಗಳೂರು"
-    expected: "beṅgaḷūru"
-  - source: "ಭಾರತದಲ್ಲಿ ಗಾಳಿ ಕಲುಷಿತವಾಗಿದೆ: ಹವಾಮಾನ ಬದಲಾವಣೆ ಸಮರ್ಥನೆಗೆ ಭಾರತವನ್ನು ಟೀಕಿಸಿದ ಟ್ರಂಪ್"
-    expected: "bhāratadalli gāḷi kaluṣitavāgide: havāmāna badalāvaṇe samarthanege bhāratavannu ṭīkisida ṭraṃp"
-  - source: "ಅಮೆರಿಕ ಅಧ್ಯಕ್ಷೀಯ ಚುನಾವಣೆ ಅಂತಿಮ ಚರ್ಚೆ: ಭಾರತದ ವಿರುದ್ಧ ಟ್ರಂಪ್ ಆರೋಪವೇನು?!"
-    expected: "amerika adhyakṣīya cunāvaṇe aṃtima carce: bhāratada viruddha ṭraṃp ārōpavēnu?!"
-  - source: "ಹೇಗಿದೆ ಅಮೆರಿಕನ್‌ ಚುನಾವಣ ಕಣ?"
-    expected: "hēgide amerikan cunāvaṇa kaṇa?"
-  - source: "ಫ್ರೀಜರ್ ನಲ್ಲಿಟ್ಟ ನೂಡಲ್ಸ್ ತಿಂದು ಒಂದೇ ಕುಟುಂಬದ ೯ ಮಂದಿ ಸಾವು: ೩ ಮಕ್ಕಳು ಅಪಾಯದಿಂದ ಪಾರು"
-    expected: "phrījar nalliṭṭa nūḍals tiṃdu oṃdē kuṭuṃbada 9 maṃdi sāvu: 3 makkaḷu apāyadinda pāru"
-  - source: "ಉಡುಪಿಯಲ್ಲಿ ಪ್ರಪ್ರಥಮ ಬಾರಿಗೆ ಪ್ರಾರಂಭವಾಗಿರುವ ದೇಶಿ ಉತ್ಪನ್ನಗಳ ಮಳಿಗೆ"
-    expected: "uḍupiyalli praprathama bārige prāraṃbhavāgiruva dēśi utpannagaḷa maḷige"
-  - source: "ಚಿಕ್ಕಮಗಳೂರು : ಪುಷ್ಪ ಸಮರ್ಪಣೆ ವೇಳೆ ಮಗಳನ್ನ ನೆನೆದು ಕಣ್ಣೀರಿಟ್ಟ ಮೃತ ಪೇದೆ ತಾಯಿ"
-    expected: "cikkamagaḷūru : puṣpa samarpaṇe vēḷe magaḷanna nenedu kaṇṇīriṭṭa mṛta pēde tāyi"
-  - source: "ಸಮಂಗಳೂರು: ಡ್ರಗ್ಸ್ ಜಾಗೃತಿ ಬರಹದಿಂದ ಗಮನಸೆಳೆಯುತ್ತಿದೆ ಸಿಟಿ ಬಸ್"
-    expected: "samaṅgaḷūru: ḍrags jāgṛti barahadinda gamanaseḷeyuttide siṭi bas"
-  - source: "ಪುರಸಭೆ, ಪಪಂ ಅಧ್ಯಕ್ಷ-ಉಪಾಧ್ಯಕ್ಷ ಚುನಾವಣೆಗೆ ಹೈಕೋರ್ಟ್‌ ಅಸ್ತು"
-    expected: "purasabhe, papaṃ adhyakṣa-upādhyakṣa cunāvaṇege haikōrṭ astu"
-  - source: "ಅಮೆರಿಕ ಅಧ್ಯಕ್ಷೀಯ ಚುನಾವಣೆ ಅಂತಿಮ ಚರ್ಚೆ: ಭಾರತದ ವಿರುದ್ಧ ಟ್ರಂಪ್ ಆರೋಪವೇನು?"
-    expected: "amerika adhyakṣīya cunāvaṇe aṃtima carce: bhāratada viruddha ṭraṃp ārōpavēnu?"
-  - source: "ಮನೆ ಕುಸಿದು ತಂದೆ ಮತ್ತು ಮಗ ಸಾವು, ಇನ್ನಿಬ್ಬರಿಗೆ ಗಾಯ: ಸ್ಥಳಕ್ಕೆ ಶಾಸಕರ ಭೇಟಿ"
-    expected: "mane kusidu taṃde mattu maga sāvu, innibbarige gāya: sthaḷakke śāsakara bhēṭi"
+dependency "alalc-kan-Kana-Latn-1997", as: kanalatn
 
-map:
-  inherit: 'alalc-kan-Kana-Latn-1997'
+stage {
+
+  run map.kanalatn.stage.main
+
+}
+

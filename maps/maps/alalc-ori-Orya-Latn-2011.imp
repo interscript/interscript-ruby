@@ -1,67 +1,59 @@
----
-authority_id: alalc
-id: 2011
-language: iso-639-2:ori
-source_script: Orya
-destination_script: Latn
-name: Oriya Romanization, 2011
-alias:
-  ogc11122:
-    code: ori_Orya2Latn_ALA_2011
-    description: Oriya ALA-Library of Congress 2011 System
-url: https://www.loc.gov/catdir/cpso/romanization/oriya.pdf
-creation_date: 2011
-description: |
-  ALA-LC Romanization table for Oriya
+metadata {
+  authority_id: alalc
+  id: 2011
+  language: iso-639-2:ori
+  source_script: Orya
+  destination_script: Latn
+  name: Oriya Romanization, 2011
+  url: https://www.loc.gov/catdir/cpso/romanization/oriya.pdf
+  creation_date: 2011
+  description: |
+    ALA-LC Romanization table for Oriya
 
-notes:
-  - |
-    Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for vowels following a
-    consonant can be found in grammars; no distinction between the two is made in transliteration.
-  - |
-    The vowel a is implicit after all consonants and consonant clusters and is supplied in
-    transliteration, with the following exceptions:
-    a) when another vowel is indicated by its appropriate sign; and
-    b) when the absence of any vowel is indicated by the subscript sign ( ୍ ) called hasanta.
-  - |
-    ବ is used both as a labial and as a semivowel. When it occurs as the second consonant of a
-    consonant cluster, it is transliterated va. When ବ is doubled, it is transliterated bba.
-  - |
-    Exception: Anusvāra is transliterated by:
-      a) ṅ before gutturals,
-      b) ñ before palatals,
-      c) ṇ before cerebrals,
-      d) n before dentals, and
-      e) m before labials.
-  - |
-    Candrabindu before guttural, palatal, cerebral, and dental occlusives is transliterated n̐.
-    Before labials, sibilants, semivowels, the aspirate, vowels, and in final position it is
-    transliterated m̐.
-  - When doubled, abagraha is transliterated by two apostrophes ( ’’ ).
-tests:
-  - source: "ବିହାର ନିର୍ବାଚନ: ସନ୍ଧ୍ୟା ୬ଟା ସୁଦ୍ଧା ୫୩.୫୪ ପ୍ରତିଶତ ମତଦାନ"
-    expected: "bihāra nirbācana: sandhẏā 6ṭā suddhā 53.54 pratiśata matadāna"
-  - source: "ଡିସେମ୍ବର ସୁଦ୍ଧା ପ୍ରସ୍ତୁତ ହୋଇଯିବ ଅକ୍ସଫୋର୍ଡ କରୋନାଭାଇରସ୍ ଟିକା: ଅଦର ପୁନାୱାଲା"
-    expected: "ḍisembara suddhā prastuta heāiyiba aksapheārḍa kareānābhāiras ṭikā: adara punābālā"
-  - source: "କରୋନା ଆକ୍ରାନ୍ତ ହେଲେ କେନ୍ଦ୍ରମନ୍ତ୍ରୀ ସ୍ମୃତି ଇରାନୀ"
-    expected: "karonā ākrānta hele kendramantrī smṛti irānī"
-  - source: "ଆମେରିକା ଉପରେ ଉତ୍‌କ୍ଷିପ୍ତ ହୋଇ ଚୀନ୍ କହିଲା: ଭାରତ ସହ ଆମର ସୀମା ବିବାଦ ଦ୍ବିପାକ୍ଷିକ ମାମଲା"
-    expected: "āmerikā upare utkshipta heāi cīn kahilā: bhārata saha āmara sīmā bibāda dbipākshika māmalā"
-  - source: "ପରଲୋକରେ ଦକ୍ଷିଣ କୋରିଆର ସବୁଠୁ ଧନୀବ୍ୟକ୍ତି ‘ସାମ୍‌ସଙ୍ଗ୍’ ଅଧ୍ୟକ୍ଷ ଲି କୁନ୍-ହି; ଛାଡ଼ିଯାଇଛନ୍ତି ୨୧ ବିଲିୟନ୍ ଡଲାର୍‌ର ସାମ୍ରାଜ୍ୟ"
-    expected: "paraleākare dakshiṇa keāriāra sabuṭhu dhanībẏakti ‘sāmsaṅg’ adhẏaksha li kun-hi; chāṙiyāichanti 21 biliẏan ḍalārra sāmrājẏa"
-  - source: "ଉପନିର୍ବାଚନ ପାଇଁ ବାଲେଶ୍ୱରରେ ବିଜେଡିର ସମାବେଶ। (ଫଟୋ: ମନୋଜ ବିଶ୍ୱାଳ)"
-    expected: "upanirbācana pāim̐ bāleśwarare bijeḍira samābeśa. (phaṭo: manoja biśbāḷa)"
-  - source: "ନୂଆପଲ୍ଲୀ ଦୁର୍ଗାପୂଜା ମଣ୍ଡପ ବାହାରେ ମା’ଙ୍କୁ ପୂଜାର୍ଚ୍ଚନା କରୁଛନ୍ତି ଭକ୍ତ। (ଫଟୋ: ବିଭୂତି)"
-    expected: "nūāpallī durgāpūjā maṇḍapa bāhāre mā’ṅku pūjārccanā karuchanti bhakta. (phaṭo: bibhūti)"
-  - source: "ମା ଶାରଳାଙ୍କ ପୀଠରେ ଦଶମୀ ପୂଜା। (ଫଟୋ: ସୋମନାଥ, ଜଗତସିଂହପୁର ଟାଉନ୍‌)"
-    expected: "mā śāraḷāṅka pīṭhare daśamī pūjā. (phaṭo: somanātha, jagatasiṃhapura ṭāun)"
-  - source: "ଆଜି ବିହାରରେ ପ୍ରଥମ ପର୍ଯ୍ୟାୟ ଭୋଟ, ମହାମେଣ୍ଟ-ଏନ୍‌ଡିଏ କଡ଼ା ଟକ୍କର"
-    expected: "āji bihārare prathama paryẏāẏa bheāṭa, mahāmeṇṭa-enḍie kaṙā ṭakkara"
-  - source: "ନିର୍ବାଚନ ପ୍ରଚାରରୁ ଫେରି ନିଜ ଅଭିଜ୍ଞତା ବଖାଣି ଅମିଷା କହିଲେ, ‘କୌଣସି ପରିସ୍ଥିତିରେ ମୋର ସହିତ ଦୁଷ୍କର୍ମ ହେବାର ଆଶଙ୍କା ରହିଥିଲା’"
-    expected: "nirbācana pracāraru pheri nija abhijñatā bakhāṇi amishā kahile, ‘keୗṇasi paristhitire meāra sahita dushkarma hebāra āśaṅkā rahithilā’"
-  - source: "ବ୍ଲୁ ଫ୍ଲାଗ ବିଚ୍‌ରେ ଅଘଟଣ: ମା’ ଆଗରେ ସମୁଦ୍ରରେ ଭାସିଗଲେ ପୁଅ, ଖୋଜିବା ପାଇଁ ଲାଇଫଗାର୍ଡ ଟିମ୍‌ ନିୟୋଜିତ"
-    expected: "blu phlāga bicre aghaṭaṇa: mā’ āgare samudrare bhāsigale pua, kheājibā pāim̐ lāiphagārḍa ṭim niẏeājita"
+  notes:
+    - |
+      Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for vowels following a
+      consonant can be found in grammars; no distinction between the two is made in transliteration.
+    - |
+      The vowel a is implicit after all consonants and consonant clusters and is supplied in
+      transliteration, with the following exceptions:
+      a) when another vowel is indicated by its appropriate sign; and
+      b) when the absence of any vowel is indicated by the subscript sign ( ୍ ) called hasanta.
+    - |
+      ବ is used both as a labial and as a semivowel. When it occurs as the second consonant of a
+      consonant cluster, it is transliterated va. When ବ is doubled, it is transliterated bba.
+    - |
+      Exception: Anusvāra is transliterated by:
+        a) ṅ before gutturals,
+        b) ñ before palatals,
+        c) ṇ before cerebrals,
+        d) n before dentals, and
+        e) m before labials.
+    - |
+      Candrabindu before guttural, palatal, cerebral, and dental occlusives is transliterated n̐.
+      Before labials, sibilants, semivowels, the aspirate, vowels, and in final position it is
+      transliterated m̐.
+    - When doubled, abagraha is transliterated by two apostrophes ( ’’ ).
+}
 
-map:
+tests {
+  test "ବିହାର ନିର୍ବାଚନ: ସନ୍ଧ୍ୟା ୬ଟା ସୁଦ୍ଧା ୫୩.୫୪ ପ୍ରତିଶତ ମତଦାନ", "bihāra nirbācana: sandhẏā 6ṭā suddhā 53.54 pratiśata matadāna"
+  test "ଡିସେମ୍ବର ସୁଦ୍ଧା ପ୍ରସ୍ତୁତ ହୋଇଯିବ ଅକ୍ସଫୋର୍ଡ କରୋନାଭାଇରସ୍ ଟିକା: ଅଦର ପୁନାୱାଲା", "ḍisembara suddhā prastuta heāiyiba aksapheārḍa kareānābhāiras ṭikā: adara punābālā"
+  test "କରୋନା ଆକ୍ରାନ୍ତ ହେଲେ କେନ୍ଦ୍ରମନ୍ତ୍ରୀ ସ୍ମୃତି ଇରାନୀ", "karonā ākrānta hele kendramantrī smṛti irānī"
+  test "ଆମେରିକା ଉପରେ ଉତ୍‌କ୍ଷିପ୍ତ ହୋଇ ଚୀନ୍ କହିଲା: ଭାରତ ସହ ଆମର ସୀମା ବିବାଦ ଦ୍ବିପାକ୍ଷିକ ମାମଲା", "āmerikā upare utkshipta heāi cīn kahilā: bhārata saha āmara sīmā bibāda dbipākshika māmalā"
+  test "ପରଲୋକରେ ଦକ୍ଷିଣ କୋରିଆର ସବୁଠୁ ଧନୀବ୍ୟକ୍ତି ‘ସାମ୍‌ସଙ୍ଗ୍’ ଅଧ୍ୟକ୍ଷ ଲି କୁନ୍-ହି; ଛାଡ଼ିଯାଇଛନ୍ତି ୨୧ ବିଲିୟନ୍ ଡଲାର୍‌ର ସାମ୍ରାଜ୍ୟ", "paraleākare dakshiṇa keāriāra sabuṭhu dhanībẏakti ‘sāmsaṅg’ adhẏaksha li kun-hi; chāṙiyāichanti 21 biliẏan ḍalārra sāmrājẏa"
+  test "ଉପନିର୍ବାଚନ ପାଇଁ ବାଲେଶ୍ୱରରେ ବିଜେଡିର ସମାବେଶ। (ଫଟୋ: ମନୋଜ ବିଶ୍ୱାଳ)", "upanirbācana pāim̐ bāleśwarare bijeḍira samābeśa. (phaṭo: manoja biśbāḷa)"
+  test "ନୂଆପଲ୍ଲୀ ଦୁର୍ଗାପୂଜା ମଣ୍ଡପ ବାହାରେ ମା’ଙ୍କୁ ପୂଜାର୍ଚ୍ଚନା କରୁଛନ୍ତି ଭକ୍ତ। (ଫଟୋ: ବିଭୂତି)", "nūāpallī durgāpūjā maṇḍapa bāhāre mā’ṅku pūjārccanā karuchanti bhakta. (phaṭo: bibhūti)"
+  test "ମା ଶାରଳାଙ୍କ ପୀଠରେ ଦଶମୀ ପୂଜା। (ଫଟୋ: ସୋମନାଥ, ଜଗତସିଂହପୁର ଟାଉନ୍‌)", "mā śāraḷāṅka pīṭhare daśamī pūjā. (phaṭo: somanātha, jagatasiṃhapura ṭāun)"
+  test "ଆଜି ବିହାରରେ ପ୍ରଥମ ପର୍ଯ୍ୟାୟ ଭୋଟ, ମହାମେଣ୍ଟ-ଏନ୍‌ଡିଏ କଡ଼ା ଟକ୍କର", "āji bihārare prathama paryẏāẏa bheāṭa, mahāmeṇṭa-enḍie kaṙā ṭakkara"
+  test "ନିର୍ବାଚନ ପ୍ରଚାରରୁ ଫେରି ନିଜ ଅଭିଜ୍ଞତା ବଖାଣି ଅମିଷା କହିଲେ, ‘କୌଣସି ପରିସ୍ଥିତିରେ ମୋର ସହିତ ଦୁଷ୍କର୍ମ ହେବାର ଆଶଙ୍କା ରହିଥିଲା’", "nirbācana pracāraru pheri nija abhijñatā bakhāṇi amishā kahile, ‘keୗṇasi paristhitire meāra sahita dushkarma hebāra āśaṅkā rahithilā’"
+  test "ବ୍ଲୁ ଫ୍ଲାଗ ବିଚ୍‌ରେ ଅଘଟଣ: ମା’ ଆଗରେ ସମୁଦ୍ରରେ ଭାସିଗଲେ ପୁଅ, ଖୋଜିବା ପାଇଁ ଲାଇଫଗାର୍ଡ ଟିମ୍‌ ନିୟୋଜିତ", "blu phlāga bicre aghaṭaṇa: mā’ āgare samudrare bhāsigale pua, kheājibā pāim̐ lāiphagārḍa ṭim niẏeājita"
+}
 
-  inherit: alalc-ori-Orya-Latn-1997
+dependency "alalc-ori-Orya-Latn-1997", as: oryalatn
+
+stage {
+
+  run map.oryalatn.stage.main
+
+}

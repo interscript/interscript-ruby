@@ -1,159 +1,155 @@
----
-authority_id: ungegn
-id: 1972
-language: iso-639-2:ara
-source_script: Arab
-destination_script: Latn
-name: ROMANIZATION OF ARABIC -- UNGEGN 1972 System
-url: http://www.eki.ee/wgrs/obs_rom_vers/rom1_ar_v4_0.pdf
-creation_date: 1972
-confirmation date: 2018-06
-description: |
-  The United Nations recommended romanization
-  system was approved in 1972 (resolution II/8),
-  based on the system adopted by Arabic experts at
-  the conference held at Beirut in 1971 with the
-  practical amendments carried out and agreed upon
-  by the representatives of the Arabic-speaking
-  countries at their conference. The table was
-  published in volume II of the conference report1
-  . In the UN resolution it was specifically
-  pointed out that the system was recommended "for
-  the romanization of the geographical names within
-  those Arabic-speaking countries where this system
-  is officially acknowledged". It cannot be
-  definitely ascertained which of the
-  Arabicspeaking countries have adopted this system
-  officially, especially since 2007 when there are
-  efforts by the Arabic Division to promote a
-  modification of the UN system (ADEGN
-  romanization, see the section on other
-  romanization systems below), with varying
-  success2 . Judging by the use of names in
-  international cartographic products which rely
-  mostly on national sources it appears that the UN
-  system or its modification is more or less
-  current in Iraq, Kuwait, Libya, Saudi Arabia3 ,
-  United Arab Emirates and Yemen, there and in some
-  other countries the system is often used without
-  diacritical marks. For the geographical names of
-  the Syrian Arab Republic international maps
-  favour the UN system while the local usage seems
-  to prefer a French-oriented romanization. Also in
-  Egypt and Sudan there exist local romanization
-  schemes or practices side by side with the UN
-  system. The geographical names of Algeria,
-  Djibouti, Mauritania, Morocco and Tunisia are
-  generally rendered in the traditional manner
-  which conforms to the principles of the French
-  orthography. Resolution 7 of the Seventh UN
-  Conference on the Standardization of Geographical
-  Names (1998) recommended that "the League of Arab
-  States should, through its specialized
-  structures, continue its efforts to organize a
-  conference with a view to considering the
-  difficulties encountered in applying the amended
-  Beirut system of 1972 for the romanization of
-  Arabic script, and submit, as soon as possible, a
-  solution to the United Nations Group of Experts
-  on Geographical Names". At the Eighth UN
-  Conference on the Standardization of Geographical
-  Names (2002), the Arabic Division of the UN Group
-  of Experts announced that it had finalised
-  proposed modifications to the UN recommended
-  romanization system. These proposals would be
-  submitted to the League of Arab States for
-  approval. Arabic is written from right to left.
-  The Arabic script usually omits vowel points and
-  diacritical marks from writing which makes it
-  difficult to obtain uniform results in the
-  romanization of Arabic. It is essential to
-  identify correctly the words which appear in any
-  particular name and to know the standard Arabic-
-  script spelling including proper pointing. One
-  must also take into account dialectal and
-  idiosyncratic deviations. The romanization is
-  generally reversible though there are some
-  ambiguous letter sequences (dh, kh, sh, th) which
-  may also point to combinations of Arabic
-  characters in addition to the respective single
-  characters.
-notes:
-  - |
-    The previous UN 1972 System had the following differences:
-    the character (ظ) was romanized as z̧ instead of d͟h;
-    ح, ص, ض the cedilla (¸) was used instead of sub-macron (_) in all characters with sub-macrons.  - |
-    When the definite article al precedes a word beginning with one of the "sun letters" (t,
-    th, d, dh, r, z, s, sh, ş, ḑ, ţ, z, l, n ̧ ) the l of the definite article is assimilated with the first
-    consonant of the word: ash-Sh الشارقة āriqah.
+metadata {
+  authority_id: ungegn
+  id: 1972
+  language: iso-639-2:ara
+  source_script: Arab
+  destination_script: Latn
+  name: ROMANIZATION OF ARABIC -- UNGEGN 1972 System
+  url: http://www.eki.ee/wgrs/obs_rom_vers/rom1_ar_v4_0.pdf
+  creation_date: 1972
+  confirmation_date: 2018-06
+  description: |
+    The United Nations recommended romanization
+    system was approved in 1972 (resolution II/8),
+    based on the system adopted by Arabic experts at
+    the conference held at Beirut in 1971 with the
+    practical amendments carried out and agreed upon
+    by the representatives of the Arabic-speaking
+    countries at their conference. The table was
+    published in volume II of the conference report1
+    . In the UN resolution it was specifically
+    pointed out that the system was recommended "for
+    the romanization of the geographical names within
+    those Arabic-speaking countries where this system
+    is officially acknowledged". It cannot be
+    definitely ascertained which of the
+    Arabicspeaking countries have adopted this system
+    officially, especially since 2007 when there are
+    efforts by the Arabic Division to promote a
+    modification of the UN system (ADEGN
+    romanization, see the section on other
+    romanization systems below), with varying
+    success2 . Judging by the use of names in
+    international cartographic products which rely
+    mostly on national sources it appears that the UN
+    system or its modification is more or less
+    current in Iraq, Kuwait, Libya, Saudi Arabia3 ,
+    United Arab Emirates and Yemen, there and in some
+    other countries the system is often used without
+    diacritical marks. For the geographical names of
+    the Syrian Arab Republic international maps
+    favour the UN system while the local usage seems
+    to prefer a French-oriented romanization. Also in
+    Egypt and Sudan there exist local romanization
+    schemes or practices side by side with the UN
+    system. The geographical names of Algeria,
+    Djibouti, Mauritania, Morocco and Tunisia are
+    generally rendered in the traditional manner
+    which conforms to the principles of the French
+    orthography. Resolution 7 of the Seventh UN
+    Conference on the Standardization of Geographical
+    Names (1998) recommended that "the League of Arab
+    States should, through its specialized
+    structures, continue its efforts to organize a
+    conference with a view to considering the
+    difficulties encountered in applying the amended
+    Beirut system of 1972 for the romanization of
+    Arabic script, and submit, as soon as possible, a
+    solution to the United Nations Group of Experts
+    on Geographical Names". At the Eighth UN
+    Conference on the Standardization of Geographical
+    Names (2002), the Arabic Division of the UN Group
+    of Experts announced that it had finalised
+    proposed modifications to the UN recommended
+    romanization system. These proposals would be
+    submitted to the League of Arab States for
+    approval. Arabic is written from right to left.
+    The Arabic script usually omits vowel points and
+    diacritical marks from writing which makes it
+    difficult to obtain uniform results in the
+    romanization of Arabic. It is essential to
+    identify correctly the words which appear in any
+    particular name and to know the standard Arabic-
+    script spelling including proper pointing. One
+    must also take into account dialectal and
+    idiosyncratic deviations. The romanization is
+    generally reversible though there are some
+    ambiguous letter sequences (dh, kh, sh, th) which
+    may also point to combinations of Arabic
+    characters in addition to the respective single
+    characters.
+  notes:
+    - |
+      The previous UN 1972 System had the following differences:
+      the character (ظ) was romanized as z̧ instead of d͟h;
+      ح, ص, ض the cedilla (¸) was used instead of sub-macron (_) in all characters with sub-macrons.  - |
+      When the definite article al precedes a word beginning with one of the "sun letters" (t,
+      th, d, dh, r, z, s, sh, ş, ḑ, ţ, z, l, n ̧ ) the l of the definite article is assimilated with the first
+      consonant of the word: ash-Sh الشارقة āriqah.
+}
 
-
-tests:
-
+tests {
   # Examples taken from:
   # https://unstats.un.org/unsd/geoinfo/geonames/
+  test "مِصر", "Mişr"
+  test "قَطَر", "Qaţar"
+  test "الجُمهُورِيَّة العِراقِيَّة", "Al Jumhūrīyah al ‘Irāqīyah"
+  test "جُمهُورِيَّة مِصر العَرَبِيَّة", "Jumhūrīyat Mişr al ‘Arabīyah"
+  test "الرِيَاض", "Ar Riyāḑ"
+  test "الشارِقة", "Ash Shāriqah"
+}
 
-  - source: مِصر
-    expected: Mişr
+dependency "un-ara-Arab-Latn-2017", as: arablatn
 
-  - source: قَطَر
-    expected: Qaţar
+stage {
 
-  - source: الجُمهُورِيَّة العِراقِيَّة
-    expected: Al Jumhūrīyah al ‘Irāqīyah
 
-  - source: جُمهُورِيَّة مِصر العَرَبِيَّة
-    expected: Jumhūrīyat Mişr al ‘Arabīyah
+  # CHARACTERS
+  parallel {
 
-  - source: الرِيَاض
-    expected: Ar Riyāḑ
+    sub boundary + "\u0627\u0644\u0635", "aş ş" # الص
+    sub boundary + "\u0627\u0644\u0636", "aḑ ḑ" # الض
+    sub boundary + "\u0627\u0644\u0637", "aţ ţ" # الط
 
-  - source: الشارِقة
-    expected: Ash Shāriqah
+    sub "\u062d\u0651", "ḩḩ" # ح
+    sub "\u0635\u0651", "şş" # ص
+    sub "\u0636\u0651", "ḑḑ" # ض
+    sub "\u0637\u0651", "ţţ" # ط
+    sub "\u0638\u0651", "z̧z̧" # ظ
 
-map:
-  inherit: "un-ara-Arab-Latn-2017"
-  postrules:
-    - pattern : ' Aş Ş'  # الص
-      result: ' aş Ş'
-    - pattern : ' Aḑ Ḑ'  # الض
-      result: ' aḑ Ḑ'
-    - pattern : ' Aţ Ţ'  # الط
-      result: ' aţ Ţ'
+    sub "\u062d", "ḩ" # ح
+    sub "\ufea3", "ḩ" # ﺣ
+    sub "\ufea4", "ḩ" # ﺤ
+    sub "\ufea2", "ḩ" # ﺢ
 
-  characters:
+    sub "\u0635", "ş" # ص
+    sub "\ufebb", "ş" # ﺻ
+    sub "\ufebc", "ş" # ﺼ
+    sub "\ufeba", "ş" # ﺺ
 
-    '\b\u0627\u0644\u0635' : 'aş ş'  # الص
-    '\b\u0627\u0644\u0636' : 'aḑ ḑ'  # الض
-    '\b\u0627\u0644\u0637' : 'aţ ţ'  # الط
+    sub "\u0636", "ḑ" # ض
+    sub "\ufebf", "ḑ" # ﺿ
+    sub "\ufec0", "ḑ" # ﻀ
+    sub "\ufebe", "ḑ" # ﺾ
 
-    '\u062d\u0651' : 'ḩḩ'  # ح
-    '\u0635\u0651' : 'şş'  # ص
-    '\u0636\u0651' : 'ḑḑ'  # ض
-    '\u0637\u0651' : 'ţţ'  # ط
-    '\u0638\u0651' : 'z̧z̧'  # ظ
+    sub "\u0637", "ţ" # ط
+    sub "\ufec3", "ţ" # ﻃ
+    sub "\ufec4", "ţ" # ﻄ
+    sub "\ufec2", "ţ" # ﻂ
 
-    '\u062d' : 'ḩ' # ح
-    '\ufea3' : 'ḩ' # ﺣ
-    '\ufea4' : 'ḩ' # ﺤ
-    '\ufea2' : 'ḩ' # ﺢ
+    sub "\u0638", "z̧" # ظ
+    sub "\ufec7", "z̧" # ﻇ
+    sub "\ufec8", "z̧" # ﻈ
+    sub "\ufec6", "z̧" # ﻆ
+  }
 
-    '\u0635' : 'ş'  # ص
-    '\ufebb' : 'ş'  # ﺻ
-    '\ufebc' : 'ş'  # ﺼ
-    '\ufeba' : 'ş'  # ﺺ
+  run map.arablatn.stage.main
 
-    '\u0636' : 'ḑ'  # ض
-    '\ufebf' : 'ḑ'  # ﺿ
-    '\ufec0' : 'ḑ'  # ﻀ
-    '\ufebe' : 'ḑ'  # ﺾ
+  # POSTRULES
+  sub " Aş Ş", " aş Ş" # الص
+  sub " Aḑ Ḑ", " aḑ Ḑ" # الض
+  sub " Aţ Ţ", " aţ Ţ" # الط
 
-    '\u0637' : 'ţ'  # ط
-    '\ufec3' : 'ţ'  # ﻃ
-    '\ufec4' : 'ţ'  # ﻄ
-    '\ufec2' : 'ţ'  # ﻂ
+compose
 
-    '\u0638' : 'z̧'  # ظ
-    '\ufec7' : 'z̧'  # ﻇ
-    '\ufec8' : 'z̧'  # ﻈ
-    '\ufec6' : 'z̧'  # ﻆ
+}

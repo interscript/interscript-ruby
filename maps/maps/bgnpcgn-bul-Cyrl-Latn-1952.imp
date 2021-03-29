@@ -1,121 +1,137 @@
----
-authority_id: bgnpcgn
-id: 1952
-language: iso-639-2:bul
-source_script: Cyrl
-destination_script: Latn
-name: ROMANIZATION SYSTEM FOR BULGARIAN BGN/PCGN of 1952
-alias:
-  ogc11122:
-    code: bul_Cyrl2Latn_BGN_1952
-    description: Bulgarian US Board on Geographic Names(BGN)/Permanent Committee on Geographical Names for British Official Use(PCGN) Bulgarian 1952 System
-url: https://libraries.ucsd.edu/bib/fed/USBGN_romanization.pdf
-creation_date: 1945
-confirmation_date: 1952
-description: |
-  This system was adopted by the BGN in 1949 and by the PCGN in 1952. It
-  reflects the much simplified Bulgarian orthography as officially revised in
-  February 1945. The Bulgarian alphabet contains all of the characters present
-  in the Russian alphabet with the exception of ё, ы, and э. Notes 1, 2, and 3
-  are applicable to sources predating the orthographic reform of 1945.
+metadata {
+  authority_id: bgnpcgn
+  id: 1952
+  language: iso-639-2:bul
+  source_script: Cyrl
+  destination_script: Latn
+  name: ROMANIZATION SYSTEM FOR BULGARIAN BGN/PCGN of 1952
+  url: https://libraries.ucsd.edu/bib/fed/USBGN_romanization.pdf
+  creation_date: 1945
+  confirmation_date: 1952
+  description: |
+    This system was adopted by the BGN in 1949 and by the PCGN in 1952. It
+    reflects the much simplified Bulgarian orthography as officially revised in
+    February 1945. The Bulgarian alphabet contains all of the characters present
+    in the Russian alphabet with the exception of ё, ы, and э. Notes 1, 2, and 3
+    are applicable to sources predating the orthographic reform of 1945.
 
-notes:
-  - In modern Bulgarian orthography, the character ъ, does not occcur in word-final position. It should be omitted in romanization when found in word-final position on older sources
-  - The obsolete character ѫ, which was replaced by ъ in 1945, should be romanized ŭ
-  - The obsolete character ѣ, replaced in 1945 by е or я according to local pronunciation, should be romanized as e or ya, accordingly, if the pronunciation is known; otherwise, as ye
-  - The character sequence тс may be romanized t·s in order to differentiate that romanization from the regularly occurring digraph ts, which represents the character ц
+  notes:
+    - In modern Bulgarian orthography, the character ъ, does not occcur in word-final position. It should be omitted in romanization when found in word-final position on older sources
+    - The obsolete character ѫ, which was replaced by ъ in 1945, should be romanized ŭ
+    - The obsolete character ѣ, replaced in 1945 by е or я according to local pronunciation, should be romanized as e or ya, accordingly, if the pronunciation is known; otherwise, as ye
+    - The character sequence тс may be romanized t·s in order to differentiate that romanization from the regularly occurring digraph ts, which represents the character ц
+}
 
-tests:
-  - source: София
-    expected: Sofiya
-  - source: София-Град
-    expected: Sofiya-Grad
-  - source: България
-    expected: "Bu\u0306lgariya"
-  - source: Ъгьл
-    expected: "U\u0306g'l"
+tests {
+  test "София", "Sofiya"
+  test "София-Град", "Sofiya-Grad"
+  test "България", "Bŭlgariya"
+}
 
-map:
-  rules:
-    # note[1]
-    - pattern: (?<=)\u042a(?=\b)
-      result: ""
-    - pattern: (?<=)\u044a(?=\b)
-      result: ""
-    # note[4]
-    - pattern: "\u0422\u0421"
-      result: T·S
-    - pattern: "\u0422\u0441"
-      result: T·s
-    - pattern: "\u0442\u0441"
-      result: t·s
+stage {
+  # RULES
+  # note[1]
+  sub "\u042a", "", after: boundary
+  sub "\u044a", "", after: boundary
+  # note[4]
+  parallel {
+    sub "ТС", "T·S"
+    sub "Тс", "T·s"
+    sub "тс", "t·s"
+  }
 
-  characters:
-    '\u0410': 'A'
-    '\u0411': 'B'
-    '\u0412': 'V'
-    '\u0413': 'G'
-    '\u0414': 'D'
-    '\u0415': 'E'
-    '\u0416': 'Zh'
-    '\u0417': 'Z'
-    '\u0418': 'I'
-    '\u0419': 'Y'
-    '\u041a': 'K'
-    '\u041b': 'L'
-    '\u041c': 'M'
-    '\u041d': 'N'
-    '\u041e': 'O'
-    '\u041f': 'P'
-    '\u0420': 'R'
-    '\u0421': 'S'
-    '\u0422': 'T'
-    '\u0423': 'U'
-    '\u0424': 'F'
-    '\u0425': 'Kh'
-    '\u0426': 'Ts'
-    '\u0427': 'Ch'
-    '\u0428': 'Sh'
-    '\u0429': 'Sht'
-    '\u042a': "U\u0306"
-    '\u042c': "'"
-    '\u042e': 'Yu'
-    '\u042f': 'Ya'
-    '\u0430': 'a'
-    '\u0431': 'b'
-    '\u0432': 'v'
-    '\u0433': 'g'
-    '\u0434': 'd'
-    '\u0435': 'e'
-    '\u0436': 'zh'
-    '\u0437': 'z'
-    '\u0438': 'i'
-    '\u0439': 'y'
-    '\u043a': 'k'
-    '\u043b': 'l'
-    '\u043c': 'm'
-    '\u043d': 'n'
-    '\u043e': 'o'
-    '\u043f': 'p'
-    '\u0440': 'r'
-    '\u0441': 's'
-    '\u0442': 't'
-    '\u0443': 'u'
-    '\u0444': 'f'
-    '\u0445': 'kh'
-    '\u0446': 'ts'
-    '\u0447': 'ch'
-    '\u0448': 'sh'
-    '\u0449': 'sht'
-    '\u044a': "u\u0306"
-    '\u044c': "'"
-    '\u044e': 'yu'
-    '\u044f': 'ya'
+  # CHARACTERS
+  parallel {
+    sub "\u0410", "A"
+    sub "\u0411", "B"
+    sub "\u0412", "V"
+    sub "\u0413", "G"
+    sub "\u0414", "D"
+    sub "\u0415", "E"
+    sub "\u0416", "Zh"
+    sub "\u0416", "ZH", after: any("АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЬЮЯ")
+    sub "\u0416", "ZH", before: any("АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЬЮЯ")
+    sub "\u0417", "Z"
+    sub "\u0418", "I"
+    sub "\u0419", "Y"
+    sub "\u041a", "K"
+    sub "\u041b", "L"
+    sub "\u041c", "M"
+    sub "\u041d", "N"
+    sub "\u041e", "O"
+    sub "\u041f", "P"
+    sub "\u0420", "R"
+    sub "\u0421", "S"
+    sub "\u0422", "T"
+    sub "\u0423", "U"
+    sub "\u0424", "F"
+    sub "\u0425", "Kh"
+    sub "\u0425", "KH", after: any("АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЬЮЯ")
+    sub "\u0425", "KH", before: any("АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЬЮЯ")
+
+    sub "\u0426", "Ts"
+    sub "\u0426", "TS", after: any("АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЬЮЯ")
+    sub "\u0426", "TS", before: any("АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЬЮЯ")
+
+    sub "\u0427", "Ch"
+    sub "\u0427", "CH", after: any("АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЬЮЯ")
+    sub "\u0427", "CH", before: any("АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЬЮЯ")
+
+    sub "\u0428", "Sh"
+    sub "\u0428", "SH", after: any("АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЬЮЯ")
+    sub "\u0428", "SH", before: any("АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЬЮЯ")
+
+    sub "\u0429", "Sht"
+    sub "\u0429", "SHT", after: any("АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЬЮЯ")
+    sub "\u0429", "SHT", before: any("АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЬЮЯ")
+
+    sub "\u042a", "Ŭ"
+    sub "\u042c", "\\'"
+    sub "\u042e", "Yu"
+    sub "\u042e", "YU", after: any("АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЬЮЯ")
+    sub "\u042e", "YU", before: any("АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЬЮЯ")
+
+    sub "\u042f", "Ya"
+    sub "\u042f", "YA", after: any("АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЬЮЯ")
+    sub "\u042f", "YA", before: any("АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЬЮЯ")
+
+    sub "\u0430", "a"
+    sub "\u0431", "b"
+    sub "\u0432", "v"
+    sub "\u0433", "g"
+    sub "\u0434", "d"
+    sub "\u0435", "e"
+    sub "\u0436", "zh"
+    sub "\u0437", "z"
+    sub "\u0438", "i"
+    sub "\u0439", "y"
+    sub "\u043a", "k"
+    sub "\u043b", "l"
+    sub "\u043c", "m"
+    sub "\u043d", "n"
+    sub "\u043e", "o"
+    sub "\u043f", "p"
+    sub "\u0440", "r"
+    sub "\u0441", "s"
+    sub "\u0442", "t"
+    sub "\u0443", "u"
+    sub "\u0444", "f"
+    sub "\u0445", "kh"
+    sub "\u0446", "ts"
+    sub "\u0447", "ch"
+    sub "\u0448", "sh"
+    sub "\u0449", "sht"
+    sub "\u044a", "ŭ"
+    sub "\u044c", "\\'"
+    sub "\u044e", "yu"
+    sub "\u044f", "ya"
 
     # note 2
-    '\u046A': "U\u0306" # Ѫ
-    '\u046B': "u\u0306" # ѫ
+    sub "\u046A", "Ŭ" # Ѫ
+    sub "\u046B", "ŭ" # ѫ
 
     # note[3]
-    '\u0462': "Ye" # Ѣ
-    '\u0463': "ye" # ѣ
+    sub "\u0462", "Ye" # Ѣ
+    sub "\u0463", "ye" # ѣ
+  }
+}

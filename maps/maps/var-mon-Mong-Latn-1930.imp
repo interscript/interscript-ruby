@@ -1,102 +1,101 @@
----
-authority_id: var
-id: 1930
-language: iso-639-2:mon
-source_script: Mong
-destination_script: Latn
-name: Mongolian Latin alphabet
-url: https://en.m.wikipedia.org/wiki/Mongolian_Latin_alphabet
-creation_date:
-description: |
-  Latin alphabet was using "y" as feminine "u", with additional
-  feminine "o" ("ө") and with additional consonants "ç" for "ch", "ş"
-  for "sh" and "ƶ" for "j", it successfully served in printing books
-  and newspapers. A few of the letters (f, k, p, v) were rarely used,
-  being found only in borrowings, while q, w and x were excluded
-  altogether. Since k transcribed [h] in loans, it is unclear how loans
-  in [kʰ] were written. "j" is used for vowel combinations of the [ja]
-  type. Letter "c" is used for the sound [ts] and "k" is used for the 
-  ound [h]. The first version was inspired by the Yanalif script used
-  for the Soviet Union's Turkic languages.
+metadata {
+  authority_id: var
+  id: 1930
+  language: iso-639-2:mon
+  source_script: Mong
+  destination_script: Latn
+  name: Mongolian Latin alphabet
+  url: https://en.m.wikipedia.org/wiki/Mongolian_Latin_alphabet
+  creation_date:
+  description: |
+    Latin alphabet was using "y" as feminine "u", with additional
+    feminine "o" ("ө") and with additional consonants "ç" for "ch", "ş"
+    for "sh" and "ƶ" for "j", it successfully served in printing books
+    and newspapers. A few of the letters (f, k, p, v) were rarely used,
+    being found only in borrowings, while q, w and x were excluded
+    altogether. Since k transcribed [h] in loans, it is unclear how loans
+    in [kʰ] were written. "j" is used for vowel combinations of the [ja]
+    type. Letter "c" is used for the sound [ts] and "k" is used for the
+    ound [h]. The first version was inspired by the Yanalif script used
+    for the Soviet Union's Turkic languages.
 
-  The orthography of the Mongolian Latin is based on the orthography of
-  the Classical Mongolian script. It preserves short final vowels. It
-  does not drop unstressed vowels in the closing syllables when the word
-  is conjugated. The suffixes and inflections without long or i-coupled
-  vowels are made open syllables ending with a vowel, which is harmonized
-  with the stressed vowel. The rule for the vowel harmony for unstressed
-  vowels is similar to that of the Mongolian Cyrillic. It does not use
-  consonant combinations to denote new consonant sounds. For both of the
-  version, letter "b" is used both in the beginning and in the middle of
-  the word. Because it phonetically assimilates into sound [w], no
-  ambiguity is caused.
+    The orthography of the Mongolian Latin is based on the orthography of
+    the Classical Mongolian script. It preserves short final vowels. It
+    does not drop unstressed vowels in the closing syllables when the word
+    is conjugated. The suffixes and inflections without long or i-coupled
+    vowels are made open syllables ending with a vowel, which is harmonized
+    with the stressed vowel. The rule for the vowel harmony for unstressed
+    vowels is similar to that of the Mongolian Cyrillic. It does not use
+    consonant combinations to denote new consonant sounds. For both of the
+    version, letter "b" is used both in the beginning and in the middle of
+    the word. Because it phonetically assimilates into sound [w], no
+    ambiguity is caused.
 
-notes:
-  - A separated final form of vowels a or e is common, and can appear at the end
-    of a word, word stem, or suffix. This form requires a final-shaped preceding
-    consonant and an inter-word gap in between. The vowels themselves appear as ᠎ᠠ,
-    and with consonants as ‍ᠬ᠎ᠠ q‑a, ‍ᠷ᠎ᠠ r‑a/r‑e, etc. This gap can be transliterated
-    with a hyphen. In digital typesetting, these forms are triggered by inserting
-    a U+180E ᠎ MONGOLIAN VOWEL SEPARATOR (HTML &#6158; · MVS) between the consonant
-    and vowel.
-  - All case suffixes, as well as any plural suffixes consisting of one or two
-    syllables are likewise separated by a preceding and hyphen-transliterated gap.
-    In digital typesetting, this gap is represented by a U+202F   NARROW NO-BREAK SPACE
-    (HTML &#8239; · NNBSP). A maximum of two case suffixes can be added to a stem.
-    Single-letter vowel suffixes appear with the final-shaped forms of a/e, i, or u/ü,
-    as in ᠭᠠᠵᠠᠷ ᠠ γaǰar‑a 'to the country' and ᠡᠳᠦᠷ ᠡ edür‑e 'on the day', or ᠤᠯᠤᠰ ᠢ ulus‑i
-    'the state' etc. Multi-letter suffixes most often start with an initial- (consonants),
-    medial- (vowels), or variant-shaped form.
+  notes:
+    - A separated final form of vowels a or e is common, and can appear at the end
+      of a word, word stem, or suffix. This form requires a final-shaped preceding
+      consonant and an inter-word gap in between. The vowels themselves appear as ᠎ᠠ,
+      and with consonants as ‍ᠬ᠎ᠠ q‑a, ‍ᠷ᠎ᠠ r‑a/r‑e, etc. This gap can be transliterated
+      with a hyphen. In digital typesetting, these forms are triggered by inserting
+      a U+180E ᠎ MONGOLIAN VOWEL SEPARATOR (HTML &#6158; · MVS) between the consonant
+      and vowel.
+    - All case suffixes, as well as any plural suffixes consisting of one or two
+      syllables are likewise separated by a preceding and hyphen-transliterated gap.
+      In digital typesetting, this gap is represented by a U+202F   NARROW NO-BREAK SPACE
+      (HTML &#8239; · NNBSP). A maximum of two case suffixes can be added to a stem.
+      Single-letter vowel suffixes appear with the final-shaped forms of a/e, i, or u/ü,
+      as in ᠭᠠᠵᠠᠷ ᠠ γaǰar‑a 'to the country' and ᠡᠳᠦᠷ ᠡ edür‑e 'on the day', or ᠤᠯᠤᠰ ᠢ ulus‑i
+      'the state' etc. Multi-letter suffixes most often start with an initial- (consonants),
+      medial- (vowels), or variant-shaped form.
 
-  # Note: Provedid sample of "Latin 1931-1939" in https://en.m.wikipedia.org/wiki/Mongolian_Latin_alphabet is not actual transliteration.
-  # It's kind of buggy transliteration that mixes Cyrillic and Traditional Mongolian script into Latin based on phonetic sound.
-  # There is no expected transliteration sources found for the tests.
+    # Note: Provedid sample of "Latin 1931-1939" in https://en.m.wikipedia.org/wiki/Mongolian_Latin_alphabet is not actual transliteration.
+    # It's kind of buggy transliteration that mixes Cyrillic and Traditional Mongolian script into Latin based on phonetic sound.
+    # There is no expected transliteration sources found for the tests.
 
-  # Latin 1931-1939
-  # Manai ulasiin niislel koto Ulaanbaatar bol 80 000 şakam kyntei, ulasiin olon niitiin, aƶi akuin tөb gazaruud oroşison jikeeken oron bolno.
-  # Tus ulasiin dotoroos garka tyykii zuiliig bolbosruulka aƶi yildberiin gazaruudiig baiguulka ni çukala.
+    # Latin 1931-1939
+    # Manai ulasiin niislel koto Ulaanbaatar bol 80 000 şakam kyntei, ulasiin olon niitiin, aƶi akuin tөb gazaruud oroşison jikeeken oron bolno.
+    # Tus ulasiin dotoroos garka tyykii zuiliig bolbosruulka aƶi yildberiin gazaruudiig baiguulka ni çukala.
+}
 
-tests:
-  - source: |
-      ᠮᠠᠨ ᠤ ᠤᠯᠤᠰ ᠤᠨ ᠨᠡᠶᠢᠰᠯᠡᠯ ᠬᠣᠲᠠ ᠤᠯᠠᠭᠠᠨᠪᠠᠭᠠᠲᠤᠷ ᠪᠣᠯ 80 000 ᠰᠢᠬᠠᠮ ᠬᠦᠮᠦᠨ ᠲᠡᠢ᠂ ᠤᠯᠤᠰ ᠤᠨ ᠣᠯᠠᠨ ᠨᠡᠶᠢᠲᠡ ᠶᠢᠨ᠂ ᠠᠵᠤ ᠠᠬᠤᠢ ᠶᠢᠨ ᠲᠥᠪ ᠭᠠᠵᠠᠷ ᠤᠳ ᠣᠷᠣᠰᠢᠭᠰᠠᠨ ᠶᠡᠬᠡᠬᠡᠨ ᠣᠷᠣᠨ ᠪᠣᠯᠤᠨ᠎ᠠ᠃
-      ᠲᠤᠰ ᠤᠯᠤᠰ ᠤᠨ ᠳᠣᠲᠣᠷ᠎ᠠ ᠠᠴᠠ ᠭᠠᠷᠬᠤ ᠲᠦᠭᠦᠬᠡᠢ ᠵᠤᠶᠢᠯ ᠢ ᠪᠣᠯᠪᠠᠰᠤᠷᠠᠭᠤᠯᠬᠤ ᠠᠵᠤ ᠦᠢᠯᠡᠳᠪᠦᠷᠢ ᠶᠢᠨ ᠭᠠᠵᠠᠷ ᠤᠳ ᠢ ᠪᠠᠶᠢᠭᠤᠯᠬᠤ ᠨᠢ ᠴᠢᠬᠤᠯᠠ᠃
-    expected: |
-      man-u ulus-un nejislel kota ulaganbagatur bol 80 000 sikam kymyn-tei, ulus-un olan nejite-jin, aƶu akui-jin tөb gaƶar-ud orosigsan jekeken oron bolun-a.
-      tus ulus-un dotor-a-aça garku tygykei ƶujil-i bolbasuragulku aƶu yiledbyri-jin gaƶar-ud-i bajigulku ni çikula.
+tests {
+  test "ᠮᠠᠨ ᠤ ᠤᠯᠤᠰ ᠤᠨ ᠨᠡᠶᠢᠰᠯᠡᠯ ᠬᠣᠲᠠ ᠤᠯᠠᠭᠠᠨᠪᠠᠭᠠᠲᠤᠷ ᠪᠣᠯ 80 000 ᠰᠢᠬᠠᠮ ᠬᠦᠮᠦᠨ ᠲᠡᠢ᠂ ᠤᠯᠤᠰ ᠤᠨ ᠣᠯᠠᠨ ᠨᠡᠶᠢᠲᠡ ᠶᠢᠨ᠂ ᠠᠵᠤ ᠠᠬᠤᠢ ᠶᠢᠨ ᠲᠥᠪ ᠭᠠᠵᠠᠷ ᠤᠳ ᠣᠷᠣᠰᠢᠭᠰᠠᠨ ᠶᠡᠬᠡᠬᠡᠨ ᠣᠷᠣᠨ ᠪᠣᠯᠤᠨ᠎ᠠ᠃\nᠲᠤᠰ ᠤᠯᠤᠰ ᠤᠨ ᠳᠣᠲᠣᠷ᠎ᠠ ᠠᠴᠠ ᠭᠠᠷᠬᠤ ᠲᠦᠭᠦᠬᠡᠢ ᠵᠤᠶᠢᠯ ᠢ ᠪᠣᠯᠪᠠᠰᠤᠷᠠᠭᠤᠯᠬᠤ ᠠᠵᠤ ᠦᠢᠯᠡᠳᠪᠦᠷᠢ ᠶᠢᠨ ᠭᠠᠵᠠᠷ ᠤᠳ ᠢ ᠪᠠᠶᠢᠭᠤᠯᠬᠤ ᠨᠢ ᠴᠢᠬᠤᠯᠠ᠃", "man-u ulus-un nejislel kota ulaganbagatur bol 80 000 sikam kymyn-tei, ulus-un olan nejite-jin, aƶu akui-jin tөb gaƶar-ud orosigsan jekeken oron bolun-a.\ntus ulus-un dotor-a-aça garku tygykei ƶujil-i bolbasuragulku aƶu yiledbyri-jin gaƶar-ud-i bajigulku ni çikula."
+}
 
-map:
+stage {
 
-  characters:
-    "ᠠ": "a"      # \u1820
-    "ᠡ": "e"      # \u1821
-    "ᠢ": "i"      # \u1822
-    "ᠣ": "o"      # \u1823
-    "ᠤ": "u"      # \u1824
-    "ᠥ": "ө"     # \u1825
-    "ᠦ": "y"     # \u1826
-    "ᠨ": "n"      # \u1828
-    "ᠮ": "m"      # \u182e
-    "ᠯ": "l"      # \u182f
-    "ᠪ": "b"      # \u182a
-    "ᠫ": "p"      # \u182b
-    "ᠹ": "f"      # \u1839
-    "ᠻ": "k"      # \u183b
-    "ᠬ": "k"      # \u182c
-    "ᠭ": "g"      # \u182d
-    "ᠰ": "s"      # \u1830
-    "ᠱ": "ş"      # \u1831
-    "ᠲ": "t"      # \u1832
-    "ᠳ": "d"      # \u1833
-    "ᠴ": "c"      # \u1834
-    "ᠴ": "ç"      # \u1834
-    "ᠵ": "z"      # \u1835
-    "ᠵ": "ƶ"      # \u1835
-    "ᠶ": "j"      # \u1836
-    "ᠷ": "r"      # \u1837
-    "ᠾ": "h"     # \u183e
-    "᠁": "..."   # \u1801
-    "᠂": ","      # \u1802
-    "᠃": "."      # \u1803
-    "᠄": ":"      # \u1804
-    "\u180e": "-" # MVS
-    "\u202f": "-" # NNBSP
+  # CHARACTERS
+  parallel {
+    sub "ᠠ", "a" # \u1820
+    sub "ᠡ", "e" # \u1821
+    sub "ᠢ", "i" # \u1822
+    sub "ᠣ", "o" # \u1823
+    sub "ᠤ", "u" # \u1824
+    sub "ᠥ", "ө" # \u1825
+    sub "ᠦ", "y" # \u1826
+    sub "ᠨ", "n" # \u1828
+    sub "ᠮ", "m" # \u182e
+    sub "ᠯ", "l" # \u182f
+    sub "ᠪ", "b" # \u182a
+    sub "ᠫ", "p" # \u182b
+    sub "ᠹ", "f" # \u1839
+    sub "ᠻ", "k" # \u183b
+    sub "ᠬ", "k" # \u182c
+    sub "ᠭ", "g" # \u182d
+    sub "ᠰ", "s" # \u1830
+    sub "ᠱ", "ş" # \u1831
+    sub "ᠲ", "t" # \u1832
+    sub "ᠳ", "d" # \u1833
+    sub "ᠴ", any("çc") # \u1834
+    sub "ᠵ", any("ƶz") # \u1835
+    sub "ᠶ", "j" # \u1836
+    sub "ᠷ", "r" # \u1837
+    sub "ᠾ", "h" # \u183e
+    sub "᠁", "..." # \u1801
+    sub "᠂", "," # \u1802
+    sub "᠃", "." # \u1803
+    #     sub "᠄", ":" # warning: : # \u1804
+    sub "᠎", "-" # MVS
+    sub " ", "-" # NNBSP
+  }
+
+}

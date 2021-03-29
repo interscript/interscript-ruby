@@ -1,114 +1,125 @@
----
-authority_id: alalc
-id: 1997
-language: iso-639-2:mkd
-source_script: Cyrl
-destination_script: Latn
-name: Serbian and Makedonian Romanization, ALA-LC 1997 System
-url: http://catdir.loc.gov/catdir/cpso/romanization/serbian.pdf
-creation_date: 1997
-description: ALA-LC Romanization table for Serbian and Makedonian.
+metadata {
+  authority_id: alalc
+  id: 1997
+  language: iso-639-2:mkd
+  source_script: Cyrl
+  destination_script: Latn
+  name: Serbian and Makedonian Romanization, ALA-LC 1997 System
+  url: http://catdir.loc.gov/catdir/cpso/romanization/serbian.pdf
+  creation_date: 1997
+  description: ALA-LC Romanization table for Serbian and Makedonian.
 
-notes:
-  - Special characters in romanization
-    Đ - D with crossbar (upper case). USMARC hexadecimal code A3.
-    đ - d with crossbar (upper case). USMARC hexadecimal code B3.
+  notes:
+    - Special characters in romanization
+      Đ - D with crossbar (upper case). USMARC hexadecimal code A3.
+      đ - d with crossbar (upper case). USMARC hexadecimal code B3.
 
-  - Character modifiers in romanization
-    ´ - acute. USMARC hexadecimal code E2.
-    ˇ - hachek. USMARC hexadecimal code E9.
+    - Character modifiers in romanization
+      ´ - acute. USMARC hexadecimal code E2.
+      ˇ - hachek. USMARC hexadecimal code E9.
+}
 
-tests:
-  - source: Општина Ердут
-    expected: Opština Erdut
-  - source: Општина Двор
-    expected: Opština Dvor
-  - source: ЛУЃЕ луѓе
-    expected: LUǴE luǵe
-  - source: ЅВЕЗДА ѕвезда Ѕвезда
-    expected: DZVEZDA dzvezda Dzvezda
-  - source: ЌАРУВАЊЕ ќарување
-    expected: ḰARUVANJE ḱaruvanje
+tests {
+  test "Општина Ердут", "Opština Erdut"
+  test "Општина Двор", "Opština Dvor"
+  test "ЛУЃЕ луѓе", "LUǴE luǵe"
+  test "ЅВЕЗДА ѕвезда Ѕвезда", "DZVEZDA dzvezda Dzvezda"
+  test "ЌАРУВАЊЕ ќарување", "ḰARUVANJE ḱaruvanje"
+}
 
-map:
-  postrules:
-    # DZ
-    - pattern: "((?<=[[:upper:]])Dz(?=[[:upper:]])?|(?<=[[:upper:]])?Dz(?=[[:upper:]]))"
-      result: "DZ"
-    #LJ
-    - pattern: "((?<=[[:upper:]])Lj(?=[[:upper:]])?|(?<=[[:upper:]])?Lj(?=[[:upper:]]))"
-      result: "LJ"
-    #NJ
-    - pattern: "((?<=[[:upper:]])Nj(?=[[:upper:]])?|(?<=[[:upper:]])?Nj(?=[[:upper:]]))"
-      result: "NJ"
-    #DŽ
-    - pattern: "((?<=[[:upper:]])Dž(?=[[:upper:]])?|(?<=[[:upper:]])?Dž(?=[[:upper:]]))"
-      result: "DŽ"
+dependency "posix", import: true
 
-  characters:
-    "\u0410": "A"
-    "\u0411": "B"
-    "\u0412": "V"
-    "\u0413": "G"
-    "\u0403": "\u01F4" # Ǵ
-    "\u0414": "D"
-    "\u0402": "\u0110" # Đ
-    "\u0415": "E"
-    "\u0416": "\u005a\u030c" # Ž
-    "\u0417": "Z"
-    "\u0405": "Dz"
-    "\u0418": "I"
-    "\u0408": "J"
-    "\u041A": "K"
-    "\u040C": "\u1E30" # Ḱ
-    "\u041B": "L"
-    "\u0409": "Lj"
-    "\u041C": "M"
-    "\u041D": "N"
-    "\u040A": "Nj"
-    "\u041E": "O"
-    "\u041F": "P"
-    "\u0420": "R"
-    "\u0421": "S"
-    "\u0422": "T"
-    "\u040B": "\u0043\u0301" # Ć
-    "\u0423": "U"
-    "\u0424": "F"
-    "\u0425": "H"
-    "\u0426": "C"
-    "\u0427": "\u0043\u030c" # Č
-    "\u040F": "D\u007a\u030c" # Dž
-    "\u0428": "\u0053\u030c" # Š
-    "\u0430": "a"
-    "\u0431": "b"
-    "\u0432": "v"
-    "\u0433": "g"
-    "\u0453": "\u01F5" # ǵ
-    "\u0434": "d"
-    "\u0452": "\u0111" # đ
-    "\u0435": "e"
-    "\u0436": "\u007a\u030c" # ž
-    "\u0437": "z"
-    "\u0455": "dz"
-    "\u0438": "i"
-    "\u0458": "j"
-    "\u043A": "k"
-    "\u045C": "\u1E31" # ḱ
-    "\u043B": "l"
-    "\u0459": "lj"
-    "\u043C": "m"
-    "\u043D": "n"
-    "\u045A": "nj"
-    "\u043E": "o"
-    "\u043F": "p"
-    "\u0440": "r"
-    "\u0441": "s"
-    "\u0442": "t"
-    "\u045B": "\u0063\u0301" # ć
-    "\u0443": "u"
-    "\u0444": "f"
-    "\u0445": "h"
-    "\u0446": "c"
-    "\u0447": "\u0063\u030c" # č
-    "\u045F": "d\u007a\u030c" # dž
-    "\u0448": "\u0073\u030c" # š
+stage {
+
+
+  # CHARACTERS
+  parallel {
+    sub "А", "A"
+    sub "Б", "B"
+    sub "В", "V"
+    sub "Г", "G"
+    sub "Ѓ", "Ǵ" # Ǵ
+    sub "Д", "D"
+    sub "Ђ", "Đ" # Đ
+    sub "Е", "E"
+    sub "Ж", "Ž" # Ž
+    sub "З", "Z"
+    sub "Ѕ", "Dz"
+    sub "И", "I"
+    sub "Ј", "J"
+    sub "К", "K"
+    sub "Ќ", "Ḱ" # Ḱ
+    sub "Л", "L"
+    sub "Љ", "Lj"
+    sub "М", "M"
+    sub "Н", "N"
+    sub "Њ", "Nj"
+    sub "О", "O"
+    sub "П", "P"
+    sub "Р", "R"
+    sub "С", "S"
+    sub "Т", "T"
+    sub "Ћ", "Ć" # Ć
+    sub "У", "U"
+    sub "Ф", "F"
+    sub "Х", "H"
+    sub "Ц", "C"
+    sub "Ч", "Č" # Č
+    sub "Џ", "Dž" # Dž
+    sub "Ш", "Š" # Š
+    sub "а", "a"
+    sub "б", "b"
+    sub "в", "v"
+    sub "г", "g"
+    sub "ѓ", "ǵ" # ǵ
+    sub "д", "d"
+    sub "ђ", "đ" # đ
+    sub "е", "e"
+    sub "ж", "ž" # ž
+    sub "з", "z"
+    sub "ѕ", "dz"
+    sub "и", "i"
+    sub "ј", "j"
+    sub "к", "k"
+    sub "ќ", "ḱ" # ḱ
+    sub "л", "l"
+    sub "љ", "lj"
+    sub "м", "m"
+    sub "н", "n"
+    sub "њ", "nj"
+    sub "о", "o"
+    sub "п", "p"
+    sub "р", "r"
+    sub "с", "s"
+    sub "т", "t"
+    sub "ћ", "ć" # ć
+    sub "у", "u"
+    sub "ф", "f"
+    sub "х", "h"
+    sub "ц", "c"
+    sub "ч", "č" # č
+    sub "џ", "dž" # dž
+    sub "ш", "š" # š
+  }
+
+  # POSTRULES
+  # rewritten by hand to work properly
+  # DZ
+  sub capture(maybe(upper)) + "Dz" + capture(upper), ref(1) + "DZ" + ref(2)
+  sub capture(upper) + "Dz" +  capture(maybe(upper)), ref(1) + "DZ" + ref(2)
+
+  #LJ
+  sub capture(upper) + "Lj" + capture(maybe(upper)), ref(1) + "LJ" + ref(2)
+  sub capture(maybe(upper)) + "Lj" + capture(upper), ref(1) + "LJ" + ref(2)
+
+  #NJ
+  sub capture(upper) + "Nj" + capture(maybe(upper)), ref(1) + "NJ" + ref(2)
+  sub capture(maybe(upper)) + "Nj" + capture(upper), ref(1) + "NJ" + ref(2)
+
+  #DŽ
+  sub capture(upper) + "Dž" + capture(maybe(upper)), ref(1) + "DŽ" + ref(2)
+  sub capture(maybe(upper)) + "Dž" + capture(upper), ref(1) + "DŽ" + ref(2)
+
+  compose
+}
+

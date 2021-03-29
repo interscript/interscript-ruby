@@ -1,406 +1,399 @@
----
-authority_id: var
-id: hepburn-1886
-language: iso-639-2:jpn
-source_script: Hrkt
-destination_script: Latn
-name: Traditional Hepburn
-url: http://www.ab.cyberhome.ne.jp/~kaizu/roomazi/doc/hep3.html
-creation_date: 1886
-adoption_date:
-description:
-    This is a traditional version of Hepburn romanization.
+metadata {
+  authority_id: var
+  id: hepburn-1886
+  language: iso-639-2:jpn
+  source_script: Hrkt
+  destination_script: Latn
+  name: Traditional Hepburn
+  url: http://www.ab.cyberhome.ne.jp/~kaizu/roomazi/doc/hep3.html
+  creation_date: 1886
+  adoption_date:
+  description:
+      This is a traditional version of Hepburn romanization.
 
-notes:
-    "
-    The book was published before the Japanese orthographic reform,
-    and this map takes the reformed orthography in Kana as the source
-    form.
-    https://en.wikipedia.org/wiki/Historical_kana_orthography
+  notes:
+      "
+      The book was published before the Japanese orthographic reform,
+      and this map takes the reformed orthography in Kana as the source
+      form.
+      https://en.wikipedia.org/wiki/Historical_kana_orthography
 
-    The distinction for long-vowel vs. repeating vowels has not been
-    implemented.
-    For example, the consecutive o's in these words are considered
-    a case of long vowel, and is transliterated as ō:
+      The distinction for long-vowel vs. repeating vowels has not been
+      implemented.
+      For example, the consecutive o's in these words are considered
+      a case of long vowel, and is transliterated as ō:
 
-        氷 (こおり) - kōri, 大阪（おおさか）- Ōsaka
+          氷 (こおり) - kōri, 大阪（おおさか）- Ōsaka
 
-    If there are two consecutive o's in a string, but they belong to
-    different morpheme, then they should be transliterated separately.
+      If there are two consecutive o's in a string, but they belong to
+      different morpheme, then they should be transliterated separately.
 
-        小躍り（こおどり）- koodori
+          小躍り（こおどり）- koodori
 
-    The same goes for the combinations o+u, u+u as well.
+      The same goes for the combinations o+u, u+u as well.
 
-    However, this cannot be easily determined from the Kana.
-    Lexical knowledge is needed, and sometimes the Kanji representation
-    will give more hints about morpheme boundary.
+      However, this cannot be easily determined from the Kana.
+      Lexical knowledge is needed, and sometimes the Kanji representation
+      will give more hints about morpheme boundary.
 
-    For now, this map will assume that all o+o, o+u, u+u combinations to
-    be instances of long vowels.
-    "
+      For now, this map will assume that all o+o, o+u, u+u combinations to
+      be instances of long vowels.
+      "
+}
 
-tests:
-  - source: "ぐんま"
-    expected: "gumma"
-  - source: "しんよう"
-    expected: "shin-yō"
-  - source: "きんようび"
-    expected: "kin-yōbi"
-  - source: "とうきょう"
-    expected: "tōkyō"
-  - source: "しんばし"
-    expected: "shimbashi"
+tests {
+  test "ぐんま", "gumma"
+  test "しんよう", "shin-yō"
+  test "きんようび", "kin-yōbi"
+  test "とうきょう", "tōkyō"
+  test "しんばし", "shimbashi"
+}
 
-map:
+stage {
 
-  rules:
-    # Add a dash (-) between ん and a vowel sound or ya, yu, yo
-    - pattern: "([んン])(?=[あいうえおやゆよアイウエオヤユヨ])"
-      result: "\\1-"
+  # RULES
+  # Add a dash (-) between ん and a vowel sound or ya, yu, yo
+  sub none, "-", before: any("んン"), after: any("あいうえおやゆよアイウエオヤユヨ")
 
-    # Convert ん into m before b, m, p
-    - pattern: "[んン](?=[ばびぶべぼまみむめもぱぴぷぺぽバビブベボマミムメモパピプペポ])"
-      result: "m"
+  # Convert ん into m before b, m, p
+  sub any("んン"), "m", after: any("ばびぶべぼまみむめもぱぴぷぺぽバビブベボマミムメモパピプペポ")
 
-  postrules:
-    # Handling of っ/ッ
-    #
-    # The kana っ/ッ is a geminate marker.
-    # When followed by a consonant, repeat the first letter of
-    # the following syllable. Exception: the combination -cch-
-    # should be transliterated as -tch-
-    #
-    # If っ/ッ is not followed by a consonant, then it is usually
-    # phonetically realised as an abrupt stop or shorterning of
-    # the previous syllable. There is no documented or commonly
-    # accepted way to transliterate this sound.
 
-    - pattern: "[っッ]([BbDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz])"
-      result: "\\1\\1"
-    - pattern: "[っッ]([Cc])" # ッ followed by ch-
-      result: "t\\1"
-    - pattern: "[っッ]" # drop all other っッ.
-      result: ""
 
-    # In Traditional Hepburn, long o (which can be o+o or o+u), and long u
-    # are transliterated as ō and ū.
-    #
-    # Macron should not be used if two repeating letters split across
-    # a morpheme boundary.
-    #
-    # Long vowels in loanwords are indicated with a macron instead
-    # of letter doubling.
-
-    - pattern: "a[ー]"
-      result: "ā"
-    - pattern: "i[ー]"
-      result: "ī"
-    - pattern: "u[ーu]"
-      result: "ū"
-    - pattern: "e[ー]"
-      result: "ē"
-    - pattern: "o[ーo]"
-      result: "ō"
-
-  characters:
+  # CHARACTERS
+  parallel {
 
     # Hiragana
 
-    "あ": "a"
-    "い": "i"
-    "う": "u"
-    "え": "e"
-    "お": "o"
-    "おう": "ō"
+    sub "あ", "a"
+    sub "い", "i"
+    sub "う", "u"
+    sub "え", "e"
+    sub "お", "o"
+    sub "おう", "ō"
 
-    "か": "ka"
-    "き": "ki"
-    "く": "ku"
-    "け": "ke"
-    "こ": "ko"
-    "きゃ": "kya"
-    "きゅ": "kyu"
-    "きょ": "kyo"
-    "きょう": "kyō"
-    "こう": "kō"
+    sub "か", "ka"
+    sub "き", "ki"
+    sub "く", "ku"
+    sub "け", "ke"
+    sub "こ", "ko"
+    sub "きゃ", "kya"
+    sub "きゅ", "kyu"
+    sub "きょ", "kyo"
+    sub "きょう", "kyō"
+    sub "こう", "kō"
 
-    "さ": "sa"
-    "し": "shi"
-    "す": "su"
-    "せ": "se"
-    "そ": "so"
-    "しゃ": "sha"
-    "しゅ": "shu"
-    "しょ": "sho"
-    "しょう": "shō"
-    "そう": "sō"
+    sub "さ", "sa"
+    sub "し", "shi"
+    sub "す", "su"
+    sub "せ", "se"
+    sub "そ", "so"
+    sub "しゃ", "sha"
+    sub "しゅ", "shu"
+    sub "しょ", "sho"
+    sub "しょう", "shō"
+    sub "そう", "sō"
 
-    "た": "ta"
-    "ち": "chi"
-    "つ": "tsu"
-    "て": "te"
-    "と": "to"
-    "ちゃ": "cha"
-    "ちゅ": "chu"
-    "ちょ": "cho"
-    "とう": "tō"
-    "ちょう": "chō"
+    sub "た", "ta"
+    sub "ち", "chi"
+    sub "つ", "tsu"
+    sub "て", "te"
+    sub "と", "to"
+    sub "ちゃ", "cha"
+    sub "ちゅ", "chu"
+    sub "ちょ", "cho"
+    sub "とう", "tō"
+    sub "ちょう", "chō"
 
-    "な": "na"
-    "に": "ni"
-    "ぬ": "nu"
-    "ね": "ne"
-    "の": "no"
-    "にゃ": "nya"
-    "にゅ": "nyu"
-    "にょ": "nyo"
-    "にょう": "nyō"
-    "のう": "nō"
+    sub "な", "na"
+    sub "に", "ni"
+    sub "ぬ", "nu"
+    sub "ね", "ne"
+    sub "の", "no"
+    sub "にゃ", "nya"
+    sub "にゅ", "nyu"
+    sub "にょ", "nyo"
+    sub "にょう", "nyō"
+    sub "のう", "nō"
 
-    "は": "ha"
-    "ひ": "hi"
-    "ふ": "fu"
-    "へ": "he"
-    "ほ": "ho"
-    "ひゃ": "hya"
-    "ひゅ": "hyu"
-    "ひょ": "hyo"
-    "ひょう": "hyō"
-    "ほう": "hō"
+    sub "は", "ha"
+    sub "ひ", "hi"
+    sub "ふ", "fu"
+    sub "へ", "he"
+    sub "ほ", "ho"
+    sub "ひゃ", "hya"
+    sub "ひゅ", "hyu"
+    sub "ひょ", "hyo"
+    sub "ひょう", "hyō"
+    sub "ほう", "hō"
 
-    "ま": "ma"
-    "み": "mi"
-    "む": "mu"
-    "め": "me"
-    "も": "mo"
-    "みゃ": "mya"
-    "みゅ": "myu"
-    "みょ": "myo"
-    "みょう": "myō"
-    "もう": "mō"
+    sub "ま", "ma"
+    sub "み", "mi"
+    sub "む", "mu"
+    sub "め", "me"
+    sub "も", "mo"
+    sub "みゃ", "mya"
+    sub "みゅ", "myu"
+    sub "みょ", "myo"
+    sub "みょう", "myō"
+    sub "もう", "mō"
 
-    "や": "ya"
-    "ゆ": "yu"
-    "よ": "yo"
-    "よう": "yō"
+    sub "や", "ya"
+    sub "ゆ", "yu"
+    sub "よ", "yo"
+    sub "よう", "yō"
 
-    "ら": "ra"
-    "り": "ri"
-    "る": "ru"
-    "れ": "re"
-    "ろ": "ro"
-    "りゃ": "rya"
-    "りゅ": "ryu"
-    "りょ": "ryo"
-    "りょう": "ryō"
-    "ろう": "rō"
+    sub "ら", "ra"
+    sub "り", "ri"
+    sub "る", "ru"
+    sub "れ", "re"
+    sub "ろ", "ro"
+    sub "りゃ", "rya"
+    sub "りゅ", "ryu"
+    sub "りょ", "ryo"
+    sub "りょう", "ryō"
+    sub "ろう", "rō"
 
-    "わ": "wa"
-    "を": "wo"
+    sub "わ", "wa"
+    sub "を", "wo"
 
-    "が": "ga"
-    "ぎ": "gi"
-    "ぐ": "gu"
-    "げ": "ge"
-    "ご": "go"
-    "ぎゃ": "gya"
-    "ぎゅ": "gyu"
-    "ぎょ": "gyo"
-    "ぎょう": "gyō"
-    "ごう": "gō"
+    sub "が", "ga"
+    sub "ぎ", "gi"
+    sub "ぐ", "gu"
+    sub "げ", "ge"
+    sub "ご", "go"
+    sub "ぎゃ", "gya"
+    sub "ぎゅ", "gyu"
+    sub "ぎょ", "gyo"
+    sub "ぎょう", "gyō"
+    sub "ごう", "gō"
 
-    "ざ": "za"
-    "じ": "ji"
-    "ず": "zu"
-    "ぜ": "ze"
-    "ぞ": "zo"
-    "じゃ": "ja"
-    "じゅ": "ju"
-    "じょ": "jo"
-    "じょう": "jō"
-    "ぞう": "zō"
+    sub "ざ", "za"
+    sub "じ", "ji"
+    sub "ず", "zu"
+    sub "ぜ", "ze"
+    sub "ぞ", "zo"
+    sub "じゃ", "ja"
+    sub "じゅ", "ju"
+    sub "じょ", "jo"
+    sub "じょう", "jō"
+    sub "ぞう", "zō"
 
-    "だ": "da"
-    "ぢ": "ji"
-    "づ": "zu"
-    "で": "de"
-    "ど": "do"
-    "ぢゃ": "ja"
-    "ぢゅ": "ju"
-    "ぢょ": "jo"
-    "どう": "dō"
+    sub "だ", "da"
+    sub "ぢ", "ji"
+    sub "づ", "zu"
+    sub "で", "de"
+    sub "ど", "do"
+    sub "ぢゃ", "ja"
+    sub "ぢゅ", "ju"
+    sub "ぢょ", "jo"
+    sub "どう", "dō"
 
-    "ば": "ba"
-    "び": "bi"
-    "ぶ": "bu"
-    "べ": "be"
-    "ぼ": "bo"
-    "びゃ": "bya"
-    "びゅ": "byu"
-    "びょ": "byo"
-    "びょう": "byō"
-    "ぼう": "bō"
+    sub "ば", "ba"
+    sub "び", "bi"
+    sub "ぶ", "bu"
+    sub "べ", "be"
+    sub "ぼ", "bo"
+    sub "びゃ", "bya"
+    sub "びゅ", "byu"
+    sub "びょ", "byo"
+    sub "びょう", "byō"
+    sub "ぼう", "bō"
 
-    "ぱ": "pa"
-    "ぴ": "pi"
-    "ぷ": "pu"
-    "ぺ": "pe"
-    "ぽ": "po"
-    "ぴゃ": "pya"
-    "ぴゅ": "pyu"
-    "ぴょ": "pyo"
-    "ぴょう": "pyō"
-    "ぽう": "pō"
+    sub "ぱ", "pa"
+    sub "ぴ", "pi"
+    sub "ぷ", "pu"
+    sub "ぺ", "pe"
+    sub "ぽ", "po"
+    sub "ぴゃ", "pya"
+    sub "ぴゅ", "pyu"
+    sub "ぴょ", "pyo"
+    sub "ぴょう", "pyō"
+    sub "ぽう", "pō"
 
-    "ん": "n"
+    sub "ん", "n"
 
     # Katakana
 
-    "ア": "a"
-    "イ": "i"
-    "ウ": "u"
-    "エ": "e"
-    "オ": "o"
-    "オウ": "ō"
+    sub "ア", "a"
+    sub "イ", "i"
+    sub "ウ", "u"
+    sub "エ", "e"
+    sub "オ", "o"
+    sub "オウ", "ō"
 
-    "カ": "ka"
-    "キ": "ki"
-    "ク": "ku"
-    "ケ": "ke"
-    "コ": "ko"
-    "キャ": "kya"
-    "キュ": "kyu"
-    "キョ": "kyo"
-    "キョウ": "kyō"
-    "コウ": "kō"
+    sub "カ", "ka"
+    sub "キ", "ki"
+    sub "ク", "ku"
+    sub "ケ", "ke"
+    sub "コ", "ko"
+    sub "キャ", "kya"
+    sub "キュ", "kyu"
+    sub "キョ", "kyo"
+    sub "キョウ", "kyō"
+    sub "コウ", "kō"
 
-    "サ": "sa"
-    "シ": "shi"
-    "ス": "su"
-    "セ": "se"
-    "ソ": "so"
-    "シャ": "sha"
-    "シュ": "shu"
-    "ショ": "sho"
-    "ショウ": "shō"
-    "ソウ": "sō"
+    sub "サ", "sa"
+    sub "シ", "shi"
+    sub "ス", "su"
+    sub "セ", "se"
+    sub "ソ", "so"
+    sub "シャ", "sha"
+    sub "シュ", "shu"
+    sub "ショ", "sho"
+    sub "ショウ", "shō"
+    sub "ソウ", "sō"
 
-    "タ": "ta"
-    "チ": "chi"
-    "ツ": "tsu"
-    "テ": "te"
-    "ト": "to"
-    "チャ": "cha"
-    "チュ": "chu"
-    "チョ": "cho"
-    "チョウ": "chō"
-    "トウ": "tō"
+    sub "タ", "ta"
+    sub "チ", "chi"
+    sub "ツ", "tsu"
+    sub "テ", "te"
+    sub "ト", "to"
+    sub "チャ", "cha"
+    sub "チュ", "chu"
+    sub "チョ", "cho"
+    sub "チョウ", "chō"
+    sub "トウ", "tō"
 
-    "ナ": "na"
-    "ニ": "ni"
-    "ヌ": "nu"
-    "ネ": "ne"
-    "ノ": "no"
-    "ニャ": "nya"
-    "ニュ": "nyu"
-    "ニョ": "nyo"
-    "ニョウ": "nyō"
-    "ノウ": "nō"
+    sub "ナ", "na"
+    sub "ニ", "ni"
+    sub "ヌ", "nu"
+    sub "ネ", "ne"
+    sub "ノ", "no"
+    sub "ニャ", "nya"
+    sub "ニュ", "nyu"
+    sub "ニョ", "nyo"
+    sub "ニョウ", "nyō"
+    sub "ノウ", "nō"
 
-    "ハ": "ha"
-    "ヒ": "hi"
-    "フ": "fu"
-    "ヘ": "he"
-    "ホ": "ho"
-    "ヒャ": "hya"
-    "ヒュ": "hyu"
-    "ヒョ": "hyo"
-    "ヒョウ": "hyō"
-    "ホウ": "hō"
+    sub "ハ", "ha"
+    sub "ヒ", "hi"
+    sub "フ", "fu"
+    sub "ヘ", "he"
+    sub "ホ", "ho"
+    sub "ヒャ", "hya"
+    sub "ヒュ", "hyu"
+    sub "ヒョ", "hyo"
+    sub "ヒョウ", "hyō"
+    sub "ホウ", "hō"
 
-    "マ": "ma"
-    "ミ": "mi"
-    "ム": "mu"
-    "メ": "me"
-    "モ": "mo"
-    "ミャ": "mya"
-    "ミュ": "myu"
-    "ミョ": "myo"
-    "ミョウ": "myō"
-    "モウ": "mō"
+    sub "マ", "ma"
+    sub "ミ", "mi"
+    sub "ム", "mu"
+    sub "メ", "me"
+    sub "モ", "mo"
+    sub "ミャ", "mya"
+    sub "ミュ", "myu"
+    sub "ミョ", "myo"
+    sub "ミョウ", "myō"
+    sub "モウ", "mō"
 
-    "ヤ": "ya"
-    "ユ": "yu"
-    "ヨ": "yo"
-    "ヨウ": "yō"
+    sub "ヤ", "ya"
+    sub "ユ", "yu"
+    sub "ヨ", "yo"
+    sub "ヨウ", "yō"
 
-    "ラ": "ra"
-    "リ": "ri"
-    "ル": "ru"
-    "レ": "re"
-    "ロ": "ro"
-    "リャ": "rya"
-    "リュ": "ryu"
-    "リョ": "ryo"
-    "リョウ": "ryō"
-    "ロウ": "rō"
+    sub "ラ", "ra"
+    sub "リ", "ri"
+    sub "ル", "ru"
+    sub "レ", "re"
+    sub "ロ", "ro"
+    sub "リャ", "rya"
+    sub "リュ", "ryu"
+    sub "リョ", "ryo"
+    sub "リョウ", "ryō"
+    sub "ロウ", "rō"
 
-    "ワ": "wa"
-    "ヲ": "wo"
+    sub "ワ", "wa"
+    sub "ヲ", "wo"
 
-    "ガ": "ga"
-    "ギ": "gi"
-    "グ": "gu"
-    "ゲ": "ge"
-    "ゴ": "go"
-    "ギャ": "gya"
-    "ギュ": "gyu"
-    "ギョ": "gyo"
-    "ギョウ": "gyō"
-    "ゴウ": "gō"
+    sub "ガ", "ga"
+    sub "ギ", "gi"
+    sub "グ", "gu"
+    sub "ゲ", "ge"
+    sub "ゴ", "go"
+    sub "ギャ", "gya"
+    sub "ギュ", "gyu"
+    sub "ギョ", "gyo"
+    sub "ギョウ", "gyō"
+    sub "ゴウ", "gō"
 
-    "ザ": "za"
-    "ジ": "ji"
-    "ズ": "zu"
-    "ゼ": "ze"
-    "ゾ": "zo"
-    "ジャ": "ja"
-    "ジュ": "ju"
-    "ジョ": "jo"
-    "ジョウ": "jō"
-    "ゾウ": "zō"
+    sub "ザ", "za"
+    sub "ジ", "ji"
+    sub "ズ", "zu"
+    sub "ゼ", "ze"
+    sub "ゾ", "zo"
+    sub "ジャ", "ja"
+    sub "ジュ", "ju"
+    sub "ジョ", "jo"
+    sub "ジョウ", "jō"
+    sub "ゾウ", "zō"
 
-    "ダ": "da"
-    "ヂ": "ji"
-    "ヅ": "zu"
-    "デ": "de"
-    "ド": "do"
-    "ヂャ": "ja"
-    "ヂュ": "ju"
-    "ヂョ": "jo"
-    "ドウ": "dō"
+    sub "ダ", "da"
+    sub "ヂ", "ji"
+    sub "ヅ", "zu"
+    sub "デ", "de"
+    sub "ド", "do"
+    sub "ヂャ", "ja"
+    sub "ヂュ", "ju"
+    sub "ヂョ", "jo"
+    sub "ドウ", "dō"
 
-    "バ": "ba"
-    "ビ": "bi"
-    "ブ": "bu"
-    "ベ": "be"
-    "ボ": "bo"
-    "ビャ": "bya"
-    "ビュ": "byu"
-    "ビョ": "byo"
-    "ビョウ": "byō"
-    "ボウ": "bō"
+    sub "バ", "ba"
+    sub "ビ", "bi"
+    sub "ブ", "bu"
+    sub "ベ", "be"
+    sub "ボ", "bo"
+    sub "ビャ", "bya"
+    sub "ビュ", "byu"
+    sub "ビョ", "byo"
+    sub "ビョウ", "byō"
+    sub "ボウ", "bō"
 
-    "パ": "pa"
-    "ピ": "pi"
-    "プ": "pu"
-    "ペ": "pe"
-    "ポ": "po"
-    "ピャ": "pya"
-    "ピュ": "pyu"
-    "ピョ": "pyo"
-    "ピョウ": "pyō"
-    "ポウ": "pō"
+    sub "パ", "pa"
+    sub "ピ", "pi"
+    sub "プ", "pu"
+    sub "ペ", "pe"
+    sub "ポ", "po"
+    sub "ピャ", "pya"
+    sub "ピュ", "pyu"
+    sub "ピョ", "pyo"
+    sub "ピョウ", "pyō"
+    sub "ポウ", "pō"
 
-    "ン": "n"
+    sub "ン", "n"
+  }
+
+  # POSTRULES
+  # Handling of っ/ッ
+  #
+  # The kana っ/ッ is a geminate marker.
+  # When followed by a consonant, repeat the first letter of
+  # the following syllable. Exception: the combination -cch-
+  # should be transliterated as -tch-
+  #
+  # If っ/ッ is not followed by a consonant, then it is usually
+  # phonetically realised as an abrupt stop or shorterning of
+  # the previous syllable. There is no documented or commonly
+  # accepted way to transliterate this sound.
+
+  sub any("っッ") + capture(any("BbDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz")), ref( 1 ) + ref( 1 )
+  sub any("っッ") + capture(any("Cc")), "t" + ref( 1 ) # ッ followed by ch-
+  sub any("っッ"), "" # drop all other っッ.
+
+  # In Traditional Hepburn, long o (which can be o+o or o+u), and long u
+  # are transliterated as ō and ū.
+  #
+  # Macron should not be used if two repeating letters split across
+  # a morpheme boundary.
+  #
+  # Long vowels in loanwords are indicated with a macron instead
+  # of letter doubling.
+
+  sub "a" + any("ー"), "ā"
+  sub "i" + any("ー"), "ī"
+  sub "u" + any("ーu"), "ū"
+  sub "e" + any("ー"), "ē"
+  sub "o" + any("ーo"), "ō"
+
+}

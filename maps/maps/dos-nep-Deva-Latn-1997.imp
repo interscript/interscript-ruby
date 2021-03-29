@@ -1,47 +1,47 @@
----
-authority_id: bgnpcgn
-id: 1997
-language: iso-639-2:nep
-source_script: Deva
-destination_script: Latn
-name: Nepali Romanization, 1997
-url: http://nationalgeoportal.gov.np/old/pdf/translation2.pdf
-creation_date: 1997
-description: |
-  Survey Department, Ministry of Land Management, Cooperatives and Poverty Alleviation, Government of Nepal.
+metadata {
+  authority_id: bgnpcgn
+  id: 1997
+  language: iso-639-2:nep
+  source_script: Deva
+  destination_script: Latn
+  name: Nepali Romanization, 1997
+  url: http://nationalgeoportal.gov.np/old/pdf/translation2.pdf
+  creation_date: 1997
+  description: |
+    Survey Department, Ministry of Land Management, Cooperatives and Poverty Alleviation, Government of Nepal.
 
-notes:
-  - |
-    ं (anusvara) is rendered by
-    ṅ before क, ख, ग, and घ
-    ñ before च, छ, ज, and झ
-    ṇ before ट, ठ, ड, and ढ
-    n before त, थ, द, and ध
-    ṁ before य, र, ल, व, श, ष, स
+  notes:
+    - |
+      ं (anusvara) is rendered by
+      ṅ before क, ख, ग, and घ
+      ñ before च, छ, ज, and झ
+      ṇ before ट, ठ, ड, and ढ
+      n before त, थ, द, and ध
+      ṁ before य, र, ल, व, श, ष, स
+}
 
-tests:
-  - source: "दुःख"
-    expected: "duhkh"
-  - source: "पूरा भइसकेका विषयलाई माग बनाएर दबाब नदिनुस्"
-    expected: "pūrā bhiskekā viṣylāī māg bnāer dbāb ndinusa"
-  - source: "जाँदै छ कता नेपाली संगीत"
-    expected: "jā~dai chh ktā nepālī sṅgīt"
-  - source: "३५ मिनेटको यो डकुमेन्ट्री फिल्मले प्रथम पुरस्कारस्वरूप ग्रान्ड पिक्स अवार्ड पाएको हो"
-    expected: "35 mineṭko yo ḍkumenaṭarī philamle parthm pursakārsavrūp garānaḍ pikas avāraḍ pāeko ho"
-  - source: "विक्षनरी"
-    expected: "vikṣnrī"
-  - source: "रुसमा उत्कृष्ट"
-    expected: "rusmā utakṛiṣaṭ"
-  - source: "वाणिज्य"
-    expected: "vāṇijay"
-  - source: "अंक विद्या"
-    expected: "aṅk vidayā"
+tests {
+  test "दुःख", "duhkh"
+  test "पूरा भइसकेका विषयलाई माग बनाएर दबाब नदिनुस्", "pūrā bhiskekā viṣylāī māg bnāer dbāb ndinusa"
+  test "जाँदै छ कता नेपाली संगीत", "jā~dai chh ktā nepālī sṅgīt"
+  test "३५ मिनेटको यो डकुमेन्ट्री फिल्मले प्रथम पुरस्कारस्वरूप ग्रान्ड पिक्स अवार्ड पाएको हो", "35 mineṭko yo ḍkumenaṭarī philamle parthm pursakārsavrūp garānaḍ pikas avāraḍ pāeko ho"
+  test "विक्षनरी", "vikṣnrī"
+  test "रुसमा उत्कृष्ट", "rusmā utakṛiṣaṭ"
+  test "वाणिज्य", "vāṇijay"
+  test "अंक विद्या", "aṅk vidayā"
+}
 
-map:
+dependency "bgnpcgn-nep-Deva-Latn-2011", as: devalatn
 
-  inherit: "bgnpcgn-nep-Deva-Latn-2011"
+stage {
 
-  characters:
+
+  # CHARACTERS
+  parallel {
 
     # Bisarga
-    'ः': 'h'
+    sub "ः", "h"
+  }
+
+  run map.devalatn.stage.main
+}

@@ -1,98 +1,110 @@
----
-authority_id: alalc
-id: 1997
-language: iso-639-2:bul
-source_script: Cyrl
-destination_script: Latn
-name: ALA-LC Romanization Table -- Bulgarian (1997)
-alias:
-  ogc11122:
-    code: bul_Cyrl2Latn_ALA_1997
-    description: Bulgarian ALA-Library of Congress Bulgarian 1997 System
-url: http://www.rechtertie.nl/databases/judd/downloads/Bulgarian.pdf
-creation_date: 1997
+metadata {
+  authority_id: alalc
+  id: 1997
+  language: iso-639-2:bul
+  source_script: Cyrl
+  destination_script: Latn
+  name: ALA-LC Romanization Table -- Bulgarian (1997)
+  url: http://www.rechtertie.nl/databases/judd/downloads/Bulgarian.pdf
+  creation_date: 1997
 
-notes:
-  - |
-    The letter Ъ in the initial and medial position is a vowel in Bulgarian and is romanized as ŭ.
-    It appears in the final position chiefly in texts published before 1945, in which it serves as
-    a hard sign and is romanized as ʺ.
-  - The letters Ѣ and Ѫ are found chiefly in texts published before the orthographic reform of 1945.
+  notes:
+    - |
+      The letter Ъ in the initial and medial position is a vowel in Bulgarian and is romanized as ŭ.
+      It appears in the final position chiefly in texts published before 1945, in which it serves as
+      a hard sign and is romanized as ʺ.
+    - The letters Ѣ and Ѫ are found chiefly in texts published before the orthographic reform of 1945.
+}
 
-tests:
+tests {
   # missing
+}
 
-map:
-  rules:
-    # note[1]
-    - pattern: (?<=)\u042a(?=\b)
-      result: "\u02BA"
-    - pattern: (?<=)u044a(?=\b)
-      result: "\u02BA"
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-  characters:
-    '\u0410': 'A'
-    '\u0411': 'B'
-    '\u0412': 'V'
-    '\u0413': 'G'
-    '\u0414': 'D'
-    '\u0415': 'E'
-    '\u0416': 'Zh'
-    '\u0417': 'Z'
-    '\u0418': 'I'
-    '\u0419': "I\u0306" # Ĭ
-    '\u041a': 'K'
-    '\u041b': 'L'
-    '\u041c': 'M'
-    '\u041d': 'N'
-    '\u041e': 'O'
-    '\u041f': 'P'
-    '\u0420': 'R'
-    '\u0421': 'S'
-    '\u0422': 'T'
-    '\u0423': 'U'
-    '\u0424': 'F'
-    '\u0425': 'Kh'
-    '\u0426': "T\u0361S"
-    '\u0427': 'Ch'
-    '\u0428': 'Sh'
-    '\u0429': 'Sht'
-    '\u042a': "U\u0306" # or ʺ check note[1]
-    '\u042c': '\u02B9'
-    '\u0462': "I\u0361E" # Ѣ check note [2]
-    '\u042e': "I\u0361U"
-    '\u042f': "I\u0361A"
-    '\u046A': "U\u0310" # Ѫ check note [2]
+stage {
 
-    '\u0430': 'a'
-    '\u0431': 'b'
-    '\u0432': 'v'
-    '\u0433': 'g'
-    '\u0434': 'd'
-    '\u0435': 'e'
-    '\u0436': 'zh'
-    '\u0437': 'z'
-    '\u0438': 'i'
-    '\u0439': "i\u0306" # ĭ
-    '\u043a': 'k'
-    '\u043b': 'l'
-    '\u043c': 'm'
-    '\u043d': 'n'
-    '\u043e': 'o'
-    '\u043f': 'p'
-    '\u0440': 'r'
-    '\u0441': 's'
-    '\u0442': 't'
-    '\u0443': 'u'
-    '\u0444': 'f'
-    '\u0445': 'kh'
-    '\u0446': "t\u0361s"
-    '\u0447': 'ch'
-    '\u0448': 'sh'
-    '\u0449': 'sht'
-    '\u044a': "u\u0306" # or ʺ check note[1]
-    '\u044c': '\u02B9'
-    '\u0463': "i\u0361e" # ѣ check note [2]
-    '\u044e': "i\u0361u"
-    '\u044f': "i\u0361a"
-    '\u046B': "u\u0310" # ѫ check note [2]
+  # RULES
+  # note[1]
+  sub "\u042a", "ʺ", before: "", after: boundary
+  sub "u044a", "ʺ", before: "", after: boundary
+
+
+  # CHARACTERS
+  parallel {
+    sub "\u0410", "A"
+    sub "\u0411", "B"
+    sub "\u0412", "V"
+    sub "\u0413", "G"
+    sub "\u0414", "D"
+    sub "\u0415", "E"
+    sub "\u0416", "Zh"
+    sub "\u0417", "Z"
+    sub "\u0418", "I"
+    sub "\u0419", "Ĭ" # Ĭ
+    sub "\u041a", "K"
+    sub "\u041b", "L"
+    sub "\u041c", "M"
+    sub "\u041d", "N"
+    sub "\u041e", "O"
+    sub "\u041f", "P"
+    sub "\u0420", "R"
+    sub "\u0421", "S"
+    sub "\u0422", "T"
+    sub "\u0423", "U"
+    sub "\u0424", "F"
+    sub "\u0425", "Kh"
+    sub "\u0426", "T͡S"
+    sub "\u0427", "Ch"
+    sub "\u0428", "Sh"
+    sub "\u0429", "Sht"
+    sub "\u042a", "Ŭ" # or ʺ check note[1]
+    sub "\u042c", "\u02B9"
+    sub "\u0462", "I͡E" # Ѣ check note [2]
+    sub "\u042e", "I͡U"
+    sub "\u042f", "I͡A"
+    sub "\u046A", "U̐" # Ѫ check note [2]
+
+    sub "\u0430", "a"
+    sub "\u0431", "b"
+    sub "\u0432", "v"
+    sub "\u0433", "g"
+    sub "\u0434", "d"
+    sub "\u0435", "e"
+    sub "\u0436", "zh"
+    sub "\u0437", "z"
+    sub "\u0438", "i"
+    sub "\u0439", "ĭ" # ĭ
+    sub "\u043a", "k"
+    sub "\u043b", "l"
+    sub "\u043c", "m"
+    sub "\u043d", "n"
+    sub "\u043e", "o"
+    sub "\u043f", "p"
+    sub "\u0440", "r"
+    sub "\u0441", "s"
+    sub "\u0442", "t"
+    sub "\u0443", "u"
+    sub "\u0444", "f"
+    sub "\u0445", "kh"
+    sub "\u0446", "t͡s"
+    sub "\u0447", "ch"
+    sub "\u0448", "sh"
+    sub "\u0449", "sht"
+    sub "\u044a", "ŭ" # or ʺ check note[1]
+    sub "\u044c", "\u02B9"
+    sub "\u0463", "i͡e" # ѣ check note [2]
+    sub "\u044e", "i͡u"
+    sub "\u044f", "i͡a"
+    sub "\u046B", "u̐" # ѫ check note [2]
+  }
+
+}
+

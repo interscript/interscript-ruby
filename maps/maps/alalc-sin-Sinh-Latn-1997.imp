@@ -1,292 +1,246 @@
----
-authority_id: alalc
-id: 1997
-language: iso-639-2:sin
-source_script: Sinh
-destination_script: Latn
-name: Sinhalese Romanization, 1997
-alias:
-  ogc11122:
-    code: sin_Sinh2Latn_ALA_1997
-    description: Sinhalese ALA-Library of Congress 1997 System
-url: http://catdir.loc.gov/catdir/cpso/romanization/sinhales.pdf
-creation_date: 1997
-description: |
-  ALA-LC Romanization table for Sinhalese
+metadata {
+  authority_id: alalc
+  id: 1997
+  language: iso-639-2:sin
+  source_script: Sinh
+  destination_script: Latn
+  name: Sinhalese Romanization, 1997
+  url: http://catdir.loc.gov/catdir/cpso/romanization/sinhales.pdf
+  creation_date: 1997
+  description: |
+    ALA-LC Romanization table for Sinhalese
 
 
-notes:
+  notes:
 
-  - Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for
-    vowels following a consonant can be found in grammars; no distinction between the two is
-    made in transliteration.
+    - Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for
+      vowels following a consonant can be found in grammars; no distinction between the two is
+      made in transliteration.
 
-  - |
-    The vowel a is implicit after all consonants and consonant clusters and is supplied in
-    transliteration, with the following exceptions:
+    - |
+      The vowel a is implicit after all consonants and consonant clusters and is supplied in
+      transliteration, with the following exceptions:
 
-    a) when another vowel is indicated by its appropriate sign; and
-    b) when the absence of any vowel is indicated by the sign ් called virāma.
+      a) when another vowel is indicated by its appropriate sign; and
+      b) when the absence of any vowel is indicated by the sign ් called virāma.
 
-  - |
-    Exceptions: Anusvāra is transliterated by:
+    - |
+      Exceptions: Anusvāra is transliterated by:
 
-    a) ṅ before gutturals,
-    b) ñ before palatals,
-    c) ṇ before cerebrals,
-    d) n before dentals, and
-    e) m before labials.
+      a) ṅ before gutturals,
+      b) ñ before palatals,
+      c) ṇ before cerebrals,
+      d) n before dentals, and
+      e) m before labials.
 
-  - |
-    Exceptions:
-    a) when saññaka represents a nasal, it is romanized according to the rule for anusvāra.
-    b) when saññaka is combined with an aspirated consonant, the combination is romanized as a non-aspirated, followed by an aspirated consonant.
+    - |
+      Exceptions:
+      a) when saññaka represents a nasal, it is romanized according to the rule for anusvāra.
+      b) when saññaka is combined with an aspirated consonant, the combination is romanized as a non-aspirated, followed by an aspirated consonant.
+}
 
+tests {
+  test "ශී‍්‍ර ලංකාවේ කී‍්‍රඩාව ඉතිහාසයේ ඉහළම තැනකට ගේන්න කටයුතු කරනවා", "śīra laṃkāvē kīraḍāva itihāsayē ihaḷama tănakaṭa gēnanna kaṭayutu karanavā"
+  test "කොච්චිකඬේ මෝයකට අසල නෑමට ගිය තරුණයෝ ෩ක් මරුට - මිතුරාගේ උපන් දිනය සැමරීමට ඇවිත්", "kocañcikaṇḍē mōyakaṭa asala nâmaṭa giya taruṇayō 3k maruṭa - miturāgē upan dinaya sămarīmaṭa ăvit"
+  test "ලෝක ළමා දිනයදා සිසුන් පිරිසක් කසිප්පු බීලා", "lōka ḷamā dinayadā sisun pirisak kasippu bīlā"
+  test "කෝටි 16ක හෙරොයින් සමග දන්කොටුවේදී 7ක් දැලේ", "kōṭi 16ka heroyin samaga danaṅkoṭuvēdī 7k dălē"
+  test "මිනුවන්ගොඩ පීසීආර් දෙදහසක් සිදුකරයි", "minuvanaṅgoḍa pīsīār dedahasak sidukarayi"
+  test "පාස්කු ප‍්‍රහාරය වගේම පාස්කු ප්‍රෝඩාව ගැනත් සොයන්න කොමිසමක් පත්කළ යුතුයි - විපක්‍ෂ නායක සජිත් පේ‍්‍රමදාස", "pāsaṅku parahāraya vagēma pāsaṅku prōḍāva gănat soyananna komisamak pataṅkaḷa yutuyi - vipakṣa nāyaka sajit pēramadāsa"
+  test "ට‍්‍රම්ප්ගේ සෞඛ්‍යය තීරණාත්මකයි - ට්විටර් හරහා ජනතාව අමතයි", "ṭarampaṅgē saukhyaya tīraṇātmakayi - ṭviṭar harahā janatāva amatayi"
+  test "පාස්කු දා ප‍්‍රහාරය පිළිබඳ පරීක්‍ෂණවලින් කිසිවකුට අසාධාරණයක් වීමට ඉඩ දෙන්නේ නෑ - අගමැති", "pāsaṅku dā parahāraya piḷibanda parīkṣaṇavalin kisivakuṭa asādhāraṇayak vīmaṭa iḍa denannē nâ - agamăti"
+  test "දිල්ලි කැපිටල්ස් සහ කෝලිගේ බැංගලෝර් තෙවැනි ජය ලබයි", "dilli kăpiṭals saha kōligē băṃgalōr tevăni jaya labayi"
+  test "ශ‍්‍රී ලාංකික සම්භවයක් සහිත ප‍්‍රංශයේ පවුලක 5 ක් ඝාතනය කරලා", "śarī lāṃkika sambhavayak sahita paraṃśayē pavulaka 5 k ghātanaya karalā"
+  test "පැතිකුදය ඉක්මනින් සුව කරන ප‍්‍රතිකාර", "pătikudaya ikmanin suva karana paratikāra"
+}
 
-tests:
-  - source: "ශී‍්‍ර ලංකාවේ කී‍්‍රඩාව ඉතිහාසයේ ඉහළම තැනකට ගේන්න කටයුතු කරනවා"
-    expected: "śīra laṃkāvē kīraḍāva itihāsayē ihaḷama tănakaṭa gēnanna kaṭayutu karanavā"
-  - source: "කොච්චිකඬේ මෝයකට අසල නෑමට ගිය තරුණයෝ ෩ක් මරුට - මිතුරාගේ උපන් දිනය සැමරීමට ඇවිත්"
-    expected: "kocañcikaṇḍē mōyakaṭa asala nâmaṭa giya taruṇayō 3k maruṭa - miturāgē upan dinaya sămarīmaṭa ăvit"
-  - source: "ලෝක ළමා දිනයදා සිසුන් පිරිසක් කසිප්පු බීලා"
-    expected: "lōka ḷamā dinayadā sisun pirisak kasippu bīlā"
-  - source: "කෝටි 16ක හෙරොයින් සමග දන්කොටුවේදී 7ක් දැලේ"
-    expected: "kōṭi 16ka heroyin samaga danaṅkoṭuvēdī 7k dălē"
-  - source: "මිනුවන්ගොඩ පීසීආර් දෙදහසක් සිදුකරයි"
-    expected: "minuvanaṅgoḍa pīsīār dedahasak sidukarayi"
-  - source: "පාස්කු ප‍්‍රහාරය වගේම පාස්කු ප්‍රෝඩාව ගැනත් සොයන්න කොමිසමක් පත්කළ යුතුයි - විපක්‍ෂ නායක සජිත් පේ‍්‍රමදාස"
-    expected: "pāsaṅku parahāraya vagēma pāsaṅku prōḍāva gănat soyananna komisamak pataṅkaḷa yutuyi - vipakṣa nāyaka sajit pēramadāsa"
-  - source: "ට‍්‍රම්ප්ගේ සෞඛ්‍යය තීරණාත්මකයි - ට්විටර් හරහා ජනතාව අමතයි"
-    expected: "ṭarampaṅgē saukhyaya tīraṇātmakayi - ṭviṭar harahā janatāva amatayi"
-  - source: "පාස්කු දා ප‍්‍රහාරය පිළිබඳ පරීක්‍ෂණවලින් කිසිවකුට අසාධාරණයක් වීමට ඉඩ දෙන්නේ නෑ - අගමැති"
-    expected: "pāsaṅku dā parahāraya piḷibanda parīkṣaṇavalin kisivakuṭa asādhāraṇayak vīmaṭa iḍa denannē nâ - agamăti"
-  - source: "දිල්ලි කැපිටල්ස් සහ කෝලිගේ බැංගලෝර් තෙවැනි ජය ලබයි"
-    expected: "dilli kăpiṭals saha kōligē băṃgalōr tevăni jaya labayi"
-  - source: "ශ‍්‍රී ලාංකික සම්භවයක් සහිත ප‍්‍රංශයේ පවුලක 5 ක් ඝාතනය කරලා"
-    expected: "śarī lāṃkika sambhavayak sahita paraṃśayē pavulaka 5 k ghātanaya karalā"
-  - source: "පැතිකුදය ඉක්මනින් සුව කරන ප‍්‍රතිකාර"
-    expected: "pătikudaya ikmanin suva karana paratikāra"
+aliases {
+  def_alias sinh_chars_1, any("\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca")
+}
 
-map:
+stage {
 
-  rules:
-    # note[3]
-    - pattern: \u0DCA(?=[කඛගඝඞ])
-      result: ṅ
-    - pattern: \u0DCA(?=[චඡජඣඤ])
-      result: ñ
-    - pattern: \u0DCA(?=[ටඨඩඪණ])
-      result: ṇ
-    - pattern: \u0DCA(?=[තථදධන])
-      result: n
+  # RULES
+  # note[3]
+    sub "\u0DCA", "ṅ", after: any("කඛගඝඞ")
+    sub "\u0DCA", "ñ", after: any("චඡජඣඤ")
+    sub "\u0DCA", "ṇ", after: any("ටඨඩඪණ")
+    sub "\u0DCA", "n", after: any("තථදධන")
 
-    # note[2(a,b)]
-    - pattern: ක(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'k'
-    - pattern: ඛ(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'kh'
-    - pattern: ග(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'g'
-    - pattern: ඝ(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'gh'
-    - pattern: ඞ(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'ṅ'
-    - pattern: ච(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'c'
-    - pattern: ඡ(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'ch'
-    - pattern: ජ(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'j'
-    - pattern: ඣ(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'jh'
-    - pattern: ඤ(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'ñ'
-    - pattern: ට(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'ṭ'
-    - pattern: ඨ(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'ṭh'
-    - pattern: ඩ(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'ḍ'
-    - pattern: ඪ(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'ḍh'
-    - pattern: ණ(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'ṇ'
-    - pattern: ත(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 't'
-    - pattern: ථ(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'th'
-    - pattern: ද(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'd'
-    - pattern: ධ(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'dh'
-    - pattern: න(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'n'
-    - pattern: ප(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'p'
-    - pattern: ඵ(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'ph'
-    - pattern: බ(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'b'
-    - pattern: භ(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'bh'
-    - pattern: ම(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'm'
-    - pattern: ය(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'y'
-    - pattern: ර(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'r'
-    - pattern: ල(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'l'
-    - pattern: ළ(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'ḷ'
-    - pattern: ව(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'v'
-    - pattern: ශ(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'ś'
-    - pattern: ෂ(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'ṣ'
-    - pattern: ස(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 's'
-    - pattern: හ(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'h'
-    - pattern: ඟ(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'ṅg'
-    - pattern: ඦ(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'ñj'
-    - pattern: ඬ(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'ṇḍ'
-    - pattern: ඳ(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'nd'
-    - pattern: ඹ(?=[\u0dcf\u0dd0\u0dd1\u0dd2\u0dd3\u0dd4\u0dd6\u0dd8\u0df2\u0ddf\u0df3\u0dd9\u0dda\u0ddb\u0ddc\u0ddd\u0dde\u0dca])
-      result: 'ṃb'
+  # note[2(a,b)]
+    sub "ක", "k", after: sinh_chars_1
+    sub "ඛ", "kh", after: sinh_chars_1
+    sub "ග", "g", after: sinh_chars_1
+    sub "ඝ", "gh", after: sinh_chars_1
+    sub "ඞ", "ṅ", after: sinh_chars_1
+    sub "ච", "c", after: sinh_chars_1
+    sub "ඡ", "ch", after: sinh_chars_1
+    sub "ජ", "j", after: sinh_chars_1
+    sub "ඣ", "jh", after: sinh_chars_1
+    sub "ඤ", "ñ", after: sinh_chars_1
+    sub "ට", "ṭ", after: sinh_chars_1
+    sub "ඨ", "ṭh", after: sinh_chars_1
+    sub "ඩ", "ḍ", after: sinh_chars_1
+    sub "ඪ", "ḍh", after: sinh_chars_1
+    sub "ණ", "ṇ", after: sinh_chars_1
+    sub "ත", "t", after: sinh_chars_1
+    sub "ථ", "th", after: sinh_chars_1
+    sub "ද", "d", after: sinh_chars_1
+    sub "ධ", "dh", after: sinh_chars_1
+    sub "න", "n", after: sinh_chars_1
+    sub "ප", "p", after: sinh_chars_1
+    sub "ඵ", "ph", after: sinh_chars_1
+    sub "බ", "b", after: sinh_chars_1
+    sub "භ", "bh", after: sinh_chars_1
+    sub "ම", "m", after: sinh_chars_1
+    sub "ය", "y", after: sinh_chars_1
+    sub "ර", "r", after: sinh_chars_1
+    sub "ල", "l", after: sinh_chars_1
+    sub "ළ", "ḷ", after: sinh_chars_1
+    sub "ව", "v", after: sinh_chars_1
+    sub "ශ", "ś", after: sinh_chars_1
+    sub "ෂ", "ṣ", after: sinh_chars_1
+    sub "ස", "s", after: sinh_chars_1
+    sub "හ", "h", after: sinh_chars_1
+    sub "ඟ", "ṅg", after: sinh_chars_1
+    sub "ඦ", "ñj", after: sinh_chars_1
+    sub "ඬ", "ṇḍ", after: sinh_chars_1
+    sub "ඳ", "nd", after: sinh_chars_1
+    sub "ඹ", "ṃb", after: sinh_chars_1
 
 
-  characters:
+
+  # CHARACTERS
+  parallel {
 
     #Vowels and Diphthongs (see Note 1)
 
-    'අ': 'a'
-    'ආ': 'ā'
-    'ඇ': 'ă'
-    'ඈ': 'â'
-    'ඉ': 'i'
-    'ඊ': 'ī'
-    'උ': 'u'
-    'ඌ': 'ū'
-    'ඍ': 'ṛ'
-    'ඎ': 'ṝ'
-    'ඏ': 'ḷ'
-    'ඐ': 'ḹ'
-    'එ': 'e'
-    'ඒ': 'ē'
-    'ඓ': 'ai'
-    'ඔ': 'o'
-    'ඕ': 'ō'
-    'ඖ': 'au'
+    sub "අ", "a"
+    sub "ආ", "ā"
+    sub "ඇ", "ă"
+    sub "ඈ", "â"
+    sub "ඉ", "i"
+    sub "ඊ", "ī"
+    sub "උ", "u"
+    sub "ඌ", "ū"
+    sub "ඍ", "ṛ"
+    sub "ඎ", "ṝ"
+    sub "ඏ", "ḷ"
+    sub "ඐ", "ḹ"
+    sub "එ", "e"
+    sub "ඒ", "ē"
+    sub "ඓ", "ai"
+    sub "ඔ", "o"
+    sub "ඕ", "ō"
+    sub "ඖ", "au"
 
-    'ා': 'ā'
-    'ැ': 'ă'
-    'ෑ': 'â'
-    'ි': 'i'
-    'ී': 'ī'
-    'ු': 'u'
-    'ූ': 'ū'
-    'ෘ': 'ṛ'
-    'ෲ': 'ṝ'
-    'ෟ': 'ḷ'
-    'ෳ': 'ḹ'
-    'ෙ': 'e'
-    'ේ': 'ē'
-    'ෛ': 'ai'
-    'ො': 'o'
-    'ෝ': 'ō'
-    'ෞ': 'au'
+    sub "ා", "ā"
+    sub "ැ", "ă"
+    sub "ෑ", "â"
+    sub "ි", "i"
+    sub "ී", "ī"
+    sub "ු", "u"
+    sub "ූ", "ū"
+    sub "ෘ", "ṛ"
+    sub "ෲ", "ṝ"
+    sub "ෟ", "ḷ"
+    sub "ෳ", "ḹ"
+    sub "ෙ", "e"
+    sub "ේ", "ē"
+    sub "ෛ", "ai"
+    sub "ො", "o"
+    sub "ෝ", "ō"
+    sub "ෞ", "au"
 
 
     # II. Consonants (see Note 2)
     # Gutturals
-    'ක': 'ka'
-    'ඛ': 'kha'
-    'ග': 'ga'
-    'ඝ': 'gha'
-    'ඞ': 'ṅa'
+    sub "ක", "ka"
+    sub "ඛ", "kha"
+    sub "ග", "ga"
+    sub "ඝ", "gha"
+    sub "ඞ", "ṅa"
 
 
     # Palatals
-    'ච': 'ca'
-    'ඡ': 'cha'
-    'ජ': 'ja'
-    'ඣ': 'jha'
-    'ඤ': 'ña'
+    sub "ච", "ca"
+    sub "ඡ", "cha"
+    sub "ජ", "ja"
+    sub "ඣ", "jha"
+    sub "ඤ", "ña"
 
 
     # Cerebrals
-    'ට':  'ṭa'
-    'ඨ':  'ṭha'
-    'ඩ':  'ḍa'
-    'ඪ':  'ḍha'
-    'ණ':  'ṇa'
+    sub "ට", "ṭa"
+    sub "ඨ", "ṭha"
+    sub "ඩ", "ḍa"
+    sub "ඪ", "ḍha"
+    sub "ණ", "ṇa"
 
 
     # Dentals
-    'ත': 'ta'
-    'ථ': 'tha'
-    'ද': 'da'
-    'ධ': 'dha'
-    'න': 'na'
+    sub "ත", "ta"
+    sub "ථ", "tha"
+    sub "ද", "da"
+    sub "ධ", "dha"
+    sub "න", "na"
 
 
     # Labials
-    'ප': 'pa'
-    'ඵ': 'pha'
-    'බ': 'ba'
-    'භ': 'bha'
-    'ම': 'ma'
+    sub "ප", "pa"
+    sub "ඵ", "pha"
+    sub "බ", "ba"
+    sub "භ", "bha"
+    sub "ම", "ma"
 
 
     # Semivowels
-    'ය': 'ya'
-    'ර': 'ra'
-    'ල': 'la'
-    'ළ': 'ḷa'
-    'ව': 'va'
+    sub "ය", "ya"
+    sub "ර", "ra"
+    sub "ල", "la"
+    sub "ළ", "ḷa"
+    sub "ව", "va"
 
     # Sibilants
-    'ශ': 'śa'
-    'ෂ': 'ṣa'
-    'ස': 'sa'
+    sub "ශ", "śa"
+    sub "ෂ", "ṣa"
+    sub "ස", "sa"
 
     # Aspirate
-    'හ': 'ha'
+    sub "හ", "ha"
 
 
     # Visarga
-    'ඃ': 'ḥ'
+    sub "ඃ", "ḥ"
 
     # Anusvāra (see Note 3)
-    'ං': 'ṃ'
+    sub "ං", "ṃ"
 
 
     # numbers
-    '\u0DE6': '0'
-    '\u0DE7': '1'
-    '\u0DE8': '2'
-    '\u0DE9': '3'
-    '\u0DEA': '4'
-    '\u0DEB': '5'
-    '\u0DEC': '6'
-    '\u0DED': '7'
-    '\u0DEE': '8'
-    '\u0DEF': '9'
+    sub "\u0DE6", "0"
+    sub "\u0DE7", "1"
+    sub "\u0DE8", "2"
+    sub "\u0DE9", "3"
+    sub "\u0DEA", "4"
+    sub "\u0DEB", "5"
+    sub "\u0DEC", "6"
+    sub "\u0DED", "7"
+    sub "\u0DEE", "8"
+    sub "\u0DEF", "9"
 
 
-    "‍": ''# Used for joining
-    "‌": ''# Used for non joining
-    '්': ''
+    sub "‍", "" # Used for joining
+    sub "‌", "" # Used for non joining
+    sub "්", ""
 
     # Rule no 4
-    'ඟ': 'ṅga'
-    'ඦ': 'ñja'
-    'ඬ': 'ṇḍa'
-    'ඳ': 'nda'
-    'ඹ': 'ṃba'
+    sub "ඟ", "ṅga"
+    sub "ඦ", "ñja"
+    sub "ඬ", "ṇḍa"
+    sub "ඳ", "nda"
+    sub "ඹ", "ṃba"
+  }
+
+  compose
+}
+

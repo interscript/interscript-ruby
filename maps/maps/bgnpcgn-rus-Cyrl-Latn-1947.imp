@@ -1,318 +1,195 @@
----
-authority_id: bgnpcgn
-id: 1947
-language: iso-639-2:rus
-source_script: Cyrl
-destination_script: Latn
-name: ROMANIZATION OF RUSSIAN, BGN/PCGN 1947 System
-alias:
-  ogc11122:
-    code: rus_Cyrl2Latn_BGN_1947
-    description: Russian US Board on Geographic Names(BGN)/Permanent Committee on Geographical Names for British Official Use(PCGN) 1947 System
-url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/807920/ROMANIZATION_OF_RUSSIAN.pdf
-creation_date: 1947
-confirmation_date: 2019-06
-description: |
-  The BGN/PCGN system for Russian was adopted by the BGN in 1944 and by the
-  PCGN in 1947 for use in romanizing names written in the Russian Cyrillic
-  alphabet.
+metadata {
+  authority_id: bgnpcgn
+  id: 1947
+  language: iso-639-2:rus
+  source_script: Cyrl
+  destination_script: Latn
+  name: ROMANIZATION OF RUSSIAN, BGN/PCGN 1947 System
+  url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/807920/ROMANIZATION_OF_RUSSIAN.pdf
+  creation_date: 1947
+  confirmation_date: 2019-06
+  description: |
+    The BGN/PCGN system for Russian was adopted by the BGN in 1944 and by the
+    PCGN in 1947 for use in romanizing names written in the Russian Cyrillic
+    alphabet.
 
-notes:
-  - The character e should be romanized ye initially, after the vowel
-    characters a, e, ё, и, о, у, ы, э, ю, and я, and after й, ъ, and ь. In
-    all other instances, it should be romanized e.
+  notes:
+    - The character e should be romanized ye initially, after the vowel
+      characters a, e, ё, и, о, у, ы, э, ю, and я, and after й, ъ, and ь. In
+      all other instances, it should be romanized e.
 
-  - The character ё is not considered a separate character of the
-    Russian alphabet and the dieresis is generally not shown. When the
-    dieresis is shown, the character should be romanized yë initially,
-    after the vowel characters a, e, ё, и, о, у, ы, э, ю, and я, and after
-    й, ъ, and ь. In all other instances, it should be romanized ё. When the
-    dieresis is not shown, the character may still be romanized in the
-    preceding manner or, alternatively, in accordance with note 1.
+    - The character ё is not considered a separate character of the
+      Russian alphabet and the dieresis is generally not shown. When the
+      dieresis is shown, the character should be romanized yë initially,
+      after the vowel characters a, e, ё, и, о, у, ы, э, ю, and я, and after
+      й, ъ, and ь. In all other instances, it should be romanized ё. When the
+      dieresis is not shown, the character may still be romanized in the
+      preceding manner or, alternatively, in accordance with note 1.
 
-  - |
-    Unusual Russian character sequences occurring primarily in
-    non-Russian-language names may be romanized as shown below in order to
-    provide differentiation from regularly- occurring digraphs and
-    character sequences.
-      й before а, у, ы, or э у·
-      ы before а, у, ы, or э у·
-      ы after any vowel character ·у
-      э after any consonant character except й ·е
-      TC t·s шч sh·ch
+    - |
+      Unusual Russian character sequences occurring primarily in
+      non-Russian-language names may be romanized as shown below in order to
+      provide differentiation from regularly- occurring digraphs and
+      character sequences.
+        й before а, у, ы, or э у·
+        ы before а, у, ы, or э у·
+        ы after any vowel character ·у
+        э after any consonant character except й ·е
+        TC t·s шч sh·ch
 
-  - Unicode values are shown with the uppercase Cyrillic character first,
-    followed by the lowercase character.
+    - Unicode values are shown with the uppercase Cyrillic character first,
+      followed by the lowercase character.
 
-  - |
-    An inventory of letter-diacritic combinations, with their Unicode
-    encoding, in addition to the unmodified letters of the basic Roman
-    script is:
-      All apostrophes appearing in romanization are U+2019 Ë (U+00CB)
-      ë (U+00EB)
-  - The Romanization column shows only lowercase forms but, when
-    romanizing, uppercase and lowercase Roman letters as appropriate should
-    be used.
+    - |
+      An inventory of letter-diacritic combinations, with their Unicode
+      encoding, in addition to the unmodified letters of the basic Roman
+      script is:
+        All apostrophes appearing in romanization are U+2019 Ë (U+00CB)
+        ë (U+00EB)
+    - The Romanization column shows only lowercase forms but, when
+      romanizing, uppercase and lowercase Roman letters as appropriate should
+      be used.
+}
 
-tests:
-  - source: |
-      Выборы депутатов Государственной Думы Федерального Собрания Российской Федерации седьмого созыва
-      Дата голосования: 18.09.2016
+tests {
+  test "Выборы депутатов Государственной Думы Федерального Собрания Российской Федерации седьмого созыва\nДата голосования: 18.09.2016\n\nНаименование Избирательной комиссии:    ЦИК России\n\nСводная таблица результатов выборов по федеральному избирательному округу\n\n\nЧисло избирателей, внесенных в список избирателей на момент окончания голосования\nЧисло избирательных бюллетеней, полученных участковой избирательной комиссией\nЧисло избирательных бюллетеней, выданных избирателям, проголосовавшим досрочно\nЧисло избирательных бюллетеней, выданных в помещении для голосования в день голосования\nЧисло избирательных бюллетеней, выданных вне помещения для голосования в день голосования\nЧисло погашенных избирательных бюллетеней\nЧисло избирательных бюллетеней, содержащихся в переносных ящиках для голосования\nЧисло избирательных бюллетеней, содержащихся в стационарных ящиках для голосования\nЧисло недействительных избирательных бюллетеней\nЧисло действительных избирательных бюллетеней\nЧисло открепительных удостоверений, полученных участковой избирательной комиссией\nЧисло открепительных удостоверений, выданных на избирательном участке до дня голосования\nЧисло избирателей, проголосовавших по открепительным удостоверениям на избирательном участке\nЧисло погашенных неиспользованных открепительных удостоверений\nЧисло открепительных удостоверений, выданных избирателям территориальной избирательной комиссией\nЧисло утраченных открепительных удостоверений\nЧисло утраченных избирательных бюллетеней\nЧисло избирательных бюллетеней, не учтенных при получении\n1. ВСЕРОССИЙСКАЯ ПОЛИТИЧЕСКАЯ ПАРТИЯ \"РОДИНА\"\n2. Политическая партия КОММУНИСТИЧЕСКАЯ ПАРТИЯ КОММУНИСТЫ РОССИИ\n3. Политическая партия \"Российская партия пенсионеров за справедливость\"\n4. Всероссийская политическая партия \"ЕДИНАЯ РОССИЯ\"\n5. Политическая партия \"Российская экологическая партия \"Зеленые\"\n6. Политическая партия \"Гражданская Платформа\"\n7. Политическая партия ЛДПР - Либерально-демократическая партия России\n8. Политическая партия \"Партия народной свободы\" (ПАРНАС)\n9. Всероссийская политическая партия \"ПАРТИЯ РОСТА\"\n10. Общественная организация Всероссийская политическая партия \"Гражданская Сила\"\n11. Политическая партия \"Российская объединенная демократическая партия \"ЯБЛОКО\"\n12. Политическая партия \"КОММУНИСТИЧЕСКАЯ ПАРТИЯ РОССИЙСКОЙ ФЕДЕРАЦИИ\"\n13. Политическая партия \"ПАТРИОТЫ РОССИИ\"\n14. Политическая партия СПРАВЕДЛИВАЯ РОССИЯ\n\nДанные окружных избирательных комиссий о числе открепительных удостоверений\n\n\nЧисло открепительных удостоверений, полученных окружной избирательной комиссией\nЧисло открепительных удостоверений, выданных территориальным избирательным комиссиям\nЧисло неиспользованных открепительных удостоверений, погашенных окружной избирательной комиссией\nЧисло открепительных удостоверений, утраченных в окружной избирательной комиссии", "Vybory deputatov Gosudarstvennoy Dumy Federal’nogo Sobraniya Rossiyskoy Federatsii sed’mogo sozyva\nData golosovaniya: 18.09.2016\n\nNaimenovaniye Izbiratel’noy komissii:    TSIK Rossii\n\nSvodnaya tablitsa rezul’tatov vyborov po federal’nomu izbiratel’nomu okrugu\n\n\nChislo izbirateley, vnesennykh v spisok izbirateley na moment okonchaniya golosovaniya\nChislo izbiratel’nykh byulleteney, poluchennykh uchastkovoy izbiratel’noy komissiyey\nChislo izbiratel’nykh byulleteney, vydannykh izbiratelyam, progolosovavshim dosrochno\nChislo izbiratel’nykh byulleteney, vydannykh v pomeshchenii dlya golosovaniya v den’ golosovaniya\nChislo izbiratel’nykh byulleteney, vydannykh vne pomeshcheniya dlya golosovaniya v den’ golosovaniya\nChislo pogashennykh izbiratel’nykh byulleteney\nChislo izbiratel’nykh byulleteney, soderzhashchikhsya v perenosnykh yashchikakh dlya golosovaniya\nChislo izbiratel’nykh byulleteney, soderzhashchikhsya v statsionarnykh yashchikakh dlya golosovaniya\nChislo nedeystvitel’nykh izbiratel’nykh byulleteney\nChislo deystvitel’nykh izbiratel’nykh byulleteney\nChislo otkrepitel’nykh udostovereniy, poluchennykh uchastkovoy izbiratel’noy komissiyey\nChislo otkrepitel’nykh udostovereniy, vydannykh na izbiratel’nom uchastke do dnya golosovaniya\nChislo izbirateley, progolosovavshikh po otkrepitel’nym udostovereniyam na izbiratel’nom uchastke\nChislo pogashennykh neispol’zovannykh otkrepitel’nykh udostovereniy\nChislo otkrepitel’nykh udostovereniy, vydannykh izbiratelyam territorial’noy izbiratel’noy komissiyey\nChislo utrachennykh otkrepitel’nykh udostovereniy\nChislo utrachennykh izbiratel’nykh byulleteney\nChislo izbiratel’nykh byulleteney, ne uchtennykh pri poluchenii\n1. VSEROSSIYSKAYA POLITICHESKAYA PARTIYA \"RODINA\"\n2. Politicheskaya partiya KOMMUNISTICHESKAYA PARTIYA KOMMUNISTY ROSSII\n3. Politicheskaya partiya \"Rossiyskaya partiya pensionerov za spravedlivost’\"\n4. Vserossiyskaya politicheskaya partiya \"YEDINAYA ROSSIYA\"\n5. Politicheskaya partiya \"Rossiyskaya ekologicheskaya partiya \"Zelenyye\"\n6. Politicheskaya partiya \"Grazhdanskaya Platforma\"\n7. Politicheskaya partiya LDPR - Liberal’no-demokraticheskaya partiya Rossii\n8. Politicheskaya partiya \"Partiya narodnoy svobody\" (PARNAS)\n9. Vserossiyskaya politicheskaya partiya \"PARTIYA ROSTA\"\n10. Obshchestvennaya organizatsiya Vserossiyskaya politicheskaya partiya \"Grazhdanskaya Sila\"\n11. Politicheskaya partiya \"Rossiyskaya ob\"yedinennaya demokraticheskaya partiya \"YABLOKO\"\n12. Politicheskaya partiya \"KOMMUNISTICHESKAYA PARTIYA ROSSIYSKOY FEDERATSII\"\n13. Politicheskaya partiya \"PATRIOTY ROSSII\"\n14. Politicheskaya partiya SPRAVEDLIVAYA ROSSIYA\n\nDannyye okruzhnykh izbiratel’nykh komissiy o chisle otkrepitel’nykh udostovereniy\n\n\nChislo otkrepitel’nykh udostovereniy, poluchennykh okruzhnoy izbiratel’noy komissiyey\nChislo otkrepitel’nykh udostovereniy, vydannykh territorial’nym izbiratel’nym komissiyam\nChislo neispol’zovannykh otkrepitel’nykh udostovereniy, pogashennykh okruzhnoy izbiratel’noy komissiyey\nChislo otkrepitel’nykh udostovereniy, utrachennykh v okruzhnoy izbiratel’noy komissii"
+  test "ДЛИННОЕ ПОКРЫВАЛО", "DLINNOYE POKRYVALO"
+  test "Еловая шишка", "Yelovaya shishka"
+  test "ЕЛОВАЯ ШИШКА", "YELOVAYA SHISHKA"
+  test "Длинное покрывало", "Dlinnoye pokryvalo"
+  test "В лесу еловые шишки", "V lesu yelovyye shishki"
+  test "OН ВИДЕЛ ЕЁ В ПЕРВЫЙ РАЗ", "ON VIDEL YEYË V PERVYY RAZ"
+  test "Ёж колючий", "Yëzh kolyuchiy"
+  test "ЁЖ КОЛЮЧИЙ", "YËZH KOLYUCHIY"
+  test "Он видел её в первый раз", "On videl yeyë v pervyy raz"
+  test "У ёжа колючки", "U yëzha kolyuchki"
+  test "ЙА Йа йа", "Y·A Y·a y·a"
+  test "ЫУ Ыу ыу", "Y·U Y·u y·u"
+  test "ОЫ Оы оы", "O·Y O·y o·y"
+  test "ОЫУ Оыу оыу", "O·Y·U O·y·u o·y·u"
+  test "СЭ Сэ сэ", "S·E S·e s·e"
+  test "ТС тс Тс тС", "T·S t·s T·s t·S"
+  test "ШЧ шч Шч шЧ", "SH·CH sh·ch Sh·ch sh·Ch"
+}
 
-      Наименование Избирательной комиссии:    ЦИК России
+aliases {
+  def_alias rus_extvowel, any("АаЕеЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь")
+  def_alias rus_vowel, any("АаЕеЁёИиОоУуЫыЭэЮюЯя")
+  def_alias rus_limvowel, any("АаУуЫыЭэ")
+  def_alias rus_cons, any("БбВвГгДдЖжЗзКкЛлМмНнПпРрСсТтФфХхЦцЧчШшЩщ")
 
-      Сводная таблица результатов выборов по федеральному избирательному округу
+  def_alias rus_latupper, any([any("A".."Z"), any("Ë")])
 
+  def_alias rus_multichar, any(["Ye", "Yë", "Sh", "Ch", "Shch", "Ya", "Zh", "Yu", "Ts"])
+}
 
-      Число избирателей, внесенных в список избирателей на момент окончания голосования
-      Число избирательных бюллетеней, полученных участковой избирательной комиссией
-      Число избирательных бюллетеней, выданных избирателям, проголосовавшим досрочно
-      Число избирательных бюллетеней, выданных в помещении для голосования в день голосования
-      Число избирательных бюллетеней, выданных вне помещения для голосования в день голосования
-      Число погашенных избирательных бюллетеней
-      Число избирательных бюллетеней, содержащихся в переносных ящиках для голосования
-      Число избирательных бюллетеней, содержащихся в стационарных ящиках для голосования
-      Число недействительных избирательных бюллетеней
-      Число действительных избирательных бюллетеней
-      Число открепительных удостоверений, полученных участковой избирательной комиссией
-      Число открепительных удостоверений, выданных на избирательном участке до дня голосования
-      Число избирателей, проголосовавших по открепительным удостоверениям на избирательном участке
-      Число погашенных неиспользованных открепительных удостоверений
-      Число открепительных удостоверений, выданных избирателям территориальной избирательной комиссией
-      Число утраченных открепительных удостоверений
-      Число утраченных избирательных бюллетеней
-      Число избирательных бюллетеней, не учтенных при получении
-      1. ВСЕРОССИЙСКАЯ ПОЛИТИЧЕСКАЯ ПАРТИЯ "РОДИНА"
-      2. Политическая партия КОММУНИСТИЧЕСКАЯ ПАРТИЯ КОММУНИСТЫ РОССИИ
-      3. Политическая партия "Российская партия пенсионеров за справедливость"
-      4. Всероссийская политическая партия "ЕДИНАЯ РОССИЯ"
-      5. Политическая партия "Российская экологическая партия "Зеленые"
-      6. Политическая партия "Гражданская Платформа"
-      7. Политическая партия ЛДПР - Либерально-демократическая партия России
-      8. Политическая партия "Партия народной свободы" (ПАРНАС)
-      9. Всероссийская политическая партия "ПАРТИЯ РОСТА"
-      10. Общественная организация Всероссийская политическая партия "Гражданская Сила"
-      11. Политическая партия "Российская объединенная демократическая партия "ЯБЛОКО"
-      12. Политическая партия "КОММУНИСТИЧЕСКАЯ ПАРТИЯ РОССИЙСКОЙ ФЕДЕРАЦИИ"
-      13. Политическая партия "ПАТРИОТЫ РОССИИ"
-      14. Политическая партия СПРАВЕДЛИВАЯ РОССИЯ
+stage {
 
-      Данные окружных избирательных комиссий о числе открепительных удостоверений
+  # RULES
+  sub "\u0401", "Yë", before: rus_extvowel # Ё after a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь
+  sub "\u0451", "yë", before: rus_extvowel # ё after a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь
+  sub "\u0415", "YЕ", before: rus_extvowel # Е after a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь
+  sub "\u0415", "Yе", before: boundary # Е initially
+  sub "\u0435", "yе", before: rus_extvowel # е after a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь
+  sub "\u0435", "yе", before: boundary # е initially
+  sub "\u0401", "Yë", before: rus_extvowel # Ё after a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь
+  sub "\u0401", "Yë", before: boundary
+  sub "\u0451", "yë", before: rus_extvowel # ё after a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь
+  sub "\u0451", "yë", before: boundary
+  sub "\u0419", "Y·", after: rus_limvowel # Й before а, у, ы, or э
+  sub "\u0439", "y·", after: rus_limvowel # й before а, у, ы, or э
+  sub "\u042b", "·Y·", before: rus_vowel, after: rus_limvowel # Ы after any vowel character and before а, у, ы, or э
+  sub "\u044b", "·y·", before: rus_vowel, after: rus_limvowel # ы after any vowel character and before а, у, ы, or э
+  sub "\u042b", "Ы·", after: rus_limvowel # Ы before а, у, ы, or э
+  sub "\u044b", "ы·", after: rus_limvowel # ы before а, у, ы, or э
+  sub "\u042b", "·Y", before: any("Оо") # Ы after о
+  sub "\u044b", "·y", before: any("Оо") # ы after о
+  sub "\u0401", "Yë", before: boundary
+  sub "\u0451", "yë", before: boundary
+  sub "\u042d", "·E", before: rus_cons # Э after any consonant character except й
+  sub "\u044d", "·e", before: rus_cons # э after any consonant character except й
+  sub none, "·", before: any("Тт"), after: any("Сс") # тс => t·s
+  sub none, "·", before: any("Шш"), after: any("Чч") # шч => sh·ch
 
+  # CHARACTERS
+  parallel {
+    sub "А", "A"
+    sub "Б", "B"
+    sub "В", "V"
+    sub "Г", "G"
+    sub "Д", "D"
+    sub "Е", "E"
+    sub "Ё", "Ë" # Ё
+    sub "Ж", "Zh"
+    sub "З", "Z"
+    sub "И", "I"
+    sub "Й", "Y"
+    sub "К", "K"
+    sub "Л", "L"
+    sub "М", "M"
+    sub "Н", "N"
+    sub "О", "O"
+    sub "П", "P"
+    sub "Р", "R"
+    sub "С", "S"
+    sub "Т", "T"
+    sub "У", "U"
+    sub "Ф", "F"
+    sub "Х", "Kh"
+    sub "Ц", "Ts"
+    sub "Ч", "Ch"
+    sub "Ш", "Sh"
+    sub "Щ", "Shch"
+    sub "Ъ", "\"" # Ъ
+    sub "Ы", "Y"
+    sub "Ь", "’" # Ь => ’
+    sub "Э", "E"
+    sub "Ю", "Yu"
+    sub "Я", "Ya"
+    sub "а", "a"
+    sub "б", "b"
+    sub "в", "v"
+    sub "г", "g"
+    sub "д", "d"
+    sub "е", "e"
+    sub "ё", "ë" # ё
+    sub "ж", "zh"
+    sub "з", "z"
+    sub "и", "i"
+    sub "й", "y"
+    sub "к", "k"
+    sub "л", "l"
+    sub "м", "m"
+    sub "н", "n"
+    sub "о", "o"
+    sub "п", "p"
+    sub "р", "r"
+    sub "с", "s"
+    sub "т", "t"
+    sub "у", "u"
+    sub "ф", "f"
+    sub "х", "kh"
+    sub "ц", "ts"
+    sub "ч", "ch"
+    sub "ш", "sh"
+    sub "щ", "shch"
+    sub "ъ", "\"" # ъ
+    sub "ы", "y"
+    sub "ь", "’" # ь => ’
+    sub "э", "e"
+    sub "ю", "yu"
+    sub "я", "ya"
+  }
 
-      Число открепительных удостоверений, полученных окружной избирательной комиссией
-      Число открепительных удостоверений, выданных территориальным избирательным комиссиям
-      Число неиспользованных открепительных удостоверений, погашенных окружной избирательной комиссией
-      Число открепительных удостоверений, утраченных в окружной избирательной комиссии
+  # POSTRULES
+  sub rus_multichar, upcase, before: rus_latupper
+  sub rus_multichar, upcase, before: rus_latupper + "·"
+  sub rus_multichar, upcase, after: "·" + rus_latupper
+  sub rus_multichar, upcase, after: rus_latupper
 
-    expected: |
-      Vybory deputatov Gosudarstvennoy Dumy Federal’nogo Sobraniya Rossiyskoy Federatsii sed’mogo sozyva
-      Data golosovaniya: 18.09.2016
-
-      Naimenovaniye Izbiratel’noy komissii:    TSIK Rossii
-
-      Svodnaya tablitsa rezul’tatov vyborov po federal’nomu izbiratel’nomu okrugu
-
-
-      Chislo izbirateley, vnesennykh v spisok izbirateley na moment okonchaniya golosovaniya
-      Chislo izbiratel’nykh byulleteney, poluchennykh uchastkovoy izbiratel’noy komissiyey
-      Chislo izbiratel’nykh byulleteney, vydannykh izbiratelyam, progolosovavshim dosrochno
-      Chislo izbiratel’nykh byulleteney, vydannykh v pomeshchenii dlya golosovaniya v den’ golosovaniya
-      Chislo izbiratel’nykh byulleteney, vydannykh vne pomeshcheniya dlya golosovaniya v den’ golosovaniya
-      Chislo pogashennykh izbiratel’nykh byulleteney
-      Chislo izbiratel’nykh byulleteney, soderzhashchikhsya v perenosnykh yashchikakh dlya golosovaniya
-      Chislo izbiratel’nykh byulleteney, soderzhashchikhsya v statsionarnykh yashchikakh dlya golosovaniya
-      Chislo nedeystvitel’nykh izbiratel’nykh byulleteney
-      Chislo deystvitel’nykh izbiratel’nykh byulleteney
-      Chislo otkrepitel’nykh udostovereniy, poluchennykh uchastkovoy izbiratel’noy komissiyey
-      Chislo otkrepitel’nykh udostovereniy, vydannykh na izbiratel’nom uchastke do dnya golosovaniya
-      Chislo izbirateley, progolosovavshikh po otkrepitel’nym udostovereniyam na izbiratel’nom uchastke
-      Chislo pogashennykh neispol’zovannykh otkrepitel’nykh udostovereniy
-      Chislo otkrepitel’nykh udostovereniy, vydannykh izbiratelyam territorial’noy izbiratel’noy komissiyey
-      Chislo utrachennykh otkrepitel’nykh udostovereniy
-      Chislo utrachennykh izbiratel’nykh byulleteney
-      Chislo izbiratel’nykh byulleteney, ne uchtennykh pri poluchenii
-      1. VSEROSSIYSKAYA POLITICHESKAYA PARTIYA "RODINA"
-      2. Politicheskaya partiya KOMMUNISTICHESKAYA PARTIYA KOMMUNISTY ROSSII
-      3. Politicheskaya partiya "Rossiyskaya partiya pensionerov za spravedlivost’"
-      4. Vserossiyskaya politicheskaya partiya "YEDINAYA ROSSIYA"
-      5. Politicheskaya partiya "Rossiyskaya ekologicheskaya partiya "Zelenyye"
-      6. Politicheskaya partiya "Grazhdanskaya Platforma"
-      7. Politicheskaya partiya LDPR - Liberal’no-demokraticheskaya partiya Rossii
-      8. Politicheskaya partiya "Partiya narodnoy svobody" (PARNAS)
-      9. Vserossiyskaya politicheskaya partiya "PARTIYA ROSTA"
-      10. Obshchestvennaya organizatsiya Vserossiyskaya politicheskaya partiya "Grazhdanskaya Sila"
-      11. Politicheskaya partiya "Rossiyskaya ob"yedinennaya demokraticheskaya partiya "YABLOKO"
-      12. Politicheskaya partiya "KOMMUNISTICHESKAYA PARTIYA ROSSIYSKOY FEDERATSII"
-      13. Politicheskaya partiya "PATRIOTY ROSSII"
-      14. Politicheskaya partiya SPRAVEDLIVAYA ROSSIYA
-
-      Dannyye okruzhnykh izbiratel’nykh komissiy o chisle otkrepitel’nykh udostovereniy
-
-
-      Chislo otkrepitel’nykh udostovereniy, poluchennykh okruzhnoy izbiratel’noy komissiyey
-      Chislo otkrepitel’nykh udostovereniy, vydannykh territorial’nym izbiratel’nym komissiyam
-      Chislo neispol’zovannykh otkrepitel’nykh udostovereniy, pogashennykh okruzhnoy izbiratel’noy komissiyey
-      Chislo otkrepitel’nykh udostovereniy, utrachennykh v okruzhnoy izbiratel’noy komissii
-  - source: ДЛИННОЕ ПОКРЫВАЛО
-    expected: DLINNOYE POKRYVALO
-  - source: Еловая шишка
-    expected: Yelovaya shishka
-  - source: ЕЛОВАЯ ШИШКА
-    expected: YELOVAYA SHISHKA
-  - source: Длинное покрывало
-    expected: Dlinnoye pokryvalo
-  - source: В лесу еловые шишки
-    expected: V lesu yelovyye shishki
-  - source: OН ВИДЕЛ ЕЁ В ПЕРВЫЙ РАЗ
-    expected: ON VIDEL YEYË V PERVYY RAZ
-  - source: Ёж колючий
-    expected: Yëzh kolyuchiy
-  - source: ЁЖ КОЛЮЧИЙ
-    expected: YËZH KOLYUCHIY
-  - source: Он видел её в первый раз
-    expected: On videl yeyë v pervyy raz
-  - source: У ёжа колючки
-    expected: U yëzha kolyuchki
-  - source: ЙА Йа йа
-    expected: Y·A Y·a y·a
-  - source: ЫУ Ыу ыу
-    expected: Y·U Y·u y·u
-  - source: ОЫ Оы оы
-    expected: O·Y O·y o·y
-  - source: ОЫУ Оыу оыу
-    expected: O·Y·U O·y·u o·y·u
-  - source: СЭ Сэ сэ
-    expected: S·E S·e s·e
-  - source: ТС тс Тс тС
-    expected: T·S t·s T·s t·S
-  - source: ШЧ шч Шч шЧ
-    expected: SH·CH sh·ch Sh·ch sh·Ch
-
-map:
-  rules:
-    - pattern: (?<=[АаЕеЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\u0401 # Ё after a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь
-      result: "Y\u00eb"
-    - pattern: (?<=[АаЕеЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\u0451 # ё after a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь
-      result: "y\u00eb"
-    - pattern: (?<=[АаЕеЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\u0415 # Е after a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь
-      result: "Y\u0415"
-    - pattern: \b\u0415 # Е initially
-      result: "Y\u0435"
-    - pattern: (?<=[АаЕеЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\u0435 # е after a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь
-      result: "y\u0435"
-    - pattern: \b\u0435 # е initially
-      result: "y\u0435"
-    - pattern: (?<=[АаЕеЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\u0401 # Ё after a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь
-      result: "Y\u00eb"
-    - pattern: \b\u0401
-      result: "Y\u00eb"
-    - pattern: (?<=[АаЕеЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\u0451 # ё after a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь
-      result: "y\u00eb"
-    - pattern: \b\u0451
-      result: "y\u00eb"
-    - pattern: \u0419(?=[АаУуЫыЭэ]) # Й before а, у, ы, or э
-      result: "Y\u00b7"
-    - pattern: \u0439(?=[АаУуЫыЭэ]) # й before а, у, ы, or э
-      result: "y\u00b7"
-    - pattern: (?<=[АаЕеЁёИиОоУуЫыЭэЮюЯя])\u042b(?=[АаУуЫыЭэ]) # Ы after any vowel character and before а, у, ы, or э
-      result: "\u00b7Y\u00b7"
-    - pattern: (?<=[АаЕеЁёИиОоУуЫыЭэЮюЯя])\u044b(?=[АаУуЫыЭэ]) # ы after any vowel character and before а, у, ы, or э
-      result: "\u00b7y\u00b7"
-    - pattern: \u042b(?=[АаУуЫыЭэ]) # Ы before а, у, ы, or э
-      result: "Ы\u00b7"
-    - pattern: \u044b(?=[АаУуЫыЭэ]) # ы before а, у, ы, or э
-      result: "ы\u00b7"
-    - pattern: (?<=[Оо])\u042b # Ы after о
-      result: "\u00b7Y"
-    - pattern: (?<=[Оо])\u044b # ы after о
-      result: "\u00b7y"
-    - pattern: \b\u0401
-      result: "Y\u00eb"
-    - pattern: \b\u0451
-      result: "y\u00eb"
-    - pattern: (?<=[БбВвГгДдЖжЗзКкЛлМмНнПпРрСсТтФфХхЦцЧчШшЩщ])\u042d # Э after any consonant character except й
-      result: "\u00b7E"
-    - pattern: (?<=[БбВвГгДдЖжЗзКкЛлМмНнПпРрСсТтФфХхЦцЧчШшЩщ])\u044d # э after any consonant character except й
-      result: "\u00b7e"
-    - pattern: (Т|т)(С|с) # тс => t·s
-      result: "\\1\u00b7\\2"
-    - pattern: (Ш|ш)(Ч|ч) # шч => sh·ch
-      result: "\\1\u00b7\\2"
-
-  postrules:
-
-    #YE
-    - pattern: "((?<=[[:upper:]])Ye(?=[[:upper:]])?|(?<=[[:upper:]])?Ye(?=[[:upper:]]))"
-      result: "YE"
-    #YË
-    - pattern: "((?<=[[:upper:]])Yë(?=[[:upper:]])?|(?<=[[:upper:]])?Yë(?=[[:upper:]]))"
-      result: "YË"
-
-  characters:
-    "\u0410": "A"
-    "\u0411": "B"
-    "\u0412": "V"
-    "\u0413": "G"
-    "\u0414": "D"
-    "\u0415": "E"
-    "\u0401": "\u00cb" # Ё
-    "\u0416": "Zh"
-    "\u0417": "Z"
-    "\u0418": "I"
-    "\u0419": "Y"
-    "\u041a": "K"
-    "\u041b": "L"
-    "\u041c": "M"
-    "\u041d": "N"
-    "\u041e": "O"
-    "\u041f": "P"
-    "\u0420": "R"
-    "\u0421": "S"
-    "\u0422": "T"
-    "\u0423": "U"
-    "\u0424": "F"
-    "\u0425": "Kh"
-    "\u0426": "Ts"
-    "\u0427": "Ch"
-    "\u0428": "Sh"
-    "\u0429": "Shch"
-    "\u042a": "\"" # Ъ
-    "\u042b": "Y"
-    "\u042c": "\u2019" # Ь => ’
-    "\u042d": "E"
-    "\u042e": "Yu"
-    "\u042f": "Ya"
-    "\u0430": "a"
-    "\u0431": "b"
-    "\u0432": "v"
-    "\u0433": "g"
-    "\u0434": "d"
-    "\u0435": "e"
-    "\u0451": "\u00eb" # ё
-    "\u0436": "zh"
-    "\u0437": "z"
-    "\u0438": "i"
-    "\u0439": "y"
-    "\u043a": "k"
-    "\u043b": "l"
-    "\u043c": "m"
-    "\u043d": "n"
-    "\u043e": "o"
-    "\u043f": "p"
-    "\u0440": "r"
-    "\u0441": "s"
-    "\u0442": "t"
-    "\u0443": "u"
-    "\u0444": "f"
-    "\u0445": "kh"
-    "\u0446": "ts"
-    "\u0447": "ch"
-    "\u0448": "sh"
-    "\u0449": "shch"
-    "\u044a": "\"" # ъ
-    "\u044b": "y"
-    "\u044c": "\u2019" # ь => ’
-    "\u044d": "e"
-    "\u044e": "yu"
-    "\u044f": "ya"
+  # Run twice to find more cases
+  sub rus_multichar, upcase, before: rus_latupper
+  sub rus_multichar, upcase, before: rus_latupper + "·"
+  sub rus_multichar, upcase, after: "·" + rus_latupper
+  sub rus_multichar, upcase, after: rus_latupper
+}

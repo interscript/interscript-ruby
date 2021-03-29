@@ -1,105 +1,105 @@
----
-authority_id: az
-id: 1939
-language: iso-639-2:aze
-source_script: Cyrl
-destination_script: Latn
-url: https://omniglot.com/writing/azeri.htm
-creation_date: 1939
-description: |
-  In 1939 Joseph Stalin ordered the Cyrillic alphabet to be used by Azeri speakers in the Soviet Union.
+metadata {
+  authority_id: az
+  id: 1939
+  language: iso-639-2:aze
+  source_script: Cyrl
+  destination_script: Latn
+  url: https://omniglot.com/writing/azeri.htm
+  creation_date: 1939
+  description: |
+    In 1939 Joseph Stalin ordered the Cyrillic alphabet to be used by Azeri speakers in the Soviet Union.
 
-notes:
-  # from Wikipedia
-  - The letter Ц, intended for the sound [ц] in borrowed words, was used in the Azerbaijani Cyrillic alphabet until 1951. In the Azeri language, the sound [c] usually becomes [s].
+  notes:
+    # from Wikipedia
+    - The letter Ц, intended for the sound [ц] in borrowed words, was used in the Azerbaijani Cyrillic alphabet until 1951. In the Azeri language, the sound [c] usually becomes [s].
+}
 
-tests:
-  - source: Юя
-    expected: Yuya
+tests {
+  test "Юя", "Yuya"
   # from internet
-  - source: Азәрбайҹан әлифбасы
-    expected: Azərbaycan əlifbası
-  - source: |
-      Бүтүн инсанлар ләйагәт вә һүгугларына ҝөрә азад бәрабәр доғулурлар.
-      Онларын шүурлары вә виҹданлары вар вә бир-бирләринә мүнасибәтдә гардашлыг руһунда давранмалыдырлар.
-    expected: |
-      Bütün insanlar ləyaqət və hüquqlarına görə azad bərabər doğulurlar.
-      Onların şüurları və vicdanları var və bir-birlərinə münasibətdə qardaşlıq ruhunda davranmalıdırlar.
+  test "Азәрбайҹан әлифбасы", "Azərbaycan əlifbası"
+  test "Бүтүн инсанлар ләйагәт вә һүгугларына ҝөрә азад бәрабәр доғулурлар.\nОнларын шүурлары вә виҹданлары вар вә бир-бирләринә мүнасибәтдә гардашлыг руһунда давранмалыдырлар.", "Bütün insanlar ləyaqət və hüquqlarına görə azad bərabər doğulurlar.\nOnların şüurları və vicdanları var və bir-birlərinə münasibətdə qardaşlıq ruhunda davranmalıdırlar."
+}
 
-map:
-  characters:
-    "\u0410": "A"       # А
-    "\u0411": "B"       # Б
-    "\u0412": "V"       # В
-    "\u0413": "Q"       # Г
-    "\u0492": "\u011E"  # Ғ
-    "\u0414": "D"       # Д
-    "\u0415": "E"       # Е
-    "\u04D8": "\u018F"  # Ә
-    "\u0416": "J"       # Ж
-    "\u0417": "Z"       # З
-    "\u0418": "\u0130"  # И
-    "\u0419": "Y"       # Й
-    "\u041A": "K"       # К
-    "\u049C": "G"       # Ҝ
-    "\u041B": "L"       # Л
-    "\u041C": "M"       # М
-    "\u041D": "N"       # Н
-    "\u041E": "O"       # О
-    "\u04E8": "\u00D6"  # Ө
-    "\u041F": "P"       # П
-    "\u0420": "R"       # Р
-    "\u0421": "S"       # С
-    "\u0422": "T"       # Т
-    "\u0423": "U"       # У
-    "\u04AE": "\u00DC"  # Ү
-    "\u0424": "F"       # Ф
-    "\u0425": "X"       # Х
-    "\u0426": "s"       # Ц note[1]
-    "\u04BA": "H"       # Һ
-    "\u0427": "\u00C7"  # Ч
-    "\u04B8": "C"       # Ҹ
-    "\u0428": "\u015E"  # Ш
-    "\u042B": "I"       # Ы
-    "\u042D": "E"       # Э
-    "\u042E": "Yu"      # Ю
-    "\u042F": "Ya"      # Я
+stage {
 
-    "\u0430": "a"       # а
-    "\u0431": "b"       # б
-    "\u0432": "v"       # в
-    "\u0433": "q"       # г
-    "\u0493": "\u011F"  # ғ
-    "\u0434": "d"       # д
-    "\u0435": "e"       # е
-    "\u04D9": "\u0259"  # ә
-    "\u0436": "j"       # ж
-    "\u0437": "z"       # з
-    "\u0438": "i"       # и
-    "\u0439": "y"       # й
-    "\u043A": "k"       # к
-    "\u049D": "g"       # ҝ
-    "\u043B": "l"       # л
-    "\u043C": "m"       # м
-    "\u043D": "n"       # н
-    "\u043E": "o"       # о
-    "\u04E9": "\u00F6"  # ө
-    "\u043F": "p"       # п
-    "\u0440": "r"       # р
-    "\u0441": "s"       # с
-    "\u0442": "t"       # т
-    "\u0443": "u"       # у
-    "\u04AF": "\u00FC"  # ү
-    "\u0444": "f"       # ф
-    "\u0445": "x"       # х
-    "\u0446": "s"       # ц note[1]
-    "\u04BB": "h"       # һ
-    "\u0447": "\u00E7"  # ч
-    "\u04B9": "c"       # ҹ
-    "\u0448": "\u015F"  # ш
-    "\u044B": "\u0131"  # ы
-    "\u044D": "e"       # э
-    "\u044E": "yu"      # ю
-    "\u044F": "ya"      # я
+  # CHARACTERS
+  parallel {
+    sub "А", "A" # А
+    sub "Б", "B" # Б
+    sub "В", "V" # В
+    sub "Г", "Q" # Г
+    sub "Ғ", "Ğ" # Ғ
+    sub "Д", "D" # Д
+    sub "Е", "E" # Е
+    sub "Ә", "Ə" # Ә
+    sub "Ж", "J" # Ж
+    sub "З", "Z" # З
+    sub "И", "İ" # И
+    sub "Й", "Y" # Й
+    sub "К", "K" # К
+    sub "Ҝ", "G" # Ҝ
+    sub "Л", "L" # Л
+    sub "М", "M" # М
+    sub "Н", "N" # Н
+    sub "О", "O" # О
+    sub "Ө", "Ö" # Ө
+    sub "П", "P" # П
+    sub "Р", "R" # Р
+    sub "С", "S" # С
+    sub "Т", "T" # Т
+    sub "У", "U" # У
+    sub "Ү", "Ü" # Ү
+    sub "Ф", "F" # Ф
+    sub "Х", "X" # Х
+    sub "Ц", "s" # Ц note[1]
+    sub "Һ", "H" # Һ
+    sub "Ч", "Ç" # Ч
+    sub "Ҹ", "C" # Ҹ
+    sub "Ш", "Ş" # Ш
+    sub "Ы", "I" # Ы
+    sub "Э", "E" # Э
+    sub "Ю", "Yu" # Ю
+    sub "Я", "Ya" # Я
 
-    "\u0027": ""        # '
+    sub "а", "a" # а
+    sub "б", "b" # б
+    sub "в", "v" # в
+    sub "г", "q" # г
+    sub "ғ", "ğ" # ғ
+    sub "д", "d" # д
+    sub "е", "e" # е
+    sub "ә", "ə" # ә
+    sub "ж", "j" # ж
+    sub "з", "z" # з
+    sub "и", "i" # и
+    sub "й", "y" # й
+    sub "к", "k" # к
+    sub "ҝ", "g" # ҝ
+    sub "л", "l" # л
+    sub "м", "m" # м
+    sub "н", "n" # н
+    sub "о", "o" # о
+    sub "ө", "ö" # ө
+    sub "п", "p" # п
+    sub "р", "r" # р
+    sub "с", "s" # с
+    sub "т", "t" # т
+    sub "у", "u" # у
+    sub "ү", "ü" # ү
+    sub "ф", "f" # ф
+    sub "х", "x" # х
+    sub "ц", "s" # ц note[1]
+    sub "һ", "h" # һ
+    sub "ч", "ç" # ч
+    sub "ҹ", "c" # ҹ
+    sub "ш", "ş" # ш
+    sub "ы", "ı" # ы
+    sub "э", "e" # э
+    sub "ю", "yu" # ю
+    sub "я", "ya" # я
+
+    sub "'", "" # '
+  }
+
+}

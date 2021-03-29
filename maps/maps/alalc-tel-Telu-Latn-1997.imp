@@ -1,284 +1,237 @@
----
-authority_id: alalc
-id: 1997
-language: iso-639-2:tel
-source_script: Telu
-destination_script: Latn
-name: Telugu Romanization, 1997
-alias:
-  ogc11122:
-    code: tel_Telu2Latn_ALA_1997
-    description: Telugu ALA-Library of Congress 1997 System
-url: http://catdir.loc.gov/catdir/cpso/romanization/telugu.pdf
-creation_date: 1997
-description: |
-  ALA-LC Romanization table for Telugu
+metadata {
+  authority_id: alalc
+  id: 1997
+  language: iso-639-2:tel
+  source_script: Telu
+  destination_script: Latn
+  name: Telugu Romanization, 1997
+  url: http://catdir.loc.gov/catdir/cpso/romanization/telugu.pdf
+  creation_date: 1997
+  description: |
+    ALA-LC Romanization table for Telugu
 
-notes:
+  notes:
 
-  - |
-    Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for
-    vowels following a consonant can be found in grammars; no distinction between the two is
-    made in transliteration.
-  - |
-    The vowel a is implicit after all consonants and consonant clusters and is supplied in
-    transliteration, with the following exceptions:
-    a) when another vowel is indicated by its appropriate sign; and
-    b) when the absence of any vowel is indicated by the superscript sign ( ౬ ) called valapalagilaka.
-  - |
-    Exception: Sunna is transliterated by:
-    a) ṅ before gutturals,
-    b) ñ before palatals,
-    c) ṇ before cerebrals,
-    d) n before dentals, and
-    e) m before labials.
-  - |
-    Ardhasunna before gutturals and palatal, cerebral, and dental occlusives is transliterated n̐.
-    Before labials, sibilants, semivowels, the aspirate, vowels, and in final position it is
-    transliterated m
+    - |
+      Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for
+      vowels following a consonant can be found in grammars; no distinction between the two is
+      made in transliteration.
+    - |
+      The vowel a is implicit after all consonants and consonant clusters and is supplied in
+      transliteration, with the following exceptions:
+      a) when another vowel is indicated by its appropriate sign; and
+      b) when the absence of any vowel is indicated by the superscript sign ( ౬ ) called valapalagilaka.
+    - |
+      Exception: Sunna is transliterated by:
+      a) ṅ before gutturals,
+      b) ñ before palatals,
+      c) ṇ before cerebrals,
+      d) n before dentals, and
+      e) m before labials.
+    - |
+      Ardhasunna before gutturals and palatal, cerebral, and dental occlusives is transliterated n̐.
+      Before labials, sibilants, semivowels, the aspirate, vowels, and in final position it is
+      transliterated m
+}
 
-tests:
-  - source: "తమిళనాడు"
-    expected: "tamiḷanāḍu"
-  - source: "తంటికొండ ఘటన: ఆగని మృత్యుఘోష"
-    expected: "taṃṭikoṇḍa ghaṭana: āgani mṛtayughŏṣa"
-  - source: "మళ్లీ వివాదం: అమితాబ్‌పై కేసు"
-    expected: "maḷalī vivādaṃ: amitābapai kēsu"
-  - source: "‘వరద సాయం పేరుతో వైట్ కాలర్ దోపిడీ’"
-    expected: "‘varada sāyaṃ pērutŏ vaiṭa kālara dŏpiḍī’"
-  - source: "రెండో విడత జీఎస్టీ పరిహారం"
-    expected: "reṃḍŏ viḍata jīesaṭī parihāraṃ"
-  - source: "నితీష్‌ కుమార్‌ అధ్యాయం ముగిసినట్లేనా?!"
-    expected: "nitīṣa kumāra adhayāyaṃ mugisinaṭalēnā?!"
-  - source: "వారిపై జీవితాంతం నిషేధం విధించండి!"
-    expected: "vāripai jīvitāntaṃ niṣēdhaṃ vidhiñcaṃḍi!"
-  - source: "మరో లాక్‌డౌన్‌ వల్ల అన్నీ అనర్థాలే!"
-    expected: "marŏ lākaḍauna valala ananī anarathālē!"
-  - source: "జెసిండా మరో సంచలనం"
-    expected: "jesiṃḍā marŏ sañcalanaṃ"
-  - source: "స్వీయ నిర్బంధంలోకి డబ్ల్యూహెచ్‌ఓ డైరెక్టర్‌"
-    expected: "savīya nirabandhaṃlŏki ḍabalayūhecaō ḍairekaṭara"
-  - source: "కరోనాపై యుద్ధంలో సమిధలు"
-    expected: "karŏnāpai yudadhaṃlŏ samidhalu"
-  - source: "అమెరికా ఎన్నికలు: ‘పెద్దన్న’ ఎవరో?!"
-    expected: "amerikā enanikalu: ‘pedadanana’ evarŏ?!"
-  - source: "౪౬౨౬౯"
-    expected: "46269"
+tests {
+  test "తమిళనాడు", "tamiḷanāḍu"
+  test "తంటికొండ ఘటన: ఆగని మృత్యుఘోష", "taṃṭikoṇḍa ghaṭana: āgani mṛtayughŏṣa"
+  test "మళ్లీ వివాదం: అమితాబ్‌పై కేసు", "maḷalī vivādaṃ: amitābapai kēsu"
+  test "‘వరద సాయం పేరుతో వైట్ కాలర్ దోపిడీ’", "‘varada sāyaṃ pērutŏ vaiṭa kālara dŏpiḍī’"
+  test "రెండో విడత జీఎస్టీ పరిహారం", "reṃḍŏ viḍata jīesaṭī parihāraṃ"
+  test "నితీష్‌ కుమార్‌ అధ్యాయం ముగిసినట్లేనా?!", "nitīṣa kumāra adhayāyaṃ mugisinaṭalēnā?!"
+  test "వారిపై జీవితాంతం నిషేధం విధించండి!", "vāripai jīvitāntaṃ niṣēdhaṃ vidhiñcaṃḍi!"
+  test "మరో లాక్‌డౌన్‌ వల్ల అన్నీ అనర్థాలే!", "marŏ lākaḍauna valala ananī anarathālē!"
+  test "జెసిండా మరో సంచలనం", "jesiṃḍā marŏ sañcalanaṃ"
+  test "స్వీయ నిర్బంధంలోకి డబ్ల్యూహెచ్‌ఓ డైరెక్టర్‌", "savīya nirabandhaṃlŏki ḍabalayūhecaō ḍairekaṭara"
+  test "కరోనాపై యుద్ధంలో సమిధలు", "karŏnāpai yudadhaṃlŏ samidhalu"
+  test "అమెరికా ఎన్నికలు: ‘పెద్దన్న’ ఎవరో?!", "amerikā enanikalu: ‘pedadanana’ evarŏ?!"
+  test "౪౬౨౬౯", "46269"
+}
 
-map:
+aliases {
+  def_alias telu_chars_1, any("\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c")
+}
 
-  rules:
-    # rule II
-    - pattern: క(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  'k'
-    - pattern: ఖ(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  'kh'
-    - pattern: గ(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  'g'
-    - pattern: ఘ(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  'gh'
-    - pattern: ఙ(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  'ṅ'
-    - pattern: చ(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  'c'
-    - pattern: ౘ(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  'ĉ'
-    - pattern: ఛ(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  'ch'
-    - pattern: జ(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  'j'
-    - pattern: ౙ(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  'ĵ'
-    - pattern: ఝ(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  'jh'
-    - pattern: ఞ(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  'ñ'
-    - pattern: ట(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  'ṭ'
-    - pattern: ఠ(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  'ṭh'
-    - pattern: డ(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  'ḍ'
-    - pattern: ఢ(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  'ḍh'
-    - pattern: ణ(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  'ṇ'
-    - pattern: త(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  't'
-    - pattern: థ(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  'th'
-    - pattern: ద(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  'd'
-    - pattern: ధ(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  'dh'
-    - pattern: న(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  'n'
-    - pattern: ప(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  'p'
-    - pattern: ఫ(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  'ph'
-    - pattern: బ(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  'b'
-    - pattern: భ(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  'bh'
-    - pattern: మ(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  'm'
-    - pattern: య(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  'y'
-    - pattern: ర(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  'r'
-    - pattern: ఱ(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  'ṛ'
-    - pattern: ల(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  'l'
-    - pattern: ళ(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  'ḷ'
-    - pattern: వ(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  'v'
-    - pattern: శ(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  'ś'
-    - pattern: ష(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  'ṣ'
-    - pattern: స(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  's'
-    - pattern: హ(?=[\u0c3e\u0c3f\u0c40\u0c41\u0c42\u0c43\u0c46\u0c47\u0c48\u0c4a\u0c4b\u0c4c\u0c6c])
-      result:  'h'
+stage {
 
-    # rule III
-    - pattern: \u0C02(?=[కఖగఘఙ])
-      result: ṅ
-    - pattern: \u0C02(?=[చౘఛజౙఝఞ])
-      result: ñ
-    - pattern: \u0C02(?=[టఠడఢణ])
-      result: ṇ
-    - pattern: \u0C02(?=[తథదధన])
-      result: n
-    - pattern: \u0C02(?=[పఫబభమ])
-      result: m
+  # RULES
+  # rule II
+    sub "క", "k", after: telu_chars_1
+    sub "ఖ", "kh", after: telu_chars_1
+    sub "గ", "g", after: telu_chars_1
+    sub "ఘ", "gh", after: telu_chars_1
+    sub "ఙ", "ṅ", after: telu_chars_1
+    sub "చ", "c", after: telu_chars_1
+    sub "ౘ", "ĉ", after: telu_chars_1
+    sub "ఛ", "ch", after: telu_chars_1
+    sub "జ", "j", after: telu_chars_1
+    sub "ౙ", "ĵ", after: telu_chars_1
+    sub "ఝ", "jh", after: telu_chars_1
+    sub "ఞ", "ñ", after: telu_chars_1
+    sub "ట", "ṭ", after: telu_chars_1
+    sub "ఠ", "ṭh", after: telu_chars_1
+    sub "డ", "ḍ", after: telu_chars_1
+    sub "ఢ", "ḍh", after: telu_chars_1
+    sub "ణ", "ṇ", after: telu_chars_1
+    sub "త", "t", after: telu_chars_1
+    sub "థ", "th", after: telu_chars_1
+    sub "ద", "d", after: telu_chars_1
+    sub "ధ", "dh", after: telu_chars_1
+    sub "న", "n", after: telu_chars_1
+    sub "ప", "p", after: telu_chars_1
+    sub "ఫ", "ph", after: telu_chars_1
+    sub "బ", "b", after: telu_chars_1
+    sub "భ", "bh", after: telu_chars_1
+    sub "మ", "m", after: telu_chars_1
+    sub "య", "y", after: telu_chars_1
+    sub "ర", "r", after: telu_chars_1
+    sub "ఱ", "ṛ", after: telu_chars_1
+    sub "ల", "l", after: telu_chars_1
+    sub "ళ", "ḷ", after: telu_chars_1
+    sub "వ", "v", after: telu_chars_1
+    sub "శ", "ś", after: telu_chars_1
+    sub "ష", "ṣ", after: telu_chars_1
+    sub "స", "s", after: telu_chars_1
+    sub "హ", "h", after: telu_chars_1
 
-    # rule IV
-    - pattern: \u0C01(?=[కఖగఘఙచౘఛజౙఝఞటఠడఢణతథదధన])    # before guttural, palatal, cerebral, and dental
-      result: n̐
+  # rule III
+    sub "\u0C02", "ṅ", after: any("కఖగఘఙ")
+    sub "\u0C02", "ñ", after: any("చౘఛజౙఝఞ")
+    sub "\u0C02", "ṇ", after: any("టఠడఢణ")
+    sub "\u0C02", "n", after: any("తథదధన")
+    sub "\u0C02", "m", after: any("పఫబభమ")
 
-  characters:
+  # rule IV
+    sub "\u0C01", "n̐", after: any("కఖగఘఙచౘఛజౙఝఞటఠడఢణతథదధన") # before guttural, palatal, cerebral, and dental
 
-    'అ': 'a'
-    'ఆ': 'ā'
-    'ఇ': 'i'
-    'ఈ': 'ī'
-    'ఉ': 'u'
-    'ఊ': 'ū'
-    'ఋ': 'ṛ'
-    'ౠ': 'ṝ'
-    'ఌ': 'ḻ'
-    'ఎ': 'e'
-    'ఏ': 'ē'
-    'ఐ': 'ai'
-    'ఒ': 'o'
-    'ఓ': 'ō'
-    'ఔ': 'au'
+
+  # CHARACTERS
+  parallel {
+
+    sub "అ", "a"
+    sub "ఆ", "ā"
+    sub "ఇ", "i"
+    sub "ఈ", "ī"
+    sub "ఉ", "u"
+    sub "ఊ", "ū"
+    sub "ఋ", "ṛ"
+    sub "ౠ", "ṝ"
+    sub "ఌ", "ḻ"
+    sub "ఎ", "e"
+    sub "ఏ", "ē"
+    sub "ఐ", "ai"
+    sub "ఒ", "o"
+    sub "ఓ", "ō"
+    sub "ఔ", "au"
 
     # Gutturals
-    'క': 'ka'
-    'ఖ': 'kha'
-    'గ': 'ga'
-    'ఘ': 'gha'
-    'ఙ': 'ṅa'
+    sub "క", "ka"
+    sub "ఖ", "kha"
+    sub "గ", "ga"
+    sub "ఘ", "gha"
+    sub "ఙ", "ṅa"
 
     # Palatals
-    'చ': 'ca'
-    'ౘ': 'ĉa'
-    'ఛ': 'cha'
-    'జ': 'ja'
-    'ౙ': 'ĵa'
-    'ఝ': 'jha'
-    'ఞ': 'ña'
+    sub "చ", "ca"
+    sub "ౘ", "ĉa"
+    sub "ఛ", "cha"
+    sub "జ", "ja"
+    sub "ౙ", "ĵa"
+    sub "ఝ", "jha"
+    sub "ఞ", "ña"
 
     # Cerebrals
-    'ట':  'ṭa'
-    'ఠ':  'ṭha'
-    'డ':  'ḍa'
-    'ఢ':  'ḍha'
-    'ణ':  'ṇa'
+    sub "ట", "ṭa"
+    sub "ఠ", "ṭha"
+    sub "డ", "ḍa"
+    sub "ఢ", "ḍha"
+    sub "ణ", "ṇa"
 
     # Dentals
-    'త': 'ta'
-    'థ': 'tha'
-    'ద': 'da'
-    'ధ': 'dha'
-    'న': 'na'
+    sub "త", "ta"
+    sub "థ", "tha"
+    sub "ద", "da"
+    sub "ధ", "dha"
+    sub "న", "na"
 
     # Labials
-    'ప': 'pa'
-    'ఫ': 'pha'
-    'బ': 'ba'
-    'భ': 'bha'
-    'మ': 'ma'
+    sub "ప", "pa"
+    sub "ఫ", "pha"
+    sub "బ", "ba"
+    sub "భ", "bha"
+    sub "మ", "ma"
 
     # Semivowels
-    'య': 'ya'
-    'ర': 'ra'
-    'ఱ': 'ṛa'
-    'ల': 'la'
-    'ళ': 'ḷa'
-    'వ': 'va'
+    sub "య", "ya"
+    sub "ర", "ra"
+    sub "ఱ", "ṛa"
+    sub "ల", "la"
+    sub "ళ", "ḷa"
+    sub "వ", "va"
 
     # Sibilants
-    'శ': 'śa'
-    'ష': 'ṣa'
-    'స': 'sa'
+    sub "శ", "śa"
+    sub "ష", "ṣa"
+    sub "స", "sa"
 
 
 
     # Aspirate
-    'హ': 'ha'
+    sub "హ", "ha"
 
 
 
     # Chandrabindu
-    'ঁ': 'm̐'
-    'ఁ': 'm̐'
+    sub "ঁ", "m̐"
+    sub "ఁ", "m̐"
 
     # Bisarga
-    'ః': 'ḥ'
+    sub "ః", "ḥ"
 
     # Anusvāra
-    'ం': 'ṃ'
+    sub "ం", "ṃ"
 
     # Medials # Needed for connecting constants
 
-    'ా': 'ā'
-    'ి': 'i'
-    'ీ': 'ī'
-    'ు': 'u'
-    'ూ': 'ū'
-    'ృ': 'ṛ'
-    'ె': 'e'
-    'ే': 'ē'
-    'ై': 'ai'
-    'ొ': 'o'
-    'ో': 'ŏ'
-    'ౌ': 'au'
-    '\u09CD': '' # Used for joining
+    sub "ా", "ā"
+    sub "ి", "i"
+    sub "ీ", "ī"
+    sub "ు", "u"
+    sub "ూ", "ū"
+    sub "ృ", "ṛ"
+    sub "ె", "e"
+    sub "ే", "ē"
+    sub "ై", "ai"
+    sub "ొ", "o"
+    sub "ో", "ŏ"
+    sub "ౌ", "au"
+    sub "\u09CD", "" # Used for joining
 
 
-    '\u0c4d': '' #verma sign for halanta
-    'ౕ	': ''
-    'ౖ	': ''
-    '्': ''
-    '़': ''
-    "‍": ''# Used for joining
-    "‌": ''# Used for non joining
+    sub "\u0c4d", "" #verma sign for halanta
+    sub "ౕ\t", ""
+    sub "ౖ\t", ""
+    sub "्", ""
+    sub "़", ""
+    sub "‍", "" # Used for joining
+    sub "‌", "" # Used for non joining
 
     # numbers
 
-    '౦': '0'
-    '౧': '1'
-    '౨': '2'
-    '౩': '3'
-    '౪': '4'
-    '౫': '5'
-    '౬': '6'
-    '౭': '7'
-    '౮': '8'
-    '౯': '9'
+    sub "౦", "0"
+    sub "౧", "1"
+    sub "౨", "2"
+    sub "౩", "3"
+    sub "౪", "4"
+    sub "౫", "5"
+    sub "౬", "6"
+    sub "౭", "7"
+    sub "౮", "8"
+    sub "౯", "9"
+  }
+  
+ compose
+}
+

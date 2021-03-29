@@ -1,541 +1,484 @@
----
-authority_id: mofa
-id: 1989
-language: iso-639-2:jpn
-source_script: Hrkt
-destination_script: Latn
-name: Hepburn Romanization, Ministry of Foreign Affairs of Japan
-url: https://www.ezairyu.mofa.go.jp/passport/hebon.html
-creation_date:
-adoption_date:
+metadata {
+  authority_id: mofa
+  id: 1989
+  language: iso-639-2:jpn
+  source_script: Hrkt
+  destination_script: Latn
+  name: Hepburn Romanization, Ministry of Foreign Affairs of Japan
+  url: https://www.ezairyu.mofa.go.jp/passport/hebon.html
+  creation_date:
+  adoption_date:
 
-description:
-    The law (旅券法施行規則) requires the use of Hepburn romanization for passports.
-    https://elaws.e-gov.go.jp/search/elawsSearch/elaws_search/lsg0500/detail?lawId=401M50000020011
-    ３ 前項の氏名はヘボン式ローマ字によって旅券面に表記する。
-    ただし、申請者がその氏名についてヘボン式によらないローマ字表記を希望し、
-    外務大臣又は領事官が、出生証明書等により当該表記が適当であり、かつ、
-    渡航の便宜のため特に必要であると認めるときは、この限りではない。
+  description:
+      The law (旅券法施行規則) requires the use of Hepburn romanization for passports.
+      https://elaws.e-gov.go.jp/search/elawsSearch/elaws_search/lsg0500/detail?lawId=401M50000020011
+      ３ 前項の氏名はヘボン式ローマ字によって旅券面に表記する。
+      ただし、申請者がその氏名についてヘボン式によらないローマ字表記を希望し、
+      外務大臣又は領事官が、出生証明書等により当該表記が適当であり、かつ、
+      渡航の便宜のため特に必要であると認めるときは、この限りではない。
 
-notes:
-    Vowel lengthening is not marked in this system.
-    The use of OH for the long O sound used to be common, but it is
-    clearly stated that this usage is not part of the Hepburn system.
+  notes:
+      Vowel lengthening is not marked in this system.
+      The use of OH for the long O sound used to be common, but it is
+      clearly stated that this usage is not part of the Hepburn system.
 
-    OO is simplified to O, except when it comes at the end of a word.
-    OU and UU are always transliterated without the lengthening U.
+      OO is simplified to O, except when it comes at the end of a word.
+      OU and UU are always transliterated without the lengthening U.
 
-    The consonant V is not allowed, and will be transliterated as
-    BU or B instead.
+      The consonant V is not allowed, and will be transliterated as
+      BU or B instead.
+}
 
-tests:
-
-    #【ヘボン式ローマ字表記へ変換する際の注意事項】
-    # 撥音：B、M、Pの前の「ん」は、NではなくMで表記します。
-  - source: "ナンバ"  # 難波
-    expected: "NAMBA"
-  - source: "ホンマ"  # 本間
-    expected: "HOMMA"
-  - source: "サンペイ"  # 三瓶
-    expected: "SAMPEI"
-
-    # 促音：子音を重ねて表記します。
-  - source: "ハットリ"  # 服部
-    expected: "HATTORI"
-  - source: "キッカワ"  # 吉川
-    expected: "KIKKAWA"
-
-    # ただし、チ（CHI）、チャ（CHA）、チュ（CHU）、チョ（CHO）音の前には「T」を表記します。
-  - source: "ホッチ"  # 発地
-    expected: "HOTCHI"
-  - source: "ハッチョウ"  # 八丁
-    expected: "HATCHO"
-
-    # 長音：OやUは記入しません。
-    # ※長音表記を希望する場合には、下記【ヘボン式によらないローマ字氏名表記】を参照してください。
-    # 「―」を省略する場合
-  - source: "ニーナ"  # ニーナ
-    expected: "NINA"
-  - source: "シーナ"  # シーナ
-    expected: "SHINA"
-  - source: "サリー"  # サリー
-    expected: "SARI"
-
-    # 「イ」を省略しない場合
-  - source: "ニイナ"  # 新菜
-    expected: "NIINA"
-  - source: "シイナ"  # しいな
-    expected: "SHIINA"
-  - source: "サリイ"  # さりい
-    expected: "SARII"
-
-    # 「ウ」を含む長音「ウウ」の場合（「UU」は表記しません。）
-  - source: "ヒュウガ"  # 日向
-    expected: "HYUGA"
-  - source: "ユウキ"  # 裕貴
-    expected: "YUKI"
-  - source: "ユウコ"  # 優子
-    expected: "YUKO"
-
-    # 「オ」を含む長音「オウ」の場合（「OU」は表記しません。）
-  - source: "コウタ"  # 幸太
-    expected: "KOTA"
-  - source: "ヨウコ"  # 洋子
-    expected: "YOKO"
-  - source: "リョウコ"  # 亮子
-    expected: "RYOKO"
-
-    # 「オ」を含む長音「オオ」の場合（「OO」は表記しません。）
-  - source: "オオノ"  # 大野
-    expected: "ONO"
-  - source: "オオコウチ"  # 大河内
-    expected: "OKOCHI"
-  - source: "オオニシ"  # 大西
-    expected: "ONISHI"
-
-    # 末尾が「オオ」音で、ヨミカタが「オ」の場合（「OO」と表記します。）
-  - source: "セノオ"  # 妹尾
-    expected: "SENOO"
-  - source: "タカトオ"  # 高藤
-    expected: "TAKATOO"
-  - source: "ヨコオ"  # 横尾
-    expected: "YOKOO"
-
-    # 末尾が「オウ」音で、ヨミカタが「ウ」の場合（「OU」とは表記しません。）
-  - source: "イトウ"  # 伊藤
-    expected: "ITO"
-  - source: "タカトウ"  # 高藤
-    expected: "TAKATO"
-  - source: "ミソノウ"  # 御園生
-    expected: "MISONO"
-
-    # 「ヴ」のつく氏名例
-  - source: "ヴィヴィアン"  # ヴィヴィアン
+tests {
+  #【ヘボン式ローマ字表記へ変換する際の注意事項】
+  # 撥音：B、M、Pの前の「ん」は、NではなくMで表記します。
+  test "ナンバ", "NAMBA"  # 難波
+  test "ホンマ", "HOMMA"  # 本間
+  test "サンペイ", "SAMPEI"  # 三瓶
+  # 促音：子音を重ねて表記します。
+  test "ハットリ", "HATTORI"  # 服部
+  test "キッカワ", "KIKKAWA"  # 吉川
+  # ただし、チ（CHI）、チャ（CHA）、チュ（CHU）、チョ（CHO）音の前には「T」を表記します。
+  test "ホッチ", "HOTCHI"  # 発地
+  test "ハッチョウ", "HATCHO"  # 八丁
+  # 長音：OやUは記入しません。
+  # ※長音表記を希望する場合には、下記【ヘボン式によらないローマ字氏名表記】を参照してください。
+  # 「―」を省略する場合
+  test "ニーナ", "NINA"  # ニーナ
+  test "シーナ", "SHINA"  # シーナ
+  test "サリー", "SARI"  # サリー
+  # 「イ」を省略しない場合
+  test "ニイナ", "NIINA"  # 新菜
+  test "シイナ", "SHIINA"  # しいな
+  test "サリイ", "SARII"  # さりい
+  # 「ウ」を含む長音「ウウ」の場合（「UU」は表記しません。）
+  test "ヒュウガ", "HYUGA"  # 日向
+  test "ユウキ", "YUKI"  # 裕貴
+  test "ユウコ", "YUKO"  # 優子
+  # 「オ」を含む長音「オウ」の場合（「OU」は表記しません。）
+  test "コウタ", "KOTA"  # 幸太
+  test "ヨウコ", "YOKO"  # 洋子
+  test "リョウコ", "RYOKO"  # 亮子
+  # 「オ」を含む長音「オオ」の場合（「OO」は表記しません。）
+  test "オオノ", "ONO"  # 大野
+  test "オオコウチ", "OKOCHI"  # 大河内
+  test "オオニシ", "ONISHI"  # 大西
+  # 末尾が「オオ」音で、ヨミカタが「オ」の場合（「OO」と表記します。）
+  test "セノオ", "SENOO"  # 妹尾
+  test "タカトオ", "TAKATOO"  # 高藤
+  test "ヨコオ", "YOKOO"  # 横尾
+  # 末尾が「オウ」音で、ヨミカタが「ウ」の場合（「OU」とは表記しません。）
+  test "イトウ", "ITO"  # 伊藤
+  test "タカトウ", "TAKATO"  # 高藤
+  test "ミソノウ", "MISONO"  # 御園生
+  # 「ヴ」のつく氏名例
+  test "ヴィヴィアン", "BIBIAN"  # ヴィヴィアン
     #expected: "BUIBUIAN"
-    expected: "BIBIAN"
-
-  - source: "ヴォードレール"  # ヴォードレール
+  test "ヴォードレール", "BODORERU"  # ヴォードレール
     #expected: "BUODORERU"
-    expected: "BODORERU"
+}
 
-map:
-  word_separator: " "
+# Although this system inherits from var-jpn-Hrkt-Latn-hepburn-1886,
+# it does not allow the use of macron, and has a list of unique
+# transliteration rules.
+# It is therefore easier to be implemented as a separate map instead
+# of using the inherit flag.
 
-  # Although this system inherits from var-jpn-Hrkt-Latn-hepburn-1886,
-  # it does not allow the use of macron, and has a list of unique
-  # transliteration rules.
-  # It is therefore easier to be implemented as a separate map instead
-  # of using the inherit flag.
+# inherit: var-jpn-Hrkt-Latn-hepburn-1886
 
-  # inherit: var-jpn-Hrkt-Latn-hepburn-1886
+stage {
 
-  rules:
-    # Add a dash (-) between ん and a vowel sound or ya, yu, yo
-    # - pattern: "([んン])(?=[あいうえおやゆよアイウエオヤユヨ])"
-    #   result: "\\1-"
+  # RULES
+  # Add a dash (-) between ん and a vowel sound or ya, yu, yo
+  # - pattern: "([んン])(?=[あいうえおやゆよアイウエオヤユヨ])"
+  #   result: "\\1-"
 
-    # Convert ん into m before b, m, p
-    # 撥音：B、M、Pの前の「ん」は、NではなくMで表記します。
+  # Convert ん into m before b, m, p
+  # 撥音：B、M、Pの前の「ん」は、NではなくMで表記します。
 
-    - pattern: "[んン](?=[ばびぶべぼまみむめもぱぴぷぺぽバビブベボマミムメモパピプペポ])"
-      result: "M"
+  sub any("んン"), "M", after: any("ばびぶべぼまみむめもぱぴぷぺぽバビブベボマミムメモパピプペポ")
 
-    # Long O and U will not be recorded.
-    # 長音：OやUは記入しません。
-    #
-    # Exception: when OO appears at the end of the word
+  # Long O and U will not be recorded.
+  # 長音：OやUは記入しません。
+  #
+  # Exception: when OO appears at the end of the word
 
-    - pattern: "([おこそとのほもよろをごぞどぼぽょぉオコソトノホモヨロヲゴゾドボポョォ])[おオ](?=[^\\s])"
-      result: "\\1"
+  sub capture(any("おこそとのほもよろをごぞどぼぽょぉオコソトノホモヨロヲゴゾドボポョォ")) + any("おオ"), ref( 1 ), not_after: any(space+line_end)
 
-    - pattern: "([うくすつぬふむゆるぐずづぶぷゅぅウクスツヌフムユルグズヅブプュゥ])[うウ]"
-      result: "\\1"
+  sub capture(any("うくすつぬふむゆるぐずづぶぷゅぅウクスツヌフムユルグズヅブプュゥ")) + any("うウ"), ref( 1 )
 
-  postrules:
-    # Handling of っ/ッ
-    # 促音：子音を重ねて表記します。
-    #
-    # The kana っ/ッ is a geminate marker.
-    # When followed by a consonant, repeat the first letter of
-    # the following syllable. Exception: the combination -cch-
-    # should be transliterated as -tch-
-    #
-    # If っ/ッ is not followed by a consonant, then it is usually
-    # phonetically realised as an abrupt stop or shorterning of
-    # the previous syllable. There is no documented or commonly
-    # accepted way to transliterate this sound.
-    #
+  # CHARACTERS
+  parallel {
+    sub "ー", "" # Long vowel marker is ignored
 
-    - pattern: "[っッ]([BbDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz])"
-      result: "\\1\\1"
-    - pattern: "[っッ]([Cc])" # ッ followed by ch-
-      result: "T\\1"
-    - pattern: "[っッ]" # drop all other っッ.
-      result: ""
+    sub "あ", "A"
+    sub "い", "I"
+    sub "う", "U"
+    sub "え", "E"
+    sub "お", "O"
+    sub "おう", "O"
 
-  characters:
-    "ー": ""  # Long vowel marker is ignored
+    sub "か", "KA"
+    sub "き", "KI"
+    sub "く", "KU"
+    sub "け", "KE"
+    sub "こ", "KO"
+    sub "きゃ", "KYA"
+    sub "きゅ", "KYU"
+    sub "きょ", "KYO"
+    sub "きょう", "KYO"
+    sub "こう", "KO"
 
-    "あ": "A"
-    "い": "I"
-    "う": "U"
-    "え": "E"
-    "お": "O"
-    "おう": "O"
+    sub "さ", "SA"
+    sub "し", "SHI"
+    sub "す", "SU"
+    sub "せ", "SE"
+    sub "そ", "SO"
+    sub "しゃ", "SHA"
+    sub "しゅ", "SHU"
+    sub "しょ", "SHO"
+    sub "しょう", "SHO"
+    sub "そう", "SO"
 
-    "か": "KA"
-    "き": "KI"
-    "く": "KU"
-    "け": "KE"
-    "こ": "KO"
-    "きゃ": "KYA"
-    "きゅ": "KYU"
-    "きょ": "KYO"
-    "きょう": "KYO"
-    "こう": "KO"
+    sub "た", "TA"
+    sub "ち", "CHI"
+    sub "つ", "TSU"
+    sub "て", "TE"
+    sub "と", "TO"
+    sub "ちゃ", "CHA"
+    sub "ちゅ", "CHU"
+    sub "ちょ", "CHO"
+    sub "とう", "TO"
+    sub "ちょう", "CHO"
 
-    "さ": "SA"
-    "し": "SHI"
-    "す": "SU"
-    "せ": "SE"
-    "そ": "SO"
-    "しゃ": "SHA"
-    "しゅ": "SHU"
-    "しょ": "SHO"
-    "しょう": "SHO"
-    "そう": "SO"
+    sub "な", "NA"
+    sub "に", "NI"
+    sub "ぬ", "NU"
+    sub "ね", "NE"
+    sub "の", "NO"
+    sub "にゃ", "NYA"
+    sub "にゅ", "NYU"
+    sub "にょ", "NYO"
+    sub "にょう", "NYO"
+    sub "のう", "NO"
 
-    "た": "TA"
-    "ち": "CHI"
-    "つ": "TSU"
-    "て": "TE"
-    "と": "TO"
-    "ちゃ": "CHA"
-    "ちゅ": "CHU"
-    "ちょ": "CHO"
-    "とう": "TO"
-    "ちょう": "CHO"
+    sub "は", "HA"
+    sub "ひ", "HI"
+    sub "ふ", "FU"
+    sub "へ", "HE"
+    sub "ほ", "HO"
+    sub "ひゃ", "HYA"
+    sub "ひゅ", "HYU"
+    sub "ひょ", "HYO"
+    sub "ひょう", "HYO"
+    sub "ほう", "HO"
 
-    "な": "NA"
-    "に": "NI"
-    "ぬ": "NU"
-    "ね": "NE"
-    "の": "NO"
-    "にゃ": "NYA"
-    "にゅ": "NYU"
-    "にょ": "NYO"
-    "にょう": "NYO"
-    "のう": "NO"
+    sub "ま", "MA"
+    sub "み", "MI"
+    sub "む", "MU"
+    sub "め", "ME"
+    sub "も", "MO"
+    sub "みゃ", "MYA"
+    sub "みゅ", "MYU"
+    sub "みょ", "MYO"
+    sub "みょう", "MYO"
+    sub "もう", "MO"
 
-    "は": "HA"
-    "ひ": "HI"
-    "ふ": "FU"
-    "へ": "HE"
-    "ほ": "HO"
-    "ひゃ": "HYA"
-    "ひゅ": "HYU"
-    "ひょ": "HYO"
-    "ひょう": "HYO"
-    "ほう": "HO"
+    sub "や", "YA"
+    sub "ゆ", "YU"
+    sub "よ", "YO"
+    sub "よう", "YO"
 
-    "ま": "MA"
-    "み": "MI"
-    "む": "MU"
-    "め": "ME"
-    "も": "MO"
-    "みゃ": "MYA"
-    "みゅ": "MYU"
-    "みょ": "MYO"
-    "みょう": "MYO"
-    "もう": "MO"
+    sub "ら", "RA"
+    sub "り", "RI"
+    sub "る", "RU"
+    sub "れ", "RE"
+    sub "ろ", "RO"
+    sub "りゃ", "RYA"
+    sub "りゅ", "RYU"
+    sub "りょ", "RYO"
+    sub "りょう", "RYO"
+    sub "ろう", "RO"
 
-    "や": "YA"
-    "ゆ": "YU"
-    "よ": "YO"
-    "よう": "YO"
+    sub "わ", "WA"
+    sub "ゐ", "I"
+    sub "ゑ", "E"
+    sub "を", "O"
 
-    "ら": "RA"
-    "り": "RI"
-    "る": "RU"
-    "れ": "RE"
-    "ろ": "RO"
-    "りゃ": "RYA"
-    "りゅ": "RYU"
-    "りょ": "RYO"
-    "りょう": "RYO"
-    "ろう": "RO"
+    sub "が", "GA"
+    sub "ぎ", "GI"
+    sub "ぐ", "GU"
+    sub "げ", "GE"
+    sub "ご", "GO"
+    sub "ぎゃ", "GYA"
+    sub "ぎゅ", "GYU"
+    sub "ぎょ", "GYO"
+    sub "ぎょう", "GYO"
+    sub "ごう", "GO"
 
-    "わ": "WA"
-    "ゐ": "I"
-    "ゑ": "E"
-    "を": "O"
-
-    "が": "GA"
-    "ぎ": "GI"
-    "ぐ": "GU"
-    "げ": "GE"
-    "ご": "GO"
-    "ぎゃ": "GYA"
-    "ぎゅ": "GYU"
-    "ぎょ": "GYO"
-    "ぎょう": "GYO"
-    "ごう": "GO"
-
-    "ざ": "ZA"
-    "じ": "JI"
-    "ず": "ZU"
-    "ぜ": "ZE"
-    "ぞ": "ZO"
-    "じゃ": "JA"
-    "じゅ": "JU"
-    "じょ": "JO"
-    "じょう": "JO"
-    "ぞう": "ZO"
+    sub "ざ", "ZA"
+    sub "じ", "JI"
+    sub "ず", "ZU"
+    sub "ぜ", "ZE"
+    sub "ぞ", "ZO"
+    sub "じゃ", "JA"
+    sub "じゅ", "JU"
+    sub "じょ", "JO"
+    sub "じょう", "JO"
+    sub "ぞう", "ZO"
 
 
-    "だ": "DA"
-    "ぢ": "JI"
-    "づ": "ZU"
-    "で": "DE"
-    "ど": "DO"
-    "ぢゃ": "JA"
-    "ぢゅ": "JU"
-    "ぢょ": "JO"
-    "どう": "DO"
+    sub "だ", "DA"
+    sub "ぢ", "JI"
+    sub "づ", "ZU"
+    sub "で", "DE"
+    sub "ど", "DO"
+    sub "ぢゃ", "JA"
+    sub "ぢゅ", "JU"
+    sub "ぢょ", "JO"
+    sub "どう", "DO"
 
-    "ば": "BA"
-    "び": "BI"
-    "ぶ": "BU"
-    "べ": "BE"
-    "ぼ": "BO"
-    "びゃ": "BYA"
-    "びゅ": "BYU"
-    "びょ": "BYO"
-    "びょう": "BYO"
-    "ぼう": "BO"
+    sub "ば", "BA"
+    sub "び", "BI"
+    sub "ぶ", "BU"
+    sub "べ", "BE"
+    sub "ぼ", "BO"
+    sub "びゃ", "BYA"
+    sub "びゅ", "BYU"
+    sub "びょ", "BYO"
+    sub "びょう", "BYO"
+    sub "ぼう", "BO"
 
-    "ぱ": "PA"
-    "ぴ": "PI"
-    "ぷ": "PU"
-    "ぺ": "PE"
-    "ぽ": "PO"
-    "ぴゃ": "PYA"
-    "ぴゅ": "PYU"
-    "ぴょ": "PYO"
-    "ぴょう": "PYO"
-    "ぽう": "PO"
+    sub "ぱ", "PA"
+    sub "ぴ", "PI"
+    sub "ぷ", "PU"
+    sub "ぺ", "PE"
+    sub "ぽ", "PO"
+    sub "ぴゃ", "PYA"
+    sub "ぴゅ", "PYU"
+    sub "ぴょ", "PYO"
+    sub "ぴょう", "PYO"
+    sub "ぽう", "PO"
 
-    "ん": "N"
+    sub "ん", "N"
 
     # KATAKANA
 
-    "ア": "A"
-    "イ": "I"
-    "ウ": "U"
-    "エ": "E"
-    "オ": "O"
-    "オウ": "O"
+    sub "ア", "A"
+    sub "イ", "I"
+    sub "ウ", "U"
+    sub "エ", "E"
+    sub "オ", "O"
+    sub "オウ", "O"
 
-    "カ": "KA"
-    "キ": "KI"
-    "ク": "KU"
-    "ケ": "KE"
-    "コ": "KO"
-    "キャ": "KYA"
-    "キュ": "KYU"
-    "キョ": "KYO"
-    "コウ": "KO"
-    "キョウ": "KYO"
-    "コウ": "KO"
+    sub "カ", "KA"
+    sub "キ", "KI"
+    sub "ク", "KU"
+    sub "ケ", "KE"
+    sub "コ", "KO"
+    sub "キャ", "KYA"
+    sub "キュ", "KYU"
+    sub "キョ", "KYO"
+    sub "コウ", "KO"
+    sub "キョウ", "KYO"
+    sub "コウ", "KO"
 
-    "サ": "SA"
-    "シ": "SHI"
-    "ス": "SU"
-    "セ": "SE"
-    "ソ": "SO"
-    "シャ": "SHA"
-    "シュ": "SHU"
-    "ショ": "SHO"
-    "ショウ": "SHO"
-    "ソウ": "SO"
+    sub "サ", "SA"
+    sub "シ", "SHI"
+    sub "ス", "SU"
+    sub "セ", "SE"
+    sub "ソ", "SO"
+    sub "シャ", "SHA"
+    sub "シュ", "SHU"
+    sub "ショ", "SHO"
+    sub "ショウ", "SHO"
+    sub "ソウ", "SO"
 
-    "タ": "TA"
-    "チ": "CHI"
-    "ツ": "TSU"
-    "テ": "TE"
-    "ト": "TO"
-    "チャ": "CHA"
-    "チュ": "CHU"
-    "チョ": "CHO"
-    "チョウ": "CHO"
-    "トウ": "TO"
+    sub "タ", "TA"
+    sub "チ", "CHI"
+    sub "ツ", "TSU"
+    sub "テ", "TE"
+    sub "ト", "TO"
+    sub "チャ", "CHA"
+    sub "チュ", "CHU"
+    sub "チョ", "CHO"
+    sub "チョウ", "CHO"
+    sub "トウ", "TO"
 
-    "ナ": "NA"
-    "ニ": "NI"
-    "ヌ": "NU"
-    "ネ": "NE"
-    "ノ": "NO"
-    "ニャ": "NYA"
-    "ニュ": "NYU"
-    "ニョ": "NYO"
-    "ニョウ": "NYO"
-    "ノウ": "NO"
+    sub "ナ", "NA"
+    sub "ニ", "NI"
+    sub "ヌ", "NU"
+    sub "ネ", "NE"
+    sub "ノ", "NO"
+    sub "ニャ", "NYA"
+    sub "ニュ", "NYU"
+    sub "ニョ", "NYO"
+    sub "ニョウ", "NYO"
+    sub "ノウ", "NO"
 
-    "ハ": "HA"
-    "ヒ": "HI"
-    "フ": "FU"
-    "ヘ": "HE"
-    "ホ": "HO"
-    "ヒャ": "HYA"
-    "ヒュ": "HYU"
-    "ヒョ": "HYO"
-    "ヒョウ": "HYO"
-    "ホウ": "HO"
+    sub "ハ", "HA"
+    sub "ヒ", "HI"
+    sub "フ", "FU"
+    sub "ヘ", "HE"
+    sub "ホ", "HO"
+    sub "ヒャ", "HYA"
+    sub "ヒュ", "HYU"
+    sub "ヒョ", "HYO"
+    sub "ヒョウ", "HYO"
+    sub "ホウ", "HO"
 
-    "マ": "MA"
-    "ミ": "MI"
-    "ム": "MU"
-    "メ": "ME"
-    "モ": "MO"
-    "ミャ": "MYA"
-    "ミュ": "MYU"
-    "ミョ": "MYO"
-    "ミョウ": "MYO"
-    "モウ": "MO"
+    sub "マ", "MA"
+    sub "ミ", "MI"
+    sub "ム", "MU"
+    sub "メ", "ME"
+    sub "モ", "MO"
+    sub "ミャ", "MYA"
+    sub "ミュ", "MYU"
+    sub "ミョ", "MYO"
+    sub "ミョウ", "MYO"
+    sub "モウ", "MO"
 
-    "ヤ": "YA"
-    "ユ": "YU"
-    "ヨ": "YO"
-    "ヨウ": "YO"
+    sub "ヤ", "YA"
+    sub "ユ", "YU"
+    sub "ヨ", "YO"
+    sub "ヨウ", "YO"
 
-    "ラ": "RA"
-    "リ": "RI"
-    "ル": "RU"
-    "レ": "RE"
-    "ロ": "RO"
-    "リャ": "RYA"
-    "リュ": "RYU"
-    "リョ": "RYO"
-    "リョウ": "RYO"
-    "ロウ": "RO"
+    sub "ラ", "RA"
+    sub "リ", "RI"
+    sub "ル", "RU"
+    sub "レ", "RE"
+    sub "ロ", "RO"
+    sub "リャ", "RYA"
+    sub "リュ", "RYU"
+    sub "リョ", "RYO"
+    sub "リョウ", "RYO"
+    sub "ロウ", "RO"
 
-    "ワ": "WA"
-    "ヰ": "I"
-    "ヱ": "E"
-    "ヲ": "O"
+    sub "ワ", "WA"
+    sub "ヰ", "I"
+    sub "ヱ", "E"
+    sub "ヲ", "O"
 
-    "ガ": "GA"
-    "ギ": "GI"
-    "グ": "GU"
-    "ゲ": "GE"
-    "ゴ": "GO"
-    "ギャ": "GYA"
-    "ギュ": "GYU"
-    "ギョ": "GYO"
-    "ギョウ": "GYO"
-    "ゴウ": "GO"
+    sub "ガ", "GA"
+    sub "ギ", "GI"
+    sub "グ", "GU"
+    sub "ゲ", "GE"
+    sub "ゴ", "GO"
+    sub "ギャ", "GYA"
+    sub "ギュ", "GYU"
+    sub "ギョ", "GYO"
+    sub "ギョウ", "GYO"
+    sub "ゴウ", "GO"
 
-    "ザ": "ZA"
-    "ジ": "JI"
-    "ズ": "ZU"
-    "ゼ": "ZE"
-    "ゾ": "ZO"
-    "ジャ": "JA"
-    "ジュ": "JU"
-    "ジョ": "JO"
-    "ジョウ": "JO"
-    "ゾウ": "ZO"
+    sub "ザ", "ZA"
+    sub "ジ", "JI"
+    sub "ズ", "ZU"
+    sub "ゼ", "ZE"
+    sub "ゾ", "ZO"
+    sub "ジャ", "JA"
+    sub "ジュ", "JU"
+    sub "ジョ", "JO"
+    sub "ジョウ", "JO"
+    sub "ゾウ", "ZO"
 
-    "ダ": "DA"
-    "ヂ": "JI"
-    "ヅ": "ZU"
-    "デ": "DE"
-    "ド": "DO"
-    "ヂャ": "JA"
-    "ヂュ": "JU"
-    "ヂョ": "JO"
-    "ドウ": "DO"
+    sub "ダ", "DA"
+    sub "ヂ", "JI"
+    sub "ヅ", "ZU"
+    sub "デ", "DE"
+    sub "ド", "DO"
+    sub "ヂャ", "JA"
+    sub "ヂュ", "JU"
+    sub "ヂョ", "JO"
+    sub "ドウ", "DO"
 
-    "バ": "BA"
-    "ビ": "BI"
-    "ブ": "BU"
-    "ベ": "BE"
-    "ボ": "BO"
-    "ビャ": "BYA"
-    "ビュ": "BYU"
-    "ビョ": "BYO"
-    "ビョウ": "BYO"
-    "ボウ": "BO"
+    sub "バ", "BA"
+    sub "ビ", "BI"
+    sub "ブ", "BU"
+    sub "ベ", "BE"
+    sub "ボ", "BO"
+    sub "ビャ", "BYA"
+    sub "ビュ", "BYU"
+    sub "ビョ", "BYO"
+    sub "ビョウ", "BYO"
+    sub "ボウ", "BO"
 
-    "パ": "PA"
-    "ピ": "PI"
-    "プ": "PU"
-    "ペ": "PE"
-    "ポ": "PO"
-    "ピャ": "PYA"
-    "ピュ": "PYU"
-    "ピョ": "PYO"
-    "ピョウ": "PYO"
-    "ポウ": "PO"
+    sub "パ", "PA"
+    sub "ピ", "PI"
+    sub "プ", "PU"
+    sub "ペ", "PE"
+    sub "ポ", "PO"
+    sub "ピャ", "PYA"
+    sub "ピュ", "PYU"
+    sub "ピョ", "PYO"
+    sub "ピョウ", "PYO"
+    sub "ポウ", "PO"
 
-    "ン": "N"
+    sub "ン", "N"
 
     # Additional combinations
 
-    "しぇ": "SHIE"
-    "ちぇ": "CHIE"
-    "てぃ": "TEI"
-    "にぃ": "NII"
-    "にぇ": "NIE"
-    "ふぁ": "FUA"
-    "ふぃ": "FUI"
-    "ふぇ": "FUE"
-    "ふぉ": "FUO"
-    "じぇ": "JIE"
-    "でぃ": "DEI"
-    "でゅ": "DEYU"
-    "うぃ": "UI"
-    "うぇ": "UE"
-    "うぉ": "UO"
-    "ゔぁ":
-        - "BA"
-        - "BUA"
-    "ゔぃ":
-        - "BI"
-        - "BUI"
-    "ゔ": "BU"
-    "ゔぇ":
-        - "BE"
-        - "BUE"
-    "ゔぉ":
-        - "BO"
-        - "BUO"
+    sub "しぇ", "SHIE"
+    sub "ちぇ", "CHIE"
+    sub "てぃ", "TEI"
+    sub "にぃ", "NII"
+    sub "にぇ", "NIE"
+    sub "ふぁ", "FUA"
+    sub "ふぃ", "FUI"
+    sub "ふぇ", "FUE"
+    sub "ふぉ", "FUO"
+    sub "じぇ", "JIE"
+    sub "でぃ", "DEI"
+    sub "でゅ", "DEYU"
+    sub "うぃ", "UI"
+    sub "うぇ", "UE"
+    sub "うぉ", "UO"
+    sub "ゔぁ", any(["BA", "BUA"])
+    sub "ゔぃ", any(["BI", "BUI"])
+    sub "ゔ", "BU"
+    sub "ゔぇ", any(["BE", "BUE"])
+    sub "ゔぉ", any(["BO", "BUO"])
 
-    "シェ": "SHIE"
-    "チェ": "CHIE"
-    "ティ": "TEI"
-    "ニィ": "NII"
-    "ニェ": "NIE"
-    "ファ": "FUA"
-    "フィ": "FUI"
-    "フェ": "FUE"
-    "フォ": "FUO"
-    "ジェ": "JIE"
-    "ディ": "DEI"
-    "デュ": "DEYU"
-    "ウィ": "UI"
-    "ウェ": "UE"
-    "ウォ": "UO"
-    "ヴァ":
-        - "BA"
-        - "BUA"
-    "ヴィ":
-        - "BI"
-        - "BUI"
-    "ヴ": "BU"
-    "ヴェ":
-        - "BE"
-        - "BUE"
-    "ヴォ":
-        - "BO"
-        - "BUO"
+    sub "シェ", "SHIE"
+    sub "チェ", "CHIE"
+    sub "ティ", "TEI"
+    sub "ニィ", "NII"
+    sub "ニェ", "NIE"
+    sub "ファ", "FUA"
+    sub "フィ", "FUI"
+    sub "フェ", "FUE"
+    sub "フォ", "FUO"
+    sub "ジェ", "JIE"
+    sub "ディ", "DEI"
+    sub "デュ", "DEYU"
+    sub "ウィ", "UI"
+    sub "ウェ", "UE"
+    sub "ウォ", "UO"
+    sub "ヴァ", any(["BA", "BUA"])
+    sub "ヴィ", any(["BI", "BUI"])
+    sub "ヴ", "BU"
+    sub "ヴェ", any(["BE", "BUE"])
+    sub "ヴォ", any(["BO", "BUO"])
+  }
+
+
+  # POSTRULES
+  # Handling of っ/ッ
+  # 促音：子音を重ねて表記します。
+  #
+  # The kana っ/ッ is a geminate marker.
+  # When followed by a consonant, repeat the first letter of
+  # the following syllable. Exception: the combination -cch-
+  # should be transliterated as -tch-
+  #
+  # If っ/ッ is not followed by a consonant, then it is usually
+  # phonetically realised as an abrupt stop or shorterning of
+  # the previous syllable. There is no documented or commonly
+  # accepted way to transliterate this sound.
+  #
+
+  sub any("っッ") + capture(any("BbDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz")), ref( 1 ) + ref( 1 )
+  sub any("っッ") + capture(any("Cc")), "T" + ref( 1 ) # ッ followed by ch-
+  sub any("っッ"), "" # drop all other っッ.
+
+
+}

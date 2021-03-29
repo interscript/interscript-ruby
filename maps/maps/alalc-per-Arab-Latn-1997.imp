@@ -1,375 +1,318 @@
----
-authority_id: alalc
-id: 1997
-language: iso-639-3:prs
-source_script: Arab
-destination_script: Latn
-name: ALA-LC Romanization Table -- Persian (1997)
-url: http://catdir.loc.gov/catdir/cpso/romanization/persian.pdf
-creation_date: 1997
-confirmation_date: 1997
-description: |
-  ALA-LC Romanization table for Persian
+metadata {
+  authority_id: alalc
+  id: 1997
+  language: iso-639-3:prs
+  source_script: Arab
+  destination_script: Latn
+  name: ALA-LC Romanization Table -- Persian (1997)
+  url: http://catdir.loc.gov/catdir/cpso/romanization/persian.pdf
+  creation_date: 1997
+  confirmation_date: 1997
+  description: |
+    ALA-LC Romanization table for Persian
 
-notes:
-  - 1. For the use of ا (alif) to support ء (hamzah) and ~ (maddah)
-    see rule 1(a). For the romanization of ء and see rules 4 and
-    respectively. For the use of ا to represent the long vowel
-    romanized ā see the table of vowels and diphthongs, and rule 1(b).
+  notes:
+    - 1. For the use of ا (alif) to support ء (hamzah) and ~ (maddah)
+      see rule 1(a). For the romanization of ء and see rules 4 and
+      respectively. For the use of ا to represent the long vowel
+      romanized ā see the table of vowels and diphthongs, and rule 1(b).
 
-  - 2. Final ک and ‫گ‬ may have the form ك, without the distinguishing
-    upper stroke or strokes. The two letters are always distinguished in romanization.
+    - 2. Final ک and ‫گ‬ may have the form ك, without the distinguishing
+      upper stroke or strokes. The two letters are always distinguished in romanization.
 
-  - 3. For other values of »5 and ,s see the table of vowels and diphthongs,
-    and rules 2, 3, and 7.
+    - 3. For other values of »5 and ,s see the table of vowels and diphthongs,
+      and rules 2, 3, and 7.
 
-  - 4. ة (dotted ه) when used as an alternative to ت is romanized t.
+    - 4. ة (dotted ه) when used as an alternative to ت is romanized t.
 
-  - 5. Vowel points are not printed on Library of Congress cards.
+    - 5. Vowel points are not printed on Library of Congress cards.
 
-  - 6. See rules 1(b) and 5.
+    - 6. See rules 1(b) and 5.
 
-  - 7. See rule 3(d).
+    - 7. See rule 3(d).
 
-  - Rule 1.(a) As a support for ء (hamzah) and ~ (maddah). In these cases it is
-    not represented in romanization. See rules 4 and 5.
-    (b) To indicate the long vowel romanized G. Forthe use of| in tanvin
-    see rule 6 dānā دَانَا
+    - Rule 1.(a) As a support for ء (hamzah) and ~ (maddah). In these cases it is
+      not represented in romanization. See rules 4 and 5.
+      (b) To indicate the long vowel romanized G. Forthe use of| in tanvin
+      see rule 6 dānā دَانَا
 
-  - Rule 2.و is used to represent
-    (a) the consonant romanized v Silent و following خ is retained in romanization.
-    (b) the long u-vowel (and short u-vowel in some monosyllables) is romanized ū
-    (c) the diphthong romanized aw.
-    Whenthe diphthong precedes a consonantal و, the combination is romanized avv. See
-    rule 7.
-    و may be used as a support for ء (hamzah); in this case it is not represented in
-    romanization. See rule 4.
+    - Rule 2.و is used to represent
+      (a) the consonant romanized v Silent و following خ is retained in romanization.
+      (b) the long u-vowel (and short u-vowel in some monosyllables) is romanized ū
+      (c) the diphthong romanized aw.
+      Whenthe diphthong precedes a consonantal و, the combination is romanized avv. See
+      rule 7.
+      و may be used as a support for ء (hamzah); in this case it is not represented in
+      romanization. See rule 4.
 
-  - Rule 3. ي is used to represent
-    (a) the consonant romanized y.
-    (b) the long vowel romanized ī.
-    (c) the diphthong romanized ay.
-    (d) the final long vowel romanized á.
-    For the use of ى as a mark of izafah see rule 8(c)
-    ى in the medial form ىـ without dots, may be used as a support
-    for ء (hamzah); in this case ى is not represented in romanization.
-    See rule 4 below.
+    - Rule 3. ي is used to represent
+      (a) the consonant romanized y.
+      (b) the long vowel romanized ī.
+      (c) the diphthong romanized ay.
+      (d) the final long vowel romanized á.
+      For the use of ى as a mark of izafah see rule 8(c)
+      ى in the medial form ىـ without dots, may be used as a support
+      for ء (hamzah); in this case ى is not represented in romanization.
+      See rule 4 below.
 
-  - Rule 4. ء (hamzah)
-    (a)When initial, ء is not represented in romanization.
-    When medial orfinal, ء is romanized ’ (alif) except as noted
-    in (c) and (d) below.
-    (c)When used as a mark of izafah, ء is romanized -’i.
-    (d)When used to mark the indefinite article i
+    - Rule 4. ء (hamzah)
+      (a)When initial, ء is not represented in romanization.
+      When medial orfinal, ء is romanized ’ (alif) except as noted
+      in (c) and (d) below.
+      (c)When used as a mark of izafah, ء is romanized -’i.
+      (d)When used to mark the indefinite article i
 
-  - Rule 5. ~(maddah)
-    (a) initial آ is romanized ā
-    (b) Medial آ, whenit represents the phonetic combination ’ā,
-        is so romanized.
-    (c) is otherwise not represented in romanization.
+    - Rule 5. ~(maddah)
+      (a) initial آ is romanized ā
+      (b) Medial آ, whenit represents the phonetic combination ’ā,
+          is so romanized.
+      (c) is otherwise not represented in romanization.
 
-  - Rule 6. Tanvin (written ٌ, ٍ , ً , ـًا), which occurs chiefly in Arabic words,
-    is romanized un, in, an, and an, respectively.
+    - Rule 6. Tanvin (written ٌ, ٍ , ً , ـًا), which occurs chiefly in Arabic words,
+      is romanized un, in, an, and an, respectively.
 
-  - Rule 7. ّ (shaddah or tashdid) is represented by doubling the letter or
-    digraph concerned. Note the exceptional case where 4 is written over و and ي
-    to represent the combination of long vowel plus consonant.
+    - Rule 7. ّ (shaddah or tashdid) is represented by doubling the letter or
+      digraph concerned. Note the exceptional case where 4 is written over و and ي
+      to represent the combination of long vowel plus consonant.
 
-  - Rule 8.Izafah. When two wordsareassociated in the relation known as
-    izGfah,the first (the muzaf) is followed by an additional letter or
-    syllable in romanization. This is added according to the following rules
-    (a)When the muzaf bears no special mark of izafah, it is followed by-i.
-    (b)When the muzaf is marked by the addition ofء, it is followed by-’i.
-    (c)Whenthe muzaf is marked by the addition ofcs, it is followed by -yi.
-    (d)Izafah is represented in romanization of personal names only when
-    expressly indicated in the Persian script.
+    - Rule 8.Izafah. When two wordsareassociated in the relation known as
+      izGfah,the first (the muzaf) is followed by an additional letter or
+      syllable in romanization. This is added according to the following rules
+      (a)When the muzaf bears no special mark of izafah, it is followed by-i.
+      (b)When the muzaf is marked by the addition ofء, it is followed by-’i.
+      (c)Whenthe muzaf is marked by the addition ofcs, it is followed by -yi.
+      (d)Izafah is represented in romanization of personal names only when
+      expressly indicated in the Persian script.
 
-  - Rule 9.(a) When the affix and the word with which it is connected
-    grammatically are written separately in Persian, the two are separated
-    in romanization bya single prime (’). See also 12(b) below.
-    (b) The Arabic article al is separated by a hyphen, in romanization,
-    from the word to which it is prefixed.
+    - Rule 9.(a) When the affix and the word with which it is connected
+      grammatically are written separately in Persian, the two are separated
+      in romanization bya single prime (’). See also 12(b) below.
+      (b) The Arabic article al is separated by a hyphen, in romanization,
+      from the word to which it is prefixed.
 
-  - Rule 10. Compounds. When the elements of a compound (except a
-    compound personal name) are written separately in Persian, they are
-    separated in romanization by a single prime (’). See also 12(b) below.
+    - Rule 10. Compounds. When the elements of a compound (except a
+      compound personal name) are written separately in Persian, they are
+      separated in romanization by a single prime (’). See also 12(b) below.
 
-  - Rule 11. Capitalization.
-    (a) Rules for the capitalization of English are followed, except that
-    the Arabic article al is lowercased in all positions.
-    (b) Diacritics are used with both capital and lowercaseletters.
+    - Rule 11. Capitalization.
+      (a) Rules for the capitalization of English are followed, except that
+      the Arabic article al is lowercased in all positions.
+      (b) Diacritics are used with both capital and lowercaseletters.
 
-  - Rule 12. The single prime (’) is used
-    (a) To separate two letters representing two distinct consonantal
-    sounds, when the combination might otherwise be read as a digraph.
-    (b) To mark theuse ofa letterin its final form whenit occurs in the
-    middle of a word. See also rules 9(a) and 10 above.
+    - Rule 12. The single prime (’) is used
+      (a) To separate two letters representing two distinct consonantal
+      sounds, when the combination might otherwise be read as a digraph.
+      (b) To mark theuse ofa letterin its final form whenit occurs in the
+      middle of a word. See also rules 9(a) and 10 above.
 
-  - Rule 13. Foreign words in a Persian context, including Arabic words,
-    are romanized accordingto the rules for Persian. For short vowels
-    not indicated in the script, the Persian vowels nearest the original
-    pronunciation of the word are supplied in romanization.
+    - Rule 13. Foreign words in a Persian context, including Arabic words,
+      are romanized accordingto the rules for Persian. For short vowels
+      not indicated in the script, the Persian vowels nearest the original
+      pronunciation of the word are supplied in romanization.
 
-  - Rule 14. Dictionaries.
-    In romanizing Persian, the Library of Congress has foundit necessary
-    to consult dictionaries as an appendage to the romanizationtables,
-    primarily for the purpose of supplying vowels. For Persian, the
-    principle dictionary consulted is M. Mu’in. Farhang-i Farsi-i mutavassit
+    - Rule 14. Dictionaries.
+      In romanizing Persian, the Library of Congress has foundit necessary
+      to consult dictionaries as an appendage to the romanizationtables,
+      primarily for the purpose of supplying vowels. For Persian, the
+      principle dictionary consulted is M. Mu’in. Farhang-i Farsi-i mutavassit
+}
 
-tests:
+tests {
   # 1(b)
-  - source: دَانَا
-    expected: Dānā
-
+  test "دَانَا", "Dānā"
   # 2(a)
-  - source: وَرزِش
-    expected: Varzish
-
-  - source: دَوَا
-    expected: Davā
-
-  - source: سَرو
-    expected: Sarv
-
-  - source: خوَاستَن
-    expected: Khvāstan
-
-  - source: خوُد
-    expected: Khvud
-
+  test "وَرزِش", "Varzish"
+  test "دَوَا", "Davā"
+  test "سَرو", "Sarv"
+  test "خوَاستَن", "Khvāstan"
+  test "خوُد", "Khvud"
   # 2(b)
-  - source: دُور
-    expected: Dūr
-
-  - source: چُون
-    expected: Chūn
-
-  - source: تُو
-    expected: Tū
-
+  test "دُور", "Dūr"
+  test "چُون", "Chūn"
+  test "تُو", "Tū"
   # 2(c)
-  - source: فِردَوْسِي
-    expected: Firdawsī
-
+  test "فِردَوْسِي", "Firdawsī"
   # 3(a)
-  - source: يَار
-    expected: Yār
-
-  - source: سِيَاه
-    expected: Siyāh
-
-  - source: پَاي
-    expected: Pāy
-
+  test "يَار", "Yār"
+  test "سِيَاه", "Siyāh"
+  test "پَاي", "Pāy"
   # 3(b)
-  - source: اِيرَان
-    expected: Īrān
-
-  - source: قَالِي
-    expected: Qālī
-
+  test "اِيرَان", "Īrān"
+  test "قَالِي", "Qālī"
   # 3(c)
-  - source: اَيوَان
-    expected: Ayvān
-
-  - source: رَي
-    expected: Ray
-
+  test "اَيوَان", "Ayvān"
+  test "رَي", "Ray"
   # 3(d)
-  - source: مُصطَفَى
-    expected: Muṣṭafá
-
+  test "مُصطَفَى", "Muṣṭafá"
   # 4(a)
-  - source: مُؤَثِّر
-    expected: Mu’as̱s̱ir
-
-  - source: خُلَفَاء
-    expected: Khulafā’
-
-  - source: پَائِين
-    expected: Pā’īn
-
+  test "مُؤَثِّر", "Mu’as̱s̱ir"
+  test "خُلَفَاء", "Khulafā’"
+  test "پَائِين", "Pā’īn"
   # 4(c)
-  - source: اَستَانَهٔ دَر
-    expected: Astānah-’i Dar
-
+  test "اَستَانَهٔ دَر", "Astānah-’i Dar"
   # 5(a)
-  - source: آب
-    expected: Āb
-
-  - source: كُلِّيَّة الآدَاب
-    expected: Kullīyat al-Ādāb
-
+  test "آب", "Āb"
+  test "كُلِّيَّة الآدَاب", "Kullīyat al-Ādāb"
   # 5(b)
-  - source: مَآثِر
-    expected: Ma’ās̱ir
-
-  - source: دَريَاآبَادِي
-    expected: Daryā’ābādī
-
+  test "مَآثِر", "Ma’ās̱ir"
+  test "دَريَاآبَادِي", "Daryā’ābādī"
   # 7
-  - source: خُرَّم
-    expected: Khurram
+  test "خُرَّم", "Khurram"
+  test "اَوَّل", "Avval"
+  test "بَچّة", "Bachchah"
+  test "خَيَّام", "Khayyām"
+  test "نَشرِيَّات", "Nashrīyāt"
+  test "قُوَّة", "Qūvah"
+  test "قُوَّة", "Qūvah"
+}
 
-  - source: اَوَّل
-    expected: Avval
+stage {
 
-  - source: بَچّة
-    expected: Bachchah
-
-  - source: خَيَّام
-    expected: Khayyām
-
-  - source: نَشرِيَّات
-    expected: Nashrīyāt
-
-  - source: قُوَّة
-    expected: Qūvah
-
-  - source: قُوَّة
-    expected: Qūvah
-
-map:
-  postrules:
-    - pattern: '(?<=\b)(?<![‘|’])[\u0061-\uFFFF]'
-      result: "upcase"
-    - pattern: "Al-" # ال
-      result: "al-"
-
-  characters:
+  # CHARACTERS
+  parallel {
     # special rules
 
-    '\s(?=\u0622\u0628\u064E\u0627\u062F)' : '' # space followed by abad is removed
-    '\ufdf2' : 'Allāh' # See note 5
+    sub space, "", after: "\u0622\u0628\u064E\u0627\u062F" # space followed by abad is removed
+    sub "\ufdf2", "Allāh" # See note 5
 
     # pointing
-    '\u064e(?=\u0629)' : '' # َ fatha followed by ta' marboota
-    '\u064e(?=a[h|t])' : '' # َ fatha followed by ta' marboota, handling different order of conversion
+    sub "\u064e", "", after: "\u0629" # َ fatha followed by ta' marboota
+    sub "\u064e", "", after: "a" + any("h|t") # َ fatha followed by ta' marboota, handling different order of conversion
 
-    '\u064e' : 'a' # َ fatha
-    '\u064e\u0627' : 'ā'  # ـَا fatha followed by ا
-    '\b\u0622' : 'ā'  # آ
-    '\u0622' : '’ā'  # آ
+    sub "\u064e", "a" # َ fatha
+    sub "\u064e\u0627", "ā" # ـَا fatha followed by ا
+    sub boundary + "\u0622", "ā" # آ
+    sub "\u0622", "’ā" # آ
+    sub "\u0622", "ā", before: "\u0644" # added after debugging
 
-    '\u0650' : 'i'  # ِ kasra
-    '\u0650[\u064a|\u06cc]' : 'ī' # ـِي kasra followed by ي
-    '\u0650\b' : '-e' # ِ kasra
-    '\u064e\u0649' : 'á'  # ـَى fatha followed by ى which is ا not ي
-    '\u064e\u064a\u0652' : 'ay'  # ـَيْ
-    '\u0650\u064a(?=\u064e|u064f)' : 'iy' # ـِي kasra followed by ي
+    sub "\u0650", "i" # ِ kasra
+    sub "\u0650" + any("\u064a|\u06cc"), "ī" # ـِي kasra followed by ي
+    sub "\u0650" + boundary, "-e" # ِ kasra
+    sub "\u064e\u0649", "á" # ـَى fatha followed by ى which is ا not ي
+    sub "\u064e\u064a\u0652", "ay" # ـَيْ
+    sub "\u0650\u064a", "iy", after: any(["\u064e", "u064f"]) # ـِي kasra followed by ي
 
-    '\u064f' : 'u' # ُ damma
-    '\u064e\u0648\u0652' : 'aw'  # ـَوْ
-    '\u064f\u0648' : 'ū'  # ـُو damma followed by و
+    sub "\u064f", "u" # ُ damma
+    sub "\u064e\u0648\u0652", "aw" # ـَوْ
+    sub "\u064f\u0648", "ū" # ـُو damma followed by و
 
-    '\u0652' : ''  # ْ sokoon
-    '\u0659' : 'ê'
+    sub "\u0652", "" # ْ sokoon
+    sub "\u0659", "ê"
 
-    '[\u0674|\u0654]' : '-’i' # ٴ
+    sub any("\u0674|\u0654"), "-’i" # ٴ
 
-    '\u0649\u0670' : 'á' # ىٰ
-      # - '-ye'
+    sub "\u0649\u0670", "á" # ىٰ
+    # - '-ye'
 
     # Tanvin Rule 6
-    '\u064c' : 'un' #  ٌ
-    '\u064d' : 'in' #  ٍ
-    '\u064b' : 'an' #  ً
-    '\u064b\u0627' : 'an' #  ً
+    sub "\u064c", "un" #  ٌ
+    sub "\u064d", "in" #  ٍ
+    sub "\u064b", "an" #  ً
+    sub "\u064b\u0627", "an" #  ً
 
     # ta' marboota
-    '\u0629' : 'at' # ة in the middle of the sentence
-    '\u0629$' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{2})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{3})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{4})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{5})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{6})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{7})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{8})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{9})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{10})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{11})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{12})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{13})\u0629' : 'ah'
+    sub "\u0629", "at" # ة in the middle of the sentence
+    sub "\u0629" + line_end, "ah"
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
 
     # shadda
 
-    '\u0628\u0651' : 'bb'  # ب
-    '\u067E\u0651' : 'pp' # پ
-    '\u062a\u0651' : 'tt'  # ت
-    '\u062b\u0651' : 's̱s̱'  # ث
-    '\u062c\u0651' : 'jj'  # ج
-    '\u0686\u0651' : 'chch'  # ‫چ‬
-    '\u062d\u0651' : 'ḥḥ' # ح
-    '\u062e\u0651' : 'khkh'  # خ
-    '\u062f\u0651' : 'dd'  # د
-    '\u0630\u0651' : 'ẕẕ'  # ذ
-    '\u0631\u0651' : 'rr'  # ر
-    '\u0632\u0651' : 'zz'  # ز
-    '\u0698\u0651' : 'zhzh'  # ‫ژ‬
-    '\u0633\u0651' : 'ss'  # س
-    '\u0634\u0651' : 'shsh'  # ش
-    '\u0635\u0651' : 'z̤z̤'  # ص
-    '\u0636\u0651' : 'ḏḏ'  # ض
-    '\u0637\u0651' : 'ṭṭ'  # ط
-    '\u0638\u0651' : 'ẓẓ'  # ظ
-    '\u063a\u0651' : 'ghgh'  # غ
-    '\u0641\u0651' : 'ff'  # ف
-    '\u0642\u0651' : 'qq'  # ق
-    '\u0643\u0651' : 'kk'  # ك
-    '\u06A9\u0651' : 'kk' # ک
-    '\u06AF\u0651' : 'gg' # ‫گ‬
-    '\u0644\u0651' : 'll'  # ل
-    '\u0645\u0651' : 'mm'  # م
-    '\u0646\u0651' : 'nn'  # ن
-    '\u0647\u0651' : 'hh'  # ه
-    '\u0648\u0651' : 'vv'  # و
-    '[\u064a|\u0649]\u0651' : 'yy'  # ي
-    '\u0650[\u064a|\u06cc]\u0651\u064e' : 'īy' # ـِيَّ
-    '\u064f\u0648\u0651' : 'ūv'  # ـُو damma followed by و
+    sub "\u0628\u0651", "bb" # ب
+    sub "\u067E\u0651", "pp" # پ
+    sub "\u062a\u0651", "tt" # ت
+    sub "\u062b\u0651", "s̱s̱" # ث
+    sub "\u062c\u0651", "jj" # ج
+    sub "\u0686\u0651", "chch" # ‫چ‬
+    sub "\u062d\u0651", "ḥḥ" # ح
+    sub "\u062e\u0651", "khkh" # خ
+    sub "\u062f\u0651", "dd" # د
+    sub "\u0630\u0651", "ẕẕ" # ذ
+    sub "\u0631\u0651", "rr" # ر
+    sub "\u0632\u0651", "zz" # ز
+    sub "\u0698\u0651", "zhzh" # ‫ژ‬
+    sub "\u0633\u0651", "ss" # س
+    sub "\u0634\u0651", "shsh" # ش
+    sub "\u0635\u0651", "z̤z̤" # ص
+    sub "\u0636\u0651", "ḏḏ" # ض
+    sub "\u0637\u0651", "ṭṭ" # ط
+    sub "\u0638\u0651", "ẓẓ" # ظ
+    sub "\u063a\u0651", "ghgh" # غ
+    sub "\u0641\u0651", "ff" # ف
+    sub "\u0642\u0651", "qq" # ق
+    sub "\u0643\u0651", "kk" # ك
+    sub "\u06A9\u0651", "kk" # ک
+    sub "\u06AF\u0651", "gg" # ‫گ‬
+    sub "\u0644\u0651", "ll" # ل
+    sub "\u0645\u0651", "mm" # م
+    sub "\u0646\u0651", "nn" # ن
+    sub "\u0647\u0651", "hh" # ه
+    sub "\u0648\u0651", "vv" # و
+    sub any("\u064a|\u0649") + "\u0651", "yy" # ي
+    sub "\u0650" + any("\u064a|\u06cc") + "\u0651\u064e", "īy" # ـِيَّ
+    sub "\u064f\u0648\u0651", "ūv" # ـُو damma followed by و
 
-    '\u0621' : '’' # ء
-    '\u0624' : '’' # ؤ
-    '\u0626' : '’' # ئ
+    sub "\u0621", "’" # ء
+    sub "\u0624", "’" # ؤ
+    sub "\u0626", "’" # ئ
 
-    '\u0623' : ''  # أ
-    '\u0625' : ''    # إ
-    '\u0627' : 'ā'  # ا
-    '\b\u0627' : ''  # ا
+    sub "\u0623", "" # أ
+    sub "\u0625", "" # إ
+    sub "\u0627", "ā" # ا
+    sub boundary + "\u0627", "" # ا
 
-    '\b\u0627\u0644' : 'al-'  # ال
+    sub boundary + "\u0627\u0644", "al-" # ال
 
     # consonant characters
 
-    '\u0628' : 'b'  # ب
-    '\u067E' : 'p' # پ
-    '\u062a' : 't'  # ت
-    '\u062B' : 's̱'   # ث
-    '\u062c' : 'j'  # ج
-    '\u0686' : 'ch'  # ‫چ‬
-    '\u062d' : 'ḥ' # ح
-    '\u062e' : 'kh'  # خ
-    '\u062f' : 'd'  # د
-    '\u0630' : 'ẕ'  # ذ
-    '\u0631' : 'r'  # ر
-    '\u0632' : 'z'  # ز
-    '\u0698' : 'zh'  # ‫ژ‬
-    '\u0633' : 's'  # س
-    '\u0634' : 'sh'  # ش
-    '\u0635' : 'ṣ'  # ص
-    '\u0636' : 'z̤'  # ض
-    '\u0637' : 'ṭ'  # ط
-    '\u0638' : 'ẓ'  # ظ
-    '\u0639' : '‘'  # ع
-    '\u063a' : 'gh'  # غ
-    '\u0641' : 'f'  # ف
-    '\u0642' : 'q'  # ق
-    '\u0643' : 'k'  # ك
-    '\u06A9' : 'k' # ک
-    '\u06AF' : 'g' # ‫گ‬
-    '\u0644' : 'l'  # ل
-    '\u0645' : 'm'  # م
-    '\u0646' : 'n'  # ن
-    '\u0648' : 'v'  # و
-    '\u0647' : 'h'  # ه
-    '\u064a' : 'y'  # ي
+    sub "\u0628", "b" # ب
+    sub "\u067E", "p" # پ
+    sub "\u062a", "t" # ت
+    sub "\u062B", "s̱" # ث
+    sub "\u062c", "j" # ج
+    sub "\u0686", "ch" # ‫چ‬
+    sub "\u062d", "ḥ" # ح
+    sub "\u062e", "kh" # خ
+    sub "\u062f", "d" # د
+    sub "\u0630", "ẕ" # ذ
+    sub "\u0631", "r" # ر
+    sub "\u0632", "z" # ز
+    sub "\u0698", "zh" # ‫ژ‬
+    sub "\u0633", "s" # س
+    sub "\u0634", "sh" # ش
+    sub "\u0635", "ṣ" # ص
+    sub "\u0636", "z̤" # ض
+    sub "\u0637", "ṭ" # ط
+    sub "\u0638", "ẓ" # ظ
+    sub "\u0639", "‘" # ع
+    sub "\u063a", "gh" # غ
+    sub "\u0641", "f" # ف
+    sub "\u0642", "q" # ق
+    sub "\u0643", "k" # ك
+    sub "\u06A9", "k" # ک
+    sub "\u06AF", "g" # ‫گ‬
+    sub "\u0644", "l" # ل
+    sub "\u0645", "m" # م
+    sub "\u0646", "n" # ن
+    sub "\u0648", "v" # و
+    sub "\u0647", "h" # ه
+    sub "\u064a", "y" # ي
+  }
+
+  # POSTRULES
+  sub any("\u0061".."\uFFFF"), upcase, before: boundary, not_before: any("‘|’")
+  sub "Al-", "al-" # ال
+
+  compose
+}
+

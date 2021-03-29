@@ -1,170 +1,159 @@
----
-authority_id: odni
-id: 2015
-language: iso-639-2:tuk
-source_script: Cyrl
-destination_script: Latn
-name: Standards for the transliteration of Turkmen personal names in written reports and products
-url: https://github.com/interscript/ics-630-01/blob/master/reference-docs/ANNEX%20T%20-%20Turkmen_Personal_Names_FLTS%20(U).pdf
-source: ICS-630-01 Annex T
-creation_date: 2015
-confirmation_date: 2015
-description: |
-  This system is the Intelligence Community standard for the transliteration of Turkmen person
-  names that will be applied to all final written reports and products for IC consumers. It is not
-  intended to eliminate variations of a name that can contribute forensic information. Rather, it is to
-  provide an IC standard Romanized (English) transliteration from Turkmen that can then be linked
-  to forensic information in ways that will help identify the referent of the name.
+metadata {
+  authority_id: odni
+  id: 2015
+  language: iso-639-2:tuk
+  source_script: Cyrl
+  destination_script: Latn
+  name: Standards for the transliteration of Turkmen personal names in written reports and products
+  url: https://github.com/interscript/ics-630-01/blob/master/reference-docs/ANNEX%20T%20-%20Turkmen_Personal_Names_FLTS%20(U).pdf
+  source: ICS-630-01 Annex T
+  creation_date: 2015
+  confirmation_date: 2015
+  description: |
+    This system is the Intelligence Community standard for the transliteration of Turkmen person
+    names that will be applied to all final written reports and products for IC consumers. It is not
+    intended to eliminate variations of a name that can contribute forensic information. Rather, it is to
+    provide an IC standard Romanized (English) transliteration from Turkmen that can then be linked
+    to forensic information in ways that will help identify the referent of the name.
 
-  In cases where an individual’s name has already been transliterated in a variant spelling, the IC
-  Standard spelling should appear first, followed by the variant spelling(s) in parentheses at the first
-  usage. In addition, if the original Cyrillic-script spelling is known, that spelling should also
-  appear in parentheses following the name, if possible, following best practices of the issuing
-  organization and taking into consideration information system capabilities. For example:
-  Azat Muhadov (also seen as Azat Muhadow, Азат Мухадов). This convention is designed to
-  ensure that vital forensic information is not lost.
+    In cases where an individual’s name has already been transliterated in a variant spelling, the IC
+    Standard spelling should appear first, followed by the variant spelling(s) in parentheses at the first
+    usage. In addition, if the original Cyrillic-script spelling is known, that spelling should also
+    appear in parentheses following the name, if possible, following best practices of the issuing
+    organization and taking into consideration information system capabilities. For example:
+    Azat Muhadov (also seen as Azat Muhadow, Азат Мухадов). This convention is designed to
+    ensure that vital forensic information is not lost.
 
-  For names of persons who are known to not be part of the Turkmen-speaking community, use the
-  relevant IC transliteration standard for names from that language (e.g., Yitzhak). A translator’s
-  note may be used to clarify the known origin of the person. Spell names of individuals from
-  languages that are written in Roman letters as they are spelled in those languages (e.g., George
-  Clooney, Jorge Garcia, Georges Pompidou).
+    For names of persons who are known to not be part of the Turkmen-speaking community, use the
+    relevant IC transliteration standard for names from that language (e.g., Yitzhak). A translator’s
+    note may be used to clarify the known origin of the person. Spell names of individuals from
+    languages that are written in Roman letters as they are spelled in those languages (e.g., George
+    Clooney, Jorge Garcia, Georges Pompidou).
 
-  In the case of active senior government officials in the on-line CIA World Factbook and the on-
-  line directory of Chiefs of State and Cabinet Members of Foreign Governments, the spellings
-  given in these on-line reference works should be used in place of the IC Standard. For any
-  individual who has at one time been listed in the Factbook or Chiefs of State directory but who no
-  longer appears in those resources (i.e. is no longer a government official), the IC Standard
-  spelling should appear first, with the spelling, if known, as it previously appeared in those
-  resources listed within parentheses at the first usage.
+    In the case of active senior government officials in the on-line CIA World Factbook and the on-
+    line directory of Chiefs of State and Cabinet Members of Foreign Governments, the spellings
+    given in these on-line reference works should be used in place of the IC Standard. For any
+    individual who has at one time been listed in the Factbook or Chiefs of State directory but who no
+    longer appears in those resources (i.e. is no longer a government official), the IC Standard
+    spelling should appear first, with the spelling, if known, as it previously appeared in those
+    resources listed within parentheses at the first usage.
 
-  The primary goal is to produce a consistent Romanized transcription of names that is specifically
-  readable to the English-speaking non-specialist. The system uses the 26 letters of the standard
-  (English) Roman alphabet. Some ambiguities in the Romanized form will occur without the use
-  of diacritics. However, within the context of a report, where additional information about the
-  individual is provided, the referent will be clearly identified. This system will be used in
-  conjunction with on-line tools, name dictionaries, and lists containing conventional spellings of
-  names of well-known individuals.
+    The primary goal is to produce a consistent Romanized transcription of names that is specifically
+    readable to the English-speaking non-specialist. The system uses the 26 letters of the standard
+    (English) Roman alphabet. Some ambiguities in the Romanized form will occur without the use
+    of diacritics. However, within the context of a report, where additional information about the
+    individual is provided, the referent will be clearly identified. This system will be used in
+    conjunction with on-line tools, name dictionaries, and lists containing conventional spellings of
+    names of well-known individuals.
 
-notes:
-  - Transliterate double digraphs as a single digraph, i.e. шш -> sh, not shsh
-  - In the Roman, no distinction is made between digraphs such as 'sh' and single contiguous letters, (e.g. 's' followed by 'h').
-  - The Cyrillic ъ and ь are not transliterated, but instead are left out of the transliteration.
+  notes:
+    - Transliterate double digraphs as a single digraph, i.e. шш -> sh, not shsh
+    - In the Roman, no distinction is made between digraphs such as 'sh' and single contiguous letters, (e.g. 's' followed by 'h').
+    - The Cyrillic ъ and ь are not transliterated, but instead are left out of the transliteration.
+}
 
-tests:
-  - source: Акгюль
-    expected: Akgyul
-  - source: Акгыз
-    expected: Akgyz
-  - source: Арсланбек
-    expected: Arslanbek
-  - source: Берди
-    expected: Berdi
-  - source: Дидар
-    expected: Didar
-  - source: Гөзел
-    expected: Gozel
-  - source: Гуля
-    expected: Gulya
-  - source: Гюля
-    expected: Gyulya
-  - source: Мәхри
-    expected: Mahri
-  - source: Майса
-    expected: Maysa
-  - source: Мырат
-    expected: Myrat
-  - source: Өвез
-    expected: Ovez
-  - source: Рашит
-    expected: Rashit
-  - source: Сапармырат
-    expected: Saparmyrat
+tests {
+  test "Акгюль", "Akgyul"
+  test "Акгыз", "Akgyz"
+  test "Арсланбек", "Arslanbek"
+  test "Берди", "Berdi"
+  test "Дидар", "Didar"
+  test "Гөзел", "Gozel"
+  test "Гуля", "Gulya"
+  test "Гюля", "Gyulya"
+  test "Мәхри", "Mahri"
+  test "Майса", "Maysa"
+  test "Мырат", "Myrat"
+  test "Өвез", "Ovez"
+  test "Рашит", "Rashit"
+  test "Сапармырат", "Saparmyrat"
+}
 
-map:
-  rules:
-    - pattern: "\u0448\u0448" # шш -> sh
-      result: sh
-    - pattern: "\u0428\u0448" # Шш -> Sh
-      result: Sh
-    - pattern: "\u0428\u0428" # ШШ -> SH
-      result: SH
-    - pattern: "\u0448\u0428" # шШ -> sH
-      result: sH
-    - pattern: "\u042C|\u044C" # remove Ь and ь
-      result: ''
+stage {
 
-  characters:
-    '\u0410': 'A'      # А
-    '\u0411': 'B'      # Б
-    '\u0412': 'V'      # В
-    '\u0413': 'G'      # Г
-    '\u0414': 'D'      # Д
-    '\u0415': 'E'      # Е
-    '\u0401': 'Yo'     # Ё
-    '\u0416': 'Zh'     # Ж
-    '\u0496': 'J'      # җ
-    '\u0417': 'Z'      # З
-    '\u0418': 'I'      # И
-    '\u0419': 'Y'      # Й
-    '\u041A': 'K'      # К
-    '\u041B': 'L'      # Л
-    '\u041C': 'M'      # М
-    '\u041D': 'N'      # Н
-    '\u04A2': 'Ng'     # Ң
-    '\u041E': 'O'      # О
-    '\u04E8': 'O'      # Ө
-    '\u041F': 'P'      # П
-    '\u0420': 'R'      # Р
-    '\u0421': 'S'      # С
-    '\u0422': 'T'      # Т
-    '\u0423': 'U'      # У
-    '\u04AE': 'U'      # Ү
-    '\u0424': 'F'      # Ф
-    '\u0425': 'H'      # Х
-    '\u0426': 'Ts'     # Ц
-    '\u0427': 'Ch'     # Ч
-    '\u0428': 'Sh'     # Ш
-    '\u0429': 'Shch'   # Щ
-    '\u042B': 'Y'      # Ы
-    '\u042D': 'E'      # Э
-    '\u04D8': 'A'      # Ә
-    '\u042E': 'Yu'     # Ю
-    '\u042F': 'Ya'     # Я
+  # RULES
+  sub "шш", "sh" # шш -> sh
+  sub "Шш", "Sh" # Шш -> Sh
+  sub "ШШ", "SH" # ШШ -> SH
+  sub "шШ", "sH" # шШ -> sH
+  sub any("Ьь"), none # remove Ь and ь
 
-    '\u0430': 'a'      # а
-    '\u0431': 'b'      # б
-    '\u0432': 'v'      # в
-    '\u0433': 'g'      # г
-    '\u0434': 'd'      # д
-    '\u0435': 'e'      # е
-    '\u0451': 'yo'     # ё
-    '\u0436': 'zh'     # ж
-    '\u0497': 'j'      # җ
-    '\u0437': 'z'      # з
-    '\u0438': 'i'      # и
-    '\u0439': 'y'      # й
-    '\u043A': 'k'      # к
-    '\u043B': 'l'      # л
-    '\u043C': 'm'      # м
-    '\u043D': 'n'      # н
-    '\u04A3': 'ng'     # ң
-    '\u043E': 'o'      # о
-    '\u04E9': 'o'      # ө
-    '\u043F': 'p'      # п
-    '\u0440': 'r'      # р
-    '\u0441': 's'      # с
-    '\u0442': 't'      # т
-    '\u0443': 'u'      # у
-    '\u04AF': 'u'      # ү
-    '\u0444': 'f'      # ф
-    '\u0445': 'h'      # х
-    '\u0446': 'ts'     # ц
-    '\u0447': 'ch'     # ч
-    '\u0448': 'sh'     # ш
-    '\u0449': 'shch'   # щ
-    '\u044B': 'y'      # ы
-    '\u044D': 'e'      # э
-    '\u04D9': 'a'      # ә
-    '\u044E': 'yu'     # ю
-    '\u044F': 'ya'     # я
+
+  # CHARACTERS
+  parallel {
+    sub "\u0410", "A" # А
+    sub "\u0411", "B" # Б
+    sub "\u0412", "V" # В
+    sub "\u0413", "G" # Г
+    sub "\u0414", "D" # Д
+    sub "\u0415", "E" # Е
+    sub "\u0401", "Yo" # Ё
+    sub "\u0416", "Zh" # Ж
+    sub "\u0496", "J" # җ
+    sub "\u0417", "Z" # З
+    sub "\u0418", "I" # И
+    sub "\u0419", "Y" # Й
+    sub "\u041A", "K" # К
+    sub "\u041B", "L" # Л
+    sub "\u041C", "M" # М
+    sub "\u041D", "N" # Н
+    sub "\u04A2", "Ng" # Ң
+    sub "\u041E", "O" # О
+    sub "\u04E8", "O" # Ө
+    sub "\u041F", "P" # П
+    sub "\u0420", "R" # Р
+    sub "\u0421", "S" # С
+    sub "\u0422", "T" # Т
+    sub "\u0423", "U" # У
+    sub "\u04AE", "U" # Ү
+    sub "\u0424", "F" # Ф
+    sub "\u0425", "H" # Х
+    sub "\u0426", "Ts" # Ц
+    sub "\u0427", "Ch" # Ч
+    sub "\u0428", "Sh" # Ш
+    sub "\u0429", "Shch" # Щ
+    sub "\u042B", "Y" # Ы
+    sub "\u042D", "E" # Э
+    sub "\u04D8", "A" # Ә
+    sub "\u042E", "Yu" # Ю
+    sub "\u042F", "Ya" # Я
+
+    sub "\u0430", "a" # а
+    sub "\u0431", "b" # б
+    sub "\u0432", "v" # в
+    sub "\u0433", "g" # г
+    sub "\u0434", "d" # д
+    sub "\u0435", "e" # е
+    sub "\u0451", "yo" # ё
+    sub "\u0436", "zh" # ж
+    sub "\u0497", "j" # җ
+    sub "\u0437", "z" # з
+    sub "\u0438", "i" # и
+    sub "\u0439", "y" # й
+    sub "\u043A", "k" # к
+    sub "\u043B", "l" # л
+    sub "\u043C", "m" # м
+    sub "\u043D", "n" # н
+    sub "\u04A3", "ng" # ң
+    sub "\u043E", "o" # о
+    sub "\u04E9", "o" # ө
+    sub "\u043F", "p" # п
+    sub "\u0440", "r" # р
+    sub "\u0441", "s" # с
+    sub "\u0442", "t" # т
+    sub "\u0443", "u" # у
+    sub "\u04AF", "u" # ү
+    sub "\u0444", "f" # ф
+    sub "\u0445", "h" # х
+    sub "\u0446", "ts" # ц
+    sub "\u0447", "ch" # ч
+    sub "\u0448", "sh" # ш
+    sub "\u0449", "shch" # щ
+    sub "\u044B", "y" # ы
+    sub "\u044D", "e" # э
+    sub "\u04D9", "a" # ә
+    sub "\u044E", "yu" # ю
+    sub "\u044F", "ya" # я
+  }
+
+}

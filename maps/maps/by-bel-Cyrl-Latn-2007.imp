@@ -1,115 +1,77 @@
----
-authority_id: by
-id: 2007
-language: iso-639-2:bel
-source_script: Cyrl
-destination_script: Latn
-name: REGULATORY LEGAL ACTS OF THE NATIONAL BANK, NATIONAL ACADEMY OF SCIENCES OF BELARUS, MINISTRIES, OTHER REPUBLICAN GOVERNMENT BODIES 8/16668
-url: http://www.pravo.by/pdf/2007-159/2007-159(027-028).pdf
-creation_date: 2007
-description: |
-  RESOLUTION OF THE STATE COMMITTEE
-  ON PROPERTY OF THE REPUBLIC OF BELARUS June 11, 2007 No. 38
+metadata {
+  authority_id: by
+  id: 2007
+  language: iso-639-2:bel
+  source_script: Cyrl
+  destination_script: Latn
+  name: REGULATORY LEGAL ACTS OF THE NATIONAL BANK, NATIONAL ACADEMY OF SCIENCES OF BELARUS, MINISTRIES, OTHER REPUBLICAN GOVERNMENT BODIES 8/16668
+  url: http://www.pravo.by/pdf/2007-159/2007-159(027-028).pdf
+  creation_date: 2007
+  description: |
+    RESOLUTION OF THE STATE COMMITTEE
+    ON PROPERTY OF THE REPUBLIC OF BELARUS June 11, 2007 No. 38
 
-  8/16668 (06/18/2007) On amendments and additions to the Instructions
-  for the transliteration of geographical names of the
-  Republic of Belarus in letters of the Latin alphabet
+    8/16668 (06/18/2007) On amendments and additions to the Instructions
+    for the transliteration of geographical names of the
+    Republic of Belarus in letters of the Latin alphabet
 
-  Based on the Regulation on the State Property Committee of the Republic of Belarus,
-  approved by the Decree of the Council of Ministers of the Republic of Belarusdated July 29, 2006
-  No. 958 "Issues of the State Committee on Property of the Republic of Belarus"
+    Based on the Regulation on the State Property Committee of the Republic of Belarus,
+    approved by the Decree of the Council of Ministers of the Republic of Belarusdated July 29, 2006
+    No. 958 "Issues of the State Committee on Property of the Republic of Belarus"
+}
 
-tests:
-  - source: Аршанскi
-    expected: Aršanski
-  - source: Бешанковічы
-    expected: Biešankovičy
-  - source: Віцебск
-    expected: Viciebsk
-  - source: Гомель
-    expected: Homieĺ
-  - source: Гаўя
-    expected: Haŭja
-  - source: Добруш
-    expected: Dobruš
-  - source: Ельск
-    expected: Jeĺsk
-  - source: Бабаедава
-    expected: Babajedava
-  - source: Венцавічы
-    expected: Viencavičy
-  - source: Ёды
-    expected: Jody
-  - source: Вераб'ёвічы
-    expected: Vierabjovičy
-  - source: Мёры
-    expected: Miory
-  - source: Зэльва
-    expected: Zeĺva
-  - source: Iванава
-    expected: Ivanava
-  - source: Iўе
-    expected: Iŭje
-  - source: Лагойск
-    expected: Lahojsk
-  - source: Круглае
-    expected: Kruhlaje
-  - source: Лошыца
-    expected: Lošyca
-  - source: Любань
-    expected: Liubań
-  - source: Магілёў
-    expected: Mahilioŭ
-  - source: Нясвіж
-    expected: Niasviž
-  - source: Орша
-    expected: Orša
-  - source: Паставы
-    expected: Pastavy
-  - source: Рагачоў
-    expected: Rahačoŭ
-  - source: Смаргонь
-    expected: Smarhoń
-  - source: Талачын
-    expected: Talačyn
-  - source: Узда
-    expected: Uzda
-  - source: Шаркаўшчына
-    expected: Šarkaŭščyna
-  - source: Фаніпаль
-    expected: Fanipaĺ
-  - source: Хоцімск
-    expected: Chocimsk
-  - source: Цёмны Лес
-    expected: Ciomny Lies
-  - source: Чавусы
-    expected: Čavusy
-  - source: Шумілiна
-    expected: Šumilina
-  - source: Чыгірынка
-    expected: Čyhirynka
-  - source: Чэрвень
-    expected: Červień
-  - source: Друць
-    expected: Druć
-  - source: Чачэрск
-    expected: Čačersk
-  - source: Юхнаўка
-    expected: Juchnaŭka
-  - source: Гаюціна
-    expected: Hajucina
-  - source: Цюрлі
-    expected: Ciurli
-  - source: Любонічы
-    expected: Liuboničy
-  - source: Ямнае
-    expected: Jamnaje
-  - source: Баяры
-    expected: Bajary
-  - source: Валяр'яны
-    expected: Valiarjany
-  - source: Вязынка
-    expected: Viazynka
+tests {
+  test "Аршанскi", "Aršanski"
+  test "Бешанковічы", "Biešankovičy"
+  test "Віцебск", "Viciebsk"
+  test "Гомель", "Homieĺ"
+  test "Гаўя", "Haŭja"
+  test "Добруш", "Dobruš"
+  test "Ельск", "Jeĺsk"
+  test "Бабаедава", "Babajedava"
+  test "Венцавічы", "Viencavičy"
+  test "Ёды", "Jody"
+  test "Вераб'ёвічы", "Vierabjovičy"
+  test "Мёры", "Miory"
+  test "Зэльва", "Zeĺva"
+  test "Iванава", "Ivanava"
+  test "Iўе", "Iŭje"
+  test "Лагойск", "Lahojsk"
+  test "Круглае", "Kruhlaje"
+  test "Лошыца", "Lošyca"
+  test "Любань", "Liubań"
+  test "Магілёў", "Mahilioŭ"
+  test "Нясвіж", "Niasviž"
+  test "Орша", "Orša"
+  test "Паставы", "Pastavy"
+  test "Рагачоў", "Rahačoŭ"
+  test "Смаргонь", "Smarhoń"
+  test "Талачын", "Talačyn"
+  test "Узда", "Uzda"
+  test "Шаркаўшчына", "Šarkaŭščyna"
+  test "Фаніпаль", "Fanipaĺ"
+  test "Хоцімск", "Chocimsk"
+  test "Цёмны Лес", "Ciomny Lies"
+  test "Чавусы", "Čavusy"
+  test "Шумілiна", "Šumilina"
+  test "Чыгірынка", "Čyhirynka"
+  test "Чэрвень", "Červień"
+  test "Друць", "Druć"
+  test "Чачэрск", "Čačersk"
+  test "Юхнаўка", "Juchnaŭka"
+  test "Гаюціна", "Hajucina"
+  test "Цюрлі", "Ciurli"
+  test "Любонічы", "Liuboničy"
+  test "Ямнае", "Jamnaje"
+  test "Баяры", "Bajary"
+  test "Валяр'яны", "Valiarjany"
+  test "Вязынка", "Viazynka"
+}
 
-map:
-  inherit: by-bel-Cyrl-Latn-1998
+dependency "by-bel-Cyrl-Latn-1998", as: cyrllatn
+
+stage {
+
+  run map.cyrllatn.stage.main
+
+}

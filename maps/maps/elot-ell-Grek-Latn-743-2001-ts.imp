@@ -1,31 +1,178 @@
----
-authority_id: elot
-id: 2001-ts
-language: iso-639-2:ell
-source_script: Grek
-destination_script: Latn
-name: ELOT 743:2001
-url: https://docplayer.gr/docview/18/849832/#file=/storage/18/849832/849832.pdf
-creation_date: 2001
-description: |
-  Reversible transliteration standard, ELOT
+metadata {
+  authority_id: elot
+  id: 2001-ts
+  language: iso-639-2:ell
+  source_script: Grek
+  destination_script: Latn
+  name: ELOT 743:2001
+  url: https://docplayer.gr/docview/18/849832/
+  #file=/storage/18/849832/849832.pdf
+  creation_date: 2001
+  description: |
+    Reversible transliteration standard, ELOT
 
-note:
-  - Transcription standard (reversible): Clause 3.1, Table 2
+  notes:
+    - Transcription standard (reversible): Clause 3.1, Table 2
+}
 
-tests:
+# tests copied from iso-ell-Grek-Latn-843-1997-t1
+tests {
+  test "Ένα πράμα μόνον με παρακίνησε κι εμένα να γράψω ότι τούτην την πατρίδα την έχομεν όλοι μαζί, και σοφοί κι αμαθείς και πλούσιοι και φτωχοί και πολιτικοί και στρατιωτικοί και οι πλέον μικρότεροι άνθρωποι· όσοι αγωνιστήκαμεν, αναλόγως ο καθείς, έχομεν να ζήσομεν εδώ. Το λοιπόν δουλέψαμεν όλοι μαζί, να την φυλάμεν κι όλοι μαζί και να μην λέγει ούτε ο δυνατός «εγώ» ούτε ο αδύνατος. Ξέρετε πότε να λέγει ο καθείς «εγώ»; Όταν αγωνιστεί μόνος του και φκιάσει ή χαλάσει, να λέγει «εγώ»· όταν όμως αγωνίζονται πολλοί και φκιάνουν, τότε να λένε «εμείς». Είμαστε εις το «εμείς» κι όχι εις το «εγώ». Και εις το εξής να μάθομεν γνώση, αν θέλομεν να φκιάσομεν χωριόν, να ζήσομεν όλοι μαζί.\n\nΓιάννης Μακρυγιάννης.\n", "Éna práma mónon me parakínise ki eména na grápso óti toútin tin patrída tin échomen óloi mazí, kai sofoí ki amatheís kai ploúsioi kai ftochoí kai politikoí kai stratiotikoí kai oi pléon mikróteroi ánthropoi; ósoi agonistíkamen, analógos o katheís, échomen na zísomen edó. To loipón doulépsamen óloi mazí, na tin fylámen ki óloi mazí kai na min légei oúte o dynatós «egó» oúte o adýnatos. Xérete póte na légei o katheís «egó»? Ótan agonisteí mónos tou kai fkiásei í chalásei, na légei «egó»; ótan ómos agonízontai polloí kai fkiánoun, tóte na léne «emeís». Eímaste eis to «emeís» ki óchi eis to «egó». Kai eis to exís na máthomen gnósi, an thélomen na fkiásomen chorión, na zísomen óloi mazí.\n\nGiánnis Makrygiánnis.\n"
+  test "νταντά", "ntantá"
+  test "γκέγκε", "gkégke"
+  test "Γκαμπόν", "Gkampón"
+  test "υιός", "yiós"
+  test "Υιός", "Yiós"
+  test "νεράντζι", "nerántzi"
+  test "Γοίθιος", "Goíthios"
+  test "βόλεϊ", "vóleï"
+  test "αθεΐα", "atheḯa"
+  test "Εϊγιαφιάτλαγιοκουτλ", "Eïgiafiátlagiokoutl"
+  test "Εΐτζι", "Eḯtzi"
+  test "αέρας", "aéras"
+  test "Ταΰγετος", "Taÿ́getos"
+  test "σπρέυ", "spréy"
+  test "Άγιον Όρος", "Ágion Óros"
+  test "Άγραφα", "Ágrafa"
+  test "Αγρίνιο", "Agrínio"
+  test "Αίγινα", "Aígina"
+  test "Αίγιο", "Aígio"
+  test "Αμοργός", "Amorgós"
+  test "Άμφισσα", "Ámfissa"
+  test "Άργος", "Árgos"
+  test "Αρκαδία", "Arkadía"
+  test "Άρτα", "Árta"
+  test "Βελούχι", "Veloúchi"
+  test "Βέροια", "Véroia"
+  test "Βόλος", "Vólos"
+  test "Βόνιτσα", "Vónitsa"
+  test "Γαλαξίδι", "Galaxídi"
+  test "Γαλάτσι", "Galátsi"
+  test "Γιαννιτσά", "Giannitsá"
+  test "Γλυφάδα", "Glyfáda"
+  test "Γρανίτσα", "Granítsa"
+  test "Γρεβενά", "Grevená"
+  test "Γύθειο", "Gýtheio"
+  test "Διόνυσος", "Diónysos"
+  test "Δίστομο", "Dístomo"
+  test "Δολιανά", "Dolianá"
+  test "Δράμα", "Dráma"
+  test "Έδεσσα", "Édessa"
+  test "Ζάκυνθος", "Zákynthos"
+  test "Θάσος", "Thásos"
+  test "Θεσσαλία", "Thessalía"
+  test "Ίος", "Íos"
+  test "Καβάλα", "Kavála"
+  test "Καλάβρυτα", "Kalávryta"
+  test "Καλαμάτα", "Kalamáta"
+  test "Καλαμπάκα", "Kalampáka"
+  test "Καλύβια", "Kalývia"
+  test "Κάλυμνος", "Kálymnos"
+  test "Καρδίτσα", "Kardítsa"
+  test "Κάρυστος", "Kárystos"
+  test "Καστελλόριζο", "Kastellórizo"
+  test "Καστοριά", "Kastoriá"
+  test "Κερατέα", "Keratéa"
+  test "Κέρκυρα", "Kérkyra"
+  test "Κεφαλλονιά", "Kefalloniá"
+  test "Κιλκίς", "Kilkís"
+  test "Κόρινθος", "Kórinthos"
+  test "Κρανίδι", "Kranídi"
+  test "Κρέστενα", "Kréstena"
+  test "Κυκλάδες", "Kykládes"
+  test "Λαγκαδάς", "Lagkadás"
+  test "Λαμία", "Lamía"
+  test "Λάρισα", "Lárisa"
+  test "Λέρος", "Léros"
+  test "Λέσβος", "Lésvos"
+  test "Λιβαδειά", "Livadeiá"
+  test "Μακεδονία", "Makedonía"
+  test "Μαρκόπουλο", "Markópoulo"
+  test "Μαρούσι", "Maroúsi"
+  test "Μέγαρα", "Mégara"
+  test "Μεταξουργείο", "Metaxourgeío"
+  test "Μέτσοβο", "Métsovo"
+  test "Μύκονος", "Mýkonos"
+  test "Μυστράς", "Mystrás"
+  test "Νάξος", "Náxos"
+  test "Νάουσα", "Náousa"
+  test "Νίσυρος", "Nísyros"
+  test "Όλυμπος", "Ólympos"
+  test "Παγκράτι", "Pagkráti"
+  test "Παπάγου", "Papágou"
+  test "Πάρος", "Páros"
+  test "Πασαλιμάνι", "Pasalimáni"
+  test "Πάτμος", "Pátmos"
+  test "Πάτρα", "Pátra"
+  test "Πειραιάς", "Peiraiás"
+  test "Περιστέρι", "Peristéri"
+  test "Πολύγυρος", "Polýgyros"
+  test "Πόρος", "Póros"
+  test "Πρέβεζα", "Préveza"
+  test "Πτολεμαΐδα", "Ptolemaḯda"
+  test "Πύλος", "Pýlos"
+  test "Πύργος", "Pýrgos"
+  test "Ρέθυμνο", "Réthymno"
+  test "Ρόδος", "Ródos"
+  test "Σαλαμίνα", "Salamína"
+  test "Σάμος", "Sámos"
+  test "Σέρρες", "Sérres"
+  test "Σίκινος", "Síkinos"
+  test "Σίφνος", "Sífnos"
+  test "Σκιάθος", "Skiáthos"
+  test "Σκόπελος", "Skópelos"
+  test "Σούλι", "Soúli"
+  test "Στερεά Ελλάδα", "Stereá Elláda"
+  test "Στύρα", "Stýra"
+  test "Σύρος", "Sýros"
+  test "Σφακιά", "Sfakiá"
+  test "Τρίκαλα", "Tríkala"
+  test "Ύδρα", "Ýdra"
+  test "Φολέγανδρος", "Folégandros"
+  test "Χαλκίδα", "Chalkída"
+  test "Χαλάνδρι", "Chalándri"
+  test "Χανιά", "Chaniá"
+  test "Χίος", "Chíos"
+  test "Ψαρά", "Psará"
+  test "Αβάνα", "Avána"
+  test "Αϊβαλί", "Aïvalí"
+  test "Αλεξάνδρεια", "Alexándreia"
+  test "Άμστερνταμ", "Ámsterntam"
+  test "Βενετία", "Venetía"
+  test "Βερολίνο", "Verolíno"
+  test "Βερόνα", "Veróna"
+  test "Γένοβα", "Génova"
+  test "Δουβλίνο", "Douvlíno"
+  test "Καλαβρία", "Kalavría"
+  test "Καλιφόρνια", "Kalifórnia"
+  test "Κονγκό", "Kongkó"
+  test "Κουρδιστάν", "Kourdistán"
+  test "Λιβόρνο", "Livórno"
+  test "Λονδίνο", "Londíno"
+  test "Μάλαγα", "Málaga"
+  test "Μασσαλία", "Massalía"
+  test "Μιλάνο", "Miláno"
+  test "Μόσχα", "Móscha"
+  test "Νταγκεστάν", "Ntagkestán"
+  test "Ουαλία", "Oualía"
+  test "Παρίσι", "Parísi"
+  test "Πάφος", "Páfos"
+  test "Σαμάρεια", "Samáreia"
+  test "Σικελία", "Sikelía"
+  test "Σκανδιναβία", "Skandinavía"
+  test "Σκόπια", "Skópia"
+  test "Ταταρστάν", "Tatarstán"
+  test "Τζαμάικα", "Tzamáika"
+  test "Τιρόλο", "Tirólo"
+  test "Τορίνο", "Toríno"
+  test "Φανάρι", "Fanári"
+  test "Χονγκ Κονγκ", "Chongk Kongk"
+}
 
-  - source: |
-        Ένα πράμα μόνον με παρακίνησε κι εμένα να γράψω ότι τούτην την πατρίδα την έχομεν όλοι μαζί, και σοφοί κι αμαθείς και πλούσιοι και φτωχοί και πολιτικοί και στρατιωτικοί και οι πλέον μικρότεροι άνθρωποι· όσοι αγωνιστήκαμεν, αναλόγως ο καθείς, έχομεν να ζήσομεν εδώ. Το λοιπόν δουλέψαμεν όλοι μαζί, να την φυλάμεν κι όλοι μαζί και να μην λέγει ούτε ο δυνατός «εγώ» ούτε ο αδύνατος. Ξέρετε πότε να λέγει ο καθείς «εγώ»; Όταν αγωνιστεί μόνος του και φκιάσει ή χαλάσει, να λέγει «εγώ»· όταν όμως αγωνίζονται πολλοί και φκιάνουν, τότε να λένε «εμείς». Είμαστε εις το «εμείς» κι όχι εις το «εγώ». Και εις το εξής να μάθομεν γνώση, αν θέλομεν να φκιάσομεν χωριόν, να ζήσομεν όλοι μαζί.
+dependency "iso-ell-Grek-Latn-843-1997-t2", as: greklatn
 
-        Γιάννης Μακρυγιάννης.
+stage {
 
-    expected: |
-        Éna práma mónon me parakínise ki eména na grápso óti toútin tin patrída tin échomen óloi mazí, kai sofoí ki amatheís kai ploúsioi kai ftochoí kai politikoí kai stratiotikoí kai oi pléon mikróteroi ánthropoi; ósoi agonistíkamen, analógos o katheís, échomen na zísomen edó. To loipón doulépsamen óloi mazí, na tin fylámen ki óloi mazí kai na min légei oúte o dynatós «egó» oúte o adýnatos. Xérete póte na légei o katheís «egó»? Ótan agonisteí mónos tou kai fkiásei í chalásei, na légei «egó»; ótan ómos agonízontai polloí kai fkiánoun, tóte na léne «emeís». Eímaste eis to «emeís» ki óchi eis to «egó». Kai eis to exís na máthomen gnósi, an thélomen na fkiásomen chorión, na zísomen óloi mazí.
+  run map.greklatn.stage.main
 
-        Giánnis Makrygiánnis.
-
-map:
-  character_separator: ""
-  word_separator: " "
-  inherit: "iso-ell-Grek-Latn-843-1997-t2"
+}

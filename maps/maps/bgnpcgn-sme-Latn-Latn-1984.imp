@@ -1,50 +1,48 @@
----
-authority_id: bgnpcgn
-id: 1984
-language: iso-639-2:sme
-source_script: Latn
-destination_script: Latn
-name: BGN/PCGN Northern Sami (North Lappish) 1984 Roman-Script Spelling Convention Agreement
-url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/693794/ROMAN-SCRIPT_SPELLING_CONVENTIONS.pdf
-creation_date: 1984
+metadata {
+  authority_id: bgnpcgn
+  id: 1984
+  language: iso-639-2:sme
+  source_script: Latn
+  destination_script: Latn
+  name: BGN/PCGN Northern Sami (North Lappish) 1984 Roman-Script Spelling Convention Agreement
+  url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/693794/ROMAN-SCRIPT_SPELLING_CONVENTIONS.pdf
+  creation_date: 1984
 
-notes:
-  - |
-    The special letter Ŋ ŋ, known as eng, [Unicode: 014A, 014B] should be reproduced in that form whenever
-    encountered. In those instances when it cannot be reproduced, however, the letter Ń ń [Unicode: 0143, 0144]
-    may be substituted for it.
-  - |
-    In a further note additional to the 1984 agreement, other special letters should be retained as found:
-      Á á [Unicode: 00C1, 00E1],
-      Č č [Unicode: 010C, 010D],
-      Đ đ [Unicode: 0110, 0111],
-      Š š [Unicode: 0160, 0161],
-      Ŧ ŧ [Unicode: 0166, 0167],
-      Ž ž [Unicode: 017D, 017E].
+  notes:
+    - |
+      The special letter Ŋ ŋ, known as eng, [Unicode: 014A, 014B] should be reproduced in that form whenever
+      encountered. In those instances when it cannot be reproduced, however, the letter Ń ń [Unicode: 0143, 0144]
+      may be substituted for it.
+    - |
+      In a further note additional to the 1984 agreement, other special letters should be retained as found:
+        Á á [Unicode: 00C1, 00E1],
+        Č č [Unicode: 010C, 010D],
+        Đ đ [Unicode: 0110, 0111],
+        Š š [Unicode: 0160, 0161],
+        Ŧ ŧ [Unicode: 0166, 0167],
+        Ž ž [Unicode: 017D, 017E].
+}
 
-tests: # https://web.archive.org/web/20120918094122/http://www.uta.fi/~km56049/same/svocab.html
-  - source: adjágas
-    expected: adjágas
-  - source: agálaš
-    expected: agálaš
-  - source: ÁEL
-    expected: ÁEL
-  - source: hčagastinárpu
-    expected: hčagastinárpu
-  - source: algŋa
-    expected: algńa
-  - source: Šveica
-    expected: Šveica
-  - source: MAŊŊIL
-    expected: MAŃŃIL
-  - source: giđa
-    expected: giđa
-  - source: ruoŧŧelaš
-    expected: ruoŧŧelaš
-  - source: skálžu
-    expected: skálžu
+tests {
+  # https://web.archive.org/web/20120918094122/http://www.uta.fi/~km56049/same/svocab.html
+  test "adjágas", "adjágas"
+  test "agálaš", "agálaš"
+  test "ÁEL", "ÁEL"
+  test "hčagastinárpu", "hčagastinárpu"
+  test "algŋa", "algńa"
+  test "Šveica", "Šveica"
+  test "MAŊŊIL", "MAŃŃIL"
+  test "giđa", "giđa"
+  test "ruoŧŧelaš", "ruoŧŧelaš"
+  test "skálžu", "skálžu"
+}
 
-map:
-  characters:
-    "\u014A": "\u0143" # Ŋ => Ń
-    "\u014B": "\u0144" # ŋ => ń
+stage {
+
+  # CHARACTERS
+  parallel {
+    sub "Ŋ", "Ń" # Ŋ => Ń
+    sub "ŋ", "ń" # ŋ => ń
+  }
+
+}

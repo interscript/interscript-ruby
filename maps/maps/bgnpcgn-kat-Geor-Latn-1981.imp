@@ -1,51 +1,31 @@
----
-authority_id: bgnpcgn
-id: 1981
-language: iso-639-2:kat
-source_script: Geor
-destination_script: Latn
-name: ROMANIZATION OF GEORGIAN; BGN/PCGN 1981 System
-alias:
-  ogc11122:
-    code: kat_Geor2Latn_BGN_1981
-    description: Georgian US Board on Geographic Names(BGN)/Permanent Committee on Geographical Names for British Official Use(PCGN) 1981 System
-url: https://transliteration.eki.ee/pdf/Georgian.pdf
-creation_date: 1981
-confirmation_date: 1981
-description: |
-  BGN/PCGN system of 1981.
+metadata {
+  authority_id: bgnpcgn
+  id: 1981
+  language: iso-639-2:kat
+  source_script: Geor
+  destination_script: Latn
+  name: ROMANIZATION OF GEORGIAN; BGN/PCGN 1981 System
+  url: https://transliteration.eki.ee/pdf/Georgian.pdf
+  creation_date: 1981
+  confirmation_date: 1981
+  description: |
+    BGN/PCGN system of 1981.
+  
+  notes:
+}
 
-notes:
-
-tests:
-  - source: ჰებუდი
-    expected: hebudi
-
-  - source: ჯვრის წყალსაცავი
-    expected: jvris tsqalsats’avi
-
-  - source: ჯვავიაკვარა
-    expected: jvaviak’vara
-
-  - source: ჯობრია
-    expected: jobria
-
-  - source: ძულუხირა
-    expected: dzulukhira
-
-  - source: ლეკუხონა
-    expected: lek’ukhona
-
-  - source: აბაშა
-    expected: abasha
-
-  - source: ააცი
-    expected: aats’i
-
+tests {
+  test "ჰებუდი", "hebudi"
+  test "ჯვრის წყალსაცავი", "jvris tsqalsats’avi"
+  test "ჯვავიაკვარა", "jvaviak’vara"
+  test "ჯობრია", "jobria"
+  test "ძულუხირა", "dzulukhira"
+  test "ლეკუხონა", "lek’ukhona"
+  test "აბაშა", "abasha"
+  test "ააცი", "aats’i"
   # TODO: This belongs to which system?!
   # - source: აბააჟახვუ
   #   expected: abaazhvakhu
-
   # TODO: These examples from GNDB are clearly using the BGNPCGN 2009 system
   #
   # - source: ხობის მუნიციპალიტეტი
@@ -82,50 +62,55 @@ tests:
   #
   # - source: აბჟაყვა
   #   expected: abzhaq’va
+}
 
+stage {
 
+  # CHARACTERS
+  parallel {
+    sub "\u10d0", "a" # ა
+    sub "\u10d1", "b" # ბ
+    sub "\u10d2", "g" # გ
+    sub "\u10d3", "d" # დ
+    sub "\u10d4", "e" # ე
+    sub "\u10d5", "v" # ვ
+    sub "\u10d6", "z" # ზ
+    
+    sub "\u10f1", "ey" # ჱ
+    
+    sub "\u10d7", "t’" # თ
+    sub "\u10d8", "i" # ი
+    sub "\u10d9", "k’" # კ
+    sub "\u10da", "l" # ლ
+    sub "\u10db", "m" # მ
+    sub "\u10dc", "n" # ნ
+    
+    sub "\u10f2", "j" # ჲ
+    
+    sub "\u10dd", "o" # ო
+    sub "\u10de", "p" # პ
+    sub "\u10df", "zh" # ჟ
+    sub "\u10e0", "r" # რ
+    sub "\u10e1", "s" # ს
+    sub "\u10e2", "t" # ტ
+    sub "\u10e3", "u" # უ
+    sub "\u10e4", "p’" # ფ
+    sub "\u10e5", "k’" # ქ
+    sub "\u10e6", "gh" # ღ
+    sub "\u10e7", "q" # ყ
+    sub "\u10e8", "sh" # შ
+    sub "\u10e9", "ch’" # ჩ
+    sub "\u10ea", "ts’" # ც
+    sub "\u10eb", "dz" # ძ
+    sub "\u10ec", "ts" # წ
+    sub "\u10ed", "ch" # ჭ
+    sub "\u10ee", "kh" # ხ
+    
+    sub "\u10f4", "q’" # ჴ
+    
+    sub "\u10ef", "j" # ჯ
+    sub "\u10f0", "h" # ჰ
+  }
 
-map:
-  characters:
-    '\u10d0' : 'a' # ა
-    '\u10d1' : 'b' # ბ
-    '\u10d2' : 'g' # გ
-    '\u10d3' : 'd' # დ
-    '\u10d4' : 'e' # ე
-    '\u10d5' : 'v' # ვ
-    '\u10d6' : 'z' # ზ
+}
 
-    '\u10f1' : 'ey' # ჱ
-
-    '\u10d7' : 't’' # თ
-    '\u10d8' : 'i' # ი
-    '\u10d9' : 'k’' # კ
-    '\u10da' : 'l' # ლ
-    '\u10db' : 'm' # მ
-    '\u10dc' : 'n' # ნ
-
-    '\u10f2' : 'j' # ჲ
-
-    '\u10dd' : 'o' # ო
-    '\u10de' : 'p' # პ
-    '\u10df' : 'zh' # ჟ
-    '\u10e0' : 'r' # რ
-    '\u10e1' : 's' # ს
-    '\u10e2' : 't' # ტ
-    '\u10e3' : 'u' # უ
-    '\u10e4' : 'p’' # ფ
-    '\u10e5' : 'k’' # ქ
-    '\u10e6' : 'gh' # ღ
-    '\u10e7' : 'q' # ყ
-    '\u10e8' : 'sh' # შ
-    '\u10e9' : 'ch’' # ჩ
-    '\u10ea' : 'ts’' # ც
-    '\u10eb' : 'dz' # ძ
-    '\u10ec' : 'ts' # წ
-    '\u10ed' : 'ch' # ჭ
-    '\u10ee' : 'kh' # ხ
-
-    '\u10f4' : 'q’' # ჴ
-
-    '\u10ef' : 'j' # ჯ
-    '\u10f0' : 'h' # ჰ

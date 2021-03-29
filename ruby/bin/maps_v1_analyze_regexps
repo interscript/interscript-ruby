@@ -1,0 +1,45 @@
+#!/usr/bin/env ruby
+
+require 'yaml'
+require 'fileutils'
+require 'regexp_parser'
+
+old_maps = Dir["../../interscript/maps/*.yaml"]
+
+$expr_classes = []
+$quantifiers = []
+old_maps.each do |old_map|
+  old_map_name = File.basename(old_map, ".yaml")
+  puts old_map
+  f = File.read(old_map)
+  yaml = YAML.load(f)
+  map_keys = yaml['map'].keys
+  puts map_keys
+  rs = yaml['map']['postrules']&.map{|h| h['pattern']} || []
+  rs += yaml['map']['characters']&.keys || []
+  rs.each do |regexp|
+    tree = Regexp::Parser.parse( regexp )
+
+    arr = tree.expressions
+    while true
+      new_arr = arr.map do |elem|
+        if elem.respond_to? :quantifier and elem.quantifier
+          $expr_classes << elem.quantifier
+        end
+        el = el.class == Class ? el : el.class
+        if elem.respond_to?(:expressions)
+          [el, elem.expressions]
+        else
+          el
+        end
+      end.flatten
+      break if new_arr == arr
+      arr = new_arr
+    end
+    $expr_classes += arr
+  end
+end;
+# $expressions.map{|elem|  elem.class.to_s=="Class" ? elem : elem.class}.tally
+
+pp $expr_classes.tally.sort_by{|k,v| -v}
+pp $quanitifiers.map{|q| q.text}.tally.sort_by{|k,v| -v}

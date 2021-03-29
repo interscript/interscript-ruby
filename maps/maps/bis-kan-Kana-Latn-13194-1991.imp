@@ -1,173 +1,166 @@
----
-authority_id: bis
-id: 1991
-language: iso-639-2:kan
-source_script: Kana
-destination_script: Latn
-name: Indian script code for information interchange - ISCII - Kannada Romanization
-#url:
-creation_date: 1991
-description: |
-  IS 13194 (1991): Indian script code for information
-  interchange - ISCII [LITD 20: Indian Language Technologies
-  and Products]
+metadata {
+  authority_id: bis
+  id: 1991
+  language: iso-639-2:kan
+  source_script: Kana
+  destination_script: Latn
+  name: Indian script code for information interchange - ISCII - Kannada Romanization
 
-notes:
-  - |
-    Exception: Anusvāra is transliterated by:
+  #url:
+  creation_date: 1991
+  description: |
+    IS 13194 (1991): Indian script code for information
+    interchange - ISCII [LITD 20: Indian Language Technologies
+    and Products]
 
-    a) ṅ before gutturals,
-    b) ñ before palatals,
-    c) ṇ before cerebrals,
-    d) n before dentals, and
-    e) m before labials.
+  notes:
+    - |
+      Exception: Anusvāra is transliterated by:
 
-tests:
-  - source: "ಈಗ ವೈರಲ್ ಆಗುತ್ತಿದೆ ಕಂಗನಾ ರಣಾವುತ್ ಹಳೇಯ ವಿಡಿಯೋ"
-    expected: "īg vairl āguttide kṅgnā rṇāvut hḷēy viḍiyō"
-  - source: "ಸಂಕಷ್ಟ ಎದುರಾದರೆ ಬಿಎಸ್‌ವೈ ಬೆನ್ನಿಗೆ ಎಚ್‌ಡಿಕೆ ?"
-    expected: "sṅkṣṭ edurādre biesvai bennige ecḍike ?"
-  - source: "ಶಾಸಕರಿಂದಲೂ ಒತ್ತಡ?"
-    expected: "śāskrindlū ottḍ?"
-  - source: "ಏಕೆಂದರೆ, ಇವರ ಹೆಸರೇ ಕೊರೊನಾ!"
-    expected: "ēkendre, ivr hesrē keūronā!"
-  - source: "ಕೊರೊನಾಕ್ಕಿಂತಲೂ ಮುಂಚೆಯೇ ಅವರು ಕೊರೊನಾ ಆಗಿದ್ದವರು!"
-    expected: "keūronākkintlū muñceyē avru keūronā āgiddvru!"
-  - source: "ಕೇರಳದ ಕೊಟ್ಟಾಯಂನ ಮಹಿಳೆಯೊಬ್ಬರು ಈಗ ತಮ್ಮ ಹೆಸರು ಹೇಳಲು ಮುಜುಗರ ಪಡುವಂತಾಗಿದೆ"
-    expected: "kērḷd keūṭṭāynn mhiḷeyobbru īg tmm hesru hēḷlu mujugr pḍuvntāgide"
-  - source: "ಬೇರೆ ಬೆಳವಣಿಗೆಗೆ ಸಾಕ್ಷಿ ಸಾಧ್ಯತೆ"
-    expected: "bēre beḷvṇigege sākṣi sādhyte"
-  - source: "ಗುರು ಶನಿ ಗ್ರಹಗಳ ನಡುವೆ 3 ಜನರ ಪ್ರಯಾಣ"
-    expected: "guru śni grhgḷ nḍuve 3 jnr pryāṇ"
-  - source: "ಕೊರೊನಾ ಬಿಕ್ಕಟ್ಟಿನ ಕಾಲದಲ್ಲಿ “ಮಿಸೆಸ್‌ ಕೊರೊನಾ’ಗೆ ಸಮಸ್ಯೆ!"
-    expected: "keūronā bikkṭṭin kāldlli “mises keūronā’ge smsye!"
-  - source: "ಕೆಲವು ತಿಂಗಳಿಂದ ರಷ್ಯಾ ದೇಶದ ಏನಾಟೊಲಿ ಇವ್ಯಾನಿಶಿನ್‌ ಮತ್ತು ಇವಾನ್‌ ವ್ಯಾಗನರ್‌ ಹಾಗೂ ಅಮೆರಿಕಾದ ಕ್ರಿಸ್‌ ಕ್ಯಾಸಿಡಿ ಈ ಉಪಗ್ರಹದಲ್ಲಿ ವಾಸಿಸುತ್ತಿದ್ದಾರೆ"
-    expected: "kelvu tiṅgḷind rṣyā dēśd ēnāṭeūli ivyāniśin mttu ivān vyāgnr hāgū amerikād kris kyāsiḍi ī upgrhdlli vāsisuttiddāre"
+      a) ṅ before gutturals,
+      b) ñ before palatals,
+      c) ṇ before cerebrals,
+      d) n before dentals, and
+      e) m before labials.
+}
+
+tests {
+  test "ಈಗ ವೈರಲ್ ಆಗುತ್ತಿದೆ ಕಂಗನಾ ರಣಾವುತ್ ಹಳೇಯ ವಿಡಿಯೋ", "īg vairl āguttide kṅgnā rṇāvut hḷēy viḍiyō"
+  test "ಸಂಕಷ್ಟ ಎದುರಾದರೆ ಬಿಎಸ್‌ವೈ ಬೆನ್ನಿಗೆ ಎಚ್‌ಡಿಕೆ ?", "sṅkṣṭ edurādre biesvai bennige ecḍike ?"
+  test "ಶಾಸಕರಿಂದಲೂ ಒತ್ತಡ?", "śāskrindlū ottḍ?"
+  test "ಏಕೆಂದರೆ, ಇವರ ಹೆಸರೇ ಕೊರೊನಾ!", "ēkendre, ivr hesrē keūronā!"
+  test "ಕೊರೊನಾಕ್ಕಿಂತಲೂ ಮುಂಚೆಯೇ ಅವರು ಕೊರೊನಾ ಆಗಿದ್ದವರು!", "keūronākkintlū muñceyē avru keūronā āgiddvru!"
+  test "ಕೇರಳದ ಕೊಟ್ಟಾಯಂನ ಮಹಿಳೆಯೊಬ್ಬರು ಈಗ ತಮ್ಮ ಹೆಸರು ಹೇಳಲು ಮುಜುಗರ ಪಡುವಂತಾಗಿದೆ", "kērḷd keūṭṭāynn mhiḷeyobbru īg tmm hesru hēḷlu mujugr pḍuvntāgide"
+  test "ಬೇರೆ ಬೆಳವಣಿಗೆಗೆ ಸಾಕ್ಷಿ ಸಾಧ್ಯತೆ", "bēre beḷvṇigege sākṣi sādhyte"
+  test "ಗುರು ಶನಿ ಗ್ರಹಗಳ ನಡುವೆ 3 ಜನರ ಪ್ರಯಾಣ", "guru śni grhgḷ nḍuve 3 jnr pryāṇ"
+  test "ಕೊರೊನಾ ಬಿಕ್ಕಟ್ಟಿನ ಕಾಲದಲ್ಲಿ “ಮಿಸೆಸ್‌ ಕೊರೊನಾ’ಗೆ ಸಮಸ್ಯೆ!", "keūronā bikkṭṭin kāldlli “mises keūronā’ge smsye!"
+  test "ಕೆಲವು ತಿಂಗಳಿಂದ ರಷ್ಯಾ ದೇಶದ ಏನಾಟೊಲಿ ಇವ್ಯಾನಿಶಿನ್‌ ಮತ್ತು ಇವಾನ್‌ ವ್ಯಾಗನರ್‌ ಹಾಗೂ ಅಮೆರಿಕಾದ ಕ್ರಿಸ್‌ ಕ್ಯಾಸಿಡಿ ಈ ಉಪಗ್ರಹದಲ್ಲಿ ವಾಸಿಸುತ್ತಿದ್ದಾರೆ", "kelvu tiṅgḷind rṣyā dēśd ēnāṭeūli ivyāniśin mttu ivān vyāgnr hāgū amerikād kris kyāsiḍi ī upgrhdlli vāsisuttiddāre"
+}
+
+stage {
+
+  # RULES
+  # note
+  sub "\u0C82", "ṅ", after: any("ಕಖಗಘಙ")
+  sub "\u0C82", "ñ", after: any("ಚಛಜಝಞ")
+  sub "\u0C82", "ṇ", after: any("ಟಠಡಢಣ")
+  sub "\u0C82", "n", after: any("ತಥದಧನ")
+  sub "\u0C82", "m", after: any("ಪಫಬಭಮ")
 
 
-map:
+  # CHARACTERS
+  parallel {
+    sub "ಅ", "a"
+    sub "ಆ", "ā"
+    sub "ಇ", "i"
+    sub "ಈ", "ī"
+    sub "ಉ", "u"
+    sub "ಊ", "ū"
+    sub "ಋ", "ṛ"
+    sub "ಌ", "ḻ"
 
-  rules:
-    # note
-    - pattern: \u0C82(?=[ಕಖಗಘಙ])
-      result: ṅ
-    - pattern: \u0C82(?=[ಚಛಜಝಞ])
-      result: ñ
-    - pattern: \u0C82(?=[ಟಠಡಢಣ])
-      result: ṇ
-    - pattern: \u0C82(?=[ತಥದಧನ])
-      result: n
-    - pattern: \u0C82(?=[ಪಫಬಭಮ])
-      result: m
+    sub "ಎ", "e"
+    sub "ಏ", "ē"
+    sub "ಐ", "ai"
 
-  characters:
-    'ಅ': 'a'
-    'ಆ': 'ā'
-    'ಇ': 'i'
-    'ಈ': 'ī'
-    'ಉ': 'u'
-    'ಊ': 'ū'
-    'ಋ': 'ṛ'
-    'ಌ': 'ḻ'
-
-    'ಎ': 'e'
-    'ಏ': 'ē'
-    'ಐ': 'ai'
-
-    'ಒ': 'o'
-    'ಓ': 'ŏ'
-    'ಔ': 'au'
+    sub "ಒ", "o"
+    sub "ಓ", "ŏ"
+    sub "ಔ", "au"
 
     # II. Consonants (see Note 2)
     # Gutturals
-    'ಕ': 'k'
-    'ಖ': 'kh'
-    'ಗ': 'g'
-    'ಘ': 'gh'
-    'ಙ': 'ṅ'
+    sub "ಕ", "k"
+    sub "ಖ", "kh"
+    sub "ಗ", "g"
+    sub "ಘ", "gh"
+    sub "ಙ", "ṅ"
 
     # Palatals
-    'ಚ': 'c'
-    'ಛ': 'ch'
-    'ಜ': 'j'
-    'ಝ': 'jh'
-    'ಞ': 'ñ'
+    sub "ಚ", "c"
+    sub "ಛ", "ch"
+    sub "ಜ", "j"
+    sub "ಝ", "jh"
+    sub "ಞ", "ñ"
 
     # Cerebrals
-    'ಟ': 'ṭ'
-    'ಠ': 'ṭh'
-    'ಡ': 'ḍ'
-    'ಢ': 'ḍh'
-    'ಣ': 'ṇ'
+    sub "ಟ", "ṭ"
+    sub "ಠ", "ṭh"
+    sub "ಡ", "ḍ"
+    sub "ಢ", "ḍh"
+    sub "ಣ", "ṇ"
 
     # Dentals
-    'ತ': 't'
-    'ಥ': 'th'
-    'ದ': 'd'
-    'ಧ': 'dh'
-    'ನ': 'n'
+    sub "ತ", "t"
+    sub "ಥ", "th"
+    sub "ದ", "d"
+    sub "ಧ", "dh"
+    sub "ನ", "n"
 
     # Labials
-    'ಪ': 'p'
-    'ಫ': 'ph'
-    'ಬ': 'b'
-    'ಭ': 'bh'
-    'ಮ': 'm'
+    sub "ಪ", "p"
+    sub "ಫ", "ph"
+    sub "ಬ", "b"
+    sub "ಭ", "bh"
+    sub "ಮ", "m"
 
     # Semivowels
-    'ಯ': 'y'
-    'ರ': 'r'
-    'ಱ': 'ṟ'
-    'ಲ': 'l'
-    'ಳ': 'ḷ'
- #   'ऴ': 'ẕ'
+    sub "ಯ", "y"
+    sub "ರ", "r"
+    sub "ಱ", "ṟ"
+    sub "ಲ", "l"
+    sub "ಳ", "ḷ"
+    #   'ऴ': 'ẕ'
 
 
-    'ವ': 'v'
+    sub "ವ", "v"
 
     # Sibilants
-    'ಶ': 'ś'
-    'ಷ': 'ṣ'
-    'ಸ': 's'
+    sub "ಶ", "ś"
+    sub "ಷ", "ṣ"
+    sub "ಸ", "s"
 
 
     # Aspirate
-    'ಹ': 'h'
+    sub "ಹ", "h"
 
 
     # Chandrabindu
-    '\u0C80': 'm'
-    '\u0C81': 'm'
+    sub "\u0C80", "m"
+    sub "\u0C81", "m"
 
     # Bisarga
-    'ಃ': 'ḥ'
+    sub "ಃ", "ḥ"
 
     # Anusvāra
-    'ಂ': 'ṃ'
+    sub "ಂ", "ṃ"
 
-    '$಼': '' #nukta
+    sub "$಼", "" #nukta
 
     # Medials # Needed for connecting constants
-    'ಾ': "ā"
-    'ಿ': "i"
-    'ೀ': "ī"
-    'ು': "u"
-    'ೂ': "ū"
-    'ೃ': "ṛ"
-    'ೄ': "ṛr"
+    sub "ಾ", "ā"
+    sub "ಿ", "i"
+    sub "ೀ", "ī"
+    sub "ು", "u"
+    sub "ೂ", "ū"
+    sub "ೃ", "ṛ"
+    sub "ೄ", "ṛr"
 
 
-    'ೆ': "e"
-    'ೇ': "ē"
-    'ೈ': "ai"
+    sub "ೆ", "e"
+    sub "ೇ", "ē"
+    sub "ೈ", "ai"
 
 
-    'ೊ': 'o'
-    'ೋ': 'ō'
-    'ೌ': 'au'
+    sub "ೊ", "o"
+    sub "ೋ", "ō"
+    sub "ೌ", "au"
 
-    '्': ''
-    '़': ''
-    '್': ''
-    "‍": '' # no need for zero with joiner
-    "‌": '' # no need for zero with non joiner
+    sub "्", ""
+    sub "़", ""
+    sub "್", ""
+    sub "‍", "" # no need for zero with joiner
+    sub "‌", "" # no need for zero with non joiner
+  }
+
+  compose
+}

@@ -1,145 +1,103 @@
----
-authority_id: iso
-id: 9984-1996
-language: iso-639-2:kat
-source_script: Geor
-destination_script: Latn
-name: "ISO 9984:1996 Information and documentation — Transliteration of Georgian characters into Latin characters"
-url: https://www.iso.org/standard/17892.html
-creation_date: 1996
-confirmation_date: 1996
-description: |
-  Establishes a system for the transliteration of Georgian characters
-  into Latin characters to permit international information exchange,
-  particularly by electronic means.
+metadata {
+  authority_id: iso
+  id: 9984-1996
+  language: iso-639-2:kat
+  source_script: Geor
+  destination_script: Latn
+  name: "ISO 9984:1996 Information and documentation — Transliteration of Georgian characters into Latin characters"
+  url: https://www.iso.org/standard/17892.html
+  creation_date: 1996
+  confirmation_date: 1996
+  description: |
+    Establishes a system for the transliteration of Georgian characters
+    into Latin characters to permit international information exchange,
+    particularly by electronic means.
+  
+  notes:
+}
 
-notes:
+tests {
+  test "ხაოფსე", "xaop̕se"
+  test "ჭლოუ", "člou"
+  test "ჩოხულდი", "č̕oxuldi"
+  test "ქვემო ლინდა", "k̕vemo linda"
+  test "ტამკვაჩ იგვავერა", "tamkvač̕ igvavera"
+  test "სვანეთი", "svanet̕i"
+  test "საცხვარისი", "sac̕xvarisi"
+  test "მუხრან-თელეთი", "muxran-t̕elet̕i"
+  test "მუცდი", "muc̕di"
+  test "ლეჩხუმი", "leč̕xumi"
+  test "ვერხნაია მწარა", "verxnaia mcara"
+  test "ეგრისის ქედი", "egrisis k̕edi"
+  test "დოჩარიფშა", "doč̕arip̕ša"
+  test "ბოლოკო", "boloko"
+  test "აჭანდარა", "ačandara"
+  test "აუალიცა", "aualic̕a"
+  test "აკალამრა", "akalamra"
+  test "ლასილი", "lasili"
+  test "გუბაზეული", "gubazeuli"
+  test "ბაყაყი", "baqaqi"
+  test "ძროხა", "jroxa"
+  test "ჰაერი", "haeri"
+  test "ჟოლო", "žolo"
+  test "ჯართი", "ǰart̕i"
+  test "ღრმაღელე", "ḡrmaḡele"
+}
 
-tests:
+stage {
 
-  - source: ხაოფსე
-    expected: xaop̕se
+  # CHARACTERS
+  parallel {
+    sub "\u10d0", "a" # ა
+    sub "\u10d1", "b" # ბ
+    sub "\u10d2", "g" # გ
+    sub "\u10d3", "d" # დ
+    sub "\u10d4", "e" # ე
+    sub "\u10d5", "v" # ვ
+    sub "\u10d6", "z" # ზ
+    
+    sub "\u10f1", "ē" # ჱ
+    
+    sub "\u10d7", "t̕" # თ
+    sub "\u10d8", "i" # ი
+    sub "\u10d9", "k" # კ
+    sub "\u10da", "l" # ლ
+    sub "\u10db", "m" # მ
+    sub "\u10dc", "n" # ნ
+    
+    sub "\u10f2", "y" # ჲ
+    
+    sub "\u10dd", "o" # ო
+    sub "\u10de", "p" # პ
+    sub "\u10df", "ž" # ჟ
+    sub "\u10e0", "r" # რ
+    sub "\u10e1", "s" # ს
+    sub "\u10e2", "t" # ტ
+    
+    sub "\u10f3", "w" # ჳ
+    
+    sub "\u10e3", "u" # უ
+    sub "\u10e4", "p̕" # ფ
+    sub "\u10e5", "k̕" # ქ
+    sub "\u10e6", "ḡ" # ღ
+    sub "\u10e7", "q" # ყ
+    sub "\u10e8", "š" # შ
+    sub "\u10e9", "č̕" # ჩ
+    sub "\u10ea", "c̕" # ც
+    sub "\u10eb", "j" # ძ
+    sub "\u10ec", "c" # წ
+    sub "\u10ed", "č" # ჭ
+    sub "\u10ee", "x" # ხ
+    
+    sub "\u10f4", "ẖ" # ჴ
+    
+    sub "\u10ef", "ǰ" # ჯ
+    sub "\u10f0", "h" # ჰ
+    
+    sub "\u10f5", "ō" # ჵ
+    
+    sub "\u10f6", "f" # ჶ
+  }
 
-  - source: ჭლოუ
-    expected: člou
+}
 
-  - source: ჩოხულდი
-    expected: č̕oxuldi
-
-  - source: ქვემო ლინდა
-    expected: k̕vemo linda
-
-  - source: ტამკვაჩ იგვავერა
-    expected: tamkvač̕ igvavera
-
-  - source: სვანეთი
-    expected: svanet̕i
-
-  - source: საცხვარისი
-    expected: sac̕xvarisi
-
-  - source: მუხრან-თელეთი
-    expected: muxran-t̕elet̕i
-
-  - source: მუცდი
-    expected: muc̕di
-
-  - source: ლეჩხუმი
-    expected: leč̕xumi
-
-  - source: ვერხნაია მწარა
-    expected: verxnaia mcara
-
-  - source: ეგრისის ქედი
-    expected: egrisis k̕edi
-
-  - source: დოჩარიფშა
-    expected: doč̕arip̕ša
-
-  - source: ბოლოკო
-    expected: boloko
-
-  - source: აჭანდარა
-    expected: ačandara
-
-  - source: აუალიცა
-    expected: aualic̕a
-
-  - source: აკალამრა
-    expected: akalamra
-
-  - source: ლასილი
-    expected: lasili
-
-  - source: გუბაზეული
-    expected: gubazeuli
-
-  - source: ბაყაყი
-    expected: baqaqi
-
-  - source: ძროხა
-    expected: jroxa
-
-  - source: ჰაერი
-    expected: haeri
-
-  - source: ჟოლო
-    expected: žolo
-
-  - source: ჯართი
-    expected: ǰart̕i
-
-  - source: ღრმაღელე
-    expected: ḡrmaḡele
-
-map:
-  characters:
-    '\u10d0' : 'a' # ა
-    '\u10d1' : 'b' # ბ
-    '\u10d2' : 'g' # გ
-    '\u10d3' : 'd' # დ
-    '\u10d4' : 'e' # ე
-    '\u10d5' : 'v' # ვ
-    '\u10d6' : 'z' # ზ
-
-    '\u10f1' : 'ē' # ჱ
-
-    '\u10d7' : 't̕' # თ
-    '\u10d8' : 'i' # ი
-    '\u10d9' : 'k' # კ
-    '\u10da' : 'l' # ლ
-    '\u10db' : 'm' # მ
-    '\u10dc' : 'n' # ნ
-
-    '\u10f2' : 'y' # ჲ
-
-    '\u10dd' : 'o' # ო
-    '\u10de' : 'p' # პ
-    '\u10df' : 'ž' # ჟ
-    '\u10e0' : 'r' # რ
-    '\u10e1' : 's' # ს
-    '\u10e2' : 't' # ტ
-
-    '\u10f3' : 'w' # ჳ
-
-    '\u10e3' : 'u' # უ
-    '\u10e4' : 'p̕' # ფ
-    '\u10e5' : 'k̕' # ქ
-    '\u10e6' : 'ḡ' # ღ
-    '\u10e7' : 'q' # ყ
-    '\u10e8' : 'š' # შ
-    '\u10e9' : 'č̕' # ჩ
-    '\u10ea' : 'c̕' # ც
-    '\u10eb' : 'j' # ძ
-    '\u10ec' : 'c' # წ
-    '\u10ed' : 'č' # ჭ
-    '\u10ee' : 'x' # ხ
-
-    '\u10f4' : 'ẖ' # ჴ
-
-    '\u10ef' : 'ǰ' # ჯ
-    '\u10f0' : 'h' # ჰ
-
-    '\u10f5' : 'ō' # ჵ
-
-    '\u10f6' : 'f' # ჶ

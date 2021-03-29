@@ -1,145 +1,123 @@
----
-authority_id: alalc
-id: 1997
-language: iso-639-2:ukr
-source_script: Cyrl
-destination_script: Latn
-name: ALA-LC Romanization System 1997
-alias:
-  ogc11122:
-    code: ukr_Cyrl2Latn_ALA_1997
-    description: Ukrainian ALA-Library of Congress 1997 System
-url: http://catdir.loc.gov/catdir/cpso/romanization/ukrainia.pdf
-creation_date: 1997
-description: |
-  The ALA-LC Romanization Tables, published by the American Library Association (1885)
-  and Library of Congress (1905). Used to represent bibliographic information by US and
-  Canadian libraries, by the British Library since 1975,[3] and in North American publications.
-  The latest 1997 revision is very similar to the 1905 version.
+metadata {
+  authority_id: alalc
+  id: 1997
+  language: iso-639-2:ukr
+  source_script: Cyrl
+  destination_script: Latn
+  name: ALA-LC Romanization System 1997
+  url: http://catdir.loc.gov/catdir/cpso/romanization/ukrainia.pdf
+  creation_date: 1997
+  description: |
+    The ALA-LC Romanization Tables, published by the American Library Association (1885)
+    and Library of Congress (1905). Used to represent bibliographic information by US and
+    Canadian libraries, by the British Library since 1975,[3] and in North American publications.
+    The latest 1997 revision is very similar to the 1905 version.
 
-notes:
-  - The z͡h ligature is necessary to distinguish ж from the combination зг.
-  - The t͡s ligature is necessary to distinguish ц from the combination тс.
+  notes:
+    - The z͡h ligature is necessary to distinguish ж from the combination зг.
+    - The t͡s ligature is necessary to distinguish ц from the combination тс.
+}
 
-tests:
-  - source: Автономна Республіка Крим
-    expected: Avtonomna Respublika Krym
-  - source: Висунь
-    expected: Vysunʹ
-  - source: Долинське
-    expected: Dolynsʹke
-  - source: Дубище
-    expected: Dubyshche
-  - source: Єнакієве
-    expected: I͡enakii͡eve
-  - source: Зупиночний Пункт Мокіївці
-    expected: Zupynochnyĭ Punkt Mokiïvt͡si
-  - source: Іванівщина
-    expected: Ivanivshchyna
-  - source: Киликиїв
-    expected: Kylykyïv
-  - source: Кожанка
-    expected: Koz͡hanka
-  - source: Краснянка
-    expected: Krasni͡anka
-  - source: Краснівка
-    expected: Krasnivka
-  - source: Мале Микільське
-    expected: Male Mykilʹsʹke
-  - source: Маломиколаївка
-    expected: Malomykolaïvka
-  - source: Нове Село
-    expected: Nove Selo
-  - source: Новопавлівка
-    expected: Novopavlivka
-  - source: Новошичі
-    expected: Novoshychi
-  - source: Новоєфремівка
-    expected: Novoi͡efremivka
-  - source: Одеська Область
-    expected: Odesʹka Oblastʹ
-  - source: Орлівське
-    expected: Orlivsʹke
-  - source: Раневичі
-    expected: Ranevychi
-  - source: Рокувата
-    expected: Rokuvata
-  - source: Рудаєве
-    expected: Rudai͡eve
-  - source: Сахнівці
-    expected: Sakhnivt͡si
-  - source: Тернівка
-    expected: Ternivka
-  - source: Турбівка
-    expected: Turbivka
-  - source: Херсонська Область
-    expected: Khersonsʹka Oblastʹ
+tests {
+  test "Автономна Республіка Крим", "Avtonomna Respublika Krym"
+  test "Висунь", "Vysunʹ"
+  test "Долинське", "Dolynsʹke"
+  test "Дубище", "Dubyshche"
+  test "Єнакієве", "I͡enakii͡eve"
+  test "Зупиночний Пункт Мокіївці", "Zupynochnyĭ Punkt Mokiïvt͡si"
+  test "Іванівщина", "Ivanivshchyna"
+  test "Киликиїв", "Kylykyïv"
+  test "Кожанка", "Koz͡hanka"
+  test "Краснянка", "Krasni͡anka"
+  test "Краснівка", "Krasnivka"
+  test "Мале Микільське", "Male Mykilʹsʹke"
+  test "Маломиколаївка", "Malomykolaïvka"
+  test "Нове Село", "Nove Selo"
+  test "Новопавлівка", "Novopavlivka"
+  test "Новошичі", "Novoshychi"
+  test "Новоєфремівка", "Novoi͡efremivka"
+  test "Одеська Область", "Odesʹka Oblastʹ"
+  test "Орлівське", "Orlivsʹke"
+  test "Раневичі", "Ranevychi"
+  test "Рокувата", "Rokuvata"
+  test "Рудаєве", "Rudai͡eve"
+  test "Сахнівці", "Sakhnivt͡si"
+  test "Тернівка", "Ternivka"
+  test "Турбівка", "Turbivka"
+  test "Херсонська Область", "Khersonsʹka Oblastʹ"
+}
 
-map:
-  characters:
-    "\u0410": "A"        # А
-    "\u0411": "B"        # Б
-    "\u0412": "V"        # В
-    "\u0413": "H"        # Г
-    "\u0490": "G"        # Ґ
-    "\u0414": "D"        # Д
-    "\u0415": "E"        # Е
-    "\u0404": "I\u0361e" # Є -> I͡e
-    "\u0416": "Z\u0361h" # Ж -> Z͡h
-    "\u0417": "Z"        # З
-    "\u0418": "Y"        # И
-    "\u0406": "I"        # І
-    "\u0407": "I\u0308"  # Ї -> Ï
-    "\u0419": "I\u0306"  # Й -> Ĭ
-    "\u041a": "K"        # К
-    "\u041b": "L"        # Л
-    "\u041c": "M"        # М
-    "\u041d": "N"        # Н
-    "\u041e": "O"        # О
-    "\u041f": "P"        # П
-    "\u0420": "R"        # Р
-    "\u0421": "S"        # С
-    "\u0422": "T"        # Т
-    "\u0423": "U"        # У
-    "\u0424": "F"        # Ф
-    "\u0425": "Kh"       # Х
-    "\u0426": "T\u0361s" # Ц -> T͡s
-    "\u0427": "Ch"       # Ч
-    "\u0428": "Sh"       # Ш
-    "\u0429": "Shch"     # Щ
-    "\u042e": "I\u0361u" # Ю -> I͡u
-    "\u042f": "I\u0361a" # Я -> I͡a
-    "\u042c": "\u02B9"   # Ь -> ʹ
-    "\u0430": "a"        # а
-    "\u0431": "b"        # б
-    "\u0432": "v"        # в
-    "\u0433": "h"        # г
-    "\u0491": "g"        # ґ
-    "\u0434": "d"        # д
-    "\u0435": "e"        # е
-    "\u0454": "i\u0361e" # є -> i͡e
-    "\u0436": "z\u0361h" # ж -> z͡h
-    "\u0437": "z"        # з
-    "\u0438": "y"        # и
-    "\u0456": "i"        # і
-    "\u0457": "i\u0308"  # ї -> ï
-    "\u0439": "i\u0306"  # й -> ĭ
-    "\u043a": "k"        # к
-    "\u043b": "l"        # л
-    "\u043c": "m"        # м
-    "\u043d": "n"        # н
-    "\u043e": "o"        # о
-    "\u043f": "p"        # п
-    "\u0440": "r"        # р
-    "\u0441": "s"        # с
-    "\u0442": "t"        # т
-    "\u0443": "u"        # у
-    "\u0444": "f"        # ф
-    "\u0445": "kh"       # х
-    "\u0446": "t\u0361s" # ц -> t͡s
-    "\u0447": "ch"       # ч
-    "\u0448": "sh"       # ш
-    "\u0449": "shch"     # щ
-    "\u044e": "i\u0361u" # ю -> i͡u
-    "\u044f": "i\u0361a" # я -> i͡a
-    "\u044c": "\u02B9"   # Ь -> ʹ
+stage {
+
+  # CHARACTERS
+  parallel {
+    sub "А", "A" # А
+    sub "Б", "B" # Б
+    sub "В", "V" # В
+    sub "Г", "H" # Г
+    sub "Ґ", "G" # Ґ
+    sub "Д", "D" # Д
+    sub "Е", "E" # Е
+    sub "Є", "I͡e" # Є -> I͡e
+    sub "Ж", "Z͡h" # Ж -> Z͡h
+    sub "З", "Z" # З
+    sub "И", "Y" # И
+    sub "І", "I" # І
+    sub "Ї", "Ï" # Ї -> Ï
+    sub "Й", "Ĭ" # Й -> Ĭ
+    sub "К", "K" # К
+    sub "Л", "L" # Л
+    sub "М", "M" # М
+    sub "Н", "N" # Н
+    sub "О", "O" # О
+    sub "П", "P" # П
+    sub "Р", "R" # Р
+    sub "С", "S" # С
+    sub "Т", "T" # Т
+    sub "У", "U" # У
+    sub "Ф", "F" # Ф
+    sub "Х", "Kh" # Х
+    sub "Ц", "T͡s" # Ц -> T͡s
+    sub "Ч", "Ch" # Ч
+    sub "Ш", "Sh" # Ш
+    sub "Щ", "Shch" # Щ
+    sub "Ю", "I͡u" # Ю -> I͡u
+    sub "Я", "I͡a" # Я -> I͡a
+    sub "Ь", "ʹ" # Ь -> ʹ
+    sub "а", "a" # а
+    sub "б", "b" # б
+    sub "в", "v" # в
+    sub "г", "h" # г
+    sub "ґ", "g" # ґ
+    sub "д", "d" # д
+    sub "е", "e" # е
+    sub "є", "i͡e" # є -> i͡e
+    sub "ж", "z͡h" # ж -> z͡h
+    sub "з", "z" # з
+    sub "и", "y" # и
+    sub "і", "i" # і
+    sub "ї", "ï" # ї -> ï
+    sub "й", "ĭ" # й -> ĭ
+    sub "к", "k" # к
+    sub "л", "l" # л
+    sub "м", "m" # м
+    sub "н", "n" # н
+    sub "о", "o" # о
+    sub "п", "p" # п
+    sub "р", "r" # р
+    sub "с", "s" # с
+    sub "т", "t" # т
+    sub "у", "u" # у
+    sub "ф", "f" # ф
+    sub "х", "kh" # х
+    sub "ц", "t͡s" # ц -> t͡s
+    sub "ч", "ch" # ч
+    sub "ш", "sh" # ш
+    sub "щ", "shch" # щ
+    sub "ю", "i͡u" # ю -> i͡u
+    sub "я", "i͡a" # я -> i͡a
+    sub "ь", "ʹ" # Ь -> ʹ
+  }
+
+  compose
+}

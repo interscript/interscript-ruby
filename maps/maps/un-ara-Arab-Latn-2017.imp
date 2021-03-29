@@ -1,413 +1,345 @@
----
-authority_id: ungegn
-id: 2017
-language: iso-639-2:ara
-source_script: Arab
-destination_script: Latn
-name: ROMANIZATION OF ARABIC -- UNGEGN 2017 System
-url: http://www.eki.ee/wgrs/rom1_ar.pdf
-creation_date: 2017
-confirmation date: 2018-06
-description: |
-  The current United Nations recommended romanization
-  system was approved in 2017 (resolution XI/3), based on
-  the system adopted by Arabic experts at the conference
-  held in Beirut in 2007, the Unified Arabic
-  Transliteration System, taking into account the
-  practical amendments and corrections carried out and
-  agreed upon by the representatives of the Arabic-
-  speaking countries at the Fourth Arab Conference on
-  Geographical Names, held in Beirut in 2008, and some
-  clarifications and amendments agreed in Riyadh in 20171.
-  Previously, the United Nations had approved a
-  romanization system in 1972 (resolution II/8), based on the
-  system adopted by Arabic experts at the conference
-  held at Beirut in 1971 with the practical amendments carried out
-  and agreed upon by the representatives of the Arabic-speaking
-  countries at their conference. The table was published in volume
-  II of the conference report.
-  In UN resolution XI/3 it is specifically stated that the
-  system was recommended for the “romanization of the
-  geographical names within those Arabic-speaking countries
-  where this system is officially adopted”. There is
-  evidence of its partial implementation in Jordan, Oman and
-  Saudi Arabia. The UNGEGN Working Group on Romanization
-  Systems intends to continue monitoring the UN system’s
-  implementation across Arabic-speaking countries.
-  In some countries there exist local romanization schemes
-  or practices. The geographical names of Algeria, Djibouti,
-  Mauritania, Morocco and Tunisia are generally rendered in
-  the traditional manner which conforms to the principles of
-  the French orthography.
-  The previous UN-approved system is still found in
-  considerable international usage.
-  Arabic is written from right to left. The Arabic script
-  usually omits vowel points and diacritical marks from
-  writing which makes it difficult to obtain uniform results
-  in the romanization of Arabic. It is essential to identify
-  correctly the words which appear in any particular name
-  and to know the standard Arabic-script spelling including
-  the relevant vowels. One must also take into account
-  dialectal and idiosyncratic deviations. The romanization
-  is generally reversible though there may be some ambiguous
-  letter sequences (dh, kh, sh, th) which may also point to
-  combinations of Arabic characters in addition to the
-  respective single characters.
-notes:
-  - |
-    When the definite article al precedes a word beginning with
-    one of the "sun letters" (t, th, d, dh, r, z, s, sh, s̱, ḏ, ṯ,
-    d͟h, l, n) the l of the definite article is assimilated with
-    the first consonant of the word: الشارقة Ash Shāriqah.
-  - |
-    The definite article is always written with a capital
-    initial: الزيتون Az Zaytūn, البلد Al Balad, منية الضنية Minyat Aḏ
-    Ḏinniyyah.
-  - |
-    Nunation is unlikely to be found in geographical names and
-    the last letter remains silent: جبل = جبلٌ Jabal (not Jabalun).
-  - |
-    In order to disambiguate certain character sequences a
-    middle dot (·) may be used: سهيلة S·haylah (cf. شيلة Shaylah), دهيب
-    D·hayb (cf. ذيب Dhayb), أدهم Ad·ham (cf. أذم Adham).
-  - |
-    ta' marboota should be transliterated to 'ah' if it's in
-    a definite article, or at the end of the sentence
-    otherwise it should be transliterated to 'at'
-    to handle words starting with AL and ending with ta' marboota
-    which is pronounced as "ah" not "at" divided into multiple
-    regex because lookbehind in ruby doesn't support variable length
-  - |
-    مَكّة should be transliterated to makkah, shadda above ك
-    is to double the consonant, same applies to all arabic letters
+metadata {
+  authority_id: ungegn
+  id: 2017
+  language: iso-639-2:ara
+  source_script: Arab
+  destination_script: Latn
+  name: ROMANIZATION OF ARABIC -- UNGEGN 2017 System
+  url: http://www.eki.ee/wgrs/rom1_ar.pdf
+  creation_date: 2017
+  confirmation_date: 2018-06
+  description: |
+    The current United Nations recommended romanization
+    system was approved in 2017 (resolution XI/3), based on
+    the system adopted by Arabic experts at the conference
+    held in Beirut in 2007, the Unified Arabic
+    Transliteration System, taking into account the
+    practical amendments and corrections carried out and
+    agreed upon by the representatives of the Arabic-
+    speaking countries at the Fourth Arab Conference on
+    Geographical Names, held in Beirut in 2008, and some
+    clarifications and amendments agreed in Riyadh in 20171.
+    Previously, the United Nations had approved a
+    romanization system in 1972 (resolution II/8), based on the
+    system adopted by Arabic experts at the conference
+    held at Beirut in 1971 with the practical amendments carried out
+    and agreed upon by the representatives of the Arabic-speaking
+    countries at their conference. The table was published in volume
+    II of the conference report.
+    In UN resolution XI/3 it is specifically stated that the
+    system was recommended for the “romanization of the
+    geographical names within those Arabic-speaking countries
+    where this system is officially adopted”. There is
+    evidence of its partial implementation in Jordan, Oman and
+    Saudi Arabia. The UNGEGN Working Group on Romanization
+    Systems intends to continue monitoring the UN system’s
+    implementation across Arabic-speaking countries.
+    In some countries there exist local romanization schemes
+    or practices. The geographical names of Algeria, Djibouti,
+    Mauritania, Morocco and Tunisia are generally rendered in
+    the traditional manner which conforms to the principles of
+    the French orthography.
+    The previous UN-approved system is still found in
+    considerable international usage.
+    Arabic is written from right to left. The Arabic script
+    usually omits vowel points and diacritical marks from
+    writing which makes it difficult to obtain uniform results
+    in the romanization of Arabic. It is essential to identify
+    correctly the words which appear in any particular name
+    and to know the standard Arabic-script spelling including
+    the relevant vowels. One must also take into account
+    dialectal and idiosyncratic deviations. The romanization
+    is generally reversible though there may be some ambiguous
+    letter sequences (dh, kh, sh, th) which may also point to
+    combinations of Arabic characters in addition to the
+    respective single characters.
+  notes:
+    - |
+      When the definite article al precedes a word beginning with
+      one of the "sun letters" (t, th, d, dh, r, z, s, sh, s̱, ḏ, ṯ,
+      d͟h, l, n) the l of the definite article is assimilated with
+      the first consonant of the word: الشارقة Ash Shāriqah.
+    - |
+      The definite article is always written with a capital
+      initial: الزيتون Az Zaytūn, البلد Al Balad, منية الضنية Minyat Aḏ
+      Ḏinniyyah.
+    - |
+      Nunation is unlikely to be found in geographical names and
+      the last letter remains silent: جبل = جبلٌ Jabal (not Jabalun).
+    - |
+      In order to disambiguate certain character sequences a
+      middle dot (·) may be used: سهيلة S·haylah (cf. شيلة Shaylah), دهيب
+      D·hayb (cf. ذيب Dhayb), أدهم Ad·ham (cf. أذم Adham).
+    - |
+      ta' marboota should be transliterated to 'ah' if it's in
+      a definite article, or at the end of the sentence
+      otherwise it should be transliterated to 'at'
+      to handle words starting with AL and ending with ta' marboota
+      which is pronounced as "ah" not "at" divided into multiple
+      regex because lookbehind in ruby doesn't support variable length
+    - |
+      مَكّة should be transliterated to makkah, shadda above ك
+      is to double the consonant, same applies to all arabic letters
+}
 
-tests:
-
+tests {
   # Examples taken from:
   # https://unstats.un.org/unsd/geoinfo/geonames/
+  test "مِصر", "Mis̱r"
+  test "قَطَر", "Qaṯar"
+  test "المَغرِب", "Al Maghrib"
+  test "الجُمهُورِيَّة العِراقِيَّة", "Al Jumhūrīyah al ‘Irāqīyah"
+  test "جُمهُورِيَّة العِراق", "Jumhūrīyat al ‘Irāq"
+  test "جُمهُورِيَّة مِصر العَرَبِيَّة", "Jumhūrīyat Mis̱r al ‘Arabīyah"
+  test "بَغداد", "Baghdād"
+  test "تُونِس", "Tūnis"
+  test "السُعُودِيَّة", "As Su‘ūdīyah"
+  test "اليَمَن", "Al Yaman"
+  test "السُودان", "As Sūdān"
+  test "الجَزائِر", "Al Jazā'ir"
+  test "الجُمهُورِيَّة اللُبنانِيَّة", "Al Jumhūrīyah al Lubnānīyah"
+  test "أسمَرة", "Asmarah"
+  test "جِدَّة", "Jiddah"
+  test "مَكَّة", "Makkah"
+  test "الرِيَاض", "Ar Riyāḏ"
+}
 
-  - source: مِصر
-    expected: Mis̱r
-
-  - source: قَطَر
-    expected: Qaṯar
-
-  - source: المَغرِب
-    expected: Al Maghrib
-
-  - source: الجُمهُورِيَّة العِراقِيَّة
-    expected: Al Jumhūrīyah al ‘Irāqīyah
-
-  - source: جُمهُورِيَّة العِراق
-    expected: Jumhūrīyat al ‘Irāq
-
-  - source: جُمهُورِيَّة مِصر العَرَبِيَّة
-    expected: Jumhūrīyat Mis̱r al ‘Arabīyah
-
-  - source: بَغداد
-    expected: Baghdād
-
-  - source: تُونِس
-    expected: Tūnis
-
-  - source: السُعُودِيَّة
-    expected: As Su‘ūdīyah
-
-  - source: اليَمَن
-    expected: Al Yaman
-
-  - source: السُودان
-    expected: As Sūdān
-
-  - source: الجَزائِر
-    expected: Al Jazā'ir
-
-  - source: الجُمهُورِيَّة اللُبنانِيَّة
-    expected: Al Jumhūrīyah al Lubnānīyah
-
-  - source: أسمَرة
-    expected: Asmarah
-
-  - source: جِدَّة
-    expected: Jiddah
-
-  - source: مَكَّة
-    expected: Makkah
-
-  - source: الرِيَاض
-    expected: Ar Riyāḏ
-
-map:
-  postrules:
-    - pattern: (?<=\b)(?<!\b[‘|’|'])[\u0061-\uFFFF]
-      result: "upcase"
-    # don't capitalize defined article in the middle of a sentence
-    - pattern : ' At T'  # الت
-      result: ' at T'
-    - pattern : ' Ath Th'  # الث
-      result: ' ath th'
-    - pattern : ' Ad D' # الد
-      result: ' ad D'
-    - pattern : ' Adh Dh'  # الذ
-      result: ' adh Dh'
-    - pattern : ' Ar R' # الر
-      result: ' ar R'
-    - pattern : ' Az Z'  # الز
-      result: ' az Z'
-    - pattern : ' As S' # الس
-      result: ' as S'
-    - pattern : ' Ash Sh' # الش
-      result: ' ash Sh'
-    - pattern : ' As̱ S̱'  # الص
-      result: ' as̱ S̱'
-    - pattern : ' Aḏ Ḏ'  # الض
-      result: ' aḏ Ḏ'
-    - pattern : ' Aṯ Ṯ'  # الط
-      result: ' aṯ Ṯ'
-    - pattern : ' Ad͟h D͟h' # الظ
-      result: ' ad͟h D͟h'
-    - pattern : ' Al L'  # الل
-      result: ' al L'
-    - pattern : ' An N'  # الن
-      result: ' an N'
-    - pattern: " Al " # ال
-      result: " al "
-
-  characters:
+stage {
+  # CHARACTERS
+  parallel {
 
     # Tool used for Unicode finding:
     # https://www.branah.com/unicode-converter
 
     # pointing
-    '\u064e' : 'a' # َ fatha
-    '\u064e(?=\u0629)' : '' # َ fatha followed by ta' marboota
-    '\u064e(?=a[h|t])' : '' # َ fatha followed by ta' marboota, handling different order of conversion
-    '\u0650' : 'i' # ِ kasra
-    '\u064f' : 'u' # ُ damma
-    '\u0652' : ''  # ْ sokoon, see note A below
+    sub "\u064e", "a" # َ fatha
+    sub "\u064e", "", after: "\u0629" # َ fatha followed by ta' marboota
+    sub "\u064e", "", after: "a" + any("ht") # َ fatha followed by ta' marboota, handling different order of conversion
+    sub "\u0650", "i" # ِ kasra
+    sub "\u064f", "u" # ُ damma
+    sub "\u0652", "" # ْ sokoon, see note A below
 
 
     # special pointed letters
-    '\u0639\u064e' : '‘a'  # عَ
-    '\u0639\u0650' : '‘i'  # عِ
-    '\u0639\u064f' : '‘ū'  # عُ
+    sub "\u0639\u064e", "‘a" # عَ
+    sub "\u0639\u0650", "‘i" # عِ
+    sub "\u0639\u064f", "‘ū" # عُ
     # handle MacOS regex difference
-    '\u0639\u064f\u0648' : '‘ū'  # عُو damma followed by و
+    sub "\u0639\u064f\u0648", "‘ū" # عُو damma followed by و
 
-    '\u0650\u064a' : 'ī' # ـِي kasra followed by ي
-    '\u0650\u064a\u0651\u064e' : 'īy' # ـِيَّ
-    '\u0650\u064a(?=\u064e|u064f)' : 'iy' # ـِي kasra followed by ي
-    '\u064f\u0648' : 'ū'  # ـُو damma followed by و
-    '\u064e\u0627' : 'ā'  # ـَا fatha followed by ا
-    '\u064e\u0649' : 'á'  # ـَى fatha followed by ى which is ا not ي
-    '\u064e\u0648\u0652' : 'aw'  # ـَوْ
-    '\u064e\u064a\u0652' : 'ay'  # ـَيْ
-    '\u0622' : 'ā'  # آ
+    sub "\u0650\u064a", "ī" # ـِي kasra followed by ي
+    sub "\u0650\u064a\u0651\u064e", "īy" # ـِيَّ
+    sub "\u0650\u064a", "iy", after: any("\u064e\u064f") # ـِي kasra followed by ي
+    sub "\u064f\u0648", "ū" # ـُو damma followed by و
+    sub "\u064e\u0627", "ā" # ـَا fatha followed by ا
+    sub "\u064e\u0649", "á" # ـَى fatha followed by ى which is ا not ي
+    sub "\u064e\u0648\u0652", "aw" # ـَوْ
+    sub "\u064e\u064a\u0652", "ay" # ـَيْ
+    sub "\u0622", "ā" # آ
 
     # (A) Marks absence of the vowel.
     # (B) Marks doubling of the consonant.
 
     # Sun letters
-    '\b\u0627\u0644\u062a' : 'at t'  # الت
-    '\b\u0627\u0644\u062b' : 'ath th'  # الث
-    '\b\u0627\u0644\u062f' : 'ad d' # الد
-    '\b\u0627\u0644\u0630' : 'adh dh'  # الذ
-    '\b\u0627\u0644\u0631' : 'ar r' # الر
-    '\b\u0627\u0644\u0632' : 'az z'  # الز
-    '\b\u0627\u0644\u0633' : 'as s' # الس
-    '\b\u0627\u0644\u0634' : 'ash sh' # الش
-    '\b\u0627\u0644\u0635' : 'as̱ s̱'  # الص
-    '\b\u0627\u0644\u0636' : 'aḏ ḏ'  # الض
-    '\b\u0627\u0644\u0637' : 'aṯ ṯ'  # الط
-    '\b\u0627\u0644\u0638' : 'ad͟h d͟h' # الظ
-    '\b\u0627\u0644\u0644' : 'al l'  # الل
-    '\b\u0627\u0644\u0646' : 'an n'  # الن
+    sub boundary + "\u0627\u0644\u062a", "at t" # الت
+    sub boundary + "\u0627\u0644\u062b", "ath th" # الث
+    sub boundary + "\u0627\u0644\u062f", "ad d" # الد
+    sub boundary + "\u0627\u0644\u0630", "adh dh" # الذ
+    sub boundary + "\u0627\u0644\u0631", "ar r" # الر
+    sub boundary + "\u0627\u0644\u0632", "az z" # الز
+    sub boundary + "\u0627\u0644\u0633", "as s" # الس
+    sub boundary + "\u0627\u0644\u0634", "ash sh" # الش
+    sub boundary + "\u0627\u0644\u0635", "as̱ s̱" # الص
+    sub boundary + "\u0627\u0644\u0636", "aḏ ḏ" # الض
+    sub boundary + "\u0627\u0644\u0637", "aṯ ṯ" # الط
+    sub boundary + "\u0627\u0644\u0638", "ad͟h d͟h" # الظ
+    sub boundary + "\u0627\u0644\u0644", "al l" # الل
+    sub boundary + "\u0627\u0644\u0646", "an n" # الن
 
+    # TODO: shorten this fragment
     # ta' marboota
-    '\u0629' : 'at' # ة in the middle of the sentence
-    '\u0629$' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{2})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{3})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{4})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{5})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{6})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{7})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{8})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{9})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{10})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{11})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{12})\u0629' : 'ah'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{13})\u0629' : 'ah'
+    sub "\u0629", "at" # ة in the middle of the sentence
+    sub "\u0629" + line_end, "ah"
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
 
     # shadda
 
-    '\u0628\u0651' : 'bb'  # ب
-    '\u062a\u0651' : 'tt'  # ت
-    '\u062b\u0651' : 'thth'  # ث
-    '\u062c\u0651' : 'jj'  # ج
-    '\u062d\u0651' : 'ẖẖ' # ح
-    '\u062e\u0651' : 'khkh'  # خ
-    '\u062f\u0651' : 'dd'  # د
-    '\u0630\u0651' : 'dhdh'  # ذ
-    '\u0631\u0651' : 'rr'  # ر
-    '\u0632\u0651' : 'zz'  # ز
-    '\u0633\u0651' : 'ss'  # س
-    '\u0634\u0651' : 'sh'  # ش
-    '\u0635\u0651' : 's̱s̱'  # ص
-    '\u0636\u0651' : 'ḏḏ'  # ض
-    '\u0637\u0651' : 'ṯṯ'  # ط
-    '\u0638\u0651' : 'd͟hd͟h'  # ظ
-    '\u063a\u0651' : 'ghgh'  # غ
-    '\u0641\u0651' : 'ff'  # ف
-    '\u0642\u0651' : 'qq'  # ق
-    '\u0643\u0651' : 'kk'  # ك
-    '\u0644\u0651' : 'll'  # ل
-    '\u0645\u0651' : 'mm'  # م
-    '\u0646\u0651' : 'nn'  # ن
-    '\u0647\u0651' : 'hh'  # ه
-    '\u0648\u0651' : 'ww'  # و
-    '\u064a\u0651' : 'yy'  # ي
+    sub "\u0628\u0651", "bb" # ب
+    sub "\u062a\u0651", "tt" # ت
+    sub "\u062b\u0651", "thth" # ث
+    sub "\u062c\u0651", "jj" # ج
+    sub "\u062d\u0651", "ẖẖ" # ح
+    sub "\u062e\u0651", "khkh" # خ
+    sub "\u062f\u0651", "dd" # د
+    sub "\u0630\u0651", "dhdh" # ذ
+    sub "\u0631\u0651", "rr" # ر
+    sub "\u0632\u0651", "zz" # ز
+    sub "\u0633\u0651", "ss" # س
+    sub "\u0634\u0651", "sh" # ش
+    sub "\u0635\u0651", "s̱s̱" # ص
+    sub "\u0636\u0651", "ḏḏ" # ض
+    sub "\u0637\u0651", "ṯṯ" # ط
+    sub "\u0638\u0651", "d͟hd͟h" # ظ
+    sub "\u063a\u0651", "ghgh" # غ
+    sub "\u0641\u0651", "ff" # ف
+    sub "\u0642\u0651", "qq" # ق
+    sub "\u0643\u0651", "kk" # ك
+    sub "\u0644\u0651", "ll" # ل
+    sub "\u0645\u0651", "mm" # م
+    sub "\u0646\u0651", "nn" # ن
+    sub "\u0647\u0651", "hh" # ه
+    sub "\u0648\u0651", "ww" # و
+    sub "\u064a\u0651", "yy" # ي
 
-    '\u0626' : "'" # ئ
+    sub "\u0626", "'" # ئ
 
 
-    '\u0621' : # ء
-       - '’'
-       - '' # see note A
+    sub "\u0621", any(["’", ""]) # ء# see note A
 
-    '\u0623' : 'a'  # أ
-    '\u0627' : 'ā'  # ا
+    sub "\u0623", "a" # أ
+    sub "\u0627", "ā" # ا
 
     # See note B
-    '\b\u0627\u0644' : 'al '  # ال
+    sub boundary + "\u0627\u0644", "al " # ال
     # '\uFE8E' : ''  # ﺎ
 
-    '\u0628' : 'b'  # ب
-    '\uFE91' : 'b'  # ﺑ
-    '\uFE92' : 'b'  # ﺒ
-    '\uFE90' : 'b'  # ﺐ
+    sub "\u0628", "b" # ب
+    sub "\uFE91", "b" # ﺑ
+    sub "\uFE92", "b" # ﺒ
+    sub "\uFE90", "b" # ﺐ
 
     # See note C
-    '\u062a' : 't'  # ت
-    '\ufe97' : 't'  # ﺗ
-    '\ufe98' : 't'  # ﺘ
-    '\ufe96' : 't'  # ﺖ
+    sub "\u062a", "t" # ت
+    sub "\ufe97", "t" # ﺗ
+    sub "\ufe98", "t" # ﺘ
+    sub "\ufe96", "t" # ﺖ
 
-    '\u062b' : 'th'  # ث
-    '\ufe9b' : 'th'  # ﺛ
-    '\ufe9c' : 'th'  # ﺜ
-    '\ufe9a' : 'th'  # ﺚ
+    sub "\u062b", "th" # ث
+    sub "\ufe9b", "th" # ﺛ
+    sub "\ufe9c", "th" # ﺜ
+    sub "\ufe9a", "th" # ﺚ
 
-    '\u062c' : 'j'  # ج
-    '\ufe9f' : 'j'  # ﺟ
-    '\ufea0' : 'j'  # ﺠ
-    '\ufe9e' : 'j'  # ﺞ
+    sub "\u062c", "j" # ج
+    sub "\ufe9f", "j" # ﺟ
+    sub "\ufea0", "j" # ﺠ
+    sub "\ufe9e", "j" # ﺞ
 
-    '\u062d' : 'ẖ' # ح
-    '\ufea3' : 'ẖ' # ﺣ
-    '\ufea4' : 'ẖ' # ﺤ
-    '\ufea2' : 'ẖ' # ﺢ
+    sub "\u062d", "ẖ" # ح
+    sub "\ufea3", "ẖ" # ﺣ
+    sub "\ufea4", "ẖ" # ﺤ
+    sub "\ufea2", "ẖ" # ﺢ
 
-    '\u062e' : 'kh'  # خ
-    '\ufea7' : 'kh'  # ﺧ
-    '\ufea8' : 'kh'  # ﺨ
-    '\ufea6' : 'kh'  # ﺦ
+    sub "\u062e", "kh" # خ
+    sub "\ufea7", "kh" # ﺧ
+    sub "\ufea8", "kh" # ﺨ
+    sub "\ufea6", "kh" # ﺦ
 
-    '\u062f' : 'd'  # د
-    '\ufeaa' : 'd'  # ﺪ
+    sub "\u062f", "d" # د
+    sub "\ufeaa", "d" # ﺪ
 
-    '\u0630' : 'dh'  # ذ
-    '\ufeac' : 'dh'  # ﺬ
+    sub "\u0630", "dh" # ذ
+    sub "\ufeac", "dh" # ﺬ
 
-    '\u0631' : 'r'  # ر
-    '\ufeae' : 'r'  # ﺮ
+    sub "\u0631", "r" # ر
+    sub "\ufeae", "r" # ﺮ
 
-    '\u0632' : 'z'  # ز
-    '\ufeb0' : 'z'  # ﺰ
+    sub "\u0632", "z" # ز
+    sub "\ufeb0", "z" # ﺰ
 
-    '\u0633' : 's'  # س
-    '\ufeb3' : 's'  # ﺳ
-    '\ufeb4' : 's'  # ﺴ
-    '\ufeb2' : 's'  # ﺲ
+    sub "\u0633", "s" # س
+    sub "\ufeb3", "s" # ﺳ
+    sub "\ufeb4", "s" # ﺴ
+    sub "\ufeb2", "s" # ﺲ
 
-    '\u0634' : 'sh'  # ش
-    '\ufeb7' : 'sh'  # ﺷ
-    '\ufeb8' : 'sh'  # ﺸ
-    '\ufeb6' : 'sh'  # ﺶ
+    sub "\u0634", "sh" # ش
+    sub "\ufeb7", "sh" # ﺷ
+    sub "\ufeb8", "sh" # ﺸ
+    sub "\ufeb6", "sh" # ﺶ
 
-    '\u0635' : 's̱'  # ص
-    '\ufebb' : 's̱'  # ﺻ
-    '\ufebc' : 's̱'  # ﺼ
-    '\ufeba' : 's̱'  # ﺺ
+    sub "\u0635", "s̱" # ص
+    sub "\ufebb", "s̱" # ﺻ
+    sub "\ufebc", "s̱" # ﺼ
+    sub "\ufeba", "s̱" # ﺺ
 
-    '\u0636' : 'ḏ'  # ض
-    '\ufebf' : 'ḏ'  # ﺿ
-    '\ufec0' : 'ḏ'  # ﻀ
-    '\ufebe' : 'ḏ'  # ﺾ
+    sub "\u0636", "ḏ" # ض
+    sub "\ufebf", "ḏ" # ﺿ
+    sub "\ufec0", "ḏ" # ﻀ
+    sub "\ufebe", "ḏ" # ﺾ
 
-    '\u0637' : 'ṯ'  # ط
-    '\ufec3' : 'ṯ'  # ﻃ
-    '\ufec4' : 'ṯ'  # ﻄ
-    '\ufec2' : 'ṯ'  # ﻂ
+    sub "\u0637", "ṯ" # ط
+    sub "\ufec3", "ṯ" # ﻃ
+    sub "\ufec4", "ṯ" # ﻄ
+    sub "\ufec2", "ṯ" # ﻂ
 
-    '\u0638' : 'd͟h'  # ظ
-    '\ufec7' : 'd͟h'  # ﻇ
-    '\ufec8' : 'd͟h'  # ﻈ
-    '\ufec6' : 'd͟h'  # ﻆ
+    sub "\u0638", "d͟h" # ظ
+    sub "\ufec7", "d͟h" # ﻇ
+    sub "\ufec8", "d͟h" # ﻈ
+    sub "\ufec6", "d͟h" # ﻆ
 
-    '\u0639' : '‘'  # ع
-    '\ufecb' : '‘'  # ﻋ
-    '\ufecc' : '‘'  # ﻌ
-    '\ufeca' : '‘'  # ﻊ
+    sub "\u0639", "‘" # ع
+    sub "\ufecb", "‘" # ﻋ
+    sub "\ufecc", "‘" # ﻌ
+    sub "\ufeca", "‘" # ﻊ
 
-    '\u063a' : 'gh'  # غ
-    '\ufecf' : 'gh'  # ﻏ
-    '\ufed0' : 'gh'  # ﻐ
-    '\ufece' : 'gh'  # ﻎ
+    sub "\u063a", "gh" # غ
+    sub "\ufecf", "gh" # ﻏ
+    sub "\ufed0", "gh" # ﻐ
+    sub "\ufece", "gh" # ﻎ
 
-    '\u0641' : 'f'  # ف
-    '\ufed3' : 'f'  # ﻓ
-    '\ufed4' : 'f'  # ﻔ
-    '\ufed2' : 'f'  # ﻒ
+    sub "\u0641", "f" # ف
+    sub "\ufed3", "f" # ﻓ
+    sub "\ufed4", "f" # ﻔ
+    sub "\ufed2", "f" # ﻒ
 
-    '\u0642' : 'q'  # ق
-    '\ufed7' : 'q'  # ﻗ
-    '\ufed8' : 'q'  # ﻘ
-    '\ufed6' : 'q'  # ﻖ
+    sub "\u0642", "q" # ق
+    sub "\ufed7", "q" # ﻗ
+    sub "\ufed8", "q" # ﻘ
+    sub "\ufed6", "q" # ﻖ
 
-    '\u0643' : 'k'  # ك
-    '\ufedb' : 'k'  # ﻛ
-    '\ufedc' : 'k'  # ﻜ
-    '\ufeda' : 'k'  # ﻚ
+    sub "\u0643", "k" # ك
+    sub "\ufedb", "k" # ﻛ
+    sub "\ufedc", "k" # ﻜ
+    sub "\ufeda", "k" # ﻚ
 
-    '\u0644' : 'l'  # ل
-    '\ufedf' : 'l'  # ﻟ
-    '\ufee0' : 'l'  # ﻠ
-    '\ufede' : 'l'  # ﻞ
+    sub "\u0644", "l" # ل
+    sub "\ufedf", "l" # ﻟ
+    sub "\ufee0", "l" # ﻠ
+    sub "\ufede", "l" # ﻞ
 
-    '\u0645' : 'm'  # م
-    '\ufee3' : 'm'  # ﻣ
-    '\ufee4' : 'm'  # ﻤ
-    '\ufee2' : 'm'  # ﻢ
+    sub "\u0645", "m" # م
+    sub "\ufee3", "m" # ﻣ
+    sub "\ufee4", "m" # ﻤ
+    sub "\ufee2", "m" # ﻢ
 
-    '\u0646' : 'n'  # ن
-    '\ufee7' : 'n'  # ﻧ
-    '\ufee8' : 'n'  # ﻨ
-    '\ufee6' : 'n'  # ﻦ
+    sub "\u0646", "n" # ن
+    sub "\ufee7", "n" # ﻧ
+    sub "\ufee8", "n" # ﻨ
+    sub "\ufee6", "n" # ﻦ
 
     # See note C
-    '\u0647' : 'h'  # ه
-    '\ufeeb' : 'h'  # ﻫ
-    '\ufeec' : 'h'  # ﻬ
-    '\ufeea' : 'h'  # ﻪ
+    sub "\u0647", "h" # ه
+    sub "\ufeeb", "h" # ﻫ
+    sub "\ufeec", "h" # ﻬ
+    sub "\ufeea", "h" # ﻪ
 
-    '\u0648' : 'w'  # و
-    '\ufeee' : 'w'  # ﻮ
+    sub "\u0648", "w" # و
+    sub "\ufeee", "w" # ﻮ
 
-    '\u064a' : 'y'  # ي
-    '\ufef3' : 'y'  # ﻳ
-    '\ufef4' : 'y'  # ﻴ
-    '\ufef1' : 'y'  # ﻱ
+    sub "\u064a", "y" # ي
+    sub "\ufef3", "y" # ﻳ
+    sub "\ufef4", "y" # ﻴ
+    sub "\ufef1", "y" # ﻱ
 
     # (A) Not romanized word-initially.
 
@@ -418,3 +350,26 @@ map:
 
     # Vowels, diphthongs and diacritical marks
     # (ـ stands for any consonant)
+  }
+
+
+  # POSTRULES
+  sub any("\u0061".."\uFFFF"), upcase, before: boundary, not_before: boundary + any("‘’'")
+  # don't capitalize defined article in the middle of a sentence
+  sub " At T", " at T" # الت
+  sub " Ath Th", " ath th" # الث
+  sub " Ad D", " ad D" # الد
+  sub " Adh Dh", " adh Dh" # الذ
+  sub " Ar R", " ar R" # الر
+  sub " Az Z", " az Z" # الز
+  sub " As S", " as S" # الس
+  sub " Ash Sh", " ash Sh" # الش
+  sub " As̱ S̱", " as̱ S̱" # الص
+  sub " Aḏ Ḏ", " aḏ Ḏ" # الض
+  sub " Aṯ Ṯ", " aṯ Ṯ" # الط
+  sub " Ad͟h D͟h", " ad͟h D͟h" # الظ
+  sub " Al L", " al L" # الل
+  sub " An N", " an N" # الن
+  sub " Al ", " al " # ال
+
+}

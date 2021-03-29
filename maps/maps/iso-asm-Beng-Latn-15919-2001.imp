@@ -1,75 +1,73 @@
----
-authority_id: iso
-id: 15919-2001
-language: iso-639-2:asm
-source_script: Beng
-destination_script: Latn
-name: "Information and documentation — Transliteration of Devanagari and related Indic scripts into Latin characters"
-url: https://www.chatranjali.fr/Scripts/Standards/ISO15919.pdf
-creation_date: 2001
-adoption_date: 2001
-description: |
-  Script conversion is often required for documents such as historical and literary texts, geographical texts (including
-  maps and atlases), bibliographies, catalogues, lists and passports (and other identification documents).
+metadata {
+  authority_id: iso
+  id: 15919-2001
+  language: iso-639-2:asm
+  source_script: Beng
+  destination_script: Latn
+  name: "Information and documentation — Transliteration of Devanagari and related Indic scripts into Latin characters"
+  url: https://www.chatranjali.fr/Scripts/Standards/ISO15919.pdf
+  creation_date: 2001
+  adoption_date: 2001
+  description: |
+    Script conversion is often required for documents such as historical and literary texts, geographical texts (including
+    maps and atlases), bibliographies, catalogues, lists and passports (and other identification documents).
 
-  Text in Devanagari script or other Indic scripts sometimes needs to be shown in Latin script, where users, or
-  equipment that they are using, cannot read or write the text
+    Text in Devanagari script or other Indic scripts sometimes needs to be shown in Latin script, where users, or
+    equipment that they are using, cannot read or write the text
 
-  This International Standard applies to transliteration of Devanagari, and to Indic scripts related to Devanagari,
-  independent of the period in which it is or was used.
+    This International Standard applies to transliteration of Devanagari, and to Indic scripts related to Devanagari,
+    independent of the period in which it is or was used.
 
-notes:
+  notes:
 
-  - All transliterations made using this International Standard shall be case-insensitive.
-  - Inherent a with a consonant shall always be transliterated.
-  - anusvara (including Vedic anusvara) shall be transliterated as ṁ
-  - candrabindu shall be transliterated as m̐
-  - When m̐, ṃ or ṁ are associated with a vowel, they shall be placed after the vowel. When m̐ is associated
-    with a semivowel, it shall be placed before the semivowel.
-  - Latin punctuation signs and Hindu-Arabic numerals shall remain unchanged in transliteration.
-    Indic punctuation is outside the scope of this International Standard.
-  - The Vedic accent Udatta shall be transliterated as an acute accent over the transliterated vowel, and the
-    independent Svarita as a grave accent over the transliterated vowel. In the case of the digraphs ai, au, the accent
-    shall be attached to the second vowel.
-  - |
-    A colon: before a Latin character shall be used to resolve ambiguity. Some normative cases are as
-    follows.
-     -  :’ for avagraha in modern text. (The apostrophe in modern text remains unchanged in accordance with previous rule.
-  - If a character in an Indic script is defined in such a way as to be equivalent to another character in any
-    script, where the second character has a transliteration in this International Standard, then the first character shall
-    be transliterated in the same way as the second character.
-  - Where it is desired to show the Vedic accent Anudatta, it should be transliterated as an underscore. In the case of
-    the digraphs ai, au, both Latin vowels should be underscored.
-    Where word boundaries are not shown in the original text (as happens commonly in Sanskrit) and a word ends in a
-    consonant, the transliteration should show word division by a space; but when phonological processes result in two
-    words sharing a common vowel, no attempt should be made to separate them. This will require a good knowledge
-    of the language in question.
+    - All transliterations made using this International Standard shall be case-insensitive.
+    - Inherent a with a consonant shall always be transliterated.
+    - anusvara (including Vedic anusvara) shall be transliterated as ṁ
+    - candrabindu shall be transliterated as m̐
+    - When m̐, ṃ or ṁ are associated with a vowel, they shall be placed after the vowel. When m̐ is associated
+      with a semivowel, it shall be placed before the semivowel.
+    - Latin punctuation signs and Hindu-Arabic numerals shall remain unchanged in transliteration.
+      Indic punctuation is outside the scope of this International Standard.
+    - The Vedic accent Udatta shall be transliterated as an acute accent over the transliterated vowel, and the
+      independent Svarita as a grave accent over the transliterated vowel. In the case of the digraphs ai, au, the accent
+      shall be attached to the second vowel.
+    - |
+      A colon: before a Latin character shall be used to resolve ambiguity. Some normative cases are as
+      follows.
+       -  :’ for avagraha in modern text. (The apostrophe in modern text remains unchanged in accordance with previous rule.
+    - If a character in an Indic script is defined in such a way as to be equivalent to another character in any
+      script, where the second character has a transliteration in this International Standard, then the first character shall
+      be transliterated in the same way as the second character.
+    - Where it is desired to show the Vedic accent Anudatta, it should be transliterated as an underscore. In the case of
+      the digraphs ai, au, both Latin vowels should be underscored.
+      Where word boundaries are not shown in the original text (as happens commonly in Sanskrit) and a word ends in a
+      consonant, the transliteration should show word division by a space; but when phonological processes result in two
+      words sharing a common vowel, no attempt should be made to separate them. This will require a good knowledge
+      of the language in question.
+}
 
-tests:
-  - source: "অসমীয়া কবিতা"
-    expected: "asamaīẏaā kabaitaā"
-  - source: "কবিৰ আজি জন্মদিন"
-    expected: "kabaiva ājai janamadaina"
-  - source: "বেৰুটত এমাহৰ পাছতে পুনৰ ভয়ংকৰ অগ্নিকাণ্ড"
-    expected: "baevauṭata emaāhava paāchatae paunava bhaya়ṁkava aganaikaāṇaḍa"
-  - source: "ভঙাৰ বিৰুদ্ধে আৱেদন দাখিল কংগনাৰ"
-    expected: "bhaṅaāva baivaudadhae āraedana daākhaila kaṁganaāva"
-  - source: "আপুনি পঢ়ি ভাল পাব পৰা বাতৰি"
-    expected: "āpaunai paṙhai bhaāla paāba pavaā baātavai"
-  - source: "শ্ৰীৰামপুৰত গৰুভৰ্তি ট্ৰাক জব্দ, দুজনক আটক"
-    expected: "śavaīvaāmapauvata gavaubhavatai ṭavaāka jabada, daujanaka āṭaka"
-  - source: "কেনে আছে প্ৰাক্তন"
-    expected: "kaenae āchae pavaākatana"
-  - source: "কমুম্বাইৰ মেয়ৰৰ দেহত কোভিড পজিটিভ"
-    expected: "kamaumabaāiva maeẏavava daehata kaobhaiḍa pajaiṭaibha"
-  - source: "টুইটাৰযোগে খোদ সদৰী কৰে এই কথা"
-    expected: "ṭauiṭaāvayaogae khaoda sadavaī kavae ei kathaā"
-  - source: "লখিমপুৰ জিলাৰ নাৰায়ণপুৰৰ বৰপথাৰত আজি প্ৰশান্তি ধাম নামেৰে এখন বৃদ্ধাশ্ৰমৰ শুভাৰম্ভ কৰা হয়"
-    expected: "lakhaimapauva jailaāva naāvaāẏaṇapauvava bavapathaāvata ājai pavaśaānatai dhaāma naāmaevae ekhana baṛdadhaāśavamava śaubhaāvamabha kavaā haẏa"
+tests {
+  test "অসমীয়া কবিতা", "asamaīẏaā kabaitaā"
+  test "কবিৰ আজি জন্মদিন", "kabaiva ājai janamadaina"
+  test "বেৰুটত এমাহৰ পাছতে পুনৰ ভয়ংকৰ অগ্নিকাণ্ড", "baevauṭata emaāhava paāchatae paunava bhaya়ṁkava aganaikaāṇaḍa"
+  test "ভঙাৰ বিৰুদ্ধে আৱেদন দাখিল কংগনাৰ", "bhaṅaāva baivaudadhae āraedana daākhaila kaṁganaāva"
+  test "আপুনি পঢ়ি ভাল পাব পৰা বাতৰি", "āpaunai paṙhai bhaāla paāba pavaā baātavai"
+  test "শ্ৰীৰামপুৰত গৰুভৰ্তি ট্ৰাক জব্দ, দুজনক আটক", "śavaīvaāmapauvata gavaubhavatai ṭavaāka jabada, daujanaka āṭaka"
+  test "কেনে আছে প্ৰাক্তন", "kaenae āchae pavaākatana"
+  test "কমুম্বাইৰ মেয়ৰৰ দেহত কোভিড পজিটিভ", "kamaumabaāiva maeẏavava daehata kaobhaiḍa pajaiṭaibha"
+  test "টুইটাৰযোগে খোদ সদৰী কৰে এই কথা", "ṭauiṭaāvayaogae khaoda sadavaī kavae ei kathaā"
+  test "লখিমপুৰ জিলাৰ নাৰায়ণপুৰৰ বৰপথাৰত আজি প্ৰশান্তি ধাম নামেৰে এখন বৃদ্ধাশ্ৰমৰ শুভাৰম্ভ কৰা হয়", "lakhaimapauva jailaāva naāvaāẏaṇapauvava bavapathaāvata ājai pavaśaānatai dhaāma naāmaevae ekhana baṛdadhaāśavamava śaubhaāvamabha kavaā haẏa"
+}
 
-map:
-  inherit: 'iso-ben-Beng-Latn-15919-2001'
+dependency "iso-ben-Beng-Latn-15919-2001", as: benglatn
 
-  characters:
-    'ৰ': 'va'
-    'ৱ': 'ra'
+stage {
+
+  run map.benglatn.stage.main
+
+  # CHARACTERS
+  parallel {
+    sub "ৰ", "va"
+    sub "ৱ", "ra"
+  }
+}

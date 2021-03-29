@@ -1,257 +1,191 @@
----
-authority_id: bgnpcgn
-id: 1930
-language: iso-639-2:jpn
-source_script: Hrkt
-destination_script: Latn
-name: Japanese Kana Modified Hepburn 1930 System
-url:
-creation_date:
-adoption_date:
-description:
+metadata {
+  authority_id: bgnpcgn
+  id: 1930
+  language: iso-639-2:jpn
+  source_script: Hrkt
+  destination_script: Latn
+  name: Japanese Kana Modified Hepburn 1930 System
+  url:
+  creation_date:
+  adoption_date:
+  description:
 
-notes:
-  - Segmentation needs to be done before using this map
-  - Note 5 in the specification states that when identical repeating vowels
-    belong to different kanji characters, they shall be romanized
-    individually and an apostrophe (’) shall be placed between the vowels.
-    However since this is a map from Kana to Hepburn, there is no way to
-    implement this feature.
-  - The documentation did not specify how the hyphen should be used.
+  notes:
+    - Segmentation needs to be done before using this map
+    - Note 5 in the specification states that when identical repeating vowels
+      belong to different kanji characters, they shall be romanized
+      individually and an apostrophe (’) shall be placed between the vowels.
+      However since this is a map from Kana to Hepburn, there is no way to
+      implement this feature.
+    - The documentation did not specify how the hyphen should be used.
+}
 
-tests:
+tests {
+  test "てがた-からみでん", "Tegata-karamiden"
+  test "てがた-すみよしちょう", "Tegata-sumiyoshichō"
+  test "さいのはま", "Sainohama"
+  test "てがた-たなか", "Tegata-tanaka"
+  test "ほりおでん", "Horioden"
+  test "そえがわ", "Soegawa"
+  test "ふねがさわ", "Funegasawa"
+  test "とくまんだて", "Tokumandate"
+  test "たてない", "Tatenai"
+  test "つるがさき", "Tsurugasaki"
+  test "しもやつせ", "Shimoyatsuse"
+  test "かみやつせ", "Kamiyatsuse"
+  test "しんとうだ", "Shintōda"
+  test "かじのめ", "Kajinome"
+  test "まえぎ", "Maegi"
+  test "くろさわ やま", "Kurosawa Yama"
+  test "いちのさわ がわ", "Ichinosawa Gawa"
+  test "はちやまえ", "Hachiyamae"
+  test "やち", "Yachi"
+  test "たてぬま", "Tatenuma"
+  test "しらはま", "Shirahama"
+  test "けせんまち", "Kesenmachi"
+  test "けいだい-かわら", "Keidai-kawara"
+  test "いしやました", "Ishiyamashita"
+  test "なえひら-やち", "Naehira-yachi"
+  test "とみの", "Tomino"
+  test "あらや-たかみまち", "Araya-takamimachi"
+  test "ながた", "Nagata"
+  test "とどろき おんせん", "Todoroki Onsen"
+  test "かしわぎはら", "Kashiwagihara"
+  test "とやけもり やま", "Toyakemori Yama"
+  test "なかさい", "Nakasai"
+  test "たけした", "Takeshita"
+  test "みと", "Mito"
+  test "みなみなかさと", "Minaminakasato"
+  test "みずおし", "Mizuoshi"
+  test "なかさと", "Nakasato"
+  test "しんかりば", "Shinkariba"
+  test "しんかみぬま", "Shinkaminuma"
+  test "しんばし", "Shinbashi"
+  test "りくぜんやました えき", "Rikuzen’yamashita Eki"
+  test "うしじまにし", "Ushijimanishi"
+  test "はまえば", "Hamaeba"
+  test "ぬまむかい", "Numamukai"
+  test "さんげんやち", "Sangen’yachi"
+  test "にけんやち", "Niken’yachi"
+  test "やちなか", "Yachinaka"
+  test "なす がわ", "Nasu Gawa"
+  test "おおはらはま", "Ōharahama"
+  test "うるご がわ", "Urugo Gawa"
+  test "なかばせ", "Nakabase"
+  test "うと えき", "Uto Eki"
+  test "みずまち", "Mizumachi"
+  test "ごんげんどう", "Gongendō"
+  test "いとひさ", "Itohisa"
+  test "あらおい", "Araoi"
+  test "わんめ", "Wanme"
+  test "かじろ", "Kajiro"
+  test "みやばら", "Miyabara"
+  test "いまどみ", "Imadomi"
+  test "かいほ", "Kaiho"
+  test "かいほ ぼえん", "Kaiho Boen"
+  test "ひきだ", "Hikida"
+  test "あさい-こむかい", "Asai-komukai"
+  test "こうざか", "Kōzaka"
+  test "こうふうだい", "Kōfūdai"
+  test "たての", "Tateno"
+  test "センター", "Sentā"
+  test "フィリピン", "Firipin"
+  test "ヴィオリン", "Viorin"
+  test "クォーター", "Kwōtā"
+  test "パッチリ", "Patchiri"
+  test "ぽっぽっや", "Poppoyya"
+}
 
-  - source: てがた-からみでん
-    expected: "Tegata-karamiden"
-  - source: てがた-すみよしちょう
-    expected: "Tegata-sumiyoshichō"
-  - source: さいのはま
-    expected: "Sainohama"
-  - source: てがた-たなか
-    expected: "Tegata-tanaka"
-  - source: ほりおでん
-    expected: "Horioden"
-  - source: そえがわ
-    expected: "Soegawa"
-  - source: ふねがさわ
-    expected: "Funegasawa"
-  - source: とくまんだて
-    expected: "Tokumandate"
-  - source: たてない
-    expected: "Tatenai"
-  - source: つるがさき
-    expected: "Tsurugasaki"
-  - source: しもやつせ
-    expected: "Shimoyatsuse"
-  - source: かみやつせ
-    expected: "Kamiyatsuse"
-  - source: しんとうだ
-    expected: "Shintōda"
-  - source: かじのめ
-    expected: "Kajinome"
-  - source: まえぎ
-    expected: "Maegi"
-  - source: くろさわ やま
-    expected: "Kurosawa Yama"
-  - source: いちのさわ がわ
-    expected: "Ichinosawa Gawa"
-  - source: はちやまえ
-    expected: "Hachiyamae"
-  - source: やち
-    expected: "Yachi"
-  - source: たてぬま
-    expected: "Tatenuma"
-  - source: しらはま
-    expected: "Shirahama"
-  - source: けせんまち
-    expected: "Kesenmachi"
-  - source: けいだい-かわら
-    expected: "Keidai-kawara"
-  - source: いしやました
-    expected: "Ishiyamashita"
-  - source: なえひら-やち
-    expected: "Naehira-yachi"
-  - source: とみの
-    expected: "Tomino"
-  - source: あらや-たかみまち
-    expected: "Araya-takamimachi"
-  - source: ながた
-    expected: "Nagata"
-  - source: とどろき おんせん
-    expected: "Todoroki Onsen"
-  - source: かしわぎはら
-    expected: "Kashiwagihara"
-  - source: とやけもり やま
-    expected: "Toyakemori Yama"
-  - source: なかさい
-    expected: "Nakasai"
-  - source: たけした
-    expected: "Takeshita"
-  - source: みと
-    expected: "Mito"
-  - source: みなみなかさと
-    expected: "Minaminakasato"
-  - source: みずおし
-    expected: "Mizuoshi"
-  - source: なかさと
-    expected: "Nakasato"
-  - source: しんかりば
-    expected: "Shinkariba"
-  - source: しんかみぬま
-    expected: "Shinkaminuma"
-  - source: しんばし
-    expected: "Shinbashi"
-  - source: りくぜんやました えき
-    expected: "Rikuzen’yamashita Eki"
-  - source: うしじまにし
-    expected: "Ushijimanishi"
-  - source: はまえば
-    expected: "Hamaeba"
-  - source: ぬまむかい
-    expected: "Numamukai"
-  - source: さんげんやち
-    expected: "Sangen’yachi"
-  - source: にけんやち
-    expected: "Niken’yachi"
-  - source: やちなか
-    expected: "Yachinaka"
-  - source: なす がわ
-    expected: "Nasu Gawa"
-  - source: おおはらはま
-    expected: "Ōharahama"
-  - source: うるご がわ
-    expected: "Urugo Gawa"
-  - source: なかばせ
-    expected: "Nakabase"
-  - source: うと えき
-    expected: "Uto Eki"
-  - source: みずまち
-    expected: "Mizumachi"
-  - source: ごんげんどう
-    expected: "Gongendō"
-  - source: いとひさ
-    expected: "Itohisa"
-  - source: あらおい
-    expected: "Araoi"
-  - source: わんめ
-    expected: "Wanme"
-  - source: かじろ
-    expected: "Kajiro"
-  - source: みやばら
-    expected: "Miyabara"
-  - source: いまどみ
-    expected: "Imadomi"
-  - source: かいほ
-    expected: "Kaiho"
-  - source: かいほ ぼえん
-    expected: "Kaiho Boen"
-  - source: ひきだ
-    expected: "Hikida"
-  - source: あさい-こむかい
-    expected: "Asai-komukai"
-  - source: こうざか
-    expected: "Kōzaka"
-  - source: こうふうだい
-    expected: "Kōfūdai"
-  - source: たての
-    expected: "Tateno"
-  - source: センター
-    expected: "Sentā"
-  - source: フィリピン
-    expected: "Firipin"
-  - source: ヴィオリン
-    expected: "Viorin"
-  - source: クォーター
-    expected: "Kwōtā"
-  - source: パッチリ
-    expected: "Patchiri"
-  - source: ぽっぽっや
-    expected: "Poppoyya"
+dependency "var-jpn-Hrkt-Latn-hepburn-1954", as: hrktlatn
 
-map:
-  character_separator: ""
-  word_separator: " "
-  title_case: True
-  inherit: var-jpn-Hrkt-Latn-hepburn-1954
 
-  characters:
+stage {
+
+
+  # CHARACTERS
+  parallel {
     # Rare sounds, Table 2 & 4
 
-    "くぁ": "kwa"
-    "クァ": "kwa"
-    "ぐぁ": "gwa"
-    "グァ": "gwa"
-    "くぃ": "kwi"
-    "クィ": "kwi"
-    "ぐぃ": "gwa"
-    "グィ": "gwa"
-    "きぇ": "kye"
-    "キェ": "kye"
-    "ぎぇ": "gye"
-    "ギェ": "gye"
-    "くぇ": "kwe"
-    "クェ": "kwe"
-    "ぐぇ": "gwe"
-    "グェ": "gwe"
-    "くぉ": "kwo"
-    "クォ": "kwo"
-    "ぐぉ": "gwo"
-    "グォ": "gwo"
-    "しぇ": "she"
-    "シェ": "she"
-    "じぇ": "je"
-    "ジェ": "je"
-    "つぁ": "tsa"
-    "ツァ": "tsa"
-    "てぃ": "ti"
-    "ティ": "ti"
-    "でぃ": "di"
-    "ディ": "di"
-    "てゅ": "tyu"
-    "テュ": "tyu"
-    "でゅ": "dyu"
-    "デュ": "dyu"
-    "とゅ": "tu"
-    "トュ": "tu"
-    "どゅ": "du"
-    "ドュ": "du"
-    "ちぇ": "che"
-    "チェ": "che"
-    "ぢぇ": "je"
-    "ヂェ": "je"
-    "つぇ": "tse"
-    "ツェ": "tse"
-    "つぉ": "tso"
-    "ツォ": "tso"
-    "にぇ": "nye"
-    "ニェ": "nye"
-    "ふぁ": "fa"
-    "ファ": "fa"
-    "ふぃ": "fi"
-    "フィ": "fi"
-    "ふぇ": "fe"
-    "フェ": "fe"
-    "ふぉ": "fo"
-    "フォ": "fo"
-    "みぇ": "mye"
-    "ミェ": "mye"
-    "ぃぇ": "ye"
-    "ィェ": "ye"
-    "りぇ": "rye"
-    "リェ": "rye"
-    "ゔぁ": "va"
-    "ヴァ": "va"
-    "うぃ": "wi"
-    "ウィ": "wi"
-    "ゔぃ": "vi"
-    "ヴィ": "vi"
-    "うぇ": "we"
-    "ウェ": "we"
-    "ゔぇ": "ve"
-    "ヴェ": "ve"
-    "うぉ": "wo"
-    "ウォ": "wo"
-    "ゔぉ": "vo"
-    "ヴォ": "vo"
-    "ゔ": "vu"
-    "ヴ": "vu"
+    sub "くぁ", "kwa"
+    sub "クァ", "kwa"
+    sub "ぐぁ", "gwa"
+    sub "グァ", "gwa"
+    sub "くぃ", "kwi"
+    sub "クィ", "kwi"
+    sub "ぐぃ", "gwa"
+    sub "グィ", "gwa"
+    sub "きぇ", "kye"
+    sub "キェ", "kye"
+    sub "ぎぇ", "gye"
+    sub "ギェ", "gye"
+    sub "くぇ", "kwe"
+    sub "クェ", "kwe"
+    sub "ぐぇ", "gwe"
+    sub "グェ", "gwe"
+    sub "くぉ", "kwo"
+    sub "クォ", "kwo"
+    sub "ぐぉ", "gwo"
+    sub "グォ", "gwo"
+    sub "しぇ", "she"
+    sub "シェ", "she"
+    sub "じぇ", "je"
+    sub "ジェ", "je"
+    sub "つぁ", "tsa"
+    sub "ツァ", "tsa"
+    sub "てぃ", "ti"
+    sub "ティ", "ti"
+    sub "でぃ", "di"
+    sub "ディ", "di"
+    sub "てゅ", "tyu"
+    sub "テュ", "tyu"
+    sub "でゅ", "dyu"
+    sub "デュ", "dyu"
+    sub "とゅ", "tu"
+    sub "トュ", "tu"
+    sub "どゅ", "du"
+    sub "ドュ", "du"
+    sub "ちぇ", "che"
+    sub "チェ", "che"
+    sub "ぢぇ", "je"
+    sub "ヂェ", "je"
+    sub "つぇ", "tse"
+    sub "ツェ", "tse"
+    sub "つぉ", "tso"
+    sub "ツォ", "tso"
+    sub "にぇ", "nye"
+    sub "ニェ", "nye"
+    sub "ふぁ", "fa"
+    sub "ファ", "fa"
+    sub "ふぃ", "fi"
+    sub "フィ", "fi"
+    sub "ふぇ", "fe"
+    sub "フェ", "fe"
+    sub "ふぉ", "fo"
+    sub "フォ", "fo"
+    sub "みぇ", "mye"
+    sub "ミェ", "mye"
+    sub "ぃぇ", "ye"
+    sub "ィェ", "ye"
+    sub "りぇ", "rye"
+    sub "リェ", "rye"
+    sub "ゔぁ", "va"
+    sub "ヴァ", "va"
+    sub "うぃ", "wi"
+    sub "ウィ", "wi"
+    sub "ゔぃ", "vi"
+    sub "ヴィ", "vi"
+    sub "うぇ", "we"
+    sub "ウェ", "we"
+    sub "ゔぇ", "ve"
+    sub "ヴェ", "ve"
+    sub "うぉ", "wo"
+    sub "ウォ", "wo"
+    sub "ゔぉ", "vo"
+    sub "ヴォ", "vo"
+    sub "ゔ", "vu"
+    sub "ヴ", "vu"
+  }
+  run map.hrktlatn.stage.main
+
+  title_case
+}

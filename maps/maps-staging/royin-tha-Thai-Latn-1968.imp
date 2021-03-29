@@ -1,116 +1,82 @@
----
-authority_id: royin
-id: 1968-chained
-language: iso-639-2:tha
-source_script: Thai
-destination_script: Latn
-name: Royal Thai General System of Transcription (1968)
-alias:
-  ogc11122:
-    code: tha_Thai2Latn_RIT_1968
-    description: Thai Royal Institute of Thailand 1968 System (out of date)
-url: http://www.royin.go.th/wp-content/uploads/royin-ebook/276/FileUpload/758_6484.pdf
-creation_date: 1968
-adoption_date:
-description: |
-  This map loads two external maps to convert Thai text first into phonemic Thai,
-  and then into IPA transcription.
+metadata {
+  authority_id: royin
+  id: 1968-chained
+  language: iso-639-2:tha
+  source_script: Thai
+  destination_script: Latn
+  name: Royal Thai General System of Transcription (1968)
+  url: http://www.royin.go.th/wp-content/uploads/royin-ebook/276/FileUpload/758_6484.pdf
+  creation_date: 1968
+  adoption_date:
+  description: |
+    This map loads two external maps to convert Thai text first into phonemic Thai,
+    and then into IPA transcription.
 
-  The IPA transcription will then be handled by this map, and converted into
-  Royal Thai General System of Transcription (1968).
+    The IPA transcription will then be handled by this map, and converted into
+    Royal Thai General System of Transcription (1968).
 
-  The first two parts are done via two external maps.
+    The first two parts are done via two external maps.
 
-notes: |
-  The conversion from Thai to Phonemic Thai is still work-in-progress.
+  notes: |
+    The conversion from Thai to Phonemic Thai is still work-in-progress.
+}
 
-tests:
-  - source: "สะพาน"
-    expected: "saphan"
-  - source: "ลานตา"
-    expected: "lanta"
-  - source: "บาง"
-    expected: "bang"
-  - source: "สมุทร"
-    expected: "samut"
-  - source: "ลำ"
-    expected: "lam"
-  - source: "สิงห์"
-    expected: "sing"
-  - source: "บุรี"
-    expected: "buri"
-  - source: "สตึก"
-    expected: "satuk"
-  - source: "พืช"
-    expected: "phut"
-  - source: "บรบือ"
-    expected: "borabu"
-  - source: "ภู"
-    expected: "phu"
-  - source: "ปะนาเระ"
-    expected: "panare"
-  - source: "เพ็ญ"
-    expected: "phen"
+tests {
+  test "สะพาน", "saphan"
+  test "ลานตา", "lanta"
+  test "บาง", "bang"
+  test "สมุทร", "samut"
+  test "ลำ", "lam"
+  test "สิงห์", "sing"
+  test "บุรี", "buri"
+  test "สตึก", "satuk"
+  test "พืช", "phut"
+  test "บรบือ", "borabu"
+  test "ภู", "phu"
+  test "ปะนาเระ", "panare"
+  test "เพ็ญ", "phen"
   # - source: "เขน"
   #   expected: "khen"
-  - source: "แซะ"
-    expected: "sae"
+  test "แซะ", "sae"
   # - source: "สะแก"
   #   expected: "sakae"
-  - source: "พะโต๊ะ"
-    expected: "phato"
-  - source: "ลพ"
-    expected: "lop"
+  test "พะโต๊ะ", "phato"
+  test "ลพ", "lop"
   # - source: "สามโก้"
   #   expected: "samko"
-  - source: "เกาะ"
-    expected: "ko"
-  - source: "บ่อ"
-    expected: "bo"
-  - source: "เซอะ"
-    expected: "soe"
-  - source: "อำเภอ"
-    expected: "amphoe"
-  - source: "เนิน"
-    expected: "noen"
+  test "เกาะ", "ko"
+  test "บ่อ", "bo"
+  test "เซอะ", "soe"
+  test "อำเภอ", "amphoe"
+  test "เนิน", "noen"
   # - source: "เพียะ"
   #   expected: "phia"
-  - source: "เทียน"
-    expected: "thian"
+  test "เทียน", "thian"
   # - source: "เกือะ"
   #   expected: "kua"
-  - source: "เมือง"
-    expected: "muang"
+  test "เมือง", "muang"
   # - source: "ผัวะ"
   #   expected: "phua"
-  - source: "บัว"
-    expected: "bua"
+  test "บัว", "bua"
   # - source: "ควน"
   #   expected: "khuan"
-  - source: "ใหญ่"
-    expected: "yai"
+  test "ใหญ่", "yai"
   # - source: "ไผ่"
   #   expected: "phai"
-  - source: "ชัย"
-    expected: "chai"
-  - source: "ไทย"
-    expected: "thai"
+  test "ชัย", "chai"
+  test "ไทย", "thai"
   # - source: "ปาย"
   #   expected: "pai"
-  - source: "เจ้า"
-    expected: "chao"
-  - source: "ข้าว"
-    expected: "khao"
+  test "เจ้า", "chao"
+  test "ข้าว", "khao"
   # - source: "กุย"
   #   expected: "kui"
-  - source: "โดย"
-    expected: "doi"
+  test "โดย", "doi"
   # - source: "ดอย"
   #   expected: "doi"
   # - source: "งิ้ว"
   #   expected: "ngiu"
-  - source: "เร็ว"
-    expected: "reo"
+  test "เร็ว", "reo"
   # - source: "เลว"
   #   expected: "leo"
   # - source: "เลย"
@@ -119,65 +85,72 @@ tests:
   #   expected: "duai"
   # - source: "ห้วย"
   #   expected: "huai"
-  - source: "แมว"
-    expected: "maeo"
-  - source: "เขียว"
-    expected: "khieu"
+  test "แมว", "maeo"
+  test "เขียว", "khieu"
+}
 
-chain: ["var-tha-Thai-Thai-phonemic" ,"var-tha-Thai-Zsym-ipa"]
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
 
-map:
-  title-case: false
-  word_separator: " "
+dependency "var-tha-Thai-Thai-phonemic", as: thaiphonemic
+dependency "var-tha-Thai-Zsym-ipa", as: thaizsym
 
-  rules:
-    - pattern: '[˩˨˧˦˥]'
-      result : ''
-    - pattern: '^'
-      result: '.'
+stage {
+  run map.thaiphonemic.stage.main
+  run map.thaizsym.stage.main
 
-  postrules:
-    - pattern: '\.'
-      result:  ''
+  # DICTIONARY
+  parallel {
 
-  characters:
+    sub "̯", ""
+    sub "̚", ""
 
-  dictionary:
+    sub "ʔ", ""
+    sub "ː", ""
 
-    '̯': ''
-    '̚': ''
+    sub "t͡ɕʰ", "ch"
+    sub "t͡ɕ", "ch"
+    sub "ŋ", "ng"
+    sub "j", "y"
+    sub "ɔ", "o"
+    sub "ɤ", "oe"
+    sub "ɛ", "ae"
+    sub "ɯ", "u"
+    sub "ʰ", "h"
 
-    'ʔ': ''
-    'ː': ''
+    sub "aːw", "ao"
+    sub "aw", "ao"
+    sub "a̯w", "eu"
+    sub "eːw", "eo"
+    sub "ew", "eo"
+    sub "ɛːw", "aeo"
+    sub "ɛw", "aeo"
+    sub "iːw", "iu"
+    sub "iw", "iu"
 
-    't͡ɕʰ': 'ch'
-    't͡ɕ': 'ch'
-    'ŋ': 'ng'
-    'j': 'y'
-    'ɔ': 'o'
-    'ɤ': 'oe'
-    'ɛ': 'ae'
-    'ɯ': 'u'
-    'ʰ': 'h'
+    sub "aːj", "ai"
+    sub "aj", "ai"
+    sub "a̯j", "ai"
+    sub "ɔːj", "oi"
+    sub "ɔj", "oi"
+    sub "oːj", "oi"
+    sub "oj", "oi"
+    sub "ɤːj", "oei"
+    sub "ɤj", "oei"
+    sub "uːj", "ui"
+    sub "uj", "ui"
+  }
 
-    'aːw': 'ao'
-    'aw': 'ao'
-    'a̯w': 'eu'
-    'eːw': 'eo'
-    'ew': 'eo'
-    'ɛːw': 'aeo'
-    'ɛw': 'aeo'
-    'iːw': 'iu'
-    'iw': 'iu'
+  # RULES
+  sub any("˩˨˧˦˥"), ""
+  sub line_start, "."
 
-    'aːj': 'ai'
-    'aj': 'ai'
-    'a̯j': 'ai'
-    'ɔːj': 'oi'
-    'ɔj': 'oi'
-    'oːj': 'oi'
-    'oj': 'oi'
-    'ɤːj': 'oei'
-    'ɤj': 'oei'
-    'uːj': 'ui'
-    'uj': 'ui'
+  # POSTRULES
+  sub ".", ""
+}

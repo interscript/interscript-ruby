@@ -1,111 +1,97 @@
----
-authority_id: iso
-id: 233-3
-language: iso-233-3:prs
-source_script: Arab
-destination_script: Latn
-name: Persian language — Simplified transliteration
-url: https://web.archive.org/web/20200920064754/http://www.freeprotocols.org/content/republished/doc.public/standards/communication/iso/iso-233/iso-233-3.pdf
-creation_date: 1999
-confirmation_date: 1999-01-15
-description: |
-  This part of ISO 233 is one of a series of International
-  Standards, dealing with the conversion of systems of
-  writing. The aim of this part of ISO 233 and others in the
-  series is to provide a means for international
-  communication of written messages in a form which permits
-  the automatic transmission and reconstitution of these, by
-  men or machines. The system of conversion, in this case,
-  must be univocal and entirely reversible. This means that
-  no consideration should be given to phonetic and aesthetic
-  matters or to certain national customs: all these
-  considerations are, indeed, ignored by the machine
-  performing the function. The adoption of this part of ISO
-  233 for international communication leaves every country
-  free to adopt for its own use a national standard which may
-  be different, on condition that it is compatible with this
-  part of ISO 233. The system proposed herein should make
-  this possible and be acceptable to international use if the
-  graphisms it creates are such that they may be converted
-  automatically into the graphisms used in any strict
-  national systems. This part of ISO 233 may be used by
-  anyone who has a clear understanding of the system and is
-  certain that it can be applied without ambiguity. The
-  result obtained will not give a correct pronunciation of
-  the original text in a person’s own language, but it will
-  serve as a means of finding automatically the original
-  graphism and thus allow anyone who has knowledge of the
-  original language to pronounce it correctly. Similarly, one
-  can only pronounce correctly a text written in, for
-  example, English or Polish, if one has a knowledge of
-  English or Polish. The adoption of national standards
-  compatible with this part of ISO 233 will permit the
-  representation, in an international publication, of the
-  morphemes of each language according to the customs of the
-  country where it is spoken. It will be possible to simplify
-  this representation in order to take into account the
-  number of the character sets available on different kinds
-  of machines.
-  1-Scope:
-  This part of ISO 233 establishes a simplified
-  system for the transliteration of Persian characters into
-  Latin characters. This simplification of the stringent
-  rules established by ISO 233:1984 is especially intended to
-  facilitate the processing of bibliographic information (
-  e.g. catalogues, indices, citations, etc.)
-  2-Normative references:
-  The following normative documents contain
-  provisions which, though reference in this text, constitute
-  provisions of this part of ISO 233. For dated references,
-  subsequent amendments to, or revisions of, any of these
-  publications do not apply. However, parties to agreements
-  based on this part of ISO 233 are encouraged to investigate
-  the possibility of applying the most recent editions of the
-  normative documents indicated below. For undated
-  references, the latest edition of the normative document
-  referred to applies. Members of ISO and IEC maintain
-  registers of currently valid International StandardsISO 233-
-  2, Information and documentation — Transliteration of
-  Arabic characters into Latin characters — Part 2: Arabic
-  language — Simplified transliteration. ISO/IEC 10646-1,
-  Information Technology — Universal Multiple-Octet Coded
-  Character Set (UCS) — Part 1: Architecture and Basic
-  Multilingual Plane.
+metadata {
+  authority_id: iso
+  id: 233-3
+  language: iso-233-3:prs
+  source_script: Arab
+  destination_script: Latn
+  name: Persian language — Simplified transliteration
+  url: https://web.archive.org/web/20200920064754/http://www.freeprotocols.org/content/republished/doc.public/standards/communication/iso/iso-233/iso-233-3.pdf
+  creation_date: 1999
+  confirmation_date: 1999-01-15
+  description: |
+    This part of ISO 233 is one of a series of International
+    Standards, dealing with the conversion of systems of
+    writing. The aim of this part of ISO 233 and others in the
+    series is to provide a means for international
+    communication of written messages in a form which permits
+    the automatic transmission and reconstitution of these, by
+    men or machines. The system of conversion, in this case,
+    must be univocal and entirely reversible. This means that
+    no consideration should be given to phonetic and aesthetic
+    matters or to certain national customs: all these
+    considerations are, indeed, ignored by the machine
+    performing the function. The adoption of this part of ISO
+    233 for international communication leaves every country
+    free to adopt for its own use a national standard which may
+    be different, on condition that it is compatible with this
+    part of ISO 233. The system proposed herein should make
+    this possible and be acceptable to international use if the
+    graphisms it creates are such that they may be converted
+    automatically into the graphisms used in any strict
+    national systems. This part of ISO 233 may be used by
+    anyone who has a clear understanding of the system and is
+    certain that it can be applied without ambiguity. The
+    result obtained will not give a correct pronunciation of
+    the original text in a person’s own language, but it will
+    serve as a means of finding automatically the original
+    graphism and thus allow anyone who has knowledge of the
+    original language to pronounce it correctly. Similarly, one
+    can only pronounce correctly a text written in, for
+    example, English or Polish, if one has a knowledge of
+    English or Polish. The adoption of national standards
+    compatible with this part of ISO 233 will permit the
+    representation, in an international publication, of the
+    morphemes of each language according to the customs of the
+    country where it is spoken. It will be possible to simplify
+    this representation in order to take into account the
+    number of the character sets available on different kinds
+    of machines.
+    1-Scope:
+    This part of ISO 233 establishes a simplified
+    system for the transliteration of Persian characters into
+    Latin characters. This simplification of the stringent
+    rules established by ISO 233:1984 is especially intended to
+    facilitate the processing of bibliographic information (
+    e.g. catalogues, indices, citations, etc.)
+    2-Normative references:
+    The following normative documents contain
+    provisions which, though reference in this text, constitute
+    provisions of this part of ISO 233. For dated references,
+    subsequent amendments to, or revisions of, any of these
+    publications do not apply. However, parties to agreements
+    based on this part of ISO 233 are encouraged to investigate
+    the possibility of applying the most recent editions of the
+    normative documents indicated below. For undated
+    references, the latest edition of the normative document
+    referred to applies. Members of ISO and IEC maintain
+    registers of currently valid International StandardsISO 233-
+    2, Information and documentation — Transliteration of
+    Arabic characters into Latin characters — Part 2: Arabic
+    language — Simplified transliteration. ISO/IEC 10646-1,
+    Information Technology — Universal Multiple-Octet Coded
+    Character Set (UCS) — Part 1: Architecture and Basic
+    Multilingual Plane.
 
-notes: |
-  TODO
+  notes: |
+    TODO
+}
 
-tests:
-  - source: آذَر
-    expected: âẕar
+tests {
+  test "آذَر", "âẕar"
+  test "سَم", "sam"
+  test "پُر", "por"
+  test "پِدَر", "pedar"
+  test "مَثَلاً", "mas̱alâ´´"
+  test "جزء", "jz’"
+  test "رأس", "râ’s"
+  test "سؤال", "sv’âl"
+  test "مسئلة", "msy’lh"
+}
 
-  - source: سَم
-    expected: sam
+stage {
 
-  - source: پُر
-    expected: por
-
-  - source: پِدَر
-    expected: pedar
-
-  - source: مَثَلاً
-    expected: mas̱alâ´´
-
-  - source: جزء
-    expected: jz’
-
-  - source: رأس
-    expected: râ’s
-
-  - source: سؤال
-    expected: sv’âl
-
-  - source: مسئلة
-    expected: msy’lh
-
-
-map:
-  characters:
+  # CHARACTERS
+  parallel {
 
     # word-medial or word-final form where so appearing in a word.
     # '\u0627': '-'
@@ -176,153 +162,113 @@ map:
 
     # special rules
 
-    '\s(?=\u0622\u0628\u064E\u0627\u062F)': '' # space followed by abad is removed
-    '\ufdf2': 'Allāh' # See note 5
+    sub space, "", after: "\u0622\u0628\u064E\u0627\u062F" # space followed by abad is removed
+    sub "\ufdf2", "Allāh" # See note 5
 
     # pointing
-    '\u064e' : 'a' # َ fatha
+    sub "\u064e", "a" # َ fatha
 
-    '\u0650':
-      - 'e'
-      - 'i'
-    '\u0650\b' : '-e' # ِ kasra
+    sub "\u0650", any(["e", "i"])
+    sub "\u0650" + boundary, "-e" # ِ kasra
 
-    '\u064f':  # ُ damma
-      - 'o'
-      - 'u'
+    sub "\u064f", any(["o", "u"]) # ُ damma
 
-    '\u0652' : ''  # ْ sokoon
-    '\u0659': 'ê'
+    sub "\u0652", "" # ْ sokoon
+    sub "\u0659", "ê"
 
     # special pointed letters
-    '\u0639\u064e' : '‘a'  # عَ
-    '\u0639\u0650' : '‘i'  # عِ
-    '\u0639\u064f' : '‘ū'  # عُ
+    sub "\u0639\u064e", "‘a" # عَ
+    sub "\u0639\u0650", "‘i" # عِ
+    sub "\u0639\u064f", "‘ū" # عُ
     # handle MacOS regex difference
-    '\u0639\u064f\u0648' : '‘ū'  # عُو damma followed by و
+    sub "\u0639\u064f\u0648", "‘ū" # عُو damma followed by و
 
-    '\u0650\u064a' : 'ī' # ـِي kasra followed by ي
-    '\u0650\u06cc' : 'ī' # ـِي kasra followed by ي
-    '\u0650\u064a\u0651\u064e' : 'īy' # ـِيَّ
-    '\u0650\u064a(?=\u064e|u064f)' : 'iy' # ـِي kasra followed by ي
-    '\u064f\u0648' : 'ō'  # ـُو damma followed by و
-    '\u064e\u0627' : 'ā'  # ـَا fatha followed by ا
-    '\u064e\u0649' : 'ay'  # ـَى fatha followed by ى which is ا not ي
-    '\u064e\u0648\u0652' : 'aw'  # ـَوْ
-    '\u064e\u0648' : 'ow'  # ـَو
-    '\u064e\u064a\u0652' : 'ay'  # ـَيْ
-    '\u0650\u06cc\u0651\u064e' : 'īy' # ـِيَّ
-    '\u064e\u064a' : 'aī'  # ـَي
-    '\u064e\u06cc' : 'aī'  # ـَي
-    '\u0649\u0670': 'á' # ىٰ
-    '\u0674': '-e' # ٴ
-    '\u0654': '-e' #  ٔ
-      # - '-ye'
+    sub "\u0650\u064a", "ī" # ـِي kasra followed by ي
+    sub "\u0650\u06cc", "ī" # ـِي kasra followed by ي
+    sub "\u0650\u064a\u0651\u064e", "īy" # ـِيَّ
+    sub "\u0650\u064a", "iy", after: any(["\u064e", "u064f"]) # ـِي kasra followed by ي
+    sub "\u064f\u0648", "ō" # ـُو damma followed by و
+    sub "\u064e\u0627", "ā" # ـَا fatha followed by ا
+    sub "\u064e\u0649", "ay" # ـَى fatha followed by ى which is ا not ي
+    sub "\u064e\u0648\u0652", "aw" # ـَوْ
+    sub "\u064e\u0648", "ow" # ـَو
+    sub "\u064e\u064a\u0652", "ay" # ـَيْ
+    sub "\u0650\u06cc\u0651\u064e", "īy" # ـِيَّ
+    sub "\u064e\u064a", "aī" # ـَي
+    sub "\u064e\u06cc", "aī" # ـَي
+    sub "\u0649\u0670", "á" # ىٰ
+    sub "\u0674", "-e" # ٴ
+    sub "\u0654", "-e" #  ٔ
+    # - '-ye'
 
-    '\u0622' : 'â'  # آ
+    sub "\u0622", "â" # آ
 
     # ta' marboota
-    '\u0629' : 't' # ة in the middle of the sentence
-    '\u0629$' : 'h'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{2})\u0629' : 'h'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{3})\u0629' : 'h'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{4})\u0629' : 'h'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{5})\u0629' : 'h'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{6})\u0629' : 'h'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{7})\u0629' : 'h'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{8})\u0629' : 'h'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{9})\u0629' : 'h'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{10})\u0629' : 'h'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{11})\u0629' : 'h'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{12})\u0629' : 'h'
-    '(?<=\b\u0627\u0644[\u0600-\u06ff]{13})\u0629' : 'h'
-
-    # shadda
-    '\u0628' : 'bb'  # ب
-    '\u067E' : 'pp' # پ
-    '\u062a' : 'tt'  # ت
-    '\u062B' : 's̱s̱'   # ث
-    '\u062c' : 'jj'  # ج
-    '\u0686' : 'č̱č̱'  # ‫چ‬‬
-    '\u062d' : 'ḥḥ' # ح
-    '\u062e' : 'ḵḵ'  # خ
-    '\u062f' : 'dd'  # د
-    '\u0689' : 'ḏḏ' # ‫ډ‬
-    '\u0630' : 'ẕẕ'  # ذ
-    '\u0631' : 'rr'  # ر
-    '\u0632' : 'zz'  # ز
-    '\u0698' : 'zz'  # ‫ژ‬
-    '\u0633' : 'ss'  # س
-    '\u0634' : 'šš'  # ش
-    '\u0635' : 'ṣṣ'  # ص
-    '\u0636' : 'żż'  # ض
-    '\u0637' : 'ṭṭ'  # ط
-    '\u0638' : 'zz'  # ظ
-    '\u0639' : '‘'  # ع
-    '\u063a' : 'gh'  # غ
-    '\u0641' : 'ff'  # ف
-    '\u0642' : 'qq'  # ق
-    '\u06A9' : 'kk' # ک
-    '\u06AF' : 'gg' # ‫گ‬
-    '\u0644' : 'll'  # ل
-    '\u0645' : 'mm'  # م
-    '\u0646' : 'nn'  # ن
-    '\u0648' : 'vv'  # و
-    '\u0647' : 'hh'  # ه
-    '\u064a' : 'yy'  # ي
-    '\u0649' : 'yy'  # ي
-    '\u06D0' : 'ēē'   # ې
-    '\u06CD' : 'êy'  # ‫ۍ
+    sub "\u0629", "t" # ة in the middle of the sentence
+    sub "\u0629" + line_end, "h"
+    # TODO: simplify this
+    sub "\u0629", "h", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "h", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "h", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "h", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "h", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "h", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "h", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "h", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "h", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "h", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "h", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "h", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
 
     # Tanvin
-    '\u064b': '´´' #  ً
-    '\u064c': '' #  ٌ
-    '\u064d': '' #  ٍ
+    sub "\u064b", "´´" #  ً
+    sub "\u064c", "" #  ٌ
+    sub "\u064d", "" #  ٍ
 
     # hamzeh
-    '\u0621' : '’' # ء
-    '\u0623' : 'â’'  # أ
-    '\u0624' : 'v’'  # ؤ
-    '\u0626' : 'y’' # ئ
+    sub "\u0621", "’" # ء
+    sub "\u0623", "â’" # أ
+    sub "\u0624", "v’" # ؤ
+    sub "\u0626", "y’" # ئ
 
     # punctuation
 
-    '\u060c' : ',' # vavak comma
-    '\u061b' : ';' # nogteh vavak semi column
-    '\u061f' : '?' # neshane-ye porsesh question mark
+    sub "\u060c", "," # vavak comma
+    sub "\u061b", ";" # nogteh vavak semi column
+    sub "\u061f", "?" # neshane-ye porsesh question mark
 
-    '\u0625' : ''    # إ
-    '\u0627' : 'â'  # ا
+    sub "\u0625", "" # إ
+    sub "\u0627", "â" # ا
 
     # See note B
-    '\b\u0627\u0644' : 'al '  # ال
+    sub boundary + "\u0627\u0644", "al " # ال
     # '\uFE8E' : ''  # ﺎ
 
     # Sun letters
-    '\b\u0627\u0644\u062a' : 'at t'  # الت
-    '\b\u0627\u0644\u062b' : 'as̄ s̄'  # الث
-    '\b\u0627\u0644\u062f' : 'ad d' # الد
-    '\b\u0627\u0644\u0630' : 'az̄ z̄'  # الذ
-    '\b\u0627\u0644\u0631' : 'ar r' # الر
-    '\b\u0627\u0644\u0632' : 'az z'  # الز
-    '\b\u0627\u0644\u0633' : 'as s' # الس
-    '\b\u0627\u0644\u0634' : 'ash sh' # الش
-    '\b\u0627\u0644\u0635' : 'aş ş'  # الص
-    '\b\u0627\u0644\u0636' : 'aẕ ẕ'  # الض
-    '\b\u0627\u0644\u0637' : 'aţ ţ'  # الط
-    '\b\u0627\u0644\u0638' : 'az̧ z̧' # الظ
-    '\b\u0627\u0644\u0644' : 'al l'  # الل
-    '\b\u0627\u0644\u0646' : 'an n'  # الن
+    sub boundary + "\u0627\u0644\u062a", "at t" # الت
+    sub boundary + "\u0627\u0644\u062b", "as̄ s̄" # الث
+    sub boundary + "\u0627\u0644\u062f", "ad d" # الد
+    sub boundary + "\u0627\u0644\u0630", "az̄ z̄" # الذ
+    sub boundary + "\u0627\u0644\u0631", "ar r" # الر
+    sub boundary + "\u0627\u0644\u0632", "az z" # الز
+    sub boundary + "\u0627\u0644\u0633", "as s" # الس
+    sub boundary + "\u0627\u0644\u0634", "ash sh" # الش
+    sub boundary + "\u0627\u0644\u0635", "aş ş" # الص
+    sub boundary + "\u0627\u0644\u0636", "aẕ ẕ" # الض
+    sub boundary + "\u0627\u0644\u0637", "aţ ţ" # الط
+    sub boundary + "\u0627\u0644\u0638", "az̧ z̧" # الظ
+    sub boundary + "\u0627\u0644\u0644", "al l" # الل
+    sub boundary + "\u0627\u0644\u0646", "an n" # الن
 
     # consonant characters
 
-    '\u0628' : 'b'  # ب
-    '\u067E': 'p' # پ
-    '\u062a' : 't'  # ت
+    sub "\u0628", "b" # ب
+    sub "\u067E", "p" # پ
+    sub "\u062a", "t" # ت
     # '\u067C': 'ṯ'  # ټ
-    '\u062B': 's̱'   # ث
-    '\u062c' : 'j'  # ج
-    '\u0686': 'c'  # ‫چ‬
+    sub "\u062B", "s̱" # ث
+    sub "\u062c", "j" # ج
+    sub "\u0686", "c" # ‫چ‬
 
     # # The variant form ج is seen infrequently and does not have a
     # # single Unicode encoding.
@@ -330,37 +276,77 @@ map:
 
     # '\u0685': 'ts' # Note 2 # ‫څ
 
-    '\u062d' : 'ḥ' # ح
-    '\u062e' : 'ḵ'  # خ
-    '\u062f' : 'd'  # د
-    '\u0689' : 'ḏ' # ‫ډ‬
-    '\u0630' : 'ẕ'  # ذ
-    '\u0631' : 'r'  # ر
+    sub "\u062d", "ḥ" # ح
+    sub "\u062e", "ḵ" # خ
+    sub "\u062f", "d" # د
+    sub "\u0689", "ḏ" # ‫ډ‬
+    sub "\u0630", "ẕ" # ذ
+    sub "\u0631", "r" # ر
     # '\u0693' : 'ṟ'   # ړ
-    '\u0632' : 'z'  # ز
-    '\u0698' : 'z'  # ‫ژ‬
+    sub "\u0632", "z" # ز
+    sub "\u0698", "z" # ‫ژ‬
     # '\u0696' : 'z͟h'  # ږ
-    '\u0633' : 's'  # س
+    sub "\u0633", "s" # س
     # '\u069A' : 's͟h'  # ښ
-    '\u0634' : 'š'  # ش
-    '\u0635' : 'ṣ'  # ص
-    '\u0636' : 'ż'  # ض
-    '\u0637' : 'ṭ'  # ط
-    '\u0638' : 'z'  # ظ
-    '\u0639' : '‘'  # ع
-    '\u063a' : 'gh'  # غ
-    '\u0641' : 'f'  # ف
-    '\u0642' : 'q'  # ق
+    sub "\u0634", "š" # ش
+    sub "\u0635", "ṣ" # ص
+    sub "\u0636", "ż" # ض
+    sub "\u0637", "ṭ" # ط
+    sub "\u0638", "z" # ظ
+    sub "\u0639", "‘" # ع
+    sub "\u063a", "gh" # غ
+    sub "\u0641", "f" # ف
+    sub "\u0642", "q" # ق
     # '\u0643' : 'k'  # ك
-    '\u06A9' : 'k' # ک
-    '\u06AF' : 'g' # ‫گ‬
-    '\u0644' : 'l'  # ل
-    '\u0645' : 'm'  # م
-    '\u0646' : 'n'  # ن
+    sub "\u06A9", "k" # ک
+    sub "\u06AF", "g" # ‫گ‬
+    sub "\u0644", "l" # ل
+    sub "\u0645", "m" # م
+    sub "\u0646", "n" # ن
     # '\u06BC' : 'ṉ' # ڼ
-    '\u0648' : 'v'  # و
-    '\u0647' : 'h'  # ه
-    '\u064a' : 'y'  # ي
-    '\u0649' : 'y'  # ي
-    '\u06D0' : 'ē'   # ې
-    '\u06CD' : 'êy'  # ‫ۍ‬
+    sub "\u0648", "v" # و
+    sub "\u0647", "h" # ه
+    sub "\u064a", "y" # ي
+    sub "\u0649", "y" # ي
+    sub "\u06D0", "ē" # ې
+    sub "\u06CD", "êy" # ‫ۍ‬
+
+    # shadda
+    sub "\u0628", "bb" # ب
+    sub "\u067E", "pp" # پ
+    sub "\u062a", "tt" # ت
+    sub "\u062B", "s̱s̱" # ث
+    sub "\u062c", "jj" # ج
+    sub "\u0686", "č̱č̱" # ‫چ‬‬
+    sub "\u062d", "ḥḥ" # ح
+    sub "\u062e", "ḵḵ" # خ
+    sub "\u062f", "dd" # د
+    sub "\u0689", "ḏḏ" # ‫ډ‬
+    sub "\u0630", "ẕẕ" # ذ
+    sub "\u0631", "rr" # ر
+    sub "\u0632", "zz" # ز
+    sub "\u0698", "zz" # ‫ژ‬
+    sub "\u0633", "ss" # س
+    sub "\u0634", "šš" # ش
+    sub "\u0635", "ṣṣ" # ص
+    sub "\u0636", "żż" # ض
+    sub "\u0637", "ṭṭ" # ط
+    sub "\u0638", "zz" # ظ
+    sub "\u0639", "‘" # ع
+    sub "\u063a", "gh" # غ
+    sub "\u0641", "ff" # ف
+    sub "\u0642", "qq" # ق
+    sub "\u06A9", "kk" # ک
+    sub "\u06AF", "gg" # ‫گ‬
+    sub "\u0644", "ll" # ل
+    sub "\u0645", "mm" # م
+    sub "\u0646", "nn" # ن
+    sub "\u0648", "vv" # و
+    sub "\u0647", "hh" # ه
+    sub "\u064a", "yy" # ي
+    sub "\u0649", "yy" # ي
+    sub "\u06D0", "ēē" # ې
+    sub "\u06CD", "êy" # ‫ۍ
+  }
+
+}

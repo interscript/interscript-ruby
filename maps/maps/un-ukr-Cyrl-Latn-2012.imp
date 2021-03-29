@@ -1,162 +1,95 @@
----
-authority_id: un
-id: 2012
-language: iso-639-2:ukr
-source_script: Cyrl
-destination_script: Latn
-name: ROMANIZATION SYSTEM FOR BELARUSIAN, RUSSIAN AND UKRAINIAN CYRILLIC
-url: http://www.eki.ee/wgrs/rom1_uk.htm
-creation_date: 2010
+metadata {
+  authority_id: un
+  id: 2012
+  language: iso-639-2:ukr
+  source_script: Cyrl
+  destination_script: Latn
+  name: ROMANIZATION SYSTEM FOR BELARUSIAN, RUSSIAN AND UKRAINIAN CYRILLIC
+  url: http://www.eki.ee/wgrs/rom1_uk.htm
+  creation_date: 2010
+}
 
-tests:
-  - source: Алушта
-    expected: Alushta
-  - source: Андрій
-    expected: Andrii
-  - source: Борщагівка
-    expected: Borshchahivka
-  - source: Борисенко
-    expected: Borysenko
-  - source: Вінниця
-    expected: Vinnytsia
-  - source: Володимир
-    expected: Volodymyr
-  - source: Гадяч
-    expected: Hadiach
-  - source: Богдан
-    expected: Bohdan
-  - source: Згурський
-    expected: Zghurskyi
-  - source: Ґалаґан
-    expected: Galagan
-  - source: Ґорґани
-    expected: Gorgany
-  - source: Донецьк
-    expected: Donetsk
-  - source: Дмитро
-    expected: Dmytro
-  - source: Рівне
-    expected: Rivne
-  - source: Олег
-    expected: Oleh
-  - source: Есмань
-    expected: Esman
-  - source: Єнакієве
-    expected: Yenakiieve
-  - source: Гаєвич
-    expected: Haievych
-  - source: Короп'є
-    expected: Koropie
-  - source: Житомир
-    expected: Zhytomyr
-  - source: Жанна
-    expected: Zhanna
-  - source: Жежелів
-    expected: Zhezheliv
-  - source: Закарпаття
-    expected: Zakarpattia
-  - source: Казимирчук
-    expected: Kazymyrchuk
-  - source: Медвин
-    expected: Medvyn
-  - source: Михайленко
-    expected: Mykhailenko
-  - source: Іванків
-    expected: Ivankiv
-  - source: Іващенко
-    expected: Ivashchenko
-  - source: Їжакевич
-    expected: Yizhakevych
-  - source: Кадиївка
-    expected: Kadyivka
-  - source: Мар'їне
-    expected: Marine
-  - source: Йосипівка
-    expected: Yosypivka
-  - source: Стрий
-    expected: Stryi
-  - source: Олексій
-    expected: Oleksii
-  - source: Київ
-    expected: Kyiv
-  - source: Коваленко
-    expected: Kovalenko
-  - source: Лебедин
-    expected: Lebedyn
-  - source: Леонід
-    expected: Leonid
-  - source: Миколаїв
-    expected: Mykolaiv
-  - source: Маринич
-    expected: Marynych
-  - source: Ніжин
-    expected: Nizhyn
-  - source: Наталія
-    expected: Nataliia
-  - source: Одеса
-    expected: Odesa
-  - source: Онищенко
-    expected: Onyshchenko
-  - source: Полтава
-    expected: Poltava
-  - source: Петро
-    expected: Petro
-  - source: Решетилівка
-    expected: Reshetylivka
-  - source: Рибчинський
-    expected: Rybchynskyi
-  - source: Суми
-    expected: Sumy
-  - source: Соломія
-    expected: Solomiia
-  - source: Тернопіль
-    expected: Ternopil
-  - source: Троць
-    expected: Trots
-  - source: Ужгород
-    expected: Uzhhorod
-  - source: Уляна
-    expected: Uliana
-  - source: Фастів
-    expected: Fastiv
-  - source: Філіпчук
-    expected: Filipchuk
-  - source: Харків
-    expected: Kharkiv
-  - source: Христина
-    expected: Khrystyna
-  - source: Біла Церква
-    expected: Bila Tserkva
-  - source: Стеценко
-    expected: Stetsenko
-  - source: Чернівці
-    expected: Chernivtsi
-  - source: Шевченко
-    expected: Shevchenko
-  - source: Шостка
-    expected: Shostka
-  - source: Кишеньки
-    expected: Kyshenky
-  - source: Щербухи
-    expected: Shcherbukhy
-  - source: Гоща
-    expected: Hoshcha
-  - source: Гаращенко
-    expected: Harashchenko
-  - source: Яготин
-    expected: Yahotyn
-  - source: Ярошенко
-    expected: Yaroshenko
-  - source: Костянтин
-    expected: Kostiantyn
-  - source: Знам'янка
-    expected: Znamianka
-  - source: Феодосія
-    expected: Feodosiia
-  - source: Згорани
-    expected: Zghorany
-  - source: Розгон
-    expected: Rozghon
+tests {
+  test "Алушта", "Alushta"
+  test "Андрій", "Andrii"
+  test "Борщагівка", "Borshchahivka"
+  test "Борисенко", "Borysenko"
+  test "Вінниця", "Vinnytsia"
+  test "Володимир", "Volodymyr"
+  test "Гадяч", "Hadiach"
+  test "Богдан", "Bohdan"
+  test "Згурський", "Zghurskyi"
+  test "Ґалаґан", "Galagan"
+  test "Ґорґани", "Gorgany"
+  test "Донецьк", "Donetsk"
+  test "Дмитро", "Dmytro"
+  test "Рівне", "Rivne"
+  test "Олег", "Oleh"
+  test "Есмань", "Esman"
+  test "Єнакієве", "Yenakiieve"
+  test "Гаєвич", "Haievych"
+  test "Короп'є", "Koropie"
+  test "Житомир", "Zhytomyr"
+  test "Жанна", "Zhanna"
+  test "Жежелів", "Zhezheliv"
+  test "Закарпаття", "Zakarpattia"
+  test "Казимирчук", "Kazymyrchuk"
+  test "Медвин", "Medvyn"
+  test "Михайленко", "Mykhailenko"
+  test "Іванків", "Ivankiv"
+  test "Іващенко", "Ivashchenko"
+  test "Їжакевич", "Yizhakevych"
+  test "Кадиївка", "Kadyivka"
+  test "Мар'їне", "Marine"
+  test "Йосипівка", "Yosypivka"
+  test "Стрий", "Stryi"
+  test "Олексій", "Oleksii"
+  test "Київ", "Kyiv"
+  test "Коваленко", "Kovalenko"
+  test "Лебедин", "Lebedyn"
+  test "Леонід", "Leonid"
+  test "Миколаїв", "Mykolaiv"
+  test "Маринич", "Marynych"
+  test "Ніжин", "Nizhyn"
+  test "Наталія", "Nataliia"
+  test "Одеса", "Odesa"
+  test "Онищенко", "Onyshchenko"
+  test "Полтава", "Poltava"
+  test "Петро", "Petro"
+  test "Решетилівка", "Reshetylivka"
+  test "Рибчинський", "Rybchynskyi"
+  test "Суми", "Sumy"
+  test "Соломія", "Solomiia"
+  test "Тернопіль", "Ternopil"
+  test "Троць", "Trots"
+  test "Ужгород", "Uzhhorod"
+  test "Уляна", "Uliana"
+  test "Фастів", "Fastiv"
+  test "Філіпчук", "Filipchuk"
+  test "Харків", "Kharkiv"
+  test "Христина", "Khrystyna"
+  test "Біла Церква", "Bila Tserkva"
+  test "Стеценко", "Stetsenko"
+  test "Чернівці", "Chernivtsi"
+  test "Шевченко", "Shevchenko"
+  test "Шостка", "Shostka"
+  test "Кишеньки", "Kyshenky"
+  test "Щербухи", "Shcherbukhy"
+  test "Гоща", "Hoshcha"
+  test "Гаращенко", "Harashchenko"
+  test "Яготин", "Yahotyn"
+  test "Ярошенко", "Yaroshenko"
+  test "Костянтин", "Kostiantyn"
+  test "Знам'янка", "Znamianka"
+  test "Феодосія", "Feodosiia"
+  test "Згорани", "Zghorany"
+  test "Розгон", "Rozghon"
+}
 
-map:
-  inherit: ua-ukr-Cyrl-Latn-2010
+dependency "ua-ukr-Cyrl-Latn-2010", as: cyrllatn
+
+stage {
+
+  run map.cyrllatn.stage.main
+
+}

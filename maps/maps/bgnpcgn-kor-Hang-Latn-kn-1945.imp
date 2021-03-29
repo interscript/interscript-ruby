@@ -1,253 +1,177 @@
----
-authority_id: bgnpcgn
-id: kn-1945
-language: iso-639-2:kor
-source_script: Hang
-destination_script: Latn
-name: BGN/PCGN 1945 Agreement
-url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/693725/ROMANIZATION_OF_KOREAN-_MR_for_DPRK.pdf
-creation_date: 1945
-adoption_date:
-description:
+metadata {
+  authority_id: bgnpcgn
+  id: kn-1945
+  language: iso-639-2:kor
+  source_script: Hang
+  destination_script: Latn
+  name: BGN/PCGN 1945 Agreement
+  url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/693725/ROMANIZATION_OF_KOREAN-_MR_for_DPRK.pdf
+  creation_date: 1945
+  adoption_date:
+  description:
 
-notes: "
+  notes: "
 
-  1. At the end of a syllable, the character ᄋ should be romanized ng,
-     as in the following example:
+    1. At the end of a syllable, the character ᄋ should be romanized ng,
+       as in the following example:
 
-     평양 → P’yŏngyang
+       평양 → P’yŏngyang
 
-     At the beginning of a syllable, the character ᄋ is silent and
-     should not be romanized. An example follows:
+       At the beginning of a syllable, the character ᄋ is silent and
+       should not be romanized. An example follows:
 
-     용화 → Yonghwa
+       용화 → Yonghwa
 
-  2. Syllable boundaries within words are not reflected in romanization.
-     In the different types of syllables shown in the table below, C
-     represents any consonant character, V represents any vowel character
-     and / represents a syllable boundary.
+    2. Syllable boundaries within words are not reflected in romanization.
+       In the different types of syllables shown in the table below, C
+       represents any consonant character, V represents any vowel character
+       and / represents a syllable boundary.
 
-       Han’gŭl              개성      남포      안양
-       Syllable boundaries  CV/CVC   CVC/CV   VC/VC
-       Romanization         Kaesŏng  Namp’o   Anyang
+         Han’gŭl              개성      남포      안양
+         Syllable boundaries  CV/CVC   CVC/CV   VC/VC
+         Romanization         Kaesŏng  Namp’o   Anyang
 
-  3. Euphonic changes occurring within a word, including between the
-     specific and generic of a geographical name, should be reflected in
-     romanization. Generic terms are usually seen separated from the name
-     by a hyphen and with a lower case initial letter rather than as a
-     separate word:
+    3. Euphonic changes occurring within a word, including between the
+       specific and generic of a geographical name, should be reflected in
+       romanization. Generic terms are usually seen separated from the name
+       by a hyphen and with a lower case initial letter rather than as a
+       separate word:
 
-       영진리 → Yŏngjil-li
-       덕흥리 → Tŏkhŭng-ni
-       압록강 → Amnok-kang
-       대동강 → Taedong-gang
+         영진리 → Yŏngjil-li
+         덕흥리 → Tŏkhŭng-ni
+         압록강 → Amnok-kang
+         대동강 → Taedong-gang
 
-  4. As a result of 조선말규범집 (‘Standard Korean Language’ guidelines
-     published in North Korea in 1966), unlike the Korean spoken in the
-     Republic of Korea, the language spoken in the Democratic People’s
-     Republic of Korea maintains and pronounces the word-initial ᆯ (‘r’).
-     The use of the word-initial ᄅ ('r') can be seen in official news
-     reports as well as native mapping. Since such examples exist, the
-     word initial ᄅ ('r') is reflected as an option in the tables given above.
+    4. As a result of 조선말규범집 (‘Standard Korean Language’ guidelines
+       published in North Korea in 1966), unlike the Korean spoken in the
+       Republic of Korea, the language spoken in the Democratic People’s
+       Republic of Korea maintains and pronounces the word-initial ᆯ (‘r’).
+       The use of the word-initial ᄅ ('r') can be seen in official news
+       reports as well as native mapping. Since such examples exist, the
+       word initial ᄅ ('r') is reflected as an option in the tables given above.
 
-  5. The Romanization column shows only lowercase forms but, when romanizing,
-     uppercase and lowercase Roman letters as appropriate should be used.
-  "
+    5. The Romanization column shows only lowercase forms but, when romanizing,
+       uppercase and lowercase Roman letters as appropriate should be used.
+    "
+}
 
-tests:
-  - source: "평양"
-    expected: "P’yŏngyang"
-  - source: "용화"
-    expected: "Yonghwa"
-  - source: "개성"
-    expected: "Kaesŏng"
-  - source: "남포"
-    expected: "Namp’o"
-  - source: "안양"
-    expected: "Anyang"
-  - source: "영진-리"
-    expected: "Yŏngjil-li"
-  - source: "덕흥-리"
-    expected: "Tŏkhŭng-ni"
-  - source: "압록-강"
-    expected: "Amnok-kang"
-  - source: "대동-강"
-    expected: "Taedong-gang"
-  - source: "라선특별시"
-    expected: "Rasŏnt’ŭkpyŏlsi"
-  - source: 은하-리
-    expected: "Ŭnha-ri"
-  - source: 은중-리
-    expected: "Ŭnjung-ni"
-  - source: 은장-령
-    expected: "Ŭnjang-nyŏng"
-  - source: 은혜-동
-    expected: "Ŭnhye-dong"
-  - source: 은호-리
-    expected: "Ŭnho-ri"
-  - source: 은행정
-    expected: "Ŭnhaengjŏng"
-  - source: 은행-동
-    expected: "Ŭnhaeng-dong"
-  - source: 은행-촌
-    expected: "Ŭnhaeng-ch’on"
-  - source: 원수
-    expected: "Wŏnsu"
-  - source: 원소리-고개
-    expected: "Wŏnsori-gogae"
-  - source: 원소참
-    expected: "Wŏnsoch’am"
-  - source: 원소-리
-    expected: "Wŏnso-ri"
-  - source: 원신-리
-    expected: "Wŏnsil-li"
-  - source: 난곡
-    expected: "Nan’gok"
-  - source: 난산-리
-    expected: "Nansal-li"
-  - source: 난직
-    expected: "Nanjik"
-  - source: 영곡
-    expected: "Yŏnggok"
-  - source: 윗두밀
-    expected: "Wittumil"
-  - source: 윗도심이
-    expected: "Wittosimi"
-  - source: 둔지
-    expected: "Tunji"
-  - source: 서승
-    expected: "Sŏsŭng"
-  - source: 신촌
-    expected: "Sinch’on"
-  - source: 비암덕
-    expected: "Piamdŏk"
-  - source: 바위안
-    expected: "Pawian"
-  - source: 오송평
-    expected: "Osongp’yŏng"
-  - source: 그물목
-    expected: "Kŭmulmok"
-  - source: 구원정
-    expected: "Kuwŏnjŏng"
-  - source: 일하
-    expected: "Irha"
-  - source: 황우
-    expected: "Hwangu"
-  - source: 자작보
-    expected: "Chajakpo"
-  - source: 비파1-동
-    expected: "Pip’a Il-tong"
-  - source: 문암 오-동
-    expected: "Munam O-dong"
+tests {
+  test "평양", "P’yŏngyang"
+  test "용화", "Yonghwa"
+  test "개성", "Kaesŏng"
+  test "남포", "Namp’o"
+  test "안양", "Anyang"
+  test "영진-리", "Yŏngjil-li"
+  test "덕흥-리", "Tŏkhŭng-ni"
+  test "압록-강", "Amnok-kang"
+  test "대동-강", "Taedong-gang"
+  test "라선특별시", "Rasŏnt’ŭkpyŏlsi"
+  test "은하-리", "Ŭnha-ri"
+  test "은중-리", "Ŭnjung-ni"
+  test "은장-령", "Ŭnjang-nyŏng"
+  test "은혜-동", "Ŭnhye-dong"
+  test "은호-리", "Ŭnho-ri"
+  test "은행정", "Ŭnhaengjŏng"
+  test "은행-동", "Ŭnhaeng-dong"
+  test "은행-촌", "Ŭnhaeng-ch’on"
+  test "원수", "Wŏnsu"
+  test "원소리-고개", "Wŏnsori-gogae"
+  test "원소참", "Wŏnsoch’am"
+  test "원소-리", "Wŏnso-ri"
+  test "원신-리", "Wŏnsil-li"
+  test "난곡", "Nan’gok"
+  test "난산-리", "Nansal-li"
+  test "난직", "Nanjik"
+  test "영곡", "Yŏnggok"
+  test "윗두밀", "Wittumil"
+  test "윗도심이", "Wittosimi"
+  test "둔지", "Tunji"
+  test "서승", "Sŏsŭng"
+  test "신촌", "Sinch’on"
+  test "비암덕", "Piamdŏk"
+  test "바위안", "Pawian"
+  test "오송평", "Osongp’yŏng"
+  test "그물목", "Kŭmulmok"
+  test "구원정", "Kuwŏnjŏng"
+  test "일하", "Irha"
+  test "황우", "Hwangu"
+  test "자작보", "Chajakpo"
+  test "비파1-동", "Pip’a Il-tong"
+  test "문암 오-동", "Munam O-dong"
+}
 
-map:
-  character_separator: ""
-  word_separator: " "
-  title_case: True
-  inherit: [var-kor-Hang-Latn-mr-1939]
+dependency "var-kor-Hang-Latn-mr-1939", as: hanglatn
 
-  rules:
-    # Add Zero-width White-space U+200B after spaces (i.e. before word boundaries)
-    # So that the word-initial conversion rules will be blocked.
-    - pattern: "^"
-      result: "\u200B"
-    - pattern: "(?<= )"
-      result: "\u200B"
 
-    # convert numbers to space + Hangul
-    - pattern: "([^0-9 ])(?=[0-9])"
-      result: "\\1 "
-    - pattern: "1"
-      result: "일"
-    - pattern: "2"
-      result: "이"
-    - pattern: "3"
-      result: "삼"
-    - pattern: "4"
-      result: "사"
-    - pattern: "5"
-      result: "오"
-    - pattern: "6"
-      result: "육"
-    - pattern: "7"
-      result: "칠"
-    - pattern: "8"
-      result: "팔"
-    - pattern: "9"
-      result: "구"
+stage {
 
-    # This is a logic to add hyphen in front of generics
-    # - pattern: "(?<=.)(구역|동|리|도|고개|골|로동자구|사무소|초등학교|중학교|고등학교|강|포|령|역|봉|사|천|교|제|저수지|소류지|재|못|말|면|암|교회|촌|병원|바위|공원|섬|우체국|대학교|보건소|굴|치|대교|지구|폭포|해수욕장|휴게소|중고교|읍|보건진료소|마을|톨게이트|대학|시장|경찰서|학교)$" #to be expanded
-    #   result: "-\\1"
+  # RULES
+  # Add Zero-width White-space U+200B after spaces (i.e. before word boundaries)
+  # So that the word-initial conversion rules will be blocked.
+  sub line_start, "\u200B"
+  sub "", "\u200B", before: " "
 
-  postrules:
+  # convert numbers to space + Hangul
+  sub capture(any([any("0".."9") + " "])), ref( 1 ) + " ", after: any("0".."9")
+  sub "1", " 일"
+  sub "2", " 이"
+  sub "3", " 삼"
+  sub "4", " 사"
+  sub "5", " 오"
+  sub "6", " 육"
+  sub "7", " 칠"
+  sub "8", " 팔"
+  sub "9", " 구"
 
-    # Add space to the two ends of the string for easier word boundary handling
-    - pattern: "^"
-      result: " "
-    - pattern: "$"
-      result: " "
+  # This is a logic to add hyphen in front of generics
+  # - pattern: "(?<=.)(구역|동|리|도|고개|골|로동자구|사무소|초등학교|중학교|고등학교|강|포|령|역|봉|사|천|교|제|저수지|소류지|재|못|말|면|암|교회|촌|병원|바위|공원|섬|우체국|대학교|보건소|굴|치|대교|지구|폭포|해수욕장|휴게소|중고교|읍|보건진료소|마을|톨게이트|대학|시장|경찰서|학교)$" #to be expanded
+  #   result: "-\\1"
 
-    # Initial rules in the inherited map were blocked, so that
-    # this set of updated rules (with the onset rules removed) will be used instead.
-    - pattern: "\u200B"
-      result: ""
 
-    - pattern: "(?<= )ᄀ"
-      result: "k" # HANGUL CHOSEONG KIYEOK
-    - pattern: "(?<= )ᄂ"
-      result: "n" # HANGUL CHOSEONG NIEUN
-    - pattern: "(?<= )ᄃ(?=[ᅵᅣᅤᅧᅨᅭᅲ])"
-      result: "ch" # HANGUL CHOSEONG TIEUT # T -> Ch before yotized vowels
-    - pattern: "(?<= )ᄃ"
-      result: "t" # HANGUL CHOSEONG TIEUT
-    - pattern: "(?<= )ᄅ"
-      result: "r" # HANGUL CHOSEONG RIEUL
-    - pattern: "(?<= )ᄆ"
-      result: "m" # HANGUL CHOSEONG MIEUM
-    - pattern: "(?<= )ᄇ"
-      result: "p" # HANGUL CHOSEONG PIEUP
-    - pattern: "(?<= )ᄉ(?=ᅱ)"
-      result: "sh" # HANGUL CHOSEONG SIOS
-    - pattern: "(?<= )ᄉ"
-      result: "s" # HANGUL CHOSEONG SIOS
-    - pattern: "(?<= )ᄋ"
-      result: "" # HANGUL CHOSEONG IEUNG
-    - pattern: "(?<= )ᄌ"
-      result: "ch" # HANGUL CHOSEONG CIEUC
-    - pattern: "(?<= )ᄎ"
-      result: "ch’" # HANGUL CHOSEONG CHIEUCH
-    - pattern: "(?<= )ᄏ"
-      result: "k’" # HANGUL CHOSEONG KHIEUKH
-    - pattern: "(?<= )ᄐ(?=[ᅵᅣᅤᅧᅨᅭᅲ])"
-      result: "ch’" # HANGUL CHOSEONG THIEUTH + YOTIZED VOWELS
-    - pattern: "(?<= )ᄐ"
-      result: "t’" # HANGUL CHOSEONG THIEUTH
-    - pattern: "(?<= )ᄑ"
-      result: "p’" # HANGUL CHOSEONG PHIEUPH
-    - pattern: "(?<= )ᄒ"
-      result: "h" # HANGUL CHOSEONG HIEUH
-    - pattern: "(?<= )ᄁ"
-      result: "kk" # HANGUL CHOSEONG SSANGKIYEOK
-    - pattern: "(?<= )ᄭ"
-      result: "kk" # HANGUL CHOSEONG SIOS-KIYEOK
-    - pattern: "(?<= )ᄄ"
-      result: "tt" # HANGUL CHOSEONG SSANGTIEUT
-    - pattern: "(?<= )ᄯ"
-      result: "tt" # HANGUL CHOSEONG SIOS-TIEUT
-    - pattern: "(?<= )ᄈ"
-      result: "pp" # HANGUL CHOSEONG SSANGPIEUP
-    - pattern: "(?<= )ᄲ"
-      result: "pp" # HANGUL CHOSEONG SIOS-PIEUP
-    - pattern: "(?<= )ᄊ"
-      result: "ss" # HANGUL CHOSEONG SSANGSIOS
-    - pattern: "(?<= )ᄍ"
-      result: "tch" # HANGUL CHOSEONG SSANGCIEUC
-    - pattern: "(?<= )ᄶ"
-      result: "tch" # HANGUL CHOSEONG SIOS-CIEUC
+  run map.hanglatn.stage.main
 
-    # Remove space added
-    - pattern: "^ "
-      result: ""
-    - pattern: " $"
-      result: ""
+
+  # POSTRULES
+
+  # Add space to the two ends of the string for easier word boundary handling
+  sub line_start, " "
+  sub line_end, " "
+
+  # Initial rules in the inherited map were blocked, so that
+  # this set of updated rules (with the onset rules removed) will be used instead.
+  sub "\u200B", ""
+
+  sub "ᄀ", "k", before: " " # HANGUL CHOSEONG KIYEOK
+  sub "ᄂ", "n", before: " " # HANGUL CHOSEONG NIEUN
+  sub "ᄃ", "ch", before: " ", after: any("ᅵᅣᅤᅧᅨᅭᅲ") # HANGUL CHOSEONG TIEUT # T -> Ch before yotized vowels
+  sub "ᄃ", "t", before: " " # HANGUL CHOSEONG TIEUT
+  sub "ᄅ", "r", before: " " # HANGUL CHOSEONG RIEUL
+  sub "ᄆ", "m", before: " " # HANGUL CHOSEONG MIEUM
+  sub "ᄇ", "p", before: " " # HANGUL CHOSEONG PIEUP
+  sub "ᄉ", "sh", before: " ", after: "ᅱ" # HANGUL CHOSEONG SIOS
+  sub "ᄉ", "s", before: " " # HANGUL CHOSEONG SIOS
+  sub "ᄋ", "", before: " " # HANGUL CHOSEONG IEUNG
+  sub "ᄌ", "ch", before: " " # HANGUL CHOSEONG CIEUC
+  sub "ᄎ", "ch’", before: " " # HANGUL CHOSEONG CHIEUCH
+  sub "ᄏ", "k’", before: " " # HANGUL CHOSEONG KHIEUKH
+  sub "ᄐ", "ch’", before: " ", after: any("ᅵᅣᅤᅧᅨᅭᅲ") # HANGUL CHOSEONG THIEUTH + YOTIZED VOWELS
+  sub "ᄐ", "t’", before: " " # HANGUL CHOSEONG THIEUTH
+  sub "ᄑ", "p’", before: " " # HANGUL CHOSEONG PHIEUPH
+  sub "ᄒ", "h", before: " " # HANGUL CHOSEONG HIEUH
+  sub "ᄁ", "kk", before: " " # HANGUL CHOSEONG SSANGKIYEOK
+  sub "ᄭ", "kk", before: " " # HANGUL CHOSEONG SIOS-KIYEOK
+  sub "ᄄ", "tt", before: " " # HANGUL CHOSEONG SSANGTIEUT
+  sub "ᄯ", "tt", before: " " # HANGUL CHOSEONG SIOS-TIEUT
+  sub "ᄈ", "pp", before: " " # HANGUL CHOSEONG SSANGPIEUP
+  sub "ᄲ", "pp", before: " " # HANGUL CHOSEONG SIOS-PIEUP
+  sub "ᄊ", "ss", before: " " # HANGUL CHOSEONG SSANGSIOS
+  sub "ᄍ", "tch", before: " " # HANGUL CHOSEONG SSANGCIEUC
+  sub "ᄶ", "tch", before: " " # HANGUL CHOSEONG SIOS-CIEUC
+
+  # Remove space added
+  sub line_start + " ", ""
+  sub " " + line_end, ""
+
+  title_case
+  compose
+}

@@ -1,92 +1,75 @@
----
-authority_id: ggg
-id: 2002
-language: iso-639-2:kat
-source_script: Geor
-destination_script: Latn
-name: Georgian State Department of Geodesy and Cartography 2002 System
-alias:
-  ogc11122:
-    code: kat_Geor2Latn_GGG_2002
-    description: Georgian State Department of Geodesy and Cartography 2002 System
-url: https://transliteration.eki.ee/pdf/Georgian.pdf
-creation_date: 1998
-confirmation_date: 2002
-description: |
-  The national system of romanization adopted in February 2002 by the State
-  Department of Geodesy and Cartography of Georgia and the Institute
-  of Linguistics, Georgian Academy of Sciences.
+metadata {
+  authority_id: ggg
+  id: 2002
+  language: iso-639-2:kat
+  source_script: Geor
+  destination_script: Latn
+  name: Georgian State Department of Geodesy and Cartography 2002 System
+  url: https://transliteration.eki.ee/pdf/Georgian.pdf
+  creation_date: 1998
+  confirmation_date: 2002
+  description: |
+    The national system of romanization adopted in February 2002 by the State
+    Department of Geodesy and Cartography of Georgia and the Institute
+    of Linguistics, Georgian Academy of Sciences.
+  
+  notes:
+    - Georgian script refers in this document to the Mkhedruli alphabet.
+  
+    - There is no case in Georgian.
+}
 
-notes:
-  - Georgian script refers in this document to the Mkhedruli alphabet.
+tests {
+  test "თბილისი", "tbilisi"
+  test "მეღვინეთუხუცესი", "meghvinetukhutsesi"
+  test "ჭიანჭველა", "ch’ianch’vela"
+  test "ბაყაყი", "baq’aq’i"
+  test "ჩხალთის ქედი", "chkhaltis kedi"
+  test "აბჟააფთრა", "abzhaaptra"
+  test "ამბროლაურის მუნიციპალიტეტი", "ambrolauris munitsip’alit’et’i"
+  test "მარტვილის მუნიციპალიტეტი", "mart’vilis munitsip’alit’et’i"
+  test "ლეკუხონა", "lek’ukhona"
+  test "მყინვარი აღმოსავლეთი მაგუაშირხა", "mq’invari aghmosavleti maguashirkha"
+}
 
-  - There is no case in Georgian.
+stage {
 
-tests:
-  - source: თბილისი
-    expected: tbilisi
+  # CHARACTERS
+  parallel {
+    sub "\u10d0", "a" # ა
+    sub "\u10d1", "b" # ბ
+    sub "\u10d2", "g" # გ
+    sub "\u10d3", "d" # დ
+    sub "\u10d4", "e" # ე
+    sub "\u10d5", "v" # ვ
+    sub "\u10d6", "z" # ზ
+    sub "\u10d7", "t" # თ
+    sub "\u10d8", "i" # ი
+    sub "\u10d9", "k’" # კ
+    sub "\u10da", "l" # ლ
+    sub "\u10db", "m" # მ
+    sub "\u10dc", "n" # ნ
+    sub "\u10dd", "o" # ო
+    sub "\u10de", "p’" # პ
+    sub "\u10df", "zh" # ჟ
+    sub "\u10e0", "r" # რ
+    sub "\u10e1", "s" # ს
+    sub "\u10e2", "t’" # ტ
+    sub "\u10e3", "u" # უ
+    sub "\u10e4", "p" # ფ
+    sub "\u10e5", "k" # ქ
+    sub "\u10e6", "gh" # ღ
+    sub "\u10e7", "q’" # ყ
+    sub "\u10e8", "sh" # შ
+    sub "\u10e9", "ch" # ჩ
+    sub "\u10ea", "ts" # ც
+    sub "\u10eb", "dz" # ძ
+    sub "\u10ec", "ts’" # წ
+    sub "\u10ed", "ch’" # ჭ
+    sub "\u10ee", "kh" # ხ
+    sub "\u10ef", "j" # ჯ
+    sub "\u10f0", "h" # ჰ
+  }
 
-  - source: მეღვინეთუხუცესი
-    expected: meghvinetukhutsesi
+}
 
-  - source: ჭიანჭველა
-    expected: ch’ianch’vela
-
-  - source: ბაყაყი
-    expected: baq’aq’i
-
-  - source: ჩხალთის ქედი
-    expected: chkhaltis kedi
-
-  - source: აბჟააფთრა
-    expected: abzhaaptra
-
-  - source: ამბროლაურის მუნიციპალიტეტი
-    expected: ambrolauris munitsip’alit’et’i
-
-  - source: მარტვილის მუნიციპალიტეტი
-    expected: mart’vilis munitsip’alit’et’i
-
-  - source: ლეკუხონა
-    expected: lek’ukhona
-
-  - source: მყინვარი აღმოსავლეთი მაგუაშირხა
-    expected: mq’invari aghmosavleti maguashirkha
-
-
-
-map:
-  characters:
-    '\u10d0' : 'a' # ა
-    '\u10d1' : 'b' # ბ
-    '\u10d2' : 'g' # გ
-    '\u10d3' : 'd' # დ
-    '\u10d4' : 'e' # ე
-    '\u10d5' : 'v' # ვ
-    '\u10d6' : 'z' # ზ
-    '\u10d7' : 't' # თ
-    '\u10d8' : 'i' # ი
-    '\u10d9' : 'k’' # კ
-    '\u10da' : 'l' # ლ
-    '\u10db' : 'm' # მ
-    '\u10dc' : 'n' # ნ
-    '\u10dd' : 'o' # ო
-    '\u10de' : 'p’' # პ
-    '\u10df' : 'zh' # ჟ
-    '\u10e0' : 'r' # რ
-    '\u10e1' : 's' # ს
-    '\u10e2' : 't’' # ტ
-    '\u10e3' : 'u' # უ
-    '\u10e4' : 'p' # ფ
-    '\u10e5' : 'k' # ქ
-    '\u10e6' : 'gh' # ღ
-    '\u10e7' : 'q’' # ყ
-    '\u10e8' : 'sh' # შ
-    '\u10e9' : 'ch' # ჩ
-    '\u10ea' : 'ts' # ც
-    '\u10eb' : 'dz' # ძ
-    '\u10ec' : 'ts’' # წ
-    '\u10ed' : 'ch’' # ჭ
-    '\u10ee' : 'kh' # ხ
-    '\u10ef' : 'j' # ჯ
-    '\u10f0' : 'h' # ჰ

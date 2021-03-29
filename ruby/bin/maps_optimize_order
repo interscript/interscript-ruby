@@ -1,0 +1,112 @@
+#!/usr/bin/env ruby
+ENV["INTERSCRIPT_STAGING"] = "1"
+require "bundler/setup"
+require "interscript"
+require "interscript/compiler/ruby"
+
+$map_name = ARGV[0]
+
+if $map_name
+  filelist  = [ __dir__+"/../../maps/maps-staging/#{$map_name}.imp" ]
+else
+  filelist = Dir[__dir__+"/../../maps/maps-staging/*.imp"].sort
+end
+
+
+# levenshtein distance algorithm for comparing string similarity
+def ld(s, t)
+  v0 = (0..t.length).to_a
+  v1 = []
+  #p v0
+
+  s.chars.each_with_index do |s_ch, i|
+    v1[0] = i + 1
+
+    t.chars.each_with_index do |t_ch, j|
+      cost = s_ch == t_ch ? 0 : 1
+      v1[j + 1] = [v1[j] + 1, v0[j + 1] + 1, v0[j] + cost].min
+    end
+    v0 = v1.dup
+    #p v1
+  end
+
+  v0[t.length]
+end
+
+
+def score_order( system, order )
+  interpreter = Marshal.load( Marshal.dump(  $interpreter ))
+  parallel = interpreter.map.stages[:main].children.select{|x| Interscript::Node::Group::Parallel === x}[0]
+  parallel.apply_order(order)
+  interpreter.map.stages[:main].children[$parallel_idx].children = parallel.children.compact  #.reorder_children(source,target)
+  delta_sum = 0
+  errors = []
+  system.tests.data.each do |from, expected|
+    result = interpreter.(from)
+    delta = ld(expected, result)
+    errors << [expected, result] if delta != 0
+    delta_sum += delta
+  end;
+  [delta_sum, errors]
+end
+
+
+def mutate_order(order)
+  order2 = order.dup
+  a = rand(order2.size)
+  b = rand(order2.size)
+  order2[a], order2[b] = order2[b], order2[a]
+  order2
+end
+
+for i in filelist
+
+  begin
+    system_name = File.basename(i, ".imp")
+    puts "\ndebugging #{system_name}"
+
+    system = Interscript.parse(system_name);
+    if system.tests && system.tests.data && system.tests.data.length > 0
+
+    $interpreter = Interscript::Interpreter.new.compile(system);
+    $orig_parallel = $interpreter.map.stages[:main].children.select{|x| Interscript::Node::Group::Parallel === x}[0].dup;
+    $parallel_idx = $interpreter.map.stages[:main].children.each_with_index.select{|x,i| Interscript::Node::Group::Parallel === x}.map{|x,i| i}[0]
+    next if !$parallel_idx
+    starting_score, starting_errors = score_order(system,  $orig_parallel.children.size.times.to_a)
+    parallel_size = $interpreter.map.stages[:main].children.select{|x| Interscript::Node::Group::Parallel === x}[0].children.size
+
+    puts "starting_score = #{starting_score}"
+    best_score = starting_score
+    best_errors = starting_errors
+    curr_order = $orig_parallel.children.size.times.to_a.shuffle
+    #curr_order = [28, 308, 61, 87, 29, 147, 124, 22, 373, 186, 336, 19, 405, 387, 215, 209, 131, 30, 60, 343, 34, 380, 189, 53, 300, 286, 162, 31, 33, 218, 90, 51, 293, 226, 56, 305, 142, 102, 346, 222, 126, 338, 50, 52, 363, 144, 136, 16, 388, 221, 267, 63, 352, 365, 251, 78, 68, 328, 69, 12, 67, 317, 334, 94, 366, 412, 302, 243, 311, 318, 281, 274, 143, 236, 386, 135, 280, 167, 173, 291, 271, 309, 73, 20, 157, 331, 43, 242, 65, 351, 134, 151, 0, 285, 211, 417, 220, 179, 91, 353, 255, 141, 23, 104, 413, 409, 256, 326, 180, 140, 24, 348, 261, 5, 99, 47, 35, 358, 177, 123, 277, 396, 114, 213, 116, 188, 217, 249, 419, 120, 289, 330, 110, 118, 176, 113, 278, 127, 313, 55, 370, 48, 364, 171, 244, 407, 57, 371, 128, 196, 103, 202, 294, 239, 283, 299, 237, 394, 81, 230, 97, 46, 109, 337, 355, 240, 195, 100, 204, 389, 146, 153, 121, 183, 137, 159, 254, 231, 3, 101, 290, 323, 148, 359, 250, 25, 40, 219, 119, 169, 378, 282, 377, 238, 130, 279, 385, 58, 41, 115, 197, 382, 193, 225, 199, 6, 59, 208, 93, 138, 11, 15, 37, 38, 27, 354, 175, 411, 83, 89, 368, 216, 301, 168, 401, 84, 235, 333, 246, 284, 372, 155, 105, 339, 228, 342, 122, 161, 316, 145, 272, 321, 80, 315, 163, 107, 288, 227, 191, 306, 310, 76, 85, 132, 2, 320, 36, 13, 74, 233, 72, 381, 269, 70, 402, 86, 95, 111, 8, 383, 314, 10, 200, 203, 292, 241, 212, 374, 234, 369, 422, 42, 357, 18, 49, 214, 9, 156, 129, 258, 259, 190, 79, 367, 414, 201, 166, 270, 319, 332, 4, 184, 187, 164, 395, 325, 88, 245, 185, 71, 400, 275, 312, 324, 1, 224, 45, 205, 404, 260, 392, 253, 273, 416, 96, 408, 112, 349, 393, 345, 152, 329, 420, 410, 14, 361, 7, 257, 207, 194, 298, 17, 98, 340, 391, 399, 397, 82, 263, 376, 158, 327, 406, 265, 418, 322, 77, 92, 266, 262, 44, 360, 172, 403, 350, 66, 384, 247, 139, 181, 198, 248, 232, 32, 295, 106, 160, 287, 379, 341, 344, 421, 182, 375, 307, 415, 64, 75, 297, 125, 276, 223, 149, 26, 398, 303, 154, 133, 210, 150, 206, 174, 62, 170, 390, 54, 347, 39, 229, 178, 296, 108, 21, 165, 268, 264, 356, 304, 192, 252, 117, 335, 362]
+
+    best_order = curr_order.dup
+    while true
+      
+      curr_score, curr_errors = score_order(system, curr_order)
+      #print "#{source} <-> #{target} = #{curr_score}; "
+      puts Time.now.inspect
+      puts best_order.inspect
+      puts curr_score
+      puts best_errors.inspect
+      puts best_score
+      puts ''
+
+      if curr_score < best_score
+        puts ''
+        best_score = curr_score.dup
+        best_order = curr_order.dup
+        best_errors = curr_errors.dup
+      end
+      curr_order = mutate_order(best_order)
+    end
+    end
+  rescue Exception => e
+    puts e
+  end
+
+end
+# for this code to work sorting by max_length in interpreter.rb line 46  needs to be disabled
+#            #r.children.each do |i|
+#            r.children.sort_by{ |rule| -rule.max_length }.each do |i|

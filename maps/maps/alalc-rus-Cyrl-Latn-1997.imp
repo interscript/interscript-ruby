@@ -1,225 +1,165 @@
----
-authority_id: alalc
-id: 1997
-language: iso-639-2:rus
-source_script: Cyrl
-destination_script: Latn
-name: ALA-LC Romanization System 1997
-alias:
-  ogc11122:
-    code: rus_Cyrl2Latn_ALA_1997
-    description: Russian ALA-Library of Congress 1997 System
-url: https://en.wikipedia.org/wiki/ALA-LC_romanization_for_Russian
-creation_date: 1997
-description: |
-  The ALA-LC Romanization tables for Slavic alphabets is a set of standards for romanization of texts
-  in various writing systems used in North American libraries and publications.
-  This version was published by the American Library Association and the Library of Congress in 1997.
-  This article is about the ALA-LC method of transliteration of Russian-language text from Cyrillic script to Latin script.
+metadata {
+  authority_id: alalc
+  id: 1997
+  language: iso-639-2:rus
+  source_script: Cyrl
+  destination_script: Latn
+  name: ALA-LC Romanization System 1997
+  url: https://en.wikipedia.org/wiki/ALA-LC_romanization_for_Russian
+  creation_date: 1997
+  description: |
+    The ALA-LC Romanization tables for Slavic alphabets is a set of standards for romanization of texts
+    in various writing systems used in North American libraries and publications.
+    This version was published by the American Library Association and the Library of Congress in 1997.
+    This article is about the ALA-LC method of transliteration of Russian-language text from Cyrillic script to Latin script.
 
-  The formal, unambiguous version of the system requires some diacritics and two-letter tie characters which are often omitted in practice.
+    The formal, unambiguous version of the system requires some diacritics and two-letter tie characters which are often omitted in practice.
 
-notes:
-  - Pre-1918 letters skipped
-  - Pre-18th century letters skipped
+  notes:
+    - Pre-1918 letters skipped
+    - Pre-18th century letters skipped
+}
 
-tests:
-  - source: Азов
-    expected: Azov
-  - source: Тамбов
-    expected: Tambov
-  - source: Барнаул
-    expected: Barnaul
-  - source: Кубань
-    expected: Kubanʹ
-  - source: Владимир
-    expected: Vladimir
-  - source: Ульяновск
-    expected: Ulʹi͡anovsk
-  - source: Грозный
-    expected: Groznyǐ
-  - source: Волгодонск
-    expected: Volgodonsk
-  - source: Дзержинский
-    expected: Dzerzhinskiǐ
-  - source: Нелидово
-    expected: Nelidovo
-  - source: Елизово
-    expected: Elizovo
-  - source: Чебоксары
-    expected: Cheboksary
-  - source: Ёлкин
-    expected: Ëlkin
-  - source: Озёрный
-    expected: Ozërnyǐ
-  - source: Жуков
-    expected: Zhukov
-  - source: Лужники
-    expected: Luzhniki
-  - source: Звенигород
-    expected: Zvenigorod
-  - source: Вязьма
-    expected: Vi͡azʹma
-  - source: Иркутск
-    expected: Irkutsk
-  - source: Апатиты
-    expected: Apatity
-  - source: Йошкар-Ола
-    expected: Ǐoshkar-Ola
-  - source: Бийск
-    expected: Biǐsk
-  - source: Киров
-    expected: Kirov
-  - source: Енисейск
-    expected: Eniseǐsk
-  - source: Ломоносов
-    expected: Lomonosov
-  - source: Нелидово
-    expected: Nelidovo
-  - source: Менделеев
-    expected: Mendeleev
-  - source: Каменка
-    expected: Kamenka
-  - source: Новосибирск
-    expected: Novosibirsk
-  - source: Кандалакша
-    expected: Kandalaksha
-  - source: Омск
-    expected: Omsk
-  - source: Красноярск
-    expected: Krasnoi͡arsk
-  - source: Петрозаводск
-    expected: Petrozavodsk
-  - source: Серпухов
-    expected: Serpukhov
-  - source: Ростов
-    expected: Rostov
-  - source: Северобайкальск
-    expected: Severobaǐkalʹsk
-  - source: Сковородино
-    expected: Skovorodino
-  - source: Чайковский
-    expected: Chaǐkovskiǐ
-  - source: Тамбов
-    expected: Tambov
-  - source: Мытищи
-    expected: Mytishchi
-  - source: Углич
-    expected: Uglich
-  - source: Дудинка
-    expected: Dudinka
-  - source: Фурманов
-    expected: Furmanov
-  - source: Уфа
-    expected: Ufa
-  - source: Хабаровск
-    expected: Khabarovsk
-  - source: Прохладный
-    expected: Prokhladnyǐ
-  - source: Цимлянск
-    expected: T͡Simli͡ansk
-  - source: Ельцин
-    expected: Elʹt͡sin
-  - source: Чебоксары
-    expected: Cheboksary
-  - source: Печора
-    expected: Pechora
-  - source: Шахтёрск
-    expected: Shakhtërsk
-  - source: Мышкин
-    expected: Myshkin
-  - source: Щёлково
-    expected: Shchëlkovo
-  - source: Ртищево
-    expected: Rtishchevo
-  - source: Подъездной
-    expected: Podʺezdnoǐ
-  - source: Ыттык-Кёль
-    expected: Yttyk-Këlʹ
-  - source: Тында
-    expected: Tynda
-  - source: Тюмень
-    expected: Ti͡umenʹ
-  - source: Электрогорск
-    expected: Ėlektrogorsk
-  - source: Радиоэлектроника
-    expected: Radioėlektronika
-  - source: Юбилейный
-    expected: I͡Ubileǐnyǐ
-  - source: Ключевская
-    expected: Kli͡uchevskai͡a
-  - source: Якутск
-    expected: I͡Akutsk
-  - source: Брянск
-    expected: Bri͡ansk
+tests {
+  test "Азов", "Azov"
+  test "Тамбов", "Tambov"
+  test "Барнаул", "Barnaul"
+  test "Кубань", "Kubanʹ"
+  test "Владимир", "Vladimir"
+  test "Ульяновск", "Ulʹi͡anovsk"
+  test "Грозный", "Groznyǐ"
+  test "Волгодонск", "Volgodonsk"
+  test "Дзержинский", "Dzerzhinskiǐ"
+  test "Нелидово", "Nelidovo"
+  test "Елизово", "Elizovo"
+  test "Чебоксары", "Cheboksary"
+  test "Ёлкин", "Ëlkin"
+  test "Озёрный", "Ozërnyǐ"
+  test "Жуков", "Zhukov"
+  test "Лужники", "Luzhniki"
+  test "Звенигород", "Zvenigorod"
+  test "Вязьма", "Vi͡azʹma"
+  test "Иркутск", "Irkutsk"
+  test "Апатиты", "Apatity"
+  test "Йошкар-Ола", "Ǐoshkar-Ola"
+  test "Бийск", "Biǐsk"
+  test "Киров", "Kirov"
+  test "Енисейск", "Eniseǐsk"
+  test "Ломоносов", "Lomonosov"
+  test "Нелидово", "Nelidovo"
+  test "Менделеев", "Mendeleev"
+  test "Каменка", "Kamenka"
+  test "Новосибирск", "Novosibirsk"
+  test "Кандалакша", "Kandalaksha"
+  test "Омск", "Omsk"
+  test "Красноярск", "Krasnoi͡arsk"
+  test "Петрозаводск", "Petrozavodsk"
+  test "Серпухов", "Serpukhov"
+  test "Ростов", "Rostov"
+  test "Северобайкальск", "Severobaǐkalʹsk"
+  test "Сковородино", "Skovorodino"
+  test "Чайковский", "Chaǐkovskiǐ"
+  test "Тамбов", "Tambov"
+  test "Мытищи", "Mytishchi"
+  test "Углич", "Uglich"
+  test "Дудинка", "Dudinka"
+  test "Фурманов", "Furmanov"
+  test "Уфа", "Ufa"
+  test "Хабаровск", "Khabarovsk"
+  test "Прохладный", "Prokhladnyǐ"
+  test "Цимлянск", "T͡Simli͡ansk"
+  test "Ельцин", "Elʹt͡sin"
+  test "Чебоксары", "Cheboksary"
+  test "Печора", "Pechora"
+  test "Шахтёрск", "Shakhtërsk"
+  test "Мышкин", "Myshkin"
+  test "Щёлково", "Shchëlkovo"
+  test "Ртищево", "Rtishchevo"
+  test "Подъездной", "Podʺezdnoǐ"
+  test "Ыттык-Кёль", "Yttyk-Këlʹ"
+  test "Тында", "Tynda"
+  test "Тюмень", "Ti͡umenʹ"
+  test "Электрогорск", "Ėlektrogorsk"
+  test "Радиоэлектроника", "Radioėlektronika"
+  test "Юбилейный", "I͡Ubileǐnyǐ"
+  test "Ключевская", "Kli͡uchevskai͡a"
+  test "Якутск", "I͡Akutsk"
+  test "Брянск", "Bri͡ansk"
+}
 
-map:
-  characters:
-    "\u0027": ""         # '
-    "\u0410": "A"        # А
-    "\u0411": "B"        # Б
-    "\u0412": "V"        # В
-    "\u0413": "G"        # Г
-    "\u0414": "D"        # Д
-    "\u0415": "E"        # Е
-    "\u0401": "Ë"        # Ё
-    "\u0416": "Zh"       # Ж
-    "\u0417": "Z"        # З
-    "\u0418": "I"        # И
-    "\u0419": "\u01CF"   # Й
-    "\u041A": "K"        # К
-    "\u041B": "L"        # Л
-    "\u041C": "M"        # М
-    "\u041D": "N"        # Н
-    "\u041E": "O"        # О
-    "\u041F": "P"        # П
-    "\u0420": "R"        # Р
-    "\u0421": "S"        # С
-    "\u0422": "T"        # Т
-    "\u0423": "U"        # У
-    "\u0424": "F"        # Ф
-    "\u0425": "Kh"       # Х
-    "\u0426": "T\u0361S" # Ц
-    "\u0427": "Ch"       # Ч
-    "\u0428": "Sh"       # Ш
-    "\u0429": "Shch"     # Щ
-    "\u042A": "ʺ"        # Ъ
-    "\u042B": "Y"        # Ы
-    "\u042C": "ʹ"        # Ь
-    "\u042D": "E\u0307"  # Э
-    "\u042E": "I\u0361U" # Ю
-    "\u042F": "I\u0361A" # Я
+stage {
 
-    "\u0430": "a"        # а
-    "\u0431": "b"        # б
-    "\u0432": "v"        # в
-    "\u0433": "g"        # г
-    "\u0434": "d"        # д
-    "\u0435": "e"        # e
-    "\u0451": "ë"        # ё
-    "\u0436": "zh"       # ж
-    "\u0437": "z"        # з
-    "\u0438": "i"        # и
-    "\u0439": "\u01d0"   # й
-    "\u043A": "k"        # к
-    "\u043B": "l"        # л
-    "\u043C": "m"        # м
-    "\u043D": "n"        # н
-    "\u043E": "o"        # о
-    "\u043F": "p"        # п
-    "\u0440": "r"        # р
-    "\u0441": "s"        # с
-    "\u0442": "t"        # т
-    "\u0443": "u"        # у
-    "\u0444": "f"        # ф
-    "\u0445": "kh"       # х
-    "\u0446": "t\u0361s" # ц
-    "\u0447": "ch"       # ч
-    "\u0448": "sh"       # ш
-    "\u0449": "shch"     # щ
-    "\u044A": "ʺ"        # ъ
-    "\u044B": "y"        # ы
-    "\u044C": "ʹ"        # ь
-    "\u044D": "e\u0307"  # э
-    "\u044E": "i\u0361u" # ю
-    "\u044F": "i\u0361a" # я
+  # CHARACTERS
+  parallel {
+    sub "'", "" # '
+    sub "А", "A" # А
+    sub "Б", "B" # Б
+    sub "В", "V" # В
+    sub "Г", "G" # Г
+    sub "Д", "D" # Д
+    sub "Е", "E" # Е
+    sub "Ё", "Ë" # Ё
+    sub "Ж", "Zh" # Ж
+    sub "З", "Z" # З
+    sub "И", "I" # И
+    sub "Й", "Ǐ" # Й
+    sub "К", "K" # К
+    sub "Л", "L" # Л
+    sub "М", "M" # М
+    sub "Н", "N" # Н
+    sub "О", "O" # О
+    sub "П", "P" # П
+    sub "Р", "R" # Р
+    sub "С", "S" # С
+    sub "Т", "T" # Т
+    sub "У", "U" # У
+    sub "Ф", "F" # Ф
+    sub "Х", "Kh" # Х
+    sub "Ц", "T͡S" # Ц
+    sub "Ч", "Ch" # Ч
+    sub "Ш", "Sh" # Ш
+    sub "Щ", "Shch" # Щ
+    sub "Ъ", "ʺ" # Ъ
+    sub "Ы", "Y" # Ы
+    sub "Ь", "ʹ" # Ь
+    sub "Э", "Ė" # Э
+    sub "Ю", "I͡U" # Ю
+    sub "Я", "I͡A" # Я
+
+    sub "а", "a" # а
+    sub "б", "b" # б
+    sub "в", "v" # в
+    sub "г", "g" # г
+    sub "д", "d" # д
+    sub "е", "e" # e
+    sub "ё", "ë" # ё
+    sub "ж", "zh" # ж
+    sub "з", "z" # з
+    sub "и", "i" # и
+    sub "й", "ǐ" # й
+    sub "к", "k" # к
+    sub "л", "l" # л
+    sub "м", "m" # м
+    sub "н", "n" # н
+    sub "о", "o" # о
+    sub "п", "p" # п
+    sub "р", "r" # р
+    sub "с", "s" # с
+    sub "т", "t" # т
+    sub "у", "u" # у
+    sub "ф", "f" # ф
+    sub "х", "kh" # х
+    sub "ц", "t͡s" # ц
+    sub "ч", "ch" # ч
+    sub "ш", "sh" # ш
+    sub "щ", "shch" # щ
+    sub "ъ", "ʺ" # ъ
+    sub "ы", "y" # ы
+    sub "ь", "ʹ" # ь
+    sub "э", "ė" # э
+    sub "ю", "i͡u" # ю
+    sub "я", "i͡a" # я
+  }
+
+  compose
+}
