@@ -1,0 +1,169 @@
+metadata {
+  authority_id: bis
+  id: 1991
+  language: iso-639-2:pnj
+  source_script: Guru
+  destination_script: Latn
+  name: Indian script code for information interchange - ISCII - Panjabi(Gurmukhi) Romanization
+
+  #url:
+  creation_date: 1991
+  description: |
+    IS 13194 (1991): Indian script code for information
+    interchange - ISCII [LITD 20: Indian Language Technologies
+    and Products]
+
+  notes:
+    - |
+      Exception: Anusvāra is transliterated by:
+
+      a) ṅ before gutturals,
+      b) ñ before palatals,
+      c) ṇ before cerebrals,
+      d) n before dentals, and
+      e) m before labials.
+}
+
+tests {
+  test "ਸਦਾ ਜਵਾਨ ਰਹੋ", "sdā jvāṉ rhō"
+  test "ਸਵਾਮੀ ਅਗਨੀਵੇਸ਼ ਦੀ ਮੌਤ", "svāmī agṉīvēs dī maut"
+  test "ਇਸ ਲਈ ਖੱਟੀ ਤਲੀ ਚੀਜ਼ , ਫਾਸਟ ਫੁੂਟ, ਤੇਜ਼ ਮਿਰਚ ਮਸਾਲਿਆਂ ਨੂੰ ਛੱਡਕੇ ਚੰਗੇ ਤੇ ਮੌਸਮੀ ਫਲ, ਹਰੀਆਂ ਸ਼ਬਜ਼ੀਆਂ, ਘਰ ਦੀ ਲੱਸੀ ਤੇ ਦਹੀਂ ਤੇ ਔਰਗੈਨਿਕ ਚੀਜ਼ਾਂ ਹੀ ਅਪਣਾਉ", "is lī khṭī tlī cīz , phāsṭ phuūṭ, tēz mirc msāliān ṉūṃ chḍkē cṅgē tē mausmī phl, hrīān śbzīān, ghr dī lsī tē dhīn tē aurgaiṉik cīzān hī apṇāu"
+  test "ਤੁਹਾਡਾ ਚਿਹਰਾ ਸਦਾ ਚੜ੍ਹਦੀ ਕਲਾ ‘ਚ ਰਹਿਣਾ ਤੇ ਹਮੇਸ਼ਾ ਖਿੜੀਆਂ ਰਹਿਣਾ ਤੇ ਠਾਠਾਂ ਮਾਰਦਾ ਸਰੀਰ ਹੀ ਤੁਹਾਡੇ ਜਵਾਨ ਰਹਿਣ ਦੀ ਨਿਸ਼ਾਨੀ ਹੈ", "tuhāḍā cihrā sdā cṛahdī klā ‘c rhiṇā tē hmēśā khiṛaīān rhiṇā tē ṭhāṭhān mārdā srīr hī tuhāḍē jvāṉ rhiṇ dī ṉiśāṉī hai"
+  test "ਧੌਲੇ ਆਉਣਾ ਜਾਂ ਕਹਿ ਲਵੋ, ਵਾਲ ਚਿੱਟੇ ਹੋਣਾ ਬੁੱਢਾਪਾ ਨਹੀਂ ਹੈ।ਪਰ ਉਮਰ ਤਂੋ ਪਹਿਲਾਂ ਮੂੰਹ ਤੋਂ ਨੂਰ ਉੜ ਜਾਣਾ,ਹਮੇਸ਼ਾਂ ਥੱਕਿਆ-2 ਰਹਿਣਾ ,ਬਿਮਾਰ ਰਹਿਣਾ ਅਸਲ ਬੁਢਾਪਾ ਹੈ", "dhaulē āuṇā jān khi lvō, vāl ciṭē hōṇā buḍhāpā ṉhīn hai.pr umr tnō philān mūṃh tōn ṉūr uṛa jāṇā,hmēśān thkiā-2 rhiṇā ,bimār rhiṇā asl buḍhāpā hai"
+  test "ਇਸ ਲਈ ਇਹ ਆਪਾਂ ਨੂੰ ਦੇਖਣਾ ਪਵੇਗਾ ਕਿ ਆਪਾਂ ਕਿਵੇਂ ਤੰਦਰੁਸਤ ਰਹਿਣਾ ਹੈ ਤੇ ਨਿਰੋਗ ਰਹਿਣਾ ਹੈ", "is lī ih āpān ṉūṃ dēkhṇā pvēgā ki āpān kivēn tndrust rhiṇā hai tē ṉirōg rhiṇā hai"
+  test "ਸਮਾਜਿਕ ਕਾਰਕੁੰਨ ਸਵਾਮੀ ਅਗਨੀਵੇਸ ਦਾ ਅੱਜ ਸ਼ਾਮੀਂ ਦਿਹਾਂਤ ਹੋ ਗਿਆ", "smājik kārkunṉ svāmī agṉīvēs dā aj sāmīn dihānt hō giā"
+  test "ਹਰ ਇਨਸਾਨ ਸਦਾ ਸਵਸਥ ਤੇ ਜਵਾਨ ਰਹਿਣਾ ਚਾਹੁੰਦਾ ਹੈ", "hr iṉsāṉ sdā svsth tē jvāṉ rhiṇā cāhundā hai"
+  test "ਜਨਮ ਲੈਣਾ ਤੇ ਮੌਤ ਇੱਕ ਅਟਲ ਸੱਚਾਈ ਹੈ", "jṉm laiṇā tē maut ik aṭl scāī hai"
+  test "ਇਸਦੇ ਉਲਟ ਤੁਹਾਡੀ ਗਲਤ ਜੀਵਨ ਸ਼ੈਲੀ, ਗਲਤ ਖਾਣਾ ਤੇ ਹਮੇਸ਼ਾ ਕੀਮਤੀ ਸਰੀਰ ਪ੍ਰਤੀ ਲਾਪਰਵਾਹੀ ਕਦੇ ਵੀ ਤੁਹਾਨੁੂੰ ਜਵਾਨ ਤੇ ਨਿਰੋਗੀ ਨਹੀਂ ਰੱਖ ਸਕਦੀ", "isdē ulṭ tuhāḍī glt jīvṉ śailī, glt khāṇā tē hmēśā kīmtī srīr prtī lāprvāhī kdē vī tuhāṉuūṃ jvāṉ tē ṉirōgī ṉhīn rkh skdī"
+}
+
+stage {
+
+  # RULES
+  # note
+  sub "\u0A70", "ṅ", after: any("ਕਖਖ਼ਗਗ਼ਘਙ") # ੰ  before gutturals
+  sub "\u0A70", "ñ", after: any("ਚਛਜਜ਼ਝਞ") # ੰ  before palatals
+  sub "\u0A70", "ṇ", after: any("ਟਠਡਢਣ") # ੰ  before cerebrals
+  sub "\u0A70", "n", after: any("ਤਥਦਧਨ") # ੰ  before dentals
+  sub "\u0A70", "m", after: any("ਪਫਬਭਮ")
+
+
+
+  # CHARACTERS
+  parallel {
+    sub "ਅ", "a"
+    sub "ਆ", "ā"
+    sub "ਇ", "i"
+    sub "ਈ", "ī"
+    sub "ਉ", "u"
+    sub "ਊ", "ū"
+    sub "ੲ", "ṛ"
+    sub "ੳ", "ṝ"
+    sub "ਏ", "ē"
+    sub "ਐ", "ai"
+
+    sub "ਓ", "ŏ"
+    sub "ਔ", "au"
+
+    # II. Consonants (see Note 2)
+    # Gutturals
+    sub "ਕ", "k"
+    sub "ਖ", "kh"
+    sub "ਗ", "g"
+    sub "ਘ", "gh"
+    sub "ਙ", "ṅ"
+
+    # Palatals
+    sub "ਚ", "c"
+    sub "ਛ", "ch"
+    sub "ਜ", "j"
+    sub "ਝ", "jh"
+    sub "ਞ", "ñ"
+
+    # Cerebrals
+    sub "ਟ", "ṭ"
+    sub "ਠ", "ṭh"
+    sub "ਡ", "ḍ"
+    sub "ਢ", "ḍh"
+    sub "ਣ", "ṇ"
+
+    # Dentals
+    sub "ਤ", "t"
+    sub "ਥ", "th"
+    sub "ਦ", "d"
+    sub "ੜ", "ṛa"
+    sub "ਧ", "dh"
+    sub "ਨ", "ṉ"
+
+    # Labials
+    sub "ਪ", "p"
+    sub "ਫ", "ph"
+    sub "ਬ", "b"
+    sub "ਭ", "bh"
+    sub "ਮ", "m"
+
+    # Semivowels
+    sub "ਯ", "y"
+    #'य़': 'ẏ'
+    sub "ਰ", "r"
+    #'ऱ': 'ṟ'
+    sub "ਲ", "l"
+    sub "ਲ਼", "ḷ"
+    #'ऴ': 'ẕ'
+
+
+    sub "ਵ", "v"
+
+    # Sibilants
+    sub "ਸ਼", "ś"
+    #'ष': 'ṣ'
+    sub "ਸ", "s"
+
+
+    # Aspirate
+    sub "ਹ", "h"
+
+
+    #Nukta Constants
+
+    sub "क़", "q"
+    sub "ਖ਼", "ḵẖ"
+    sub "ਗ਼", "gẖ"
+    sub "ਜ਼", "z"
+    sub "ਫ਼", "f"
+
+    # Chandrabindu
+    sub "ँ", "m"
+
+    # Bisarga
+    sub "ः ", "ḥ"
+    sub "ਂ", "n"
+
+    # Anusvāra
+    sub "ੰ", "ṃ"
+
+    # Medials # Needed for connecting constants
+    sub "ਾ", "ā"
+    sub "ਿ", "i"
+    sub "ੀ", "ī"
+    sub "ੁ", "u"
+    sub "ੂ", "ū"
+    sub "ृ", "ṛ"
+
+
+    sub "ੇ", "ē"
+    sub "ੈ", "ai"
+
+
+    sub "ੋ", "ō"
+    sub "ੌ", "au"
+
+    sub "੍", ""
+    sub "਼", ""
+    sub "ੱ", ""
+    sub "।", "."
+    sub "‍", "" # no need for zero with joiner
+  }
+
+  compose
+}

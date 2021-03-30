@@ -1,0 +1,103 @@
+metadata {
+  authority_id: odni
+  id: 2015
+  language: iso-639-2:bul
+  source_script: Cyrl
+  destination_script: Latn
+  name: Office of the Director Of National Intelligence Bulgarian Personal Names 2015, ICS-630-01 Annex O
+
+  # url:
+  source: ICS-630-01 Annex O
+  creation_date: 2015
+  confirmation_date: 2015
+  description: |
+    This system is the Intelligence Community standard for the transliteration of Bulgarian person
+    names that will be applied to all final written reports and products for IC consumers. This
+    standard matches both the Bulgarian national standard adopted in 2009 and the Board of
+    Geographic Names / Permanent Committee on Geographic Names standard adopted in 2013. It is
+    not intended to eliminate variations of a name that can contribute forensic information. Rather, it
+    is to provide an IC standard Romanized (English) transliteration from Bulgarian that can then be
+    linked to forensic information in ways that will help identify the referent of the name.
+
+    In cases where an individual’s name has already been transliterated in a variant spelling, the IC
+    Standard spelling should appear first, followed by the variant spelling(s) in parentheses at the first
+    usage. In addition, if the original Cyrillic-script spelling is known, that spelling should also
+    appear in parentheses following the name, if possible, following best practices of the issuing
+    organization and taking into consideration information system capabilities. For example: Dobri
+    Hristov (also seen as Dobri Khristov, Добри Христов). This convention is designed to ensure
+    that vital forensic information is not lost.
+
+    For names of persons who are known to not be part of the Bulgarian-speaking community, use
+    the relevant IC transliteration standard for names from that language (e.g., Yitzhak). A
+    translator’s note may be used to clarify the known origin of the person. Spell names of
+    individuals from languages that are written in Roman letters as they are spelled in those
+    languages (e.g., George Clooney, Jorge Garcia, Georges Pompidou).
+
+    In the case of active senior government officials in the on-line CIA World Factbook and the online directory of Chiefs of State and Cabinet Members of Foreign Governments, the spellings
+    given in these on-line reference works should be used in place of the IC Standard. For any
+    individual who has at one time been listed in the Factbook or Chiefs of State directory but who no
+    longer appears in those resources (i.e. is no longer a government official), the IC Standard
+    spelling should appear first, with the spelling, if known, as it previously appeared in those
+    resources listed within parentheses at the first usage.
+
+    The primary goal is to produce a consistent Romanized transcription of names that is specifically
+    readable to the English-speaking non-specialist. The system uses the 26 letters of the standard
+    (English) Roman alphabet. Some ambiguities in the Romanized form will occur without the use
+    of diacritics. However, within the context of a report, where additional information about the
+    individual is provided, the referent will be clearly identified. This system will be used in
+    conjunction with on-line tools, name dictionaries, and lists containing conventional spellings of
+    names of well-known individuals.
+
+  notes:
+    - Transliterate double digraphs as a single digraph i.e. шш -> sh, not shsh
+    - In the Roman, no distinction is made between digraphs such as 'sh' and single contiguous letters (e.g. 's' followed by 'h').
+}
+
+tests {
+  test "Добри Христов", "Dobri Khristov"
+  test "болгарица", "bolgaritsa"
+  test "български език", "balgarski ezik"
+  test "българска азбука", "balgarska azbuka"
+  test "град", "grad"
+  test "аз държа", "az darzha"
+  test "Ядеш хляба с чубрица", "Yadesh khlyaba s chubritsa"
+  # note[1]
+  test "шш", "sh"
+  test "ччччч", "ch"
+}
+
+dependency "bgnpcgn-bul-Cyrl-Latn-2013", as: cyrllatn
+
+stage {
+
+
+  # RULES
+  # note[1]
+  #   #   sub capture(any_character) :interval_start ref( 1 ) :interval_stop , ref( 1 ) # warning: :interval unimplemented # warning: :
+  #sub capture(any_character), ref( 1 )
+
+  sub "\u042C", "Y" # # Ь
+
+  sub "\u042A", "A" # Ъ
+
+  sub "\u044C", "y" # ь
+
+  sub "\u044A", "a" # ъ
+
+parallel{
+  sub "\u0448", "sh" # ш
+  sub "\u0448\u0448", "sh" # шш
+  sub "\u0448\u0448\u0448", "sh" # шшш
+  sub "\u0448\u0448\u0448\u0448", "sh" # шшшш
+  sub "\u0448\u0448\u0448\u0448\u0448", "sh" # шшшшш
+  sub "\u0448\u0448\u0448\u0448\u0448\u0448", "sh" # шшшшшш
+  sub "\u0447", "ch" # ч
+  sub "\u0447\u0447", "ch" # чч
+  sub "\u0447\u0447\u0447", "ch" # ччч
+  sub "\u0447\u0447\u0447\u0447", "ch" # чччч
+  sub "\u0447\u0447\u0447\u0447\u0447", "ch" # ччччч
+  sub "\u0447\u0447\u0447\u0447\u0447\u0447", "ch" # чччччч
+}
+  run map.cyrllatn.stage.main
+}
+

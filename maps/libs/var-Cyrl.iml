@@ -1,0 +1,7 @@
+# Useful aliases for Cyrillic maps
+
+aliases {
+  def_alias bel_consonant, any("БбВвГгДдЖжЗзЙйКкЛлМмНнПпРрСсТтФфХхЦцЧчШш")
+
+  def_alias cyrl_upper, any('AБBГДЕЁЖЗИЙКЛМНОПРСТУЎФХЦЧШЩЪЫЬЭЮЯІ')
+}

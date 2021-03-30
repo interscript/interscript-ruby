@@ -1,0 +1,33 @@
+metadata {
+  authority_id: bgn
+  id: 1943
+  language: iso-639-2:kor
+  source_script: Kore
+  destination_script: Latn
+  name: BGN Agreement -- Korean McCune-Reischauer System (1943)
+  url:
+  creation_date: 1943
+  adoption_date:
+  description:
+
+  notes:
+}
+
+tests {
+  test "서울", "Sŏul"
+  test "平壤", "P’yŏngyang"
+  test "釜山", "Pusan"
+  test "大邱", "Taegu"
+  test "慶尚南道", "Kyŏngsangnamdo"
+}
+
+dependency "var-kor-Kore-Hang-2013", as: korehang
+dependency "bgn-kor-Hang-Latn-1943", as: hanglatn
+
+stage {
+
+  run map.korehang.stage.main
+  run map.hanglatn.stage.main
+  compose
+  title_case
+}

@@ -1,0 +1,66 @@
+metadata {
+  authority_id: iso
+  id: 15919-2001
+  language: iso-639-2:pli
+  source_script: Beng
+  destination_script: Latn
+  name: "Information and documentation — Transliteration of Devanagari and related Indic scripts into Latin characters"
+  url: https://www.chatranjali.fr/Scripts/Standards/ISO15919.pdf
+  creation_date: 2001
+  adoption_date: 2001
+  description: |
+    Script conversion is often required for documents such as historical and literary texts, geographical texts (including
+    maps and atlases), bibliographies, catalogues, lists and passports (and other identification documents).
+
+    Text in Devanagari script or other Indic scripts sometimes needs to be shown in Latin script, where users, or
+    equipment that they are using, cannot read or write the text
+
+    This International Standard applies to transliteration of Devanagari, and to Indic scripts related to Devanagari,
+    independent of the period in which it is or was used.
+
+  notes:
+
+    - All transliterations made using this International Standard shall be case-insensitive.
+    - Inherent a with a consonant shall always be transliterated.
+    - anusvara (including Vedic anusvara) shall be transliterated as ṁ
+    - candrabindu shall be transliterated as m̐
+    - When m̐, ṃ or ṁ are associated with a vowel, they shall be placed after the vowel. When m̐ is associated
+      with a semivowel, it shall be placed before the semivowel.
+    - Latin punctuation signs and Hindu-Arabic numerals shall remain unchanged in transliteration.
+      Indic punctuation is outside the scope of this International Standard.
+    - The Vedic accent Udatta shall be transliterated as an acute accent over the transliterated vowel, and the
+      independent Svarita as a grave accent over the transliterated vowel. In the case of the digraphs ai, au, the accent
+      shall be attached to the second vowel.
+    - |
+      A colon: before a Latin character shall be used to resolve ambiguity. Some normative cases are as
+      follows.
+       -  :’ for avagraha in modern text. (The apostrophe in modern text remains unchanged in accordance with previous rule.
+    - If a character in an Indic script is defined in such a way as to be equivalent to another character in any
+      script, where the second character has a transliteration in this International Standard, then the first character shall
+      be transliterated in the same way as the second character.
+    - Where it is desired to show the Vedic accent Anudatta, it should be transliterated as an underscore. In the case of
+      the digraphs ai, au, both Latin vowels should be underscored.
+      Where word boundaries are not shown in the original text (as happens commonly in Sanskrit) and a word ends in a
+      consonant, the transliteration should show word division by a space; but when phonological processes result in two
+      words sharing a common vowel, no attempt should be made to separate them. This will require a good knowledge
+      of the language in question.
+}
+
+tests {
+  test "তেন সমযেন বুদ্ধো ভগৰা ৰেরঞ্জাযং ৰিহরতি নল়েরুপুচিমন্দমূলে মহতা ভিক্খুসঙ্ঘেন সদ্ধিং পঞ্চমত্তেহি ভিক্খুসতেহি", "taena samayaena baudadhao bhagavaā vaerañajaāyaṁ vaiharatai nala়eraupaucaimanadamaūlae mahataā bhaikakhausaṅaghaena sadadhaiṁ pañacamatataehai bhaikakhausataehai"
+  test "অস্সোসি খো ৰেরঞ্জো ব্রাহ্মণো", "asasaosai khao vaerañajao baraāhamaṇao"
+  test "সমণো খলু, ভো, গোতমো সক্যপুত্তো সক্যকুলা পব্বজিতো ৰেরঞ্জাযং ৰিহরতি", "samaṇao khalau, bhao, gaotamao sakayapautatao sakayakaulaā pababajaitao vaerañajaāyaṁ vaiharatai"
+  test "নল়েরুপুচিমন্দমূলে মহতা ভিক্খুসঙ্ঘেন সদ্ধিং পঞ্চমত্তেহি ভিক্খুসতেহি", "nala়eraupaucaimanadamaūlae mahataā bhaikakhausaṅaghaena sadadhaiṁ pañacamatataehai bhaikakhausataehai"
+  test "তং খো পন ভৰন্তং গোতমং এৰং কল্যাণো কিত্তিসদ্দো অব্ভুগ্গতো", "taṁ khao pana bhavanataṁ gaotamaṁ evaṁ kalayaāṇao kaitataisadadao ababhaugagatao"
+  test "সো ইমং লোকং সদেৰকং সমারকং সব্রহ্মকং সস্সমণব্রাহ্মণিং পজং সদেৰমনুস্সং সযং অভিঞ্ঞা সচ্ছিকত্ৰা পৰেদেতি", "sao imaṁ laokaṁ sadaevakaṁ samaārakaṁ sabarahamakaṁ sasasamaṇabaraāhamaṇaiṁ pajaṁ sadaevamanausasaṁ sayaṁ abhaiñañaā sacachaikatavaā pavaedaetai"
+  test "অরসরূপো সমণো গোতমো’তি, নো চ খো যং ত্ৰং সন্ধায ৰদেসী’’তি", "arasaraūpao samaṇao gaotamao’tai, nao ca khao yaṁ tavaṁ sanadhaāya vadaesaī’’tai"
+  test "অরসরূপো ভৰং গোতমো’’তি?", "arasaraūpao bhavaṁ gaotamao’’tai?"
+  test "অত্থি খ্ৰেস, ব্রাহ্মণ, পরিযাযো যেন মং পরিযাযেন সম্মা ৰদমানো ৰদেয্য", "atathai khavaesa, baraāhamaṇa, paraiyaāyao yaena maṁ paraiyaāyaena samamaā vadamaānao vadaeyaya"
+  test "অরসরূপো সমণো গোতমো’তি", "arasaraūpao samaṇao gaotamao’tai"
+}
+
+dependency "iso-asm-Beng-Latn-15919-2001", as: benglatn
+
+stage {
+  run map.benglatn.stage.main
+}

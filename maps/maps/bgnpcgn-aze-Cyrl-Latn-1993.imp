@@ -1,0 +1,111 @@
+metadata {
+  authority_id: bgnpcgn
+  id: 1993
+  language: iso-639-2:aze
+  source_script: Cyrl
+  destination_script: Latn
+  name: AZERBAIJANI TABLE OF CORRESPONDENCES CYRILLIC-ROMAN -- BGN/PCGN 1993 Agreement
+  url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/816656/TABLE_OF_CORRESPONDENCES_FOR_AZERBAIJANI.pdf
+  creation_date: 1993
+  confirmation_date: 2019-06
+  description: |
+      Azerbaijani, also known as Azeri, is the official language of the Republic of Azerbaijan. In 1991, the Azerbaijani government adopted the Roman alphabet to replace the existing Cyrillic alphabet. The presentation below provides a table of correspondences between the former Cyrillic alphabet and the current Roman alphabet. When Azerbaijani Roman-alphabet spellings are not available, this table can be used to convert Azerbaijani Cyrillic spellings.
+
+  notes:
+
+    - The special letter Ə, ə known as schwa, should be reproduced in that form whenever encountered. The characters Ə (Unicode 04D8) and ə (Unicode 04D9) should be used for schwa when writing in the Cyrillic script, but characters Ə (Unicode 018F) and ə (Unicode 0259) should be used when writing in the Roman alphabet. In those instances when it cannot be reproduced, however, the letter Ä ä may be substituted for it (see below).
+
+    - The obsolete characters й, э, ю, and я should be romanized ẏ, ė, yu., and ya.
+
+    - Unicode values are shown with the uppercase Cyrillic character first, followed by the lowercase character. It is not known whether there exists an uppercase ‘J’ specific to the Cyrillic character set.
+
+    - |
+      An inventory of letter-diacritic combinations, with their Unicode encoding, in addition to the unmodified letters of the basic Roman script is:
+      Ğ (U+011E), ğ (U+011F)
+      Ə (U+018F), ə (U+0259)
+      İ (U+0130), ı (U+0131)
+      Ö (U+00D6), ö (U+00F6)
+      Ü (U+00DC), ü (U+00FC)
+      Ç (U+00C7), ç (U+00E7)
+      Ş (U+015E), ş (U+015F)
+
+    - The Roman-script columns show only lowercase forms but, when applying the table, uppercase and lowercase Roman letters as appropriate should be used.
+}
+
+tests {
+  test "Азәрбајҹан әлифбасы", "Azərbaycan əlifbası"
+  test "Бүтүн инсанлар ләјагәт вә һүгугларына ҝөрә азад бәрабәр доғулурлар.\nОнларын шүурлары вә виҹданлары вар вә бир-бирләринә мүнасибәтдә гардашлыг руһунда давранмалыдырлар.", "Bütün insanlar ləyaqət və hüquqlarına görə azad bərabər doğulurlar.\nOnların şüurları və vicdanları var və bir-birlərinə münasibətdə qardaşlıq ruhunda davranmalıdırlar."
+}
+
+stage {
+
+  # CHARACTERS
+  parallel {
+    sub "А", "A" # А
+    sub "Б", "B" # Б
+    sub "В", "V" # В
+    sub "Г", "Q" # Г
+    sub "Ғ", "Ğ" # Ғ
+    sub "Д", "D" # Д
+    sub "Е", "E" # Е
+    sub "Ә", "Ə" # Ә
+    sub "Ж", "J" # Ж
+    sub "З", "Z" # З
+    sub "И", "İ" # И
+    sub "Ы", "I" # Ы
+    sub "Ј", "Y" # Ј
+    sub "К", "K" # К
+    sub "Ҝ", "G" # Ҝ
+    sub "Л", "L" # Л
+    sub "М", "M" # М
+    sub "Н", "N" # Н
+    sub "О", "O" # О
+    sub "Ө", "Ö" # Ө
+    sub "П", "P" # П
+    sub "Р", "R" # Р
+    sub "С", "S" # С
+    sub "Т", "T" # Т
+    sub "У", "U" # У
+    sub "Ү", "Ü" # Ү
+    sub "Ф", "F" # Ф
+    sub "Х", "X" # Х
+    sub "Һ", "H" # Һ
+    sub "Ч", "Ç" # Ч
+    sub "Ҹ", "C" # Ҹ
+    sub "Ш", "Ş" # Ш
+
+    sub "а", "a" # а
+    sub "б", "b" # б
+    sub "в", "v" # в
+    sub "г", "q" # г
+    sub "ғ", "ğ" # ғ
+    sub "д", "d" # д
+    sub "е", "e" # е
+    sub "ә", "ə" # ә
+    sub "ж", "j" # ж
+    sub "з", "z" # з
+    sub "и", "i" # и
+    sub "ы", "ı" # ы
+    sub "ј", "y" # ј
+    sub "к", "k" # к
+    sub "ҝ", "g" # ҝ
+    sub "л", "l" # л
+    sub "м", "m" # м
+    sub "н", "n" # н
+    sub "о", "o" # о
+    sub "ө", "ö" # ө
+    sub "п", "p" # п
+    sub "р", "r" # р
+    sub "с", "s" # с
+    sub "т", "t" # т
+    sub "у", "u" # у
+    sub "ү", "ü" # ү
+    sub "ф", "f" # ф
+    sub "х", "x" # х
+    sub "һ", "h" # һ
+    sub "ч", "ç" # ч
+    sub "ҹ", "c" # ҹ
+    sub "ш", "ş" # ш
+  }
+
+}

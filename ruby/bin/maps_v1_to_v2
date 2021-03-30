@@ -1,0 +1,426 @@
+#!/usr/bin/env ruby
+# This is a helper script for porting Interscript v1 maps to v2 format. It won't
+# ever be able to port them completely, but it should help bootstrap the process.
+
+require 'bundler/setup'
+
+require 'yaml'
+require 'fileutils'
+
+Dir.chdir(__dir__ + "/../")
+FileUtils.rm_rf(Dir.glob("../maps/maps-staging/*"))
+#FileUtils.mkdir_p("../maps/maps-staging/")
+
+#old_maps = []
+old_maps = Dir["../../interscript/maps/*.yaml"]
+#old_maps = Dir["../../interscript/maps/alalc-aze-Arab-Latn-1997.yaml"]
+#old_maps = Dir["../../interscript/maps/mofa-jpn-Hrkt-Latn-1989.yaml"]
+
+
+ex_maps = Dir["../maps/maps/*.imp"]
+ex_map_names = ex_maps.map { |i| File.basename(i, ".imp") }
+
+
+require 'regexp_parser'
+
+require 'interscript/utils/regexp_converter.rb'
+
+
+def process_line( kkk, vvv, indent: 0)
+
+    parse_kkk = Regexp::Parser.parse(kkk, 'ruby/2.1')
+    tokens_kkk = process(parse_kkk)
+    # pp conv
+    root_hash = process_root(tokens_kkk)
+    # pp root_hash
+    # puts "vvv = #{vvv.inspect}"
+    if vvv.class == String
+      if vvv == '' or vvv =='""' or vvv == nil or vvv.include? '~'
+        root_hash[:to] = '""'
+      elsif vvv == '"'
+        root_hash[:to] = '"\""'
+      else
+        if vvv == "?" #alalc-ell-Grek-Latn-1997.imp un-ell-Grek-Latn-1987-phonetic have to "?"
+          root_hash[:to] = "?".inspect
+        #if root_hash[:from].to_s.include?('capture') or root_hash[:to] =~ /\\\\([0-9]+)/
+        else
+          parse_vvv = Regexp::Parser.parse(vvv)
+          tokens_vvv = process(parse_vvv)
+          string_vvv = stringify(tokens_vvv)
+          # puts string_vvv
+          root_hash[:to] = string_vvv
+          root_hash[:to] = 'upcase' if string_vvv.include? 'upcase'
+        end
+      end
+    elsif vvv.class == Array
+      root_hash[:to] = "any(#{vvv.inspect})"
+    else
+      root_hash[:to] = "\"\""
+      # puts "unknown class #{vvv.inspect}"
+    end
+
+    str = stringify_root(root_hash, indent: indent)
+    # puts str
+    # puts ""
+    str
+end
+
+
+old_maps.sort.each do |old_map|
+  old_map_name = File.basename(old_map, ".yaml")
+
+  if ex_map_names.include? old_map_name
+    puts "* Skipping #{old_map_name} as it's already ported"
+    next
+  end
+
+  print "* Converting #{old_map_name}."
+
+  f = File.read(old_map)
+  fl = f.split("\n")
+
+  md = []
+  tests = []
+  map = []
+  chain = nil
+
+  cur = md
+
+  bugnotes = false
+
+  fl.each do |i|
+    if i == '---'
+      # skip the first line
+    elsif i =~ /\A\s+|\A\z/
+      # continuation
+      if bugnotes
+        i = "#{i}"
+        md << i
+      else
+        cur << i
+      end
+    else
+      cmt = nil
+      i = i.sub(/(#.*?)\z/) do |j|
+        cmt = j
+        ""
+      end
+
+      # block begin or md
+      case i.strip
+      when "tests:"
+        cur = tests
+        bugnotes = false
+      when "map:"
+        cur = map
+        bugnotes = false
+      when "notes:"
+        md << "notes:"
+        bugnotes = true
+      when /\Achain:/
+        chain = i
+      else
+        cur << i
+      end
+
+      cur << cmt if cmt
+    end
+  end
+
+  print "."
+
+  newmd = []
+  aliasff = false
+  md.each do |i|
+    if i.strip == "alias:"
+      aliasff = true
+    elsif i !~ /\A\s+/
+      aliasff = false
+    end
+    newmd << i unless aliasff
+  end
+  md = newmd
+
+  print "."
+
+  newmd = md.map(&"  ".method(:+))
+            .join("\n")
+            .gsub("  note:", "  notes:")
+            .gsub("confirmation date:", "confirmation_date:")
+            #.gsub("special_rules:", '  - "special rules:"')
+            #.gsub("original_description:", "  # original description:")
+            #.gsub("original_notes:", '  - "original notes:"')
+            #.gsub("implementation_notes:", '  - "implementation notes:"')
+            .rstrip
+
+  new = "metadata {\n"
+  new << newmd
+  new << "\n}\n\n"
+
+  class MultilineError < StandardError; end
+
+  if tests.length > 0
+    new << "tests {\n"
+    cmt = ""
+
+    iter = 0
+    while iter < tests.length; begin
+      test = tests[iter]
+
+      if test =~ /\A\s*#/
+        new << "  " << test.strip << "\n"
+        iter += 1
+        next
+      end
+
+      re_source = /\A(?:  ){0,2}- source: (.*?)(\s*#.*?)?\z/m
+      re_expect = /\A(?:  ){0,3}expected:[ \t](.*?)(\s*#.*?)?\z/m
+
+      if test.rstrip.end_with?("|") ||
+         (test =~ /"/ && !test.rstrip.end_with?('"'))
+        while iter < tests.length
+          xtest = tests[iter+1]
+          break if xtest =~ re_source || xtest =~ re_expect
+          test << "\n" << (xtest||"")
+          iter += 1
+        end
+      end
+
+      case test
+      when re_source
+        new << "  test #{YAML.load($1).inspect}, "
+        cmt = $2 if $2
+      when re_expect
+        new << "#{YAML.load($1).inspect}".unicode_normalize
+        new << cmt
+        new << $2 if $2
+        new << "\n"
+        cmt = ""
+      when /\A\s*\z/
+        # empty line, ignore
+      else
+        new << "\n# BUG: #{test}\n"
+      end
+
+      iter += 1
+    rescue Psych::SyntaxError
+      p test
+    end; end
+
+    new << "}\n\n"
+  end
+
+  print "."
+
+  new << "# This map has been partially converted by the bin/maps_v1_to_v2 script\n"
+  new << "# The section below requires human attention. Remember to remove this\n"
+  new << "# comment and move the converted map to 'maps/' directory. Please also\n"
+  new << "# take note that the maps-staging directory will be cleaned up whenever\n"
+  new << "# you run the bin/maps_v1_to_v2 script. You should particularly be\n"
+  new << "# concerned about any regular expressions found in this file and about\n"
+  new << "# advanced expressions in parallel {} parts, and also about the order\n"
+  new << "# of particular parts of the stage.\n\n"
+
+  transcription = nil
+  title_case = nil
+  downcase = nil
+  inherit = nil
+
+  characters, rules, dictionary, postrules = [], [], [], []
+
+  cur = nil
+  indent = 0
+  stagedone = false
+  efini = proc do
+    if inherit
+      new << "\n"
+      inherit.each do |i|
+        new << "  run map.#{i}.stage.main\n"
+      end
+    end
+    new << "\n"
+    efini=proc{}
+  end
+  fini = proc{}
+  begn = proc { new << "stage {\n"; stagedone = true; begn=proc{} }
+
+  iter = -1
+  while iter+1 < map.length
+    iter += 1
+    i = map[iter]
+
+    cmt = nil
+    if i =~ /\A  [^\s#]/ || i =~ /\A    inherit:/
+      i.sub(/(#.*?)\z/) { cmt = $1 }
+      if cmt
+        new << " "*indent << cmt << "\n"
+      end
+
+      maybe_val = YAML.load(i.split(":").last)
+      case i.split(":").first.strip
+      when "inherit"
+        inherit = Array(maybe_val)
+        inherit = inherit.map do |inh|
+          short = inh.split("-")[2..3].join.downcase
+          new << "dependency #{inh.inspect}, as: #{short}\n"
+          short
+        end
+        new << "\n"
+        raise "Duplicate items" unless inherit.length == inherit.uniq.length
+      when "dictionary"
+        begn.()
+        fini.()
+        new << "  # DICTIONARY\n"
+        new << "  parallel {\n"
+        indent = 4
+        cur = dictionary
+        fini = proc{new << "  }\n\n";indent = 2}
+      when "rules"
+        begn.()
+        fini.()
+        efini.()
+        new << "  # RULES\n"
+        indent = 2
+        cur = rules
+        fini = proc{new << "\n"}
+      when "characters"
+        begn.()
+        fini.()
+        efini.()
+        new << "  # CHARACTERS\n"
+        new << "  parallel {\n"
+        indent = 4
+        cur = characters
+        fini = proc{new << "  }\n\n";indent = 2}
+      when "postrules"
+        begn.()
+        fini.()
+        efini.()
+        new << "  # POSTRULES\n"
+        indent = 2
+        cur = postrules
+        fini = proc{new << "\n"}
+      when "downcase"
+        downcase = maybe_val
+      when "title_case"
+        title_case = maybe_val
+      when "transcription"
+        transcription = maybe_val
+      # Those we will ignore for now
+      when "word_separator", "segmentation", "character_separator", "map"
+      # Those are bugs
+      when "title-case"
+      else
+        p i
+      end
+    else
+      cmt = ""
+      i = i.sub(/(#.*?)\z/) { cmt << $1; "" }
+      #new << " "*indent << i.strip << "\n"
+      if i.strip == ""
+        new << " "*indent << cmt << "\n"
+        next
+      end
+
+      case cur.object_id
+      when nil.object_id
+        raise "Unexpected line #{i}"
+      when characters.object_id, dictionary.object_id
+        k,v = i.split(":", 2).map(&:strip)
+        if !v || v == ""
+          v = ""
+          # Load array
+          iter2 = iter + 1
+          while iter2 < map.length
+            i2 = map[iter2]
+            break unless i2.strip =~ /\A-/
+            i2 = i2.sub(/(#.*?)\z/) { cmt << $1; "" }
+            v << "\n" << i2
+            iter2 += 1
+          end
+          iter = iter2 - 1
+        end
+
+        kk,vv = YAML.load(k), YAML.load(v)
+
+        kkk,vvv = kk.inspect, vv.inspect
+        if vv.class == Array
+          if vv.all? { |z| z.length == 1 }
+            vvv = "any(" + vv.join.inspect + ")"
+          else
+            vvv = "any(" + vv.inspect + ")"
+          end
+        elsif vv.class == NilClass
+          vvv = "none"
+        end
+        kkk,vvv = kk.dup,vv.dup
+        # This worked due to use of regexps... it should remove 1 slash.
+        kkk = kkk.gsub("\\\\u", "\\\\u")
+        kkk = kkk.gsub("\\\\U", "\\\\u")
+
+        new << process_line( kkk,vvv, indent: indent )
+      when rules.object_id, postrules.object_id
+        if i.strip =~ /\A- pattern\s*:/
+          _, k = i.split(":", 2)
+          ii = map[iter+1]
+          ii = ii.sub(/(#.*?)\z/) { cmt << $1; "" }
+          if ii.strip == ""
+            iter += 1
+            ii = map[iter+1]
+            ii = ii.sub(/(#.*?)\z/) { cmt << $1; "" }
+          end
+          if ii.strip =~ /\Aresult\s*:/
+            _, v = ii.split(":", 2)
+          else
+            raise "Unexpected(2): #{ii.strip.inspect}"
+          end
+          iter += 1
+        else
+          raise "Unexpected(1): #{i.strip.inspect}"
+        end
+
+        kk,vv = YAML.load(k), YAML.load(v)
+        # kkk,vvv = kk.inspect, vv.inspect
+        kkk,vvv = kk.dup,vv.dup
+
+        new << process_line( kkk,vvv, indent: indent )
+      end
+
+      if cmt != ""
+        new << " " << cmt << "\n"
+      else
+        new << "\n"
+      end
+    end
+  end
+
+  fini.()
+
+  unless stagedone
+    new << "stage {\n"
+    efini.()
+  end
+
+  new << "  title_case\n" if title_case
+  new << "  downcase\n" if downcase
+
+  new << "}\n\n"
+
+  if chain
+    new << "# This map is chained and probably depends on seq2seq:\n"
+    new << "# #{chain}\n\n"
+  end
+
+  if transcription
+    new << "# This map contains transcription and probably depends on seq2seq:\n"
+    new << "# transcription: #{transcription}\n\n"
+  end
+
+  new = new.gsub(/ +$/, '') # Cleanup trailing whitespaces
+
+  #new << map.join("\n")
+
+  File.write("../maps/maps-staging/#{old_map_name}.imp", new)
+
+  puts " done!"
+end

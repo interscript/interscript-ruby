@@ -1,0 +1,301 @@
+metadata {
+  authority_id: iso
+  id: 233-1984
+  language: iso-639-2:ara
+  source_script: Arab
+  destination_script: Latn
+  name: ISO 233:1984 Documentation — Transliteration of Arabic characters into Latin characters
+  url:
+    - https://www.iso.org/standard/4117.html
+    - http://transliteration.eki.ee/pdf/Arabic_2.2.pdf
+    - http://www.eki.ee/wgrs/rom1_ar.pdf
+  creation_date: 1984
+  confirmation_date: 2018-06
+  description: |
+    Is one of a series of International Standards dealing with
+    the conversion of systems of writing, following the
+    principles of stringent conversion in order to permit
+    international information exchange. Its aim is to provide a
+    means for international communication of written messages
+    in a form which permits the automatic transmission and
+    reconstitution of these by men or machines. Cancels and
+    replaces ISO Recommendation R 233-1961
+  notes:
+    - |
+      The transliteration ISO 233:1984 WRT ara-arab-latn-2017 gives every character and diacritical mark a unique
+      equivalent and e.g. long vowels in Arabic ā, ī and ū are consequently written a’, iy and uw
+      respectively in the ISO transliteration. Other main correspondences
+      ث is ṯ instead of th
+      ج is ǧ instead of j
+      ح is ḥ instead of ẖ
+      خ is ẖ instead of kh
+      ذ is ḏ instead of dh
+      ش is š instead of sh
+      ص is ṣ instead of s̱
+      ض is ḍ instead of ḏ
+      ط is ṭ instead of ṯ
+      ظ is ẓ instead of d͟h
+      غ is ġ instead of gh
+      ة is ẗ instead of h/t
+      ى is ỳ
+      ـِي is iy instead of iy
+      ـُو is uw instead of ū
+      ـَا is a’ instead of ā
+      ـَى is aỳ instead of á
+}
+
+tests {
+  test "مِصر", "Miṣr"
+  test "قَطَر", "Qaṭar"
+  test "الجُمهُورِيَّة العِرَاقِيَّة", "Al Ǧumhuwriyaẗ al ‘Ira’qiyaẗ"
+  test "جُمهُورِيَّة مِصر العَرَبِيَّة", "Ǧumhuwriyaẗ Miṣr al ‘Arabiyaẗ"
+  test "الرِيَاض", "Ar Riya’ḍ"
+  test "الشارِقة", "Aš Šâriqaẗ"
+}
+
+stage {
+
+
+  # CHARACTERS
+  parallel {
+
+    # pointing
+    sub "\u064e", "a" # َ fatha
+    sub "\u064e", "", after: "\u0629" # َ fatha followed by ta' marboota
+    sub "\u0650", "i" # ِ kasra
+    sub "\u064f", "u" # ُ damma
+    sub "\u0652", "" # ْ sokoon, see note A below
+
+    # special pointed letters
+    # special pointed letters
+    sub "\u0639\u064e", "‘a" # عَ
+    sub "\u0639\u0650", "‘i" # عِ
+    sub "\u0639\u064f", "‘ū" # عُ
+    # handle MacOS regex difference
+    sub "\u0639\u064f\u0648", "‘ū" # عُو damma followed by و
+
+    sub "\u0650\u064a", "iy" # ـِي kasra followed by ي
+    sub "\u0650\u064a\u0651\u064e", "iy" # ـِيَّ
+    sub "\u0650\u064a", "iy", after: any("\u064e\u064f") # ـِي kasra followed by ي
+    sub "\u064e\u0627", "a’" # ـَا fatha followed by ا
+    sub "\u064e\u0649", "aỳ" # ـَى fatha followed by ى which is ا not ي
+    sub "\u064f\u0648", "uw" # ـُو damma followed by و
+    sub "\u064e\u0648\u0652", "aw" # ـَوْ
+    sub "\u064e\u064a\u0652", "ay" # ـَيْ
+
+    # Sun letters
+
+    sub boundary + "\u0627\u0644\u062a", "at t" # الت
+    sub boundary + "\u0627\u0644\u062b", "aṯ ṯ" # الث
+    sub boundary + "\u0627\u0644\u062f", "ad d" # الد
+    sub boundary + "\u0627\u0644\u0630", "aḏ ḏ" # الذ
+    sub boundary + "\u0627\u0644\u0631", "ar r" # الر
+    sub boundary + "\u0627\u0644\u0632", "az z" # الز
+    sub boundary + "\u0627\u0644\u0633", "as s" # الس
+    sub boundary + "\u0627\u0644\u0634", "aš š" # الش
+    sub boundary + "\u0627\u0644\u0635", "aṣ ṣ" # الص
+    sub boundary + "\u0627\u0644\u0636", "aḍ ḍ" # الض
+    sub boundary + "\u0627\u0644\u0637", "aṭ ṭ" # الط
+    sub boundary + "\u0627\u0644\u0638", "aẓ ẓ" # الظ
+    sub boundary + "\u0627\u0644\u0644", "al l" # الل
+    sub boundary + "\u0627\u0644\u0646", "an n" # الن
+
+    # ta' marboota in iso-233-1984 is all the same `aẗ`
+    sub "\u0629", "aẗ" # ة in the middle of the sentence
+
+    # Shadda
+
+
+    sub "\u0628\u0651", "bb" # ب
+    sub "\u062a\u0651", "tt" # ت
+    sub "\u062b\u0651", "ṯṯ" # ث
+    sub "\u062c\u0651", "ǧǧ" # ج
+    sub "\u062d\u0651", "ḥḥ" # ح
+    sub "\u062e\u0651", "ẖẖ" # خ
+    sub "\u062f\u0651", "dd" # د
+    sub "\u0630\u0651", "ḏḏ" # ذ
+    sub "\u0631\u0651", "rr" # ر
+    sub "\u0632\u0651", "zz" # ز
+    sub "\u0633\u0651", "ss" # س
+    sub "\u0634\u0651", "šš" # ش
+    sub "\u0635\u0651", "ṣṣ" # ص
+    sub "\u0636\u0651", "ḍḍ" # ض
+    sub "\u0637\u0651", "ṭṭ" # ط
+    sub "\u0638\u0651", "ẓẓ" # ظ
+    sub "\u063a\u0651", "ġġ" # غ
+    sub "\u0641\u0651", "ff" # ف
+    sub "\u0642\u0651", "qq" # ق
+    sub "\u0643\u0651", "kk" # ك
+    sub "\u0644\u0651", "ll" # ل
+    sub "\u0645\u0651", "mm" # م
+    sub "\u0646\u0651", "nn" # ن
+    sub "\u0647\u0651", "hh" # ه
+    sub "\u0648\u0651", "ww" # و
+    sub "\u064a\u0651", "yy" # ي
+
+
+    sub "\u0622", "’â" # آ
+
+    sub "\u0627", "â" # ا
+
+    sub "\u0649", "ỳ" # ى
+
+    sub "\u0626", "'" # ئ
+
+
+    sub "\u0621", maybe("’") # ء# see note A
+
+    sub "\u0623", "a" # أ
+
+    # See note B
+    sub boundary + "\u0627\u0644", "al " # ال
+    # '\uFE8E' : ''  # ﺎ
+
+    sub "\u0628", "b" # ب
+    sub "\uFE91", "b" # ﺑ
+    sub "\uFE92", "b" # ﺒ
+    sub "\uFE90", "b" # ﺐ
+
+    # See note C
+    sub "\u062a", "t" # ت
+    sub "\ufe97", "t" # ﺗ
+    sub "\ufe98", "t" # ﺘ
+    sub "\ufe96", "t" # ﺖ
+
+    sub "\u062b", "ṯ" # ث
+    sub "\ufe9b", "ṯ" # ﺛ
+    sub "\ufe9c", "ṯ" # ﺜ
+    sub "\ufe9a", "ṯ" # ﺚ
+
+    sub "\u062c", "ǧ" # ج
+    sub "\ufe9f", "ǧ" # ﺟ
+    sub "\ufea0", "ǧ" # ﺠ
+    sub "\ufe9e", "ǧ" # ﺞ
+
+    sub "\u062d", "ḥ" # ح
+    sub "\ufea3", "ḥ" # ﺣ
+    sub "\ufea4", "ḥ" # ﺤ
+    sub "\ufea2", "ḥ" # ﺢ
+
+    sub "\u062e", "ẖ" # خ
+    sub "\ufea7", "ẖ" # ﺧ
+    sub "\ufea8", "ẖ" # ﺨ
+    sub "\ufea6", "ẖ" # ﺦ
+
+    sub "\u062f", "d" # د
+    sub "\ufeaa", "d" # ﺪ
+
+    sub "\u0630", "ḏ" # ذ
+    sub "\ufeac", "ḏ" # ﺬ
+
+    sub "\u0631", "r" # ر
+    sub "\ufeae", "r" # ﺮ
+
+    sub "\u0632", "z" # ز
+    sub "\ufeb0", "z" # ﺰ
+
+    sub "\u0633", "s" # س
+    sub "\ufeb3", "s" # ﺳ
+    sub "\ufeb4", "s" # ﺴ
+    sub "\ufeb2", "s" # ﺲ
+
+    sub "\u0634", "š" # ش
+    sub "\ufeb7", "š" # ﺷ
+    sub "\ufeb8", "š" # ﺸ
+    sub "\ufeb6", "š" # ﺶ
+
+    sub "\u0635", "ṣ" # ص
+    sub "\ufebb", "ṣ" # ﺻ
+    sub "\ufebc", "ṣ" # ﺼ
+    sub "\ufeba", "ṣ" # ﺺ
+
+    sub "\u0636", "ḍ" # ض
+    sub "\ufebf", "ḍ" # ﺿ
+    sub "\ufec0", "ḍ" # ﻀ
+    sub "\ufebe", "ḍ" # ﺾ
+
+    sub "\u0637", "ṭ" # ط
+    sub "\ufec3", "ṭ" # ﻃ
+    sub "\ufec4", "ṭ" # ﻄ
+    sub "\ufec2", "ṭ" # ﻂ
+
+    sub "\u0638", "ẓ" # ظ
+    sub "\ufec7", "ẓ" # ﻇ
+    sub "\ufec8", "ẓ" # ﻈ
+    sub "\ufec6", "ẓ" # ﻆ
+
+    sub "\u0639", "‘" # ع
+    sub "\ufecb", "‘" # ﻋ
+    sub "\ufecc", "‘" # ﻌ
+    sub "\ufeca", "‘" # ﻊ
+
+    sub "\u063a", "ġ" # غ
+    sub "\ufecf", "ġ" # ﻏ
+    sub "\ufed0", "ġ" # ﻐ
+    sub "\ufece", "ġ" # ﻎ
+
+    sub "\u0641", "f" # ف
+    sub "\ufed3", "f" # ﻓ
+    sub "\ufed4", "f" # ﻔ
+    sub "\ufed2", "f" # ﻒ
+
+    sub "\u0642", "q" # ق
+    sub "\ufed7", "q" # ﻗ
+    sub "\ufed8", "q" # ﻘ
+    sub "\ufed6", "q" # ﻖ
+
+    sub "\u0643", "k" # ك
+    sub "\ufedb", "k" # ﻛ
+    sub "\ufedc", "k" # ﻜ
+    sub "\ufeda", "k" # ﻚ
+
+    sub "\u0644", "l" # ل
+    sub "\ufedf", "l" # ﻟ
+    sub "\ufee0", "l" # ﻠ
+    sub "\ufede", "l" # ﻞ
+
+    sub "\u0645", "m" # م
+    sub "\ufee3", "m" # ﻣ
+    sub "\ufee4", "m" # ﻤ
+    sub "\ufee2", "m" # ﻢ
+
+    sub "\u0646", "n" # ن
+    sub "\ufee7", "n" # ﻧ
+    sub "\ufee8", "n" # ﻨ
+    sub "\ufee6", "n" # ﻦ
+
+    # See note C
+    sub "\u0647", "h" # ه
+    sub "\ufeeb", "h" # ﻫ
+    sub "\ufeec", "h" # ﻬ
+    sub "\ufeea", "h" # ﻪ
+
+    sub "\u0648", "w" # و
+    sub "\ufeee", "w" # ﻮ
+
+    sub "\u064a", "y" # ي
+    sub "\ufef3", "y" # ﻳ
+    sub "\ufef4", "y" # ﻴ
+    sub "\ufef1", "y" # ﻱ
+  }
+
+  # POSTRULES
+  sub any("\u0061".."\uFFFF"), upcase, before: boundary, not_before: boundary + any("‘’'")
+  # don't capitalize defined article in the middle of a sentence
+  sub " At T", " at T" # الت
+  sub " Aṯ Ṯ", " aṯ Ṯ" # الث
+  sub " Ad D", " ad D" # الد
+  sub " Aḏ Ḏ", " aḏ Ḏ" # الذ
+  sub " Ar R", " ar R" # الر
+  sub " Az Z", " az Z" # الز
+  sub " As S", " as S" # الس
+  sub " Aš Š", " aš Š" # الش
+  sub " Aṣ Ṣ", " aṣ Ṣ" # الص
+  sub " Aḍ Ḍ", " aḍ Ḍ" # الض
+  sub " Aṭ Ṭ", " aṭ Ṭ" # الط
+  sub " Aẓ Ẓ", " aẓ Ẓ" # الظ
+  sub " Al L", " al L" # الل
+  sub " An N", " an N" # الن
+  sub " Al ", " al " # ال
+
+}

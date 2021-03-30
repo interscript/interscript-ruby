@@ -1,0 +1,472 @@
+metadata {
+  authority_id: bgnpcgn
+  id: 1956
+  language: iso-639-2:ara
+  source_script: Arab
+  destination_script: Latn
+  name: ROMANIZATION OF ARABIC -- BGN/PCGN 1956 System
+  url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/858000/ROMANIZATION_OF_ARABIC.pdf
+  creation_date: 1956
+  confirmation_date: 2019-12
+  description: |
+
+    This System was adopted by the BGN in 1946 and by the PCGN in 1956 and is applied by BGN and PCGN in the systematic romanization of Arabic geographical names in Bahrain, Egypt, Iraq, Jordan, Kuwait, Libya, Oman, Qatar, Saudi Arabia, Syria, the United Arab Emirates, Yemen, the West Bank and Gaza Strip.
+
+    Uniform results in the romanization of Arabic are difficult to obtain, since vowel points and diacritical marks are generally omitted from both handwriting and printed script. It follows that for correct identification of the words which appear in any particular name, knowledge of its standard Arabic-script spelling including proper pointing, and recognition of dialectal and idiosyncratic deviations are essential.
+
+    In order to bring about uniformity in the Roman-script spelling of geographical names in Arabic-language areas, the system is based insofar as possible on fully pointed Modern Standard Arabic (MSA). In the interest of clarity, vowel pointing to indicate short vowels has been applied to the examples given below, and examples of the, more usual, unpointed script have also been provided; it should also be noted that the dots which occur on some characters of the Arabic script are not vowels but rather are an integral part of the base consonant.
+
+    Arabic script is written from right to left, and does not make a distinction between upper and lower case.
+
+
+
+  notes: |
+
+    - (NOTE 1) The symbol ◌ is used in this system to symbolise any Arabic consonant character. It is not itself an Arabic letter.
+
+    - (NOTE 2) Hamzah (ء) is written in Arabic in association with most instances of initial alif, except those which belong to the definite article al or which bear a maddah (see note 9). Hamzah is written above the alif ( أَ) if the accompanying short vowel is a fatḩah or ḑammah and usually below the alif( أ ) if the accompanying short vowel is a kasrah.
+      When the purpose is to indicate the presence of a glottal stop, hamzah is written over medial alif ( أ ), wāw (ؤ) and yā’, typically without dots (ئ); or following final alif ( أ ء ), these characters serving only to “bear” the hamzah. Hamzah following kasrah ( ) is written (ئ); the yā’ is usually in the initial or medial form and the dots are omitted e.g. bi’r ( بئ ر ).
+      Hamzah following ḑammah ( ) is written (ؤ). Hamzah following a long vowel is written without a bearer and is positioned on the line of print like a regular character, e.g. صنعاء Şan‘ā’. The romanization of hamzah (’ - Unicode encoding 2019) should always be carefully distinguished from that of ‘ayn (‘ - Unicode encoding 2018).
+
+    - (NOTE 3) Alif (ا) occurs with the following uses
+      a. Initially, it indicates that the word begins with a vowel or diphthong; the alif itself is not romanized, but rather “carries” the short vowel, which is romanized; e.g., ظب ي أبو → Abū Z̧aby.
+
+      b. With maddah (آ – row 18 in the vowel table), it is represented ā; e.g., مُ عيط آلب و → Ālbū Mu‘ayţ. See also note 9.
+
+      c. Medially and finally it is represented ā; e.g., ب ا ب → Bāb, صيدا → Şaydā.
+
+      d. Medially and finally, alif may serve as the bearer of hamzah, e.g. رأس → ra’s. See also note 2.
+
+    - (NOTE 4) The tā’ marbūţah character (ة), which looks like hā’ with two dots above and occurs only at the end of words, is romanized h, except in an iḑāfah noun phrase construction, where it is romanized t, in accordance with pronunciation. e.g. Muḩāfaz̧ah (as an isolated word) but Muḩāfaz̧at Baghdād. In exceptional cases, when it is necessary to distinguish it from the tā’ marbūţah, the ending fatḩah + hā’ ( ه ) may be romanized a·h when the character hā’ (ه) is pronounced as such. Example Muntaza·h. (see also special rule 13). The tā marbūţah is always preceded by the short vowel fatḩah ( ) and is therefore romanized as ah or at, except when it is preceded by alif when it is romanized āh (not āah), e.g. Ḩamāh (حماة ), and as āt within an iḑāfah construction.
+
+    - (NOTE 5) The character yā’ (in final form but without dots) preceded by the vowel point fatḩah is known as alif maqşūrah. This character may also be pointed ى and should be romanized á. See character 7 in the vowel table.
+
+    - (NOTE 6) The classical Arabic grammatical endings written with the nunation symbols (tanwīn) may be romanized, when necessary, by an, in, un. In modern spoken Arabic, these endings have become silent and should not be romanized e.g. classical alifun; modern alif.
+
+    - (NOTE 7) Doubled consonant sounds are represented in Arabic script by placing a shaddah ( ) over a consonant character, although like the short vowels the shaddah may not always be written. In romanization the letter should be doubled, e.g. Quwwah, ‘Abbās. However, the combination of the consonant character yā’ with a shaddah preceded by a kasrah ( ي ) at the end of a word is romanized ī, e.g. Gharbī; a word ending kasrah + yā’ with a shaddah + tā’ marbūţah is romanized īyah (rather than iyyah), e.g. ال س ل يمانِ ية
+    is romanized As Sulaymānīyah and not As Sulaymāniyyah; and when the kasrah + yā’ + shaddah combination is followed by the sound masculine plural ending ( يين or يون ) it should be romanized as –īyīn/īyūn, e.g. ساحة العباسيين should be romanized as Sāḩat al ‘Abbāsīyīn.
+
+    - (NOTE 8) Hamzat al waşl (ٱ), which is utilized only in the pointing of classical Arabic, is romanized ’ as illustrated in the classical form of its name hamzatu’l waşli.
+
+    - (NOTE 9) Since maddah ( أ ), which is placed over alif ( أ ), often occurs in word-initial position, no confusion results from the use of ā for alif maddah ( أ ) as well as for fatḩah followed by alif ( اَ ).
+
+    - (NOTE 10) The ligature ل ا represents lām-alif, and should be romanized lā.
+
+    - (NOTE 11) In word initial position the combination Alif +Wāw (او ) is sometimes used to render an initial long vowel sound in words of non-Arabic origin. Where this is clearly the case it should be romanized Ū. In words of Arabic or uncertain origin it should be romanized Aw. In word-medial or word-final position it should always be romanized āw. Similarly the combination Alif +Yā’ (اي ) is romanized Ī to render an initial long vowel sound but as āy in word-medial or word-final position.
+
+    # SPECIAL RULES
+
+    - The Arabic definite article al (ال ) should be treated as follows |
+      a. Initial definite articles should be capitalized and hyphens should not be used to connect parts of names, e.g. Ash Shāriqah. When appearing medially in a name the initial ‘a’ should be lower case, e.g. Tall al Laḩm.
+
+      b. When the definite article precedes a word beginning with one of the “sun letters” t, th, d, dh, r, z, s, sh, ş, ḑ, ţ, z̧, l, or n – the l is assimilated in pronunciation and romanization, thus yielding, for example, the romanization Ar Riyāḑ, rather than Al Riyāḑ for ال ريا ض .
+
+      c. If sources contradict over the inclusion or non-inclusion of the definite article in a name, preference should be given to the form with the article.
+
+    - Conjunctions and prepositions should be romanized according to their written form in Arabic script and should be lower case. In cases where the conjunction or preposition ends in a long or short vowel any assimilated pronunciation should not be shown in the romanized form. e.g. Khabb wa ash Sha‘f (خب والشعف ). |
+
+      There are two exceptions to this rule
+
+      a. In the case of the preposition li (ل), where the alif of the definite article is assimilated in the written form as well as pronunciation, the written form should be shown in romanization as follows Mişr liţ Ţayarān (مصر للطيران ); Ash Sharikah al ‘Āmmah lil Maghāzil (الشركة العامة للمغازل ).
+
+      b. In the case of the preposition bi (ب), the alif of the definite article is assimilated in pronunciation and, although the alif remains in the written form the short vowel it carries changes from ‘a’ to ‘i’. For example Al Qaryah bid Duwayr (القرية بالدوير ) but Ad Duwayr (الدوير ); and Al Ḩarajah bil Qur’ān (الحرجة بالقرآن ) but Al Qur’ān (القرآن ).
+
+
+    - The Arabic word for God ( لله) should be written Allāh. The alif khanjarīyah (dagger alif) ( ) above the second ل (lām) in the word لله , like the short vowels, is not usually written but should be romanized ā, like a full-size alif. This diacritical mark appears in a few other Arabic words, for instance on the alif maqşūrah as described in note 5.
+
+    - Names which consist of noun phrases (see also note 4) should be written as separate words. The definite article within such names should be romanized al, not ul, e.g., ‘Abd Allāh, ‘Abd ar Raḩmān, Dhū al Faqār, and as noted in special rule 1, the medial al should be lower case.
+
+    - The Arabic word ب ن should be romanized Bin rather than Ibn whenever written without alif, that is between two proper nouns, e.g., ‘Umar Bin al Khaţţāb. Where it appears with alif ( )اب ن , it should be romanized Ibn.
+
+    - The Turkish word Paşa should be romanized from Arabic script as Bāshā. The Turkish word Bey should be romanized as Bey in Egyptian names, no matter how it is written in Arabic-language sources, but in other Arabic areas it should be romanized as Bak where written بك and as Bayk when written بيك .
+
+    - The modern colloquial word Sīdī (سيدي ) should be give precedence over the classical form Sayyidī. This does not preclude the spelling Sayyidī if the latter is indicated by the Arabic script or other evidence – for instance, if the yā’ is written with a shaddah ( ).
+
+    - The colloquial word Bū should not be changed to the standard form Abū.
+
+    - The colloquial word for water, written مي ة on Arabic maps, should be romanized Mayyat.
+
+    - Place names of Aramaic origin in Syria often contain initial consonant clusters consisting of b plus another consonant such as l or h. In romanization, the clusters bl, bh, etc., should be so represented.
+
+    - In names containing the Arabic word for back, ridge, or hill, appearing as either ظهر (Z̧ahr) or ضه ر (Ḑahr) in Arabic sources, the word should be romanized to reflect the particular Arabic spelling shown. Where sources differ, preference should be given to the form found on the most authoritative source.
+
+    - In formal Arabic, the spelling of some words ending in a long vowel character may change according to that word’s grammatical function in a sentence. For example, the personal name Abū Bakr (ابو بكر ) would become Abī Bakr (ابي بكر ) when preceded by a generic in an iḑāfah construction (used in Moroccan Arabic Script) e.g. Shāri‘ Abī Bakr (شارع ابي بكر – Abu Bakr Street). The spelling of such words as found on the most authoritative source should be used in the romanized form of the name. Other common words affected by this rule are Banū/Banī (sons of…) and Dhū/Dhī (owner of ...). Examples of names in this category include Jabal Abā aş Şabbān (جبل ابا الصبان ) and Muḩāfaz̧at Dhī Qār ( محافظة ذي قار ).
+
+    - Occasionally the character sequences ك ه , ده , س ه , and ت occur. They may be romanized k·h, d·h, s·h, and t·h in order to differentiate these romanizations from the digraphs kh, dh, sh, and th, which are used to represent the characters خ, ذ, ش, and ث respectively. See also note 4.
+}
+
+tests {
+  test "قُرآن", "Qur’ān"
+  test "أَبُو ظَبْي", "Abū Z̧aby"
+  test "بِئْر زَيْت", "Bi’r Zayt"
+  test "أُمّ العَمَد", "Umm al ‘Amad"
+  test "البَحرَيْن", "Al Baḩrayn"
+  test "الكُوت", "Al Kūt"
+  test "الثُّلَيثُوَات", "Ath Thulaythuwāt"
+  test "الجَزِيرَة", "Al Jazīrah"
+  test "المَحْمُودِيَّة", "Al Maḩmūdīyah"
+  test "خَيْبَر", "Khaybar"
+  test "دَمَنْهُور", "Damanhūr"
+  test "ذَهَب", "Dhahab"
+  test "الرَّوْضة", "Ar Rawḑah"
+  test "زُوَارَة", "Zuwārah"
+  test "السُّلَيْمانِيَّة", "As Sulaymānīyah"
+  test "الشَّام", "Ash Shām"
+  test "قَيْصُومَة", "Qayşūmah"
+  test "ضَوْر", "Ḑawr"
+  test "القُنَيْطِرَة", "Al Qunayţirah"
+  test "ظُفَار", "Z̧ufār"
+  test "أَبُو عَرِيش", "Abū ‘Arīsh"
+  test "بَغْداد", "Baghdād"
+  test "الفُرات", "Al Furāt"
+  test "قَطَر", "Qaţar"
+  test "الكُوَيْت", "Al Kuwayt"
+  test "حَلَب", "Ḩalab"
+  test "مَكَّة", "Makkah"
+  test "نَخْل", "Nakhl"
+  test "جَبَل هارُون", "Jabal Hārūn"
+  test "وادِي غَضَا", "Wādī Ghaḑā"
+  test "اليَمَن", "Al Yaman"
+  test "القاهِرَة", "Al Qāhirah"
+  test "المَدِينَة المُنَوَّرَة", "Al Madīnah al Munawwarah"
+  test "مُحَافَظَة دِمَشْق", "Muḩāfaz̧at Dimashq"
+  test "البَصْرَة", "Al Başrah"
+  test "الرِّيَاض", "Ar Riyāḑ"
+  test "القُدْس", "Al Quds"
+  test "بَاب المَنْدَب", "Bāb al Mandab"
+  test "المَدِينة", "Al Madīnah"
+  test "صُور", "Şūr"
+  test "مَرْسَىٰ مَطْرُوح", "Marsá Maţrūḩ"
+  test "صَيْدَا", "Şaydā"
+  test "الدَّوحَة", "Ad Dawḩah"
+  test "مُحَمَّد", "Muḩammad"
+  test "أُوزُونْلَار", "Ūzūnlār"
+  test "أَوْسَط", "Awsaţ"
+  test "سَنَاو", "Sanāw"
+  test "اِيرَان", "Īrān"
+  test "تَلّ السَّرَاي", "Tall as Sarāy"
+  test "آلْبُو مُعَيْط", "Ālbū Mu‘ayţ"
+  test "سَلْمان پَاك", "Salmān Pāk"
+  test "تَلّ كُوچِك الصَّغِير", "Tall Kūchik aş Şaghīr"
+  # - source: مَزََّة ڤِيلَّات غَرْبِيَّة
+  #   expected: Mazzah Vīllāt Gharbīyah
+  test "ڨَفْصَة", "Gafşah"
+  test "تَلّ گَمْر", "Tall Gamr"
+  test "زَاڴُورَة", "Zāgūrah"
+  test "اِيران", "Īrān"
+}
+
+stage {
+  # CHARACTERS
+  parallel {
+
+    # Modified/Non-Standard Arabic Script Characters
+
+    sub "\u067E", "p"
+    sub "\u0686", "ch"
+    sub "\u06A4", "v"
+    # Used in Tunisian Arabic Script.
+    sub "\u06A8", "g"
+    # Used principally in Iraq, but also sometimes used in other Arabic speaking countries to represent the ‘g’ sound.
+    sub "\u06AF", "g"
+    # Used in Moroccan Arabic Script.
+    sub "\u06B4", "g" # ڭ
+    sub "\u06AD", "g"
+
+
+
+    # pointing
+
+
+    # Note 11
+    sub boundary + "\u0627\u0648", "ū" #او
+    sub boundary + "\u0627\u0648\u0652", "aw" # اوْ
+    sub "\u0627\u0648", "āw" #او in word medial or final position
+
+    sub boundary + "\u0627\u064A", "ī" # اي in word initial position (see Note 11)
+    sub "\u0627\u064A", "āy" # اي in word medial or final position
+
+
+    sub "\u064e", "a" # َ fatha
+    sub "\u064e", "", after: "\u0629" # َ fatha followed by ta' marboota
+    sub "\u064e", "", after: "a" + any("ht") # َ fatha followed by ta' marboota, handling different order of conversion
+    sub "\u0650", "i" # ِ kasra
+    sub "\u064f", "u" # ُ damma
+
+    sub "\u064e\u0627", "ā" # ـَا fatha followed by ا
+    sub "\u0650\u064a", "ī" # ـِي kasra followed by ي
+    sub "\u064f\u0648", "ū" # ـُو damma followed by و
+    sub "\u064f\u0648", "uw", after: any("\u064e\u064f") # ـِي kasra followed by ي
+    sub "\u064e\u0649", "á" # ـَى fatha followed by ى which is ا not ي Note 5
+    sub "\u064e\u0649\u0670", "á" # Note 5
+    sub "\u0649\u0670", "á" # See Note 5
+    sub "\u0652", "" # ْ sokoon, not romanized, Indicates absence of short vowel
+    sub "\u064e\u064a\u0652", "ay" # ـَيْ
+    sub "\u064e\u064a", "ay", before: "\u0644" # ـَيْ
+    sub "\u064e\u064a", "aī" # ـَي
+
+    sub "\u064e\u0648" + maybe("\u0652"), "aw", not_after: "\u0651" # ـَوْ
+    sub "\u064b", "" # See Note 6
+    sub "\u064d", "" # See Note 6
+    sub "\u064c", "" # See Note 6
+
+
+    # special pointed letters
+    sub "\u0639\u064e", "‘a" # عَ
+    sub "\u0639\u0650", "‘i" # عِ
+    sub "\u0639\u064f", "‘ū" # عُ
+
+    # Note 2
+    sub "\u0623", ""
+    # '\u0623\u064e' : 'a'  # أَ
+    # '\u0625\u0650' : 'i'  # إِ
+    # '\u0623\u064f' : 'u'  # أُ
+    # '\u0623\u064f\u0648' : 'ū'  # أُ
+
+    # handle MacOS regex difference
+    sub "\u0639\u064f\u0648", "‘ū" # عُو damma followed by و
+
+    sub "\u0650\u064a\u0651\u064e", "īy" # ـِيَّ
+    sub "\u0650\u064a", "iy", after: any("\u064e\u064f") # ـِي kasra followed by ي
+
+    # not romanized in word-initial position (see Note 2)
+    sub "\u0621", "’"
+
+    sub boundary + "\u0622", "ā" # آ in word initial position (see Notes 3 and 9)
+    sub "\u0622", "’ā" # آ in word medial position (see Notes 3 and 9)
+    sub "\u0671", "’" # See Note 8
+    sub "\u0626", "’" # ئ
+    sub "\u0627", "ā" # See Notes 3 and 10
+
+    sub boundary + "\u0627\u0648", "ū" # اُ
+    sub boundary + "\u0627\u0650\u064a", "ī" # اي
+    sub boundary + "\u0627\u0644", "al " # ال
+
+    # Sun letters
+
+    sub boundary + "\u0627\u0644\u062a" + maybe("\u0651"), "at t" # الت
+    sub boundary + "\u0627\u0644\u062b" + maybe("\u0651"), "ath th" # الث
+    sub boundary + "\u0627\u0644\u062f" + maybe("\u0651"), "ad d" # الد
+    sub boundary + "\u0627\u0644\u0630" + maybe("\u0651"), "adh dh" # الذ
+    sub boundary + "\u0627\u0644\u0631" + maybe("\u0651"), "ar r" # الر
+    sub boundary + "\u0627\u0644\u0632" + maybe("\u0651"), "az z" # الز
+    sub boundary + "\u0627\u0644\u0633" + maybe("\u0651"), "as s" # الس
+    sub boundary + "\u0627\u0644\u0634" + maybe("\u0651"), "ash sh" # الش
+    sub boundary + "\u0627\u0644\u0635" + maybe("\u0651"), "aş ş" # الص
+    sub boundary + "\u0627\u0644\u0636" + maybe("\u0651"), "aḑ ḑ" # الض
+    sub boundary + "\u0627\u0644\u0637" + maybe("\u0651"), "aţ ţ" # الط
+    sub boundary + "\u0627\u0644\u0638" + maybe("\u0651"), "az̧ z̧" # الظ
+    sub boundary + "\u0627\u0644\u0644" + maybe("\u0651"), "al l" # الل
+    sub boundary + "\u0627\u0644\u0646" + maybe("\u0651"), "an n" # الن
+
+    # shadda Note 7
+
+    sub "\u0628\u0651", "bb" # ب
+    sub "\u062a\u0651", "tt" # ت
+    sub "\u062b\u0651", "thth" # ث
+    sub "\u062c\u0651", "jj" # ج
+    sub "\u062d\u0651", "ḩḩ" # ح
+    sub "\u062e\u0651", "khkh" # خ
+    sub "\u062f\u0651", "dd" # د
+    sub "\u0630\u0651", "dhdh" # ذ
+    sub "\u0631\u0651", "rr" # ر
+    sub "\u0632\u0651", "zz" # ز
+    sub "\u0633\u0651", "ss" # س
+    sub "\u0634\u0651", "sh" # ش
+    sub "\u0635\u0651", "şş" # ص
+    sub "\u0636\u0651", "ḑḑ" # ض
+    sub "\u0637\u0651", "ţţ" # ط
+    sub "\u0638\u0651", "z̧z̧" # ظ
+    sub "\u063a\u0651", "ghgh" # غ
+    sub "\u0641\u0651", "ff" # ف
+    sub "\u0642\u0651", "qq" # ق
+    sub "\u0643\u0651", "kk" # ك
+    sub "\u0644\u0651", "ll" # ل
+    sub "\u0645\u0651", "mm" # م
+    sub "\u0646\u0651", "nn" # ن
+    sub "\u0647\u0651", "hh" # ه
+    sub "\u0648\u0651", "ww" # و
+    sub "\u064a\u0651", "yy" # ي
+
+    # ta' marboota See Note 4
+    # TODO: shorten this fragment
+    sub "\u0629", "at" # ة in the middle of the sentence
+    sub "\u0629" + line_end, "ah"
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+    sub "\u0629", "ah", before: boundary + "\u0627\u0644" + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff") + any("\u0600".."\u06ff")
+
+
+    # standard consonant characters
+
+    sub "\u0628", "b" # ب
+    sub "\uFE91", "b" # ﺑ
+    sub "\uFE92", "b" # ﺒ
+    sub "\uFE90", "b" # ﺐ
+
+    sub "\u062a", "t" # ت
+    sub "\ufe97", "t" # ﺗ
+    sub "\ufe98", "t" # ﺘ
+    sub "\ufe96", "t" # ﺖ
+
+    sub "\u062b", "th" # ث
+    sub "\ufe9b", "th" # ﺛ
+    sub "\ufe9c", "th" # ﺜ
+    sub "\ufe9a", "th" # ﺚ
+
+    sub "\u062c", "j" # ج
+    sub "\ufe9f", "j" # ﺟ
+    sub "\ufea0", "j" # ﺠ
+    sub "\ufe9e", "j" # ﺞ
+
+    sub "\u062d", "ḩ" # ح
+    sub "\ufea3", "ḩ" # ﺣ
+    sub "\ufea4", "ḩ" # ﺤ
+    sub "\ufea2", "ḩ" # ﺢ
+
+    sub "\u062e", "kh" # خ
+    sub "\ufea7", "kh" # ﺧ
+    sub "\ufea8", "kh" # ﺨ
+    sub "\ufea6", "kh" # ﺦ
+
+    sub "\u062f", "d" # د
+    sub "\ufeaa", "d" # ﺪ
+
+    sub "\u0630", "dh" # ذ
+    sub "\ufeac", "dh" # ﺬ
+
+    sub "\u0631", "r" # ر
+    sub "\ufeae", "r" # ﺮ
+
+    sub "\u0632", "z" # ز
+    sub "\ufeb0", "z" # ﺰ
+
+    sub "\u0633", "s" # س
+    sub "\ufeb3", "s" # ﺳ
+    sub "\ufeb4", "s" # ﺴ
+    sub "\ufeb2", "s" # ﺲ
+
+    sub "\u0634", "sh" # ش
+    sub "\ufeb7", "sh" # ﺷ
+    sub "\ufeb8", "sh" # ﺸ
+    sub "\ufeb6", "sh" # ﺶ
+
+    sub "\u0635", "ş" # ص
+    sub "\ufebb", "ş" # ﺻ
+    sub "\ufebc", "ş" # ﺼ
+    sub "\ufeba", "ş" # ﺺ
+
+    sub "\u0636", "ḑ" # ض
+    sub "\ufebf", "ḑ" # ﺿ
+    sub "\ufec0", "ḑ" # ﻀ
+    sub "\ufebe", "ḑ" # ﺾ
+
+    sub "\u0637", "ţ" # ط
+    sub "\ufec3", "ţ" # ﻃ
+    sub "\ufec4", "ţ" # ﻄ
+    sub "\ufec2", "ţ" # ﻂ
+
+    sub "\u0638", "z̧" # ظ
+    sub "\ufec7", "z̧" # ﻇ
+    sub "\ufec8", "z̧" # ﻈ
+    sub "\ufec6", "z̧" # ﻆ
+
+    sub "\u0639", "‘" # ع
+    sub "\ufecb", "‘" # ﻋ
+    sub "\ufecc", "‘" # ﻌ
+    sub "\ufeca", "‘" # ﻊ
+
+    sub "\u063a", "gh" # غ
+    sub "\ufecf", "gh" # ﻏ
+    sub "\ufed0", "gh" # ﻐ
+    sub "\ufece", "gh" # ﻎ
+
+    sub "\u0641", "f" # ف
+    sub "\ufed3", "f" # ﻓ
+    sub "\ufed4", "f" # ﻔ
+    sub "\ufed2", "f" # ﻒ
+
+    sub "\u0642", "q" # ق
+    sub "\ufed7", "q" # ﻗ
+    sub "\ufed8", "q" # ﻘ
+    sub "\ufed6", "q" # ﻖ
+
+    sub "\u0643", "k" # ك
+    sub "\ufedb", "k" # ﻛ
+    sub "\ufedc", "k" # ﻜ
+    sub "\ufeda", "k" # ﻚ
+
+    sub "\u0644", "l" # ل
+    sub "\ufedf", "l" # ﻟ
+    sub "\ufee0", "l" # ﻠ
+    sub "\ufede", "l" # ﻞ
+
+    sub "\u0645", "m" # م
+    sub "\ufee3", "m" # ﻣ
+    sub "\ufee4", "m" # ﻤ
+    sub "\ufee2", "m" # ﻢ
+
+    sub "\u0646", "n" # ن
+    sub "\ufee7", "n" # ﻧ
+    sub "\ufee8", "n" # ﻨ
+    sub "\ufee6", "n" # ﻦ
+
+    sub "\u0647", "h" # ه
+    sub "\ufeeb", "h" # ﻫ
+    sub "\ufeec", "h" # ﻬ
+    sub "\ufeea", "h" # ﻪ
+
+    sub "\u0648", "w" # و
+    sub "\ufeee", "w" # ﻮ
+
+    sub "\u064a", "y" # ي
+    sub "\ufef3", "y" # ﻳ
+    sub "\ufef4", "y" # ﻴ
+    sub "\ufef1", "y" # ﻱ
+
+
+    # NUMERALS
+
+    # Although Perso-Arabic script is written from right to left, numerical expressions, e.g. ۱۹٦۸ → 1968, are written from left to right.
+    sub "۰", "0"
+    sub "۱", "1"
+    sub "۲", "2"
+    sub "۳", "3"
+    sub "٤", "4"
+    sub "٥", "5"
+    sub "٦", "6"
+    sub "۷", "7"
+    sub "۸", "8"
+    sub "۹", "9"
+  }
+
+  # POSTRULES
+  sub any("\u0061".."\uFFFF"), upcase, before: boundary, not_before: boundary + any("‘’")
+  # don't capitalize defined article in the middle of a sentence
+  sub " At T", " at T" # الت
+  sub " Ath Th", " ath th" # الث
+  sub " Ad D", " ad D" # الد
+  sub " Adh Dh", " adh Dh" # الذ
+  sub " Ar R", " ar R" # الر
+  sub " Az Z", " az Z" # الز
+  sub " As S", " as S" # الس
+  sub " Ash Sh", " ash Sh" # الش
+  sub " Aş Ş", " aş Ş" # الص
+  sub " Aḑ Ḑ", " aḑ Ḑ" # الض
+  sub " Aţ Ţ", " aţ Ţ" # الط
+  sub " Az̧ Z̧", " az̧ Z̧" # الظ
+  sub " Al L", " al L" # الل
+  sub " An N", " an N" # الن
+  sub " Al ", " al " # ال
+
+  compose
+}

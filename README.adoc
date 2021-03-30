@@ -27,40 +27,35 @@ These transliteration systems are used in the demo:
 `icao-rus-Cyrl-Latn-9303`::    ICAO MRZ Romanization of Russian
 `bas-rus-Cyrl-Latn-2017-bss`::      Bulgaria Academy of Science Streamlined System for Russian
 
-image:demo/20191118-interscript-demo-cast.gif["interscript screencast"]
+image:docs/demo/20191118-interscript-demo-cast.gif["interscript screencast"]
 
 
 == Installation
 
 === Prerequisites
 
-Linux:
+Interscript depends on Ruby. Once you manage to install Ruby, it's easy. This part
+won't work until we release Interscript v2, please use the one below.
 
 [source,sh]
 ----
-apt-get install swig python3-setuptools
+gem install interscript -v "~>2.0"
 ----
 
-Windows:
-
-[source,sh]
-----
-choco install --no-progress swig
-----
-
-Interscript depends on Python and the https://github.com/sequitur-g2p/sequitur-g2p[`sequitur-g2p`] module
+You can also download a local copy of this Git repository, eg. for development
+purposes:
 
 [source,sh]
 ----
-pip3 install -r requirments.txt
+git clone https://github.com/interscript/lcs
+cd lcs/ruby
+bundle install
 ----
 
-Interscript depends on Ruby. Once you manage to install Ruby, it's easy.
+==== Additional prerequisites for Thai systems
 
-[source,sh]
-----
-gem install interscript
-----
+If you want to transliterate Thai systems, you will need to install some additional
+requirements. Please consult: link:docs/Usage_with_Secryst.adoc[Usage with Secryst].
 
 == Usage
 
@@ -113,138 +108,24 @@ It is then easy to see the exact differences in rendering between the systems.
 diff bgnpcgn-rus-Latn.txt bas-rus-Latn.txt
 ----
 
+If you use Interscript from the Git repository, you would call the following command
+instead of `interscript`:
+
+[source,sh]
+----
+# Ensure you are in your Git repository root path
+ruby/bin/interscript rus-Cyrl.txt \
+  --system=bas-rus-Cyrl-Latn-2017-bss \
+  --output=bas-rus-Latn.txt
+----
+
 == Adding transliteration system
 
-Transliteration systems stored in a `maps/` directory as YAML files.
-You can create a new file and add it to the directory.
+Please consult link:docs/Map_Editing_Guide.adoc[the Map Editing Guide]
 
-The file should be named as `<system-code>.yaml`, where `system-code`
-is in accordance with
-http://calconnect.gitlab.io/tc-localization/csd-transcription-systems[ISO/CC 24229].
+== Integration with Ruby applications
 
-=== File structure
-
-[source,yaml]
-----
-authority_id: bgnpcgn
-id: 1947
-language: rus
-source_script: Cyrl
-destination_script: Latn
-name: ROMANIZATION OF RUSSIAN, BGN/PCGN 1947 System
-url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/807920/ROMANIZATION_OF_RUSSIAN.pdf
-creation_date: 1947
-confirmation_date: 2019-06
-description: The BGN/PCGN system for Russian was adopted ...
-
-notes:
-  - The character e should be romanized ye initially, after the vowel ...
-
-tests:
-  - source: ДЛИННОЕ ПОКРЫВАЛО
-    expected: DLINNOYE POKRYVALO
-  - source: Еловая шишка
-    expected: Yelovaya shishka
-
-map:
-  rules:
-    - pattern: (?<=[АаЕеЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\u0415 # Е after a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь
-      result: Ye
-    - pattern: \b\u0415 # Е initially
-      result: Ye
-
-  characters:
-    "\u0410": "A"
-    "\u0411": "B"
-    "\u0412": "V"
-----
-
-
-=== Rules
-
-The subsection `rules` is placed under the `map` key. All rules are applied in order they are placed before the subsection `characters` applying. Rules apply to an original text, not to a result of previous rules applying.
-
-Each rule has `pattern` and `result` elements.
-
-Pattern is a regex expression. It should be representing as a string without `//` or `%r{}` parentheses. For example `\b\u0415`. In case a rule is depend on previous or next content, lookahead or lookbehind could be used. For example a rule with the pattern `(?<=[АаЕеЁёИиОоУуЫыЭэЮюЯяЙйЪъЬь])\u0415` find every Е after upper or lower case symbols a, e, ё, и, о, у, ы, э, ю, я, й, ъ, ь.
-
-Result is a replacement a for pattern's match. It can contain a string, an Unicode characters specified by a hexadecimal number, a captured group reference. String with hexadecimal number or captured group reference should be double quoted. For example `"Y\u00eb"` or `"\\1\u00b7\\2"`. Captured group are referred by double backslash and group's number.
-
-Because rules are applied in order, multiple rules applicable to the same segment of a string can be addressed by rule ordering, and rules can be used as priority over characters. For example:
-
-[source,yaml]
-----
-map:
-  rules:
-    - pattern: \u03B3\u03B3    # γ (before Γ, Ξ, Χ)
-      result: ng
-    - pattern: (?<![Γγ])\u03B3(?=[ΕεέΗηήΙιίΥυύ])    # γ (before front vowels)
-      result: y
-----
-
-(γι maps to `yi`; but γγ maps to `ng`. In the case of γγι, the first rule takes priority, and the transliteration is `ngi`: it makes the second rule impossible.)
-
-[source,yaml]
-----
-map:
-  rules:
-    - pattern: (?<=\b)\u03BC[πΠ]  # μπ (initially)
-      result: b
-    - pattern: \u03BC[πΠ]         # μπ (medially)
-      result: mb
-----
-
-(The first rule applies at the start of a word; the second rule does not specify a context, as it applies in all other cases not covered by the first rule.)
-
-[source,yaml]
-----
-map:
-  rules:
-    - pattern: ";"
-      result: "?"
-
-  characters
-    "\u00B7": ";
-----
-
-(This guarantees that any `;` are converted to `?` before any new `;` are introduced; because all three are Latin script, they could be mixed up in ordering.)
-
-Normally rules "`bleed`" each other: once a rule applies to a segment, that segment cannot trigger other rules, because it is already converted to Roman. Exceptionally, it will be necessary to have a rule add or remove characters in the original script, rather than transliterate them, so that the same context can be invoked by two rules in succession:
-
-[source,yaml]
-----
-map:
-  rules:
-    - pattern: (?<=[АаЕеЁёИиОоУуЫыЭэЮюЯя])\u042b # Ы after any vowel character
-      result: "\u00b7Ы"
-    - pattern: \u042b(?=[АаУуЫыЭэ])              # Ы before а, у, ы, or э
-      result: "Ы\u00b7"
-----
-
-(If the result were `\u00B7Y`, the second rule could not be applied afterwards; but we want ОЫУ to transliterate as `O·Y·U`. In order to make that happen, we preserve the Ы during the rules phase, resulting in О·Ы·У; we only convert the letters to Roman script in the `characters` phase.)
-
-=== Testing transliteration systems
-
-To test all transliteration systems in the `maps/` directory, run:
-
-[source,sh]
-----
-bundle exec rspec
-----
-
-The command takes `source` texts from the `test` section, transforms
-them using `rules` and `charmaps` from the `map` key, and compares the
-results with `expected:` text from the `source:` section.
-
-To test a specific transliteration system, set the environment variable
-`TRANSLIT_SYSTEM` to the system code of the desired system
-(i.e. the "`basename`" of the system's YAML file):
-
-[source,sh]
-----
-TRANSLIT_SYSTEM=bgnpcgn-rus-Cyrl-Latn-1947 bundle exec rspec
-----
-
+Please consult link:docs/Integration_with_Ruby_Applications.adoc[the guide for integration with Ruby applications]
 
 == ISCS system codes
 
@@ -293,4 +174,3 @@ Some specifications that have distribution limitations may not be reproduced the
 == Copyright and license
 
 This is a Ribose project. Copyright Ribose.
-

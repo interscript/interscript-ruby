@@ -1,0 +1,145 @@
+metadata {
+  authority_id: bgnpcgn
+  id: 1979
+  language: iso-639-2:uzb
+  source_script: Cyrl
+  destination_script: Latn
+  name: BGN/PCGN Romanization System -- Uzbek Cyrillic (1979)
+  url: http://transliteration.eki.ee/pdf/Uzbek.pdf
+  creation_date: 1979
+
+  notes:
+    - At the beginning of a syllable, after a vowel, ъ or ь.
+}
+
+tests {
+  # https://ru.wikipedia.org/wiki/Узбекский_язык
+  test "Ўзбек ёзуви", "Ŭzbek yozuwi"
+  test "Ўзбек тили", "Ŭzbek tili"
+  test "катта", "katta"
+  test "куп", "kup"
+  test "кальта", "kalʼta"
+  test "Бори элға яхшилик қилғилки, мундин яхши йўқ Ким, дегайлар даҳр аро қолди фалондин яхшилик", "Bori elgha yakhshilik qilghilki, mundin yakhshi yŭq Kim, degaylar dahr aro qoldi falondin yakhshilik"
+  test "Бахр ул-худо", "Bakhr ul-khudo"
+  test "Рисале-йи маариф-и Шейбани", "Risale-yi maarif-i Sheybani"
+  test "Карами Хакка нихоят йукдур", "Karami Khakka nikhoyat yukdur"
+  test "Йахши", "Yakhshi"
+  test "Тутук белгись", "Tutuk belgisʼ"
+  test "Барча одамлар эркин, қадр-қиммат ва ҳуқуқларда тенг бўлиб туғиладилар.\nУлар ақл ва виждон соҳибидирлар ва бир-бирлари ила биродарларча муомала қилишлари зарур.", "Barcha odamlar erkin, qadr-qimmat wa huquqlarda teng bŭlib tughiladilar.\nUlar aql wa wizhdon sohibidirlar wa bir-birlari ila birodarlarcha muomala qilishlari zarur."
+  test "ПАПАПАЧУКА Респект!", "PAPAPACHUKA Respekt!"
+}
+
+aliases {
+  
+def_alias uzbek_upper, any("\u0410\u0411\u0412\u0413\u0492\u0414\u0415\u0401\u0416\u0417\u0418\u0419\u041A\u049A\u041B\u041C\u041D\u041E\u041F\u0420\u0421\u0422\u0423\u040E\u0424\u04B2\u0426\u0427\u0428\u042a\u042c\u042D\u042E\u042F")
+
+}
+
+stage {
+
+  # RULES
+  # note[1]
+  sub "\u0415", "Ye", before: any("АаЕеЁёИиОоУуЭэЮюЯяЪъЬь")
+  sub "\u0435", "ye", before: any("АаЕеЁёИиОоУуЭэЮюЯяЪъЬь")
+
+
+  # CHARACTERS
+  parallel {
+    sub "\u0410", "A" # А
+    sub "\u0411", "B" # Б
+    sub "\u0412", "W" # В
+    sub "\u0413", "G" # Г
+    sub "\u0492", "Gh" # Ғ
+    sub "\u0414", "D" # Д
+    sub "\u0415", "E" # Е
+    sub "\u0401", "Yo" # Ё
+    sub "\u0401", "YO", after: any("АБВГҒДЕЁЖЗИЙКҚЛМНОПРСТУЎФҲЦЧШЪЬЭЮЯ") # Ё
+    sub "\u0401", "YO", before: any("АБВГҒДЕЁЖЗИЙКҚЛМНОПРСТУЎФҲЦЧШЪЬЭЮЯ") # Ё
+    
+    sub "\u0416", "Zh" # Ж
+    sub "\u0416", "ZH", after: any("АБВГҒДЕЁЖЗИЙКҚЛМНОПРСТУЎФҲЦЧШЪЬЭЮЯ") # Ж
+    sub "\u0416", "ZH", before: any("АБВГҒДЕЁЖЗИЙКҚЛМНОПРСТУЎФҲЦЧШЪЬЭЮЯ") # Ж
+
+    sub "\u0417", "Z" # З
+    sub "\u0418", "I" # И
+    sub "\u0419", "Y" # Й
+    sub "\u041A", "K" # К
+    sub "\u049A", "Q" # Қ
+    sub "\u041B", "L" # Л
+    sub "\u041C", "M" # М
+    sub "\u041D", "N" # Н
+    sub "\u041E", "O" # О
+    sub "\u041F", "P" # П
+    sub "\u0420", "R" # Р
+    sub "\u0421", "S" # С
+    sub "\u0422", "T" # Т
+    sub "\u0423", "U" # У
+    sub "\u040E", "Ŭ" # Ў
+    sub "\u0424", "F" # Ф
+    sub "\u0425", "Kh" # Х
+    sub "\u0425", "KH", after: any("АБВГҒДЕЁЖЗИЙКҚЛМНОПРСТУЎФҲЦЧШЪЬЭЮЯ") # Х
+    sub "\u0425", "KH", before: any("АБВГҒДЕЁЖЗИЙКҚЛМНОПРСТУЎФҲЦЧШЪЬЭЮЯ") # Х
+
+    sub "\u04B2", "H" # Ҳ
+    sub "\u0426", "Ts" # Ц
+    sub "\u0426", "TS", after: any("АБВГҒДЕЁЖЗИЙКҚЛМНОПРСТУЎФҲЦЧШЪЬЭЮЯ") # Ц
+    sub "\u0426", "TS", before: any("АБВГҒДЕЁЖЗИЙКҚЛМНОПРСТУЎФҲЦЧШЪЬЭЮЯ") # Ц
+
+    sub "\u0427", "Ch" # Ч
+    sub "\u0427", "CH", after: any("АБВГҒДЕЁЖЗИЙКҚЛМНОПРСТУЎФҲЦЧШЪЬЭЮЯ") # Ч
+    sub "\u0427", "CH", before: any("АБВГҒДЕЁЖЗИЙКҚЛМНОПРСТУЎФҲЦЧШЪЬЭЮЯ") # Ч
+
+    sub "\u0428", "Sh" # Ш
+    sub "\u0428", "SH", after: any("АБВГҒДЕЁЖЗИЙКҚЛМНОПРСТУЎФҲЦЧШЪЬЭЮЯ") # Ш
+    sub "\u0428", "SH", before: any("АБВГҒДЕЁЖЗИЙКҚЛМНОПРСТУЎФҲЦЧШЪЬЭЮЯ") # Ш
+
+    sub "\u042a", "ʼ" # Ъ
+    sub "\u042c", "ʼ" # Ь
+    sub "\u042D", "E" # Э
+    sub "\u042E", "Yu" # Ю
+    sub "\u042E", "YU", after: any("АБВГҒДЕЁЖЗИЙКҚЛМНОПРСТУЎФҲЦЧШЪЬЭЮЯ") # Ю
+    sub "\u042E", "YU", before: any("АБВГҒДЕЁЖЗИЙКҚЛМНОПРСТУЎФҲЦЧШЪЬЭЮЯ") # Ю
+
+    sub "\u042F", "Ya" # Я
+    sub "\u042F", "YA", after: any("АБВГҒДЕЁЖЗИЙКҚЛМНОПРСТУЎФҲЦЧШЪЬЭЮЯ") # Я
+    sub "\u042F", "YA", before: any("АБВГҒДЕЁЖЗИЙКҚЛМНОПРСТУЎФҲЦЧШЪЬЭЮЯ") # Я
+
+    sub "\u0430", "a" # а
+    sub "\u0431", "b" # б
+    sub "\u0432", "w" # в
+    sub "\u0433", "g" # г
+    sub "\u0493", "gh" # ғ
+    sub "\u0434", "d" # д
+    sub "\u0435", "e" # e
+    sub "\u0451", "yo" # ё
+    sub "\u0436", "zh" # ж
+    sub "\u0437", "z" # з
+    sub "\u0438", "i" # и
+    sub "\u0439", "y" # й
+    sub "\u043A", "k" # к
+    sub "\u049B", "q" # қ
+    sub "\u043B", "l" # л
+    sub "\u043C", "m" # м
+    sub "\u043D", "n" # н
+    sub "\u043E", "o" # о
+    sub "\u043F", "p" # п
+    sub "\u0440", "r" # р
+    sub "\u0441", "s" # с
+    sub "\u0442", "t" # т
+    sub "\u0443", "u" # у
+    sub "\u045E", "ŭ" # ў
+    sub "\u0444", "f" # ф
+    sub "\u0445", "kh" # х
+    sub "\u04B3", "h" # ҳ
+    sub "\u0446", "ts" # ц
+    sub "\u0447", "ch" # ч
+    sub "\u0448", "sh" # ш
+    sub "\u044a", "ʼ" # ъ
+    sub "\u044c", "ʼ" # ь
+    sub "\u044D", "e" # э
+    sub "\u044F", "ya" # я
+    sub "\u044E", "yu" # ю
+  }
+
+}
+

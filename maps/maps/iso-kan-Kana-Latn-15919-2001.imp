@@ -1,0 +1,212 @@
+metadata {
+  authority_id: iso
+  id: 15919-2001
+  language: iso-639-2:kan
+  source_script: kana
+  destination_script: Latn
+  name: "Information and documentation — Transliteration of Devanagari and related Indic scripts into Latin characters"
+  url: https://www.chatranjali.fr/Scripts/Standards/ISO15919.pdf
+  creation_date: 2001
+  adoption_date: 2001
+  description: |
+    Script conversion is often required for documents such as historical and literary texts, geographical texts (including
+    maps and atlases), bibliographies, catalogues, lists and passports (and other identification documents).
+
+    Text in Devanagari script or other Indic scripts sometimes needs to be shown in Latin script, where users, or
+    equipment that they are using, cannot read or write the text
+
+    This International Standard applies to transliteration of Devanagari, and to Indic scripts related to Devanagari,
+    independent of the period in which it is or was used.
+
+  notes:
+
+    - All transliterations made using this International Standard shall be case-insensitive.
+    - Inherent a with a consonant shall always be transliterated.
+    - anusvara (including Vedic anusvara) shall be transliterated as ṁ
+    - candrabindu shall be transliterated as m̐
+    - When m̐, ṃ or ṁ are associated with a vowel, they shall be placed after the vowel. When m̐ is associated
+      with a semivowel, it shall be placed before the semivowel.
+    - Latin punctuation signs and Hindu-Arabic numerals shall remain unchanged in transliteration.
+      Indic punctuation is outside the scope of this International Standard.
+    - The Vedic accent Udatta shall be transliterated as an acute accent over the transliterated vowel, and the
+      independent Svarita as a grave accent over the transliterated vowel. In the case of the digraphs ai, au, the accent
+      shall be attached to the second vowel.
+    - |
+      A colon: before a Latin character shall be used to resolve ambiguity. Some normative cases are as
+      follows.
+       -  :’ for avagraha in modern text. (The apostrophe in modern text remains unchanged in accordance with previous rule.
+    - If a character in an Indic script is defined in such a way as to be equivalent to another character in any
+      script, where the second character has a transliteration in this International Standard, then the first character shall
+      be transliterated in the same way as the second character.
+    - Where it is desired to show the Vedic accent Anudatta, it should be transliterated as an underscore. In the case of
+      the digraphs ai, au, both Latin vowels should be underscored.
+      Where word boundaries are not shown in the original text (as happens commonly in Sanskrit) and a word ends in a
+      consonant, the transliteration should show word division by a space; but when phonological processes result in two
+      words sharing a common vowel, no attempt should be made to separate them. This will require a good knowledge
+      of the language in question.
+}
+
+tests {
+  test "ಈಗ ವೈರಲ್ ಆಗುತ್ತಿದೆ ಕಂಗನಾ ರಣಾವುತ್ ಹಳೇಯ ವಿಡಿಯೋ", "īga vaairala āgautataidae kaṁganaā raṇaāvauta haḷaēya vaiḍaiyaō"
+  test "ಸಂಕಷ್ಟ ಎದುರಾದರೆ ಬಿಎಸ್‌ವೈ ಬೆನ್ನಿಗೆ ಎಚ್‌ಡಿಕೆ ?", "saṁkaṣaṭa edauraādarae baiesavaai baenanaigae ecaḍaikae ?"
+  test "ಶಾಸಕರಿಂದಲೂ ಒತ್ತಡ?", "śaāsakaraiṁdalaū otataḍa?"
+  test "ಏಕೆಂದರೆ, ಇವರ ಹೆಸರೇ ಕೊರೊನಾ!", "ēkaeṁdarae, ivara haesaraē kaeūraonaā!"
+  test "ಕೊರೊನಾಕ್ಕಿಂತಲೂ ಮುಂಚೆಯೇ ಅವರು ಕೊರೊನಾ ಆಗಿದ್ದವರು!", "kaeūraonaākakaiṁtalaū mauṁcaeyaē avarau kaeūraonaā āgaidadavarau!"
+  test "ಕೇರಳದ ಕೊಟ್ಟಾಯಂನ ಮಹಿಳೆಯೊಬ್ಬರು ಈಗ ತಮ್ಮ ಹೆಸರು ಹೇಳಲು ಮುಜುಗರ ಪಡುವಂತಾಗಿದೆ", "kaēraḷada kaeūṭaṭaāyaṁna mahaiḷaeyaobabarau īga tamama haesarau haēḷalau maujaugara paḍauvaṁtaāgaidae"
+  test "ಬೇರೆ ಬೆಳವಣಿಗೆಗೆ ಸಾಕ್ಷಿ ಸಾಧ್ಯತೆ", "baērae baeḷavaṇaigaegae saākaṣai saādhayatae"
+  test "ಗುರು ಶನಿ ಗ್ರಹಗಳ ನಡುವೆ 3 ಜನರ ಪ್ರಯಾಣ", "gaurau śanai garahagaḷa naḍauvae 3 janara parayaāṇa"
+  test "ಕೊರೊನಾ ಬಿಕ್ಕಟ್ಟಿನ ಕಾಲದಲ್ಲಿ “ಮಿಸೆಸ್‌ ಕೊರೊನಾ’ಗೆ ಸಮಸ್ಯೆ!", "kaeūraonaā baikakaṭaṭaina kaāladalalai “maisaesa kaeūraonaā’gae samasayae!"
+  test "ಕೆಲವು ತಿಂಗಳಿಂದ ರಷ್ಯಾ ದೇಶದ ಏನಾಟೊಲಿ ಇವ್ಯಾನಿಶಿನ್‌ ಮತ್ತು ಇವಾನ್‌ ವ್ಯಾಗನರ್‌ ಹಾಗೂ ಅಮೆರಿಕಾದ ಕ್ರಿಸ್‌ ಕ್ಯಾಸಿಡಿ ಈ ಉಪಗ್ರಹದಲ್ಲಿ ವಾಸಿಸುತ್ತಿದ್ದಾರೆ", "kaelavau taiṁgaḷaiṁda raṣayaā daēśada ēnaāṭaeūlai ivayaānaiśaina matatau ivaāna vayaāganara haāgaū amaeraikaāda karaisa kayaāsaiḍai ī upagarahadalalai vaāsaisautataidadaārae"
+  test "ಹಾಂಗ್ ಕಾಂಗ್", "haāṁga kaāṁga"
+  test "೧೮೧೪೦", "18140"
+}
+
+stage {
+
+  # CHARACTERS
+  parallel {
+    sub "ಅ", "a"
+    sub "ಆ", "ā"
+    sub "ಇ", "i"
+    sub "ಈ", "ī"
+    sub "ಉ", "u"
+    sub "ಊ", "ū"
+    sub "ಋ", "ṛ"
+    sub "ೠ", "ṝ"
+    sub "ಌ", "ḻ"
+    sub "ೡ", "ḹ"
+    sub "ಎ", "e"
+    sub "ಏ", "ē"
+    sub "ಐ", "ai"
+
+    sub "ಒ", "o"
+    sub "ಓ", "ō"
+    sub "ಔ", "au"
+
+    # II. Consonants (see Note 2)
+    # Gutturals
+    sub "ಕ", "ka"
+    sub "ಖ", "kha"
+    sub "ಗ", "ga"
+    sub "ಘ", "gha"
+    sub "ಙ", "ṅa"
+
+    # Palatals
+    sub "ಚ", "ca"
+    sub "ಛ", "cha"
+    sub "ಜ", "ja"
+    sub "ಝ", "jha"
+    sub "ಞ", "ña"
+
+    # Cerebrals
+    sub "ಟ", "ṭa"
+    sub "ಠ", "ṭha"
+    sub "ಡ", "ḍa"
+    sub "ಢ", "ḍha"
+    sub "ಣ", "ṇa"
+
+    # Dentals
+    sub "ತ", "ta"
+    sub "ಥ", "tha"
+    sub "ದ", "da"
+    sub "ಧ", "dha"
+    sub "ನ", "na"
+
+    # Labials
+    sub "ಪ", "pa"
+    sub "ಫ", "pha"
+    sub "ಬ", "ba"
+    sub "ಭ", "bha"
+    sub "ಮ", "ma"
+
+    # Semivowels
+    sub "ಯ", "ya"
+    sub "ರ", "ra"
+    sub "ಱ", "ṟa"
+    sub "ಲ", "la"
+    sub "ಳ", "ḷa"
+    sub "ವ", "va"
+
+    # Sibilants
+    sub "ಶ", "śa"
+    sub "ಷ", "ṣa"
+    sub "ಸ", "sa"
+
+
+    # Aspirate
+    sub "ಹ", "ha"
+
+    sub "ಜ಼", "za"
+    sub "ಫ಼", "fa"
+
+    # Bisarga
+    sub "ಃ", "ḥ"
+
+    sub "ೱ", "ẖ"
+    sub "ೲ", "ḫ"
+
+
+    # candrabindu
+    sub "\u0C80", "m̐"
+    sub "\u0C81", "m̐"
+
+    # Abagraha
+    sub "ಽ", ":’" # (apostrophe)
+
+    # Anusvāra
+    sub "ಂ", "ṁ"
+
+    sub "಼", "" #nukta
+
+    # Medials # Needed for connecting constants
+    sub "ಾ", "ā"
+    sub "ಿ", "i"
+    sub "ೀ", "ī"
+    sub "ು", "u"
+    sub "ೂ", "ū"
+
+    sub "ೃ", "ṛ"
+    sub "ೄ", "ṝ"
+    sub " ೢ", "ḷ"
+    sub " ೣ", "ḹ"
+
+    sub "ೆ", "e"
+    sub "ೇ", "ē"
+    sub "ೈ", "ai"
+
+
+    sub "ೊ", "o"
+    sub "ೋ", "ō"
+    sub "ೌ", "au"
+
+    sub "्", ""
+    sub "़", ""
+    sub "್", ""
+    sub "‍", "" # no need for zero with joiner
+    sub "‌", "" # no need for zero with non joiner ': 'ya'
+
+
+    # for semivowel rule no. 5
+    sub "ಯಀ", "m̐ya"
+    sub "ರಀ", "m̐ra"
+    sub "ಱಀ", "m̐ṟa"
+    sub "ಲಀ", "m̐la"
+    sub "ಳಀ", "m̐ḷa"
+    sub "ವಀ", "m̐va"
+
+    # numbers
+
+    sub "೧", "1"
+    sub "೨", "2"
+    sub "೩", "3"
+    sub "೪", "4"
+    sub "೫", "5"
+    sub "೬", "6"
+    sub "೭", "7"
+    sub "೮", "8"
+    sub "೯", "9"
+    sub "೦", "0"
+  }
+
+  compose
+}

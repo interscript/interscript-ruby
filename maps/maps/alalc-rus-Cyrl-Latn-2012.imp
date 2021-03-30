@@ -1,0 +1,107 @@
+metadata {
+  authority_id: alalc
+  id: 2012
+  language: iso-639-2:rus
+  source_script: Cyrl
+  destination_script: Latn
+  name: ALA-LC Romanization System 2012
+  url: https://www.loc.gov/catdir/cpso/romanization/russian.pdf
+  creation_date: 2012
+  description: |
+    The ALA-LC Romanization tables for Slavic alphabets is a set of standards for romanization of texts
+    in various writing systems used in North American libraries and publications.
+    The latest version was published by the American Library Association and the Library of Congress in 2012.
+
+  notes:
+    - The letters І, Ѣ, Ѳ and Ѵ were eliminated in the orthographic reform of 1918. For other obsolete letters appearing in Russian texts, consult the Church Slavic table.
+}
+
+tests {
+  test "Азов", "Azov"
+  test "Тамбов", "Tambov"
+  test "Барнаул", "Barnaul"
+  test "Кубань", "Kubanʹ"
+  test "Владимир", "Vladimir"
+  test "Ульяновск", "Ulʹi͡anovsk"
+  test "Грозный", "Groznyǐ"
+  test "Волгодонск", "Volgodonsk"
+  test "Дзержинский", "Dzerzhinskiǐ"
+  test "Нелидово", "Nelidovo"
+  test "Елизово", "Elizovo"
+  test "Чебоксары", "Cheboksary"
+  test "Ёлкин", "Ëlkin"
+  test "Озёрный", "Ozërnyǐ"
+  test "Жуков", "Zhukov"
+  test "Лужники", "Luzhniki"
+  test "Звенигород", "Zvenigorod"
+  test "Вязьма", "Vi͡azʹma"
+  test "Иркутск", "Irkutsk"
+  test "Апатиты", "Apatity"
+  test "Йошкар-Ола", "Ǐoshkar-Ola"
+  test "Бийск", "Biǐsk"
+  test "Киров", "Kirov"
+  test "Енисейск", "Eniseǐsk"
+  test "Ломоносов", "Lomonosov"
+  test "Нелидово", "Nelidovo"
+  test "Менделеев", "Mendeleev"
+  test "Каменка", "Kamenka"
+  test "Новосибирск", "Novosibirsk"
+  test "Кандалакша", "Kandalaksha"
+  test "Омск", "Omsk"
+  test "Красноярск", "Krasnoi͡arsk"
+  test "Петрозаводск", "Petrozavodsk"
+  test "Серпухов", "Serpukhov"
+  test "Ростов", "Rostov"
+  test "Северобайкальск", "Severobaǐkalʹsk"
+  test "Сковородино", "Skovorodino"
+  test "Чайковский", "Chaǐkovskiǐ"
+  test "Тамбов", "Tambov"
+  test "Мытищи", "Mytishchi"
+  test "Углич", "Uglich"
+  test "Дудинка", "Dudinka"
+  test "Фурманов", "Furmanov"
+  test "Уфа", "Ufa"
+  test "Хабаровск", "Khabarovsk"
+  test "Прохладный", "Prokhladnyǐ"
+  test "Цимлянск", "T͡Simli͡ansk"
+  test "Ельцин", "Elʹt͡sin"
+  test "Чебоксары", "Cheboksary"
+  test "Печора", "Pechora"
+  test "Шахтёрск", "Shakhtërsk"
+  test "Мышкин", "Myshkin"
+  test "Щёлково", "Shchëlkovo"
+  test "Ртищево", "Rtishchevo"
+  test "Подъездной", "Podʺezdnoǐ"
+  test "Ыттык-Кёль", "Yttyk-Këlʹ"
+  test "Тында", "Tynda"
+  test "Тюмень", "Ti͡umenʹ"
+  test "Электрогорск", "Ėlektrogorsk"
+  test "Радиоэлектроника", "Radioėlektronika"
+  test "Юбилейный", "I͡Ubileǐnyǐ"
+  test "Ключевская", "Kli͡uchevskai͡a"
+  test "Якутск", "I͡Akutsk"
+  test "Брянск", "Bri͡ansk"
+}
+
+dependency "alalc-rus-Cyrl-Latn-1997", as: cyrllatn
+
+
+stage {
+
+  run map.cyrllatn.stage.main
+
+  # CHARACTERS
+  parallel {
+    sub "\u0406", "Ī"
+    sub "\u0456", "ī"
+
+    sub "\u0462", "I͡E" # Ѣ
+    sub "\u0463", "i͡e" # ѣ
+
+    sub "\u0472", "Ḟ" # Ѳ
+    sub "\u0473", "ḟ" # ѳ
+
+    sub "\u0474", "Ẏ" # Ѵ
+    sub "\u0475", "ẏ" # ѵ
+  }
+}

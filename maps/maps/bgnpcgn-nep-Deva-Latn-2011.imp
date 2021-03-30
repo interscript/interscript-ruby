@@ -1,0 +1,208 @@
+metadata {
+  authority_id: bgnpcgn
+  id: 2020
+  language: iso-639-2:nep
+  source_script: Deva
+  destination_script: Latn
+  name: Nepali Romanization, 2020
+  url: https://geonames.nga.mil/gns/html/Romanization/ROMANIZATION%20OF%20NEPALI.pdf
+  creation_date: 1964
+  description: |
+    BGN/PCGN 2011 Agreement Romanization of Nepali
+    The BGN and the PCGN have adopted the Nepal Survey Department (NSD) system for the
+    romanization of Nepali names.  This system, below, should be applied to Nepali names for which Roman‐
+    script spellings in materials produced by the government of Nepal are not available.
+
+  notes:
+
+    - Only the isolated forms of the characters are given in the consonant table.  See any grammar of Nepali
+      (or other language using the Devanagari alphabet) for variant forms used in conjunct characters.
+    - These two consonant characters appear sometimes to represent ṛ (cerebral r), e.g., पहाड  →  pahāṛ
+      instead of pahāḍ.  At one time they were written with dots below, i.e., as ड़ and ढ़, though this is no
+      longer normal practice in Nepali.    The romanizations ṛ and ṛh, respectively, are optional for
+      documentary purposes if such dots appear in Nepali writing.
+    -  व , can be romanized as either v or w.    This character is primarily
+      romanized as v in consonant initial, medial, and final position; however, initial, medial, and final w
+      romanizations can occur. The w romanization is a special case which is believed to be dependent on
+      dialect, pronunciation, or stress.
+    - |
+      An inventory of letter‐diacritic combinations, with their Unicode encoding, in addition to the unmodified letters of the basic Roman script is:
+        Ṅ(U+1E44)  ṅ (U+1E45)
+        Ñ (U+00D1) ñ (U+00F1)
+        Ṭ (1E6C)   ṭ (1E6D)
+        Ḍ (1E0C)   ḍ (1E0D)
+        Ṇ (1E46)   ṇ (1E47)
+        Ṣ (1E62)   ṣ (1E63)
+        Ā (U+0100) ā (U+0101)
+        Ī (U+012A) ī (U+012B)
+        Ū (U+016A) ū (U+016B)
+        Ṛ (1E5A)   ṛ (1E5B)
+
+    - The Romanization column shows only lowercase forms but, when romanizing, uppercase and lowercase
+      Roman letters as appropriate should be used.
+
+    - |
+      ं (anusvara) is rendered by
+      ṅ before क, ख, ग, and घ
+      ñ before च, छ, ज, and झ
+      ṇ before ट, ठ, ड, and ढ
+      n before त, थ, द, and ध
+      ṁ before य, र, ल, व, श, ष, स and ह
+}
+
+tests {
+  test "लेखन", "lekhn"
+  test "मुद्रा", "mudarā"
+  test "प्रशंसा", "parshṃsā" # note 5 rule checking
+  test "अंक", "aṅk" # note 5 rule checking
+  test "नेकपाले स्थगित स्थायी कमिटीको बैठक भदौ गते बोलाउने भएको", "nekpāle sathgit sathāyī kmiṭīko baiṭhk bhdau gte bolāune bheko"
+  test "न घर रह्यो, न परिवार", "n ghr rhayo, n privār"
+  test "ढोरपाटनमा भुजीखोला बाढीपहिरोले अभिभावक गुमाएका बालबालिकाको बिचल्ली", "ḍhorpāṭnmā bhujīkholā bāḍhīphirole abhibhāvk gumāekā bālbālikāko bichlalī"
+  test "सुस्मिताका काका हेमबहादुर र काकीलाई पनि पहिरोले बगायो", "susamitākā kākā hembhādur r kākīlāī pni phirole bgāyo"
+  test "संविधान जारी भएसँगै सार्वजनिक प्रशासनमा नयाँ उत्साह आउने अपेक्षा थियो", "sṃvidhān jārī bhes~gai sāravjnik parshāsnmā nyā~ utasāh āune apekṣā thiyo"
+  test "देशमा कोरोना संक्रमित र मृतकको संख्या हरेक दिन बढ्दो छ", "deshmā koronā sṅkarmit r mṛitkko sṅkhayā hrek din bḍhado chh"
+  test "गाउँपालिकाका अध्यक्ष टिका गुरुङका अनुसार विष्णुदासलाई राजुले सुत्नका लागि बेलुका साथी लगेका थिए", "gāu~pālikākā adhaykṣ ṭikā guruṅkā anusār viṣaṇudāslāī rājule sutankā lāgi belukā sāthī lgekā thie"
+  test "यो आयोजना गाउँपालिकाको केन्द्र तेल्लोकमा पर्छ", "yo āyojnā gāu~pālikāko kenadar telalokmā prachh"
+  test "सुस्मिताका काका हेमबहादुर र काकीलाई पनि पहिरोले बगायो", "susamitākā kākā hembhādur r kākīlāī pni phirole bgāyo"
+  test "चैत पहिलो साता घर आएका उनी लकडाउन भएपछि यतै रोकिए", "chait philo sātā ghr āekā unī lkḍāun bhepchhi ytai rokie"
+  test "काम गर्न जानेको हकमा रोजगारदाता कम्पनीको पत्रसँगै वडा र जिल्ला प्रशासनको सिफारिस अनिवार्य गरिएको छ", "kām gran jāneko hkmā rojgārdātā kmapnīko ptrs~gai vḍā r jilalā parshāsnko siphāris anivāray grieko chh"
+  test "दुःख", "duḥkh"
+  test "निकुञ्जको स्थानीय पोस्टका कर्मचारी पनि त्यहीँ थिए", "nikuñajko sathānīy posaṭkā kramchārī pni tayhī~ thie"
+  test "युद्धकालको मनोविज्ञान", "yudadhkālko mnovijñān"
+  test "जर्मन वायुसेवाको आक्रमणमा दुई लाख पचास हजार मानिसको ज्यान जानसक्ने र करिब ३० देखि ४० लाख मान्छे विस्थापित हुने अनुमान बेलायत सरकारको थियो", "jramn vāyusevāko ākarmṇmā duī lākh pchās hjār mānisko jayān jānskane r krib 30 dekhi 40 lākh mānachhe visathāpit hune anumān belāyt srkārko thiyo"
+  test "युद्ध", "yudadh"
+  test "कोरोनासँग जम्काभेट", "koronās~g jmakābheṭ"
+  test "संक्रमित", "sṅkarmit"
+  test "स्वयम्", "savyma"
+  test "संख्या", "sṅkhayā"
+  test "गौरीटारस्थित रंगशाला", "gaurīṭārsathit rṅgshālā"
+}
+
+stage {
+
+  # RULES
+  # note[5]
+  sub "\u0902", "ṅ", after: any("कखगघ") # ं  before क, ख, ग, and घ
+  sub "\u0902", "ñ", after: any("चछजझ") # ं  before च, छ, ज, and झ
+  sub "\u0902", "ṇ", after: any("टठडढ") # ं  before ट, ठ, ड, and ढ
+  sub "\u0902", "n", after: any("तथदध") # ं  before त, थ, द, and ध
+
+
+  # CHARACTERS
+  parallel {
+
+    # Vowels and Diphthongs
+
+    sub "अ", "a"
+    sub "आ", "ā"
+    sub "इ", "i"
+    sub "ई", "ī"
+    sub "उ", "u"
+    sub "ऊ", "ū"
+    sub "ऋ", "ṛi"
+    sub "ॠ", "rī"
+    sub "ए", "e"
+    sub "ऐ", "ai"
+    sub "ओ", "o"
+    sub "औ", "au"
+
+    # Medials # Needed for connecting constants
+
+    sub "ा", "ā"
+    sub "ि", "i"
+    sub "ी", "ī"
+    sub "ु", "u"
+    sub "ू", "ū"
+    sub "ृ", "ṛi"
+    sub "ॄ", "rī"
+    sub "े", "e"
+    sub "ै", "ai"
+    sub "ो", "o"
+    sub "ौ", "au"
+
+
+    # Consonants (see Note 1)
+
+    # Gutturals
+    sub "क", "k"
+    sub "ख", "kh"
+    sub "ग", "g"
+    sub "घ", "gh"
+    sub "ङ", "ṅ"
+
+    # Palatals
+    sub "च", "ch"
+    sub "छ", "chh"
+    sub "ज", "j"
+    sub "झ", "jh"
+    sub "ञ", "ñ"
+
+    # Cerebrals
+    sub "ट", "ṭ"
+    sub "ठ", "ṭh"
+    sub "ड", "ḍ"
+    sub "ढ", "ḍh"
+    sub "ण", "ṇ"
+
+    # Dentals
+    sub "त", "t"
+    sub "थ", "th"
+    sub "द", "d"
+    sub "ध", "dh"
+    sub "न", "n"
+
+    # Labials
+    sub "प", "p"
+    sub "फ", "ph"
+    sub "ब", "b"
+    sub "भ", "bh"
+    sub "म", "m"
+
+    # Semivowels
+    sub "य", "y"
+    sub "र", "r"
+    sub "ल", "l"
+    sub "व", "v" # or wa [Note#3]
+
+    # Sibilants
+    sub "श", "sh"
+    sub "ष", "ṣ"
+    sub "स", "s"
+    sub "क्ष", "kṣ"
+    sub "त्र", "tr"
+    sub "ज्ञ", "jñ"
+
+    # Aspirate
+    sub "ह", "h"
+
+    # Anusvāra
+    sub "ं", "ṃ"
+
+    # Bisarga
+    sub "ः", "ḥ"
+
+    # Anunāsika
+    sub "ँ", "~"
+
+    sub "ॅ", "r"
+
+    # halanta
+    sub "्", "a"
+
+    # Abagraha
+    sub "ऽ", "’" # (apostrophe)
+
+    # Numerals / सङ्ख्या
+    sub "०", "0"
+    sub "१", "1"
+    sub "२", "2"
+    sub "३", "3"
+    sub "४", "4"
+    sub "५", "5"
+    sub "६", "6"
+    sub "७", "7"
+    sub "८", "8"
+    sub "९", "9"
+  }
+  compose
+}

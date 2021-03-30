@@ -1,0 +1,241 @@
+metadata {
+  authority_id: alalc
+  id: 1997
+  language: iso-639-2:pan
+  source_script: Guru
+  destination_script: Latn
+  name: Panjabi Romanization, 1997
+  url: http://catdir.loc.gov/catdir/cpso/romanization/panjabi.pdf
+  creation_date: 1997
+  description: |
+    ALA-LC Romanization table for Panjabi
+
+  notes:
+
+    - Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for
+      vowels following a consonant can be found in grammars; no distinction between the two is
+      made in transliteration.
+
+    - |
+      The vowel a is implicit after consonant clusters and may be implicit after consonants except
+      when they are final or when another vowel is indicated by its appropriate sign. The cases in
+      which the vowel a is implicit, however, can be determined only from a knowledge of the
+      language or from suitable reference sources. In such cases the a is supplied in transliteration.
+
+    - The dotted letters (ਸ਼ ਖ਼ ਗ਼ ਜ਼ ਫ਼ ਲ਼) are used in Urdu words.
+
+    - |
+      Exception: Bindī is transliterated by:
+
+      a) ṅ before gutturals,
+      b) ñ before palatals,
+      c) ṇ before cerebrals,
+      d) n before dentals, and
+      e) m before labials.
+
+    - |
+      Exception: Ṭippī is transliterated by:
+
+      a) ṅ before gutturals,
+      b) ñ before palatals,
+      c) ṇ before cerebrals,
+      d) n before dentals, and
+      e) m before labials.
+
+    - |
+      Exception: When adhik implies the combination of a non-aspirated and an aspirated
+      consonant, the combination is transliterated as a non-aspirated, followed by an aspirated
+      consonant.
+}
+
+tests {
+  test "ਪੰਜਾਬ 'ਚ ਵਧ ਰਿਹਾ ਖ਼ੁਦਕੁਸ਼ੀਆਂ ਦਾ ਰੁਝਾਨ", "pañjaāba 'ca wadha raihaā khaudakaushaīāṃ daā raujhaāna"
+  test "ਲੱਖ ਤੋਂ ਪਾਰ ਪੁੱਜਾ ਸਰਗਰਮ ਕੇਸਾਂ ਦਾ ਅੰਕੜਾ, ਦਿੱਲੀ 'ਚ ਦੋ ਲੱਖ ਤੋਂ ਪਾਰ ਇਨਫੈਕਟਿਡ", "lakkha taoṃ paāra paujjaā saragarama kaesaāṃ daā aṅkaṛaā, daillaī 'ca dao lakkha taoṃ paāra inaphaaikaṭaiḍa"
+  test "ਪਰਿਵਾਰਕ ਸਮੱਸਿਆਵਾਂ ਅਤੇ ਵਿਆਹ ਵੀ ਹੈ ਹੋਰ ਅਹਿਮ ਕਾਰਨ", "paraiwaāraka samassaiāwaāṃ atae waiāha waī haai haora ahaima kaārana"
+  test "ਮਰਦਾਂ 'ਚ ਔਰਤਾਂ ਨਾਲੋਂ ਵੱਧ ਹੈ ਖ਼ੁਦਕੁਸ਼ੀ ਦਾ ਰੁਝਾਨ", "maradaāṃ 'ca aurataāṃ naālaoṃ waddha haai khaudakaushaī daā raujhaāna"
+  test "ਰਾਸ਼ਟਰੀ ਪੱਧਰ 'ਤੇ ਪੰਜਾਬ ਦੀ ਸਥਿਤੀ ਕਾਫ਼ੀ ਸੂਬਿਆਂ ਤੋਂ ਬਿਹਤਰ", "raāshaṭaraī paddhara 'tae pañjaāba daī sathaitaī kaāfaī saūbaiāṃ taoṃ baihatara"
+  test "ਚੀਨੀ ਸੈਨਾ ਨੇ ਲਾਪਤਾ ਅਰੁਣਾਚਲ ਦੇ 5 ਨੌਜਵਾਨਾਂ ਬਾਰੇ ਦੱਸਿਆ", "caīnaī saainaā nae laāpataā arauṇaācala dae 5 naaujawaānaāṃ baārae dassaiā"
+  test "ਸਾਖਰਤਾ ਦੇ ਮਾਮਲੇ 'ਚ ਦੇਸ਼ 'ਚ 7ਵੇਂ ਨੰਬਰ 'ਤੇ ਪੰਜਾਬ", "saākharataā dae maāmalae 'ca daesha 'ca 7waeṃ nam̆̐bara 'tae pañjaāba"
+  test "ਦਿੱਲੀ ਕਮੇਟੀ ਦੇ ਮੈਂਬਰ ਸ਼ੰਟੀ ਨੇ ਅਕਾਲੀ ਦਲ ਤੋਂ ਦਿੱਤਾ ਅਸਤੀਫ਼ਾ", "daillaī kamaeṭaī dae maaiṃbara shaṇṭaī nae akaālaī dala taoṃ daittaā asataīfaā"
+  test "੧੦੨ ਹੋਰ ਕੋਰੋਨਾ ਪਾਜ਼ੀਟਿਵ ਮਰੀਜ਼ਾਂ ਦੀ ਪੁਸ਼ਟੀ, ਇਕ ਦੀ ਮੌਤ", "102 haora kaoraonaā paāzaīṭaiwa maraīzaāṃ daī paushaṭaī, ika daī maauta"
+  test "ਸੜਕ ਹਾਦਸੇ ਦੌਰਾਨ ਇਕ ਦੀ ਮੌਤ", "saṛaka haādasae daauraāna ika daī maauta"
+}
+
+stage {
+
+  # RULES
+  # note[4]
+  sub "\u0A02", "ṅ", after: any("ਕਖਖ਼ਗਗ਼ਘਙ") # ਂ  before gutturals
+  sub "\u0A02", "ñ", after: any("ਚਛਜਜ਼ਝਞ") # ਂ   before palatals
+  sub "\u0A02", "ṇ", after: any("ਟਠਡਢਣ") # ਂ   before cerebrals
+  sub "\u0A02", "n", after: any("ਤਥਦਧਨ") # ਂ   before dentals
+
+  # note[5]
+  sub "\u0A70", "ṅ", after: any("ਕਖਖ਼ਗਗ਼ਘਙ") # ੰ  before gutturals
+  sub "\u0A70", "ñ", after: any("ਚਛਜਜ਼ਝਞ") # ੰ  before palatals
+  sub "\u0A70", "ṇ", after: any("ਟਠਡਢਣ") # ੰ  before cerebrals
+  sub "\u0A70", "n", after: any("ਤਥਦਧਨ") # ੰ  before dentals
+
+
+  # CHARACTERS
+  parallel {
+
+    # I. Vowels and Diphthongs (see Note 1)
+
+    sub "ਅ", "a"
+    sub "ਆ", "ā"
+    sub "ਇ", "i"
+    sub "ਈ", "ī"
+    sub "ਉ", "u"
+    sub "ਊ", "ū"
+    sub "ਏ", "e"
+    sub "ਐ", "ai"
+    sub "ਓ", "o"
+    sub "ਔ", "au"
+
+    # II. Consonants (see Note 2)
+    # Gutturals
+    sub "ਕ", "ka"
+    sub "ਖ", "kha"
+    sub "ਖ਼", "kha"
+    sub "ਗ", "ga"
+    sub "ਗ਼", "gha"
+    sub "ਘ", "gha"
+    sub "ਙ", "ṅa"
+
+    # Palatals
+    sub "ਚ", "ca"
+    sub "ਛ", "cha"
+    sub "ਜ਼", "za"
+    sub "ਜ", "ja"
+    sub "ਝ", "jha"
+    sub "ਞ", "ña"
+
+    # Cerebrals
+    sub "ਟ", "ṭa"
+    sub "ਠ", "ṭha"
+    sub "ਡ", "ḍa"
+    sub "ਢ", "ḍha"
+    sub "ਣ", "ṇa"
+
+    # Dentals
+    sub "ਤ", "ta"
+    sub "ਥ", "tha"
+    sub "ਦ", "da"
+    sub "ਧ", "dha"
+    sub "ਨ", "na"
+
+    # Labials
+    sub "ਪ", "pa"
+    sub "ਫ", "pha"
+    sub "ਫ਼", "fa"
+    sub "ਬ", "ba"
+    sub "ਭ", "bha"
+    sub "ਮ", "ma"
+
+    # Semivowels
+    sub "ਯ", "ya"
+    sub "ਰ", "ra"
+    sub "ਲ", "la"
+    sub "ਲੵ", "ḷa"
+    sub "ਲ਼", "ḷa"
+    sub "ਵ", "wa"
+    sub "ੜ", "ṛa"
+
+    # Sibilants
+    sub "ਸ", "sa"
+    sub "ਸ਼", "sha"
+
+    # Aspirate
+    sub "ਹ", "ha"
+
+    # Bindī (see Note 4)
+    sub "ਂ", "ṃ"
+
+    # Ṭippī (see Note 5)
+    sub "ੰ", "m̆̐"
+
+    # Medials # Needed for connecting constants
+    sub "ਾ", "ā"
+    sub "ਿ", "i"
+    sub "ੀ", "ī"
+    sub "ੁ", "u"
+    sub "ੂ", "ū"
+    sub "ੇ", "e"
+    sub "ੈ", "ai"
+    sub "ੋ", "o"
+    sub "ੌ", "au"
+
+    # For adhik character[Note 6]
+
+    # Gutturals
+    sub "ੱਕ", "kka"
+    sub "ੱਖ", "kkha"
+    sub "ੱਖ਼", "kkha"
+    sub "ੱਗ", "gga"
+    sub "ੱਗ਼", "ggha"
+    sub "ੱਘ", "ggha"
+    sub "ੱਙ", "ṅṅa"
+
+    # Palatals
+    sub "ੱਚ", "cca"
+    sub "ੱਛ", "ccha"
+    sub "ੱਜ", "jja"
+    sub "ੱਜ਼", "zza"
+    sub "ੱਝ", "jjha"
+    sub "ੱਞ", "ñña"
+
+    # Cerebrals
+    sub "ੱਟ", "ṭṭa"
+    sub "ੱਠ", "ṭṭha"
+    sub "ੱਡ", "ḍḍa"
+    sub "ੱਢ", "ḍḍha"
+    sub "ੱਣ", "ṇṇa"
+
+    # Dentals
+    sub "ੱਤ", "tta"
+    sub "ੱਥ", "ttha"
+    sub "ੱਦ", "dda"
+    sub "ੱਧ", "ddha"
+    sub "ੱਨ", "nna"
+
+    # Labials
+    sub "ੱਪ", "ppa"
+    sub "ੱਫ", "ppha"
+    sub "ੱਫ਼", "ffa"
+    sub "ੱਬ", "bba"
+    sub "ੱਭ", "bbha"
+    sub "ੱਮ", "mma"
+
+    # Semivowels
+    sub "ੱਯ", "yya"
+    sub "ੱਰ", "rra"
+    sub "ੱਲ", "lla"
+    sub "ੱਲੵ", "ḷḷa"
+    sub "ੱਵ", "wwa"
+    sub "ੱੜ", "ṛṛa"
+
+    # Sibilants
+    sub "ੱਸ", "ssa"
+    sub "ੱਸ਼", "ssha"
+
+    # Aspirate
+    sub "ੱਹ", "hha"
+
+
+    # digits
+
+    sub "੦", "0"
+    sub "੧", "1"
+    sub "੨", "2"
+    sub "੩", "3"
+    sub "੪", "4"
+    sub "੫", "5"
+    sub "੬", "6"
+    sub "੭", "7"
+    sub "੮", "8"
+    sub "੯", "9"
+  }
+
+  compose
+}

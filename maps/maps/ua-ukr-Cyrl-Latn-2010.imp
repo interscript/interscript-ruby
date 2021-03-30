@@ -1,0 +1,128 @@
+metadata {
+  authority_id: ua
+  id: 2010
+  language: iso-639-2:ukr
+  source_script: Cyrl
+  destination_script: Latn
+  name: The Cabinet of Ministers of Ukraine adopted Resolution No 55 "On Normalization of Transliteration of the Ukrainian Alphabet by Means of the Latin Alphabet"
+  url:
+   - https://zakon.rada.gov.ua/laws/show/55-2010-%D0%BF/ed20100127
+   - https://unstats.un.org/unsd/geoinfo/UNGEGN/docs/26th-gegn-docs/WP/WP21_Roma_system_Ukraine%20_engl._.pdf
+  creation_date: 2010
+
+  description: |
+    The Cabinet of Ministers of Ukraine adopted Resolution No 55 "On
+    Normalization of Transliteration of the Ukrainian Alphabet by Means of the
+    Latin Alphabet" on January 27, 2010. The Resolution approved The Table of
+    transliteration of the Ukrainian Alphabet by Means of the Latin Alphabet.
+    As a result of the adoption of this Resolution Ukrainian proper names
+    (geographical names, names and surnames,) are rendered by means of the Latin
+    alphabet in accordance with unified rules of transliteration in official documents,
+    in cartographic editions, on signs of populated places, streets, metro stations,
+    stops, etc.
+
+  notes:
+    - Combination of letters "зг" is transliterated as "zgh" as opposed to "zh" – the equivalent of the Ukrainian letter "ж".
+    - Soft sign and the apostrophe are not reproduced in Latin.
+    - Transliteration of first and last names of individuals and geograpical names is carried out by way of letter-for-letter representation in Latin.
+}
+
+tests {
+  test "Алушта", "Alushta"
+  test "Андрій", "Andrii"
+  test "Борщагівка", "Borshchahivka"
+  test "Борисенко", "Borysenko"
+  test "Вінниця", "Vinnytsia"
+  test "Володимир", "Volodymyr"
+  test "Гадяч", "Hadiach"
+  test "Богдан", "Bohdan"
+  test "Згурський", "Zghurskyi"
+  test "Ґалаґан", "Galagan"
+  test "Ґорґани", "Gorgany"
+  test "Донецьк", "Donetsk"
+  test "Дмитро", "Dmytro"
+  test "Рівне", "Rivne"
+  test "Олег", "Oleh"
+  test "Есмань", "Esman"
+  test "Єнакієве", "Yenakiieve"
+  test "Гаєвич", "Haievych"
+  test "Короп'є", "Koropie"
+  test "Житомир", "Zhytomyr"
+  test "Жанна", "Zhanna"
+  test "Жежелів", "Zhezheliv"
+  test "Закарпаття", "Zakarpattia"
+  test "Казимирчук", "Kazymyrchuk"
+  test "Медвин", "Medvyn"
+  test "Михайленко", "Mykhailenko"
+  test "Іванків", "Ivankiv"
+  test "Іващенко", "Ivashchenko"
+  test "Їжакевич", "Yizhakevych"
+  test "Кадиївка", "Kadyivka"
+  test "Мар'їне", "Marine"
+  test "Йосипівка", "Yosypivka"
+  test "Стрий", "Stryi"
+  test "Олексій", "Oleksii"
+  test "Київ", "Kyiv"
+  test "Коваленко", "Kovalenko"
+  test "Лебедин", "Lebedyn"
+  test "Леонід", "Leonid"
+  test "Миколаїв", "Mykolaiv"
+  test "Маринич", "Marynych"
+  test "Ніжин", "Nizhyn"
+  test "Наталія", "Nataliia"
+  test "Одеса", "Odesa"
+  test "Онищенко", "Onyshchenko"
+  test "Полтава", "Poltava"
+  test "Петро", "Petro"
+  test "Решетилівка", "Reshetylivka"
+  test "Рибчинський", "Rybchynskyi"
+  test "Суми", "Sumy"
+  test "Соломія", "Solomiia"
+  test "Тернопіль", "Ternopil"
+  test "Троць", "Trots"
+  test "Ужгород", "Uzhhorod"
+  test "Уляна", "Uliana"
+  test "Фастів", "Fastiv"
+  test "Філіпчук", "Filipchuk"
+  test "Харків", "Kharkiv"
+  test "Христина", "Khrystyna"
+  test "Біла Церква", "Bila Tserkva"
+  test "Стеценко", "Stetsenko"
+  test "Чернівці", "Chernivtsi"
+  test "Шевченко", "Shevchenko"
+  test "Шостка", "Shostka"
+  test "Кишеньки", "Kyshenky"
+  test "Щербухи", "Shcherbukhy"
+  test "Гоща", "Hoshcha"
+  test "Гаращенко", "Harashchenko"
+  test "Яготин", "Yahotyn"
+  test "Ярошенко", "Yaroshenko"
+  test "Костянтин", "Kostiantyn"
+  test "Знам'янка", "Znamianka"
+  test "Феодосія", "Feodosiia"
+  test "Згорани", "Zghorany"
+  test "Розгон", "Rozghon"
+}
+
+dependency "ua-ukr-Cyrl-Latn-1996", as: cyrllatn
+
+
+stage {
+  # RULES
+  sub "\u0027", ""
+  sub "\u2019", ""
+
+  # CHARACTERS
+  parallel {
+    sub "Ґ", "G" # Ґ
+    sub "ґ", "g" # ґ
+    sub "Щ", "Shch" # Щ
+    sub "щ", "shch" # щ
+    sub "ь", "" # Ь ->
+    sub "Ь", "" # ь ->
+    sub "'", "" # ' ->
+    sub "’", "" # ’ ->
+  }
+
+  run map.cyrllatn.stage.main
+}

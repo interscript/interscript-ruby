@@ -1,0 +1,110 @@
+metadata {
+  authority_id: alalc
+  id: 1997
+  language: iso-639-2:bul
+  source_script: Cyrl
+  destination_script: Latn
+  name: ALA-LC Romanization Table -- Bulgarian (1997)
+  url: http://www.rechtertie.nl/databases/judd/downloads/Bulgarian.pdf
+  creation_date: 1997
+
+  notes:
+    - |
+      The letter Ъ in the initial and medial position is a vowel in Bulgarian and is romanized as ŭ.
+      It appears in the final position chiefly in texts published before 1945, in which it serves as
+      a hard sign and is romanized as ʺ.
+    - The letters Ѣ and Ѫ are found chiefly in texts published before the orthographic reform of 1945.
+}
+
+tests {
+  # missing
+}
+
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
+
+stage {
+
+  # RULES
+  # note[1]
+  sub "\u042a", "ʺ", before: "", after: boundary
+  sub "u044a", "ʺ", before: "", after: boundary
+
+
+  # CHARACTERS
+  parallel {
+    sub "\u0410", "A"
+    sub "\u0411", "B"
+    sub "\u0412", "V"
+    sub "\u0413", "G"
+    sub "\u0414", "D"
+    sub "\u0415", "E"
+    sub "\u0416", "Zh"
+    sub "\u0417", "Z"
+    sub "\u0418", "I"
+    sub "\u0419", "Ĭ" # Ĭ
+    sub "\u041a", "K"
+    sub "\u041b", "L"
+    sub "\u041c", "M"
+    sub "\u041d", "N"
+    sub "\u041e", "O"
+    sub "\u041f", "P"
+    sub "\u0420", "R"
+    sub "\u0421", "S"
+    sub "\u0422", "T"
+    sub "\u0423", "U"
+    sub "\u0424", "F"
+    sub "\u0425", "Kh"
+    sub "\u0426", "T͡S"
+    sub "\u0427", "Ch"
+    sub "\u0428", "Sh"
+    sub "\u0429", "Sht"
+    sub "\u042a", "Ŭ" # or ʺ check note[1]
+    sub "\u042c", "\u02B9"
+    sub "\u0462", "I͡E" # Ѣ check note [2]
+    sub "\u042e", "I͡U"
+    sub "\u042f", "I͡A"
+    sub "\u046A", "U̐" # Ѫ check note [2]
+
+    sub "\u0430", "a"
+    sub "\u0431", "b"
+    sub "\u0432", "v"
+    sub "\u0433", "g"
+    sub "\u0434", "d"
+    sub "\u0435", "e"
+    sub "\u0436", "zh"
+    sub "\u0437", "z"
+    sub "\u0438", "i"
+    sub "\u0439", "ĭ" # ĭ
+    sub "\u043a", "k"
+    sub "\u043b", "l"
+    sub "\u043c", "m"
+    sub "\u043d", "n"
+    sub "\u043e", "o"
+    sub "\u043f", "p"
+    sub "\u0440", "r"
+    sub "\u0441", "s"
+    sub "\u0442", "t"
+    sub "\u0443", "u"
+    sub "\u0444", "f"
+    sub "\u0445", "kh"
+    sub "\u0446", "t͡s"
+    sub "\u0447", "ch"
+    sub "\u0448", "sh"
+    sub "\u0449", "sht"
+    sub "\u044a", "ŭ" # or ʺ check note[1]
+    sub "\u044c", "\u02B9"
+    sub "\u0463", "i͡e" # ѣ check note [2]
+    sub "\u044e", "i͡u"
+    sub "\u044f", "i͡a"
+    sub "\u046B", "u̐" # ѫ check note [2]
+  }
+
+}
+

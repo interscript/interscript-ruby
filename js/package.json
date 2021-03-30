@@ -1,0 +1,21 @@
+{
+  "name": "interscript.js",
+  "version": "0.0.1",
+  "description": "interscript",
+  "main": "stdlib.js",
+  "scripts": {
+    "test": "mocha",
+    "prepareMaps": "cd ../ruby; bundle install --without=\"secryst jsexec\"; bundle exec rake compile[javascript,../js/src/maps];"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "xregexp": "^5.0.1"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "mocha": "^8.1.3"
+  }
+}

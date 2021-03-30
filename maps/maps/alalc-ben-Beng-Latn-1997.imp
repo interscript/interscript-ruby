@@ -1,0 +1,225 @@
+metadata {
+  authority_id: alalc
+  id: 1997
+  language: iso-639-2:ben
+  source_script: Beng
+  destination_script: Latn
+  name: Bengali Romanization, 1997
+  url: http://catdir.loc.gov/catdir/cpso/romanization/bengali.pdf
+  creation_date: 1997
+  description: |
+    ALA-LC Romanization table for Bengali
+
+  notes:
+
+    - Only the vowel forms that appear at the beginning of a syllable are
+      listed; the forms used for vowels following a consonant can be found in
+      grammars; no distinction between the two is made in transliteration.
+
+    - |
+      The vowel a is implicit after all consonants and consonant clusters
+      and is supplied in transliteration, with the following exceptions:
+
+      a) when another vowel is indicated by its appropriate sign; and
+      b) when the absence of any vowel is indicated by the subscript symbol ( ্ )
+        called hasanta or birāma.
+
+    - ব is used both as a labial and as a semivowel. When it occurs as the
+      second or subsequent consonant of a consonant cluster, it is
+      transliterated va. When ব is doubled, it is transliterated bba.
+
+    - Candrabindu before guttural, palatal, cerebral, and dental occlusives
+      is transliterated n̐. Before labials, sibilants, semivowels, the
+      aspirate, vowels, and in final position it is transliterated m̐.
+
+    - When doubled, abagraha is transliterated by two apostrophes ( ’’ ).
+}
+
+tests {
+  test "আমার সোনার বাংলা, আমি তোমায় ভালোবাসি।\nচিরদিন তোমার আকাশ, তোমার বাতাস, আমার প্রাণে বাজায় বাঁশি॥\nও মা, ফাগুনে তোর আমের বনে ঘ্রাণে পাগল করে, মরি হায়, হায় রে—\nও মা, অঘ্রাণে তোর ভরা ক্ষেতে আমি কী দেখেছি মধুর হাসি॥\n\nকী শোভা, কী ছায়া গো, কী স্নেহ, কী মায়া গো—\nকী আঁচল বিছায়েছ বটের মূলে, নদীর কূলে কূলে।\nমা, তোর মুখের বাণী আমার কানে লাগে সুধার মতো,\nমরি হায়, হায় রে—\nমা, তোর বদনখানি মলিন হলে, ও মা, আমি নয়নজলে ভাসি॥", "āmāra sonāra bāṃlā, āmi tomāẏa bhālobāsi।\nciradina tomāra ākāśa, tomāra bātāsa, āmāra prāṇe bājāẏa bān̐śi॥\no mā, phāgune tora āmera bane ghrāṇe pāgala kare, mari hāẏa, hāẏa re—\no mā, aghrāṇe tora bharā kshete āmi kī dekhechi madhura hāsi॥\n\nkī śobhā, kī chāyaṛā go, kī sneha, kī māyaṛā go—\nkī ām̐cala bichāyaṛecha baṭera mūle, nadīra kūle kūle।\nmā, tora mukhera bāṇī āmāra kāne lāge sudhāra mato,\nmari hāẏa, hāẏa re—\nmā, tora badanakhāni malina hale, o mā, āmi naẏanajale bhāsi॥"
+  test "ট্রাম্প-বাইডেন মহারণ: জয় দাবি দুজনেরই", "ṭrāmpa-bāiḍena mahāraṇa: jaẏa dābi dujanerai"
+  test "রিপাবলিকান গভর্নর ডগ ডসি বলেছেন, ফলাফল নিয়ে এখনই কথা বলার সময় আসেনি।", "ripābalikāna gabharnara ḍaga ḍasi balechena, phalāphala niẏe ekhanai kathā balāra samaẏa āseni।"
+  test "অনেক আগে থেকেই ট্রাম্প ফ্লোরিডায় জিতে গেছেন বলে গণমাধ্যমগুলোতে তুলে ধরা হচ্ছে", "aneka āge thekei ṭrāmpa phloriḍāẏa jite gechena bale gaṇamādhyamagulote tule dharā hacche"
+  test "করোনায় আরও ২১ মৃত্যু, নতুন শনাক্ত ১৫১৭", "karonāẏa ārao 21 mṛtyu, natuna śanākta 1517"
+  test "শালিক পাখিকে পোষ মানানোর মতো কঠিন কাজ করা কিশোর রোহানের বাড়ি কুষ্টিয়া শহরের পিটিআই সড়কে।", "śālika pākhike posha mānānora mato kaṭhina kāja karā kiśora rohānera bāṛi kushṭiẏā śaharera piṭiāi saṛake।"
+  test "সুইং স্টেটের সর্বশেষ অবস্থা দেখে মনে হচ্ছে, দুজনের ভাগ্য দুলছে পেন্ডুলামে।", "suiṃ sṭeṭera sarbaśesha abasthā dekhe mane hacche, dujanera bhāgya dulache penḍulāme।"
+  test "২০১৬ সালের নির্বাচনে বহিরাগত হিসেবেই ডোনাল্ড ট্রাম্পের রাজনীতিতে আগমন", "2016 sālera nirbācane bahirāgata hisebei ḍonālḍa ṭrāmpera rājanītite āgamana"
+  test "কই সঙ্গে রাজনীতির পাদপ্রদীপ থেকে সম্পূর্ণ বাইরে থাকা তাঁর পরিবারও চলে আসে রাজনীতির আলোচনায়", "kai saṅge rājanītira pādapradīpa theke sampūrṇa bāire thākā tān̐ra paribārao cale āse rājanītira ālocanāẏa"
+  test "নির্বাচনী প্রচারের সময় প্রেসিডেন্ট ডোনাল্ড ট্রাম্পের পরিবারের সদস্যরা মাঠে নেমেছেন", "nirbācanī pracārera samaẏa presiḍenṭa ḍonālḍa ṭrāmpera paribārera sadasyarā māṭhe nemechena"
+  test "তাঁরা সমর্থকদের উদ্দেশ্যে বলেছেন, এ নির্বাচন শুধু প্রেসিডেন্ট ডোনাল্ড ট্রাম্পের প্রতি নয়", "tān̐rā samarthakadera uddeśye balechena, e nirbācana śudhu presiḍenṭa ḍonālḍa ṭrāmpera prati naẏa"
+  test "স্মার্টফোন কিনতে ৮ হাজার করে ঋণ পাবেন ৪১৫০১ শিক্ষার্থী", "smārṭaphona kinate 8 hājāra kare ṛṇa pābena 41501 śikshārthī"
+  test "বার্সা সমর্থকদের নিয়ে উদ্‌যাপনের কথা গিলতে হলো ভিদালকে", "bārsā samarthakadera niẏe ud‌yāpanera kathā gilate halo bhidālake"
+  test "য়ে", "yaṛe"
+}
+
+aliases {
+  # A different name for this alias can be more fitting...
+  def_alias ben_special, any("\u09be\u09bf\u09c0\u09c1\u09c2\u09c3\u09c7\u09c8\u09cb\u09cc\u09cd")
+}
+
+stage {
+  # RULES
+  #rule II
+  sub "ক", "k", after: ben_special
+  sub "খ", "kh", after: ben_special
+  sub "গ", "g", after: ben_special
+  sub "ঘ", "gh", after: ben_special
+  sub "ঙ", "ṅ", after: ben_special
+  sub "চ", "c", after: ben_special
+  sub "ছ", "ch", after: ben_special
+  sub "জ", "j", after: ben_special
+  sub "ঝ", "jh", after: ben_special
+  sub "ঞ", "ñ", after: ben_special
+  sub "ট", "ṭ", after: ben_special
+  sub "ঠ", "ṭh", after: ben_special
+  sub "ড", "ḍ", after: ben_special
+  sub "ড়", "ṛ", after: ben_special
+  sub any("ড়"), "ṛ", after: ben_special # 2 combining characters, why we need any()? - weird
+  sub "ঢ", "ḍh", after: ben_special
+  sub "ঢ়", "ṛh", after: ben_special # 2 combining characters, was any()
+  sub "ণ", "ṇ", after: ben_special
+  sub "ত", "t", after: ben_special
+  sub "ৎ", "ṯ", after: ben_special
+  sub "থ", "th", after: ben_special
+  sub "দ", "d", after: ben_special
+  sub "ধ", "dh", after: ben_special
+  sub "ন", "n", after: ben_special
+  sub "প", "p", after: ben_special
+  sub "ফ", "ph", after: ben_special
+  sub "ব", "b", after: ben_special
+  sub "ভ", "bh", after: ben_special
+  sub "ম", "m", after: ben_special
+  sub "য", "y", after: ben_special
+  sub "য়", "ẏ", after: ben_special # 2 combining characters
+  sub "য়", "ẏ", after: ben_special # But this was any() in the previous version
+  sub "র", "r", after: ben_special
+  sub "ল", "l", after: ben_special
+  sub "শ", "ś", after: ben_special
+  sub "ষ", "sh", after: ben_special
+  sub "স", "s", after: ben_special
+  sub "হ", "h", after: ben_special
+
+  # Rule III
+  sub "ବ", "bba", after: "\u09AC"
+  # Rule V
+  sub "\u0981", "m̐", after: any("কখগঘঙচছজঝঞটঠডডঢঢণতৎথদধন")
+  sub "\u0b01", "m̐", after: boundary
+
+
+  # CHARACTERS
+  parallel {
+
+    # Vowels and Diphthongs
+
+    sub "অ", "a"
+    sub "আ", "ā"
+    sub "ই", "i"
+    sub "ঈ", "ī"
+    sub "উ", "u"
+    sub "ঊ", "ū"
+    sub "এ", "e"
+    sub "ঐ", "ai"
+    sub "ও", "o"
+    sub "ঔ", "au"
+    sub "ঋ", "ṛ"
+    sub "ৠ", "ṝ"
+    sub "ঌ", "ḹ"
+
+    # Consonants
+    # Gutturals
+    sub "ক", "ka"
+    sub "খ", "kha"
+    sub "গ", "ga"
+    sub "ঘ", "gha"
+    sub "ঙ", "ṅa"
+
+    # Palatals
+    sub "চ", "ca"
+    sub "ছ", "cha"
+    sub "জ", "ja"
+    sub "ঝ", "jha"
+    sub "ঞ", "ña"
+
+    # Cerebrals
+    sub "ট", "ṭa"
+    sub "ঠ", "ṭha"
+    sub "ড", "ḍa"
+    sub "ড়", "ṛa"
+    sub "ড়", "ṛa"
+    sub "ঢ", "ḍha"
+    sub "ঢ়", "ṛha"
+    sub "ণ", "ṇa"
+
+    # Dentals
+    sub "ত", "ta"
+    sub "ৎ", "ṯa"
+    sub "থ", "tha"
+    sub "দ", "da"
+    sub "ধ", "dha"
+    sub "ন", "na"
+
+    # Labials
+    sub "প", "pa"
+    sub "ফ", "pha"
+    sub "ব", "ba" # see Note 3
+    sub "ভ", "bha"
+    sub "ম", "ma"
+
+    # Semivowels
+    sub "য", "ya"
+    sub "য়", "ẏa"
+    sub "য়", "ẏa"
+    sub "র", "ra"
+    sub "ল", "la"
+
+    # Sibilants
+    sub "শ", "śa"
+    sub "ষ", "sha"
+    sub "স", "sa"
+
+    # Aspirate
+    sub "হ", "ha"
+
+    # Anusvāra
+    sub "ং", "ṃ"
+
+    # Bisarga
+    sub "ঃ", "ḥ"
+
+    # Candrabindu (anunāsika)
+    sub "\u0981", "n̐"
+
+    # Abagraha (see Note 5)
+    sub "ऽ", "’" # (apostrophe)
+
+
+    # Medials # Needed for connecting constants
+
+    sub "\u09be", "ā"
+    sub "\u09bf", "i"
+    sub "\u09c0", "ī"
+    sub "\u09c1", "u"
+    sub "\u09c2", "ū"
+    sub "\u09c3", "ṛ"
+    sub "\u09c7", "e"
+    sub "\u09c8", "ai"
+    sub "\u09cb", "o"
+    sub "\u09cc", "au"
+    sub "\u09cd", ""
+
+    #Numbers
+
+    sub "০", "0"
+    sub "১", "1"
+    sub "২", "2"
+    sub "৩", "3"
+    sub "৪", "4"
+    sub "৫", "5"
+    sub "৬", "6"
+    sub "৭", "7"
+    sub "৮", "8"
+    sub "৯", "9"
+  }
+
+  compose
+}

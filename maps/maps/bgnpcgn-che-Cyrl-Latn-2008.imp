@@ -1,0 +1,176 @@
+metadata {
+  authority_id: bgnpcgn
+  id: 2008
+  language: iso-639-2:che
+  source_script: Cyrl
+  destination_script: Latn
+  name: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/835782/TABLE_OF_CORRESPONDENCES_FOR_CHECHEN.pdf
+  creation_date: 2008
+  confirmation_date: 2019-07
+  description: |
+    Chechen is an official language within Chechnya, one of the republics of the Russian Federation.
+    It will normally be encountered in Cyrillic script, in which case it should be romanized by means of
+    the Cyrillic-Roman table of correspondences given below.
+
+  notes:
+    - The letter ə is used to represent short a; a is used for long a.
+    - Ye is used word- and syllable-initially. This Cyrillic letter may be encountered as the ligature ie in Chechen-Roman sources.
+    - This character occurs only in loan words.
+    - q in the combination ккх (qq) and q̇in the combination ккъ (q̇q̇)
+    - ŋ when preceding vowel is nasalized.
+    - This Cyrillic letter may be encountered as the ligature ꭣ [U+AB63] or the diphthong oa in Chechen Roman sources.
+    - Unless in the combinations гӀ, кӀ, пӀ, тӀ, хӀ, цӀ and чӀ.
+    - |
+      An inventory of letter-diacritic combinations, with their Unicode encoding, in addition to the
+      unmodified letters of the basic Roman script is:
+
+      All apostrophes appearing in romanization are U+2019
+
+          Ə (U+018F)       ə (U+0259)
+          Ä (U+00C4)       ä (U+00E4)
+          Ġ (U+0047+0307)  ġ (U+0067+0307)
+          Z̵ (U+005A+0335)  z̵ (U+007A+0335)
+          Q̇ (U+0051+0307)  q̇ (U+0071+0307)
+          Ŋ (U+014A)       ŋ (U+014B)
+          Ö (U+00D6)       ö (U+00F6)
+          Ü (U+00DC)       ü (U+00FC)
+          Ẋ (U+0058+0307)  ẋ (U+0078+0307)
+          Ċ (U+0043+0307)  ċ (U0063+0307)
+          Ç (U+00C7)       ç (U+00E7)
+          Ç̇ (U+00C7+0307)  ç̇ (U+00E7+0307)
+          Ş (U+015E)       ş (U+015F)
+
+    - The Roman-script columns show only lowercase forms but, when applying the table, uppercase and lowercase Roman letters as appropriate should be used
+}
+
+tests {
+  test "кӏант", "khant"
+  test "зуда", "zuda"
+  test "пхьагал", "pẋagal"
+  test "наж", "naz̵"
+  test "мангал", "mangal"
+  test "Ӏаж", "Jaz̵"
+  test "Нохчийн Википеди", "Noxçiyn Vikipedi"
+  test "сагӏадаккхар", "saġadaqqar"
+  test "йеза", "yeza"
+  test "еара", "yeara"
+  test "елха", "yelxa"
+}
+
+stage {
+
+  # RULES
+  # note[2]
+  sub boundary + "\u0415", "Ye", not_before: boundary + "\u2019" # Е in initial position -> Ye
+  sub boundary + "\u0435", "ye", not_before: boundary + "\u2019" # е in initial position -> ye
+  # note[4]
+  sub "\u043A\u043A\u0445", "qq"
+  sub "\u043A\u043A\u042A", "q̇q̇"
+  sub "\u041A\u041A\u0445", "QQ"
+  sub "\u041A\u041A\u042A", "Q̇Q̇"
+
+
+  # CHARACTERS
+  parallel {
+    sub "\u0410", any(["A", "Ə"]) # А note[1]
+    sub "\u0410\u044C", "Ä" # Аь -> Ä
+    sub "\u0411", "B" # Б
+    sub "\u0412", "V" # В
+    sub "\u0413", "G" # Г
+    sub "\u0413\u04C0", "Ġ" # ГӀ -> Ġ
+    sub "\u0414", "D" # Д
+    sub "\u0415", "E" # Е note[2]
+    sub "\u0401", "Yo" # Ё note[3]
+    sub "\u0416", "Z̵" # Ж -> Ƶ
+    sub "\u0417", "Z" # З
+    sub "\u0418", "I" # И
+    sub "\u042B", "Y" # Й
+    sub "\u041A", "K" # К note[4]
+    sub "\u041A\u0445", "Q" # Кх note[4]
+    sub "\u041A\u044A", "Q̇" # Къ -> Q̇ note[4]
+    sub "\u041A\u04C0", "Kh" # КӀ note[4]
+    sub "\u041B", "L" # Л
+    sub "\u041C", "M" # М
+    sub "\u041D", any(["N", "Ŋ"]) # Н note[5]
+    sub "\u041E", "O" # О note[6]
+    sub "\u041E\u044C", "Ö" # Оь -> Ö
+    sub "\u041F", "P" # П
+    sub "\u041F\u04C0", "Ph" # ПӀ
+    sub "\u0420", "R" # Р
+    sub "\u0421", "S" # С
+    sub "\u0422", "T" # Т
+    sub "\u0422\u04C0", "Th" # TӀ
+    sub "\u0423", "U" # У
+    sub "\u0423\u044C", "Ü" # Уь -> Ü
+    sub "\u0424", "F" # Ф
+    sub "\u0425", "X" # Х
+    sub "\u0425\u044C", "Ẋ" # Хь -> Ẋ
+    sub "\u0425\u04C0", "H" # ХӀ
+    sub "\u04B8", "C" # Ц
+    sub "\u04B8\u04C0", "Ċ" # ЦӀ -> Ċ
+    sub "\u0427", "Ç" # Ч -> Ç
+    sub "\u0427\u04C0", "Ç̇" # ЧӀ -> Ç̇
+    sub "\u0428", "Ş" # Ш -> Ş
+    sub "\u0429", "ŞÇ" # Щ -> ŞÇ note[3]
+    sub "\u042A", "’" # Ъ note[3]
+    sub "\u042B", "Y" # Ы
+    sub "\u042C", "" # Ь note[3]
+    sub "\u042D", "E" # Э
+    sub "\u042E", "Yu" # Ю
+    sub "\u042E\u044C", "Yü" # Юь -> Yü
+    sub "\u042F", "Ya" # Я
+    sub "\u042F\u044C", "Yä" # Яь -> Yä
+    sub "\u04C0", "J" # Ӏ note[7]
+
+    sub "\u0430", any(["a", "ə"]) # а note[1]
+    sub "\u0430\u044C", "ä" # аь -> ä
+    sub "\u0431", "b" # б
+    sub "\u0432", "v" # в
+    sub "\u0433", "g" # г
+    sub "\u0433\u04CF", "ġ" # гӏ -> ġ
+    sub "\u0434", "d" # д
+    sub "\u0435", "e" # е note[2]
+    sub "\u0451", "yo" # ё note[3]
+    sub "\u0436", "z̵" # ж -> ƶ
+    sub "\u0437", "z" # з
+    sub "\u0438", "i" # и
+    sub "\u0439", "y" # й
+    sub "\u043A", "k" # к note[4]
+    sub "\u043A\u0445", "q" # кх note[4]
+    sub "\u043A\u044A", "q̇" # къ -> q̇ note[4]
+    sub "\u043A\u04CF", "kh" # кӏ note[4]
+    sub "\u043B", "l" # л
+    sub "\u043C", "m" # м
+    sub "\u043D", any(["n", "ŋ"]) # н note[5]
+    sub "\u043E", "o" # о note[6]
+    sub "\u043E\u044C", "ö" # оь -> ö
+    sub "\u043F", "p" # п
+    sub "\u0440", "r" # р
+    sub "\u0441", "s" # с
+    sub "\u0442", "t" # т
+    sub "\u0442\u04CF", "th" # тӏ
+    sub "\u0443", "u" # у
+    sub "\u0443\u044C", "ü" # Уь -> ü
+    sub "\u0444", "f" # ф
+    sub "\u0445", "x" # х
+    sub "\u0445\u044C", "ẋ" # хь -> ẋ
+    sub "\u0445\u04CF", "h" # хӏ
+    sub "\u04B9", "c" # ц
+    sub "\u04B9\u04CF", "с̇" # цӏ -> ċ
+    sub "\u0447", "ç" # ч -> ç
+    sub "\u0447\u04CF", "cç̇" # чӏ -> ç̇
+    sub "\u0448", "ş" # ш -> ş
+    sub "\u0449", "şç" # щ -> şç note[3]
+    sub "\u044A", "’" # ъ note[3]
+    sub "\u044B", "y" # ы
+    sub "\u044C", "" # ь note[3]
+    sub "\u044D", "e" # э
+    sub "\u044E", "yu" # ю
+    sub "\u044E", "yü" # юь -> yü
+    sub "\u044F", "ya" # я
+    sub "\u044F", "yä" # яь -> yä
+    sub "\u04CF", "j" # ӏ note[7]
+  }
+  compose
+}
+

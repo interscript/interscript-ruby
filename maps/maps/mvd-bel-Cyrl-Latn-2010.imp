@@ -1,0 +1,64 @@
+metadata {
+  authority_id: mvd
+  id: 2010
+  language: iso-639-2:bel
+  source_script: Cyrl
+  destination_script: Latn
+  name: |
+    8/22721 About approval of the Instructions on the organization of work of units of citizenship
+    and migration of internal affairs bodies on the issuance, registration, exchange,
+    invalidation, seizure, storage and destruction of a passport of a citizen of the Republic of Belarus
+  url: https://pravo.by/document/?guid=3871&p0=W21022721
+  creation_date: 2010
+
+  description: |
+    RESOLUTION OF THE MINISTRY OF INTERNAL AFFAIRS OF THE REPUBLIC OF BELARUS
+    June 28, 2010 No. 200
+    On approval of the Instructions on the organization of work of units of citizenship
+    and migration of internal affairs bodies on the issuance, registration, exchange,
+    invalidation, seizure, storage and destruction of a passport of a citizen of the Republic of Belarus
+
+  notes:
+    - |
+      It is not allowed to use in the spelling of the surname, own name superscripts, punctuation, except
+      for the use of the apostrophe in Belarusian and Latin spelling.
+    - The Belarusian letter "Г" is written as the Latin "H"
+}
+
+tests {
+  test "Бабрыковіч Аляксандр", "Babrykovich Aliaksandr"
+  test "Міховіч Марыя", "Mikhovich Maryia"
+  test "Максім", "Maksim"
+  test "Іван", "Ivan"
+  test "СВЯТЛАНА", "SVIATLANA"
+  test "Ігар", "Ihar"
+  test "МІХАІЛ", "MIKHAIL"
+}
+
+dependency "mvd-bel-Cyrl-Latn-2008", as: cyrllatn
+
+
+stage {
+
+
+  # RULES
+  # note[5]
+  sub "\u044C", ref( 1 ), before: any("ЗзЛлНнСсЦц") # ь after consonants
+  sub "\u02B9", ref( 1 ), before: any("ЗзЛлНнСсЦц") # Ь after consonants
+  # Й at end
+  sub "\u0419" + line_end, "", before: any("ЕеЁёЫыЮюЯя") # Я after vowels
+  sub "\u0439" + line_end, "", before: any("ЕеЁёЫыЮюЯя") # я after vowels
+
+
+  # CHARACTERS
+  parallel {
+    sub "\u0413", "H" # Г
+    sub "\u0433", "h" # г
+
+    sub "\u042C", "" # Ь
+    sub "\u044C", "" # ь
+  }
+
+  run map.cyrllatn.stage.main
+}
+

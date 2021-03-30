@@ -1,0 +1,165 @@
+metadata {
+  authority_id: odni
+  id: 2015
+  language: iso-639-2:uzb
+  source_script: Cyrl
+  destination_script: Latn
+  name: Office of the Director Of National Intelligence Uzbek Personal Names 2015, ICS-630-01 Annex V
+
+  # url:
+  source: ICS-630-01 Annex V
+  creation_date: 2015
+  confirmation_date: 2015
+  description: |
+    This system is the Intelligence Community standard for the transliteration of Uzbek person names
+    that will be applied to all final written reports and products for IC consumers. It is not intended to
+    eliminate variations of a name that can contribute forensic information. Rather, it is to provide an
+    IC standard Romanized (English) transliteration from Uzbek that can then be linked to forensic
+    information in ways that will help identify the referent of the name.
+
+    In cases where an individual’s name has already been transliterated in a variant spelling, the IC
+    Standard spelling should appear first, followed by the variant spelling(s) in parentheses at the first
+    usage. In addition, if the original Cyrillic-script spelling is known, that spelling should also
+    appear in parentheses following the name, if possible, following best practices of the issuing
+    organization and taking into consideration information system capabilities. For example:
+    Farkhod Tojiev (also seen as Farhod Tadjiyev, Фарход Тожиев). This convention is designed to
+    ensure that vital forensic information is not lost.
+
+    For names of persons who are known to not be part of the Uzbek-speaking community, use the
+    relevant IC transliteration standard for names from that language (e.g., Yitzhak). A translator’s
+    note may be used to clarify the known origin of the person. Spell names of individuals from
+    languages that are written in Roman letters as they are spelled in those languages (e.g., George
+    Clooney, Jorge Garcia, Georges Pompidou).
+
+    In the case of active senior government officials in the on-line CIA World Factbook and the online directory of Chiefs of State and Cabinet Members of Foreign Governments, the spellings
+    given in these on-line reference works should be used in place of the IC Standard. For any
+    individual who has at one time been listed in the Factbook or Chiefs of State directory but who no
+    longer appears in those resources (i.e. is no longer a government official), the IC Standard
+    spelling should appear first, with the spelling, if known, as it previously appeared in those
+    resources listed within parentheses at the first usage.
+
+    The primary goal is to produce a consistent Romanized transcription of names that is specifically
+    readable to the English-speaking non-specialist. The system uses the 26 letters of the standard
+    (English) Roman alphabet. Some ambiguities in the Romanized form will occur without the use
+    of diacritics. However, within the context of a report, where additional information about the
+    individual is provided, the referent will be clearly identified. This system will be used in
+    conjunction with on-line tools, name dictionaries, and lists containing conventional spellings of
+    names of well-known individuals.
+
+  notes:
+    - Transliterate double digraphs as a single digraph, i.e. шш -> sh, not shsh
+    - In the Roman, no distinction is made between digraphs such as 'sh' and single contiguous letters, (e.g. 's' followed by 'h').
+    - The Cyrillic ъ and ь are not transliterated, but instead are left out of the transliteration.
+}
+
+tests {
+  test "Фарход Тожиев", "Farkhod Tojiev"
+  test "Барча одамлар эркин, қадр-қиммат в ҳуқуқлард тенг бўлиб туғиладилар. Улар ақл в виждон соҳибидирлар в бир-бирлари ила биродарларча муомал қилишларь зарур.", "Barcha odamlar erkin, qadr-qimat v huquqlard teng bolib tughiladilar. Ular aql v vijdon sohibidirlar v bir-birlari ila birodarlarcha muomal qilishlar zarur."
+  test "Тутук белгись", "Tutuk belgis"
+  test "Янги юл", "Yangi iul"
+  test "Ўзбек ёзуви", "Ozbek yozuvi"
+  test "Чиғатай гурунги", "Chighatay gurungi"
+  test "ъ", ""
+  test "шш", "sh"
+  test "ччччч", "ch"
+}
+
+stage {
+  sub capture(any_character) + ref(1), ref(1)
+  sub capture(any_character) + ref(1), ref(1)
+  sub capture(any_character) + ref(1), ref(1)
+  sub capture(any_character) + ref(1), ref(1)
+  sub capture(any_character) + ref(1), ref(1)
+
+  # CHARACTERS
+  parallel {
+    sub "\u0410", "A" # А
+    sub "\u0411", "B" # Б
+    sub "\u0412", "V" # В
+    sub "\u0413", "G" # Г
+    sub "\u0492", "Gh" # Ғ
+    sub "\u0414", "D" # Д
+    sub "\u0415", "E" # Е
+    sub "\u0401", "Yo" # Ё
+    sub "\u0416", "J" # Ж
+    sub "\u0417", "Z" # З
+    sub "\u0418", "I" # И
+    sub "\u0419", "Y" # Й
+    sub "\u041A", "K" # К
+    sub "\u049A", "Q" # Қ
+    sub "\u041B", "L" # Л
+    sub "\u041C", "M" # М
+    sub "\u041D", "N" # Н
+    sub "\u041E", "O" # О
+    sub "\u041F", "P" # П
+    sub "\u0420", "R" # Р
+    sub "\u0421", "S" # С
+    sub "\u0422", "T" # Т
+    sub "\u0423", "U" # У
+    sub "\u040E", "O" # Ў
+    sub "\u0424", "F" # Ф
+    sub "\u0425", "Kh" # Х
+    sub "\u04B2", "H" # Ҳ
+    sub "\u0426", "Ts" # Ц
+    sub "\u0427", "Ch" # Ч
+    sub "\u0428", "Sh" # Ш
+    sub "\u042D", "E" # Э
+    sub "\u042E", "Yu" # Ю
+    sub "\u042F", "Ya" # Я
+
+    sub "\u0430", "a" # а
+    sub "\u0431", "b" # б
+    sub "\u0432", "v" # в
+    sub "\u0433", "g" # г
+    sub "\u0493", "gh" # ғ
+    sub "\u0434", "d" # д
+    sub "\u0435", "e" # e
+    sub "\u0451", "yo" # ё
+    sub "\u0436", "j" # ж
+    sub "\u0437", "z" # з
+    sub "\u0438", "i" # и
+    sub "\u0439", "y" # й
+    sub "\u043A", "k" # к
+    sub "\u049B", "q" # қ
+    sub "\u043B", "l" # л
+    sub "\u043C", "m" # м
+    sub "\u043D", "n" # н
+    sub "\u043E", "o" # о
+    sub "\u043F", "p" # п
+    sub "\u0440", "r" # р
+    sub "\u0441", "s" # с
+    sub "\u0442", "t" # т
+    sub "\u0443", "u" # у
+    sub "\u045E", "o" # ў
+    sub "\u0444", "f" # ф
+    sub "\u044B", "y" # ы
+    sub "\u0447", "ch" # ч
+    sub "\u044F", "ia" # я
+    sub "\u044E", "iu" # ю
+    sub "\u0445", "kh" # х
+    sub "\u04B3", "h" # ҳ
+    sub "\u0448", "sh" # ш
+    sub "\u044D", "e" # э
+    sub "\u0449", "shch" # щ
+    sub "\u0446", "ts" # ц
+    sub "\u0491", "g" # ґ
+    sub "\u046B", "u" # ѫ
+    sub "\u0452", "d" # ђ
+    sub "\u0455", "dz" # ѕ
+    sub "\u0458", "j" # ј
+    sub "\u0459", "lj" # љ
+    sub "\u045A", "nj" # њ
+    sub "\u04BB", "c" # һ
+    sub "\u045F", "dz" # џ
+    sub "\u0454", "ie" # є
+    sub "\u0457", "i" # ї
+    sub "\u0453", "g" # ѓ
+
+    # note[3]
+    sub "\u042a", "" # Ъ
+    sub "\u042c", "" # Ь
+    sub "\u044a", "" # ъ
+    sub "\u044c", "" # ь
+  }
+
+}

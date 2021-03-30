@@ -1,0 +1,31 @@
+metadata {
+  authority_id: bgn
+  id: 1943
+  language: iso-639-2:kor
+  source_script: Hang
+  destination_script: Latn
+  name: BGN Agreement -- Korean McCune-Reischauer System (1943)
+  url:
+  creation_date: 1943
+  adoption_date:
+  description:
+
+  notes:
+}
+
+tests {
+  test "서울", "Sŏul"
+  test "평양", "P’yŏngyang"
+  test "부산", "Pusan"
+  test "대구", "Taegu"
+  test "경상남도", "Kyŏngsangnamdo"
+}
+
+dependency "var-kor-Hang-Latn-mr-1939", as: hanglatn
+
+stage {
+
+  run map.hanglatn.stage.main
+  compose
+  title_case
+}

@@ -1,0 +1,171 @@
+metadata {
+  authority_id: iso
+  id: 15919-2001
+  language: iso-639-2:ben
+  source_script: Beng
+  destination_script: Latn
+  name: "Information and documentation — Transliteration of Devanagari and related Indic scripts into Latin characters"
+  url: https://www.chatranjali.fr/Scripts/Standards/ISO15919.pdf
+  creation_date: 2001
+  adoption_date: 2001
+  description: |
+    Script conversion is often required for documents such as historical and literary texts, geographical texts (including
+    maps and atlases), bibliographies, catalogues, lists and passports (and other identification documents).
+
+    Text in Devanagari script or other Indic scripts sometimes needs to be shown in Latin script, where users, or
+    equipment that they are using, cannot read or write the text
+
+    This International Standard applies to transliteration of Devanagari, and to Indic scripts related to Devanagari,
+    independent of the period in which it is or was used.
+
+  notes:
+
+    - All transliterations made using this International Standard shall be case-insensitive.
+    - Inherent a with a consonant shall always be transliterated.
+    - anusvara (including Vedic anusvara) shall be transliterated as ṁ
+    - candrabindu shall be transliterated as m̐
+    - When m̐, ṃ or ṁ are associated with a vowel, they shall be placed after the vowel. When m̐ is associated
+      with a semivowel, it shall be placed before the semivowel.
+    - Latin punctuation signs and Hindu-Arabic numerals shall remain unchanged in transliteration.
+      Indic punctuation is outside the scope of this International Standard.
+    - The Vedic accent Udatta shall be transliterated as an acute accent over the transliterated vowel, and the
+      independent Svarita as a grave accent over the transliterated vowel. In the case of the digraphs ai, au, the accent
+      shall be attached to the second vowel.
+    - |
+      A colon: before a Latin character shall be used to resolve ambiguity. Some normative cases are as
+      follows.
+       -  :’ for avagraha in modern text. (The apostrophe in modern text remains unchanged in accordance with previous rule.
+       -  Vowel hiatus, not digraph transliteration of diphthongs; as in Bengali ba:i (not bai), “book”.
+       -  Unexpected use of secondary ya/ẏa , as in Bengali r:yāpāra , English “wrapper” (using full r); a:yā (not ayā ).
+    - If a character in an Indic script is defined in such a way as to be equivalent to another character in any
+      script, where the second character has a transliteration in this International Standard, then the first character shall
+      be transliterated in the same way as the second character.
+    - Where it is desired to show the Vedic accent Anudatta, it should be transliterated as an underscore. In the case of
+      the digraphs ai, au, both Latin vowels should be underscored.
+      Where word boundaries are not shown in the original text (as happens commonly in Sanskrit) and a word ends in a
+      consonant, the transliteration should show word division by a space; but when phonological processes result in two
+      words sharing a common vowel, no attempt should be made to separate them. This will require a good knowledge
+      of the language in question.
+}
+
+tests {
+  test "আগুয়েরোর হাঁটুর চোট", "āgauẏaeraora haām̐ṭaura caoṭa"
+  test "তঅস্ত্রোপচারের আশ্রয় নিতে হবে এ তারকাকে, তাই দলে জায়গা পাননি", "taasataraopacaāraera āśaraẏa naitae habae e taārakaākae, taāi dalae jaāẏagaā paānanai"
+  test "ওদিকে সদ্য করোনা থেকে ফিরে এসে দাপটের সঙ্গে পিএসজির হয়ে খেলে যাওয়া দি মারিয়া কেন ডাক পাননি, কেউ জানে না", "odaikae sadaya karaonaā thaekae phairae esae daāpaṭaera saṅagae paiesajaira haẏae khaelae yaāoẏaā dai maāraiẏaā kaena ḍaāka paānanai, kaeu jaānae naā"
+  test "তিন বিভাগে শনিবার থেকে ভারী বৃষ্টি, কমবে তাপমাত্রা", "taina baibhaāgae śanaibaāra thaekae bhaāraī baṛṣaṭai, kamabae taāpamaātaraā"
+  test "ফেসবুকে সময় নষ্ট না করে মায়ের সঙ্গে আড্ডা ভালোবাসেন তিনি", "phaesabaukae samaẏa naṣaṭa naā karae maāẏaera saṅagae āḍaḍaā bhaālaobaāsaena tainai"
+  test "এখনই আর্জেন্টিনার জার্সি খুলো না—দি মারিয়াকে কোচ", "ekhanai ārajaenaṭainaāra jaārasai khaulao naā—dai maāraiẏaākae kaoca"
+  test "প্রিয় তারকার আওয়াজ শুনে কোমা থেকে জেগে উঠলেন তিনি", "paraiẏa taārakaāra āoẏaāja śaunae kaomaā thaekae jaegae uṭhalaena tainai"
+  test "সুয়ারেজকে ‘বের করে দেওয়া’য় বার্সাকে ধুয়ে দিলেন মেসি", "sauẏaāraejakae ‘baera karae daeoẏaā’ẏa baārasaākae dhauẏae dailaena maesai"
+  test "আমি না থাকলে আর্জেন্টিনা দলে মেসিরও থাকার যোগ্যতা নেই", "āmai naā thaākalae ārajaenaṭainaā dalae maesairao thaākaāra yaogayataā naei"
+  test "তবে, নিয়মিত মুখগুলোর মধ্যে দলে নেই মেসির দুই ‘প্রিয় বন্ধু’ পিএসজির মিডফিল্ডার আনহেল দি মারিয়া ও ম্যানচেস্টার সিটির সার্জিও আগুয়েরো", "tabae, naiẏamaita maukhagaulaora madhayae dalae naei maesaira daui ‘paraiẏa banadhau’ paiesajaira maiḍaphailaḍaāra ānahaela dai maāraiẏaā o mayaānacaesaṭaāra saiṭaira saārajaio āgauẏaerao"
+}
+
+stage {
+
+  # CHARACTERS
+  parallel {
+
+    #vowel characters
+
+    sub "অ", "a"
+    sub "আ", "ā"
+    sub "ই", "i"
+    sub "ঈ", "ī"
+    sub "উ", "u"
+    sub "ঊ", "ū"
+    sub "ঋ", "ṛ"
+    sub "ৠ", "ṝ"
+    sub "ঌ", "ḻ"
+    sub "ৡ", "ḹ"
+    sub "এ", "e"
+    sub "ঐ", "ai"
+    sub "ও", "o"
+    sub "ঔ", "au"
+
+    sub "া", "ā"
+    sub "ি", "i"
+    sub "ী", "ī"
+    sub "ু", "u"
+    sub "ূ", "ū"
+    sub "ৃ", "ṛ"
+    sub "ৄ", "ṝ"
+    sub "ৢ", "ḻ"
+    sub "ৣ", "ḹ"
+    sub "ে", "e"
+    sub "ৈ", "ai"
+    sub "ো", "o"
+    sub "ৌ", "au"
+
+
+    sub "ং", "ṁ"
+    sub "ঁ", "m̐"
+    sub "ঃ", "ḥ"
+
+    # Consonant characters
+
+    sub "ক", "ka"
+    sub "খ", "kha"
+    sub "গ", "ga"
+    sub "ঘ", "gha"
+    sub "ঙ", "ṅa"
+    sub "চ", "ca"
+    sub "ছ", "cha"
+    sub "জ", "ja"
+    sub "ঝ", "jha"
+    sub "ঞ", "ña"
+    sub "ট", "ṭa"
+    sub "ঠ", "ṭha"
+    sub "ড", "ḍa"
+    sub "ঢ", "ḍha"
+    sub "ণ", "ṇa"
+    sub "ত", "ta"
+    sub "থ", "tha"
+    sub "দ", "da"
+    sub "ধ", "dha"
+    sub "ন", "na"
+    sub "প", "pa"
+    sub "ফ", "pha"
+    sub "ব", "ba"
+    sub "ভ", "bha"
+    sub "ম", "ma"
+    sub "য", "ya"
+    sub "র", "ra"
+    sub "ল", "la"
+    sub "শ", "śa"
+    sub "ষ", "ṣa"
+    sub "স", "sa"
+    sub "হ", "ha"
+
+    sub "ড়", "ṙa"
+    sub "ঢ়", "ṙha"
+    sub "য়", "ẏa"
+
+
+    # for semivowel rule no. 5
+
+    sub "যঁ", "m̐ya"
+    sub "রঁ", "m̐ra"
+    sub "লঁ", "m̐la"
+    sub "বঁ", "m̐va"
+
+    sub "ৎ", "t"
+    sub "্", ""
+
+
+    # numbers
+
+    sub "১", "1"
+    sub "২", "2"
+    sub "৩", "3"
+    sub "৪", "4"
+    sub "৫", "5"
+    sub "৬", "6"
+    sub "৭", "7"
+    sub "৮", "8"
+    sub "৯", "9"
+    sub "০", "0"
+  }
+
+  compose
+}

@@ -1,0 +1,171 @@
+metadata {
+  authority_id: alalc
+  id: 1997
+  language: iso-639-2:div
+  source_script: Thaa
+  destination_script: Latn
+  name: ALA-Library of Congress Divehi Romanization 1997 System
+  url: http://catdir.loc.gov/catdir/cpso/romanization/divehi.pdf
+  creation_date: 1997
+  description: |
+    ALA-Library of Congress Divehi Romanization 1997 System
+
+  notes:
+
+    - |
+      Romanize ށް as ḫ when it doubles the following consonant or is used as a glottal stop.
+        aḫvana	އަށްވަނަ
+        maśaḫ	މަށަށް
+    - |
+      When used in medial position without ް (sukūn), romanize ނ as ṁ.
+        aṁga	އަނގަ
+        haṁdu	ހަނދު
+    - |
+      Romanization of އ.
+      (a) When used in the initial position with any vowel sign, do not romanize.
+        ata	އަތަ
+        idu	އިދު
+        umuru	އުމުރު
+        egahugi	އެގަހުގި
+      (b) When used in the medial position with any vowel sign, romanize as ’.
+        ha’hūnu	ހައިހޫނު
+        fa’isa	ފައިސަ
+        k’īn	ކްއީން
+      (c) When a consonant follows އް in medial position, double it in romanization.
+        cappalu	ޗައްޕަލު
+        appacci	އައްޕައްޗި
+      (d) When used in final position with ް (sukūn), romanize as h.
+        boh	ބޮއް
+        biheh	ބިހެއް
+    - |
+      Romanize ތް followed by another ތ as  t̤ .
+       at̤teri   އަތްތެރި
+    - |
+      Only the vowel forms that appear at the beginning of a syllable are listed.
+      When the vowels follow a consonant, އ is not used and the vowel signs are added to the consonant forms.
+      Do not distinguish between the two in romanization.
+    - |
+      ް (called sukūn) generally indicates omission of an inherent vowel associated with a consonant.
+      For its other uses, see Notes 1, 3, and 4.
+}
+
+tests {
+  test "މަށަށް", "maśaḫ"
+  test "އަނގަ", "aṁga"
+  test "ހަނދު", "haṁdu"
+  test "އަތަ", "ata"
+  test "އިދު", "idu"
+  test "އުމުރު", "umuru"
+  test "އެގަހުގި", "egahugi"
+  test "ފައިސަ", "faʼisa"
+  test "ބޮއް", "boh"
+  test "ބިހެއް", "biheh"
+  test "އަތްތެރި", "at̤teri"
+  test "ޗައްޕަލު", "cappalu"
+  test "އައްޕައްޗި", "appacci"
+}
+
+stage {
+
+  # RULES
+  # note[1]
+  sub "\u0781\u07b0", "ḫ", after: boundary, before: ""
+  # note[2]
+  sub "\u0782\u07b0", "n", not_before: boundary # medial position with sukun
+  sub "\u0782", "ṁ", not_before: boundary # medial position without sukun
+  # note[3(a)]
+  sub boundary + capture("\u0787" + maybe("=")), "", after: any("\u07a6\u07a7\u07a8\u07a9\u07aa\u07ab\u07ac\u07ad\u07ae\u07af") # initial position with any vowel sign
+  # note[3(c)]  a consonant follows އް in medial position
+  sub "\u0787\u07b0", "h", not_before: boundary, after: "ހ"
+  sub "\u0787\u07b0", "ś", not_before: boundary, after: "ށ"
+  sub "\u0787\u07b0", "n", not_before: boundary, after: "ނ"
+  sub "\u0787\u07b0", "r", not_before: boundary, after: "ރ"
+  sub "\u0787\u07b0", "b", not_before: boundary, after: "ބ"
+  sub "\u0787\u07b0", "ḷ", not_before: boundary, after: "ޅ"
+  sub "\u0787\u07b0", "k", not_before: boundary, after: "ކ"
+  sub "\u0787\u07b0", "v", not_before: boundary, after: "ވ"
+  sub "\u0787\u07b0", "m", not_before: boundary, after: "މ"
+  sub "\u0787\u07b0", "f", not_before: boundary, after: "ފ"
+  sub "\u0787\u07b0", "d", not_before: boundary, after: "ދ"
+  sub "\u0787\u07b0", "t", not_before: boundary, after: "ތ"
+  sub "\u0787\u07b0", "l", not_before: boundary, after: "ލ"
+  sub "\u0787\u07b0", "g", not_before: boundary, after: "ގ"
+  sub "\u0787\u07b0", "ñ", not_before: boundary, after: "ޏ"
+  sub "\u0787\u07b0", "s", not_before: boundary, after: "ސ"
+  sub "\u0787\u07b0", "ḍ", not_before: boundary, after: "ޑ"
+  sub "\u0787\u07b0", "j", not_before: boundary, after: "ޖ"
+  sub "\u0787\u07b0", "c", not_before: boundary, after: "ޗ"
+  sub "\u0787\u07b0", "z", not_before: boundary, after: "ޒ"
+  sub "\u0787\u07b0", "ṭ", not_before: boundary, after: "ޓ"
+  sub "\u0787\u07b0", "p", not_before: boundary, after: "ޕ"
+  sub "\u0787\u07b0", "y", not_before: boundary, after: "ޔ"
+  # note[3(d)]
+  sub "\u0787\u07b0", "h", not_before: boundary, after: boundary # final position with sukun
+  # note[3(b)]
+  sub "\u0787", "ʼ", not_before: boundary, after: any("\u07a6\u07a7\u07a8\u07a9\u07aa\u07ab\u07ac\u07ad\u07ae\u07af") # medial position with any vowel sign
+  # note[4]
+  sub "\u078c\u07b0\u078c", "t̤t"
+
+
+
+  # CHARACTERS
+  parallel {
+
+    # Vowels
+
+    sub "ަ", "a"
+    sub "ާ", "ā"
+    sub "ި", "i"
+    sub "ީ", "ī"
+    sub "ު", "u"
+    sub "ޫ", "ū"
+    sub "ެ", "e"
+    sub "ޭ", "ē"
+    sub "ޮ", "o"
+    sub "ޯ", "ō"
+    sub "ް", "" # omit (see Note 6)
+
+
+    # Consonants
+    sub "ހ", "h"
+    sub "ށ", "ś" # or ḫ (see Note 1)
+    sub "ނ", "n" # see Note 2
+    sub "ރ", "r"
+    sub "ބ", "b"
+    sub "ޅ", "ḷ"
+    sub "ކ", "k"
+    sub "އ", "" # ʼ or h or omit (see Note 3)
+    sub "ވ", "v"
+    sub "މ", "m"
+    sub "ފ", "f"
+    sub "ދ", "d"
+    sub "ތ", "t" # see Note 4
+    sub "ލ", "l"
+    sub "ގ", "g"
+    sub "ޏ", "ñ"
+    sub "ސ", "s"
+    sub "ޑ", "ḍ"
+    sub "ޖ", "j"
+    sub "ޗ", "c"
+    sub "ޒ", "z"
+    sub "ޓ", "ṭ"
+    sub "ޕ", "p"
+    sub "ޔ", "y"
+
+    # Divehi Equivalents to Represent Arabic Letters
+
+    sub "ޘ", "th"
+    sub "ޙ", "ḥ"
+    sub "ޚ", "kh"
+    sub "ޛ", "dh"
+    sub "ޝ", "sh"
+    sub "ޞ", "ṣ"
+    sub "ޟ", "ḏ"
+    sub "ޠ", "t̤"
+    sub "ޡ", "ẓ"
+    sub "ޢ", "ʻ"
+    sub "ޣ", "gh"
+    sub "ޤ", "q"
+  }
+
+}

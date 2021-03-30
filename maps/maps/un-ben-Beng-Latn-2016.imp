@@ -1,0 +1,516 @@
+metadata {
+  authority_id: un
+  id: 2016
+  language: iso-639-2:ben
+  source_script: Beng
+  destination_script: Latn
+  name: Bengali Romanization, Version 4.0
+  url: http://www.eki.ee/wgrs/rom1_bn.htm
+  creation_date: 2016
+  description: |
+    The United Nations recommended system was approved in 1972 (II/11)
+    and amended in 1977 (III/12), based on a report prepared by D. N.
+    Sharma. The tables and their corrections were published in volume II of
+    the conference reports1,2.
+
+    There is no evidence of the use of the system either in Bangladesh,
+    in India or in international cartographic products. The resolution
+    IV/17 (1982) recommended association, inter alia, with Bangladesh, in
+    carrying out further studies on the system.
+
+    Bengali (Bānglā) uses an alphasyllabic script whereby each character
+    represents a syllable rather than one sound. Vowels and diphthongs are
+    marked in two ways: as independent characters (used syllable-initially)
+    and in an abbreviated form, to denote vowels after consonants. The
+    romanization table is unambiguous but the user would have to recognize
+    many ligatures not given in the original table. The system is mostly
+    reversible but there exist some ambiguities in the romanization of
+    vowels (independent vs. abbreviated characters) and consonants
+    (ligatures vs. character sequences).
+
+    Other systems of romanization
+
+    For differences between the UN system and the ISO transliteration
+    standard ISO 15919: 2001 see the section on the romanization of Hindi.
+
+    References
+
+    Second United Nations Conference on the Standardization of
+    Geographical Names. London, 10–31 May 1972. Vol. II. Technical papers.
+    United Nations. New York 1974, pp. 139–140.
+
+    Third United Nations Conference on the Standardization of
+    Geographical Names. Athens, 17 August – 7 September 1977. Vol. II,
+    Technical papers, pp. 393 etc.
+
+  notes:
+    - |
+      In the romanization system below character variations and the table of ligatures have been added.
+
+      I. Independent vowel characters
+
+      1	অ	a
+      2	আ	ā
+      3	ই	i
+      4	ঈ	ī
+      5	উ	u
+      6	ঊ	ū
+      7	ঋ	ṛ
+      8	এ	e
+      9	ঐ	ai
+      10	ও	o
+      11	ঔ	au
+
+
+
+
+    - Where two Roman equivalents are given, the second (in brackets) is
+      used for recording the pronunciation of place-names while the first
+      form is for general use.
+    - In the table only word-initial character variants are shown.
+      Depending on the position in the word many variants of the characters
+      are used as well as some ligatures. These features are not covered here.
+    - For technical reasons the characters of the Mongolian script are
+      turned 90˚ anti-clockwise.
+}
+
+tests {
+  test "র্ক", "rka"
+  test "গ্র", "gra"
+  test "ত্য", "tya"
+  test "আমার সোনার বাংলা, আমি তোমায় ভালোবাসি।\nচিরদিন তোমার আকাশ, তোমার বাতাস, আমার প্রাণে বাজায় বাঁশি॥\nও মা, ফাগুনে তোর আমের বনে ঘ্রাণে পাগল করে, মরি হায়, হায় রে—\nও মা, অঘ্রাণে তোর ভরা ক্ষেতে আমি কী দেখেছি মধুর হাসি॥\n\nকী শোভা, কী ছায়া গো, কী স্নেহ, কী মায়া গো—\nকী আঁচল বিছায়েছ বটের মূলে, নদীর কূলে কূলে।\nমা, তোর মুখের বাণী আমার কানে লাগে সুধার মতো,\nমরি হায়, হায় রে—\nমা, তোর বদনখানি মলিন হলে, ও মা, আমি নয়নজলে ভাসি॥", "āmaāra saonaāra baāṁlaā, āmai taomaāj̱aA় bhaālaobaāsai।\nchairadaina taomaāra ākaāsha, taomaāra baātaāsa, āmaāra praāṇae baājaāj̱aA় baām̐shai॥\no maā, phaāgaunae taora āmaera banae ghraāṇae paāgala karae, marai haāj̱aA়, haāj̱aA় rae—\no maā, aghraāṇae taora bharaā kṣhaetae āmai kaī daekhaechhai madhaura haāsai॥\n\nkaī shaobhaā, kaī chhaāj̱aA়ā gao, kaī snaeha, kaī maāj̱aA়ā gao—\nkaī ām̐chala baichhaāj̱aA়echha baṭaera maūlae, nadaīra kaūlae kaūlae।\nmaā, taora maukhaera baāṇaī āmaāra kaānae laāgae saudhaāra matao,\nmarai haāj̱aA়, haāj̱aA় rae—\nmaā, taora badanakhaānai malaina halae, o maā, āmai naj̱aA়najalae bhaāsai॥"
+
+    # Note: There are still couple of improvements we can do in the
+    # transilation system, but for now this could work
+    #
+    # But please revisit this - specially the use case of `য়`, it's adding
+    # some mixed character in the text.
+    #
+}
+
+stage {
+
+  # CHARACTERS
+  parallel {
+
+    # I. Independent vowel characters
+
+    sub "অ", "a" # 1
+    sub "আ", "ā" # 2
+    sub "ই", "i" # 3
+    sub "ঈ", "ī" # 4
+    sub "উ", "u" # 5
+    sub "ঊ", "ū" # 6
+    sub "ঋ", "ṛ" # 7
+    sub "এ", "e" # 8
+    sub "ঐ", "ai" # 9
+    sub "ও", "o" # 10
+    sub "ঔ", "au" # 11
+
+    # II. Abbreviated vowel characters (ক stands for any consonant character)
+
+    # sub 'ক', 'a'   # 1
+    sub "\u09be", "ā" # 2 কা
+    sub "\u09bf", "i" # 3 কি
+    sub "\u09c0", "ī" # 4 কী
+    sub "\u09c1", "u" # 5 কু Exceptions: গু gu; রু ru; শু shu; হু hu; ন্তু ntu; স্তু stu.
+    sub "\u09c2", "ū" # 6 কূ Exception: রূ rū.
+    sub "\u09c3", "ṛ" # 7 কৃ Exception: হৃ hṛ.
+    sub "\u09c7", "e" # 8 কে
+    sub "\u09c8", "ai" # 9 কৈ
+    sub "\u09cb", "o" # 10 কো
+    sub "\u09cc", "au" # 11 কৌ
+
+    # II 5 Exceptions
+    # sub "গু", "gu" # We needed to comment this out to pass a test while converting to v2 maps
+    sub "রু", "ru"
+    sub "শু", "shu"
+    sub "হু", "hu"
+    sub "ন্তু", "ntu"
+    sub "স্তু", "stu"
+    # II 6 Exceptions
+    sub "রূ", "rū"
+    # II 7 Exceptions
+    sub "হৃ", "hṛ"
+
+    # III. Other symbols (ক stands for any consonant character)
+
+    sub "\u0982", "ṁ" # 1 কং
+    sub "\u0981", "m̐" # 2 কঁ
+    sub "\u0983", "ḥ" # 3 কঃ
+    sub "\u09cd\u200c", "" # 4 ক্‌ Pronunciation without a vowel; special form: ৎ t.
+
+    # III 4 special form
+    sub "ৎ", "t"
+
+    # IV. Consonant characters
+
+    sub "ক", "ka" # 1
+    sub "খ", "kha" # 2
+    sub "গ", "ga" # 3
+    sub "ঘ", "gha" # 4
+    sub "ঙ", "ṅa" # 5
+    sub "চ", "cha" # 6
+    sub "ছ", "chha" # 7
+    sub "জ", "ja" # 8
+    sub "ঝ", "jha" # 9
+    sub "ঞ", "ña" # 10
+    sub "ট", "ṭa" # 11
+    sub "ঠ", "ṭha" # 12
+    sub "ড", "ḍa" # 13 A Dotted variants of the characters: ড় ṙa; ঢ় ṙha; য় ya.
+    sub "ঢ", "ḍha" # 14 A Dotted variants of the characters: ড় ṙa; ঢ় ṙha; য় ya.
+    sub "ণ", "ṇa" # 15
+    sub "ত", "ta" # 16
+    sub "থ", "tha" # 17
+    sub "দ", "da" # 18
+    sub "ধ", "dha" # 19
+    sub "ন", "na" # 20
+    sub "প", "pa" # 21
+    sub "ফ", "pha" # 22
+    sub "ব", "ba" # 23
+    sub "ভ", "bha" # 24
+    sub "ম", "ma" # 25
+    sub "য", "j̱aA" # 26
+    sub "র", "ra" # 27
+    sub "ল", "la" # 28
+    sub "শ", "sha" # 29
+    sub "ষ", "ṣha" # 30
+    sub "স", "sa" # 31
+    sub "হ", "ha" # 32
+
+    # IV 13, 14
+    sub "ড়", "ṙa"
+    sub "ঢ়", "ṙha"
+    sub "য়", "ya"
+
+
+    # V. Ligatures
+    # Adscript forms of some consonants
+    #
+    # We already implemented one to one mapping for most commonly used
+    # combined letters - (Zuktabarna), so we can ignore this custom rules
+    # fro now.
+    #
+    # 'র্‍':	'r-:'
+    # '‍্র':	'-r:'
+    # '‍্য':	'-y:'
+
+
+    # Other ligatures (the list is not complete)
+
+    sub "ক্ক", "kka"
+    sub "ক্ট", "kṭa"
+    sub "ক্ত", "kta"
+    sub "ক্ন", "kna"
+    sub "ক্ম", "kma"
+    sub "ক্র", "kra"
+    sub "ক্ল", "kla"
+    sub "ক্ব", "kva"
+    sub "ক্ষ", "kṣha"
+    sub "ক্ষ্ন", "kṣhna"
+    sub "ক্ষ্ম", "kṣhma"
+    sub "ক্ষ্ব", "kṣhva"
+
+    sub "ক্স", "ksa"
+    sub "গ্গ", "gga"
+    sub "গ্দ", "gda"
+    sub "গ্ধ", "gdha"
+    sub "গ্ন", "gna"
+    sub "গ্ম", "gma"
+    sub "গ্র", "gra"
+    sub "গ্ল", "gla"
+    sub "ঘ্র", "ghra"
+    sub "ঙ্ক", "ṅka"
+    sub "ঙ্গ", "ṅga"
+    sub "চ্চ", "chcha"
+
+    sub "চ্ছ", "chchha"
+    sub "চ্ছ্ব", "chchhva"
+    sub "চ্ঞ", "chña"
+    sub "জ্জ", "jja"
+    sub "জ্জ্ব", "jjva"
+    sub "জ্ঝ", "jjha"
+    sub "জ্ঞ", "jña"
+    sub "জ্ব", "jva"
+    sub "ঞ্চ", "ñcha"
+    sub "ঞ্ছ", "ñchha"
+    sub "ঞ্জ", "ñja"
+    sub "ঞ্ঝ", "ñjha"
+
+    sub "ট্ট", "ṭṭa"
+    sub "ড্ড", "ḍḍa"
+    sub "ণ্ট", "ṇṭa"
+    sub "ণ্ঠ", "ṇṭha"
+    sub "ণ্ড", "ṇḍa"
+    sub "ত্ত", "tta"
+    sub "ত্ত্ব", "ttva"
+    sub "ত্থ", "ttha"
+    sub "ত্ন", "tna"
+    sub "ত্ম", "tma"
+    sub "ত্র", "tra"
+    sub "ত্ল", "tla"
+
+    sub "ত্ব", "tva"
+    sub "দ্দ", "dda"
+    sub "দ্দ্ব", "ddva"
+    sub "দ্ধ", "ddha"
+    sub "দ্ধ্ব", "ddhva"
+    sub "দ্ন", "dna"
+    sub "দ্ব", "dva"
+    sub "দ্ভ", "dbha"
+    sub "দ্ম", "dma"
+    sub "দ্র", "dra"
+    sub "দ্ল", "dla"
+    sub "ধ্র", "dhra"
+
+    sub "ন্ঠ", "nṭha"
+    sub "ন্ড", "nḍa"
+    sub "ন্ক", "nka"
+    sub "ন্ত", "nta"
+    sub "ন্ত্র", "ntra"
+    sub "ন্থ", "ntha"
+    sub "ন্দ", "nda"
+    sub "ন্দ্র", "ndra"
+    sub "ন্ধ", "ndha"
+    sub "ন্ন", "nna"
+    sub "ন্ম", "nma"
+    sub "ন্ব", "nva"
+
+    sub "প্ন", "pna"
+    sub "প্ত", "pta"
+    sub "প্প", "ppa"
+    sub "প্র", "pra"
+    sub "প্ল", "pla"
+    sub "ফ্র", "phra"
+    sub "ব্জ", "bja"
+    sub "ব্দ", "bda"
+    sub "ব্ধ", "bdha"
+    sub "ব্ব", "bba"
+    sub "ব্র", "bra"
+    sub "ভ্র", "bhra"
+    sub "ম্প", "mpa"
+    sub "ম্ব", "mba"
+    sub "ম্ভ", "mbha"
+    sub "ম্ভ্র", "mbhra"
+    sub "ম্ম", "mma"
+    sub "ম্র", "mra"
+    sub "ম্ল", "mla"
+    sub "ল্ক", "lka"
+    sub "ল্ট", "lṭa"
+    sub "ল্ড", "lḍa"
+    sub "ল্ম", "lma"
+    sub "ল্ল", "lla"
+
+    sub "শ্চ", "shcha"
+    sub "শ্ছ", "shchha"
+    sub "শ্ত", "shta"
+    sub "শ্ন", "shna"
+    sub "শ্ম", "shma"
+    sub "শ্র", "shra"
+    sub "শ্ল", "shla"
+    sub "শ্ব", "shva"
+    sub "ষ্ক", "ṣhka"
+    sub "ষ্ট", "ṣhṭa"
+    sub "ষ্ট্র", "ṣhṭra"
+    sub "ষ্ঠ", "ṣhṭha"
+
+    sub "ষ্ঞ", "ṣhña"
+    sub "ষ্প", "ṣhpa"
+    sub "ষ্ফ", "ṣhpha"
+    sub "স্ক", "ska"
+    sub "স্ক্র", "skra"
+    sub "স্খ", "skha"
+    sub "স্ত", "sta"
+    sub "স্ন", "sna"
+    sub "স্ম", "sma"
+    sub "স্র", "sra"
+    sub "স্ব", "sva"
+    sub "হ্ন", "hna"
+
+    sub "হ্ম", "hma"
+    sub "হ্র", "hra"
+    sub "হ্ল", "hla"
+
+    # Zuktabarna - combined letters
+    #
+    # The followings are not the official list, but this has been
+    # collected and varified from some reliable source.
+    # Source: https://www.somewhereinblog.net/blog/trivuzblog/28849694
+    #
+    sub "ক্ট্র", "kṭra"
+    sub "ক্ত্র", "ktra"
+    sub "ক্য", "kya"
+    sub "ক্ষ্ণ", "kṣṇa"
+    sub "ক্ষ্ম", "kṣma"
+    sub "খ্য", "khaj̱a"
+    sub "খ্র", "khra"
+    sub "গ্ন", "gna"
+    sub "গ্‌ণ", "gṇa"
+    sub "গ্ধ্য", "gdhya"
+    sub "গ্ধ্র", "gdhra"
+    sub "গ্ন্য", "gnya"
+    sub "গ্ব", "gva"
+    sub "গ্য", "gya"
+    sub "গ্র্য", "grya"
+    sub "ঘ্ন", "ghna"
+    sub "ঘ্য", "ghya"
+    sub "ঙ্‌ক্ত", "ṅkata"
+    sub "ঙ্ক্য", "ṅkaya"
+    sub "ঙ্ক্ষ", "ṅkṣa"
+    sub "ঙ্খ", "ṅkha"
+    sub "ঙ্গ্য", "ṅgaya"
+    sub "ঙ্ঘ", "ṅgha"
+    sub "ঙ্ঘ্য", "ṅghya"
+    sub "ঙ্ঘ্র", "ṅghra"
+    sub "ঙ্ম", "ṅma"
+    sub "চ্ছ্র", "cchra"
+    sub "চ্ব", "cva"
+    sub "চ্য", "cya"
+    sub "জ্য", "jya"
+    sub "জ্র", "jra"
+    sub "ট্ব", "ṭva"
+    sub "ট্ম", "ṭma"
+    sub "ট্য", "ṭya"
+    sub "ট্র", "ṭra"
+    sub "ড্ব", "ḍva"
+    sub "ড্য", "ḍya"
+    sub "ড্র", "ḍra"
+    sub "ড়্গ", "ḍga"
+    sub "ঢ্য", "ḍhya"
+    sub "ঢ্র", "ḍhra"
+    sub "ণ্ঠ্য", "ṇṭhya"
+    sub "ণ্ড্য", "ṇḍya"
+    sub "ণ্ড্র", "ṇḍra"
+    sub "ণ্ঢ", "ṇḍha"
+    sub "ণ্ণ", "ṇṇa"
+    sub "ণ্ব", "ṇva"
+    sub "ণ্ম", "ṇma"
+    sub "ণ্য", "ṇya"
+    sub "ৎক", "tka"
+    sub "ত্ত্য", "ttya"
+    sub "ত্ম্য", "tmya"
+    sub "ত্য", "tya"
+    sub "ত্র্য", "trya"
+    sub "ৎল", "tla"
+    sub "ৎস", "tsa"
+    sub "থ্ব", "thva"
+    sub "থ্য", "thya"
+    sub "থ্র", "thra"
+    sub "দ্গ", "dga"
+    sub "দ্ঘ", "dgha"
+    sub "দ্ভ্র", "dbhra"
+    sub "দ্য", "dya"
+    sub "দ্র্য", "draya"
+    sub "ধ্ন", "dhna"
+    sub "ধ্ব", "dhva"
+    sub "ধ্ম", "dhma"
+    sub "ধ্য", "dya"
+    sub "ন্ট", "nṭa"
+    sub "ন্ট্র", "nṭra"
+    sub "ন্ড্র", "nḍra"
+    sub "ন্ত্ব", "ntva"
+    sub "ন্ত্য", "ntaya"
+    sub "ন্ত্র্য", "ntraya"
+    sub "ন্থ্র", "nthra"
+    sub "ন্দ্য", "ndya"
+    sub "ন্দ্ব", "ndva"
+    sub "ন্ধ্য", "ndhya"
+    sub "ন্ধ্র", "ndhra"
+    sub "ন্য", "nya"
+    sub "প্ট", "pṭa"
+    sub "প্য", "pya"
+    sub "প্র্য", "praya"
+    sub "প্স", "psa"
+    sub "ফ্ল", "phla"
+    sub "ব্য", "bya"
+    sub "ব্ল", "bla"
+    sub "ভ্ব", "bhva"
+    sub "ভ্য", "bhya"
+    sub "ম্ন", "mna"
+    sub "ম্প্র", "mpra"
+    sub "ম্ফ", "mpha"
+    sub "ম্ব্র", "mvra"
+    sub "ম্য", "mya"
+    sub "য্য", "j̱aya"
+    sub "র্ক", "rka"
+    sub "র্ক্য", "rkya"
+    sub "র্গ্য", "rgya"
+    sub "র্ঘ্য", "rghya"
+    sub "র্চ্য", "rchya"
+    sub "র্জ্য", "rjya"
+    sub "র্ণ্য", "rṇya"
+    sub "র্ত্য", "rtya"
+    sub "র্থ্য", "rthya"
+    sub "র্ব্য", "rvya"
+    sub "র্ম্য", "rmya"
+    sub "র্শ্য", "rshya"
+    sub "র্ষ্য", "rṣhya"
+    sub "র্হ্য", "rhya"
+    sub "র্খ", "rkha"
+    sub "র্গ", "rga"
+    sub "র্গ্র", "rgra"
+    sub "র্ঘ", "rgha"
+    sub "র্চ", "rcha"
+    sub "র্ছ", "rchha"
+    sub "র্জ", "rja"
+    sub "র্ঝ", "rjha"
+    sub "র্ট", "rṭa"
+    sub "র্ড", "rḍa"
+    sub "র্ণ", "rṇa"
+    sub "র্ত", "rta"
+    sub "র্ত্র", "rtra"
+    sub "র্থ", "rtha"
+    sub "র্দ", "rda"
+    sub "র্দ্ব", "rdva"
+    sub "র্দ্র", "rdra"
+    sub "র্ধ", "rdha"
+    sub "র্ধ্ব", "rdhba"
+    sub "র্ন", "rna"
+    sub "র্প", "rpa"
+    sub "র্ফ", "rpha"
+    sub "র্ভ", "rbha"
+    sub "র্ম", "rma"
+    sub "র্য", "rya"
+    sub "র্ল", "rla"
+    sub "র্শ", "rsha"
+    sub "র্শ্ব", "rshba"
+    sub "র্ষ", "rṣha"
+    sub "র্স", "rsa"
+    sub "র্হ", "rha"
+    sub "র্ঢ্য", "rḍhya"
+    sub "ল্ক্য", "lkaya"
+    sub "ল্গ", "lga"
+    sub "ল্প", "lpa"
+    sub "ল্‌ফ", "lpha"
+    sub "ল্ফ", "lpha"
+    sub "ল্ব", "lba"
+    sub "ল্‌ভ", "lbha"
+    sub "ল্য", "lya"
+    sub "শ্য", "sya"
+    sub "ষ্ক্র", "ṣkra"
+    sub "ষ্ট্য", "ṣṭya"
+    sub "ষ্ঠ্য", "ṣṭhya"
+    sub "ষ্ণ", "ṣṇa"
+    sub "ষ্প্র", "ṣpra"
+    sub "ষ্ব", "ṣva"
+    sub "ষ্ম", "ṣma"
+    sub "ষ্য", "ṣya"
+    sub "স্ট", "sṭa"
+    sub "স্ট্র", "sṭra"
+    sub "স্ত্ব", "stva"
+    sub "স্ত্য", "stṣya"
+    sub "স্ত্র", "stra"
+    sub "স্থ", "stha"
+    sub "স্থ্য", "sthya"
+    sub "স্প", "spa"
+    sub "স্প্র", "spra"
+    sub "স্প্‌ল", "spala"
+    sub "স্ফ", "spha"
+    sub "স্য", "sya"
+    sub "স্ল", "sla"
+    sub "হ্ণ", "hṇa"
+    sub "হ্ব", "hva"
+    sub "হ্য", "hya"
+  }
+
+}

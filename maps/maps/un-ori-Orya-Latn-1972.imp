@@ -1,0 +1,208 @@
+metadata {
+  authority_id: ungegn
+  id: 1972
+  language: iso-639-2:ori
+  source_script: Orya
+  destination_script: Latn
+  name: REPORT ON THE CURRENT STATUS OF UNITED NATIONS ROMANIZATION SYSTEMS FOR GEOGRAPHICAL NAMES -- Oriya Romanization, 1972
+  url: http://www.eki.ee/wgrs/v2_2/rom1_or.pdf
+  creation_date: 1972
+  confirmation_date: 2003
+  description: |
+    The United Nations recommended system was approved in 1972 (II/11), based on a report
+    prepared by D. N. Sharma. The note on the system was published in volume II of the
+    conference reports.
+
+    There is no evidence of the use of the system either in India or in international cartographic
+    products.
+
+    Oriya uses an alphasyllabic script whereby each character represents a syllable rather than one sound.
+    Vowels and diphthongs are marked in two ways: as independent characters (used syllable-initially) and in an
+    abbreviated form, to denote vowels after consonants. The romanization table is unambiguous. The system is mostly
+    reversible but there may exist some ambiguities in the romanization of vowels (independent vs. abbreviated characters)
+    and consonants (combinations with subscript consonants vs. character sequences).
+
+  notes:
+    - Combinations with r as the first component are written with a special superscript symbol, e.g. ର୍କ rka.
+}
+
+tests {
+  test "ର୍କ", "rka"
+  test "ଓଡ଼ିଆ", "oṙiā"
+  test "ଓଡ଼ିଶା", "oṙishā"
+  test "ଭୁବନେଶ୍ୱର", "bhubaneshvara"
+  test "ଆଇପିଏଲ୍‌-୧୩: ଦିଲ୍ଲୀ କ୍ୟାପିଟାଲ୍ସକୁ ୮୮ ରନ୍‌ ପରାସ୍ତ କଲା ସନରାଇଜର୍ସ ହାଇଦ୍ରାବାଦ", "āipiel-13: dillī kyāpiṭālsaku 88 ran parāsta kalā sanarāijarsa hāidrābāda"
+  test "ପ୍ରେମ ସମ୍ପର୍କରେ ଭଟ୍ଟା: ରାଗରେ ପ୍ରେମିକାର ତଣ୍ଟି କାଟି ନିଜେ ବିଷ ପିଇଲା ପ୍ରେମିକ", "prema samparkare bhaṭṭā: rāgare premikāra taṇṭi kāṭi nije biṣha piilā premika"
+  test "ପ୍ରେମ ସମ୍ପର୍କରେ ଭଟ୍ଟା: ରାଗରେ ପ୍ରେମିକାର ତଣ୍ଟି କାଟି ନିଜେ ବିଷ ପିଇଲା ପ୍ରେମିକ", "prema samparkare bhaṭṭā: rāgare premikāra taṇṭi kāṭi nije biṣha piilā premika"
+  test "ହୋଟେଲ, ଲଜ୍‌ରେ ରୁମ୍‌ ମିଳୁନି: ନେତା‌ଙ୍କ ନାଁରେ ଆଗୁଆ ହୋଇଯାଇଛି ବୁକିଂ", "heāṭela, lajre rum miḷuni: netāṅka nāmre āguā heāiỵāichhhi bukiṃ"
+  test "ପର୍ଯ୍ୟଟକମାନଙ୍କ ନିମନ୍ତେ ନଭେମ୍ବର ୧ରୁ ଖୋଲିବ ଶିମିଳିପାଳ ଅଭୟାରଣ୍ୟ", "parỵyaṭakamānaṅka nimante nabhembara 1ru kholiba shimiḷipāḷa abhayāraṇya"
+  test "ପାରିବାରିକ ଅଶାନ୍ତିର କରୁଣ ପରିଣତି: କୂଅକୁ ଡେଇଁଲେ ମା’-ଝିଅ, ଝିଅ ମୃତ", "pāribārika ashāntira karuṇa pariṇati: kūaku ḍeimle mā’-jhia, jhia mṛta"
+  test "‘ଭ୍ରଷ୍ଟାଚାରର ବଂଶବାଦ’ ଏବେ ସାଜିଛି ଦେଶ ପାଇଁ ନୂଆ ସମସ୍ୟା; ପ୍ରଧାନମନ୍ତ୍ରୀ ମୋଦୀ", "‘bhraṣhṭāchārara baṃshabāda’ ebe sājichhhi desha pāim nūā samasyā; pradhānamantrī modī"
+  test "ପାହାଡ଼ି ଇଲାକାବାସୀଙ୍କ ଆଶାର ବତୀ ‘ପାର୍ବତୀ’", "pāhāṙi ilākābāsīṅka āshāra batī ‘pārbatī’"
+}
+
+aliases {
+  def_alias orya_chars_1, any("\u0b4d\u0b3e\u0b3f\u0b40\u0b41\u0b42\u0b43\u0b47\u0b48\u0b4b\u0b4c")
+}
+
+stage {
+
+  # RULES
+  sub "କ", "k", after: orya_chars_1
+  sub "ଖ", "kh", after: orya_chars_1
+  sub "ଗ", "g", after: orya_chars_1
+  sub "ଘ", "gh", after: orya_chars_1
+  sub "ଙ", "ṅ", after: orya_chars_1
+  sub "ଚ", "ch", after: orya_chars_1
+  sub "ଛ", "chhh", after: orya_chars_1
+  sub "ଜ", "j", after: orya_chars_1
+  sub "ଝ", "jh", after: orya_chars_1
+  sub "ଞ", "ñ", after: orya_chars_1
+  sub "ଟ", "ṭ", after: orya_chars_1
+  sub "ଠ", "ṭh", after: orya_chars_1
+  sub "ଡ", "ḍ", after: orya_chars_1
+  sub "ଡ଼", "ṙ", after: orya_chars_1
+  sub "ଢ", "ḍh", after: orya_chars_1
+  sub "ଢ଼", "ṙh", after: orya_chars_1
+  sub "ଣ", "ṇ", after: orya_chars_1
+  sub "ତ", "t", after: orya_chars_1
+  sub "ଥ", "th", after: orya_chars_1
+  sub "ଦ", "d", after: orya_chars_1
+  sub "ଧ", "dh", after: orya_chars_1
+  sub "ନ", "n", after: orya_chars_1
+  sub "ପ", "p", after: orya_chars_1
+  sub "ଫ", "ph", after: orya_chars_1
+  sub "ବ", "b", after: orya_chars_1
+  sub "ଭ", "bh", after: orya_chars_1
+  sub "ମ", "m", after: orya_chars_1
+  sub "ଯ", "ỵ", after: orya_chars_1
+  sub "ୟ", "y", after: orya_chars_1
+  sub "ର", "r", after: orya_chars_1
+  sub "ଲ", "l", after: orya_chars_1
+  sub "ଳ", "ḷ", after: orya_chars_1
+  sub "ଶ", "sh", after: orya_chars_1
+  sub "ଷ", "ṣh", after: orya_chars_1
+  sub "ସ", "s", after: orya_chars_1
+  sub "ହ", "h", after: orya_chars_1
+  sub "କ୍ଷ", "kṣh", after: orya_chars_1
+
+
+  # CHARACTERS
+  parallel {
+    sub "ଅ", "a"
+    sub "ଆ", "ā"
+    sub "ଇ", "i"
+    sub "ଈ", "ī"
+    sub "ଉ", "u"
+    sub "ଊ", "ū"
+    sub "ଋ", "ṛ"
+    sub "ୠ", "ṝ"
+    sub "ଌ", "ḻ"
+    sub "ଏ", "e"
+    sub "ଐ", "ai"
+    sub "ଓ", "o"
+    sub "ୱ", "va"
+    sub "ଔ", "au"
+
+    # II. Consonants
+    # Gutturals
+    sub "କ", "ka"
+    sub "ଖ", "kha"
+    sub "ଗ", "ga"
+    sub "ଘ", "gha"
+    sub "ଙ", "ṅa"
+
+    # Palatals
+    sub "ଚ", "cha"
+    sub "ଛ", "chha"
+    sub "ଜ", "ja"
+    sub "ଝ", "jha"
+    sub "ଞ", "ña"
+
+    # Cerebrals
+    sub "ଟ", "ṭa"
+    sub "ଠ", "ṭha"
+    sub "ଡ", "ḍa"
+    sub "ଡ଼", "ṙa"
+    sub "ଢ", "ḍha"
+    sub "ଢ଼", "ṙha"
+    sub "ଣ", "ṇa"
+
+    # Dentals
+    sub "ତ", "ta"
+    sub "ଥ", "tha"
+    sub "ଦ", "da"
+    sub "ଧ", "dha"
+    sub "ନ", "na"
+
+    # Labials
+    sub "ପ", "pa"
+    sub "ଫ", "pha"
+    sub "ବ", "ba"
+    sub "ଭ", "bha"
+    sub "ମ", "ma"
+
+    # Semivowels
+    sub "ଯ", "ỵa"
+    sub "ୟ", "ya"
+    sub "ର", "ra"
+    sub "ଲ", "la"
+    sub "ଳ", "ḷa"
+
+    # Sibilants
+    sub "ଶ", "sha"
+    sub "ଷ", "ṣha"
+    sub "ସ", "sa"
+
+
+    # Aspirate
+    sub "ହ", "ha"
+
+    sub "କ୍ଷ", "kṣha"
+
+    # Chandrabindu
+    sub "ଁ", "m"
+
+    # Bisarga
+    sub "ଃ", "ḥ"
+
+    # Anusvāra
+    sub "ଂ", "ṃ"
+
+    # Medials # Needed for connecting constants
+
+    sub "ା", "ā"
+    sub "ି", "i"
+    sub "ୀ", "ī"
+    sub "ୁ", "u"
+    sub "ୂ", "ū"
+    sub "ୃ", "ṛ"
+    sub "େ", "e"
+    sub "ୈ", "ai"
+    sub "ୋ", "o"
+    sub "ୌ", "au"
+
+    sub "्", ""
+    sub "୍", ""
+    sub "़", ""
+    sub "଼", ""
+    sub "।", "."
+    sub "‍", "" # Used for joining
+    sub "‌", "" # Used for non joining
+
+    # Numbers
+
+    sub "୦", "0"
+    sub "୧", "1"
+    sub "୨", "2"
+    sub "୩", "3"
+    sub "୪", "4"
+    sub "୫", "5"
+    sub "୬", "6"
+    sub "୭", "7"
+    sub "୮", "8"
+    sub "୯", "9"
+  }
+
+  compose
+}

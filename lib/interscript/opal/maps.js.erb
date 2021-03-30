@@ -1,8 +1,0 @@
-<%# A placeholder for the maps to be loaded %>
-Opal.global.InterscriptMaps = {
-  <% Dir['maps/*.yaml'].each do |yaml_file| %>
-    "<%= File.basename(yaml_file, ".yaml") %>": null,
-  <% end %>
-};
-
-Opal.global.InterscriptMapAliases = <%= File.read('aliases.json') %>;

@@ -1,0 +1,72 @@
+= Integration with Ruby Applications
+
+Interscript can be used as a Ruby Gem library to be integrated with other Ruby
+applications.
+
+== Gemfile
+
+You need to make sure your Gemfile contains the following lines:
+
+[source,ruby]
+----
+source "https://rubygems.org"
+
+gem "interscript", "~>2.0"
+----
+
+== Requiring
+
+In your codebase, if you don't do `Bundler.require`, you will need to add the
+following line:
+
+[source,ruby]
+----
+require "interscript"
+----
+
+== Listing all available maps
+
+To list all available maps, one must execute the following code:
+
+[source,ruby]
+----
+maps = Interscript.maps
+----
+
+`maps` will be an array containing all Interscript maps by their name.
+
+== Transliterating text
+
+To transliterate test using a given map, like `bas-rus-Cyrl-Latn-2017-bss`,
+one must execute:
+
+[source,ruby]
+----
+cache = {}
+input = "Хелло"
+output = Interscript.transliterate("bas-rus-Cyrl-Latn-2017-bss",
+                                   input,
+                                   cache)
+----
+
+You should preserve the `cache` variable for performance reasons. It is optional,
+you don't need to (but should) supply it.
+
+=== Using Ruby compiler
+
+If performance is of utmost performance for your application and you want to
+sacrifice a little bit of loading time for much better performance, you can use
+`Interscript::Compiler::Ruby` instead of `Interscript::Interpreter` (which is
+used by default).
+
+[source,ruby]
+----
+require "interscript/compiler/ruby"
+
+cache = {}
+input = "Хелло"
+output = Interscript.transliterate("bas-rus-Cyrl-Latn-2017-bss",
+                                   input,
+                                   cache,
+                                   compiler: Interscript::Compiler::Ruby)
+----

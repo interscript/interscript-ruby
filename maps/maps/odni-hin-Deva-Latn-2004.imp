@@ -1,0 +1,180 @@
+metadata {
+  authority_id: odni
+  id: 2004
+  language: iso-639-2:hin
+  source_script: Deva
+  destination_script: Latn
+  name: IC STANDARDS FOR TRANSLITERATION OF HINDI AND URDU PERSONAL NAMES
+  url: https://github.com/interscript/interscript-private-references/blob/master/odni/Hindi_and_Urdu_IC_Standard.doc
+  creation_date: 2004
+  description: |
+    IC STANDARDS FOR TRANSLITERATION OF HINDI AND URDU PERSONAL NAMES
+  
+  notes:
+    - |
+      Long/Short Vowels: Long and short vowels are not distinguished in the system:
+      The borrowed Arabic name Samir could represent two distinct names, one with a
+      long /a/ (Saamir) and one with a long /i/ (Samiir). One solution would be to use
+      /ee/ to stand for the long /i/, as is often done (Sameer). The IC Standard will not
+      distinguish between these.
+    - |
+      No distinction is made between: retroflex and non-retroflex consonants; and
+      nasalized vowels and vowels followed by /n/.
+    - |
+      A distinction is drawn between Urdu letters qaf and kaf (and correspondingly,
+      Hindi qa and ka).
+    - |
+      A distinction is drawn between aspirated (e.g., /d/) and nonaspirated consonants
+      (e.g., /dh/), with the exception of ch/chh, both represented by /ch/.
+    - |
+      Digraphs: No distinction is made between digraphs such as /sh/ and single
+      contiguous letters such as /s/ followed by /h/.
+    - |
+      Hyphens: Hyphens (-) are NOT used to connect name elements within a name:
+      Abdur Rahman. The single exception to this is the izafat (i.e., linking vowel in
+      noun-link-modifier construction of Persian origin), which does show a hypen
+      before the /e/ and a following space: Koh-e Nur (‘mountain of light’), “Jaish-e
+      xx” (‘Army of xx’ construction).
+    - |
+      Names incorporating “din” are written as one unit: Azermuddin, Badruddin,
+      Faizuddin, Salahuddin.
+    - |
+      Names that incorporate Allah as part of the name show the Arabic grammatical
+      marker /u/ rather than the /a/ of Allah: Abdullah (not Abdallah).
+    - |
+      Inherent short vowel /a/ in Devanagari is represented with an /a/ in Roman. Final
+      consonants are assumed not to have a short /a/ (e.g., masc. name Ram Lal, not
+      Rama Lala).
+    - |
+      As a general rule, Devanagari va is transcribed as a /v/: Vijay, Vishal, etc.
+      Exception: /sw/ combination: Saraswati, Krishnaswami. Urdu wau, however, is
+      transcribed as /w/: Wasim, Walid.
+}
+
+tests {
+  test "दिल्ली", "dilli"
+  test "भारत", "bhart"
+  test "विजय", "vijy"
+  test "विशाल", "vishal"
+  test "अब्दुल्ला", "abdulla"
+  test "संख्या", "snkhya"
+  test "संख्या", "snkhya"
+  test "समीर", "smir"
+  test "सरस्वती", "srsvti"
+  test "कृष्णास्वामी", "krishnasvami"
+}
+
+
+stage {
+
+  # CHARACTERS
+  parallel {
+    
+    #Independent vowel characters
+    sub "अ", "a"
+    sub "आ", "a"
+    sub "इ", "i"
+    sub "ई", "i"
+    sub "उ", "u"
+    sub "ऊ", "u"
+    sub "ऋ", "ri"
+    sub "ऌ", "l̤"
+    sub "ए", "e"
+    sub "ऐ", "ai"
+    sub "ओ", "o"
+    sub "ऑ", "au"
+    sub "औ", "au"
+    
+    #Dependent Vowels
+    sub "ा", "a"
+    sub "ि", "i"
+    sub "ी", "i"
+    sub "ु", "u"
+    sub "ू", "u"
+    sub "ृ", "ri"
+    sub "े", "e"
+    sub "ै", "ai"
+    sub "ॅ", "ai"
+    sub "ो", "o"
+    sub "ौ", "au"
+    sub "ॉ", "au"
+    
+    
+    # Consonants
+    
+    # Gutturals
+    sub "क", "k"
+    sub "क्ष", "ksha"
+    sub "क़", "q"
+    sub "ख", "kh"
+    sub "ख़", "kh"
+    sub "ग", "g"
+    sub "ग़", "gh"
+    sub "घ", "gh"
+    sub "ङ", "n"
+    
+    # Palatals
+    sub "च", "ch"
+    sub "छ", "ch"
+    sub "ज", "j"
+    sub "ज़", "z"
+    sub "झ", "gya"
+    sub "झ", "jh"
+    sub "ञ", "n"
+    
+    # Cerebrals
+    sub "ट", "t"
+    sub "ठ", "th"
+    sub "ड", "d"
+    sub "ड़", "r"
+    sub "ढ़", "rh"
+    sub "ढ", "dh"
+    sub "ण", "n"
+    
+    # Dentals
+    sub "त", "t"
+    sub "थ", "th"
+    sub "द", "d"
+    sub "ध", "dh"
+    sub "न", "n"
+    
+    # Labials
+    sub "प", "p"
+    sub "फ़", "f"
+    sub "फ", "ph"
+    sub "ब", "b"
+    sub "भ", "bh"
+    sub "म", "m"
+    
+    # Semivowels
+    sub "य", "y"
+    sub "र", "r"
+    sub "ल", "l"
+    sub "व", "v"
+    
+    # Sibilants
+    sub "श", "sh"
+    sub "ष", "sh"
+    sub "स", "s"
+    
+    
+    # Aspirate
+    sub "ह", "h"
+    
+    # Anusvāra
+    sub "ं", "n"
+    
+    # Anunāsika
+    sub "ँ", "n"
+    
+    # halanta
+    sub "्", ""
+    
+    # bisharga
+    sub "ः", "h"
+    
+    sub "़", ""
+  }
+
+}
+

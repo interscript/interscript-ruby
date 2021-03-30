@@ -1,0 +1,123 @@
+metadata {
+  authority_id: un
+  id: 1998
+  language: iso-639-2:bel
+  source_script: Cyrl
+  destination_script: Latn
+  name: National System of Geographic Names Transmission into Roman Alphabet in Belarus
+  url: https://unstats.un.org/unsd/geoinfo/UNGEGN/docs/20th-gegn-docs/20th_gegn_WP34.pdf
+  # page 48
+  creation_date: 1998
+  description: |
+    The national system of romanization for Belarusian was approved by the State Committee and Land Resources,
+    Geodesy and Cartography, Republic of Belarus, on 20 March, 1998. This scheme was also supported by
+    the Y. Kolas Institute of Linguistics and the Republic Committee on Toponymy at the Belarusian Academy of Sciences.
+    While the system is still based on GOST 1983, it takes more precisely into account the peculiarities of
+    the Belarusian orthography. The system is reversible though there may exist some ambiguous consonant combinations.
+}
+
+tests {
+  # the same as in by-bel-Cyrl-Latn-2007
+  test "Аршанскi", "Aršanski"
+  test "Бешанковічы", "Biešankovičy"
+  test "Віцебск", "Viciebsk"
+  test "Гомель", "Homieĺ"
+  test "Гаўя", "Haŭja"
+  test "Добруш", "Dobruš"
+  test "Ельск", "Jeĺsk"
+  test "Бабаедава", "Babajedava"
+  test "Венцавічы", "Viencavičy"
+  test "Ёды", "Jody"
+  test "Вераб'ёвічы", "Vierabjovičy"
+  test "Мёры", "Miory"
+  test "Зэльва", "Zeĺva"
+  test "Iванава", "Ivanava"
+  test "Iўе", "Iŭje"
+  test "Лагойск", "Lahojsk"
+  test "Круглае", "Kruhlaje"
+  test "Лошыца", "Lošyca"
+  test "Любань", "Liubań"
+  test "Магілёў", "Mahilioŭ"
+  test "Нясвіж", "Niasviž"
+  test "Орша", "Orša"
+  test "Паставы", "Pastavy"
+  test "Рагачоў", "Rahačoŭ"
+  test "Смаргонь", "Smarhoń"
+  test "Талачын", "Talačyn"
+  test "Узда", "Uzda"
+  test "Шаркаўшчына", "Šarkaŭščyna"
+  test "Фаніпаль", "Fanipaĺ"
+  test "Хоцімск", "Chocimsk"
+  test "Цёмны Лес", "Ciomny Lies"
+  test "Чавусы", "Čavusy"
+  test "Шумілiна", "Šumilina"
+  test "Чыгірынка", "Čyhirynka"
+  test "Чэрвень", "Červień"
+  test "Друць", "Druć"
+  test "Чачэрск", "Čačersk"
+  test "Юхнаўка", "Juchnaŭka"
+  test "Гаюціна", "Hajucina"
+  test "Цюрлі", "Ciurli"
+  test "Любонічы", "Liuboničy"
+  test "Ямнае", "Jamnaje"
+  test "Баяры", "Bajary"
+  test "Валяр'яны", "Valiarjany"
+  test "Вязынка", "Viazynka"
+}
+
+dependency "gost-rus-Cyrl-Latn-16876-71-1983", as: cyrllatn
+dependency "var-Cyrl", import: true
+
+stage {
+  # RULES
+  sub "\u0415", "IE", before: bel_consonant # Е after consonants
+  sub "\u0435", "ie", before: bel_consonant # е after consonants
+  sub "\u0401", "IO", before: bel_consonant # Ё after consonants
+  sub "\u0451", "io", before: bel_consonant # ё after consonants
+  sub "\u042E", "IU", before: bel_consonant # Ю after consonants
+  sub "\u044E", "iu", before: bel_consonant # ю after consonants
+  sub "\u042F", "IA", before: bel_consonant # Я after consonants
+  sub "\u044F", "ia", before: bel_consonant # я after consonants
+
+  parallel {
+    sub "\u0417\u042C", "Ź" # ЗЬ
+    sub "\u0437\u044C", "ź" # зь
+    sub "\u041B\u042C", "Ĺ" # ЛЬ
+    sub "\u043B\u044C", "ĺ" # ль
+    sub "\u0421\u042C", "Ś" # СЬ
+    sub "\u0441\u044C", "ś" # сь
+    sub "\u0426\u042C", "Ć" # ЦЬ
+    sub "\u0446\u044C", "ć" # ць
+    sub "\u041D\u042C", "Ń" # НЬ
+    sub "\u043D\u044C", "ń" # нь
+  }
+
+  # CHARACTERS
+  parallel {
+    sub "\u0406", "I" # І
+    sub "\u0413", "H" # Г
+    sub "\u0415", "Je" # Е
+    sub "\u0401", "Jo" # Ё
+    sub "\u040E", "Ŭ" # Ў
+    sub "\u0425", "Ch" # Х
+    sub "\u042C", "" # Ь
+    sub "\u042D", "E" # Э
+    sub "\u042E", "Ju" # Ю
+    sub "\u042F", "Ja" # Я
+
+    sub "\u0433", "h" # г
+    sub "\u0456", "i" # і
+    sub "\u0435", "je" # е
+    sub "\u0451", "jo" # ё
+    sub "\u045E", "ŭ" # ў
+    sub "\u0445", "ch" # х
+    sub "\u044C", "" # ь
+    sub "\u044D", "e" # э
+    sub "\u044E", "ju" # ю
+    sub "\u044F", "ja" # я
+
+    sub "\u0027", "" # '
+  }
+
+  run map.cyrllatn.stage.main
+}

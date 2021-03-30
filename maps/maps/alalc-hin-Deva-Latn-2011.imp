@@ -1,0 +1,63 @@
+metadata {
+  authority_id: alalc
+  id: 2011
+  language: iso-639-2:hin
+  source_script: Deva
+  destination_script: Latn
+  name: Hindi Romanization, 2011
+  url: https://www.loc.gov/catdir/cpso/romanization/hindi.pdf
+  creation_date: 1997
+  description: |
+    ALA-LC Romanization table for Hindi
+
+  notes:
+
+    - Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for
+      vowels following a consonant can be found in grammars; no distinction between the two is
+      made in transliteration.
+
+    - |
+      The vowel a is implicit after all consonants and consonant clusters and is supplied in
+      transliteration, with the following exceptions:
+
+      a) when another vowel is indicated by its appropriate sign; and
+      b) when the absence of any vowel is indicated by the subscript sign ( ◌् ) called halanta or
+         virāma.
+
+    - |
+      Exception: Anusvāra is transliterated by:
+
+      a) ṅ before gutturals,
+      b) ñ before palatals,
+      c) ṇ before cerebrals,
+      d) n before dentals, and
+      e) m before labials.
+
+    - Anunāsika before guttural, palatal, cerebral, and dental occlusives is transliterated n̐. Before
+      labials, sibilants, semivowels, aspirates, vowels, and in final position it is transliterated m̐.
+
+    - When doubled, avagraha is transliterated by two apostrophes ( ’’ ).
+}
+
+tests {
+  test "इस चुनौतीपूर्ण समय में 'वर्क फ्रॉम होम’ सामान्य बन चुका है", "is cunăutīpūrṇ samay meṃ 'vark phrôm homa’ sāmāny ban cukā hai"
+  test "दिल्ली में त्योहार पर खरीददारी करने निकले बड़ी संख्या में लोग, कई जगहों पर लगा भीषण जाम", "dillī meṃ tyohār par kharīdadārī karane nikale baṛī saṃkhyā meṃ loga, kaī jagahoṃ par lagā bhīshaṇ jāma"
+  test "सरकार ने पेंशन भोगियों को लाइफ सर्टिफिकेट जमा कराने के मामले में दी बड़ी राहत", "sarakār ne peṃśan bhogiyoṃ ko lāiph sarṭiphikeṭ jamā karāne ke māmale meṃ dī baṛī rāhata"
+  test "कांग्रेस ने माना उसके लचर प्रदर्शन ने डुबोई महागठबंधन की लुटिया, पार्टी में उठने लगी आत्ममंथन की आवाज", "kāṃgres ne mānā usake lacar pradarśan ne ḍuboī mahāgaṭhabandhan kī luṭiyā, pārṭī meṃ uṭhane lagī ātmamanthan kī āvāja"
+  test "डिजिटल पेमेंट सिस्टम ने छोटे-मध्यम कारोबारों का दिया साथ, कोरोना की परेशानियों को किया कम", "ḍijiṭal pemeṃṭ sisṭam ne choṭe-madhyam kārobāroṃ kā diyā sātha, koronā kī pareśāniyoṃ ko kiyā kama"
+  test "छोटे व्यापारियों को ढूंढें, उनसे खरीदें और उनका साथ दें", "choṭe vyāpāriyoṃ ko ḍhūṃḍheṃ, unase kharīdeṃ ăur unakā sāth deṃ"
+  test "भारत के साथ साझीदारी को महत्व देंगे बाइडन, ओबामा प्रशासन में रहीं वरिष्ठ अधिकारी एलिसा ने जताई उम्मीद", "bhārat ke sāth sājhīdārī ko mahatv deṃge bāiḍana, obāmā praśāsan meṃ rahīṃ varishṭh adhikārī elisā ne jatāī ummīda"
+  test "दो महीने से कोमा में था युवक, चिकन की चर्चा सुनते ही आया होश", "do mahīne se komā meṃ thā yuvaka, cikan kī carcā sunate hī āyā hośa"
+  test "कोरोना के टीके पर खुशखबरी, भारत पहुंची रूसी वैक्सीन की पहली खेप", "koronā ke ṭīke par khuśakhabarī, bhārat pahuṃcī rūsī vaiksīn kī pahalī khepa"
+  test "दिल्ली के गांधी नगर स्थित एक दुकान में लगी भीषण आग, दमकल की 20 गाड़ियां मौके पर", "dillī ke gāṃdhī nagar sthit ek dukān meṃ lagī bhīshaṇ āga, damakal kī 20 gāṛiyāṃ măuke para"
+}
+
+
+dependency "alalc-hin-Deva-Latn-1997", as: devalatn
+
+stage {
+
+  run map.devalatn.stage.main
+
+}
+

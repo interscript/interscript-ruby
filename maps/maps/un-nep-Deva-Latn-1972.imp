@@ -1,0 +1,295 @@
+metadata {
+  authority_id: ungegn
+  id: 1972
+  language: iso-639-2:nep
+  source_script: Deva
+  destination_script: Latn
+  name: REPORT ON THE CURRENT STATUS OF UNITED NATIONS ROMANIZATION SYSTEMS FOR GEOGRAPHICAL NAMES -- Nepali Romanization, 1972
+  url: https://www.eki.ee/wgrs/v3_0/rom1_ne.pdf
+  creation_date: 1972
+  confirmation_date: 2010
+  description: |
+    The United Nations recommended system was approved in 1972 (II/11), based on a report
+    prepared by D. N. Sharma. The note on the system was published in volume II of the
+    conference report.
+
+    There is no evidence of the use of the system either in Nepal or in international cartographic
+    products. The resolution IV/17 (1982) recommended association, inter alia, with Nepal in
+    carrying out further studies on the system. In Nepal a system of romanization is employed by
+    the Nepal Survey Department (NSD). This system has been applied to names appearing on
+    national mapping, and it is also used in the Geographic Information Infrastructure Programme
+    (NGIIP).
+
+    Nepali (Nepālī) uses the alphasyllabic script Devanāgarī.
+
+  notes:
+
+    - In normal spelling ṙ and ṙh are not marked, instead dotless ड ḍa, ढ ḍha are used to denote these sounds.
+    - |
+      Ligatures may be formed with r as the first component: ~ह rha.
+
+    ######################################## Additional Note ############################################################
+    #    It is recommended that the vowel अ (a) should always be romanized except when it ends a                        #
+    #    name. In the scheme we are not yet able to detect a name. Analysing language pattern and the example           #
+    #    we found that actually when a word ends with a consonant it should be transliterated without the vowel in it.  #
+    #    so we are applying this rule as if a word ends with a consonant, in this case we are removing the ending 'a'.  #
+    #####################################################################################################################
+}
+
+tests {
+  test "नेपाल", "nepāl"
+  test "नेपाल काठ्माडौं", "nepāl kāṭhmāḍauṁ"
+  test "लेखन", "lekhan"
+  test "मुद्रा", "mudrā"
+  test "प्रशंसा", "prashaṁsā"
+  test "अंक", "aṁk"
+  test "नेकपाले स्थगित स्थायी कमिटीको बैठक भदौ गते बोलाउने भएको", "nekapāle sthagit sthāyī kamiṭīko baiṭhak bhadau gate bolāune bhaeko"
+  test "न घर रह्यो, न परिवार", "n ghar rahyo, n parivār"
+  test "ढोरपाटनमा भुजीखोला बाढीपहिरोले अभिभावक गुमाएका बालबालिकाको बिचल्ली", "ḍhorapāṭanamā bhujīkholā bāḍhīpahirole abhibhāvak gumāekā bālabālikāko bichallī"
+  test "सुस्मिताका काका हेमबहादुर र काकीलाई पनि पहिरोले बगायो", "susmitākā kākā hemabahādur r kākīlāī pani pahirole bagāyo"
+  test "संविधान जारी भएसँगै सार्वजनिक प्रशासनमा नयाँ उत्साह आउने अपेक्षा थियो", "saṁvidhān jārī bhaesam̐gai sārvajanik prashāsanamā nayām̐ utsāh āune apekṣhā thiyo"
+  test "देशमा कोरोना संक्रमित र मृतकको संख्या हरेक दिन बढ्दो छ", "deshamā koronā saṁkramit r mṛtakako saṁkhyā harek din baḍhdo chh"
+  test "गाउँपालिकाका अध्यक्ष टिका गुरुङका अनुसार विष्णुदासलाई राजुले सुत्नका लागि बेलुका साथी लगेका थिए", "gāum̐pālikākā adhyakṣh ṭikā guruṅakā anusār viṣhṇudāsalāī rājule sutnakā lāgi belukā sāthī lagekā thie"
+  test "यो आयोजना गाउँपालिकाको केन्द्र तेल्लोकमा पर्छ", "yo āyojanā gāum̐pālikāko kendr tellokamā parchh"
+  test "सुस्मिताका काका हेमबहादुर र काकीलाई पनि पहिरोले बगायो", "susmitākā kākā hemabahādur r kākīlāī pani pahirole bagāyo"
+  test "चैत पहिलो साता घर आएका उनी लकडाउन भएपछि यतै रोकिए", "chait pahilo sātā ghar āekā unī lakaḍāun bhaepachhi yatai rokie"
+  test "काम गर्न जानेको हकमा रोजगारदाता कम्पनीको पत्रसँगै वडा र जिल्ला प्रशासनको सिफारिस अनिवार्य गरिएको छ", "kām garn jāneko hakamā rojagāradātā kampanīko patrasam̐gai vaḍā r jillā prashāsanako siphāris anivāry garieko chh"
+  test "ऋण", "ṛṇ"
+  test "अर्पित", "arpit"
+  test "अरार्यते", "arāryate"
+  test "श्रीमान्", "shrīmān"
+  test "खाँचो बिरुवा बैंकको", "khām̐cho biruvā baiṁkako"
+}
+
+aliases {
+  def_alias deva_characters_1, any("\u093E\u093F\u0940\u0941\u0942\u0943\u0944\u0945\u0947\u0948\u0949\u094B\u094C\u0020\u094d")
+}
+
+stage {
+
+  # RULES
+  sub "क" + maybe("="), "k", after: deva_characters_1
+  sub "क", "k", after: boundary
+
+  sub "ख" + maybe("="), "kh", after: deva_characters_1
+  sub "ख", "kh", after: boundary
+
+  sub "ग" + maybe("="), "g", after: deva_characters_1
+  sub "ग", "g", after: boundary
+
+  sub "घ" + maybe("="), "gh", after: deva_characters_1
+  sub "घ", "gh", after: boundary
+
+  sub "ङ" + maybe("="), "ṅ", after: deva_characters_1
+  sub "ङ", "ṅ", after: boundary
+
+  sub "च" + maybe("="), "ch", after: deva_characters_1
+  sub "च", "ch", after: boundary
+
+  sub "छ" + maybe("="), "chh", after: deva_characters_1
+  sub "छ", "chh", after: boundary
+
+  sub "ज" + maybe("="), "j", after: deva_characters_1
+  sub "ज", "j", after: boundary
+
+  sub "झ" + maybe("="), "jh", after: deva_characters_1
+  sub "झ", "jh", after: boundary
+
+  sub "ञ" + maybe("="), "ñ", after: deva_characters_1
+  sub "ञ", "ñ", after: boundary
+
+  sub "ट" + maybe("="), "ṭ", after: deva_characters_1
+  sub "ट", "ṭ", after: boundary
+
+  sub "ठ" + maybe("="), "ṭh", after: deva_characters_1
+  sub "ठ", "ṭh", after: boundary
+
+  sub "ड" + maybe("="), "ḍ", after: deva_characters_1
+  sub "ड", "ḍ", after: boundary
+
+  sub "ढ" + maybe("="), "ḍh", after: deva_characters_1
+  sub "ढ", "ḍh", after: boundary
+
+  sub "ण" + maybe("="), "ṇ", after: deva_characters_1
+  sub "ण", "ṇ", after: boundary
+
+  sub "त" + maybe("="), "t", after: deva_characters_1
+  sub "त", "t", after: boundary
+
+  sub "थ" + maybe("="), "th", after: deva_characters_1
+  sub "थ", "th", after: boundary
+
+  sub "द" + maybe("="), "d", after: deva_characters_1
+  sub "द", "d", after: boundary
+
+  sub "ध" + maybe("="), "dh", after: deva_characters_1
+  sub "ध", "dh", after: boundary
+
+  sub "न" + maybe("="), "n", after: deva_characters_1
+  sub "न", "n", after: boundary
+
+  sub "प" + maybe("="), "p", after: deva_characters_1
+  sub "प", "p", after: boundary
+
+  sub "फ" + maybe("="), "ph", after: deva_characters_1
+  sub "फ", "ph", after: boundary
+
+  sub "ब" + maybe("="), "b", after: deva_characters_1
+  sub "ब", "b", after: boundary
+
+  sub "भ" + maybe("="), "bh", after: deva_characters_1
+  sub "भ", "bh", after: boundary
+
+  sub "म" + maybe("="), "m", after: deva_characters_1
+  sub "म", "m", after: boundary
+
+  sub "य" + maybe("="), "y", after: deva_characters_1
+  sub "य", "y", after: boundary
+
+  sub "र" + maybe("="), "r", after: deva_characters_1
+  sub "र", "r", after: boundary
+
+  sub "ल" + maybe("="), "l", after: deva_characters_1
+  sub "ल", "l", after: boundary
+
+  sub "व" + maybe("="), "v", after: deva_characters_1
+  sub "व", "v", after: boundary
+
+  sub "श" + maybe("="), "sh", after: deva_characters_1
+  sub "श", "sh", after: boundary
+
+  sub "ष" + maybe("="), "ṣh", after: deva_characters_1
+  sub "ष", "ṣh", after: boundary
+
+  sub "स" + maybe("="), "s", after: deva_characters_1
+  sub "स", "s", after: boundary
+
+  sub "क़" + maybe("="), "q", after: deva_characters_1
+  sub "क़", "q", after: boundary
+
+  sub "ख़" + maybe("="), "ḳh", after: deva_characters_1
+  sub "ख़", "ḳh", after: boundary
+
+  sub "ग़" + maybe("="), "g", after: deva_characters_1
+  sub "ग़", "g", after: boundary
+
+  sub "ज़" + maybe("="), "z", after: deva_characters_1
+  sub "ज़", "z", after: boundary
+
+  sub "ड़" + maybe("="), "ṙ", after: deva_characters_1
+  sub "ड़", "ṙ", after: boundary
+
+  sub "ढ़" + maybe("="), "ṙh", after: deva_characters_1
+  sub "ढ़", "ṙh", after: boundary
+
+  sub "फ़" + maybe("="), "f", after: deva_characters_1
+  sub "फ़", "f", after: boundary
+
+  sub "ह" + maybe("="), "h", after: deva_characters_1
+  sub "ह", "h", after: boundary
+
+
+  # CHARACTERS
+  parallel {
+
+    # Vowels and Diphthongs
+    sub "अ", "a"
+    sub "आ", "ā"
+    sub "इ", "i"
+    sub "ई", "ī"
+    sub "उ", "u"
+    sub "ऊ", "ū"
+    sub "ऋ", "ṛ"
+    sub "ॠ", "ṝ"
+    sub "ऌ", "l̤"
+    sub "ए", "e"
+    sub "ऐ", "ai"
+    sub "ओ", "o"
+    sub "औ", "au"
+
+    # Medials # Needed for connecting constants
+
+    sub "ा", "ā"
+    sub "ि", "i"
+    sub "ी", "ī"
+    sub "ु", "u"
+    sub "ू", "ū"
+    sub "ृ", "ṛ"
+    sub "े", "e"
+    sub "ै", "ai"
+    sub "ो", "o"
+    sub "ौ", "au"
+
+    # Consonants (see Note 1)
+
+    # Gutturals
+    sub "क", "ka"
+    sub "ख", "kha"
+    sub "ग", "ga"
+    sub "घ", "gha"
+    sub "ङ", "ṅa"
+
+    # Palatals
+    sub "च", "cha"
+    sub "छ", "chha"
+    sub "ज", "ja"
+    sub "झ", "jha"
+    sub "ञ", "ña"
+
+    # Cerebrals
+    sub "ट", "ṭa"
+    sub "ठ", "ṭha"
+    sub "ड", "ḍa"
+    sub "ढ", "ḍha"
+    sub "ण", "ṇa"
+
+    # Dentals
+    sub "त", "ta"
+    sub "थ", "tha"
+    sub "द", "da"
+    sub "ध", "dha"
+    sub "न", "na"
+
+    # Labials
+    sub "प", "pa"
+    sub "फ", "pha"
+    sub "ब", "ba"
+    sub "भ", "bha"
+    sub "म", "ma"
+
+    # Semivowels
+    sub "य", "ya"
+    sub "र", "ra"
+    sub "ल", "la"
+    sub "व", "va" # or wa [Note#3]
+
+    # Sibilants
+    sub "श", "sha"
+    sub "ष", "ṣha"
+    sub "स", "sa"
+
+    # Dotted variants
+    sub "क़", "qa"
+    sub "ख़", "ḳha"
+    sub "ग़", "ga"
+    sub "ज़", "za"
+    sub "ड़", "ṙa"
+    sub "ढ़", "ṙha"
+    sub "फ़", "fa"
+
+
+    # Aspirate
+    sub "ह", "ha"
+
+    # Anusvāra
+    sub "ं", "ṁ"
+
+    # Anunāsika
+    sub "ँ", "m̐"
+
+    # halanta
+    sub "्", ""
+  }
+  compose
+}
+

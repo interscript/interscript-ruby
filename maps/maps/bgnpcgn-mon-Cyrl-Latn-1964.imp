@@ -1,0 +1,168 @@
+metadata {
+  authority_id: bgnpcgn
+  id: 1964
+  language: iso-639-2:mon
+  source_script: Cyrl
+  destination_script: Latn
+  name: BGN/PCGN 1964 System
+  url: https://github.com/interscript/interscript/files/5180767/BGN_Romanization_Guide_1964_mongolian_1964.pdf
+  creation_date:
+  confirmation_date:
+  description: |
+    This system was originated by the PCGN in 1957 and adopted as a
+    BGN/PCGN System in 1964. It is intended for use in the romanization of
+    geographic names in the "Mongolian People's Republic" but not to romanize
+    Mongolian names in adjacent parts of China and the U.S.S.R.
+
+  notes: |
+    - b occurs initially and after л, м, and б.
+    - v occurs medially in Mongolian words and initially in foreign words.
+    - y occurs only as the second element of diphthongs.
+    - k, p, f, and shch occurs foreign words only.
+    - "\u2019" occurs only in Russion words.
+    - ï occurs only in suffixes to words containing back vowels (a, o, and u).
+    - In monosyllables yu or yü depending on pronunciation; in polysyllables yu when followed by a, o, or u, but yü when followed by i, e, ö, or ü.
+}
+
+tests {
+  test "Эрдэнэт Сум", "Erdenet Sum"
+  test "Эрдэнэт", "Erdenet"
+  test "Эрдэнэ", "Erdene"
+  test "Шивээговь Сум", "Shiveegovĭ Sum"
+  test "Шивээговь", "Shiveegovĭ"
+  test "Шарынгол Сум", "Sharïngol Sum"
+  test "Шарынгол", "Sharïngol"
+  test "Цагааннуур", "Tsagaannuur"
+  test "Хонгор Сум", "Hongor Sum"
+  test "Хонгор", "Hongor"
+  test "Хайлаастай", "Haylaastay"
+  test "Түнэл Сум", "Tünel Sum"
+  test "Түнэл", "Tünel"
+  test "Сүхбаатар", "Sühbaatar"
+  test "Сүмбэр Сум", "Sümber Sum"
+  test "Сүмбэр", "Sümber"
+  test "Сайншанд Сум", "Saynshand Sum"
+  test "Сайншанд", "Saynshand"
+  test "Орхон Сум", "Orhon Sum"
+  test "Орхон", "Orhon"
+  test "Нарст", "Narst"
+  test "Мөрөн Сум", "Mörön Sum"
+  test "Мөрөн", "Mörön"
+  test "Зүүнхөвөө", "Dzüünhövöö"
+  test "Жаргалант Сум", "Jargalant Sum"
+  test "Жаргалант", "Jargalant"
+  test "Дархан Сум", "Darhan Sum"
+  test "Даланзадгад Сум", "Dalandzadgad Sum"
+  test "Даланзадгад", "Dalandzadgad"
+  test "Давст Сум", "Davst Sum"
+  test "Давст", "Davst"
+  test "Говьсүмбэр Сум", "Govĭsümber Sum"
+  test "Говь", "Govĭ"
+  test "Буга", "Buga"
+  test "Бор-Өндөр Сум", "Bor-Öndör Sum"
+  test "Бор-Өндөр", "Bor-Öndör"
+  test "Баянхонгор", "Bayanhongor"
+  test "Баянтал", "Bayantal"
+  test "Баяндэлгэр Сум", "Bayandelger Sum"
+  test "Баяндэлгэр", "Bayandelger"
+  test "Баян-Өндөр Сум", "Bayan-Öndör Sum"
+  test "Баруун-Урт Сум", "Baruun-Urt Sum"
+  test "Баруун-Урт", "Baruun-Urt"
+  test "Архуст", "Arhust"
+  test "Арвайхээр Сум", "Arvayheer Sum"
+  test "Арвайхээр", "Arvayheer"
+  test "Есөнбулаг Сум", "Yösönbulag Sum"
+  test "Ерөө Сум", "Yöröö Sum"
+  test "Есөнзүйл Сум", "Yösöndzüyl Sum"
+  test "Ноён Сум", "Noyon Sum"
+  test "Родник Балянгийн-Булак", "Rodnik Balyangiyn-Bulak"
+  test "Замын-Үүд Сум", "Dzamïn-Üüd Sum"
+  test "Адаацаг Сум", "Adaatsag Sum"
+  test "Чандмань Сум", "Chandmanĭ Sum"
+  test "Хяргас Сум", "Hyargas Sum"
+}
+
+stage {
+
+  # RULES
+  sub "\u042e", "Yu", after: any("АаОоУу") # Ю before а, о, or у
+  sub "\u044e", "yu", after: any("АаОоУу") # ю before а, о, or у
+  sub "\u042e", "Yü", after: any("ИиЭэӨөҮү") # Ю before и, э, ө, or ү
+  sub "\u044e", "yü", after: any("ИиЭэӨөҮү") # ю before и, э, ө, or ү
+
+
+  # CHARACTERS
+  parallel {
+    sub "А", "A" # \u0410
+    sub "Б", "B" # \u0411
+    sub "В", "V" # \u0412
+    sub "Г", "G" # \u0413
+    sub "Д", "D" # \u0414
+    sub "Е", "Yö" # \u0415
+    sub "Ё", "Yo" # \u0401
+    sub "Ж", "J" # \u0416
+    sub "З", "Dz" # \u0417
+    sub "И", "I" # \u0418
+    sub "Й", "Y" # \u0419
+    sub "К", "K" # \u041a
+    sub "Л", "L" # \u041b
+    sub "М", "M" # \u041c
+    sub "Н", "N" # \u041d
+    sub "О", "O" # \u041e
+    sub "Ө", "Ö" # \u04e8
+    sub "П", "P" # \u041f
+    sub "Р", "R" # \u0420
+    sub "С", "S" # \u0421
+    sub "Т", "T" # \u0422
+    sub "У", "U" # \u0423
+    sub "Ү", "Ü" # \u04ae
+    sub "Ф", "F" # \u0424
+    sub "Х", "H" # \u0425
+    sub "Ц", "Ts" # \u0426
+    sub "Ч", "Ch" # \u0427
+    sub "Ш", "Sh" # \u0428
+    sub "Щ", "Shch" # \u0429
+    sub "Ъ", "’" # \u042a
+    sub "Ы", "Ï" # \u042b
+    sub "Ь", "Ĭ" # \u042c
+    sub "Э", "E" # \u042d
+    sub "Ю", "Yu" # \u042e
+    sub "Я", "Ya" # \u042f
+    sub "а", "a" # \u0430
+    sub "б", "b" # \u0431
+    sub "в", "v" # \u0432
+    sub "г", "g" # \u0433
+    sub "д", "d" # \u0434
+    sub "е", "yö" # \u0435
+    sub "ё", "yo" # \u0451
+    sub "ж", "j" # \u0436
+    sub "з", "dz" # \u0437
+    sub "и", "i" # \u0438
+    sub "й", "y" # \u0439
+    sub "к", "k" # \u043a
+    sub "л", "l" # \u043b
+    sub "м", "m" # \u043c
+    sub "н", "n" # \u043d
+    sub "о", "o" # \u043e
+    sub "ө", "ö" # \u04e9
+    sub "п", "p" # \u043f
+    sub "р", "r" # \u0440
+    sub "с", "s" # \u0441
+    sub "т", "t" # \u0442
+    sub "у", "u" # \u0443
+    sub "ү", "ü" # \u04af
+    sub "ф", "f" # \u0444
+    sub "х", "h" # \u0445
+    sub "ц", "ts" # \u0446
+    sub "ч", "ch" # \u0447
+    sub "ш", "sh" # \u0448
+    sub "щ", "shch" # \u0449
+    sub "ъ", "’" # \u044a
+    sub "ы", "ï" # \u044b
+    sub "ь", "ĭ" # \u044c
+    sub "э", "e" # \u044d
+    sub "ю", "yu" # \u044e
+    sub "я", "ya" # \u044f
+  }
+
+}

@@ -1,0 +1,52 @@
+metadata {
+  authority_id: alalc
+  id: 2012
+  language: iso-639-2:pra
+  source_script: Deva
+  destination_script: Latn
+  name: Prakrit Romanization, 2012
+  url: https://www.loc.gov/catdir/cpso/romanization/sanskrit.pdf
+  creation_date: 2012
+  description: |
+    ALA-LC Romanization table for Prakrit
+
+  notes:
+
+    - Only the vowel forms that appear at the beginning of a syllable are listed; the forms used for
+      vowels following a consonant can be found in grammars; no distinction between the two is
+      made in transliteration.
+
+    - |
+      The vowel a is implicit after all consonants and consonant clusters and is supplied in
+      transliteration, with the following exceptions:
+
+      a) when another vowel is indicated by its appropriate sign; and
+      b) when the absence of any vowel is indicated by the subscript sign ( ् ) called halanta or
+         virāma.
+
+    - |
+      Exception: Anusvāra is transliterated by:
+
+      a) ṅ before gutturals,
+      b) ñ before palatals,
+      c) ṇ before cerebrals,
+      d) n before dentals, and
+      e) m before labials.
+      In other circumstances it is transliterated by a tilde (~) over the vowel.
+
+    - When doubled, avagraha is transliterated by two apostrophes ( ’’ ).
+}
+
+tests {
+  test "सृष्टिस्थितिविनाशानां शक्तिभूते सनातनि", "sṛṣṭisthitivināśānāṃ śaktibhūte sanātani"
+  test "गुणाश्रये गुणमये नारायणि नमोऽस्तु ते", "guṇāśraye guṇamaye nārāyaṇi namo’stu te"
+}
+
+dependency "alalc-san-Deva-Latn-2012", as: devalatn
+
+stage {
+
+  run map.devalatn.stage.main
+
+}
+

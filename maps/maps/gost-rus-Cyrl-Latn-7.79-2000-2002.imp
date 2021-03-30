@@ -1,0 +1,132 @@
+metadata {
+  authority_id: gost
+  id: 2002
+  language: iso-639-2:rus
+  source_script: Cyrl
+  destination_script: Latn
+  name: GOST 7.79-2000 System of standards for information, librarianship and publishing. Rules for transliteration of Cyrillic letters in the Latin alphabet
+  url: https://gostexpert.ru/gost/gost-7.79-2000
+  creation_date: 2002
+  confirmation_date: 2002-02-12
+  adoption_date: 2002-02-12
+  description: |
+    This standard applies to the rules of transliteration by means of the Latin alphabet of individual letters,
+    words, expressions, as well as related texts in languages ​​whose writing is based on the Cyrillic alphabet.
+    The rules in accordance with this standard are applied wherever it is required to provide an unambiguous
+    representation of the Cyril text in Latin letters and the possibility of algorithmic recovery of the text
+    in the original Cyrillic notation, in particular when transferring documents over computer networks.
+    This standard does not apply to the rules for the transmission of the sound appearance of words written in
+    Cyrillic in Latin letters.
+}
+
+tests {
+  test "адрес", "adres"
+  test "баба", "baba"
+  test "вы", "vy"
+  test "голова", "golova"
+  test "да", "da"
+  test "еда", "eda"
+  test "ёлка", "ëlka"
+  test "журнал", "žurnal"
+  test "звезда", "zvezda"
+  test "книга", "kniga"
+  test "первый", "pervyj"
+  test "как", "kak"
+  test "липа", "lipa"
+  test "муж", "muž"
+  test "нижний", "nižnij"
+  test "общество", "obŝestvo"
+  test "пара", "para"
+  test "рыба", "ryba"
+  test "сестра", "sestra"
+  test "товарищ", "tovariŝ"
+  test "утро", "utro"
+  test "физика", "fizika"
+  test "химический", "himičeskij"
+  test "центр", "centr"
+  test "часы", "časy"
+  test "школа", "škola"
+  test "щит", "ŝit"
+  test "съезд", "s\"ezd"
+  test "был", "byl"
+  test "альбом", "al´bom"
+  test "это", "èto"
+  test "южный", "ûžnyj"
+  test "яма", "âma"
+}
+
+stage {
+
+  # CHARACTERS
+  parallel {
+    sub "\u0410", "A" # A
+    sub "\u0411", "B" # Б
+    sub "\u0412", "V" # B
+    sub "\u0413", "G" # Г
+    sub "\u0414", "D" # Д
+    sub "\u0415", "E" # Е
+    sub "\u0401", "Ë" # Ё
+    sub "\u0416", "Ž" # Ж
+    sub "\u0417", "Z" # З
+    sub "\u0418", "I" # И
+    sub "\u0419", "J" # Й
+    sub "\u041A", "K" # К
+    sub "\u041B", "L" # Л
+    sub "\u041C", "M" # М
+    sub "\u041D", "N" # Н
+    sub "\u041E", "O" # О
+    sub "\u041F", "P" # П
+    sub "\u0420", "R" # Р
+    sub "\u0421", "S" # С
+    sub "\u0422", "T" # Т
+    sub "\u0423", "U" # У
+    sub "\u0424", "F" # Ф
+    sub "\u0425", "H" # Х
+    sub "\u0426", "C" # Ц
+    sub "\u0427", "Č" # Ч
+    sub "\u0428", "Š" # Ш
+    sub "\u0429", "Ŝ" # Щ
+    sub "\u042a", "\"" # Ъ
+    sub "\u042B", "Y" # Ы
+    sub "\u042C", "´" # Ь => ’
+    sub "\u042D", "È" # Э => È
+    sub "\u042E", "Û" # Ю
+    sub "\u042F", "Â" # Я
+
+    sub "\u0430", "a" # а
+    sub "\u0431", "b" # б
+    sub "\u0432", "v" # в
+    sub "\u0433", "g" # г
+    sub "\u0434", "d" # д
+    sub "\u0435", "e" # е
+    sub "\u0451", "ë" # ё
+    sub "\u0436", "ž" # ж
+    sub "\u0437", "z" # з
+    sub "\u0438", "i" # и
+    sub "\u0439", "j" # й
+    sub "\u043A", "k" # к
+    sub "\u043B", "l" # л
+    sub "\u043C", "m" # м
+    sub "\u043D", "n" # н
+    sub "\u043E", "o" # о
+    sub "\u043F", "p" # п
+    sub "\u0440", "r" # р
+    sub "\u0441", "s" # с
+    sub "\u0442", "t" # т
+    sub "\u0443", "u" # у
+    sub "\u0444", "f" # ф
+    sub "\u0445", "h" # х
+    sub "\u0446", "c" # ц
+    sub "\u0447", "č" # ч
+    sub "\u0448", "š" # ш
+    sub "\u0449", "ŝ" # щ
+    sub "\u044A", "\"" # ъ
+    sub "\u044B", "y" # ы
+    sub "\u044C", "´" # ь => ’
+    sub "\u044D", "è" # э => è
+    sub "\u044E", "û" # ю
+    sub "\u044F", "â" # я
+  }
+
+  compose
+}

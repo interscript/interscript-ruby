@@ -1,0 +1,146 @@
+metadata {
+  authority_id: bgnpcgn
+  id: 2005
+  language: iso-639-2:srp
+  source_script: Cyrl
+  destination_script: Latn
+  name: ROMANIZATION OF SERBIAN, BGN/PCGN 2005 System
+  url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/816783/TABLE_OF_CORRESPONDENCES_FOR_SERBIAN.pdf
+  creation_date: 2005
+  confirmation_date: 2019-06
+  description: |
+    The tabulation below reflects the Serbian Cyrillic alphabet and the standard Roman script equivalents
+    used in both Serbia and Montenegro.
+
+  notes:
+    - The Serbian Cyrillic lowercase italic Д may sometimes be seen as g.
+      There is no specific Unicode encoding for this variant form so a comparable character
+      has been used here for illustrative purposes.
+
+    - The digraph dj(Dj) will occasionally be found as an alternative form of đ(Đ).
+
+    - The Serbian Cyrillic lowercase italic П may sometimes be seen as ӣ.
+      There is no specific Unicode encoding for this variant form so a comparable character
+      has been used here for illustrative purposes.
+
+    - The Serbian Cyrillic lowercase italic Т may sometimes be seen as w.
+      There is no specific Unicode encoding for this variant form so a comparable character
+      has been used here for illustrative purposes.
+
+    - |
+      An inventory of letter-diacritic combinations, with their Unicode encoding,
+      in addition to the unmodified letters of the basic Roman script is:
+      | Đ (U+0110)   | đ (U+0111)   |
+      | Ž (U+017D)   | ž (U+017E)   |
+      | Lj (U+01C8)* | lj (U+01C9)* |
+      | Ć (U+0106)   | ć (U+0107)   |
+      | Dž (U+01C5)* | dž (U+01C6)* |
+      | Š (U+0160)   | š (U+0161)   |
+      * Note that these characters can also be reproduced with individual letters (e.g. l+j).
+
+    - The Roman-script columns show only lowercase forms but, when applying the table,
+      uppercase and lowercase Roman letters as appropriate should be used.
+}
+
+tests {
+  test "Шупља Стена", "Šuplja Stena"
+  test "Чукарица", "Čukarica"
+  test "Црна Трава", "Crna Trava"
+  test "Херцег Нови", "Herceg Novi"
+  test "Улцињ", "Ulcinj"
+  test "Ужице", "Užice"
+  test "Тресаначка Река", "Tresanačka Reka"
+  test "Сјеница", "Sjenica"
+  test "Рожаје", "Rožaje"
+  test "Пљевља", "Pljevlja"
+  test "Оџаци", "Odžaci"
+  test "Никшић", "Nikšić"
+  test "Медвеђа", "Medveđa"
+  test "Лозница", "Loznica"
+  test "Књажевац", "Knjaževac"
+  test "Зрењанин", "Zrenjanin"
+  test "Житорађа", "Žitorađa"
+  test "Ервеник", "Ervenik"
+  test "Доње Љупче", "Donje Ljupče"
+  test "Гусиње", "Gusinje"
+  test "ГУСИЊЕ", "GUSINJE"
+  test "Врњачка Бања", "Vrnjačka Banja"
+  test "Бијело Поље", "Bijelo Polje"
+  test "Алибунар", "Alibunar"
+}
+
+aliases {
+  def_alias srp_multichar, any(["Lj", "Nj", "Dž"])
+  def_alias srp_latupper, any("A".."Z")
+}
+
+stage {
+  # CHARACTERS
+  parallel {
+    sub "А", "A"
+    sub "Б", "B"
+    sub "В", "V"
+    sub "Г", "G"
+    sub "Д", "D"
+    sub "Ђ", "Đ" # Đ
+    sub "Е", "E"
+    sub "Ж", "Ž" # Ž
+    sub "З", "Z"
+    sub "И", "I"
+    sub "Ј", "J"
+    sub "К", "K"
+    sub "Л", "L"
+    sub "Љ", "Lj"
+    sub "М", "M"
+    sub "Н", "N"
+    sub "Њ", "Nj"
+    sub "О", "O"
+    sub "П", "P"
+    sub "Р", "R"
+    sub "С", "S"
+    sub "Т", "T"
+    sub "Ћ", "Ć" # Ć
+    sub "У", "U"
+    sub "Ф", "F"
+    sub "Х", "H"
+    sub "Ц", "C"
+    sub "Ч", "Č" # Č
+    sub "Џ", "Dž" # Dž
+    sub "Ш", "Š" # Š
+    sub "а", "a"
+    sub "б", "b"
+    sub "в", "v"
+    sub "г", "g"
+    sub "д", "d"
+    sub "ђ", "đ" # đ
+    sub "е", "e"
+    sub "ж", "ž" # ž
+    sub "з", "z"
+    sub "и", "i"
+    sub "ј", "j"
+    sub "к", "k"
+    sub "л", "l"
+    sub "љ", "lj"
+    sub "м", "m"
+    sub "н", "n"
+    sub "њ", "nj"
+    sub "о", "o"
+    sub "п", "p"
+    sub "р", "r"
+    sub "с", "s"
+    sub "т", "t"
+    sub "ћ", "ć" # ć́
+    sub "у", "u"
+    sub "ф", "f"
+    sub "х", "h"
+    sub "ц", "c"
+    sub "ч", "č" # č
+    sub "џ", "dž" # dž
+    sub "ш", "š" # š
+  }
+
+  # POSTRULES
+  sub srp_multichar, upcase, before: srp_latupper
+  sub srp_multichar, upcase, after: srp_latupper
+  compose
+}

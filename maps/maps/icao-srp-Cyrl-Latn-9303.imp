@@ -1,0 +1,126 @@
+metadata {
+  authority_id: icao
+  id: 9303
+  language: iso-639-2:srp
+  source_script: Cyrl
+  destination_script: Latn
+  name: ICAO Doc 9303 Machine Readable Travel Documents Part 3 -- Serbian Cyrillic to Latin
+  url: https://www.icao.int/publications/pages/publication.aspx?docnum=9303
+  creation_date: 2015
+  description: |
+    Part 3 defines specifications that are common to TD1, TD2 and TD3
+    size machine readable travel documents (MRTDs) including those
+    necessary for global interoperability using visual inspection and
+    machine readable (optical character recognition) means.
+
+    Since only Latin-alphabet characters are allowed in the VIZ, if
+    mandatory data elements are in a national language that does not use
+    the Latin alphabet, a transcription or transliteration shall also be
+    provided.
+
+    This document defines the transliteration mappings used to produce
+    this transcription or transliteration.
+}
+
+tests {
+}
+
+# https://www.icao.int/publications/Documents/9303_p3_cons_en.pdf
+stage {
+
+  # CHARACTERS
+  parallel {
+    sub "'", "" # '
+    sub "А", "A" # А
+    sub "Б", "B" # Б
+    sub "Д", "D" # Д
+    sub "Ё", "E" # Ё
+    sub "Е", "E" # Е
+    sub "Э", "E" # Э
+    sub "Ф", "F" # Ф
+    sub "Г", "H" # Г
+    sub "И", "I" # И
+    sub "Й", "I" # Й
+    sub "К", "K" # К
+    sub "Л", "L" # Л
+    sub "М", "M" # М
+    sub "Н", "N" # Н
+    sub "О", "O" # О
+    sub "П", "P" # П
+    sub "Р", "R" # Р
+    sub "С", "S" # С
+    sub "Т", "T" # Т
+    sub "У", "U" # У
+    sub "В", "V" # В
+    sub "Ы", "Y" # Ы
+    sub "З", "Z" # З
+    sub "Ч", "C" # Ч
+    sub "Я", "IA" # Я
+    sub "Ю", "IU" # Ю
+    sub "Х", "H" # Х
+    sub "Ш", "S" # Ш
+    sub "Щ", "SHCH" # Щ
+    sub "Ц", "C" # Ц
+    sub "Ж", "Z" # Ж
+    sub "Ґ", "G" # Ґ
+    sub "Ў", "U" # Ў
+    sub "Ѫ", "U" # Ѫ
+    sub "Ђ", "D" # Ђ
+    sub "Ѕ", "DZ" # Ѕ
+    sub "Ј", "J" # Ј
+    sub "Љ", "LJ" # Љ
+    sub "Њ", "NJ" # Њ
+    sub "Һ", "C" # Һ
+    sub "Џ", "DZ" # Џ
+    sub "Є", "IE" # Є
+    sub "Ї", "I" # Ї
+    sub "Ѓ", "G" # Ѓ
+
+    sub "а", "a" # а
+    sub "б", "b" # б
+    sub "д", "d" # д
+    sub "ё", "e" # ё
+    sub "е", "e" # e
+    sub "э", "e" # э
+    sub "ф", "f" # ф
+    sub "г", "h" # г
+    sub "и", "i" # и
+    sub "й", "i" # й
+    sub "к", "k" # к
+    sub "л", "l" # л
+    sub "м", "m" # м
+    sub "н", "n" # н
+    sub "о", "o" # о
+    sub "п", "p" # п
+    sub "р", "r" # р
+    sub "с", "s" # с
+    sub "т", "t" # т
+    sub "у", "" # у
+    sub "в", "v" # в
+    sub "ы", "y" # ы
+    sub "з", "z" # з
+    sub "ч", "c" # ч
+    sub "я", "ia" # я
+    sub "ю", "i" # ю
+    sub "х", "h" # х
+    sub "ш", "s" # ш
+    sub "щ", "shch" # щ
+    sub "ц", "c" # ц
+    sub "ж", "z" # ж
+    sub "ґ", "g" # ґ
+    sub "ў", "" # ў
+    sub "ѫ", "" # ѫ
+    sub "ђ", "d" # ђ
+    sub "ѕ", "dz" # ѕ
+    sub "ј", "j" # ј
+    sub "љ", "lj" # љ
+    sub "њ", "nj" # њ
+    sub "һ", "c" # һ
+    sub "џ", "dz" # џ
+    sub "є", "ie" # є
+    sub "ї", "i" # ї
+    sub "ѓ", "g" # ѓ
+  }
+
+}
+

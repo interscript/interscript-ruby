@@ -1,0 +1,105 @@
+metadata {
+  authority_id: az
+  id: 1939
+  language: iso-639-2:aze
+  source_script: Cyrl
+  destination_script: Latn
+  url: https://omniglot.com/writing/azeri.htm
+  creation_date: 1939
+  description: |
+    In 1939 Joseph Stalin ordered the Cyrillic alphabet to be used by Azeri speakers in the Soviet Union.
+
+  notes:
+    # from Wikipedia
+    - The letter Ц, intended for the sound [ц] in borrowed words, was used in the Azerbaijani Cyrillic alphabet until 1951. In the Azeri language, the sound [c] usually becomes [s].
+}
+
+tests {
+  test "Юя", "Yuya"
+  # from internet
+  test "Азәрбайҹан әлифбасы", "Azərbaycan əlifbası"
+  test "Бүтүн инсанлар ләйагәт вә һүгугларына ҝөрә азад бәрабәр доғулурлар.\nОнларын шүурлары вә виҹданлары вар вә бир-бирләринә мүнасибәтдә гардашлыг руһунда давранмалыдырлар.", "Bütün insanlar ləyaqət və hüquqlarına görə azad bərabər doğulurlar.\nOnların şüurları və vicdanları var və bir-birlərinə münasibətdə qardaşlıq ruhunda davranmalıdırlar."
+}
+
+stage {
+
+  # CHARACTERS
+  parallel {
+    sub "А", "A" # А
+    sub "Б", "B" # Б
+    sub "В", "V" # В
+    sub "Г", "Q" # Г
+    sub "Ғ", "Ğ" # Ғ
+    sub "Д", "D" # Д
+    sub "Е", "E" # Е
+    sub "Ә", "Ə" # Ә
+    sub "Ж", "J" # Ж
+    sub "З", "Z" # З
+    sub "И", "İ" # И
+    sub "Й", "Y" # Й
+    sub "К", "K" # К
+    sub "Ҝ", "G" # Ҝ
+    sub "Л", "L" # Л
+    sub "М", "M" # М
+    sub "Н", "N" # Н
+    sub "О", "O" # О
+    sub "Ө", "Ö" # Ө
+    sub "П", "P" # П
+    sub "Р", "R" # Р
+    sub "С", "S" # С
+    sub "Т", "T" # Т
+    sub "У", "U" # У
+    sub "Ү", "Ü" # Ү
+    sub "Ф", "F" # Ф
+    sub "Х", "X" # Х
+    sub "Ц", "s" # Ц note[1]
+    sub "Һ", "H" # Һ
+    sub "Ч", "Ç" # Ч
+    sub "Ҹ", "C" # Ҹ
+    sub "Ш", "Ş" # Ш
+    sub "Ы", "I" # Ы
+    sub "Э", "E" # Э
+    sub "Ю", "Yu" # Ю
+    sub "Я", "Ya" # Я
+
+    sub "а", "a" # а
+    sub "б", "b" # б
+    sub "в", "v" # в
+    sub "г", "q" # г
+    sub "ғ", "ğ" # ғ
+    sub "д", "d" # д
+    sub "е", "e" # е
+    sub "ә", "ə" # ә
+    sub "ж", "j" # ж
+    sub "з", "z" # з
+    sub "и", "i" # и
+    sub "й", "y" # й
+    sub "к", "k" # к
+    sub "ҝ", "g" # ҝ
+    sub "л", "l" # л
+    sub "м", "m" # м
+    sub "н", "n" # н
+    sub "о", "o" # о
+    sub "ө", "ö" # ө
+    sub "п", "p" # п
+    sub "р", "r" # р
+    sub "с", "s" # с
+    sub "т", "t" # т
+    sub "у", "u" # у
+    sub "ү", "ü" # ү
+    sub "ф", "f" # ф
+    sub "х", "x" # х
+    sub "ц", "s" # ц note[1]
+    sub "һ", "h" # һ
+    sub "ч", "ç" # ч
+    sub "ҹ", "c" # ҹ
+    sub "ш", "ş" # ш
+    sub "ы", "ı" # ы
+    sub "э", "e" # э
+    sub "ю", "yu" # ю
+    sub "я", "ya" # я
+
+    sub "'", "" # '
+  }
+
+}

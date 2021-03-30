@@ -1,0 +1,403 @@
+metadata {
+  authority_id: mext
+  id: 1954
+  language: iso-639-2:jpn
+  source_script: Hrkt
+  destination_script: Latn
+  name: 内閣告示第一号 -- ローマ字のつづり方
+  url: http://www.mext.go.jp/b_menu/hakusho/nc/k19541209001/k19541209001.html
+  creation_date: 1954
+  adoption_date: 1954-12-09
+  # 昭和二十九年十二月九日
+  description:
+    jp: |
+      国語を書き表わす場合に用いるローマ字のつづり方を次のように定める。
+
+      まえがき
+      １　一般に国語を書き表わす場合は、第1表に掲げたつづり方によるものとする。
+      ２　国際的関係その他従来の慣例をにわかに改めがたい事情にある場合に限り、第2表に掲げたつづり方によつてもさしつかえない。
+      ３　前二項のいずれの場合においても、おおむねそえがきを適用する。
+    en: |
+      The spelling method for Roman characters used when writing Japanese language is as follows.
+
+      Preface
+      1. In general, when the language is written, the spelling shown in Table 1 shall be used.
+      2. The spelling methods listed in Table 2 can be used only when there is a situation that is difficult to change due to international relations or other conventional practices.
+      3. In either case of the preceding two paragraphs, the general introduction will apply.
+
+  notes:
+    - jp: はねる音「ン」はすべてnと書く。
+      en: ン / ん is romanized always n in Kunrei-siki
+    - jp: はねる音を表わすnと次にくる母音字またはyとを切り離す必要がある場合には、nの次に’を入れる。
+      en: When it is necessary to separate the sound n from the vowel or y to follow, the apostrophe is added after the n.
+    - jp: つまる音は、最初の子音字を重ねて表わす。
+      en: The clogged sound is represented by overlapping the first consonant characters.
+    - jp: 長音は母音字の上に＾をつけて表わす。なお、大文字の場合は母音字を並べてもよい。
+      en: Long vowels are expressed in Kunrei-siki by placing a circumflex (^) over a vowel. In the case of capital letters, vowel characters may be arranged.
+    - jp: 特殊音の書き表わし方は自由とする。
+      en: The way of writing special sounds is free.
+    - jp: 文の書きはじめ、および固有名詞は語頭を大文字で書く。なお、固有名詞以外の名詞の語頭を大文字で書いてもよい。
+      en: Begin writing sentences and proper nouns with capital letters. Note that the beginning of nouns other than proper nouns may be written in capital letters.
+}
+
+tests {
+  test "かんおう", "kan'ô"
+  test "かのう", "kanô"
+  test "きんゆう", "kin'yû"
+  test "とうきょう", "tôkyô"
+  test "がっこう", "gakkô"
+  test "かごっま", "kagomma"
+  test "ぽっぽっや", "poppoyya"
+  test "てっら", "terra"
+  test "にゃっほー", "nyahhô"
+  test "ゴッホ", "gohho"
+}
+
+stage {
+
+  # RULES
+  sub capture(any("んン")), ref( 1 ) + "'", after: any("あいうえおやゆよアイウエオヤユヨ")
+
+
+  # CHARACTERS
+  parallel {
+    sub "あ", "a"
+    sub "い", "i"
+    sub "う", "u"
+    sub "え", "e"
+    sub "お", "o"
+
+    # Long vowels, note 4
+    sub "おう", "ô"
+
+
+    sub "か", "ka"
+    sub "き", "ki"
+    sub "く", "ku"
+    sub "け", "ke"
+    sub "こ", "ko"
+    sub "きゃ", "kya"
+    sub "きゅ", "kyu"
+    sub "きょ", "kyo"
+    sub "きょう", "kyô"
+    sub "こう", "kô"
+
+    sub "さ", "sa"
+    sub "し", "si"
+    sub "す", "su"
+    sub "せ", "se"
+    sub "そ", "so"
+    sub "しゃ", "sya"
+    sub "しゅ", "syu"
+    sub "しょ", "syo"
+    sub "しょう", "syô"
+    sub "そう", "sô"
+
+    sub "た", "ta"
+    sub "ち", "ti"
+    sub "つ", "tu"
+    sub "て", "te"
+    sub "と", "to"
+    sub "ちゃ", "tya"
+    sub "ちゅ", "tyu"
+    sub "ちょ", "tyo"
+    sub "ちょう", "tyô"
+    sub "とう", "tô"
+
+    sub "な", "na"
+    sub "に", "ni"
+    sub "ぬ", "nu"
+    sub "ね", "ne"
+    sub "の", "no"
+    sub "にゃ", "nya"
+    sub "にゅ", "nyu"
+    sub "にょ", "nyo"
+    sub "にょう", "nyô"
+    sub "のう", "nô"
+
+    sub "は", "ha"
+    sub "ひ", "hi"
+    sub "ふ", "hu"
+    sub "へ", "he"
+    sub "ほ", "ho"
+    sub "ひゃ", "hya"
+    sub "ひゅ", "hyu"
+    sub "ひょ", "hyo"
+    sub "ひょう", "hyô"
+    sub "ほう", "hô"
+
+    sub "ま", "ma"
+    sub "み", "mi"
+    sub "む", "mu"
+    sub "め", "me"
+    sub "も", "mo"
+    sub "みゃ", "mya"
+    sub "みゅ", "myu"
+    sub "みょ", "myo"
+    sub "みょう", "myô"
+    sub "もう", "mô"
+
+    sub "や", "ya"
+    sub "ゆ", "yu"
+    sub "よ", "yo"
+    sub "よう", "yô"
+
+    sub "ら", "ra"
+    sub "り", "ri"
+    sub "る", "ru"
+    sub "れ", "re"
+    sub "ろ", "ro"
+    sub "りゃ", "rya"
+    sub "りゅ", "ryu"
+    sub "りょ", "ryo"
+    sub "りょう", "ryô"
+    sub "ろう", "rô"
+
+    sub "わ", "wa"
+    sub "を", "o"
+
+    sub "が", "ga"
+    sub "ぎ", "gi"
+    sub "ぐ", "gu"
+    sub "げ", "ge"
+    sub "ご", "go"
+    sub "ぎゃ", "gya"
+    sub "ぎゅ", "gyu"
+    sub "ぎょ", "gyo"
+    sub "ぎゅう", "gyû"
+    sub "ぎょう", "gyô"
+    sub "ごう", "gô"
+
+    sub "ざ", "za"
+    sub "じ", "zi"
+    sub "ず", "zu"
+    sub "ぜ", "ze"
+    sub "ぞ", "zo"
+    sub "じゃ", "zya"
+    sub "じゅ", "zyu"
+    sub "じょ", "zyo"
+    sub "じょう", "zyô"
+    sub "ぞう", "zô"
+
+
+    sub "だ", "da"
+    sub "ぢ", "zi"
+    sub "づ", "zu"
+    sub "で", "de"
+    sub "ど", "do"
+    sub "ぢゃ", "zya"
+    sub "ぢゅ", "zyu"
+    sub "ぢょ", "zyo"
+    sub "ぢょう", "zyô"
+    sub "どう", "dô"
+
+    sub "ば", "ba"
+    sub "び", "bi"
+    sub "ぶ", "bu"
+    sub "べ", "be"
+    sub "ぼ", "bo"
+    sub "びゃ", "bya"
+    sub "びゅ", "byu"
+    sub "びょ", "byo"
+    sub "びょう", "byô"
+    sub "ぼう", "bô"
+
+    sub "ぱ", "pa"
+    sub "ぴ", "pi"
+    sub "ぷ", "pu"
+    sub "ぺ", "pe"
+    sub "ぽ", "po"
+    sub "ぴゃ", "pya"
+    sub "ぴゅ", "pyu"
+    sub "ぴょ", "pyo"
+    sub "ぴょう", "pyô"
+    sub "ぽう", "pô"
+
+    sub "ん", "n" # See note 2
+
+
+    # Note 3. つまる音は、最初の子音字を重ねて表わす。
+    # Handled by postrules
+
+    # Katakana
+
+    sub "ア", "a"
+    sub "イ", "i"
+    sub "ウ", "u"
+    sub "エ", "e"
+    sub "オ", "o"
+
+    # Long vowels, note 4
+    sub "オウ", "ô"
+
+    sub "カ", "ka"
+    sub "キ", "ki"
+    sub "ク", "ku"
+    sub "ケ", "ke"
+    sub "コ", "ko"
+    sub "キャ", "kya"
+    sub "キュ", "kyu"
+    sub "キョ", "kyo"
+    sub "キョウ", "kyô"
+    sub "コウ", "kô"
+
+    sub "サ", "sa"
+    sub "シ", "si"
+    sub "ス", "su"
+    sub "セ", "se"
+    sub "ソ", "so"
+    sub "シャ", "sya"
+    sub "シュ", "syu"
+    sub "ショ", "syo"
+    sub "ショウ", "syô"
+    sub "ソウ", "sô"
+
+    sub "タ", "ta"
+    sub "チ", "ti"
+    sub "ツ", "tu"
+    sub "テ", "te"
+    sub "ト", "to"
+    sub "チャ", "tya"
+    sub "チュ", "tyu"
+    sub "チョ", "tyo"
+    sub "チョウ", "tyô"
+    sub "トウ", "tô"
+
+    sub "ナ", "na"
+    sub "ニ", "ni"
+    sub "ヌ", "nu"
+    sub "ネ", "ne"
+    sub "ノ", "no"
+    sub "ニャ", "nya"
+    sub "ニュ", "nyu"
+    sub "ニョ", "nyo"
+    sub "ニョウ", "nyô"
+    sub "ノウ", "nô"
+
+    sub "ハ", "ha"
+    sub "ヒ", "hi"
+    sub "フ", "hu"
+    sub "ヘ", "he"
+    sub "ホ", "ho"
+    sub "ヒャ", "hya"
+    sub "ヒュ", "hyu"
+    sub "ヒョ", "hyo"
+    sub "ヒョウ", "hyô"
+    sub "ホウ", "hô"
+
+    sub "マ", "ma"
+    sub "ミ", "mi"
+    sub "ム", "mu"
+    sub "メ", "me"
+    sub "モ", "mo"
+    sub "ミャ", "mya"
+    sub "ミュ", "myu"
+    sub "ミョ", "myo"
+    sub "ミョウ", "myô"
+    sub "モウ", "mô"
+
+    sub "ヤ", "ya"
+    sub "ユ", "yu"
+    sub "ヨ", "yo"
+    sub "ヨウ", "yô"
+
+    sub "ラ", "ra"
+    sub "リ", "ri"
+    sub "ル", "ru"
+    sub "レ", "re"
+    sub "ロ", "ro"
+    sub "リャ", "rya"
+    sub "リュ", "ryu"
+    sub "リョ", "ryo"
+    sub "リョウ", "ryô"
+    sub "ロウ", "rô"
+
+    sub "ワ", "wa"
+    sub "ヲ", "o"
+
+    sub "ガ", "ga"
+    sub "ギ", "gi"
+    sub "グ", "gu"
+    sub "ゲ", "ge"
+    sub "ゴ", "go"
+    sub "ギャ", "gya"
+    sub "ギュ", "gyu"
+    sub "ギョ", "gyo"
+    sub "ギョウ", "gyô"
+    sub "ゴウ", "gô"
+
+    sub "ザ", "za"
+    sub "ジ", "zi"
+    sub "ズ", "zu"
+    sub "ゼ", "ze"
+    sub "ゾ", "zo"
+    sub "ジャ", "zya"
+    sub "ジュ", "zyu"
+    sub "ジョ", "zyo"
+    sub "ジョウ", "zyô"
+    sub "ゾウ", "zô"
+
+    sub "ダ", "da"
+    sub "ヂ", "zi"
+    sub "ヅ", "zu"
+    sub "デ", "de"
+    sub "ド", "do"
+    sub "ヂャ", "zya"
+    sub "ヂュ", "zyu"
+    sub "ヂョ", "zyo"
+    sub "ヂョウ", "zyô"
+    sub "ドウ", "dô"
+
+    sub "バ", "ba"
+    sub "ビ", "bi"
+    sub "ブ", "bu"
+    sub "ベ", "be"
+    sub "ボ", "bo"
+    sub "ビャ", "bya"
+    sub "ビュ", "byu"
+    sub "ビョ", "byo"
+    sub "ビョウ", "byô"
+    sub "ボウ", "bô"
+
+    sub "パ", "pa"
+    sub "ピ", "pi"
+    sub "プ", "pu"
+    sub "ペ", "pe"
+    sub "ポ", "po"
+    sub "ピャ", "pya"
+    sub "ピュ", "pyu"
+    sub "ピョ", "pyo"
+    sub "ピョウ", "pyô"
+    sub "ポウ", "pô"
+
+    sub "ン", "n" # See note 1
+
+
+    # Note 3. つまる音は、最初の子音字を重ねて表わす。
+    # Handled by postrules
+  }
+
+  # POSTRULES
+  # Handling of っ/ッ
+  #
+  # The kana っ/ッ is a geminate marker.
+  # When followed by a consonant, repeat the first letter of
+  # the following syllable.
+  #
+  # If っ/ッ is not followed by a consonant, then it is usually
+  # phonetically realised as an abrupt stop or shorterning of
+  # the previous syllable. There is no documented or commonly
+  # accepted way to transliterate this sound.
+
+  sub any("っッ") + capture(any("BbCcDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz")), ref( 1 ) + ref( 1 ) # っ or ッ folloved by consonant
+  sub any("っッ"), "" # drop all other っッ.
+
+  sub "a" + any("ーa"), "â"
+  sub "i" + any("ーi"), "î"
+  sub "u" + any("ーu"), "û"
+  sub "e" + any("ーe"), "ê"
+  sub "o" + any("ーo"), "ô"
+
+
+}
+

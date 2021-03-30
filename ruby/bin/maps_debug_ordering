@@ -1,0 +1,88 @@
+#!/usr/bin/env ruby
+ENV["INTERSCRIPT_STAGING"] = "1"
+require "bundler/setup"
+require "interscript"
+require "interscript/compiler/ruby"
+
+$map_name = ARGV[0]
+
+if $map_name
+  filelist  = [ __dir__+"/../../maps/maps-staging/#{$map_name}.imp" ]
+else
+  filelist = Dir[__dir__+"/../../maps/maps-staging/*.imp"].sort
+end
+
+
+# levenshtein distance algorithm for comparing string similarity
+def ld(s, t)
+  v0 = (0..t.length).to_a
+  v1 = []
+  #p v0
+
+  s.chars.each_with_index do |s_ch, i|
+    v1[0] = i + 1
+
+    t.chars.each_with_index do |t_ch, j|
+      cost = s_ch == t_ch ? 0 : 1
+      v1[j + 1] = [v1[j] + 1, v0[j + 1] + 1, v0[j] + cost].min
+    end
+    v0 = v1.dup
+    #p v1
+  end
+
+  v0[t.length]
+end
+
+
+def score_reordering( system, source, target )
+  interpreter = Marshal.load( Marshal.dump(  $interpreter ))
+  parallel = interpreter.map.stages[:main].children.select{|x| Interscript::Node::Group::Parallel === x}[0]
+  parallel.reorder_children(source,target)
+  interpreter.map.stages[:main].children[$parallel_idx].children = parallel.children.compact  #.reorder_children(source,target)
+  delta_sum = 0
+  system.tests.data.each do |from, expected|
+    result = interpreter.(from)
+    delta = ld(expected, result)
+    delta_sum += delta
+  end;
+  delta_sum
+end
+
+
+for i in filelist
+
+  begin
+    system_name = File.basename(i, ".imp")
+    puts "\ndebugging #{system_name}"
+
+    system = Interscript.parse(system_name);
+    if system.tests && system.tests.data && system.tests.data.length > 0
+
+    $interpreter = Interscript::Interpreter.new.compile(system);
+    $orig_parallel = $interpreter.map.stages[:main].children.select{|x| Interscript::Node::Group::Parallel === x}[0].dup;
+    $parallel_idx = $interpreter.map.stages[:main].children.each_with_index.select{|x,i| Interscript::Node::Group::Parallel === x}.map{|x,i| i}[0]
+    next if !$parallel_idx
+    starting_score = score_reordering(system, 0,0)
+    parallel_size = $interpreter.map.stages[:main].children.select{|x| Interscript::Node::Group::Parallel === x}[0].children.size
+
+    puts "starting_score = #{starting_score}"
+    source = parallel_size
+    while true
+      break if source ==0
+      target = 0
+      curr_score = score_reordering(system, source, target)
+      print "#{source} <-> #{target} = #{curr_score}; "
+
+      if curr_score < starting_score
+        puts ''
+        puts "#{source} <-> #{target}  changes score  from #{starting_score} to #{curr_score}" 
+        pp system.stages[:main].children[$parallel_idx].children[source]
+      end
+      source = source - 1
+    end
+    end
+  rescue Exception => e
+    puts e
+  end
+
+end

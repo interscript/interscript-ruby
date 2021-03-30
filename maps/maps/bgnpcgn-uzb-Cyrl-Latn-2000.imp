@@ -1,0 +1,74 @@
+metadata {
+  authority_id: bgnpcgn
+  id: 2000
+  language: iso-639-2:uzb
+  source_script: Cyrl
+  destination_script: Latn
+  name: TABLE OF CORRESPONDENCES CYRILLIC - ROMAN BGN/PCGN 2000 Agreement
+  description: |
+    In 1995, the Uzbek government adopted the Roman alphabet to replace the existing Cyrillic alphabet.
+    The presentation below provides a table of correspondences between the former Cyrillic alphabet and the
+    current Roman alphabet. When Uzbek Roman-alphabet spellings are not available, this table can be used to
+    convert Uzbek Cyrillic spellings. This table of correspondences supersedes the BGN/PCGN 1979 romanization
+    system for Uzbek.
+  url: http://transliteration.eki.ee/pdf/Uzbek.pdf
+  creation_date: 2000
+  confirmation_date: 2017-11
+
+  notes:
+    - The letter sequence ye is used initially, after the vowel characters 1, 6, 7, 10, 16, 21, 29, 30, 31, and 32, and after characters 11 and 28.
+    - The Unicode encoding of the apostrophe appearing in rows 27 and 28 is U+2019. The inverted apostrophe appearing in rows 32 (o‘) and 34 (g‘) is U+2018.
+    - The Roman-script columns show only lowercase forms but, when applying the table, uppercase and lowercase Roman letters as appropriate should be used.
+}
+
+tests {
+  # https://ru.wikipedia.org/wiki/Узбекский_язык
+  test "Ўзбек ёзуви", "O‘zbek yozuwi"
+  test "Ўзбек тили", "O‘zbek tili"
+  test "катта", "katta"
+  test "куп", "kup"
+  test "кальта", "kal’ta"
+  test "Бори элға яхшилик қилғилки, мундин яхши йўқ Ким, дегайлар даҳр аро қолди фалондин яхшилик", "Bori elg‘a yaxshilik qilg‘ilki, mundin yaxshi yo‘q Kim, degaylar dahr aro qoldi falondin yaxshilik"
+  test "Бахр ул-худо", "Baxr ul-xudo"
+  test "Рисале-йи маариф-и Шейбани", "Risale-yi maarif-i Sheybani"
+  test "Карами Хакка нихоят йукдур", "Karami Xakka nixoyat yukdur"
+  test "Йахши", "Yaxshi"
+  test "Тутук белгись", "Tutuk belgis’"
+  test "Барча одамлар эркин, қадр-қиммат ва ҳуқуқларда тенг бўлиб туғиладилар.\nУлар ақл ва виждон соҳибидирлар ва бир-бирлари ила биродарларча муомала қилишлари зарур.", "Barcha odamlar erkin, qadr-qimmat wa huquqlarda teng bo‘lib tug‘iladilar.\nUlar aql wa wijdon sohibidirlar wa bir-birlari ila birodarlarcha muomala qilishlari zarur."
+  test "ПАПАПАЧУКА Респект!", "PAPAPACHUKA Respekt!"
+}
+
+dependency "bgnpcgn-uzb-Cyrl-Latn-1979", as: cyrllatn
+
+
+stage {
+
+  # RULES
+  # note[1]
+  sub "\u0415", "Ye", before: any("АаЕеЁёИиОоУуЭэЮюЯяЙйЬь")
+  sub "\u0435", "ye", before: any("АаЕеЁёИиОоУуЭэЮюЯяЙйЬь")
+
+
+  # CHARACTERS
+  parallel {
+    sub "\u0412", "V" # В
+    sub "\u0492", "G‘" # Ғ
+    sub "\u0416", "J" # Ж
+    sub "\u040E", "O‘" # Ў
+    sub "\u0425", "X" # Х
+    sub "\u042a", "’" # Ъ note[2]
+    sub "\u042c", "’" # Ь note[2]
+
+    sub "\u0432", "w" # в
+    sub "\u0493", "g‘" # ғ
+    sub "\u0436", "j" # ж
+    sub "\u045E", "o‘" # ў
+    sub "\u0445", "x" # х
+    sub "\u044a", "’" # ъ note[2]
+    sub "\u044c", "’" # ь note[2]
+  }
+
+  run map.cyrllatn.stage.main
+
+}
+

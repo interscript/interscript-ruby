@@ -1,0 +1,156 @@
+metadata {
+  authority_id: royin
+  id: 1968-chained
+  language: iso-639-2:tha
+  source_script: Thai
+  destination_script: Latn
+  name: Royal Thai General System of Transcription (1968)
+  url: http://www.royin.go.th/wp-content/uploads/royin-ebook/276/FileUpload/758_6484.pdf
+  creation_date: 1968
+  adoption_date:
+  description: |
+    This map loads two external maps to convert Thai text first into phonemic Thai,
+    and then into IPA transcription.
+
+    The IPA transcription will then be handled by this map, and converted into
+    Royal Thai General System of Transcription (1968).
+
+    The first two parts are done via two external maps.
+
+  notes: |
+    The conversion from Thai to Phonemic Thai is still work-in-progress.
+}
+
+tests {
+  test "สะพาน", "saphan"
+  test "ลานตา", "lanta"
+  test "บาง", "bang"
+  test "สมุทร", "samut"
+  test "ลำ", "lam"
+  test "สิงห์", "sing"
+  test "บุรี", "buri"
+  test "สตึก", "satuk"
+  test "พืช", "phut"
+  test "บรบือ", "borabu"
+  test "ภู", "phu"
+  test "ปะนาเระ", "panare"
+  test "เพ็ญ", "phen"
+  # - source: "เขน"
+  #   expected: "khen"
+  test "แซะ", "sae"
+  # - source: "สะแก"
+  #   expected: "sakae"
+  test "พะโต๊ะ", "phato"
+  test "ลพ", "lop"
+  # - source: "สามโก้"
+  #   expected: "samko"
+  test "เกาะ", "ko"
+  test "บ่อ", "bo"
+  test "เซอะ", "soe"
+  test "อำเภอ", "amphoe"
+  test "เนิน", "noen"
+  # - source: "เพียะ"
+  #   expected: "phia"
+  test "เทียน", "thian"
+  # - source: "เกือะ"
+  #   expected: "kua"
+  test "เมือง", "muang"
+  # - source: "ผัวะ"
+  #   expected: "phua"
+  test "บัว", "bua"
+  # - source: "ควน"
+  #   expected: "khuan"
+  test "ใหญ่", "yai"
+  # - source: "ไผ่"
+  #   expected: "phai"
+  test "ชัย", "chai"
+  test "ไทย", "thai"
+  # - source: "ปาย"
+  #   expected: "pai"
+  test "เจ้า", "chao"
+  test "ข้าว", "khao"
+  # - source: "กุย"
+  #   expected: "kui"
+  test "โดย", "doi"
+  # - source: "ดอย"
+  #   expected: "doi"
+  # - source: "งิ้ว"
+  #   expected: "ngiu"
+  test "เร็ว", "reo"
+  # - source: "เลว"
+  #   expected: "leo"
+  # - source: "เลย"
+  #   expected: "loei"
+  # - source: "เดือย"
+  #   expected: "duai"
+  # - source: "ห้วย"
+  #   expected: "huai"
+  test "แมว", "maeo"
+  test "เขียว", "khieu"
+}
+
+# This map has been partially converted by the bin/maps_v1_to_v2 script
+# The section below requires human attention. Remember to remove this
+# comment and move the converted map to 'maps/' directory. Please also
+# take note that the maps-staging directory will be cleaned up whenever
+# you run the bin/maps_v1_to_v2 script. You should particularly be
+# concerned about any regular expressions found in this file and about
+# advanced expressions in parallel {} parts, and also about the order
+# of particular parts of the stage.
+
+dependency "var-tha-Thai-Thai-phonemic", as: thaiphonemic
+dependency "var-tha-Thai-Zsym-ipa", as: thaizsym
+
+stage {
+  run map.thaiphonemic.stage.main
+  run map.thaizsym.stage.main
+
+  # DICTIONARY
+  parallel {
+
+    sub "̯", ""
+    sub "̚", ""
+
+    sub "ʔ", ""
+    sub "ː", ""
+
+    sub "t͡ɕʰ", "ch"
+    sub "t͡ɕ", "ch"
+    sub "ŋ", "ng"
+    sub "j", "y"
+    sub "ɔ", "o"
+    sub "ɤ", "oe"
+    sub "ɛ", "ae"
+    sub "ɯ", "u"
+    sub "ʰ", "h"
+
+    sub "aːw", "ao"
+    sub "aw", "ao"
+    sub "a̯w", "eu"
+    sub "eːw", "eo"
+    sub "ew", "eo"
+    sub "ɛːw", "aeo"
+    sub "ɛw", "aeo"
+    sub "iːw", "iu"
+    sub "iw", "iu"
+
+    sub "aːj", "ai"
+    sub "aj", "ai"
+    sub "a̯j", "ai"
+    sub "ɔːj", "oi"
+    sub "ɔj", "oi"
+    sub "oːj", "oi"
+    sub "oj", "oi"
+    sub "ɤːj", "oei"
+    sub "ɤj", "oei"
+    sub "uːj", "ui"
+    sub "uj", "ui"
+  }
+
+  # RULES
+  sub any("˩˨˧˦˥"), ""
+  sub line_start, "."
+
+  # POSTRULES
+  sub ".", ""
+}

@@ -1,0 +1,124 @@
+metadata {
+  authority_id: alalc
+  id: 1997
+  language: iso-639-2:srp
+  source_script: Cyrl
+  destination_script: Latn
+  name: Serbian and Makedonian Romanization, ALA-LC 1997 System
+  url: http://catdir.loc.gov/catdir/cpso/romanization/serbian.pdf
+  creation_date: 1997
+  description: ALA-LC Romanization table for Serbian and Makedonian.
+
+  notes:
+    - Special characters in romanization
+      Đ - D with crossbar (upper case). USMARC hexadecimal code A3.
+      đ - d with crossbar (upper case). USMARC hexadecimal code B3.
+
+    - Character modifiers in romanization
+      ´ - acute. USMARC hexadecimal code E2.
+      ˇ - hachek. USMARC hexadecimal code E9.
+}
+
+tests {
+  test "Општина Ердут", "Opština Erdut"
+  test "Општина Двор", "Opština Dvor"
+  test "ЛУЃЕ луѓе", "LUǴE luǵe"
+  test "ЅВЕЗДА ѕвезда Ѕвезда", "DZVEZDA dzvezda Dzvezda"
+  test "ЌАРУВАЊЕ ќарување", "ḰARUVANJE ḱaruvanje"
+}
+
+dependency "posix", import: true
+
+stage {
+
+
+  # CHARACTERS
+  parallel {
+    sub "А", "A"
+    sub "Б", "B"
+    sub "В", "V"
+    sub "Г", "G"
+    sub "Ѓ", "Ǵ" # Ǵ
+    sub "Д", "D"
+    sub "Ђ", "Đ" # Đ
+    sub "Е", "E"
+    sub "Ж", "Ž" # Ž
+    sub "З", "Z"
+    sub "Ѕ", "Dz"
+    sub "И", "I"
+    sub "Ј", "J"
+    sub "К", "K"
+    sub "Ќ", "Ḱ" # Ḱ
+    sub "Л", "L"
+    sub "Љ", "Lj"
+    sub "М", "M"
+    sub "Н", "N"
+    sub "Њ", "Nj"
+    sub "О", "O"
+    sub "П", "P"
+    sub "Р", "R"
+    sub "С", "S"
+    sub "Т", "T"
+    sub "Ћ", "Ć" # Ć
+    sub "У", "U"
+    sub "Ф", "F"
+    sub "Х", "H"
+    sub "Ц", "C"
+    sub "Ч", "Č" # Č
+    sub "Џ", "Dž" # Dž
+    sub "Ш", "Š" # Š
+    sub "а", "a"
+    sub "б", "b"
+    sub "в", "v"
+    sub "г", "g"
+    sub "ѓ", "ǵ" # ǵ
+    sub "д", "d"
+    sub "ђ", "đ" # đ
+    sub "е", "e"
+    sub "ж", "ž" # ž
+    sub "з", "z"
+    sub "ѕ", "dz"
+    sub "и", "i"
+    sub "ј", "j"
+    sub "к", "k"
+    sub "ќ", "ḱ" # ḱ
+    sub "л", "l"
+    sub "љ", "lj"
+    sub "м", "m"
+    sub "н", "n"
+    sub "њ", "nj"
+    sub "о", "o"
+    sub "п", "p"
+    sub "р", "r"
+    sub "с", "s"
+    sub "т", "t"
+    sub "ћ", "ć" # ć
+    sub "у", "u"
+    sub "ф", "f"
+    sub "х", "h"
+    sub "ц", "c"
+    sub "ч", "č" # č
+    sub "џ", "dž" # dž
+    sub "ш", "š" # š
+  }
+  # POSTRULES
+  # rewritten by hand to work properly
+  # DZ
+  sub capture(maybe(upper)) + "Dz" + capture(upper), ref(1) + "DZ" + ref(2)
+  sub capture(upper) + "Dz" +  capture(maybe(upper)), ref(1) + "DZ" + ref(2)
+
+  #LJ
+  sub capture(upper) + "Lj" + capture(maybe(upper)), ref(1) + "LJ" + ref(2)
+  sub capture(maybe(upper)) + "Lj" + capture(upper), ref(1) + "LJ" + ref(2)
+
+  #NJ
+  sub capture(upper) + "Nj" + capture(maybe(upper)), ref(1) + "NJ" + ref(2)
+  sub capture(maybe(upper)) + "Nj" + capture(upper), ref(1) + "NJ" + ref(2)
+
+  #DŽ
+  sub capture(upper) + "Dž" + capture(maybe(upper)), ref(1) + "DŽ" + ref(2)
+  sub capture(maybe(upper)) + "Dž" + capture(upper), ref(1) + "DŽ" + ref(2)
+
+  compose
+}
+

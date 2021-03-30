@@ -1,0 +1,110 @@
+metadata {
+  authority_id: mvd
+  id: 2008
+  language: iso-639-2:rus
+  source_script: Cyrl
+  destination_script: Latn
+  name: 8/19678 On approval of the Instructions for transliteration of surnames and proper names of citizens of the Republic of Belarus when their personal data is included in the population register
+  url: https://www.icao.int/publications/pages/publication.aspx?docnum=9303
+  creation_date: 2008
+
+  notes:
+    - check notes from mvd-bel-Cyrl-Latn-2008
+}
+
+tests {
+  test "Ева", "Eva"
+  test "Васiльева", "Vasiĺeva"
+  test "Адъютантов", "Adjutantov"
+}
+
+stage(translit) {
+  # RULES
+  # note[5]
+  sub "\u044C", "́", before: any("ЗзЛлНнСсЦц") # ь after consonants
+  sub "\u02B9", "́", before: any("ЗзЛлНнСсЦц") # Ь after consonants
+  sub any("’Ъъ")+"\u042E", "Ju"
+  sub any("’Ъъ")+"\u044E", "ju"
+  sub any("’Ъъ")+"\u042F", "Ja"
+  sub any("’Ъъ")+"\u044F", "ja"
+
+  # CHARACTERS
+  parallel {
+    sub "’", "j"
+
+    sub "\u0410", "A" # А
+    sub "\u0411", "B" # Б
+    sub "\u0412", "V" # B
+    sub "\u0413", "G" # Г
+    sub "\u0414", "D" # Д
+    sub "\u0415", "E" # Е
+    sub "\u0401", "E" # Ё
+    sub "\u0416", "Zh" # Ж
+    sub "\u0417", "Z" # З
+    sub "\u0406", "I" # І
+    sub "\u0419", "J" # Й
+    sub "\u041A", "K" # К
+    sub "\u041B", "L" # Л
+    sub "\u041C", "M" # М
+    sub "\u041D", "N" # Н
+    sub "\u041E", "O" # О
+    sub "\u041F", "P" # П
+    sub "\u0420", "R" # Р
+    sub "\u0421", "S" # С
+    sub "\u0422", "T" # Т
+    sub "\u0423", "U" # У
+    sub "\\U040E", "W" # Ў
+    sub "\u0424", "F" # Ф
+    sub "\u0425", "Kh" # Х
+    sub "\u0426", "Ts" # Ц
+    sub "\u0427", "Ch" # Ч
+    sub "\u0428", "Sh" # Ш
+    sub "\u0429", "Shch" # Щ
+    sub "\u042A", "J" # Ъ
+    sub "\u042B", "Y" # Ы
+    sub "\u042C", "" # Ь
+    sub "\u042D", "E" # Э
+    sub "\u042E", "Iu" # Ю
+    sub "\u042F", "Ia" # Я
+
+    sub "\u0430", "a" # а
+    sub "\u0431", "b" # б
+    sub "\u0432", "v" # в
+    sub "\u0433", "g" # г
+    sub "\u0434", "d" # д
+    sub "\u0435", "e" # е
+    sub "\u0451", "e" # ё
+    sub "\u0436", "zh" # ж
+    sub "\u0437", "z" # з
+    sub "\u0456", "i" # і
+    sub "\u0439", "j" # й
+    sub "\u043A", "k" # к
+    sub "\u043B", "l" # л
+    sub "\u043C", "m" # м
+    sub "\u043D", "n" # н
+    sub "\u043E", "o" # о
+    sub "\u043F", "p" # п
+    sub "\u0440", "r" # р
+    sub "\u0441", "s" # с
+    sub "\u0442", "t" # т
+    sub "\u0443", "u" # у
+    sub "\u045E", "w" # ў
+    sub "\u0444", "f" # ф
+    sub "\u0445", "kh" # х
+    sub "\u0446", "ts" # Ц
+    sub "\u0447", "ch" # ч
+    sub "\u0448", "sh" # ш
+    sub "\u0449", "shch" # щ
+    sub "\u044A", "j" # ъ
+    sub "\u044B", "y" # ы
+    sub "\u044C", "" # ь
+    sub "\u044D", "e" # э
+    sub "\u044E", "iu" # ю
+    sub "\u044F", "ia" # я
+  }
+}
+
+stage {
+  run stage.translit
+  compose
+}

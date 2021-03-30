@@ -1,0 +1,58 @@
+#!/usr/bin/env ruby
+require "bundler/setup"
+require "interscript"
+require "interscript/compiler/ruby"
+require "interscript/compiler/javascript"
+
+# Differing maps as of writing this code:
+# - alalc-ara-Arab-Latn-1997
+# - alalc-aze-Arab-Latn-1997
+# - alalc-ell-Grek-Latn-2010
+# - bgnpcgn-bal-Arab-Latn-2008
+# - bgnpcgn-per-Arab-Latn-1958
+# - bgnpcgn-prs-Arab-Latn-2007
+# - bgnpcgn-pus-Arab-Latn-1968
+# - bgnpcgn-ukr-Cyrl-Latn-1965
+# - bgnpcgn-urd-Arab-Latn-2007
+# - odni-ara-Arab-Latn-2004
+# - odni-ara-Arab-Latn-2015
+# - stategeocadastre-ukr-Cyrl-Latn-1993
+# - ua-ukr-Cyrl-Latn-1996
+# - un-ara-Arab-Latn-2017
+# - un-ell-Grek-Latn-1987-phonetic
+# - un-prs-Arab-Latn-1967
+# - un-urd-Arab-Latn-1972
+
+map = ARGV[0]
+
+m = Interscript.parse(map)
+
+cr = Interscript::Compiler::Ruby
+mr = cr.(map, debug: true)
+cj = Interscript::Compiler::Javascript
+mj = cj.(map, debug: true)
+
+m.tests.data.each do |from, expected|
+  r = mr.(from)
+  j = mj.(from)
+
+  next if r == j
+
+  dr = cr.read_debug_data
+  dj = cj.read_debug_data
+
+  dr.zip(dj).each do |er, ej|
+    if er[0] != ej[0]
+      puts "First differing rule in map: #{er[1]}, stage #{er[2]}"
+      puts "Ruby: #{er[0]}, Javascript: #{ej[0]}"
+      puts "Rule:\n#{er[3].gsub(/^/, "  ")}"
+      puts "Generated Ruby code:\n#{er[4].gsub(/^/, "  ")}"
+      puts "Generated Javascript code:\n#{ej[4].gsub(/^/, "  ")}"
+      puts
+      break
+    end
+  end
+
+  cr.reset_debug_data
+  cj.reset_debug_data
+end

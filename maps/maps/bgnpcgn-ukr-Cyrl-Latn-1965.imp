@@ -1,0 +1,136 @@
+metadata {
+  authority_id: bgnpcgn
+  id: 1965
+  language: iso-639-2:ukr
+  source_script: Cyrl
+  destination_script: Latn
+  name: BGN/PCGN 1965 System
+  url: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/816788/ROMANIZATION_OF_UKRAINIAN.pdf
+  creation_date: 1947
+  confirmation_date: 2019-06
+  description: |
+    The BGN/PCGN system for Ukrainian was designed for use in romanizing
+    names written in the Ukrainian alphabet. The Ukrainian alphabet
+    contains five characters not present in the Russian alphabet: ґ, є, і,
+    ї, and ’.
+
+  notes:
+    - The character sequences з г, к г, с г, т с and ц г and may be romanized z∙h, k∙h, s∙h, t∙s and ts∙h in order to differentiate those romanizations from the digraphs zh, kh, sh, ts, and the letter sequence tsh, which are used to render the characters ж, x, ц, ш, and the character sequence тш.
+    - All apostrophes appearing in romanization are Unicode encoding 2019.
+    - The Roman‐script columns show only lowercase forms but, when applying the table, uppercase and lowercase Roman letters as appropriate should be used.
+}
+
+tests {
+  test "Авдіївська Міськрада", "Avdiyivs’ka Mis’krada"
+  test "Бабаї", "Babayi"
+  test "Віленька", "Vilen’ka"
+  test "Гагарінський Район", "Haharins’kyy Rayon"
+  test "Довбушева Криниця", "Dovbusheva Krynytsya"
+  test "Дідівщина", "Didivshchyna"
+  test "Економічна", "Ekonomichna"
+  test "Єфросинівка", "Yefrosynivka"
+  test "Жигуліна Роща", "Zhyhulina Roshcha"
+  test "Загір’я", "Zahir”ya"
+  test "З’єднувальний Канал", "Z”yednuval’nyy Kanal"
+  test "Ивахи", "Yvakhy"
+  test "Івано-Франківська Міськрада", "Ivano-Frankivs’ka Mis’krada"
+  test "Їжаківка", "Yizhakivka"
+  test "Йосиповичі", "Yosypovychi"
+  test "Кабичівка", "Kabychivka"
+  test "Лазуровий Провулок", "Lazurovyy Provulok"
+  test "Мала Сейдеминуха", "Mala Seydemynukha"
+  test "Нагірний", "Nahirnyy"
+  test "Овер’янівське Озеро", "Over”yanivs’ke Ozero"
+  test "Павлопільське Водосховище", "Pavlopil’s’ke Vodoskhovyshche"
+  test "Приґородний", "Prygorodnyy"
+  test "Радгосп Правда", "Radhosp Pravda"
+  test "Садово-Хрустальненський", "Sadovo-Khrustal’nens’kyy"
+  test "Таратутине", "Taratutyne"
+  test "Улу-Узень", "Ulu-Uzen’"
+  test "Христофорівка", "Khrystoforivka"
+  test "Центральна Вулиця", "Tsentral’na Vulytsya"
+  test "Чайковичі", "Chaykovychi"
+  test "Шалаші", "Shalashi"
+  test "Щербинівка", "Shcherbynivka"
+  test "Южноукраїнська Міськрада", "Yuzhnoukrayins’ka Mis’krada"
+  test "Ясениця", "Yasenytsya"
+}
+
+stage {
+
+  # RULES
+  sub boundary + "\u2019" + boundary, "”" # ’ in the middle of a word -> ”
+
+
+  # CHARACTERS
+  parallel {
+    sub "а", "a"
+    sub "б", "b"
+    sub "в", "v"
+    sub "г", "h"
+    sub "д", "d"
+    sub "е", "e"
+    sub "ж", "zh"
+    sub "з", "z"
+    sub "и", "y"
+    sub "й", "y"
+    sub "к", "k"
+    sub "л", "l"
+    sub "м", "m"
+    sub "н", "n"
+    sub "о", "o"
+    sub "п", "p"
+    sub "р", "r"
+    sub "с", "s"
+    sub "т", "t"
+    sub "у", "u"
+    sub "ф", "f"
+    sub "х", "kh"
+    sub "ц", "ts"
+    sub "ч", "ch"
+    sub "ш", "sh"
+    sub "щ", "shch"
+    sub "ь", "’"
+    sub "ю", "yu"
+    sub "я", "ya"
+    sub "є", "ye"
+    sub "і", "i"
+    sub "ї", "yi"
+    sub "ґ", "g"
+    sub "﻿", " "
+    sub "Є", "Ye"
+    sub "І", "I"
+    sub "Ї", "Yi"
+    sub "А", "A"
+    sub "Б", "B"
+    sub "В", "V"
+    sub "Г", "H"
+    sub "Д", "D"
+    sub "Е", "E"
+    sub "Ж", "Zh"
+    sub "З", "Z"
+    sub "И", "Y"
+    sub "Й", "Y"
+    sub "К", "K"
+    sub "Л", "L"
+    sub "М", "M"
+    sub "Н", "N"
+    sub "О", "O"
+    sub "П", "P"
+    sub "Р", "R"
+    sub "С", "S"
+    sub "Т", "T"
+    sub "У", "U"
+    sub "Ф", "F"
+    sub "Х", "Kh"
+    sub "Ц", "Ts"
+    sub "Ч", "Ch"
+    sub "Ш", "Sh"
+    sub "Щ", "Shch"
+    sub "Ь", "’"
+    sub "Ю", "Yu"
+    sub "Я", "Ya"
+    sub "Ґ", "G"
+  }
+
+}

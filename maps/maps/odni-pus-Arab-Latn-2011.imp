@@ -1,0 +1,327 @@
+metadata {
+  authority_id: bgnpcgn
+  id: 2007
+  language: iso-639-3:prs
+  source_script: Arab
+  destination_script: Latn
+  name: ODNI Pashto Personal Names 2011 System
+  url: https://github.com/interscript/interscript-private-references/blob/master/odni/Pashto%20June%202011.pdf
+  creation_date: 2011
+  confirmation_date: 2011-06
+  description: |
+    Pashto is a language characterized by its variability. The
+    challenges of reaching a universally acceptable
+    transliteration standard for personal names are posed both
+    by the dialect spread trending roughly from the southwest
+    to the northeast parts of its geographic area, and also by
+    the competing influences of Dari and Urdu. Given the lack
+    of any dominant standard on some points, it has been
+    considered necessary to define a certain degree of
+    flexibility within this standardization system in order to
+    enable it to capture the variability of the language it
+    seeks to reflect. A great effort has also been made to
+    research and reflect common usage in the Pashto- speaking
+    areas of Pakistan and Afghanistan, and to define rules
+    which capture these trends to the best extent possible.
+    However, a respect for the norms of usage has also been
+    balanced with the need for consistency and intelligibility.
+    Therefore, there are cases where a less common spelling
+    will be the preferred usage under the guidance of this
+    system. Lastly, specific names that cannot be incorporated
+    gracefully into the rules described below are included with
+    case-by-case preferred spellings in a list near the end of
+    this document.
+
+  notes:
+    # Special rules: Consonants
+    - Pashto letter ge (‫ږ‬) The two common renderings for this
+      letter are 'zh' and 'g.' 1 The preferred option will be
+      'zh' (consistent with the choice of southern 'sh' for ‫)ښ‬.
+      However, when referring to communities that consistently
+      render the name with a 'g' as opposed to a 'zh,' then 'g'
+      will be the preferred option. In these cases, the inclusion
+      of a variant spelling with 'zh' is strongly encouraged.
+
+    - Double consonants Double consonants represented by the
+      tashdid (shaddah) are shown in most cases regardless of
+      whether they are clearly enunciated in speech. Examples
+      Muhammad Hassan, Izzatullah. However, consonants
+      represented by digraphs are not doubled. Example Mubashir (
+      not Mubashshir). Special care should be taken when
+      possible to discriminate between doubled and
+      non-doubled letters in names that are otherwise
+      indistinguishable in their transliterated forms
+      Hasan (حسن (vs. Hassan (حسان(
+
+    - Digraphs No distinction is made between digraphs such as 'sh'
+      and single contiguous letters such as 's' followed by 'h.'
+
+    # Special rules: Vowels
+    - Short vowels zair and pesh The preferred options for the
+      short vowels represented by the zair and pesh will be 'i'
+      and 'u.' However, in cases where there is a mixed Dari and
+      Pashto environment, then the use of 'e' and 'o' is accepted
+      in consideration of Dari norms.
+
+    - Long/short vowels Long and short vowels are not
+      distinguished in the system (with the exception of
+      certain spellings driven by Dari influence as discussed
+      above). In this and other systems, the borrowed
+      Arabic name Salim could represent two distinct names, one
+      with a long /a/ (Saalim - ‫)سالم and one with a
+      long /i/ (Saliim - ‫)سلیم‬. This is known as a collision.
+      This and many other prevailing standardization
+      systems do not distinguish between these types of
+      collisions. However, in cases like these, it is
+      recommended that a vigorous effort be made to include
+      variant spellings in order to eliminate ambiguity
+      as to which name is intended, as in the following examples
+      Hamid (var. Hameed) – ‫حمید‬
+      Hamid (var. Hamed) – ‫حامد‬
+
+    - Izafat The linking vowel of Persian origin known as the
+      izafat will be written with a hyphen and then 'e'
+      and then a following space. Example Koh-e Nur ("mountain
+      of light"). There will be no special
+      accommodation for when the initial word ends in a vowel.
+
+    # Special rules: Arabic
+    - The Arabic article al ( ‫ال‬ ) The Arabic article will be
+      written with a lowercase 'a' and followed by a hyphen, with
+      the obvious exception that an uppercase 'a' should be used
+      where required by English orthographic conventions, e.g.,
+      at the beginning of a sentence. Example Karim al-Afghani
+
+    - Genitive constructions Multi-part Arabic names that follow
+      the Arabic genitive construction will be written with a
+      lowercase ul joined to the last part of the name by a
+      hyphen. Arabic sun letter assimilation generally will not
+      be shown.
+    # Genitive construction exceptions
+    - In deference to widespread usage, the name Abd will be
+      combined with the genitive article ul,
+      and the rest of the name will be written separately (
+      specifically, one of the ninety-nine
+      "names of God"). Examples Abdul Haq, Abdul Rahman
+    - Names incorporating "--ullah" will be written as a single
+      unit. Examples Abdullah, Rahmatullah
+    - Names incorporating "--din" will be written as a single
+      unit with sun letter assimilation
+      shown, causing ul to change to ud. This type of name is the
+      only case in which sun letter assimilation will be shown.
+      Examples Jamaluddin, Shamsuddin
+    - Note, no effort will be made to force names into the
+      genitive construction if they are not
+      linked by the article. For example, both names Fazl ul-
+      Rahman and Fazl Rahman would be
+      acceptable, depending on whether the article was included
+      in the individual's name.
+
+    - Consonant clusters Traditional Arabic names ending in a
+      final consonant cluster will be spelled with the
+      consonant cluster intact. Although most native Pashto
+      speakers will break up the cluster in conversational
+      speech, general usage in the written transliteration of
+      names still favors the preservation of the consonant
+      cluster in print.
+      This type of name should not be confused with Arabic names whose orthography includes a zabar (short
+      'a' vowel) prior to the final consonant. -- NOT DONE
+
+    # Special rules: Multiple-part Pashto names
+    - TODO
+
+    # Special rules: Glides versus consonants
+    - The unwritten phonetic "glides," also known as semi-
+      consonants (sounding similar to /y/ and /w/), will
+      generally not be shown between two vowels.
+      Examples Rauf, Said (سعيد)
+
+    - Care should be taken to distinguish the above rule from
+      cases in which wao or ya are a written part of the name and
+      function as true consonants, including cases where they are
+      doubled. Examples Fayiz ( ‫فایز‬ ), Fayyaz ( ‫فیّاض‬ )
+
+    - A common form where ya will be shown in its role as a
+      consonant is with the Arabic nisba (suffix showing origin,
+      relation, etc.) appended to names that end in a vowel.
+      Examples Ziayi, Shafiyi, Mirzayi, Paktiayi
+
+    # Specific rules: Exceptions
+    - TODO
+      In spite of best intentions, the unbending application of
+      rules in any transliteration system is likely to produce
+      some forms that fly in the face of accepted use. Therefore,
+      the following names will be spelled as follows, in spite of
+      minor variance with the rules described above.
+      Aurangzeb (not Awrangzeb)
+      Eid (not Id)
+      Faizad (not Faizzad)
+      Javed (not Jawed) 2
+      Parvez (not Parwez)
+      Qureshi (not Quraishi)
+      Saad (not Sad)
+      Sherpao (not Sherpaw)
+
+    - The following names do not constitute exceptions to the
+      rules of this standard, but they are names that pose
+      significant challenges to standardization and are therefore
+      listed here to ensure consensus
+      Bahadur (not Bahadar, Bahader)
+      Feroz (not Firoz, Fairuz, etc.)
+      Firdaws (not Firdos)
+      Husain (not Hussain)
+      Isfandyar (not Asfandyar)
+      Ismail (not Ismael)
+      Khushhal (not Khushal)
+      Niamat (not Nimat)
+      Numan (not Nauman)
+      Raza (not Reza)
+      Sherzad (not Shirzad)
+      Tor Jan (not Tur Jan)
+      Uwais (not Awais)
+
+    # Special rules: Titles
+    - We treat the spelling of commonly used titles differently
+      from the handling of names, given that titles are subject
+      to norms of English as they are accepted into the English
+      language. Though not specifically covered by the scope of
+      this transliteration standard, the following spellings are
+      recommended for the sake of consistency
+      Akhund
+      Amir
+      Commander (not Commandan)
+      Hafiz
+      Haji
+      Mawlana
+      Mawlawi
+      Mullah
+      Qari
+      Qazi
+      Sahib
+      Sheikh
+      Syed ( ‫سیّد‬ )
+      Ustad
+}
+
+tests {
+  test "حَسّان", "Hassan"
+  test "حَسَن", "Hasan"
+  test "صَفّار", "Saffar"
+  test "صَفَر", "Safar"
+  # collision
+  test "حَمِيد", "Hamid"
+  # collision
+  test "حامِد", "Hamid"
+  test "كَرِيم الأَفغَانِي", "Karim al-Afghani"
+  test "عَبداللَّه", "Abdullah"
+  test "جَمَال الدين", "Jamaluddin"
+  test "شَمسُ الدين", "Shamsuddin"
+  test "فَيَّاض", "Fayyaz"
+  test "فايِز", "Fayiz"
+  test "ا", "A"
+  test "رَؤوف", "Rauf"
+  test "سَعِيد", "Said"
+  test "قَيُّوم", "Qayyum"
+}
+
+stage {
+  # CHARACTERS
+  parallel {
+
+    sub "\u0650", "i" # ِ kasra
+    sub "\u064f", "u" # ُ damma
+
+    sub "\u0650" + boundary, "-e" # ِ kasra
+
+    sub "\u0652", "" # ْ sokoon
+    sub "\u0659", "ê"
+
+    # Sun letters
+    sub maybe("\u064f") + maybe(space) + "\u0627\u0644\u062f" + any("\u064a\u0649") + "\u0646", "uddin" # الدين
+
+    sub "\u0626", "êy" # ئ
+
+    sub "\u0628", "b" # ب
+    sub "\u067E", "p" # پ
+    sub any("\u062a\u067C\u0637"), "t" # ت/ټ/ط
+    sub "\u062c", "j" # ج
+    sub "\u0686", "ch" # ‫چ‬
+    sub "\u0681", "dz" # ‫ځ‬
+    sub "\u0685", "ts" # ‫څ
+    sub any("\u062d\u0647"), "h" # ح/ه
+    sub "\u062e", "kh" # خ
+    sub any("\u062f\u0689"), "d" # د/ډ‬
+    sub any("\u0631\u0693"), "r" # ر/ړ
+    sub any("\u0630\u0632\u0636\u0638"), "z" # ذ/ز/ض/ظ
+    sub any("\u0696\u0698"), "zh" # ‫ژ‬/ږ
+    sub any("\u062B\u0633\u0635"), "s" # س/ث/ص
+    sub any("\u0634\u069A"), "sh" # ښ/ش
+    sub any("\u0621\u0639"), "" # ع/ء
+    sub "\u063a", "gh" # غ
+    sub "\u0641", "f" # ف
+    sub "\u0642", "q" # ق
+    sub "\u0643", "k" # ك
+    sub "\u06A9", "k" # ک
+    sub any("\u06AF\u06AB"), "g" # ‫گ‬/ګ
+
+    sub "\u0644", "l" # ل
+    sub "\u0645", "m" # م
+    sub any("\u0646\u06BC"), "n" # ن/ڼ
+    sub "\u0648", "w" # و
+    sub "\u064a", "y" # ي
+    sub "\u0649", "y" # ي
+
+    sub "\u064e" + maybe("\u0627"), "a" # َ fatha
+    sub "\u0650", any("ie")
+    sub "\u064f", any("uo") # ُ damma
+    sub "\u0622", "a" # آ
+    sub "\u0627", "a" # ا
+    sub "\u0648", "o" # و
+    sub "\u064e\u0648\u0652", "aw" # ـَوْ
+    sub "\u064f\u0648", "u" # ـُو
+    sub "\u064e\u064a", "ai" # ـي
+    sub "\u0650" + any("\u064a\u0649"), "i"
+    sub "\u06D0", "e" # ې
+    sub "\u06CD", "ey" # ‫ۍ
+    sub "\u06CC", "a" # ‫ی‬
+    sub "\u064e\u06CC" + any("\u0647\u0627"), "aya" # َيا / َيه
+    sub "\u0650\u06CC" + any("\u0647\u0627"), "ia" # ِيا /ِيه
+    sub "\u0652\u06CC\u0627", "ya" # ْيا
+    sub any("\u06D0\u06D2") + boundary, "ey" # ‫ے‬ / ‫ې‬
+    sub "\u0648\u064A" + boundary, "oy" # ‫وي‬
+    sub "\u064f\u0648\u064A" + boundary, "uy" # ُوي
+    sub "\u0623", "" # أ
+
+    # Double consonants
+    sub "\u0628\u0651", "bb" # ب
+    sub "\u067E\u0651", "pp" # پ
+    sub any("\u062a\u067C\u0637") + "\u0651", "tt" # ت/ټ/ط
+    sub "\u062c\u0651", "jj" # ج
+    sub any("\u062d\u0647") + "\u0651", "hh" # ح/ه
+    sub any("\u062f\u0689") + "\u0651", "dd" # د/ډ‬
+    sub any("\u0631\u0693") + "\u0651", "rr" # ر/ړ
+    sub any("\u0630\u0632\u0636\u0638") + "\u0651", "zz" # ذ/ز/ض/ظ
+    sub any("\u062B\u0633\u0635") + "\u0651", "ss" # س/ث/ص
+    sub "\u0641\u0651", "ff" # ف
+    sub "\u0642\u0651", "qq" # ق
+    sub "\u0643\u0651", "kk" # ك
+    sub "\u06A9\u0651", "kk" # ک
+    sub any("\u06AF\u06AB") + "\u0651", "gg" # ‫گ‬/ګ
+    sub "\u0644\u0651", "ll" # ل
+    sub "\u0645\u0651", "mm" # م
+    sub any("\u0646\u06BC") + "\u0651", "nn" # ن/ڼ
+    sub "\u0648\u0651", "ww" # و
+    sub "\u064a\u0651", "yy" # ي
+    sub "\u0649\u0651", "yy" # ي
+
+    sub boundary + "\u0627\u0644", "al-", before: space # ال
+    sub maybe(space) + "\u0627\u0644\u0644\u0651\u064e\u0647", "ullah"
+
+    sub "\u0624\u0648", "u"
+  }
+
+  # POSTRULES
+  sub any("\u0061".."\uFFFF"), upcase, before: boundary, not_before: boundary + any("‘’'")
+  # don't capitalize defined article in the middle of a sentence
+  sub " Al-", " al-" # الن
+}

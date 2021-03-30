@@ -1,0 +1,276 @@
+metadata {
+  authority_id: iso
+  id: 15919-2001
+  language: iso-639-2:mal
+  source_script: Mlym
+  destination_script: Latn
+  name: "Information and documentation — Transliteration of Devanagari and related Indic scripts into Latin characters"
+  url: https://www.chatranjali.fr/Scripts/Standards/ISO15919.pdf
+  creation_date: 2001
+  adoption_date: 2001
+  description: |
+    Script conversion is often required for documents such as historical and literary texts, geographical texts (including
+    maps and atlases), bibliographies, catalogues, lists and passports (and other identification documents).
+
+    Text in Devanagari script or other Indic scripts sometimes needs to be shown in Latin script, where users, or
+    equipment that they are using, cannot read or write the text
+
+    This International Standard applies to transliteration of Devanagari, and to Indic scripts related to Devanagari,
+    independent of the period in which it is or was used.
+
+  notes:
+
+    - All transliterations made using this International Standard shall be case-insensitive.
+    - Inherent a with a consonant shall always be transliterated.
+    - Malayalam anusvara final in a word shall be transliterated as m .
+    - candrabindu shall be transliterated as m̐
+    - When m̐, ṃ or ṁ are associated with a vowel, they shall be placed after the vowel. When m̐ is associated
+      with a semivowel, it shall be placed before the semivowel.
+    - Latin punctuation signs and Hindu-Arabic numerals shall remain unchanged in transliteration.
+      Indic punctuation is outside the scope of this International Standard.
+    - The Vedic accent Udatta shall be transliterated as an acute accent over the transliterated vowel, and the
+      independent Svarita as a grave accent over the transliterated vowel. In the case of the digraphs ai, au, the accent
+      shall be attached to the second vowel.
+    - |
+      A colon: before a Latin character shall be used to resolve ambiguity. Some normative cases are as
+      follows.
+       -  :’ for avagraha in modern text. (The apostrophe in modern text remains unchanged in accordance with previous rule.
+      - Pure consonant ( cillŭ form) in Malayalam script, other than r/ṟ (ർ), before a consonant, as in n:na formed with a
+        pure consonant (not the ligature nna). Medial ൕ in Malayalam text shall be treated as a pure consonant ( cillŭ
+        form).
+    - If a character in an Indic script is defined in such a way as to be equivalent to another character in any
+      script, where the second character has a transliteration in this International Standard, then the first character shall
+      be transliterated in the same way as the second character.
+    - When the half-nasal in Telugu script is used for modern nasalization in writing Hindi or
+      any other language, it shall be transliterated as a tilde above the transliterated vowel. In the case of the digraphs ai,
+      au, the tilde shall be attached to the second vowel
+    - Where it is desired to show the Vedic accent Anudatta, it should be transliterated as an underscore. In the case of
+      the digraphs ai, au, both Latin vowels should be underscored.
+      Where word boundaries are not shown in the original text (as happens commonly in Sanskrit) and a word ends in a
+      consonant, the transliteration should show word division by a space; but when phonological processes result in two
+      words sharing a common vowel, no attempt should be made to separate them. This will require a good knowledge
+      of the language in question.
+    - In Malayalam text, ് acts as the mātrā for ŭ when final in a word, except when it removes the inherent vowel of a single
+      consonant.
+    - The ambiguous pure consonant r/ṟ (ർ) in Malayalam script shall be transliterated into r when combined
+      with another consonant; when it is final in a word it shall be transliterated as ṟ in Malayalam language.
+}
+
+tests {
+  test "സ്വപ്നയ്ക്കൊപ്പം ഹോട്ടലിൽ മന്ത്രിപുത്രൻ, ചിത്രങ്ങൾ; ൪ കോടി കമ്മിഷനിലും പങ്കുപറ്റി", "svapnaykkaeāppam haōṭṭalai:la mantraipautra:ṇa, caitraṅṅa:ḷa; 4 kaōṭai kammaiṣanailaum paṅkaupaṟṟai"
+  test "വിവാദങ്ങളിൽ മാപ്പില്ല, ആദ്യമായി ഐപിഎൽ കമന്ററിക്കില്ലാതെ മ‍ഞ്ജരേക്കര്‍; പുറത്ത് തന്നെ", "vaivaādaṅṅaḷai:la maāppailla, ādyamaāyai aipaie:la kamanṟaṟaikkaillaātae mañjaraēkkaraŭ; pauṟattaŭ tannae"
+  test "പരമാവധി ഊറ്റിയെടുത്തു; എല്ലാം കഴിഞ്ഞ് ഉപേക്ഷിച്ചു: വിങ്ങലോടെ റംസിയുടെ സഹോദരി", "paramaāvadhai ūṟṟaiyaeṭauttau; ellaām kaḻaiññaŭ upaēkṣaiccau: vaiṅṅalaōṭae ṟaṁsaiyauṭae sahaōdarai"
+  test "വഴിനീളെ രോഷം; യൂത്ത്‌ കോണ്‍ഗ്രസുകാരന്റെ  കയ്യൊടിഞ്ഞു, കൈവീശികാട്ടി ജലീൽ", "vaḻainaīḷae raōṣam; yaūttaŭ kaōṇaŭgrasaukaāranṟae  kayyaoṭaiññau, kaaivaīśaikaāṭṭai jalaī:la"
+  test "‘വികൃതിപ്പയ്യനാ’യിരുന്ന കോലി മിന്നും താരമായത് ഇന്ത്യൻ ക്രിക്കറ്റിന്റെ ഗുണം: അക്തർ", "‘vaikaṛtaippayyanaā’yairaunna kaōlai mainnaum taāramaāyataŭ intya:ṇa kraikkaṟṟainṟae gauṇam: aktaṟ"
+  test "ലോകത്തിനു വാക്സീൻ വേണമെങ്കിൽ ഈ നഗരം കനിയണം; തലയുയർത്തി ഇന്ത്യ", "laōkattainau vaāksaī:ṇa vaēṇamaeṅkai:la ī nagaram kanaiyaṇam; talayauyarttai intya"
+  test "‘അദ്ദേഹം ഒരു മകളെപ്പോലെ എന്നെ കേട്ടു’: ഗവർണറെ കണ്ട് കങ്കണ റനൗട്ട്", "‘addaēham orau makaḷaeppaōlae ennae kaēṭṭau’: gavarṇaṟae kaṇṭaŭ kaṅkaṇa ṟanaṭṭaŭ"
+  test "‘എല്ലാം ഫെയ്‌സ്ബുക്കില്‍ പറയുമെന്നു ജലീല്‍; കനത്ത സുരക്ഷയില്‍ യാത്ര, കരിങ്കൊടി", "‘ellaām phaeyaŭsbaukkailaŭ paṟayaumaennau jalaīlaŭ; kanatta saurakṣayailaŭ yaātra, karaiṅkaoṭai"
+  test "ഏറ്റവും ചെറുപ്പം ജോയി; ജയലക്ഷ്മി, ദീപ്തി, ജ്യോതി; പട്ടികയിലെ നിര ഇങ്ങനെ‌", "ēṟṟavaum caeṟauppam jaōyai; jayalakṣmai, daīptai, jyaōtai; paṭṭaikayailae naira iṅṅanae"
+  test "പരിശോധന കുറച്ച് കേരളം; കോവിഡ് ടെസ്റ്റ് പോസിറ്റിവിറ്റി നിരക്ക് എറ്റവും ഉയർന്ന്; ആശങ്ക‌", "paraiśaōdhana kauṟaccaŭ kaēraḷam; kaōvaid̂aŭ ṭaesṟṟaŭ paōsaiṟṟaivaiṟṟai nairakkaŭ eṟṟavaum uyarnnaŭ; āśaṅka"
+  test "൱", "100"
+}
+
+stage {
+
+  # RULES
+  sub "\u0D4D", "ŭ", after: boundary, before: ""
+  sub "\u0D02", "m", after: boundary, before: ""
+  sub "\u0D7C", "ṟ", after: boundary, before: ""
+
+
+  # CHARACTERS
+  parallel {
+    sub "അ", "a"
+    sub "ആ", "ā"
+    sub "ഇ", "i"
+    sub "ഈ", "ī"
+    sub "ഉ", "u"
+    sub "ഊ", "ū"
+    sub "ഋ", "ṛ"
+    sub "ൠ", "ṝ"
+    sub "ഌ", "ḷ"
+    sub "ൡ", "ḹ"
+
+    sub "എ", "e"
+    sub "ഏ", "ē"
+    sub "ഐ", "ai"
+
+    sub "ഒ", "o"
+    sub "ഓ", "ō"
+    sub "ഔ", "au"
+
+    # Consonants
+    # Gutturals
+    sub "ക", "ka"
+    sub "ഖ", "kha"
+    sub "ഗ", "ga"
+    sub "ഘ", "gha"
+    sub "ങ", "ṅa"
+
+    # Palatals
+    sub "ച", "ca"
+    sub "ഛ", "cha"
+    sub "ജ", "ja"
+    sub "ഝ", "jha"
+    sub "ഞ", "ña"
+
+    # Cerebrals
+    sub "ട", "ṭa"
+    sub "ഠ", "ṭha"
+    sub "ഡ", "d̂a"
+    sub "ഢ", "ḍha"
+    sub "ണ", "ṇa"
+
+    # Dentals
+    sub "ത", "ta"
+    sub "ഥ", "tha"
+    sub "ദ", "da"
+    sub "ധ", "dha"
+    sub "ന", "na"
+
+    # Labials
+    sub "പ", "pa"
+    sub "ഫ", "pha"
+    sub "ബ", "ba"
+    sub "ഭ", "bha"
+    sub "മ", "ma"
+
+    # Semivowels
+    sub "യ", "ya"
+    sub "ര", "ra"
+    sub "ർ", "r"
+    sub "റ", "ṟa"
+    sub "ല", "la"
+    sub "ള", "ḷa"
+    sub "ഴ", "ḻa"
+    # Sibilants
+    sub "വ", "va"
+    sub "ശ", "śa"
+    sub "ഷ", "ṣa"
+    sub "സ", "sa"
+    sub "ഩ", "ṉa"
+
+
+    # Aspirate
+    sub "ഹ", "ha"
+
+    # Bisarga
+    sub "ഃ", "ḥ"
+
+    # Anusvāra
+    sub "ം", "ṁ"
+
+
+    # Abagraha
+    sub "ഽ", ":’" # (apostrophe)
+
+    # Medials # Needed for connecting constants
+
+    sub "ാ", "ā"
+    sub "ി", "i"
+    sub "ീ", "ī"
+    sub "ു", "u"
+    sub "ൂ", "ū"
+    sub "്", "ŭ"
+    sub "ൃ", "ṛ"
+    sub "ൄ", "ṝ"
+    sub "\u0D62", "ḷ"
+    sub "\u0D63", "ḹ"
+    sub "െ", "e"
+    sub "േ", "ē"
+    sub "ൈ", "ai"
+    sub "ൊ", "o"
+    sub "ോ", "ō"
+    sub "ൌ", "au"
+
+    sub "्", ""
+    sub "़", ""
+    sub "ൗ", ""
+    sub "‍", "" # no need for zero with joiner
+    sub "‌", "" # no need for zero with non joiner
+
+
+    # For rule 12
+    # Gutturals
+    sub "ക്", "k"
+    sub "ഖ്", "kh"
+    sub "ഗ്", "g"
+    sub "ഘ്", "gh"
+    sub "ങ്", "ṅ"
+
+    # Palatals
+    sub "ച്", "c"
+    sub "ഛ്", "ch"
+    sub "ജ്", "j"
+    sub "ഝ്", "jh"
+    sub "ഞ്", "ñ"
+
+    # Cerebrals
+    sub "ട്", "ṭ"
+    sub "ഠ്", "ṭh"
+    sub "ഡ്", "d̂"
+    sub "ഢ്", "ḍh"
+    sub "ണ്", "ṇ"
+
+    # Dentals
+    sub "ത്", "t"
+    sub "ഥ്", "th"
+    sub "ദ്", "d"
+    sub "ധ്", "dh"
+    sub "ന്", "n"
+
+    # Labials
+    sub "പ്", "p"
+    sub "ഫ്", "ph"
+    sub "ബ്", "b"
+    sub "ഭ്", "bh"
+    sub "മ്", "m"
+
+    # Semivowels
+    sub "യ്", "y"
+    sub "ര്", "r"
+    sub "റ്", "ṟ"
+    sub "ല്", "l"
+    sub "ള്", "ḷ"
+    sub "ഴ്", "ḻ"
+    # Sibilants
+    sub "വ്", "v"
+    sub "ശ്", "ś"
+    sub "ഷ്", "ṣ"
+    sub "സ്", "s"
+    sub "ഩ്", "ṉ"
+
+
+    # Aspirate
+    sub "ഹ്", "h"
+
+
+    # numbers
+
+    sub "൦", "0"
+    sub "൧", "1"
+    sub "൨", "2"
+    sub "൩", "3"
+    sub "൪", "4"
+    sub "൫", "5"
+    sub "൬", "6"
+    sub "൭", "7"
+    sub "൮", "8"
+    sub "൯", "9"
+    sub "൰", "10"
+    sub "൱", "100"
+    sub "൲", "1000"
+
+
+    # Rule 8(II)
+
+    sub "ൺ", ":na"
+    sub "ൻ", ":ṇa"
+    sub "ൽ", ":la"
+    sub "ൾ", ":ḷa"
+    sub "ൿ", ":ka"
+  }
+  
+  compose
+}
+

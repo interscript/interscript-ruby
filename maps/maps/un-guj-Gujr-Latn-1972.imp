@@ -1,0 +1,196 @@
+metadata {
+  authority_id: un
+  id: 1972
+  language: iso-639-2:guj
+  source_script: Gujr
+  destination_script: Latn
+  name: REPORT ON THE CURRENT STATUS OF UNITED NATIONS ROMANIZATION SYSTEMS FOR GEOGRAPHICAL NAMES --Gujarati Romanization Version 4.0
+  url: https://www.eki.ee/wgrs/rom1_gu.htm
+  creation_date: 1972
+  confirmation_date: 2016
+  description: |
+    The United Nations recommended system was approved in 1972 (II/11) and amended in 1977 (III/12),
+    based on a report prepared by D. N. Sharma. The tables and their corrections were published in
+    volume II of the conference reports.
+
+    There is no evidence of the use of the system either in India or in international cartographic products.
+
+    Gujarati (Gujarātī) uses an alphasyllabic script whereby each character represents a syllable
+    rather than one sound. Vowels and diphthongs are marked in two ways: as independent characters
+    (used syllable-initially) and in an abbreviated form, to denote vowels after consonants.
+    The romanization table is unambiguous but the user would have to recognize many ligatures not
+    given in the original table. For two vowel letters (e/ĕ, o/ŏ) there is uncertainty as to the
+    conditions in which either of the two variants is to be used. The system is mostly reversible
+    but there exist some ambiguities in the romanization of vowels (independent vs. abbreviated characters)
+    and consonants (ligatures vs. character sequences).
+
+    References
+
+    Second United Nations Conference on the Standardization of Geographical Names. London, 10–31 May 1972.
+    Vol. II. Technical papers. United Nations. New York 1974, pp. 134–135.
+
+    Third United Nations Conference on the Standardization of Geographical Names.
+    Athens, 17 August – 7 September 1977. Vol. II, Technical papers, pp. 393 etc.
+
+  notes:
+
+    - |
+      Exception of ી : જી jī.
+    - |
+      Exception of ૂ : રૂ rū.
+    - |
+      ્‌ indicates pronunciation without a vowel.
+}
+
+tests {
+  test "અમિત શાહનો કોરોના રિપોર્ટ ૨ ઓગસ્ટે પોઝિટિવ આવ્યો હતો, ત્યારથી તેમનું સ્વાસ્થ્ય સારું નથી", "amita shāhanŏ kŏrŏnā ripŏrṭa 2 ŏgasṭĕ pŏjhiṭiva āvyŏ hatŏ, tyārathī tĕmanuṁ svāsthya sāruṁ nathī"
+  test "મેદાંતા હોસ્પિટલમાં તેમનો ઇલાજ ચાલી રહ્યો હતો", "mĕdāṁtā hŏspiṭalamāṁ tĕmanŏ ilāja chālī rahyŏ hatŏ"
+  test "ભારતના વિશ્વનાથન આનંદે શેનયાનમાં પહેલો ફિડે શતરંજ વિશ્વ કપ જીત્યો", "bhāratanā vishvanāthana ānaṁdĕ shĕnayānamāṁ pahĕlŏ fiḍĕ shataraṁja vishva kapa jītyŏ"
+  test "ભારતીય વડા પ્રધાન જવાહરલાલ નેહરુએ ૪૦ લાખ હિન્દુઓ અને મુસલમાનોના પારસ્પરિક સ્થાનાંતરણનું સૂચન આપ્યું", "bhāratīya vaḍā pradhāna javāharalāla nĕharuĕ 40 lākha hinduŏ anĕ musalamānŏnā pārasparika sthānāṁtaraṇanuṁ sūchana āpyuṁ"
+  test "લિબિયાના એલ અજિજિયામાં ધરતી પર સૌથી વધુ તાપમાન નોંધાયું. એ વખતે છાયામાં નોંધવામાં આવેલું તાપમાન ૫૮ ડિગ્રી સેલ્સિયસ હતું.", "libiyānā ĕla ajijiyāmāṁ dharatī para sauthī vadhu tāpamāna nŏṁdhāyuṁ. ĕ vakhatĕ chhāyāmāṁ nŏṁdhavāmāṁ āvĕluṁ tāpamāna 58 ḍigrī sĕlsiyasa hatuṁ."
+  test "પ્રથમ વિશ્વયુદ્ધઃ જર્મની અને ફ્રાન્સ વચ્ચે એસ્નેની લડાઈ શરૂ થઈ હતી", "prathama vishvayuddhaḥ jarmanī anĕ frānsa vachchĕ ĕsnĕnī laḍāī sharū thaī hatī"
+  test "એન્ગ્લો-મિસ્ત્ર યુદ્ધઃ તેલ અલ કેબિરનું યુદ્ધ લડવામાં આવ્યું હતું.", "ĕnglŏ-mistra yuddhaḥ tĕla ala kĕbiranuṁ yuddha laḍavāmāṁ āvyuṁ hatuṁ."
+  test "પુરાવા ન હતા, એ જ કારણે કેસ ચાલ્યો નહીં, પણ તેમને નજરકેદ રાખવામાં આવ્યા", "purāvā na hatā, ĕ ja kāraṇĕ kĕsa chālyŏ nahīṁ, paṇa tĕmanĕ najarakĕda rākhavāmāṁ āvyā"
+  test "સરદાર પટેલે નક્કી કર્યું હતું કે કાશ્મીર ભારતનો હિસ્સો બનશે; ૯૧ વર્ષ પહેલાં લાહોર જેલમાં ભૂખહડતાળ દરમિયાન શહીદ થયા હતા જતીન દાસ", "saradāra paṭĕlĕ nakkī karyuṁ hatuṁ kĕ kāshmīra bhāratanŏ hissŏ banashĕ; 91 varṣha pahĕlāṁ lāhŏra jĕlamāṁ bhūkhahaḍatāḷa daramiyāna shahīda thayā hatā jatīna dāsa"
+  test "કોરોના પ્રોટોકોલ વચ્ચે આજે મેડિકલ પ્રવેશ પરીક્ષા લેવાશેઃ એન્ટ્રી ટચ ફ્રી રહેશે, એડમિટ કાર્ડ બાર કોડથી ચેક થશે", "kŏrŏnā prŏṭŏkŏla vachchĕ ājĕ mĕḍikala pravĕsha parīkṣhā lĕvāshĕḥ ĕnṭrī ṭacha frī rahĕshĕ, ĕḍamiṭa kārḍa bāra kŏḍathī chĕka thashĕ"
+  test "અલ્ ક઼`ઇદ્ માં હવામાન", "al ka`id māṁ havāmāna"
+  test "મંત્રાલય તથા ખ઼.ય ના વિ૨ષ્ઠ અધિકા૨ીઓ ઉપસ્થિત ૨હ્યા હતા", "maṁtrālaya tathā kha.ya nā vi2ṣhṭha adhikā2īŏ upasthita 2hyā hatā"
+}
+
+aliases {
+  def_alias gurj_chars_1, any("\u0abe\u0abf\u0ac0\u0ac1\u0ac2\u0ac3\u0ac5\u0ac7\u0ac8\u0ac9\u0acb\u0acc\u0acd")
+}
+
+stage {
+
+  # RULES
+  sub "ક", "k", after: gurj_chars_1
+  sub "ખ", "kh", after: gurj_chars_1
+  sub "ગ", "g", after: gurj_chars_1
+  sub "ઘ", "gh", after: gurj_chars_1
+  sub "ઙ", "ṅ", after: gurj_chars_1
+  sub "ચ", "ch", after: gurj_chars_1
+  sub "છ", "chh", after: gurj_chars_1
+  sub "જ", "j", after: gurj_chars_1
+  sub "ઝ", "jh", after: gurj_chars_1
+  sub "ઞ", "ñ", after: gurj_chars_1
+  sub "ટ", "ṭ", after: gurj_chars_1
+  sub "ઠ", "ṭh", after: gurj_chars_1
+  sub "ડ", "ḍ", after: gurj_chars_1
+  sub "ઢ", "ḍh", after: gurj_chars_1
+  sub "ણ", "ṇ", after: gurj_chars_1
+  sub "ત", "t", after: gurj_chars_1
+  sub "થ", "th", after: gurj_chars_1
+  sub "દ", "d", after: gurj_chars_1
+  sub "ધ", "dh", after: gurj_chars_1
+  sub "ન", "n", after: gurj_chars_1
+  sub "પ", "p", after: gurj_chars_1
+  sub "ફ", "f", after: gurj_chars_1
+  sub "બ", "b", after: gurj_chars_1
+  sub "ભ", "bh", after: gurj_chars_1
+  sub "મ", "m", after: gurj_chars_1
+  sub "ય", "y", after: gurj_chars_1
+  sub "ર", "r", after: gurj_chars_1
+  sub "લ", "l", after: gurj_chars_1
+  sub "વ", "v", after: gurj_chars_1
+  sub "શ", "sh", after: gurj_chars_1
+  sub "ષ", "ṣh", after: gurj_chars_1
+  sub "સ", "s", after: gurj_chars_1
+  sub "હ", "h", after: gurj_chars_1
+  sub "ળ", "ḷ", after: gurj_chars_1
+
+
+  # CHARACTERS
+  parallel {
+    # I. Independent vowel characters
+    sub "અ", "a"
+    sub "આ", "ā"
+    sub "ઇ", "i"
+    sub "ઈ", "ī"
+    sub "ઉ", "u"
+    sub "ઊ", "ū"
+    sub "ઋ", "ṛ"
+    sub "ઍ", "e"
+    sub "એ", "ĕ"
+    sub "ઐ", "ai"
+    sub "ઑ", "o"
+    sub "ઓ", "ŏ"
+    sub "ઔ", "au"
+
+    # II. Abbreviated vowel characters
+    sub "ા", "ā"
+    sub "િ", "i"
+    sub "ી", "ī"
+    sub "ુ", "u"
+    sub "ૂ", "ū"
+    sub "ૃ", "ṛ"
+    sub "ૅ", "e"
+    sub "ે", "ĕ"
+    sub "ૈ", "ai"
+    sub "ૉ", "o"
+    sub "ો", "ŏ"
+    sub "ૌ", "au"
+
+    # III. Other symbols
+    sub "ઃ", "ḥ"
+    sub "ં", "ṁ"
+    sub "ઁ", "m̐"
+    sub "્", ""
+
+    # IV. Consonant characters
+    sub "ક", "ka"
+    sub "ખ", "kha"
+    sub "ગ", "ga"
+    sub "ઘ", "gha"
+    sub "ઙ", "ṅa"
+    sub "ચ", "cha"
+    sub "છ", "chha"
+    sub "જ", "ja"
+    sub "ઝ", "jha"
+    sub "ઞ", "ña"
+    sub "ટ", "ṭa"
+    sub "ઠ", "ṭha"
+    sub "ડ", "ḍa"
+    sub "ઢ", "ḍha"
+    sub "ણ", "ṇa"
+    sub "ત", "ta"
+    sub "થ", "tha"
+    sub "દ", "da"
+    sub "ધ", "dha"
+    sub "ન", "na"
+    sub "પ", "pa"
+    sub "ફ", "fa"
+    sub "બ", "ba"
+    sub "ભ", "bha"
+    sub "મ", "ma"
+    sub "ય", "ya"
+    sub "ર", "ra"
+    sub "લ", "la"
+    sub "વ", "va"
+    sub "શ", "sha"
+    sub "ષ", "ṣha"
+    sub "સ", "sa"
+    sub "હ", "ha"
+    sub "ળ", "ḷa"
+
+    # digits
+    sub "૦", "0"
+    sub "૧", "1"
+    sub "૨", "2"
+    sub "૩", "3"
+    sub "૪", "4"
+    sub "૫", "5"
+    sub "૬", "6"
+    sub "૭", "7"
+    sub "૮", "8"
+    sub "૯", "9"
+
+    sub "઼", ""
+    sub "।", "."
+    sub "\u09CD", "" # Used for joining
+    sub "‍", "" # Used for joining
+  }
+
+
+  compose
+}

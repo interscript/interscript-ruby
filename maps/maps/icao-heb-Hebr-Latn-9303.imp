@@ -1,0 +1,160 @@
+metadata {
+  authority_id: icao
+  id: 9303
+  language: iso-639-2:heb
+  source_script: Hebr
+  destination_script: Latn
+  name: ICAO Doc 9303 Machine Readable Travel Documents Part 3 -- Hebrew to Latin
+  url: https://www.icao.int/publications/pages/publication.aspx?docnum=9303
+  creation_date: 2015
+  description: |
+    Part 3 defines specifications that are common to TD1, TD2 and TD3
+    size machine readable travel documents (MRTDs) including those
+    necessary for global interoperability using visual inspection and
+    machine readable (optical character recognition) means.
+
+    Since only Latin-alphabet characters are allowed in the VIZ, if
+    mandatory data elements are in a national language that does not use
+    the Latin alphabet, a transcription or transliteration shall also be
+    provided.
+
+    This document defines the transliteration mappings used to produce
+    this transcription or transliteration.
+}
+
+tests {
+}
+
+# https://en.wikipedia.org/wiki/Romanization_of_Hebrew
+
+stage {
+
+  # CHARACTERS
+  parallel {
+    sub "'", "" # '
+
+    # Consonants
+    sub "א", "" # א
+    sub "ב", "V" # ב
+    sub "בּ", "B" # בּ
+    sub "בּ", "B" # בּ
+    sub "ג", "G" # ג
+    sub "גּ", "G" # גּ
+    sub "גּ", "G" # גּ‬‬
+    sub "ג׳", "J" # ג׳
+    sub "ד", "D" # ד
+    sub "דּ", "D" # דּ
+    sub "דּ", "D" # דּ
+    sub "ד׳", "DH" # ד׳
+    sub "ה", "H" # ה
+    sub "הּ", "H" # הּ
+    sub "הּ", "H" # הּ
+    sub "ו", "V" # ו‬
+    sub "ו‬", "V" # ו‬
+    sub "וּ", "V" # וּ
+    # "\uFB35":             "V"  # וּ  # To vowels "U"
+    sub "ז", "Z" # ז
+    sub "זּ", "Z" # זּ
+    sub "זּ", "Z" # זּ‬
+    sub "ז׳", "ZH" # ז׳
+    sub "ח", "CH" # ח
+    sub "ט", "T" # ט
+    sub "טּ", "T" # טּ
+    sub "טּ", "T" # טּ
+    sub "י", "Y" # י
+    sub "יּ", "Y" # יּ
+    sub "יּ‬", "Y" # יּ‬
+    sub "יּ", "Y" # יּ‬
+    sub "כ", "CH" # כ
+    sub "כּ", "CH" # כּ
+    sub "כּ‬", "CH" # כּ
+    sub "כּ", "C" # כּ
+    sub "ך", "CH" # ך
+    sub "ךּ", "CH" # ךּ
+    sub "ךּ‬", "CH" # ךּ‬
+    sub "ךּ", "CH" # ךּ
+    sub "ל", "L" # ל‬
+    sub "לּ", "L" # לּ
+    sub "לּ", "L" # לּ
+    sub "ם", "M" # ם
+    sub "מ", "M" # מ‬
+    sub "מּ", "M" # מּ
+    sub "מּ", "M" # מּ‬
+    sub "ן", "N" # ן
+    sub "נ", "N" # נ
+    sub "נּ", "N" # נּ
+    sub "נּ", "N" # נּ
+    sub "ס", "S" # ס
+    sub "סּ", "S" # סּ
+    sub "סּ", "S" # סּ
+    sub "ע", "" # ע
+    sub "ף", "F" # ף
+    sub "ףּ", "P" # Possible problem u05BC # ףּ
+    sub "ףּ", "P" # ףּ
+    sub "פ", "F" # פ‬
+    sub "פּ", "P" # פּ
+    sub "פּ", "P" # פּ
+    sub "ץ", "TZ" # ץ
+    sub "ץ׳", "TSH" # Possible problem u05F3  # ץ׳
+    sub "צ", "TZ" # צ‬
+    sub "צּ", "TZ" # צּ
+    sub "צּ", "TZ" # צּ‬
+    sub "צ׳", "TSH" # Possible problem u05F3  # צ׳
+    sub "ק", "Q" # ק
+    sub "קּ", "Q" # קּ
+    sub "קּ", "Q" # קּ‬
+    sub "ר", "R" # ר
+    sub "רּ", "R" # רּ
+    sub "רּ", "R" # רּ
+    sub "ש", "S" # ש
+    sub "שּ", "S" # שּ
+    sub "שּ", "S" # שּ‬
+    sub "שׂ‬", "S" # שׂ
+    sub "שׂ", "S" # שׂ
+    sub "שׁ", "SH" # שׁ
+    sub "שׁ", "SH" # שׁ
+    sub "שּׂ‬", "S" # שּׂ‬
+    sub "שּׂ", "S" # שּׂ
+    sub "ת", "T" # ת
+    sub "תּ", "T" # תּ
+    sub "תּ", "T" # תּ
+    sub "ת׳", "T" # ת׳
+
+    # Niqqud vowels
+    sub "ְ", "E" # ( ְ‬ )
+    sub "ֱ", "E" # ( ֱ )
+    sub "ֲ", "A" # ( ֲ )
+    sub "ֳ", "O" # ( ֲ )
+    sub "ִ", "I" # ( ִ )
+    sub "ֵ", "E" # ( ֵ )
+    sub "ֶ", "E" # ( ֶ )
+    sub "ַ", "A" # ( ַ )
+    sub "ָ", "O" # ( ָ ) # It could be "A" too
+    sub "ֹ", "O" # ( ֹ )
+    sub "ֻ", "U" # ( ֻ )
+    sub "וּ", "U" # ( וּ )
+    sub "וּ", "U" # ( וּ )
+
+    # Diphthongs
+    sub "ֵי", "EI" # ( ֵי )
+    sub "ֶי", "EI" # ( ֶי )
+    sub "ַי", "AI" # ( ַי )
+    sub "ַיְ", "AI" # ( ַיְ )
+    sub "ַיְ‬", "AI" # ( ַיְ‬ )
+    sub "ָי", "AI" # ( ָי )
+    sub "ָי‬", "AI" # ( ָי‬ )
+    sub "ָיְ", "AI" # ( ָיְ )
+    sub "ָיְ‬", "AI" # ( ָיְ‬ )
+    sub "ֹי", "OI" # ( ֹי )
+    sub "ֹיְ", "OI" # ( ֹיְ )
+    sub "ֹיְ‬", "OI" # ( ֹיְ‬ )
+    sub "ֻי", "UI" # ( ֻי )
+    sub "ֻיְ", "UI" # ( ֻיְ )
+    sub "ֻיְ‬", "UI" # ( ֻיְ‬ )
+    sub "וּי", "UI" # ( וּי )
+    sub "וּיְ", "UI" # ( וּיְ )
+    sub "וּיְ‬", "UI" # ( וּיְ‬ )
+  }
+
+}
+

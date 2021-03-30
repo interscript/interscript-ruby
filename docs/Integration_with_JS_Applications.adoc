@@ -1,0 +1,30 @@
+= Integration with JS Applications
+
+Interscript can be used as a JS NPM library to be integrated with other JS
+applications.
+
+== NPM config
+
+[source,shell]
+----
+$ npm add interscript
+----
+
+== Usage in Node.js
+
+[source,javascript]
+-----
+var Interscript = require('interscript');
+Interscript.load_map('bgnpcgn-ukr-Cyrl-Latn-2019').then(function() {
+  alert(Interscript.transcribe('bgnpcgn-ukr-Cyrl-Latn-2019', prompt()));
+});
+-----
+
+== Usage in Web Browser
+
+Consult js/index.html.
+
+== Usage in webpack
+
+This library should be mostly compatible with webpack. It may be necessary to
+supply a path to the maps, as those are not bundled by default.

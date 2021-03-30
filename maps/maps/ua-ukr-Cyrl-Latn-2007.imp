@@ -1,0 +1,69 @@
+metadata {
+  authority_id: ua
+  id: 2007
+  language: iso-639-2:ukr
+  source_script: Cyrl
+  destination_script: Latn
+  name: The Cabinet of Ministers of Ukraine adopted Resolution No 858 "About the statement of the technical description and a sample passport form of a citizen of Ukraine to go abroad and make changes to some acts of the Cabinet of Ministers of Ukraine"
+  url: https://zakon.rada.gov.ua/laws/show/858-2007-%D0%BF/ed20070626
+  creation_date: 2007
+}
+
+tests {
+  # tests generated with https://dmsu.gov.ua/services/transliteration.html
+  test "ОЛЕКСАНДР ЯН", "OLEKSANDR YAN"
+  test "ТРАНСЛІТЕРАЦІЇ", "TRANSLITERATSII"
+  test "ПЕРЕВІРКА", "PEREVIRKA"
+  test "ВСІ МАТЕРІАЛИ РОЗМІЩЕНІ НА УМОВАХ ЛІЦЕНЗІЇ", "VSI MATERIALY ROZMISHCHENI NA UMOVAKH LITSENZII"
+  test "ВВЕДІТЬ ПРІЗВИЩЕ ТА ІМ'Я УКРАЇНСЬКИМИ ЛІТЕРАМИ", "VVEDIT PRIZVYSHCHE TA IMIA UKRAINSKYMY LITERAMY"
+  test "ДОДАТКОВА ІНФОРМАЦІЯ", "DODATKOVA INFORMATSIIA"
+  test "ДІЯЛЬНІСТЬ", "DIIALNIST"
+  test "ЮЛІЯ", "YULIIA"
+  test "ЗГОРАНИ", "ZGHORANY"
+  test "ЙОРКШИР-ТЕР'ЄР", "YORKSHYR-TERIER"
+  test "ПАПА ПАЧУКА", "PAPA PACHUKA"
+  test "ЄНАКІЄВЕ", "YENAKIIEVE"
+  test "УКРАЇНА", "UKRAINA"
+  test "КИЇВ", "KYIV"
+}
+
+dependency "ua-ukr-Cyrl-Latn-1996", as: cyrllatn
+
+
+stage {
+  # RULES
+  # override parent rules
+  sub "\u0027", ""
+  sub "\u2019", ""
+  sub "\u0413", "GH", before: any("З") # Г after З or з
+  sub boundary + "\u0404", "YE" # Є in initial position -> YE
+  sub boundary + "\u0407", "I" # Ї in initial position -> I
+  sub boundary + "\u042e", "YU" # Ю in initial position -> YU
+  sub boundary + "\u042f", "YA" # Я in initial position -> YA
+
+  # CHARACTERS
+  parallel {
+    sub "Г", "G" # Г
+    sub "Ґ", "G" # Ґ
+    sub "Є", "IE" # Є
+    sub "Ж", "ZH" # Ж
+    sub "Х", "KH" # Х
+    sub "Ц", "TS" # Ц
+    sub "Ч", "CH" # Ч
+    sub "Ш", "SH" # Ш
+    sub "Щ", "SHCH" # Щ
+    sub "Ю", "IU" # Ю
+    sub "Я", "IA" # Я
+    sub "Ь", "" # Ь ->
+    sub "г", "g" # г
+    sub "ґ", "g" # ґ
+    sub "щ", "shch" # щ
+    sub "ю", "iu" # ю
+    sub "я", "ia" # я
+    sub "ь", "" # ь ->
+    sub "'", "" # ' ->
+    sub "’", "" # ’ ->
+  }
+
+  run map.cyrllatn.stage.main
+}
