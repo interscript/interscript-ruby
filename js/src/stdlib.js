@@ -156,7 +156,7 @@ var Interscript = {
     return this.maps[map].aliases_re[alias];
   },
 
-  transcribe: function (map, str, stage) {
+  transliterate: function (map, str, stage) {
     if (stage === undefined) stage = "main";
     return this.maps[map].stages[stage](str);
   },

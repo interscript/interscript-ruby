@@ -115,7 +115,7 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
       else
         stage = map.imported_stages[r.stage.name]
       end
-      c += "s = Interscript.transcribe(#{stage.doc_name.to_json}, s, #{stage.name.to_json});\n"
+      c += "s = Interscript.transliterate(#{stage.doc_name.to_json}, s, #{stage.name.to_json});\n"
     else
       raise ArgumentError, "Can't compile unhandled #{r.class}"
     end
@@ -279,7 +279,7 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
 
   def call(str, stage=:main)
     load
-    self.class.ctx.eval "Interscript.transcribe(#{@map.name.to_json}, #{str.to_json}, #{stage.to_json})"
+    self.class.ctx.eval "Interscript.transliterate(#{@map.name.to_json}, #{str.to_json}, #{stage.to_json})"
   end
 
   def self.read_debug_data

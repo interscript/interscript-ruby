@@ -17,7 +17,7 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
     c << "def self.add_map_stage(map,stage,&block);    @maps[map].stages[stage] = block; end\n"
     c << "def self.get_alias(map,name);                @maps[map].aliases[name]; end\n"
     c << "def self.get_alias_re(map,name);             @maps[map].aliases_re[name]; end\n"
-    c << "def self.transcribe(map,string,stage=:main); @maps[map].stages[stage].(string); end\n"
+    c << "def self.transliterate(map,string,stage=:main); @maps[map].stages[stage].(string); end\n"
     c << "end; end; end\n"
     c
 
@@ -105,7 +105,7 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
       else
         stage = map.imported_stages[r.stage.name]
       end
-      c += "s = Interscript::Maps.transcribe(#{stage.doc_name.inspect}, s, #{stage.name.inspect})\n"
+      c += "s = Interscript::Maps.transliterate(#{stage.doc_name.inspect}, s, #{stage.name.inspect})\n"
     else
       raise ArgumentError, "Can't compile unhandled #{r.class}"
     end
@@ -249,7 +249,7 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
 
   def call(str, stage=:main)
     load
-    Interscript::Maps.transcribe(@map.name, str, stage)
+    Interscript::Maps.transliterate(@map.name, str, stage)
   end
 
   def self.read_debug_data
