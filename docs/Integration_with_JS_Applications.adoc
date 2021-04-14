@@ -16,7 +16,7 @@ $ npm add interscript
 -----
 var Interscript = require('interscript');
 Interscript.load_map('bgnpcgn-ukr-Cyrl-Latn-2019').then(function() {
-  alert(Interscript.transcribe('bgnpcgn-ukr-Cyrl-Latn-2019', prompt()));
+  alert(Interscript.transliterate('bgnpcgn-ukr-Cyrl-Latn-2019', prompt()));
 });
 -----
 
