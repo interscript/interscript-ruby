@@ -7,7 +7,7 @@ applications.
 
 [source,shell]
 ----
-$ npm add interscript
+$ npm install interscript
 ----
 
 == Usage in Node.js

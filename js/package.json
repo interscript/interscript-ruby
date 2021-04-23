@@ -1,14 +1,15 @@
 {
-  "name": "interscript.js",
-  "version": "0.0.1",
-  "description": "interscript",
-  "main": "stdlib.js",
+  "name": "interscript",
+  "version": "2.0.0",
+  "description": "Interscript JS bindings",
+  "main": "./src/stdlib.js",
+  "repository": "git@github.com:interscript/interscript.git",
+  "author": "Ribose Inc. <open.source@ribose.com>",
   "scripts": {
     "test": "mocha",
     "prepareMaps": "cd ../ruby; bundle install --without=\"secryst jsexec\"; bundle exec rake compile[javascript,../js/src/maps];"
   },
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "xregexp": "^5.0.1"
   },
