@@ -9,7 +9,7 @@
     "test": "mocha",
     "prepareMaps": "cd ../ruby; bundle install --without=\"secryst jsexec\"; bundle exec rake compile[javascript,../js/src/maps];"
   },
-  "license": "MIT",
+  "license": "BSD-2-Clause",
   "dependencies": {
     "xregexp": "^5.0.1"
   },

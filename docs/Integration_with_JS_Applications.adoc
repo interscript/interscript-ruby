@@ -27,4 +27,10 @@ Consult js/index.html.
 == Usage in webpack
 
 This library should be mostly compatible with webpack. It may be necessary to
-supply a path to the maps, as those are not bundled by default.
+supply a path to the maps, as those are not bundled by default. To do so, you
+need to do something like:
+
+[source,javascript]
+-----
+Interscript.map_path = "/node_modules/interscript/src/maps/";
+-----

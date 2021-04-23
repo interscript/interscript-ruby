@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.date = %q{2019-11-17}
   spec.homepage      = "https://www.interscript.com"
-  spec.license       = "MIT"
+  spec.license       = "BSD-2-Clause"
 
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
