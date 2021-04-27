@@ -86,18 +86,20 @@ module Interscript
     end
 
     # List all possible maps to use
-    def maps(basename: true, load_path: false, select: "*")
+    def maps(basename: true, load_path: false, select: "*", libraries: false)
       if load_path
         paths = Interscript.load_path
       else
         paths = Interscript.map_locations
       end
 
+      ext = libraries ? "iml" : "imp"
+
       paths.map do |i|
-        Dir["#{i}/#{select}.imp"]
+        Dir["#{i}/#{select}.#{ext}"]
       end.flatten.yield_self do |i|
         if basename
-          i.map { |j| File.basename(j, ".imp") }
+          i.map { |j| File.basename(j, ".#{ext}") }
         else
           i
         end

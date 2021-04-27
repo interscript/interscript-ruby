@@ -22,10 +22,13 @@ task :compile, [:compiler, :target] do |t, args|
 
   Interscript.maps.each do |map|
     code = compiler.(map).code
-
     File.write(args[:target] + "/" + map + "." + ext, code)
-
     maplist[map] = nil
+  end
+
+  Interscript.maps(libraries: true).each do |map|
+    code = compiler.(map).code
+    File.write(args[:target] + "/" + map + "." + ext, code)
   end
 
   File.write(args[:target] + "/index.json", maplist.to_json)
