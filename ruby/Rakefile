@@ -18,11 +18,17 @@ task :compile, [:compiler, :target] do |t, args|
 
   FileUtils.mkdir_p(args[:target])
 
+  maplist = {}
+
   Interscript.maps.each do |map|
     code = compiler.(map).code
 
     File.write(args[:target] + "/" + map + "." + ext, code)
+
+    maplist[map] = nil
   end
+
+  File.write(args[:target] + "/index.json", maplist.to_json)
 end
 
 task :version, [:ver] do |t, ver|
