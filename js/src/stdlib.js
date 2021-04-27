@@ -64,16 +64,17 @@ var Interscript = {
     );
   },
 
-  load_map_list: function() {
-    return new Promise(function(ok, fail) {
-      if (typeof module !== "undefined") {
-        this.maps = require(this.map_path);
-        ok();
-      }
-      else {
-        fail("Not implemented");
-      }
-    }.bind(this));
+  load_map_list: function () {
+    return new Promise(
+      function (ok, fail) {
+        if (typeof module !== "undefined") {
+          this.maps = require(this.map_path);
+          ok();
+        } else {
+          fail("Not implemented");
+        }
+      }.bind(this)
+    );
   },
 
   correct_boundaries: function () {
@@ -204,7 +205,7 @@ var Interscript = {
   },
 
   map_exist: function (map) {
-    return this.maps[map] !== "undefined";
+    return typeof this.maps[map] !== "undefined";
   },
 
   map_list: function (map) {
