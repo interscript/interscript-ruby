@@ -256,3 +256,7 @@ Interscript.correct_boundaries();
 if (typeof module !== "undefined") {
   module.exports = Interscript;
 }
+
+if (typeof window !== "undefined") {
+  window.Interscript = Interscript;
+}
