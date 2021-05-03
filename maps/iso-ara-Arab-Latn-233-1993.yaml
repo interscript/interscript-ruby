@@ -1,0 +1,180 @@
+---
+authority_id: iso
+id: 233-2:1993
+language: iso-639-2:ara
+source_script: Arab
+destination_script: Latn
+name: ISO 233:1993 Documentation — Transliteration of Arabic characters into Latin characters
+url: https://cdn.standards.iteh.ai/samples/4118/2f03c828842c4055a5619c1bded39381/ISO-233-2-1993.pdf
+creation_date: 1993-08
+confirmation date: 2018-06
+description: |
+  Is one of a series of International Standards dealing with
+  the conversion of systems of writing, following the
+  principles of stringent conversion in order to permit
+  international information exchange. Its aim is to provide a
+  means for international communication of written messages
+  in a form which permits the automatic transmission and
+  reconstitution of these by men or machines. Cancels and
+  replaces ISO Recommendation R 233-1961
+notes:
+  - |
+
+tests:
+
+  - source: مِصر
+    expected: Miṣr
+
+  - source: قَطَر
+    expected: Qaṭar
+
+  - source: الجُمهُورِيَّة العِرَاقِيَّة
+    expected: Al Ǧumhuwriyaẗ al ‘Ira’qiyaẗ
+
+  - source: جُمهُورِيَّة مِصر العَرَبِيَّة
+    expected: Ǧumhuwriyaẗ Miṣr al ‘Arabiyaẗ
+
+  - source: الرِيَاض
+    expected: Ar Riya’ḍ
+
+  - source: الشارِقة
+    expected: Aš Šâriqaẗ
+
+map:
+  inherit: iso-ara-Arab-Latn-233-1984
+
+  postrules:
+    - pattern: (?<=\b)(?<!\b[‘|’|'])[\u0061-\uFFFF]
+      result: "upcase"
+    # don't capitalize defined article in the middle of a sentence
+    - pattern : ' At T'  # الت
+      result: ' at T'
+    - pattern : ' Aṯ Ṯ'  # الث
+      result: ' aṯ Ṯ'
+    - pattern : ' Ad D' # الد
+      result: ' ad D'
+    - pattern : ' Aḏ Ḏ'  # الذ
+      result: ' aḏ Ḏ'
+    - pattern : ' Ar R' # الر
+      result: ' ar R'
+    - pattern : ' Az Z'  # الز
+      result: ' az Z'
+    - pattern : ' As S' # الس
+      result: ' as S'
+    - pattern : ' Aš Š' # الش
+      result: ' aš Š'
+    - pattern : ' Aṣ Ṣ'  # الص
+      result: ' aṣ Ṣ'
+    - pattern : ' Aḍ Ḍ'  # الض
+      result: ' aḍ Ḍ'
+    - pattern : ' Aṭ Ṭ'  # الط
+      result: ' aṭ Ṭ'
+    - pattern : ' Aẓ Ẓ' # الظ
+      result: ' aẓ Ẓ'
+    - pattern : ' Al L'  # الل
+      result: ' al L'
+    - pattern : ' An N'  # الن
+      result: ' an N'
+    - pattern: " Al " # ال
+      result: " al "
+
+  characters:
+
+    # pointing
+    '\u064e' : 'a' # َ fatha
+    '\u064e(?=\u0629)' : '' # َ fatha followed by ta' marboota
+    '\u0650' : 'i' # ِ kasra
+    '\u064f' : 'u' # ُ damma
+    '\u0652' : ''  # ْ sokoon, see note A below
+
+    # special pointed letters
+    # special pointed letters
+    '\u0639\u064e' : '‘a'  # عَ
+    '\u0639\u0650' : '‘i'  # عِ
+    '\u0639\u064f' : '‘ū'  # عُ
+    # handle MacOS regex difference
+    '\u0639\u064f\u0648' : '‘ū'  # عُو damma followed by و
+
+    '\u0650\u064a' : 'iy' # ـِي kasra followed by ي
+    '\u0650\u064a\u0651\u064e' : 'iy' # ـِيَّ
+    '\u0650\u064a(?=\u064e|u064f)' : 'iy' # ـِي kasra followed by ي
+    '\u064e\u0627' : 'a’'  # ـَا fatha followed by ا
+    '\u064e\u0649' : 'aỳ'  # ـَى fatha followed by ى which is ا not ي
+    '\u064f\u0648' : 'uw'  # ـُو damma followed by و
+    '\u064e\u0648\u0652' : 'aw'  # ـَوْ
+    '\u064e\u064a\u0652' : 'ay'  # ـَيْ
+
+    # Sun letters
+
+    '\b\u0627\u0644\u062a' : 'at t'  # الت
+    '\b\u0627\u0644\u062b' : 'aṯ ṯ'  # الث
+    '\b\u0627\u0644\u062f' : 'ad d' # الد
+    '\b\u0627\u0644\u0630' : 'aḏ ḏ'  # الذ
+    '\b\u0627\u0644\u0631' : 'ar r' # الر
+    '\b\u0627\u0644\u0632' : 'az z'  # الز
+    '\b\u0627\u0644\u0633' : 'as s' # الس
+    '\b\u0627\u0644\u0634' : 'aš š' # الش
+    '\b\u0627\u0644\u0635' : 'aṣ ṣ'  # الص
+    '\b\u0627\u0644\u0636' : 'aḍ ḍ'  # الض
+    '\b\u0627\u0644\u0637' : 'aṭ ṭ'  # الط
+    '\b\u0627\u0644\u0638' : 'aẓ ẓ' # الظ
+    '\b\u0627\u0644\u0644' : 'al l'  # الل
+    '\b\u0627\u0644\u0646' : 'an n'  # الن
+
+    # ta' marboota in iso-233-1984 is all the same `aẗ`
+    '\u0629' : 'aẗ' # ة in the middle of the sentence
+
+    # Shadda
+
+
+    '\u0628\u0651' : 'bb'  # ب
+    '\u062a\u0651' : 'tt'  # ت
+    '\u062b\u0651' : 'ṯṯ'  # ث
+    '\u062c\u0651' : 'ǧǧ'  # ج
+    '\u062d\u0651' : 'ḥḥ' # ح
+    '\u062e\u0651' : 'ẖẖ'  # خ
+    '\u062f\u0651' : 'dd'  # د
+    '\u0630\u0651' : 'ḏḏ'  # ذ
+    '\u0631\u0651' : 'rr'  # ر
+    '\u0632\u0651' : 'zz'  # ز
+    '\u0633\u0651' : 'ss'  # س
+    '\u0634\u0651' : 'šš'  # ش
+    '\u0635\u0651' : 'ṣṣ'  # ص
+    '\u0636\u0651' : 'ḍḍ'  # ض
+    '\u0637\u0651' : 'ṭṭ'  # ط
+    '\u0638\u0651' : 'ẓẓ'  # ظ
+    '\u063a\u0651' : 'ġġ'  # غ
+    '\u0641\u0651' : 'ff'  # ف
+    '\u0642\u0651' : 'qq'  # ق
+    '\u0643\u0651' : 'kk'  # ك
+    '\u0644\u0651' : 'll'  # ل
+    '\u0645\u0651' : 'mm'  # م
+    '\u0646\u0651' : 'nn'  # ن
+    '\u0647\u0651' : 'hh'  # ه
+    '\u0648\u0651' : 'ww'  # و
+    '\u064a\u0651' : 'yy'  # ي
+
+
+    '\u0622' : '’â'  # آ
+
+    '\u0627' : 'â'  # ا
+
+    '\u0649' : 'ỳ'  # ى
+
+    '\u0626' : "'" # ئ
+
+
+    '\u0623' : 'a'  # أ
+
+    # See note B
+    '\b\u0627\u0644' : 'al '  # ال
+    # '\uFE8E' : ''  # ﺎ
+
+    '[\u0641|\u06A2]' : 'f'  # ف | ڢ
+
+    '[\u0642|\u06A8]' : 'q'  # ق | ڧ‎
+
+    '\u0646' : 'n'  # ن
+    '\ufee7' : 'n'  # ﻧ
+    '\ufee8' : 'n'  # ﻨ
+    '\ufee6' : 'n'  # ﻦ
