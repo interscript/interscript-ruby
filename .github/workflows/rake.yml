@@ -1,0 +1,46 @@
+name: rake
+
+on:
+  push:
+    branches: [ master, main ]
+    tags: [ v* ]
+  pull_request:
+
+# https://github.community/t/use-working-directory-for-entire-job/16747/12
+defaults:
+  run:
+    working-directory: ./ruby
+
+jobs:
+  rake:
+    name: Test on Ruby ${{ matrix.ruby }} ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    continue-on-error: ${{ matrix.experimental }}
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby: [ '2.7', '2.6', '2.5', '2.4' ]
+        os: [ ubuntu-latest, windows-latest, macos-latest ]
+        experimental: [ false ]
+        include:
+          - ruby: '3.0'
+            os: 'ubuntu-latest'
+            experimental: true
+          - ruby: '3.0'
+            os: 'windows-latest'
+            experimental: true
+          - ruby: '3.0'
+            os: 'macos-latest'
+            experimental: true
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true
+          working-directory: ./ruby
+
+      - run: bundle exec rake
