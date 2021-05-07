@@ -8,11 +8,13 @@ gem "rspec", "~> 3.0"
 
 gem "interscript-maps", path: "../maps"
 
-group :secryst do
-  if File.exist? "../../secryst"
-    gem "secryst", path: "../../secryst"
-  else
-    gem "secryst"
+unless Gem::Version.new(RUBY_VERSION) < Gem::Version.new("2.7")
+  group :secryst do
+    if File.exist? "../../secryst"
+      gem "secryst", path: "../../secryst"
+    else
+      gem "secryst"
+    end
   end
 end
 
