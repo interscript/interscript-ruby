@@ -32,6 +32,9 @@ jobs:
             os: 'macos-latest'
             experimental: true
 
+    env:
+      BUNDLE_WITHOUT: "secryst"
+
     steps:
       - name: Checkout repository and submodules
         uses: actions/checkout@v2
