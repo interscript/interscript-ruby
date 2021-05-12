@@ -1,4 +1,4 @@
-class Interscript::Node::Document < Interscript::Node::Group
+class Interscript::Node::Document
   attr_accessor :metadata, :tests, :name
   attr_accessor :dependencies, :aliases, :stages, :dep_aliases
 
