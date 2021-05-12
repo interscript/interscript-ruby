@@ -2,8 +2,13 @@ name: test
 
 on:
   push:
-    branches: [master]
+    branches: [ master, main ]
+    tags: [ v* ]
   pull_request:
+
+defaults:
+  run:
+    working-directory: ./ruby
 
 jobs:
   build:
@@ -13,24 +18,34 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-        ruby: ["3.0", "2.7", "2.6", "2.5", "2.4"]
+        ruby: [ 2.7, 2.6, 2.5, 2.4 ]
+        os: [ ubuntu-latest, windows-latest, macos-latest ]
+        experimental: [ false ]
+        include:
+          - ruby: 3.0
+            os: 'ubuntu-latest'
+            experimental: true
+          - ruby: 3.0
+            os: 'windows-latest'
+            experimental: true
+          - ruby: 3.0
+            os: 'macos-latest'
+            experimental: true
 
     steps:
       - name: Checkout repository and submodules
         uses: actions/checkout@v2
         with:
-          submodules: recursive
-
-      - run: cd ./ruby
+          submodules: true
 
       - name: Use Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
+          working-directory: ./ruby
 
       - name: Run RSpecs
         run: |
           bundle install --with=jsexec
-          bundle exec rspec
+          bundle exec rspec -f f
