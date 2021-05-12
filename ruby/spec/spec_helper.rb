@@ -8,7 +8,7 @@ end
 require "bundler/setup"
 require "interscript"
 require "interscript/compiler/ruby"
-require "interscript/compiler/javascript"
+require "interscript/compiler/javascript" unless ENV["SKIP_JS"]
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -43,8 +43,8 @@ RSpec.configure do |config|
     compilers = [
       Interscript::Interpreter,
       Interscript::Compiler::Ruby,
-      Interscript::Compiler::Javascript
-    ]
+      Interscript::Compiler::Javascript unless ENV["SKIP_JS"]
+    ].compact
 
     compilers.each do |compiler|
       block.(compiler)
