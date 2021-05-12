@@ -39,12 +39,10 @@ RSpec.configure do |config|
   end
 
   def each_compiler &block
-    # Use ENV to select compilers?
-    compilers = [
-      Interscript::Interpreter,
-      Interscript::Compiler::Ruby,
-      Interscript::Compiler::Javascript unless ENV["SKIP_JS"]
-    ].compact
+    compilers = []
+    compilers << Interscript::Interpreter
+    compilers << Interscript::Compiler::Ruby
+    compilers << Interscript::Compiler::Javascript unless ENV["SKIP_JS"]
 
     compilers.each do |compiler|
       block.(compiler)
