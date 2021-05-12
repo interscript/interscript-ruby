@@ -345,7 +345,7 @@ the table below and they may be omitted if a default value is specified.
 | `compose`         |                       | `"ᄆ"+"ᅮ"`            | `"무"`
 | `decompose`       |                       | `"무"`                | `"ᄆ"+"ᅮ"`
 | `separate`        | `separator: " "`      | `"こんいちは"`         | `"こ ん い ち は"`
-| `secryst`         | `model:`           2+>| Consult: link:docs/Usage_with_Secryst.adoc[Usage with Secryst].
+| `secryst`         | `model:`           2+>| Consult: link:Usage_with_Secryst.adoc[Usage with Secryst].
 |===
 
 == Items
