@@ -76,7 +76,7 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
       rescue
         # Otherwise let's build a megaregexp
         a = []
-        r.children.sort_by{ |rule| -rule.max_length }.each do |i|
+        Interscript::Stdlib.deterministic_sort_by_max_length(r.children).each do |i|
           raise ArgumentError, "Can't parallelize #{i.class}" unless Interscript::Node::Rule::Sub === i
 
           a << [build_regexp(i, map), compile_item(i.to, map, :parstr)]

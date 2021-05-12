@@ -47,7 +47,7 @@ class Interscript::Interpreter < Interscript::Compiler
             $using_tree = false
             # Otherwise let's build a megaregexp
             subs_array = []
-            r.children.sort_by{ |rule| -rule.max_length }.each do |i|  # rule.from.max_length gives somewhat better test results, why is that
+            Interscript::Stdlib.deterministic_sort_by_max_length(r.children).each do |i|  # rule.from.max_length gives somewhat better test results, why is that
               raise ArgumentError, "Can't parallelize #{i.class}" unless Interscript::Node::Rule::Sub === i
 
               subs_array << [build_regexp(i), build_item(i.to, :parstr)]

@@ -157,6 +157,15 @@ class Interscript::Stdlib
     parallel_replace_tree(str, tree)
   end
 
+  # On Windows at least, sort_by is non-deterministic. Let's add some determinism
+  # to our efforts.
+  def self.deterministic_sort_by_max_length(ary)
+    # Deterministic on Linux:
+    # ary.sort_by{ |rule| -rule.max_length }
+
+    ary.each_with_index.sort_by{ |rule,idx| -rule.max_length*100000 + idx }.map(&:first)
+  end
+
   def self.available_functions
     %i[title_case downcase compose decompose separate secryst]
   end
