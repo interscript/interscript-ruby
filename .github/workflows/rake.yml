@@ -6,7 +6,6 @@ on:
     tags: [ v* ]
   pull_request:
 
-# https://github.community/t/use-working-directory-for-entire-job/16747/12
 defaults:
   run:
     working-directory: ./ruby
@@ -35,23 +34,22 @@ jobs:
 
     env:
       BUNDLE_WITHOUT: "secryst"
+      SKIP_JS: "1"
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository and submodules
+        uses: actions/checkout@v2
         with:
           submodules: true
 
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '15'
-
-      - if: matrix.os == 'macos-latest'
-        run: brew install automake autoconf
-
-      - uses: ruby/setup-ruby@v1
+      - name: Use Ruby
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
           working-directory: ./ruby
 
-      - run: bundle exec rspec -f f
+      - name: Run RSpecs
+        run: |
+          bundle install --with=jsexec
+          bundle exec rspec -f f
