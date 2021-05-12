@@ -20,8 +20,10 @@ end
 
 gem 'regexp_parser'
 
-group :jsexec do
-  gem 'mini_racer'
+unless ENV["SKIP_JS"]
+  group :jsexec do
+    gem 'mini_racer'
+  end
 end
 
 gem 'simplecov', require: false, group: :test
