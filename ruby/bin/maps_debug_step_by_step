@@ -21,7 +21,7 @@ mr = cr.(map, debug: true)
 m.tests.data.each_with_index do |(from, expected), idx|
   r = mr.(from)
 
-  unless ARGV[1] && ARGV[1].to_i == idx
+  unless ARGV[1] && ARGV[1].split(",").any? { |i| i.to_i == idx }
     if r == expected
       cr.reset_debug_data
       next

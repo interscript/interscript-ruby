@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+ENV["INTERSCRIPT_STAGING"] = "1"
+require "bundler/setup"
+require "interscript"
+require "interscript/compiler/ruby"
+
+# Compile a given map with the Ruby compiler for debugging purposes
+
+if ARGV[0] == '-b'
+  require 'base64'
+  $b64 = true
+  ARGV.shift
+end
+
+map = ARGV[0]
+m = Interscript.parse(map)
+cr = Interscript::Compiler::Ruby
+mr = cr.(map)
+
+if $b64
+  puts Base64.encode64(mr.code)
+else
+  puts mr.code
+end
