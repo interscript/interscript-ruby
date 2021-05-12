@@ -1,0 +1,44 @@
+#!/usr/bin/env ruby
+ENV["INTERSCRIPT_STAGING"] = "1"
+require "bundler/setup"
+require "interscript"
+require "interscript/compiler/ruby"
+
+# This script has been written because there are some differences between platforms
+# (ie. windows vs linux) that we wish to find out more about
+
+if ARGV[0] == '-b'
+  require 'base64'
+  $b64 = []
+  ARGV.shift
+end
+
+map = ARGV[0]
+m = Interscript.parse(map)
+cr = Interscript::Compiler::Ruby
+mr = cr.(map, debug: true)
+
+m.tests.data.each_with_index do |(from, expected), idx|
+  r = mr.(from)
+
+  unless ARGV[1] && ARGV[1].to_i == idx
+    if r == expected
+      cr.reset_debug_data
+      next
+    end
+  end
+
+  dr = cr.read_debug_data
+
+  if $b64
+    $b64 << [idx, dr]
+  else
+    pp [idx, dr]
+  end
+
+  cr.reset_debug_data
+end
+
+if $b64
+  puts Base64.encode64($b64.inspect)
+end
