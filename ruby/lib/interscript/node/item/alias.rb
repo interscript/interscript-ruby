@@ -23,6 +23,8 @@ class Interscript::Node::Item::Alias < Interscript::Node::Item
     self
   end
 
+  alias nth_string first_string
+
   def to_hash
     { :class => self.class.to_s,
       :name => name,

@@ -5,9 +5,68 @@ class Interscript::Interpreter < Interscript::Compiler
     self
   end
 
-  def call(str, stage=:main)
+  def call(str, stage=:main, each: false, &block)
     stage = @map.stages[stage]
-    Stage.new(@map, str).execute_rule(stage)
+    s =
+    if each
+      e = Enumerator.new do |yielder|
+        options = []
+        options_set = false
+        choices = nil
+
+        i = 0
+
+        loop do
+          result = nil
+
+          f = Fiber.new do
+            $select_nth_string = true
+            result = Stage.new(@map, str).execute_rule(stage)
+            $select_nth_string = false
+            Fiber.yield(:end)
+          end
+
+          iter = 0
+
+          loop do
+            break if f.resume == :end
+            # hash is unused for now... some problems may arise in certain
+            # scenarios that are not a danger right now, but i'm genuinely
+            # unsure how it can be handled.
+            #
+            # This scenario is described in a commented out test.
+            type, value, hash = f.resume
+            if options_set
+              f.resume(choices[i][iter])
+            else
+              options[iter] = value
+              f.resume(0)
+            end
+            iter += 1
+          end
+
+          unless options_set
+            options_set = true
+
+            opts = options.map { |i| (0...i).to_a }
+            choices = opts[0].product(*opts[1..-1])
+          end
+
+          yielder.yield(result)
+
+          i += 1
+          break if i == choices.length
+        end
+      end
+
+      if block_given?
+        e.each(&block)
+      else
+        e
+      end
+    else
+      Stage.new(@map, str).execute_rule(stage)
+    end
   end
 
   class Stage
@@ -106,7 +165,7 @@ class Interscript::Interpreter < Interscript::Compiler
     end
 
     def build_item i, target=nil, doc=@map
-      i = i.first_string if %i[str parstr].include? target
+      i = i.nth_string if %i[str parstr].include? target
       i = Interscript::Node::Item.try_convert(i)
       target = :par if target == :parstr
 

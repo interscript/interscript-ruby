@@ -36,6 +36,11 @@ module Interscript
       load(system_code, maps, compiler: compiler).(string)
     end
 
+    # Gives each possible value of the transliteration.
+    def transliterate_each(system_code, string, maps={}, &block)
+      load(system_code, maps).(string, each: true, &block)
+    end
+
     def transliterate_file(system_code, input_file, output_file, maps={})
       input = File.read(input_file)
       output = transliterate(system_code, input, maps)

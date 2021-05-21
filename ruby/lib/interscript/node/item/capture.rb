@@ -11,6 +11,10 @@ class Interscript::Node::Item::CaptureGroup < Interscript::Node::Item
     data.first_string
   end
 
+  def nth_string
+    data.nth_string
+  end
+
   def to_hash
     { :class => self.class.to_s,
       :data => self.data.to_hash }
@@ -32,6 +36,8 @@ class Interscript::Node::Item::CaptureRef < Interscript::Node::Item
   def first_string
     self
   end
+
+  alias nth_string first_string
 
   def to_hash
     { :class => self.class.to_s,

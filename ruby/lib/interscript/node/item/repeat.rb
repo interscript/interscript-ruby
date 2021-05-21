@@ -9,6 +9,10 @@ class Interscript::Node::Item::Repeat < Interscript::Node::Item
     data.first_string
   end
 
+  def nth_string
+    data.nth_string
+  end
+
   def max_length
     data.max_length
   end

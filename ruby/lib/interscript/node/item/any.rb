@@ -36,6 +36,16 @@ class Interscript::Node::Item::Any < Interscript::Node::Item
     end
   end
 
+  def nth_string
+    return first_string unless $select_nth_string
+
+    d = data
+    Fiber.yield(:prepare)
+    id = Fiber.yield(:select_nth_string, d.count, self.hash)
+    Fiber.yield(:selection)
+    Interscript::Node::Item.try_convert(value[id]).nth_string
+  end
+
   def max_length
     self.data.map(&:max_length).max
   end

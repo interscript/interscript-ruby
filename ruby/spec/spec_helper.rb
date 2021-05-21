@@ -51,8 +51,8 @@ RSpec.configure do |config|
 end
 
 class Interscript::Node::Document
-  def call(str, stage=:main, compiler=$compiler || Interscript::Interpreter)
-    compiler.(self).(str, stage)
+  def call(str, stage=:main, compiler=$compiler || Interscript::Interpreter, **kwargs)
+    compiler.(self).(str, stage, **kwargs)
   end
 end
 

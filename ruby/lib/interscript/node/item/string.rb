@@ -17,6 +17,8 @@ class Interscript::Node::Item::String < Interscript::Node::Item
     self.data
   end
 
+  alias nth_string first_string
+
   def + other
     if self.data == ""
       Interscript::Node::Item.try_convert(other)

@@ -32,6 +32,10 @@ class Interscript::Node::Item::Group < Interscript::Node::Item
     self.children.map(&:first_string).reduce(&:+)
   end
 
+  def nth_string
+    self.children.map(&:nth_string).reduce(&:+)
+  end
+
   def max_length
     @children.map { |i| i.max_length }.sum
   end
