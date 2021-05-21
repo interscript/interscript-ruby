@@ -42,9 +42,9 @@ class Interscript::Interpreter < Interscript::Compiler
             tree = Interscript::Stdlib.parallel_replace_compile_tree(subs_array) #.sort_by{|k,v| -k.length})
             @str = Interscript::Stdlib.parallel_replace_tree(@str, tree)
             r.cached_tree = tree
-            $using_tree = true
+            # $using_tree = true
           rescue
-            $using_tree = false
+            # $using_tree = false
             # Otherwise let's build a megaregexp
             subs_array = []
             Interscript::Stdlib.deterministic_sort_by_max_length(r.children).each do |i|  # rule.from.max_length gives somewhat better test results, why is that
