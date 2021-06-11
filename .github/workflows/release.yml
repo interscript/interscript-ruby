@@ -24,10 +24,10 @@ jobs:
 
       # For now let's install without secryst, as we don't necessarily need it.
       # We may need to change it once we start to depend on secryst maps.
-      - run: bundle install --jobs 4 --retry 3 --with jsexec --without secryst
+      - run: pushd ruby && bundle install --jobs 4 --retry 3 --with jsexec --without secryst && popd
 
       - name: Test the Ruby package
-        run: bundle exec rake all
+        run: pushd ruby && bundle exec rake all && popd
 
       - name: Test the JS package
         run: pushd js && npm run prepareMaps && npm test && popd
