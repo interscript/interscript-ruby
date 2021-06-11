@@ -27,7 +27,7 @@ jobs:
       - run: pushd ruby && bundle install --jobs 4 --retry 3 --with jsexec --without secryst && popd
 
       - name: Test the Ruby package
-        run: pushd ruby && bundle exec rake all && popd
+        run: pushd ruby && bundle exec rake && popd
 
       - name: Test the JS package
         run: pushd js && npm run prepareMaps && npm test && popd
