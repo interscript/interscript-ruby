@@ -1,4 +1,9 @@
 require 'erb'
+require 'interscript/visualize/nodes'
+
+def h(str)
+  str.to_s.gsub("&", "&amp;").gsub("<", "&lt;").gsub(">", "&gt;").gsub('"', "&quot;")
+end
 
 class Interscript::Visualize
   def self.def_template(template)
@@ -9,23 +14,15 @@ class Interscript::Visualize
   def self.call(*args)
     return Map.(*args) if self == Interscript::Visualize
 
-    tplctx = self.new(*select_object(*args))
+    tplctx = self.new(*args)
     @template.result(tplctx.get_binding)
-  end
-
-  def h(str)
-    str.to_s.gsub("&", "&amp;").gsub("<", "&lt;").gsub(">", "&gt;").gsub('"', "&quot;")
   end
 
   class Map < self
     def_template :map
 
-    def self.select_object(map_name)
-      Interscript.parse(map_name)
-    end
-
-    def initialize(map)
-      @map = map
+    def initialize(map_name)
+      @map = Interscript.parse(map_name)
     end
 
     attr_reader :map
@@ -35,17 +32,29 @@ class Interscript::Visualize
     end
   end
 
-  class Stage < self
-    def_template :stage
+  class Group < self
+    def_template :group
 
-    def self.select_object(map_name, stage_name)
-      Interscript.parse(map_name).stages[stage_name]
-    end
-  
-    def initialize(stage)
-      @stage = stage
+    def initialize(map, group, style=nil)
+      @map = map
+      @group = group
+      @style = style
     end
 
-    attr_reader :stage
+    attr_reader :map, :group
+
+    def render_group(map, group, style=nil)
+      Group.(map, group, style)
+    end
+  end
+
+  class Stage < Group
+    def_template :group
+
+    def initialize(map_name, stage_name, style=nil)
+      @map = Interscript.parse(map_name)
+      @group = map.stages[stage_name]
+      @style = style
+    end
   end  
 end

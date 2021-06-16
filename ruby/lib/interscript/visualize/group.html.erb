@@ -1,0 +1,59 @@
+<table style='<%= @style %>'>
+  <% group.children.each do |rule| %>
+    <tr>
+      <% case rule
+         when Interscript::Node::Rule::Sub %>
+        <td>
+          Replace
+        <td>
+          <%= rule.from.to_html(map) %>
+        <td>
+          <%= Symbol === rule.to ? rule.to : rule.to.to_html(map) %>
+        <td>
+          <%=
+            out = []
+            out << "before: #{rule.before.to_html(map)}" if rule.before
+            out << "after: #{rule.after.to_html(map)}" if rule.after
+            out << "<nobr>not before:</nobr> #{rule.not_before.to_html(map)}" if rule.not_before
+            out << "<nobr>not after:</nobr> #{rule.not_after.to_html(map)}" if rule.not_after
+            out.join(", ")
+          %>
+      <% when Interscript::Node::Group::Parallel %>
+        <td>
+          Parallel
+        <td colspan='3'>
+          <%= render_group map, rule %>
+        </td>
+      <% when Interscript::Node::Rule::Funcall %>
+        <td>
+          <%= h rule.name.to_s.gsub("_", " ").gsub(/^(.)/, &:upcase) %>
+        <td>
+          <%=
+            rule.kwargs.map do |k,v|
+              "#{k.to_s.gsub("_", " ")}: #{v}"
+            end.join(", ")
+          %>
+      <% when Interscript::Node::Rule::Run %>
+        <td>
+          <nobr>Run</nobr>
+        <td>
+          <a href='#' onclick='this.parentNode.lastElementChild.style.display=this.parentNode.lastElementChild.style.display=="none"?"table":"none";return!1'>
+            <%= rule.stage.to_html(map) %>
+          </a>
+
+          <%=
+            if rule.stage.map
+              doc = map.dep_aliases[rule.stage.map].document
+              stage = doc.imported_stages[rule.stage.name]
+            else
+              doc = map
+              stage = map.imported_stages[rule.stage.name]
+            end
+
+            render_group doc, stage, "display: none"
+          %>
+      <% else %>
+        <td colspan='4'><pre><%= h rule.inspect %></pre>
+      <% end %>
+  <% end %>
+</table>
