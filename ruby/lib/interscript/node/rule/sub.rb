@@ -74,14 +74,30 @@ class Interscript::Node::Rule::Sub < Interscript::Node::Rule
     else
       xto, xfrom = reverse_transfer(from, to)
     end
+
+    # A special case: sub "a", "" shouldn't be present in a reverse map
+    rrun = self.reverse_run.nil? ? nil : !self.reverse_run
+    if rrun.nil? && !has_assertions? &&
+      (xfrom == "" ||
+        (Interscript::Node::Item::String === xfrom && xfrom.data == '') ||
+        (Interscript::Node::Item::Alias === xfrom && xfrom.name == :none)
+      )
+
+      rrun = true
+    end
+
     Interscript::Node::Rule::Sub.new(xfrom, xto,
       before: before, after: after,
       not_before: not_before, not_after: not_after,
 
-      reverse_run: reverse_run.nil? ? nil : !reverse_run,
+      reverse_run: rrun,
 
-      priority: priority
+      priority: priority ? -priority : nil
     )
+  end
+  
+  def has_assertions?
+    !!(before || not_before || not_after || after)
   end
 
   # Attempt to transfer some references to boundary/line_begin around.
