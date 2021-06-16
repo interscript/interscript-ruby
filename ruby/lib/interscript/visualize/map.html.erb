@@ -1,4 +1,4 @@
-<h1><%= map.name %></h1>
+<h1><%= h map.name %></h1>
 
 <dl>
 <% map.metadata.data.each do |k,v| %>
@@ -30,15 +30,17 @@
   <% when :notes, :implementation_notes, :special_rules, :original_notes, :original_description # We ignore notes for now %>
   <% else %>
   <% p [k, v, map.name] %>
-    <dt><%= k %>
+    <dt><%= h k %>
   <% end %>
 
   <% case k
      when :url %>
-    <dd><a href='<%= v %>'><%= v %></a>
+    <dd><a href="<%= h v %>"><%= h v %></a>
   <% when :notes, :implementation_notes, :special_rules, :original_notes, :original_description # We ignore notes for now %>
   <% else %>
-    <dd><%= v %>
+    <dd><%= h v %>
   <% end %>
 <% end %>
 </dl>
+
+<%= render_stage(self.map.name, :main) %>

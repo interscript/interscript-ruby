@@ -1,18 +1,51 @@
 require 'erb'
 
 class Interscript::Visualize
-  @template = ERB.new(File.read(__dir__+"/visualize/map.html.erb"))
+  def self.def_template(template)
+    @template = ERB.new(File.read(__dir__+"/visualize/#{template}.html.erb"))
+  end
+  def get_binding; binding; end
 
-  def self.call(map_name)
-    tplctx = self.new(Interscript.parse(map_name))
+  def self.call(*args)
+    return Map.(*args) if self == Interscript::Visualize
+
+    tplctx = self.new(*select_object(*args))
     @template.result(tplctx.get_binding)
   end
 
-  def get_binding; binding; end
-
-  def initialize(map)
-    @map = map
+  def h(str)
+    str.to_s.gsub("&", "&amp;").gsub("<", "&lt;").gsub(">", "&gt;").gsub('"', "&quot;")
   end
 
-  attr_reader :map
+  class Map < self
+    def_template :map
+
+    def self.select_object(map_name)
+      Interscript.parse(map_name)
+    end
+
+    def initialize(map)
+      @map = map
+    end
+
+    attr_reader :map
+
+    def render_stage(map_name, stage)
+      Stage.(map_name, stage)
+    end
+  end
+
+  class Stage < self
+    def_template :stage
+
+    def self.select_object(map_name, stage_name)
+      Interscript.parse(map_name).stages[stage_name]
+    end
+  
+    def initialize(stage)
+      @stage = stage
+    end
+
+    attr_reader :stage
+  end  
 end
