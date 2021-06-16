@@ -1,10 +1,10 @@
+require "bundler/setup"
 require "bundler/gem_tasks"
 require "rspec/core/rake_task"
 
 RSpec::Core::RakeTask.new(:spec)
 
 task :compile, [:compiler, :target] do |t, args|
-  require "bundler/setup"
   require "interscript"
 
   compiler, ext = case args[:compiler]
@@ -48,6 +48,20 @@ task :version, [:ver] do |t, ver|
   File.write(rubyfile, rubyver)
   File.write(jsfile,   jsver)
   File.write(mapsfile, mapsver)
+end
+
+task :visualize do
+  require "fileutils"
+  require "interscript"
+  require "interscript/visualize"
+
+  FileUtils.rm_rf(dir = __dir__+"/visualizations/")
+  FileUtils.mkdir_p(dir)
+
+  Interscript.maps.each do |map|
+    html = Interscript::Visualize.(map)
+    File.write(dir+map+".html", html)
+  end
 end
 
 task :default => :spec

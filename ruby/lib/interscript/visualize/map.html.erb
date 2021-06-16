@@ -1,0 +1,44 @@
+<h1><%= map.name %></h1>
+
+<dl>
+<% map.metadata.data.each do |k,v| %>
+  <% case k
+     when :authority_id %>
+    <dt>Authority ID
+  <% when :id %>
+    <dt>Standard ID
+  <% when :language %>
+    <dt>Language
+  <% when :source_script %>
+    <dt>Source script
+  <% when :destination_script %>
+    <dt>Destination script
+  <% when :name %>
+    <dt>Name
+  <% when :url %>
+    <dt>URL
+  <% when :creation_date %>
+    <dt>Creation date
+  <% when :confirmation_date %>
+    <dt>Confirmation date
+  <% when :adoption_date %>
+    <dt>Adoption date
+  <% when :description %>
+    <dt>Description
+  <% when :source %>
+    <dt>Source
+  <% when :notes, :implementation_notes, :special_rules, :original_notes, :original_description # We ignore notes for now %>
+  <% else %>
+  <% p [k, v, map.name] %>
+    <dt><%= k %>
+  <% end %>
+
+  <% case k
+     when :url %>
+    <dd><a href='<%= v %>'><%= v %></a>
+  <% when :notes, :implementation_notes, :special_rules, :original_notes, :original_description # We ignore notes for now %>
+  <% else %>
+    <dd><%= v %>
+  <% end %>
+<% end %>
+</dl>

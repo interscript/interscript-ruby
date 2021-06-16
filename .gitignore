@@ -53,6 +53,9 @@
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
 /ruby/.rvmrc
 
+# Don't bundle visualizations
+/ruby/visualizations
+
 # Used by RuboCop. Remote config files pulled in from inherit_from directive.
 # .rubocop-https?--*
 /js/src/maps
