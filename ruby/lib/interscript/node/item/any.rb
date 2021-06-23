@@ -51,8 +51,23 @@ class Interscript::Node::Item::Any < Interscript::Node::Item
   end
 
   def to_hash
-    { :class => self.class.to_s,
-      :data => self.data.map { |i| i.to_hash } }
+    hash = { :class => self.class.to_s }
+
+    case @value
+    when Array
+      hash[:type] = "Array"
+      hash[:data] = data.map { |i| i.to_hash }
+    when ::String
+      hash[:type] = "String"
+      hash[:data] = @value
+    when Range
+      hash[:type] = "Range"
+      hash[:data] = [@value.begin, @value.end]
+    when NilClass
+      hash[:type] = "nil (bug)"
+    end
+
+    hash
   end
 
   def inspect

@@ -64,4 +64,18 @@ task :visualize do
   end
 end
 
+task :generate_json do
+  require "fileutils"
+  require "json"
+  require "interscript"
+
+  FileUtils.rm_rf(dir = __dir__+"/json/")
+  FileUtils.mkdir_p(dir)
+
+  (Interscript.maps + Interscript.maps(libraries: true)).each do |map|
+    json = JSON.pretty_generate(Interscript.parse(map).to_hash)
+    File.write(dir+map+".json", json)
+  end
+end
+
 task :default => :spec
