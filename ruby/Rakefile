@@ -64,6 +64,20 @@ task :visualize do
   end
 end
 
+task :generate_metadata_json do
+  require "fileutils"
+  require "json"
+  require "interscript"
+
+  FileUtils.rm_rf(file = __dir__+"/metadata.json")
+
+  hash = Interscript.maps.map do |map|
+    [map, Interscript.parse(map).metadata.to_hash]
+  end.to_h
+
+  File.write(file, JSON.pretty_generate(hash))
+end
+
 task :generate_json do
   require "fileutils"
   require "json"
