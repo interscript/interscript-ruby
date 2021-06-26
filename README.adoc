@@ -1,4 +1,4 @@
-= Interscript: Interoperable Script Conversion Systems, with a Ruby implementation
+= Interscript: Interoperable Script Conversion Systems, with Ruby and JavaScript runtimes
 
 image:https://github.com/interscript/interscript/workflows/test/badge.svg["Ruby build status", link="https://github.com/interscript/interscript/actions?workflow=test"]
 image:https://github.com/interscript/interscript/workflows/js/badge.svg["JavaScript build status", link="https://github.com/interscript/interscript/actions?workflow=js"]
