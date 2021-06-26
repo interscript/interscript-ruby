@@ -1,5 +1,6 @@
 require 'erb'
 require 'interscript/visualize/nodes'
+require 'interscript/visualize/json'
 
 def h(str)
   str.to_s.gsub("&", "&amp;").gsub("<", "&lt;").gsub(">", "&gt;").gsub('"', "&quot;")

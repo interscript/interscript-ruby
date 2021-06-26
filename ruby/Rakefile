@@ -50,7 +50,7 @@ task :version, [:ver] do |t, ver|
   File.write(mapsfile, mapsver)
 end
 
-task :visualize do
+task :generate_visualization_html do
   require "fileutils"
   require "interscript"
   require "interscript/visualize"
@@ -89,6 +89,24 @@ task :generate_json do
   (Interscript.maps + Interscript.maps(libraries: true)).each do |map|
     json = JSON.pretty_generate(Interscript.parse(map).to_hash)
     File.write(dir+map+".json", json)
+  end
+end
+
+task :generate_visualization_json do
+  require "fileutils"
+  require "interscript"
+  require "json"
+  require "interscript/visualize"
+
+  FileUtils.rm_rf(dir = __dir__+"/vis_json/")
+  FileUtils.mkdir_p(dir)
+
+  (Interscript.maps + Interscript.maps(libraries: true)).each do |map_name|
+    map = Interscript.parse(map_name)
+    map.stages.each do |stage_name, stage|
+      json = JSON.pretty_generate(stage.to_visualization_array(map))
+      File.write(dir+map_name+"_#{stage_name}.json", json)
+    end
   end
 end
 
