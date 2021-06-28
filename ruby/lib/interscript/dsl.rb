@@ -7,6 +7,7 @@ module Interscript::DSL
 
     return @cache[map_name] if @cache[map_name]
     path = Interscript.locate(map_name)
+    library = path.end_with?(".iml")
     map_name = File.basename(path, ".imp")
     map_name = File.basename(map_name, ".iml")
 
@@ -45,7 +46,7 @@ module Interscript::DSL
       YAML.load(yaml, exc_fname)
     end
 
-    md = Interscript::DSL::Metadata.new(yaml: true) do
+    md = Interscript::DSL::Metadata.new(yaml: true, map_name: map_name, library: library) do
       yaml.each do |k,v|
         public_send(k.to_sym, v)
       end

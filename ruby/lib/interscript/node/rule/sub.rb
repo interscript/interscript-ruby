@@ -35,15 +35,18 @@ class Interscript::Node::Rule::Sub < Interscript::Node::Rule
   def to_hash
     puts self.from.inspect if $DEBUG
     puts params.inspect if $DEBUG
-    { :class => self.class.to_s,
+    hash = { :class => self.class.to_s,
       :from => self.from.to_hash,
-      :to => self.to == :upcase ? :upcase : self.to.to_hash,
-      :before => self.before&.to_hash,
-      :not_before => self.not_before&.to_hash,
-      :after => self.after&.to_hash,
-      :not_after => self.not_after&.to_hash,
-      :priority => self.priority
+      :to => Symbol === self.to ? self.to : self.to.to_hash
     }
+
+    hash[:before] = self.before&.to_hash if self.before
+    hash[:not_before] = self.not_before&.to_hash if self.not_before
+    hash[:after] = self.after&.to_hash if self.after
+    hash[:not_after] = self.not_after&.to_hash if self.not_after
+    hash[:priority] = self.priority if self.priority
+
+    hash
   end
 
   def inspect
