@@ -1,0 +1,52 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+# This workflow will download a prebuilt Ruby version, install dependencies and run tests with Rake
+# For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
+
+name: Generate JSON
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+defaults:
+  run:
+    working-directory: ./ruby
+    
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+    env:
+      BUNDLE_WITHOUT: "secryst:jsexec"
+      SKIP_JS: "1"
+    steps:
+    - name: Checkout repository and submodules
+      uses: actions/checkout@v2
+      with:
+        submodules: true
+    - name: Use Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.0
+        bundler-cache: true
+        working-directory: ./ruby
+    - name: Generate visualization json
+      run: bundle exec rake generate_visualization_json;
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: jsons
+        path: ruby/vis_json
+    - name: Generate metadata
+      run: bundle exec rake generate_metadata_json;
+    - name: Upload metadata
+      uses: actions/upload-artifact@v2
+      with:
+        name: metadata
+        path: ruby/metadata.json
+      
