@@ -5,7 +5,7 @@ language: iso-639-2:ara
 source_script: Arab
 destination_script: Latn
 name: ISO 233:1993 Documentation — Transliteration of Arabic characters into Latin characters
-url: https://cdn.standards.iteh.ai/samples/4118/2f03c828842c4055a5619c1bded39381/ISO-233-2-1993.pdf
+url: https://www.iso.org/standard/4118.html
 creation_date: 1993-08
 confirmation date: 2018-06
 description: |
@@ -18,7 +18,6 @@ description: |
   reconstitution of these by men or machines. Cancels and
   replaces ISO Recommendation R 233-1961
 notes:
-  - |
 
 tests:
 
