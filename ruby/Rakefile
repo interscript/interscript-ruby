@@ -72,7 +72,10 @@ task :generate_metadata_json do
   FileUtils.rm_rf(file = __dir__+"/metadata.json")
 
   hash = Interscript.maps.map do |map|
-    [map, Interscript.parse(map).metadata.to_hash]
+    parsed_map = Interscript.parse(map)
+    md = parsed_map.metadata.to_hash
+    md["test"] = parsed_map.tests&.data&.first
+    [map, md]
   end.to_h
 
   File.write(file, JSON.pretty_generate(hash))
