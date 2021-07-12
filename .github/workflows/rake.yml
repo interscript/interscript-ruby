@@ -57,7 +57,7 @@ jobs:
   generate-json:
     runs-on: ubuntu-latest
     needs: rspec
-    if: ${{ github.event.type == 'PushEvent' }}
+    if: ${{ github.event_name == 'push' }}
     env:
       BUNDLE_WITHOUT: "secryst:jsexec"
       SKIP_JS: "1"
