@@ -1,3 +1,3 @@
 module Interscript
-  VERSION = "2.1.0a9"
+  VERSION = "2.1.0b1"
 end
