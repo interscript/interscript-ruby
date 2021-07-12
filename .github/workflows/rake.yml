@@ -86,3 +86,10 @@ jobs:
       with:
         name: metadata
         path: ruby/metadata.json
+    - name: Trigger interscript.org
+      uses: peter-evans/repository-dispatch@v1
+      with:
+        token: ${{ secrets.INTERSCRIPT_CI_TOKEN }}
+        repository: interscript/interscript.org
+        event-type: ${{ github.repository }}
+        client-payload: '{ "ref": "${{ github.ref }}" }'
