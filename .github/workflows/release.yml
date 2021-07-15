@@ -76,7 +76,6 @@ jobs:
       #    client-payload: '{ "ref": "${{ github.ref }}" }'
   asset:
     runs-on: ubuntu-latest
-      if: ${{ github.event_name == 'push' }}
       env:
         BUNDLE_WITHOUT: "secryst:jsexec"
         SKIP_JS: "1"
@@ -94,7 +93,7 @@ jobs:
         - name: Generate visualization json
           run: bundle exec rake generate_visualization_json
         - name: Upload artifacts
-          uses: svenstaro/upload-release-action@v2
+          uses: svenstaro/upload-release-action@2.2.1
           with:
             repo_token: ${{ secrets.GITHUB_TOKEN }}
             file: ruby/vis_json
@@ -105,7 +104,7 @@ jobs:
         - name: Generate metadata
           run: bundle exec rake generate_metadata_json
         - name: Upload metadata
-          uses: svenstaro/upload-release-action@v2
+          uses: svenstaro/upload-release-action@2.2.1
           with:
             repo_token: ${{ secrets.GITHUB_TOKEN }}
             file: ruby/metadata.json
