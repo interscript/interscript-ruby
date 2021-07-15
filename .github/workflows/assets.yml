@@ -2,9 +2,8 @@ name: release-assets
 
 on:
   push:
-    branches: [ master, main ]
-    tags: [ v* ]
-  pull_request:
+    tags:
+      - 'v*'
 
 jobs:
   assets:
@@ -40,19 +39,27 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ruby/vis_json.zip
           file_glob: true
-          tag: v2.1.0b5
+          tag: ${{ github.ref }}
           overwrite: true
           body: "visualize json of map systems"
       - name: Generate metadata
         run: pushd ruby; bundle exec rake generate_metadata_json; popd
+      - name: Archive metadata from the previous step
+        uses: thedoctor0/zip-release@master
+        with:
+          filename: 'metadata.zip'
+          path: ./metadata.json
+          directory: ./ruby/
+          exclusions: '*.git*'
+          type: zip
       - name: Upload metadata
         id: upload_metadata
         uses: svenstaro/upload-release-action@2.2.1
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ruby/metadata.json
+          file: ruby/metadata.zip
           asset_name: metadata.json
-          tag: v2.1.0b5
+          tag: ${{ github.ref }}
           overwrite: true
           body: "metadata of all systems"
       - name: Output link
