@@ -41,7 +41,6 @@ jobs:
           file_glob: true
           tag: ${{ github.ref }}
           overwrite: true
-          body: "visualize json of map systems"
       - name: Generate metadata
         run: pushd ruby; bundle exec rake generate_metadata_json; popd
       - name: Archive metadata from the previous step
@@ -58,10 +57,9 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ruby/metadata.zip
-          asset_name: metadata.json
+          asset_name: metadata.json.zip
           tag: ${{ github.ref }}
           overwrite: true
-          body: "metadata of all systems"
       - name: Output link
         run: |
           echo ${{ steps.upload_vis_json.outputs.browser_download_url }}
