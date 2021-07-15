@@ -93,6 +93,7 @@ jobs:
       - name: Generate visualization json
         run: pushd ruby; bundle exec rake generate_visualization_json; popd
       - name: Upload artifacts
+        id: upload_vis_json
         uses: svenstaro/upload-release-action@2.2.1
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
@@ -104,6 +105,7 @@ jobs:
       - name: Generate metadata
         run: pushd ruby; bundle exec rake generate_metadata_json; popd
       - name: Upload metadata
+        id: upload_metadata
         uses: svenstaro/upload-release-action@2.2.1
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
@@ -112,6 +114,10 @@ jobs:
           tag: ${{ github.ref }}
           overwrite: true
           body: "metadata of all systems"
+      - name: Output link
+        run: |
+          echo ${{ steps.upload_vis_json.outputs.browser_download_url }}
+          echo ${{ steps.upload_metadata.outputs.browser_download_url }}
 #        - name: Trigger interscript.org
 #          uses: peter-evans/repository-dispatch@v1
 #          with:
