@@ -29,8 +29,8 @@ jobs:
         uses: thedoctor0/zip-release@master
         with:
           filename: 'vis_json.zip'
-          path: ./*.json
-          directory: ./ruby/vis_json/
+          path: ./vis_json/*.json
+          directory: ./ruby/
           exclusions: '*.git*'
           type: zip
       - name: Upload artifacts
@@ -38,7 +38,7 @@ jobs:
         uses: svenstaro/upload-release-action@2.2.1
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ruby/vis_json/*.json
+          file: ruby/vis_json.zip
           file_glob: true
           tag: v2.1.0b5
           overwrite: true
