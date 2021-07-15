@@ -91,7 +91,7 @@ jobs:
           bundler-cache: true
           working-directory: ./ruby
       - name: Generate visualization json
-        run: bundle exec rake generate_visualization_json
+        run: pushd ruby; bundle exec rake generate_visualization_json popd
       - name: Upload artifacts
         uses: svenstaro/upload-release-action@2.2.1
         with:
@@ -102,7 +102,7 @@ jobs:
           overwrite: true
           body: "visualize json of map systems"
       - name: Generate metadata
-        run: bundle exec rake generate_metadata_json
+        run: pushd ruby; bundle exec rake generate_metadata_json popd
       - name: Upload metadata
         uses: svenstaro/upload-release-action@2.2.1
         with:
