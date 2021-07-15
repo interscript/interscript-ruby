@@ -25,6 +25,14 @@ jobs:
           working-directory: ./ruby
       - name: Generate visualization json
         run: pushd ruby; bundle exec rake generate_visualization_json; popd
+      - name: Archive json files from the previous step
+        uses: thedoctor0/zip-release@master
+        with:
+          filename: 'vis_json.zip'
+          path: ./*.json
+          directory: ./ruby/vis_json/
+          exclusions: '*.git*'
+          type: zip
       - name: Upload artifacts
         id: upload_vis_json
         uses: svenstaro/upload-release-action@2.2.1
