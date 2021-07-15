@@ -96,8 +96,8 @@ jobs:
         uses: svenstaro/upload-release-action@2.2.1
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ruby/vis_json
-          asset_name: vis_json
+          file: ruby/vis_json/*.json
+          file_glob: true
           tag: ${{ github.ref }}
           overwrite: true
           body: "visualize json of map systems"
@@ -108,7 +108,7 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ruby/metadata.json
-          asset_name: metadata
+          asset_name: metadata.json
           tag: ${{ github.ref }}
           overwrite: true
           body: "metadata of all systems"
