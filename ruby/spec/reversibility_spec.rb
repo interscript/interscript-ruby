@@ -231,7 +231,7 @@ RSpec.describe "Reversibility" do
       expect(b.("ab")).to eq("ab")
     end
 
-    xit "transliterates correctly with reverse_run and parallel" do
+    it "transliterates correctly with reverse_run and parallel" do
       a = stage {
         parallel {
           sub "a", "b", reverse_run: true
@@ -241,7 +241,7 @@ RSpec.describe "Reversibility" do
       b = a.reverse
 
       expect(a.("abcd")).to eq("abdd")
-      expect(b.("abcd")).to eq("bbcd")
+      expect(b.("abcd")).to eq("aacd")
     end
   end
 
