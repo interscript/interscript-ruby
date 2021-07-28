@@ -42,6 +42,7 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
 
   def compile_rule(r, map = @map, wrapper = false)
     c = ""
+    return c if r.reverse_run == true
     case r
     when Interscript::Node::Stage
       c += "Interscript::Maps.add_map_stage \"#{@map.name}\", #{r.name.inspect} do |s|\n"

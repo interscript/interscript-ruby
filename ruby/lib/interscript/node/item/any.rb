@@ -25,6 +25,10 @@ class Interscript::Node::Item::Any < Interscript::Node::Item
     end
   end
 
+  def downcase
+    self.class.new(self.data.map(&:downcase))
+  end
+
   def first_string
     case @value
     when Array

@@ -6,8 +6,20 @@ module Interscript::DSL
     # map name aliases? here may be a place to wrap it
 
     return @cache[map_name] if @cache[map_name]
-    path = Interscript.locate(map_name)
+
+    reverse = false
+    path = begin
+      Interscript.locate(map_name)
+    rescue Interscript::MapNotFoundError => e
+      begin
+        reverse = map_name
+        Interscript.locate(Interscript::Node::Document.reverse_name(map_name))
+      rescue Interscript::MapNotFoundError
+        raise e
+      end
+    end
     library = path.end_with?(".iml")
+
     map_name = File.basename(path, ".imp")
     map_name = File.basename(map_name, ".iml")
 
@@ -54,6 +66,12 @@ module Interscript::DSL
     obj.node.metadata = md.node
 
     @cache[map_name] = obj.node
+
+    if reverse
+      @cache[reverse] = @cache[map_name].reverse
+    else
+      @cache[map_name]
+    end
   end
 end
 

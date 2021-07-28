@@ -11,6 +11,12 @@ class Interscript::Node::MetaData < Interscript::Node
     @data[k]
   end
 
+  def reverse
+    self.class.new(data: data.dup).tap do |rmd|
+      rmd[:source_script], rmd[:destination_script] = rmd[:destination_script], rmd[:source_script]
+    end
+  end
+
   def to_hash
     {:class => self.class.to_s,
       :data => @data}

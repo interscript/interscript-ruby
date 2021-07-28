@@ -4,6 +4,15 @@ class Interscript::Node::Dependency < Interscript::Node
   def initialize
   end
 
+  def reverse
+    rdep = self.class.new
+    rdep.name = name
+    rdep.full_name = Interscript::Node::Document.reverse_name(full_name)
+    rdep.import = import
+    rdep.document = document&.reverse
+    rdep
+  end
+
   def to_hash
     { :class => self.class.to_s,
       :name => @name,

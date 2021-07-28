@@ -17,6 +17,10 @@ class Interscript::Node::Item::String < Interscript::Node::Item
     self.data
   end
 
+  def downcase
+    self.class.new(data.downcase)
+  end
+
   alias nth_string first_string
 
   def + other

@@ -19,6 +19,11 @@ class Interscript::Node::Item::Alias < Interscript::Node::Item
     end
   end
 
+  # Not implemented properly
+  def downcase
+    self
+  end
+
   def first_string
     self
   end

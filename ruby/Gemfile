@@ -26,4 +26,6 @@ unless ENV["SKIP_JS"]
   end
 end
 
+gem 'pry'
+
 gem 'simplecov', require: false, group: :test

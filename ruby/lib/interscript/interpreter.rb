@@ -76,6 +76,7 @@ class Interscript::Interpreter < Interscript::Compiler
     end
 
     def execute_rule r
+      return if r.reverse_run == true
       case r
       when Interscript::Node::Group::Parallel
         if r.cached_tree

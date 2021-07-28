@@ -53,6 +53,7 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
 
   def compile_rule(r, map = @map, wrapper = false)
     c = ""
+    return c if r.reverse_run == true
     case r
     when Interscript::Node::Stage
       c += "map.stages.#{r.name} = function(s) {\n"
