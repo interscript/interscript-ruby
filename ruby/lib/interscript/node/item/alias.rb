@@ -10,6 +10,10 @@ class Interscript::Node::Item::Alias < Interscript::Node::Item
     !map && Interscript::Stdlib::ALIASES.has_key?(name)
   end
 
+  def boundary_like?
+    Interscript::Stdlib.boundary_like_alias?(name)
+  end
+
   def max_length
     if stdlib?
       ([:none].include? name) ? 0 : 1
@@ -20,9 +24,8 @@ class Interscript::Node::Item::Alias < Interscript::Node::Item
   end
 
   # Not implemented properly
-  def downcase
-    self
-  end
+  def downcase; self; end
+  def upcase; self; end
 
   def first_string
     self

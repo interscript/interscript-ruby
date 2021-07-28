@@ -25,6 +25,7 @@ class Interscript::DSL::Group
   end
 
   def upcase; :upcase; end
+  def downcase; :downcase; end
 
   Interscript::Stdlib.available_functions.each do |fun|
     define_method fun do |**kwargs|

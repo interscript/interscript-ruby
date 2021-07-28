@@ -103,6 +103,8 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
       from = %{"#{build_regexp(r, map).gsub("/", "\\\\/")}"}
       if r.to == :upcase
         to = 'function(a){return a.toUpperCase();}'
+      elsif r.to == :downcase
+        to = 'function(a){return a.toLowerCase();}'
       else
         to = compile_item(r.to, map, :str)
       end

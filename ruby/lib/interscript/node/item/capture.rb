@@ -15,6 +15,9 @@ class Interscript::Node::Item::CaptureGroup < Interscript::Node::Item
     data.nth_string
   end
 
+  def downcase; self.dup.tap { |i| i.data = i.data.downcase }; end
+  def upcase; self.dup.tap { |i| i.data = i.data.upcase }; end
+
   def to_hash
     { :class => self.class.to_s,
       :data => self.data.to_hash }

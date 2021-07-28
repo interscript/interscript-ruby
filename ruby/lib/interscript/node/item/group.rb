@@ -10,10 +10,34 @@ class Interscript::Node::Item::Group < Interscript::Node::Item
   def +(item)
     item = Interscript::Node::Item.try_convert(item)
     out = self.dup
-    out.children << item
+    if Interscript::Node::Item::Group === item
+      out.children += item.children
+    else
+      out.children << item
+    end
     out.verify!
     out
   end
+
+  def compact
+    out = self.dup do |n|
+      n.children = n.children.reject do |i|
+        (Interscript::Node::Alias === i && i.name == :none) ||
+        (Interscript::Node::String === i && i.data == "")
+      end
+    end
+
+    if out.children.count == 0
+      Interscript::Node::Alias.new(:none)
+    elsif out.children.count == 1
+      out.children.first
+    else
+      out
+    end
+  end
+
+  def downcase; self.dup.tap { |i| i.children = i.children.map(&:downcase) }; end
+  def upcase; self.dup.tap { |i| i.children = i.children.map(&:upcase) }; end
 
   # Verify if a group is valid
   def verify!

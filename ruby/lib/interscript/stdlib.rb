@@ -22,6 +22,10 @@ class Interscript::Stdlib
     ! %i[none space].include?(a)
   end
 
+  def self.boundary_like_alias?(a)
+    %i[line_start line_end string_start string_end boundary non_word_boundary].include?(a)
+  end
+
   @treecache = {}
 
   def self.parallel_regexp_compile(subs_hash)

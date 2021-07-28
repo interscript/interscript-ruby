@@ -93,6 +93,8 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
       from = "/#{build_regexp(r, map).gsub("/", "\\\\/")}/"
       if r.to == :upcase
         to = '&:upcase'
+      elsif r.to == :downcase
+        to = '&:downcase'
       else
         to = compile_item(r.to, map, :str)
       end

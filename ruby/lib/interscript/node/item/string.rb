@@ -17,9 +17,8 @@ class Interscript::Node::Item::String < Interscript::Node::Item
     self.data
   end
 
-  def downcase
-    self.class.new(data.downcase)
-  end
+  def downcase; self.dup.tap { |i| i.data = i.data.downcase }; end
+  def upcase; self.dup.tap { |i| i.data = i.data.upcase }; end
 
   alias nth_string first_string
 
