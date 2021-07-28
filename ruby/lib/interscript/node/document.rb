@@ -59,6 +59,14 @@ class Interscript::Node::Document
     newname
   end
 
+  def ==(other)
+    self.class == other.class &&
+    self.metadata == other.metadata &&
+    self.tests == other.tests &&
+    self.stages == other.stages &&
+    self.aliases == other.aliases
+  end
+
   def to_hash
     { :class => self.class.to_s, :metadata => @metadata&.to_hash,
       :tests => @tests&.to_hash,

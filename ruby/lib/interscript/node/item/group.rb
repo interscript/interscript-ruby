@@ -69,6 +69,10 @@ class Interscript::Node::Item::Group < Interscript::Node::Item
       :children => self.children.map{|x| x.to_hash} }
   end
 
+  def ==(other)
+    super && self.children == other.children
+  end
+
   def inspect
     @children.map(&:inspect).join("+")
   end

@@ -4,6 +4,10 @@ class Interscript::Node
     raise NotImplementedError, "You can't construct a Node directly"
   end
 
+  def ==(other)
+    self.class == other.class
+  end
+
   def to_hash
     { :class => self.class.to_s,
       :question => "is something missing?"

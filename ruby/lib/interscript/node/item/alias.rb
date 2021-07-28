@@ -40,6 +40,10 @@ class Interscript::Node::Item::Alias < Interscript::Node::Item
     }
   end
 
+  def ==(other)
+    super && self.name == other.name && self.map == other.map
+  end
+
   def inspect
     if map
       "map.#{map}.#{name}"

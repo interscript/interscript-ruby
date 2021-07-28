@@ -16,6 +16,10 @@ class Interscript::Node::Rule::Run < Interscript::Node::Rule
     )
   end
 
+  def ==(other)
+    super && self.stage == other.stage
+  end
+
   def inspect
     out = "run #{@stage.inspect}"
     out += ", reverse_run: #{@reverse_run.inspect}" unless reverse_run.nil?

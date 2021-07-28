@@ -196,6 +196,17 @@ class Interscript::Node::Rule::Sub < Interscript::Node::Rule
     end
   end
 
+  def ==(other)
+    super &&
+    self.from == other.from &&
+    self.to == other.to &&
+    self.before == other.before &&
+    self.after == other.after &&
+    self.not_before == other.not_before &&
+    self.not_after == other.not_after &&
+    self.priority == other.priority
+  end
+
   def inspect
     out = "sub "
     params = []

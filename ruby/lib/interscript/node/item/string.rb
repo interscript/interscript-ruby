@@ -36,6 +36,10 @@ class Interscript::Node::Item::String < Interscript::Node::Item
     end
   end
 
+  def ==(other)
+    super && self.data == other.data
+  end
+
   def inspect
     @data.inspect
   end

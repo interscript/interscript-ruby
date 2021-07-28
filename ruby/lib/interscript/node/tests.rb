@@ -12,6 +12,10 @@ class Interscript::Node::Tests < Interscript::Node
     self.class.new(data.map(&:reverse))
   end
 
+  def ==(other)
+    super && self.data == other.data
+  end
+
   def to_hash
     { :class => self.class.to_s,
       :data => @data }

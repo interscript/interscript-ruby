@@ -32,6 +32,10 @@ class Interscript::Node::Group < Interscript::Node
       :children => @children.map{|x| x.to_hash} }
   end
 
+  def ==(other)
+    super && self.children == other.children && self.reverse_run == other.reverse_run
+  end
+
   def inspect
     @children.map(&:inspect).join("\n").gsub(/^/, "  ")
   end

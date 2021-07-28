@@ -13,6 +13,13 @@ class Interscript::Node::Dependency < Interscript::Node
     rdep
   end
 
+  def ==(other)
+    super &&
+    self.full_name == other.full_name &&
+    self.import == other.import &&
+    self.name == other.name
+  end
+
   def to_hash
     { :class => self.class.to_s,
       :name => @name,

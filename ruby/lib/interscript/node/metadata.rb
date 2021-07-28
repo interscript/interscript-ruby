@@ -12,9 +12,13 @@ class Interscript::Node::MetaData < Interscript::Node
   end
 
   def reverse
-    self.class.new(data: data.dup).tap do |rmd|
+    self.class.new(data.dup, **{}).tap do |rmd|
       rmd[:source_script], rmd[:destination_script] = rmd[:destination_script], rmd[:source_script]
     end
+  end
+
+  def ==(other)
+    super && self.data == other.data
   end
 
   def to_hash

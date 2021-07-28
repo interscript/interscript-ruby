@@ -73,6 +73,10 @@ class Interscript::Node::Item::Any < Interscript::Node::Item
     hash
   end
 
+  def ==(other)
+    super && self.data == other.data
+  end
+
   def inspect
     "any(#{value.inspect})"
   end

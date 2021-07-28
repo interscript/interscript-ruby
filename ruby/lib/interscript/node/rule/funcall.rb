@@ -18,6 +18,10 @@ class Interscript::Node::Rule::Funcall < Interscript::Node::Rule
       reverse_run: reverse_run.nil? ? nil : !reverse_run, **kwargs)
   end
 
+  def ==
+    super && self.name == other.name && self.kwargs == other.kwargs
+  end
+
   def inspect
     "#{@name} #{kwargs.inspect[1..-2]}"
   end

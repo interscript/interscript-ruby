@@ -23,6 +23,10 @@ class Interscript::Node::Item::CaptureGroup < Interscript::Node::Item
       :data => self.data.to_hash }
   end
 
+  def ==(other)
+    super && self.data == other.data
+  end
+
   def inspect
     "capture(#{@data.inspect})"
   end
@@ -45,6 +49,10 @@ class Interscript::Node::Item::CaptureRef < Interscript::Node::Item
   def to_hash
     { :class => self.class.to_s,
       :id => self.id }
+  end
+
+  def ==(other)
+    super && self.id == other.id
   end
 
   def inspect

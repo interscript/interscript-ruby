@@ -70,3 +70,16 @@ output = Interscript.transliterate("bas-rus-Cyrl-Latn-2017-bss",
                                    cache,
                                    compiler: Interscript::Compiler::Ruby)
 ----
+
+=== Transliterating in reverse
+
+To reverse a given string using a map with a name of a form:
+`bas-rus-Cyrl-Latn-2017-bss`, change places for Cyrl and Latn.
+
+To reverse a given string using a map with a name of a form:
+`var-swe-Latn-Latn-2021`, append `-reverse` to its name.
+
+Please note: this only works for Ruby implementation. Other implementations
+depend on the Ruby implementation for the purpose of compilation. For those,
+you need to compile the map using the Ruby implementation, but the name has
+to be given according to the above hint.

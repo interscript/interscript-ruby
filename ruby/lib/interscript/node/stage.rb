@@ -24,6 +24,12 @@ class Interscript::Node::Stage < Interscript::Node::Group::Sequential
     end
   end
 
+  def ==(other)
+    super &&
+    self.name == other.name &&
+    self.reverse_run == other.reverse_run
+  end
+
   def inspect
     name = "(#{@name})" if @name != :main
     "stage#{name} {\n#{super}\n}"
