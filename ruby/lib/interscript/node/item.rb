@@ -36,6 +36,10 @@ class Interscript::Node::Item < Interscript::Node
       :item => self.item }
   end
 
+  def ==(other)
+    super
+  end
+
   def self.try_convert(i)
     i = Interscript::Node::Item::String.new(i) if i.class == ::String
     raise TypeError, "Wrong type #{i.class}, expected I::Node::Item" unless Interscript::Node::Item === i

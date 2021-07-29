@@ -418,6 +418,47 @@ stage {
 When ran against a string `"abcde"`, this stage will produce an output of
 `"[a][b][c]de"`.
 
+== Reversibility
+
+Starting with Interscript 2.2 we added reversibility support. In general all
+commands, except for metadata (and tests - for now) support a `reverse_run`
+keyword. This keyword is `nil` by default, which means, that it's reversible.
+(One exception though: `sub` call, if given a `none` as `to`, defaults to
+`reverse_run: false`).
+
+`reverse_run: false` means, that the command is only ran in forward.
+`reverse_run: true`, on the other hand, means that the command is only ran in
+reverse.
+
+Example 1:
+
+[source,ruby]
+----
+stage {
+  sub "a", "b", reverse_run: true
+  sub "c", "d", reverse_run: false
+}
+----
+
+When ran in forward mode (normal run) on a string "abcde", it gives "abdde".
+When ran in reverse mode on a string "abcde", it gives "aacde".
+
+Example 2:
+
+[source,ruby]
+----
+stage {
+  parallel {
+    sub "a", "あ"
+    sub "o", "お"
+    sub "i", "い"
+  }
+}
+----
+
+When ran in forward mode (normal run) on a string "あおい", it gives "aoi".
+When ran in reverse more on a string "aoi", it gives "あおい".
+
 == Ending notes
 
 This document described everything Interscript currently supports, but it is

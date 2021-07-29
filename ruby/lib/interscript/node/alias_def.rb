@@ -7,6 +7,12 @@ class Interscript::Node::AliasDef < Interscript::Node
     @data = data
   end
 
+  def ==(other)
+    super &&
+    self.name == other.name &&
+    self.data == other.data
+  end
+
   def to_hash
     { :class => self.class.to_s,
       :name => @name,

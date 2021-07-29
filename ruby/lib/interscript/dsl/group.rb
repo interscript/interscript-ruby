@@ -8,16 +8,16 @@ class Interscript::DSL::Group
     self.instance_exec(&block)
   end
 
-  def run(stage)
+  def run(stage, **kwargs)
     if stage.class != Interscript::Node::Item::Stage
       raise TypeError, "I::Node::Item::Stage expected, got #{stage.class}"
     end
-    @node.children << Interscript::Node::Rule::Run.new(stage)
+    @node.children << Interscript::Node::Rule::Run.new(stage, **kwargs)
   end
 
   def sub(from, to, **kwargs, &block)
-    puts "sub(#{from.inspect},#{to}, kargs = #{
-      kargs.inspect
+    puts "sub(#{from.inspect},#{to}, kwargs = #{
+      kwargs.inspect
     }) from #{self.inspect}" if $DEBUG
 
     rule = Interscript::Node::Rule::Sub.new(from, to, **kwargs)
@@ -25,6 +25,7 @@ class Interscript::DSL::Group
   end
 
   def upcase; :upcase; end
+  def downcase; :downcase; end
 
   Interscript::Stdlib.available_functions.each do |fun|
     define_method fun do |**kwargs|
@@ -35,9 +36,9 @@ class Interscript::DSL::Group
     end
   end
 
-  def parallel(&block)
+  def parallel(**kwargs, &block)
     puts "parallel(#{chars.inspect}) from #{self.inspect}" if $DEBUG
-    group = Interscript::DSL::Group::Parallel.new(&block)
+    group = Interscript::DSL::Group::Parallel.new(**kwargs, &block)
     @node.children << group.node
   end
 end

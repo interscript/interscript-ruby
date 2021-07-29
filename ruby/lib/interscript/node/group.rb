@@ -1,7 +1,8 @@
 class Interscript::Node::Group < Interscript::Node
-  attr_accessor :children
+  attr_accessor :children, :reverse_run
 
-  def initialize
+  def initialize(reverse_run: nil)
+    @reverse_run = reverse_run
     @children = []
   end
 
@@ -20,9 +21,19 @@ class Interscript::Node::Group < Interscript::Node
     self
   end
 
+  def reverse
+    self.class.new(reverse_run: reverse_run.nil? ? nil : !reverse_run).tap do |r|
+      r.children = self.children.reverse.map(&:reverse)
+    end
+  end
+
   def to_hash
     { :class => self.class.to_s,
       :children => @children.map{|x| x.to_hash} }
+  end
+
+  def ==(other)
+    super && self.children == other.children && self.reverse_run == other.reverse_run
   end
 
   def inspect

@@ -9,6 +9,7 @@ require "bundler/setup"
 require "interscript"
 require "interscript/compiler/ruby"
 require "interscript/compiler/javascript" unless ENV["SKIP_JS"]
+require "interscript/utils/helpers"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -21,22 +22,7 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 
-  def document name=nil, &block
-    $example_id ||= 0
-    $example_id += 1
-    name ||= "example-#{$example_id}"
-
-    Interscript::DSL::Document.new(name, &block).node.tap do |i|
-      $documents ||= {}
-      $documents[name] = i
-    end
-  end
-
-  def stage &block
-    document {
-      stage(&block)
-    }
-  end
+  include Interscript::Utils::Helpers
 
   def each_compiler &block
     compilers = []
@@ -46,25 +32,6 @@ RSpec.configure do |config|
 
     compilers.each do |compiler|
       block.(compiler)
-    end
-  end
-end
-
-class Interscript::Node::Document
-  def call(str, stage=:main, compiler=$compiler || Interscript::Interpreter, **kwargs)
-    compiler.(self).(str, stage, **kwargs)
-  end
-end
-
-module Interscript::DSL
-  class << self
-    alias original_parse parse
-    def parse(map_name)
-      if $documents && $documents[map_name]
-        $documents[map_name]
-      else
-        original_parse(map_name)
-      end
     end
   end
 end

@@ -22,6 +22,10 @@ class Interscript::Stdlib
     ! %i[none space].include?(a)
   end
 
+  def self.boundary_like_alias?(a)
+    %i[line_start line_end string_start string_end boundary non_word_boundary].include?(a)
+  end
+
   @treecache = {}
 
   def self.parallel_regexp_compile(subs_hash)
@@ -167,7 +171,20 @@ class Interscript::Stdlib
   end
 
   def self.available_functions
-    %i[title_case downcase compose decompose separate secryst]
+    %i[title_case downcase compose decompose separate unseparate secryst]
+  end
+
+  def self.reverse_function
+    {
+      title_case: :downcase, # Those two are best-effort,
+      downcase: :title_case, # but probably wrong.
+
+      compose: :decompose,
+      decompose: :compose,
+
+      separate: :unseparate,
+      unseparate: :separate
+    }
   end
 
   module Functions
@@ -177,8 +194,13 @@ class Interscript::Stdlib
       output
     end
 
-    def self.downcase(output, _:nil)
-      output.downcase
+    def self.downcase(output, word_separator: nil)
+      if word_separator
+        output = output.gsub(/^(.)/, &:downcase)
+        output = output.gsub(/#{word_separator}(.)/, &:downcase) unless word_separator == ''
+      else
+        output.downcase
+      end
     end
 
     def self.compose(output, _:nil)
@@ -191,6 +213,10 @@ class Interscript::Stdlib
 
     def self.separate(output, separator: " ")
       output.split("").join(separator)
+    end
+
+    def self.unseparate(output, separator: " ")
+      output.split(separator).join("")
     end
 
     @secryst_models = {}

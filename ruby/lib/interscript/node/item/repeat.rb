@@ -22,6 +22,10 @@ class Interscript::Node::Item::Repeat < Interscript::Node::Item
       :data => self.data.to_hash }
   end
 
+  def ==(other)
+    super && self.data == other.data
+  end
+
   def inspect
     str = case self
     when Interscript::Node::Item::Maybe

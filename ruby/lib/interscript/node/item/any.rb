@@ -25,6 +25,9 @@ class Interscript::Node::Item::Any < Interscript::Node::Item
     end
   end
 
+  def downcase; self.class.new(self.data.map(&:downcase)); end
+  def upcase; self.class.new(self.data.map(&:upcase)); end
+
   def first_string
     case @value
     when Array
@@ -68,6 +71,10 @@ class Interscript::Node::Item::Any < Interscript::Node::Item
     end
 
     hash
+  end
+
+  def ==(other)
+    super && self.data == other.data
   end
 
   def inspect

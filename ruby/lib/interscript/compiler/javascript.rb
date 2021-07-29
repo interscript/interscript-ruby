@@ -53,6 +53,7 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
 
   def compile_rule(r, map = @map, wrapper = false)
     c = ""
+    return c if r.reverse_run == true
     case r
     when Interscript::Node::Stage
       c += "map.stages.#{r.name} = function(s) {\n"
@@ -75,6 +76,7 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
           raise ArgumentError, "Can't parallelize rules with :not_before" if i.not_before
           raise ArgumentError, "Can't parallelize rules with :not_after" if i.not_after
 
+          next if i.reverse_run == true
           a << [compile_item(i.from, map, :par), compile_item(i.to, map, :parstr)]
         end
         ah = a.hash.abs
@@ -88,7 +90,8 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
         a = []
         Interscript::Stdlib.deterministic_sort_by_max_length(r.children).each do |i|
           raise ArgumentError, "Can't parallelize #{i.class}" unless Interscript::Node::Rule::Sub === i
-
+          
+          next if i.reverse_run == true
           a << [build_regexp(i, map), compile_item(i.to, map, :parstr)]
         end
         ah = a.hash.abs
@@ -102,6 +105,8 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
       from = %{"#{build_regexp(r, map).gsub("/", "\\\\/")}"}
       if r.to == :upcase
         to = 'function(a){return a.toUpperCase();}'
+      elsif r.to == :downcase
+        to = 'function(a){return a.toLowerCase();}'
       else
         to = compile_item(r.to, map, :str)
       end

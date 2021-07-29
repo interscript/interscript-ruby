@@ -108,6 +108,27 @@ It is then easy to see the exact differences in rendering between the systems.
 diff bgnpcgn-rus-Latn.txt bas-rus-Latn.txt
 ----
 
+You can also run some maps in reverse (warning: not all maps are made to be reversed),
+either by changing an order of character sets in a name (for bas-rus-`Cyrl-Latn`-2017-bss
+it would be bas-rus-`Latn-Cyrl`-2017-bss) or appending `-reverse` to their name:
+
+[source,sh]
+----
+interscript my_jamos.txt \
+  --system=var-kor-Hang-Hang-jamo-reverse \
+  --output=my_hangul.txt
+----
+
+You can also compose some maps, by joining their names with `|` (similar to how bash
+pipe works). For instance:
+
+[source,sh]
+----
+interscript my_file.txt \
+  --system='var-map1-Xxxx-Xxxx|var-map2-Xxxx-Xxxx' \
+  --output=my_output.txt
+----
+
 If you use Interscript from the Git repository, you would call the following command
 instead of `interscript`:
 

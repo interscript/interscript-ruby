@@ -13,6 +13,10 @@ class Interscript::Node::Item::Stage < Interscript::Node::Item
     }
   end
 
+  def ==(other)
+    super && self.name == other.name && self.map == other.map
+  end
+
   def inspect
     if map
       "map.#{@map}.stage.#{@name}"

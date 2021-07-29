@@ -76,6 +76,7 @@ class Interscript::Interpreter < Interscript::Compiler
     end
 
     def execute_rule r
+      return if r.reverse_run == true
       case r
       when Interscript::Node::Group::Parallel
         if r.cached_tree
@@ -96,6 +97,7 @@ class Interscript::Interpreter < Interscript::Compiler
               raise ArgumentError, "Can't parallelize rules with :after" if i.after
               raise ArgumentError, "Can't parallelize rules with :not_before" if i.not_before
               raise ArgumentError, "Can't parallelize rules with :not_after" if i.not_after
+              next if i.reverse_run == true
               subs_array << [build_item(i.from, :par), build_item(i.to, :parstr)]
             end
             tree = Interscript::Stdlib.parallel_replace_compile_tree(subs_array) #.sort_by{|k,v| -k.length})
@@ -108,7 +110,7 @@ class Interscript::Interpreter < Interscript::Compiler
             subs_array = []
             Interscript::Stdlib.deterministic_sort_by_max_length(r.children).each do |i|  # rule.from.max_length gives somewhat better test results, why is that
               raise ArgumentError, "Can't parallelize #{i.class}" unless Interscript::Node::Rule::Sub === i
-
+              next if i.reverse_run == true
               subs_array << [build_regexp(i), build_item(i.to, :parstr)]
             end
             r.subs_regexp = Interscript::Stdlib.parallel_regexp_compile(subs_array)
@@ -129,6 +131,8 @@ class Interscript::Interpreter < Interscript::Compiler
       when Interscript::Node::Rule::Sub
         if r.to == :upcase
           @str = @str.gsub(Regexp.new(build_regexp(r)), &:upcase)
+        elsif r.to == :downcase
+          @str = @str.gsub(Regexp.new(build_regexp(r)), &:downcase)
         else
           @str = @str.gsub(Regexp.new(build_regexp(r)), build_item(r.to, :str))
         end
