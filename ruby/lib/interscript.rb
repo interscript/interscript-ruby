@@ -53,6 +53,16 @@ module Interscript
       output_file
     end
 
+    # Detects the transliteration that gives the most close approximation
+    # of transliterating source into destination.
+    #
+    # Set multiple: true to get a full report.
+    def detect(source, destination, **kwargs)
+      detector = Detector.new
+      detector.set_from_kwargs(**kwargs)
+      detector.(source, destination)
+    end
+
     def map_gems
       @map_gems ||= Gem.find_latest_files('interscript-maps.yaml').map do |i|
         [i, YAML.load_file(i)]
@@ -109,3 +119,5 @@ require "interscript/interpreter"
 
 require 'interscript/dsl'
 require 'interscript/node'
+
+require 'interscript/detector'

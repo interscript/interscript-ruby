@@ -27,5 +27,6 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "thor"
-  spec.add_dependency "interscript-maps"
+  spec.add_dependency "interscript-maps", "~> #{Interscript::VERSION.split('.')[0,2].join(".")}.0"
+  spec.add_dependency "text"
 end
