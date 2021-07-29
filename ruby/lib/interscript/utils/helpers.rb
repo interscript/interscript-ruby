@@ -28,11 +28,11 @@ end
 module Interscript::DSL
   class << self
     alias original_parse parse
-    def parse(map_name)
+    def parse(map_name, **kwargs)
       if $documents && $documents[map_name]
         $documents[map_name]
       else
-        original_parse(map_name)
+        original_parse(map_name, **kwargs)
       end
     end
   end

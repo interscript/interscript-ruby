@@ -2,18 +2,39 @@ require "yaml"
 
 module Interscript::DSL
   @cache = {}
-  def self.parse(map_name)
+  def self.parse(map_name, reverse: true)
     # map name aliases? here may be a place to wrap it
 
     return @cache[map_name] if @cache[map_name]
 
-    reverse = false
+    # This is a composition, so let's make a new virtual map
+    # that calls all maps in a sequence.
+    if map_name.include? "|"
+      map_parts = map_name.split("|").map(&:strip)
+
+      doc = Interscript::DSL::Document.new(map_name) do
+        map_parts.each_with_index do |i, idx|
+          dependency i, as: :"part#{idx}"
+        end
+
+        stage {
+          map_parts.each_with_index do |i, idx|
+            run map[:"part#{idx}"].stage.main
+          end
+        }
+      end.node
+
+      return @cache[map_name] = doc
+    end
+
     path = begin
       Interscript.locate(map_name)
     rescue Interscript::MapNotFoundError => e
+      # But maybe we called the map in a reversed fashion?
       begin
-        reverse = map_name
-        Interscript.locate(Interscript::Node::Document.reverse_name(map_name))
+        raise e if reverse == false # Protect from an infinite loop
+        reverse_name = Interscript::Node::Document.reverse_name(map_name)
+        return @cache[map_name] = parse(reverse_name, reverse: false).reverse
       rescue Interscript::MapNotFoundError
         raise e
       end
@@ -66,12 +87,6 @@ module Interscript::DSL
     obj.node.metadata = md.node
 
     @cache[map_name] = obj.node
-
-    if reverse
-      @cache[reverse] = @cache[map_name].reverse
-    else
-      @cache[map_name]
-    end
   end
 end
 
