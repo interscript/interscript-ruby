@@ -23,9 +23,23 @@ It denotes a group of characters to be used. It can be joined together using a
 `+` character like so: `"a" + "b"` which is equal to as if someone wrote just
 `"ab"`.
 
+It can also be joined in the following way:
+
+[source,ruby]
+----
+  "a string spanning multiple lines " \
+  "on and on and on and on" \
+  "and so on"
+----
+
+The `\\` character written before the end of the line ensures that our parser
+treats the next line as a continuation of the previous one. This kind of syntax
+makes multiline tests much clearer.
+
 Except for the strings of the form `'content'`, all those forms can contain
 escape forms like `\u0410`, which means "An Unicode character 0410". The usage
-of those forms is discouraged in new maps, but possible.
+of those forms is discouraged in new maps, but possible. A String can also
+contain an escape character `\n` which means a line break.
 
 An array (or a list) is a part of the document of a form `["a", "b", "c"]`. It
 means a sequential group of Strings, or other types.
@@ -127,7 +141,9 @@ using a + command, for example: `line_start + "rest"`.
 
 == Metadata part
 
-The metadata part describes our map. It follows a YAML syntax.
+The metadata part describes our map. It follows a YAML syntax, and so contrary to
+other parts of the document, it doesn't necessarily conform to all what's written
+in the `Basic syntax` part of this guide.
 
 [source,ruby]
 ----
@@ -421,10 +437,9 @@ When ran against a string `"abcde"`, this stage will produce an output of
 == Reversibility
 
 Starting with Interscript 2.2 we added reversibility support. In general all
-commands, except for metadata (and tests - for now) support a `reverse_run`
-keyword. This keyword is `nil` by default, which means, that it's reversible.
-(One exception though: `sub` call, if given a `none` as `to`, defaults to
-`reverse_run: false`).
+commands, except for metadata support a `reverse_run` keyword. This keyword
+is `nil` by default, which means, that it's reversible. (One exception though:
+`sub` call, if given a `none` as `to`, defaults to `reverse_run: false`).
 
 `reverse_run: false` means, that the command is only ran in forward.
 `reverse_run: true`, on the other hand, means that the command is only ran in
@@ -458,6 +473,55 @@ stage {
 
 When ran in forward mode (normal run) on a string "あおい", it gives "aoi".
 When ran in reverse more on a string "aoi", it gives "あおい".
+
+The tests accept `reverse_run:` as well, and as before, it defaults to `nil`.
+To run a test in only a single direction, you can write it as follows:
+
+[source,ruby]
+----
+tests {
+  test "привет", "privet", reverse_run: false
+}
+----
+
+Do note that even though a given command is given `reverse_run: true`, it
+still needs to be written in forward. As in: it will be reversed. As with tests,
+if you want to test a map in reverse that "privet" gives a "привет", you still
+need to write "привет" as the first argument, "privet" as the second, and then
+you need to supply `reverse_run: true`.
+
+We understand there may be a need that a given set of rules won't get reversed
+(not all kinds of commands are reversible in principle). For this kind of usage,
+we created a `dont_reverse: true` argument to `stage`. Note: no other commands
+support this argument. An example map of this kind would look like this:
+
+[source,ruby]
+----
+stage {
+  run stage.reverse_exclusive, reverse_run: true
+}
+
+stage(reverse_exclusive, dont_reverse: true) {
+  sub 'a', 'b'
+}
+----
+
+This map doesn't have any rules in forward, so when given "abcde" in forward, it
+obviously returns "abcde". When given "abcde" in reverse it returns "bbcde" (if
+`dont_reverse:` wouldn't be set, it would return "aacde").
+
+== Composability
+
+To compose two maps together, whether in reverse or not, you can supply a name
+in the form of: "map1-name|map2-name" everywhere a map name is accepted (in a
+CLI utility or as a dependency).
+
+== Testing new maps
+
+We envisioned various ways to extend this library with custom repositories of
+maps, but the easiest way would be to run the `interscript` CLI utility, when
+you are located in a directory in which you have your .imp files. To install
+the `interscript` CLI utility you need to run `gem install interscript`.
 
 == Ending notes
 

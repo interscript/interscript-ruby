@@ -1,6 +1,7 @@
 class Interscript::Node::Document
   attr_accessor :metadata, :tests, :name
   attr_accessor :dependencies, :aliases, :stages, :dep_aliases
+  attr_accessor :reversed_from
 
   def initialize
     puts "Interscript::Node::Document.new " if $DEBUG

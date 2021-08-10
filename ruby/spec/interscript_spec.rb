@@ -30,7 +30,9 @@ RSpec.describe Interscript do
             system = system.reverse if ENV["REVERSE"]
 
             if system.tests && system.tests.data && system.tests.data.length > 0
-              system.tests.data.each do |from,expected|
+              system.tests.data.each do |from,expected,reverse_run|
+                next if reverse_run == true
+
                 testname = from[0...300].gsub("\n", " / ")
                 it "test for #{testname}" do
                   Timeout::timeout(5) do

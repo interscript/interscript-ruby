@@ -10,6 +10,7 @@ class Interscript::Node::Group
         more << "after: #{rule.after.to_html(map)}" if rule.after
         more << "<nobr>not before:</nobr> #{rule.not_before.to_html(map)}" if rule.not_before
         more << "<nobr>not after:</nobr> #{rule.not_after.to_html(map)}" if rule.not_after
+        more << "<nobr>reverse run:</nobr> #{rule.reverse_run}" unless rule.reverse_run.nil?
         more = more.join(", ")
 
         out << {
@@ -24,11 +25,14 @@ class Interscript::Node::Group
           children: rule.to_visualization_array(map)
         }
       when Interscript::Node::Rule::Funcall
+        more = rule.kwargs.map do |k,v|
+          "#{k.to_s.gsub("_", " ")}: #{v}"
+        end
+        more << "<nobr>reverse run:</nobr> #{rule.reverse_run}" unless rule.reverse_run.nil?
+
         out << {
           type: rule.name.to_s.gsub("_", " ").gsub(/^(.)/, &:upcase),
-          more: rule.kwargs.map do |k,v|
-            "#{k.to_s.gsub("_", " ")}: #{v}"
-          end.join(", ")
+          more: more.join(", ")
         }
       when Interscript::Node::Rule::Run
         if rule.stage.map
@@ -39,10 +43,14 @@ class Interscript::Node::Group
           stage = rule.stage.name
         end
 
+        more = []
+        more << "<nobr>reverse run:</nobr> #{rule.reverse_run}" unless rule.reverse_run.nil?
+
         out << {
           type: "Run",
           doc: doc.name,
-          stage: stage
+          stage: stage,
+          more: more.join(", "),
         }
       else
         out << {

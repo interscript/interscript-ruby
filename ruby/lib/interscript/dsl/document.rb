@@ -37,10 +37,11 @@ class Interscript::DSL::Document
     @node.dep_aliases[dep.name] = dep if dep.name
   end
 
-  def stage(name = :main, &block)
+  def stage(name = :main, dont_reverse: false, &block)
     puts "stage(#{name}) from #{self.inspect}" if $DEBUG
     stage = Interscript::DSL::Stage.new(name, &block)
     stage.node.doc_name = @node.name
+    stage.node.dont_reverse = dont_reverse
     @node.stages[name] = stage.node
   end
 end

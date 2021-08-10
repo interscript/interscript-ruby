@@ -245,4 +245,41 @@ RSpec.describe "Reversibility" do
     end
   end
 
+  describe "multistage" do
+    it "correctly reverses multistage documents" do
+      a = document("multistage-reversibility") {
+        stage {
+          sub "a", "b"
+          sub "c", "d"
+          run stage.second
+        }
+
+        stage(:second) {
+          sub "e", "f"
+        }
+      }
+      b = a.reverse
+
+      expect(a.("abcdef")).to eq("bbddff")
+      expect(b.("abcdef")).to eq("aaccee")
+    end
+
+    it "correctly reverses multistage documents with dont_reverse" do
+      a = document("multistage-reversibility-dr") {
+        stage {
+          sub "a", "b"
+          sub "c", "d"
+          run stage.second
+        }
+
+        stage(:second, dont_reverse: true) {
+          sub "e", "f"
+        }
+      }
+      b = a.reverse
+
+      expect(a.("abcdef")).to eq("bbddff")
+      expect(b.("abcdef")).to eq("aaccff")
+    end
+  end
 end

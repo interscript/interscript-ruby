@@ -9,7 +9,9 @@ class Interscript::Node::Tests < Interscript::Node
   end
 
   def reverse
-    self.class.new(data.map(&:reverse))
+    self.class.new(data.map do |from,to,reverse_run|
+      [to, from, reverse_run == nil ? nil : !reverse_run]
+    end)
   end
 
   def ==(other)
