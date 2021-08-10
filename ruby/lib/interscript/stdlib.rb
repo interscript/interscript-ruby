@@ -171,7 +171,7 @@ class Interscript::Stdlib
   end
 
   def self.available_functions
-    %i[title_case downcase compose decompose separate unseparate secryst]
+    %i[title_case downcase compose decompose separate unseparate secryst rababa]
   end
 
   def self.reverse_function
@@ -232,6 +232,22 @@ class Interscript::Stdlib
       output.split("\n").map(&:chomp).map do |i|
         @secryst_models[model].translate(i)
       end.join("\n")
+    end
+
+    def self.rababa(output, config:)
+      require "rababa" rescue nil # Try to load rababa, but don't fail hard if not possible.
+      unless defined? Rababa
+        raise StandardError, "Rababa is not loaded. Please read docs/Usage_with_Rababa.adoc"
+      end
+
+      config_value = Interscript.rababa_configs[config]
+      model_uri = config_value['model']
+      rababa_config = config_value['config']
+      model_path = Interscript.rababa_provision(config, model_uri)
+
+      @rababa_diacritizer ||= Rababa::Diacritizer.new(model_path, rababa_config)
+
+      @rababa_diacritizer.diacritize_text(output)
     end
   end
 end

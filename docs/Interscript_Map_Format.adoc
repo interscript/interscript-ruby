@@ -362,6 +362,7 @@ the table below and they may be omitted if a default value is specified.
 | `decompose`       |                       | `"무"`                | `"ᄆ"+"ᅮ"`
 | `separate`        | `separator: " "`      | `"こんいちは"`         | `"こ ん い ち は"`
 | `secryst`         | `model:`           2+>| Consult: link:Usage_with_Secryst.adoc[Usage with Secryst].
+| `rababa`          | `config:`          2+>| Consult: link:Usage_with_Rababa.adoc[Usage with Rababa].
 |===
 
 == Items
@@ -515,13 +516,6 @@ obviously returns "abcde". When given "abcde" in reverse it returns "bbcde" (if
 To compose two maps together, whether in reverse or not, you can supply a name
 in the form of: "map1-name|map2-name" everywhere a map name is accepted (in a
 CLI utility or as a dependency).
-
-== Testing new maps
-
-We envisioned various ways to extend this library with custom repositories of
-maps, but the easiest way would be to run the `interscript` CLI utility, when
-you are located in a directory in which you have your .imp files. To install
-the `interscript` CLI utility you need to run `gem install interscript`.
 
 == Ending notes
 

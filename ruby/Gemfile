@@ -26,6 +26,10 @@ unless ENV["SKIP_JS"]
   end
 end
 
+group :rababa do
+  gem 'rababa', github: 'interscript/rababa', ref: '70051da'
+end
+
 gem 'pry'
 
 gem 'simplecov', require: false, group: :test

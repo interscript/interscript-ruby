@@ -41,3 +41,10 @@ a slightly different command:
 ----
 TRANSLIT_SYSTEM=bgnpcgn-rus-Cyrl-Latn-1947 INTERSCRIPT_STAGING=1 bundle exec rspec spec/interscript_spec.rb
 ----
+
+== Testing new maps
+
+We envisioned various ways to extend this library with custom repositories of
+maps, but the easiest way would be to run the `interscript` CLI utility, when
+you are located in a directory in which you have your .imp files. To install
+the `interscript` CLI utility you need to run `gem install interscript`.

@@ -22,7 +22,7 @@ gem "secryst"
 
 Create a Secrystfile near your Gemfile with the following, for each model you
 want to use in your application. Please consult our Secrystfile to get all the
-maps needed to
+maps needed to get all the Secryst maps needed.
 
 [source,ruby]
 ----
