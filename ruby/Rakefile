@@ -21,7 +21,7 @@ task :compile, [:compiler, :target] do |t, args|
   maplist = {}
 
   maps = Interscript.maps
-  maps = Interscript.exclude_maps(maps, compiler)
+  maps = Interscript.exclude_maps(maps, compiler: compiler, platform: false)
   
   maps.each do |map|
     code = compiler.(map).code
