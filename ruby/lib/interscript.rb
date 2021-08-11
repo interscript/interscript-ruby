@@ -86,6 +86,56 @@ module Interscript
       end.compact.flatten
     end
 
+    def rababa_configs
+      @rababa_configs ||= map_gems.map do |i,v|
+        v["rababa-configs"]
+      end.compact.inject({}) do |a,b|
+        a.merge(b)
+      end
+    end
+
+    # This code is borrowed from Secryst and should end up in Rababa, but for now,
+    # let's keep it here.
+    def rababa_provision(model_name, model_uri)
+      require 'fileutils'
+      require 'open-uri'
+
+      # We provision the environment in the following way:
+      # First, we try the RABABA_DATA environment variable. If that's available,
+      # we use it to store the Rababa data we need. Otherwise, we try the following
+      # paths:
+
+      possible_paths = [
+        "/var/lib/rababa",
+        "/usr/local/share/rababa",
+        "/usr/share/rababa",
+        File.join(Dir.home, ".local/share/rababa")
+      ]
+
+      # We find the first writable path
+
+      write_path = nil
+
+      ([ENV["RABABA_DATA"]] + possible_paths).compact.each do |path|
+        FileUtils.mkdir_p(path)
+        write_path = path unless write_path
+      rescue
+      end
+
+      raise StandardError, "Can't find a writable path for Rababa. Consider setting a RABABA_DATA environment variable" unless write_path
+
+      model_path = "#{write_path}/model-#{model_name}.onnx"
+
+      # Redownload every hour
+      if File.exist?(model_path) && File.mtime(model_path) + 3600 >= Time.now
+        return model_path
+      else
+        data = URI.open(model_uri).read
+        File.write(model_path, data)
+        return model_path
+      end
+    end
+
     def map_aliases
       return @map_aliases if @map_aliases
 
@@ -108,6 +158,22 @@ module Interscript
       imps = paths.map { |i| Dir["#{i}/#{select}.#{ext}"] }.flatten
 
       basename ? imps.map { |j| File.basename(j, ".#{ext}") } : imps
+    end
+
+    # Removes the excluded maps for a given compiler and RUBY_PLATFORM.
+    # To be used by tests
+    # and builders. It uses the `skip` directive in interscript-maps.yaml
+    def exclude_maps(maps, compiler:, platform: true)
+      map_gems.each do |i,v|
+        [compiler.name, (Gem::Platform.local.os if platform)].compact.each do |name|
+          skips = v.dig('skip', name) || []
+          skips.each do |skip|
+            skip_re = /#{Regexp.escape(skip).gsub("\\*", ".*?")}/
+            maps = maps.grep_v(skip_re)
+          end
+        end
+      end
+      maps
     end
   end
 end

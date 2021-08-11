@@ -6,7 +6,7 @@ class Interscript::DSL::Tests
     self.instance_exec(&block)
   end
 
-  def test(from,to)
-    @node << [from, to]
+  def test(from, to, reverse_run: nil)
+    @node << [from, to, reverse_run]
   end
 end

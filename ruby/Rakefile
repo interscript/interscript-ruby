@@ -20,7 +20,10 @@ task :compile, [:compiler, :target] do |t, args|
 
   maplist = {}
 
-  Interscript.maps.each do |map|
+  maps = Interscript.maps
+  maps = Interscript.exclude_maps(maps, compiler)
+  
+  maps.each do |map|
     code = compiler.(map).code
     File.write(args[:target] + "/" + map + "." + ext, code)
     maplist[map] = nil
@@ -68,6 +71,7 @@ task :generate_metadata_json do
   require "fileutils"
   require "json"
   require "interscript"
+  require "interscript/compiler/javascript"
 
   FileUtils.rm_rf(file = __dir__+"/metadata.json")
 
@@ -75,6 +79,10 @@ task :generate_metadata_json do
     parsed_map = Interscript.parse(map)
     md = parsed_map.metadata.to_hash
     md["test"] = parsed_map.tests&.data&.first
+    md["skip_js"] = Interscript.exclude_maps([map],
+                      compiler: Interscript::Compiler::Javascript,
+                      platform: false,
+                    ).empty?
     [map, md]
   end.to_h
 
