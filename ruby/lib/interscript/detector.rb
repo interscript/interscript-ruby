@@ -33,6 +33,8 @@ class Interscript::Detector
 
   def call(source, destination)
     maps = Interscript.maps(select: @map_pattern, load_path: @load_path)
+    maps = Interscript.exclude_maps(maps, compiler: self.class)
+    maps = Interscript.exclude_maps(maps, compiler: @compiler)
 
     summary = maps.map do |map|
       try_dest = Interscript.transliterate(map, source, compiler: @compiler)
