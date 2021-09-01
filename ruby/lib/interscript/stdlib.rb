@@ -171,7 +171,7 @@ class Interscript::Stdlib
   end
 
   def self.available_functions
-    %i[title_case downcase compose decompose separate unseparate secryst rababa]
+    %i[title_case downcase compose decompose separate unseparate secryst rababa rababa_reverse]
   end
 
   def self.reverse_function
@@ -183,7 +183,10 @@ class Interscript::Stdlib
       decompose: :compose,
 
       separate: :unseparate,
-      unseparate: :separate
+      unseparate: :separate,
+
+      rababa: :rababa_reverse,
+      rababa_reverse: :rababa,
     }
   end
 
@@ -248,6 +251,19 @@ class Interscript::Stdlib
       @rababa_diacritizer ||= Rababa::Diacritizer.new(model_path, rababa_config)
 
       @rababa_diacritizer.diacritize_text(output)
+    end
+
+    def self.rababa_reverse(output, config:)
+      # require "rababa" rescue nil # Try to load rababa, but don't fail hard if not possible.
+      # unless defined? Rababa
+      #   raise StandardError, "Rababa is not loaded. Please read docs/Usage_with_Rababa.adoc"
+      # end
+
+      # A call to allocate allows us to remove diacritics without initializing the model
+      # Rababa::Diacritizer.allocate.remove_diacritics(output)
+
+      # Unfortunately, this is broken as of now.
+      output.gsub(/[\u064e\u064b\u064f\u064c\u0650\u064d\u0652\u0651]/, '')
     end
   end
 end
