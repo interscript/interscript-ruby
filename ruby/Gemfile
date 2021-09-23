@@ -32,4 +32,6 @@ end
 
 gem 'pry'
 
+gem 'iso-639-data'
+
 gem 'simplecov', require: false, group: :test

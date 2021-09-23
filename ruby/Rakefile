@@ -121,4 +121,35 @@ task :generate_visualization_json do
   end
 end
 
+task :generate_authority_json do
+  require "interscript"
+  require "json"
+  require "iso-639-data"
+
+  FileUtils.rm_rf(dir = __dir__+"/auth_json/")
+  FileUtils.mkdir_p(dir)
+
+  %w[iso icao din].each do |auth|
+    out = Interscript.maps.select do |map_name|
+      /\A#{auth}-/.match? map_name
+    end.map do |map_name|
+      map = Interscript.parse(map_name)
+      tests = map.tests&.data&.first(2)&.transpose || []
+      lang = map.metadata.data[:language].split(':').last
+
+      {
+        lang: (Iso639Data.iso_639_2[lang] || Iso639Data.iso_639_3[lang])['eng'],
+        isoName: map.metadata.data[:name],
+        systemName: map_name,
+        samples: tests[0] || [],
+        english: tests[1] || [],
+        result: []
+      }
+    end
+
+    json = JSON.pretty_generate(out)
+    File.write(dir+auth+".json", json)
+  end
+end
+
 task :default => :spec
