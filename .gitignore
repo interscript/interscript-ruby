@@ -57,6 +57,7 @@
 /ruby/visualizations
 /ruby/json
 /ruby/vis_json
+/ruby/auth_json
 /ruby/metadata.json
 /ruby/compiled
 

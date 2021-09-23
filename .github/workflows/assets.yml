@@ -41,25 +41,6 @@ jobs:
           file_glob: true
           tag: ${{ github.ref }}
           overwrite: true
-      - name: Generate authority jsons
-        run: pushd ruby; bundle exec rake generate_authority_json; popd
-      - name: Archive json files from the previous step
-        uses: thedoctor0/zip-release@master
-        with:
-          filename: 'auth_json.zip'
-          path: ./auth_json/*.json
-          directory: ./ruby/
-          exclusions: '*.git*'
-          type: zip
-      - name: Upload artifacts
-        id: upload_auth_json
-        uses: svenstaro/upload-release-action@2.2.1
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ruby/auth_json.zip
-          file_glob: true
-          tag: ${{ github.ref }}
-          overwrite: true
       - name: Generate metadata
         run: pushd ruby; bundle exec rake generate_metadata_json; popd
       - name: Archive metadata from the previous step
