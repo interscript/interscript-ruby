@@ -39,7 +39,7 @@ jobs:
           repository: interscript/interscript-bootstrap
 
       - name: Run a bootstrap script
-        run: ruby bootstrap.rb
+        run: env; ruby bootstrap.rb
 
       - name: Use Ruby
         uses: ruby/setup-ruby@v1
