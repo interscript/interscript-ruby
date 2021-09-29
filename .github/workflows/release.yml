@@ -9,14 +9,19 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
         with:
-          submodules: true
+          repository: interscript/interscript-bootstrap
+
+      - name: Run a bootstrap script
+        run: ruby bootstrap.rb
 
       - uses: actions/setup-ruby@v1
         with:
           ruby-version: '2.7'
           architecture: 'x64'
+          working-directory: ./ruby
 
       - uses: actions/setup-node@v1
         with:
@@ -43,25 +48,9 @@ jobs:
           :rubygems_api_key: ${RUBYGEMS_API_KEY}
           EOF
           chmod 0600 ~/.gem/credentials
-          pushd js
-          git status
-          popd
-          pushd maps
-          git status
-          gem release
-          popd
           pushd ruby
           git status
           gem release
-          popd
-      - name: Publish to npmjs.org
-        env:
-          NPMJS_TOKEN: ${{secrets.INTERSCRIPT_NPM_TOKEN}}
-        run: |
-          pushd js
-          npm config set //registry.npmjs.org/:_authToken=$NPMJS_TOKEN
-          npm run prepareMaps
-          npm publish
           popd
 
       # Let's keep it commented out for now. Please uncomment it once you are ready with

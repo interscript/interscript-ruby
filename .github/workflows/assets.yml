@@ -12,10 +12,12 @@ jobs:
       BUNDLE_WITHOUT: "secryst:jsexec"
       SKIP_JS: "1"
     steps:
-      - name: Checkout repository and submodules
+      - name: Checkout repository
         uses: actions/checkout@v2
         with:
-          submodules: true
+          repository: interscript/interscript-bootstrap
+      - name: Run a bootstrap script
+        run: ruby bootstrap.rb
       - name: Use Ruby
         uses: ruby/setup-ruby@v1
         with:

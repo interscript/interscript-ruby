@@ -37,8 +37,9 @@ task :compile, [:compiler, :target] do |t, args|
   File.write(args[:target] + "/index.json", maplist.to_json)
 end
 
-task :version, [:ver] do |t, ver|
+task :version, [:ver, :part] do |t, ver|
   ver = ver[:ver]
+  part = ver[:part]
 
   rubyver = File.read(rubyfile = __dir__+"/lib/interscript/version.rb")
   jsver   = File.read(jsfile   = __dir__+"/../js/package.json")
@@ -48,9 +49,9 @@ task :version, [:ver] do |t, ver|
   jsver   = jsver.gsub(/("version": ")([0-9a-z.-]*)(")/,                 "\\1#{ver}\\3")
   mapsver = mapsver.gsub(/(INTERSCRIPT_MAPS_VERSION=")([0-9a-z.-]*)(")/, "\\1#{ver}\\3")
 
-  File.write(rubyfile, rubyver)
-  File.write(jsfile,   jsver)
-  File.write(mapsfile, mapsver)
+  File.write(rubyfile, rubyver) if %w[all ruby].include? part
+  File.write(jsfile,   jsver) if %w[all js].include? part
+  File.write(mapsfile, mapsver) %w[all maps].include? part
 end
 
 task :generate_visualization_html do
