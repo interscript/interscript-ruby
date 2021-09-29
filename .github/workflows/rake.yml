@@ -2,7 +2,7 @@ name: rake
 
 on:
   push:
-    branches: [ master, main ]
+    branches: [ master, v* ]
     tags: [ v* ]
   pull_request:
 
