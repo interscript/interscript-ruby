@@ -17,7 +17,7 @@ jobs:
       - name: Run a bootstrap script
         run: ruby bootstrap.rb
 
-      - uses: actions/setup-ruby@v1
+      - uses: ruby/setup-ruby@v1
         with:
           ruby-version: '2.7'
           architecture: 'x64'
