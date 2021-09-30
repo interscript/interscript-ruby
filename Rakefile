@@ -51,7 +51,7 @@ task :version, [:ver, :part] do |t, ver|
 
   File.write(rubyfile, rubyver) if %w[all ruby].include? part
   File.write(jsfile,   jsver) if %w[all js].include? part
-  File.write(mapsfile, mapsver) %w[all maps].include? part
+  File.write(mapsfile, mapsver) if %w[all maps].include? part
 end
 
 task :generate_visualization_html do
