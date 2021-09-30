@@ -37,9 +37,9 @@ task :compile, [:compiler, :target] do |t, args|
   File.write(args[:target] + "/index.json", maplist.to_json)
 end
 
-task :version, [:ver, :part] do |t, ver|
-  ver = ver[:ver]
-  part = ver[:part]
+task :version, [:ver, :part] do |t, args|
+  ver = args[:ver]
+  part = args[:part]
 
   rubyver = File.read(rubyfile = __dir__+"/lib/interscript/version.rb")
   jsver   = File.read(jsfile   = __dir__+"/../js/package.json")
