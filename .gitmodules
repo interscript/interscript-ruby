@@ -1,6 +1,0 @@
-[submodule "maps"]
-	path = maps
-	url = https://github.com/interscript/maps.git
-[submodule "js"]
-	path = js
-	url = https://github.com/interscript/interscript-js.git

@@ -2,13 +2,9 @@ name: rake
 
 on:
   push:
-    branches: [ master, main ]
+    branches: [ master, v* ]
     tags: [ v* ]
   pull_request:
-
-defaults:
-  run:
-    working-directory: ./ruby
 
 jobs:
   rspec:
@@ -37,10 +33,13 @@ jobs:
       SKIP_JS: "1"
 
     steps:
-      - name: Checkout repository and submodules
+      - name: Checkout repository
         uses: actions/checkout@v2
         with:
-          submodules: true
+          repository: interscript/interscript
+
+      - name: Run a bootstrap script
+        run: ruby bootstrap.rb
 
       - name: Use Ruby
         uses: ruby/setup-ruby@v1
@@ -51,5 +50,7 @@ jobs:
 
       - name: Run RSpecs
         run: |
+          pushd ruby
           bundle install --with=jsexec
           bundle exec rspec -f f
+          popd
