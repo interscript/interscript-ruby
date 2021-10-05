@@ -12,7 +12,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
-          repository: interscript/interscript-bootstrap
+          repository: interscript/interscript
 
       - name: Run a bootstrap script
         run: ruby bootstrap.rb
