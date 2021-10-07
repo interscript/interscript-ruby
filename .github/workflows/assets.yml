@@ -26,6 +26,10 @@ jobs:
           ruby-version: 3.0
           bundler-cache: true
 
+      - name: Install bundle
+        working-directory: ./ruby
+        run: bundle install --jobs 4 --retry 3 --with jsexec --without secryst
+
       - name: Generate visualization json
         working-directory: ./ruby
         run: bundle exec rake generate_visualization_json
