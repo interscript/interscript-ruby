@@ -14,14 +14,12 @@ jobs:
         with:
           repository: interscript/interscript
 
-      - name: Run a bootstrap script
+      - name: Run bootstrap script
         run: ruby bootstrap.rb
 
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: '2.7'
-          architecture: 'x64'
-          working-directory: ./ruby
 
       - uses: actions/setup-node@v1
         with:
@@ -29,13 +27,17 @@ jobs:
 
       # For now let's install without secryst, as we don't necessarily need it.
       # We may need to change it once we start to depend on secryst maps.
-      - run: pushd ruby && bundle install --jobs 4 --retry 3 --with jsexec --without secryst && popd
+      - name: Install bundle
+        working-directory: ./ruby
+        run: bundle install --jobs 4 --retry 3 --with jsexec --without secryst
 
-      - name: Test the Ruby package
-        run: pushd ruby && bundle exec rake && popd
+      - name: Test Ruby package
+        working-directory: ./ruby
+        run: bundle exec rake
 
-      - name: Test the JS package
-        run: pushd js && npm install && npm run prepareMaps && npm test && popd
+      - name: Test JS package
+        working-directory: ./js
+        run: npm install && npm run prepareMaps && npm test
 
       - name: Publish to rubygems.org
         env:

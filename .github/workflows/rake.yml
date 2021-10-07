@@ -38,7 +38,7 @@ jobs:
         with:
           repository: interscript/interscript
 
-      - name: Run a bootstrap script
+      - name: Run bootstrap script
         run: ruby bootstrap.rb
 
       - name: Use Ruby
@@ -46,11 +46,9 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
-          working-directory: ./ruby
 
       - name: Run RSpecs
+        working-directory: ./ruby
         run: |
-          pushd ruby
           bundle install --with=jsexec
           bundle exec rspec -f f
-          popd
