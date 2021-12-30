@@ -48,7 +48,7 @@ class Interscript::Node::Item::Group < Interscript::Node::Item
     end
 
     if wrong
-      raise TypeError, "An I::Node::Item::Group can't contain an #{wrong.class} item."
+      raise Interscript::MapLogicError, "An I::Node::Item::Group can't contain an #{wrong.class} item."
     end
   end
 

@@ -67,7 +67,7 @@ module Interscript::DSL
         ruby << l
       end
     end
-    raise ArgumentError, "metadata stage isn't terminated" if md_reading
+    raise Interscript::MapLogicError, "metadata stage isn't terminated" if md_reading
     ruby, yaml = ruby.join("\n"), yaml.join("\n")
 
     obj = Interscript::DSL::Document.new(map_name)

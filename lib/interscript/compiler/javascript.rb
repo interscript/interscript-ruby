@@ -70,11 +70,11 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
         # Try to build a tree
         a = []
         r.children.each do |i|
-          raise ArgumentError, "Can't parallelize #{i.class}" unless Interscript::Node::Rule::Sub === i
-          raise ArgumentError, "Can't parallelize rules with :before" if i.before
-          raise ArgumentError, "Can't parallelize rules with :after" if i.after
-          raise ArgumentError, "Can't parallelize rules with :not_before" if i.not_before
-          raise ArgumentError, "Can't parallelize rules with :not_after" if i.not_after
+          raise Interscript::SystemConversionError, "Can't parallelize #{i.class}" unless Interscript::Node::Rule::Sub === i
+          raise Interscript::SystemConversionError, "Can't parallelize rules with :before" if i.before
+          raise Interscript::SystemConversionError, "Can't parallelize rules with :after" if i.after
+          raise Interscript::SystemConversionError, "Can't parallelize rules with :not_before" if i.not_before
+          raise Interscript::SystemConversionError, "Can't parallelize rules with :not_after" if i.not_after
 
           next if i.reverse_run == true
           a << [compile_item(i.from, map, :par), compile_item(i.to, map, :parstr)]
@@ -89,7 +89,7 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
         # Otherwise let's build a megaregexp
         a = []
         Interscript::Stdlib.deterministic_sort_by_max_length(r.children).each do |i|
-          raise ArgumentError, "Can't parallelize #{i.class}" unless Interscript::Node::Rule::Sub === i
+          raise Interscript::SystemConversionError, "Can't parallelize #{i.class}" unless Interscript::Node::Rule::Sub === i
           
           next if i.reverse_run == true
           a << [build_regexp(i, map), compile_item(i.to, map, :parstr)]
@@ -122,7 +122,7 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
       end
       c += "s = Interscript.transliterate(#{stage.doc_name.to_json}, s, #{stage.name.to_json});\n"
     else
-      raise ArgumentError, "Can't compile unhandled #{r.class}"
+      raise Interscript::SystemConversionError, "Can't compile unhandled #{r.class}"
     end
     c
   end
@@ -157,17 +157,17 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
       astr = if i.map
         d = doc.dep_aliases[i.map].document
         a = d.imported_aliases[i.name]
-        raise ArgumentError, "Alias #{i.name} of #{i.stage.map} not found" unless a
+        raise Interscript::SystemConversionError, "Alias #{i.name} of #{i.stage.map} not found" unless a
         "Interscript.get_alias_ALIASTYPE(#{a.doc_name.to_json}, #{a.name.to_json})"
       elsif Interscript::Stdlib::ALIASES.include?(i.name)
         if target != :re && Interscript::Stdlib.re_only_alias?(i.name)
-          raise ArgumentError, "Can't use #{i.name} in a #{target} context"
+          raise Interscript::SystemConversionError, "Can't use #{i.name} in a #{target} context"
         end
         stdlib_alias = true
         "Interscript.aliases.#{i.name}"
       else
         a = doc.imported_aliases[i.name]
-        raise ArgumentError, "Alias #{i.name} not found" unless a
+        raise Interscript::SystemConversionError, "Alias #{i.name} not found" unless a
 
         "Interscript.get_alias_ALIASTYPE(#{a.doc_name.to_json}, #{a.name.to_json})"
       end
@@ -205,7 +205,7 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
       end
     when Interscript::Node::Item::CaptureGroup
       if target != :re
-        raise ArgumentError, "Can't use a CaptureGroup in a #{target} context"
+        raise Interscript::SystemConversionError, "Can't use a CaptureGroup in a #{target} context"
       end
       "(" + compile_item(i.data, doc, target) + ")"
     when Interscript::Node::Item::Maybe,
@@ -217,7 +217,7 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
                    Interscript::Node::Item::MaybeSome => "*" }[i.class]
 
       if target == :par
-        raise ArgumentError, "Can't use a MaybeSome in a #{target} context"
+        raise Interscript::SystemConversionError, "Can't use a MaybeSome in a #{target} context"
       end
       if Interscript::Node::Item::String === i.data && i.data.data.length != 1
         "(?:" + compile_item(i.data, doc, target) + ")" + resuffix
@@ -226,7 +226,7 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
       end
     when Interscript::Node::Item::CaptureRef
       if target == :par
-        raise ArgumentError, "Can't use CaptureRef in parallel mode"
+        raise Interscript::SystemConversionError, "Can't use CaptureRef in parallel mode"
       elsif target == :re
         "\\\\#{i.id}"
       elsif target == :str
@@ -234,7 +234,7 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
       end
     when Interscript::Node::Item::Any
       if target == :str
-        raise ArgumentError, "Can't use Any in a string context" # A linter could find this!
+        raise Interscript::SystemConversionError, "Can't use Any in a string context" # A linter could find this!
       elsif target == :par
         i.data.map(&:data)
       elsif target == :re

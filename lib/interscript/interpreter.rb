@@ -92,11 +92,11 @@ class Interscript::Interpreter < Interscript::Compiler
             # Try to build a tree
             subs_array = []
             r.children.each do |i|
-              raise ArgumentError, "Can't parallelize #{i.class}" unless Interscript::Node::Rule::Sub === i
-              raise ArgumentError, "Can't parallelize rules with :before" if i.before
-              raise ArgumentError, "Can't parallelize rules with :after" if i.after
-              raise ArgumentError, "Can't parallelize rules with :not_before" if i.not_before
-              raise ArgumentError, "Can't parallelize rules with :not_after" if i.not_after
+              raise Interscript::SystemConversionError, "Can't parallelize #{i.class}" unless Interscript::Node::Rule::Sub === i
+              raise Interscript::SystemConversionError, "Can't parallelize rules with :before" if i.before
+              raise Interscript::SystemConversionError, "Can't parallelize rules with :after" if i.after
+              raise Interscript::SystemConversionError, "Can't parallelize rules with :not_before" if i.not_before
+              raise Interscript::SystemConversionError, "Can't parallelize rules with :not_after" if i.not_after
               next if i.reverse_run == true
               subs_array << [build_item(i.from, :par), build_item(i.to, :parstr)]
             end
@@ -109,7 +109,7 @@ class Interscript::Interpreter < Interscript::Compiler
             # Otherwise let's build a megaregexp
             subs_array = []
             Interscript::Stdlib.deterministic_sort_by_max_length(r.children).each do |i|  # rule.from.max_length gives somewhat better test results, why is that
-              raise ArgumentError, "Can't parallelize #{i.class}" unless Interscript::Node::Rule::Sub === i
+              raise Interscript::SystemConversionError, "Can't parallelize #{i.class}" unless Interscript::Node::Rule::Sub === i
               next if i.reverse_run == true
               subs_array << [build_regexp(i), build_item(i.to, :parstr)]
             end
@@ -178,16 +178,16 @@ class Interscript::Interpreter < Interscript::Compiler
         if i.map
           d = doc.dep_aliases[i.map].document
           a = d.imported_aliases[i.name]
-          raise ArgumentError, "Alias #{i.name} of #{i.stage.map} not found" unless a
+          raise Interscript::SystemConversionError, "Alias #{i.name} of #{i.stage.map} not found" unless a
           build_item(a.data, target, d)
         elsif Interscript::Stdlib::ALIASES.include?(i.name)
           if target != :re && Interscript::Stdlib.re_only_alias?(i.name)
-            raise ArgumentError, "Can't use #{i.name} in a #{target} context"
+            raise Interscript::SystemConversionError, "Can't use #{i.name} in a #{target} context"
           end
           Interscript::Stdlib::ALIASES[i.name]
         else
           a = doc.imported_aliases[i.name]
-          raise ArgumentError, "Alias #{i.name} not found" unless a
+          raise Interscript::SystemConversionError, "Alias #{i.name} not found" unless a
           build_item(a.data, target, doc)
         end
       when Interscript::Node::Item::String
@@ -208,7 +208,7 @@ class Interscript::Interpreter < Interscript::Compiler
         end
       when Interscript::Node::Item::CaptureGroup
         if target == :par
-          raise ArgumentError, "Can't use a CaptureGroup in a #{target} context"
+          raise Interscript::SystemConversionError, "Can't use a CaptureGroup in a #{target} context"
         end
         "(" + build_item(i.data, target, doc) + ")"
       when Interscript::Node::Item::Maybe,
@@ -220,7 +220,7 @@ class Interscript::Interpreter < Interscript::Compiler
                      Interscript::Node::Item::MaybeSome => "*" }[i.class]
 
         if target == :par
-          raise ArgumentError, "Can't use a MaybeSome in a #{target} context"
+          raise Interscript::SystemConversionError, "Can't use a MaybeSome in a #{target} context"
         end
         if Interscript::Node::Item::String === i.data && i.data.data.length != 1
           "(?:" + build_item(i.data, target, doc) + ")" + resuffix
@@ -229,13 +229,13 @@ class Interscript::Interpreter < Interscript::Compiler
         end
       when Interscript::Node::Item::CaptureRef
         if target == :par
-          raise ArgumentError, "Can't use CaptureRef in parallel mode"
+          raise Interscript::SystemConversionError, "Can't use CaptureRef in parallel mode"
         end
         "\\#{i.id}"
       when Interscript::Node::Item::Any
         if target == :str
           # We may never reach this point
-          raise ArgumentError, "Can't use Any in a string context"
+          raise Interscript::SystemConversionError, "Can't use Any in a string context"
         elsif target == :par
           i.data.map(&:data)
         elsif target == :re

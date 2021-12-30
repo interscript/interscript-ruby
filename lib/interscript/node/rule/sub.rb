@@ -184,7 +184,7 @@ class Interscript::Node::Rule::Sub < Interscript::Node::Rule
         node
       else
         state[:right][node.id] = true
-        state[:left][node.id - 1] or raise "Capture count doesn't match"
+        state[:left][node.id - 1] or raise Interscript::MapLogicError, "Capture count doesn't match"
       end
     when Interscript::Node::Item::CaptureGroup
       state[:left] << node

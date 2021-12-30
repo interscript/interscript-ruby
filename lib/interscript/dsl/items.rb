@@ -55,7 +55,7 @@ module Interscript::DSL::Items
     class << self
       # Select a remote map
       def [] map
-        Symbol === map or raise TypeError, "A map name must be a Symbol, not #{alias_name.class}"
+        Symbol === map or raise Interscript::MapLogicError, "A map name must be a Symbol, not #{alias_name.class}"
         Map.new(map)
       end
       alias method_missing []
@@ -68,7 +68,7 @@ module Interscript::DSL::Items
 
     # Implementation of `map.x.aliasname`
     def [] alias_name
-      Symbol === alias_name or raise TypeError, "An alias name must be a Symbol, not #{alias_name.class}"
+      Symbol === alias_name or raise Interscript::MapLogicError, "An alias name must be a Symbol, not #{alias_name.class}"
       Interscript::Node::Item::Alias.new(alias_name, map: @name)
     end
     alias method_missing []

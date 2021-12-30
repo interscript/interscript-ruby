@@ -2,7 +2,14 @@ require "interscript/version"
 require "yaml"
 
 module Interscript
+  # An error caused by a lack of some map
   class MapNotFoundError < StandardError; end
+  # An error caused by a missing dependency
+  class ExternalUtilError < StandardError; end
+  # An error caused by a particular compiler
+  class SystemConversionError < StandardError; end
+  # An error caused by an incorrect map implementation
+  class MapLogicError < StandardError; end
 
   class << self
     def load_path
@@ -121,8 +128,8 @@ module Interscript
         write_path = path unless write_path
       rescue
       end
-
-      raise StandardError, "Can't find a writable path for Rababa. Consider setting a RABABA_DATA environment variable" unless write_path
+  
+      raise ExternalUtilError, "Can't find a writable path for Rababa. Consider setting a RABABA_DATA environment variable" unless write_path
 
       model_path = "#{write_path}/model-#{model_name}.onnx"
 

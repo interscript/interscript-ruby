@@ -4,7 +4,7 @@ class Interscript::DSL::Metadata
   attr_accessor :node
 
   def initialize(yaml: false, map_name: "", library: true, &block)
-    raise ArgumentError, "Can't evaluate metadata from Ruby context" unless yaml
+    raise Interscript::MapLogicError, "Can't evaluate metadata from Ruby context" unless yaml
     @map_name = map_name
     @node = Interscript::Node::MetaData.new
     self.instance_exec(&block)

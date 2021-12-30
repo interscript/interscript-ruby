@@ -10,7 +10,7 @@ class Interscript::Node::Item::Any < Interscript::Node::Item
       self.value = Interscript::Stdlib::ALIASES[data.name]
     else
       puts data.inspect
-      raise TypeError, "Wrong type #{data[0].class}, excepted Array, String or Range"
+      raise Interscript::MapLogicError, "Wrong type #{data[0].class}, excepted Array, String or Range"
     end
   end
 
