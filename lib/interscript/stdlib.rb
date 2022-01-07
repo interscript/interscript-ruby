@@ -226,7 +226,7 @@ class Interscript::Stdlib
     def self.secryst(output, model:)
       require "secryst" rescue nil # Try to load secryst, but don't fail hard if not possible.
       unless defined? Secryst
-        raise StandardError, "Secryst is not loaded. Please read docs/Usage_with_Secryst.adoc"
+        raise Interscript::ExternalUtilError, "Secryst is not loaded. Please read docs/Usage_with_Secryst.adoc"
       end
       Interscript.secryst_index_locations.each do |remote|
         Secryst::Provisioning.add_remote(remote)
@@ -240,7 +240,7 @@ class Interscript::Stdlib
     def self.rababa(output, config:)
       require "rababa" rescue nil # Try to load rababa, but don't fail hard if not possible.
       unless defined? Rababa
-        raise StandardError, "Rababa is not loaded. Please read docs/Usage_with_Rababa.adoc"
+        raise Interscript::ExternalUtilError, "Rababa is not loaded. Please read docs/Usage_with_Rababa.adoc"
       end
 
       config_value = Interscript.rababa_configs[config]

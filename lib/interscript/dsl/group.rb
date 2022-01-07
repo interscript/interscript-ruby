@@ -10,7 +10,7 @@ class Interscript::DSL::Group
 
   def run(stage, **kwargs)
     if stage.class != Interscript::Node::Item::Stage
-      raise TypeError, "I::Node::Item::Stage expected, got #{stage.class}"
+      raise Interscript::MapLogicError, "I::Node::Item::Stage expected, got #{stage.class}"
     end
     @node.children << Interscript::Node::Rule::Run.new(stage, **kwargs)
   end

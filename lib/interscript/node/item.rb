@@ -42,7 +42,7 @@ class Interscript::Node::Item < Interscript::Node
 
   def self.try_convert(i)
     i = Interscript::Node::Item::String.new(i) if i.class == ::String
-    raise TypeError, "Wrong type #{i.class}, expected I::Node::Item" unless Interscript::Node::Item === i
+    raise Interscript::MapLogicError, "Wrong type #{i.class}, expected I::Node::Item" unless Interscript::Node::Item === i
     i
   end
 end

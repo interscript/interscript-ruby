@@ -14,7 +14,7 @@ class Interscript::DSL::Aliases
     end
 
     unless Symbol === name
-      raise TypeError, "Alias name must be a Symbol, given #{name.class}"
+      raise Interscript::SystemConversionError, "Alias name must be a Symbol, given #{name.class}"
     end
 
     puts "def_alias(#{name.inspect}, #{thing.inspect})" if $DEBUG
