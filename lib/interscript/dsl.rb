@@ -76,7 +76,7 @@ module Interscript::DSL
     yaml = if yaml =~ /\A\s*\z/
       {}
     else
-      YAML.load(yaml, exc_fname)
+      YAML.load(yaml, filename: exc_fname)
     end
 
     md = Interscript::DSL::Metadata.new(yaml: true, map_name: map_name, library: library) do
