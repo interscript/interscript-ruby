@@ -76,7 +76,12 @@ module Interscript::DSL
     yaml = if yaml =~ /\A\s*\z/
       {}
     else
-      YAML.load(yaml, filename: exc_fname)
+      unsafe_load = if YAML.respond_to? :unsafe_load
+        :unsafe_load
+      else
+        :load
+      end
+      YAML.public_send(unsafe_load, yaml, filename: exc_fname)
     end
 
     md = Interscript::DSL::Metadata.new(yaml: true, map_name: map_name, library: library) do
