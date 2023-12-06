@@ -44,6 +44,7 @@ jobs:
           RUBYGEMS_API_KEY: ${{secrets.INTERSCRIPT_RUBYGEMS_API_KEY}}
         run: |
           gem install gem-release
+          mkdir -p ~/.gem
           touch ~/.gem/credentials
           cat > ~/.gem/credentials << EOF
           ---
