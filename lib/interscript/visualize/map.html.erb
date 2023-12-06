@@ -35,7 +35,7 @@
 
   <% case k
      when :url %>
-    <dd><a href="<%= h v %>"><%= h v %></a>
+    <dd><% v.each do |i| %><a href="<%= h i %>"><%= h i %></a><% if i != v.last %>; <% end %><% end %>
   <% when :notes, :implementation_notes, :special_rules, :original_notes, :original_description # We ignore notes for now %>
   <% else %>
     <dd><%= h v %>

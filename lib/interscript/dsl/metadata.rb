@@ -20,13 +20,12 @@ class Interscript::DSL::Metadata
 
   STANDARD_STRING_KEYS = %i{authority_id id
   language source_script destination_script
-  name url creation_date adoption_date description
-  character source confirmation_date}
+  name creation_date adoption_date description
+  character source confirmation_date original_description}
 
-  STANDARD_ARRAY_KEYS = %i{notes}
+  STANDARD_ARRAY_KEYS = %i{notes implementation_notes original_notes url}
 
-  NONSTANDARD_KEYS = %i{special_rules original_description original_notes
-    implementation_notes}
+  NONSTANDARD_KEYS = %i{special_rules}
   
   NECESSARY_KEYS = %i{name language source_script destination_script}
 
