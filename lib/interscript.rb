@@ -125,7 +125,8 @@ module Interscript
 
       ([ENV["RABABA_DATA"]] + possible_paths).compact.each do |path|
         FileUtils.mkdir_p(path)
-        write_path = path unless write_path
+        write_path = path
+        break
       rescue
       end
   
@@ -137,8 +138,8 @@ module Interscript
       if File.exist?(model_path) && File.mtime(model_path) + 3600 >= Time.now
         return model_path
       else
-        data = URI.open(model_uri).read
-        File.write(model_path, data)
+        data = URI.open(model_uri, encoding: "BINARY").read
+        File.binwrite(model_path, data)
         return model_path
       end
     end
