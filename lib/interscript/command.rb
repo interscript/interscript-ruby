@@ -8,14 +8,23 @@ module Interscript
     desc '<file>', 'Transliterate text'
     option :system, aliases: '-s', required: true, desc: 'Transliteration system'
     option :output, aliases: '-o', required: false, desc: 'Output file'
+    option :compiler, aliases: '-c', required: false, desc: 'Compiler (eg. Interscript::Compiler::Python)'
     # Was this option really well thought out? The last parameter is a cache, isn't it?
     #option :map, aliases: '-m', required: false, default: "{}", desc: 'Transliteration mapping json'
 
     def translit(input)
+      compiler = if options[:compiler]
+                   compiler = options[:compiler].split("::").last.downcase
+                   require "interscript/compiler/#{compiler}"
+                   Object.const_get(options[:compiler])
+                 else
+                   Interscript::Interpreter
+                 end
+
       if options[:output]
-        Interscript.transliterate_file(options[:system], input, options[:output]) #, JSON.parse(options[:map]))
+        Interscript.transliterate_file(options[:system], input, options[:output], compiler: compiler)
       else
-        puts Interscript.transliterate(options[:system], IO.read(input))
+        puts Interscript.transliterate(options[:system], IO.read(input), compiler: compiler)
       end
     end
 
