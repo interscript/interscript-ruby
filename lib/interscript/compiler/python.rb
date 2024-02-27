@@ -38,6 +38,7 @@ class Interscript::Compiler::Python < Interscript::Compiler
 
   def emit(code)
     @code << (" " * @indent) << code << "\n"
+    code
   end
 
   def compile(map, debug: false)
@@ -69,7 +70,7 @@ class Interscript::Compiler::Python < Interscript::Compiler
       emit "_PTREE_#{k} = #{escape v}"
     end
     @parallel_regexps.each do |k,v|
-      v = "[\"#{v[0]}\", #{escape v[1]}]"
+      v = %{["#{v[0]}", #{escape v[1]}]}
       emit "_PRE_#{k} = #{v}"
     end
   end
@@ -87,12 +88,15 @@ class Interscript::Compiler::Python < Interscript::Compiler
     return if r.reverse_run == true
     case r
     when Interscript::Node::Stage
-      #c += "$map_debug ||= []\n" if @debug
+      if @debug
+        emit "if not hasattr(interscript, 'map_debug'):"
+        indent { emit "interscript.map_debug = []" }
+      end
       emit "def _stage_#{r.name}(s):"
       indent do
         r.children.each do |t|
-          compile_rule(t, map)
-          #c += %{$map_debug << [s.dup, #{@map.name.to_s.inspect}, #{r.name.to_s.inspect}, #{t.inspect.inspect}, #{comp.inspect}]\n} if @debug
+          comp = compile_rule(t, map)
+          emit %{interscript.map_debug.append([s, #{escape @map.name.to_s}, #{escape r.name.to_s}, #{escape t.inspect}, #{escape comp}])} if @debug
         end
         emit "return s\n"
       end
@@ -317,10 +321,10 @@ class Interscript::Compiler::Python < Interscript::Compiler
   end
 
   def self.read_debug_data
-    $map_debug || []
+    (ctx['map_debug'] || []).map(&:to_a).to_a
   end
 
   def self.reset_debug_data
-    $map_debug = []
+    ctx['map_debug'].clear
   end
 end
