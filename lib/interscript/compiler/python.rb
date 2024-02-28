@@ -23,7 +23,7 @@ class Interscript::Compiler::Python < Interscript::Compiler
 
   def re_escape(val)
     @pycall_regex ||= PyCall.import_module("regex")
-    @pycall_regex.escape(val)
+    @pycall_regex.escape(val).gsub("\\", "\\\\\\\\").gsub('"', "\\\\\"")
   end
 
   def new_regexp(str)
