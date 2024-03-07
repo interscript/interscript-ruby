@@ -48,9 +48,9 @@ module Interscript
       load(system_code, maps).(string, each: true, &block)
     end
 
-    def transliterate_file(system_code, input_file, output_file, maps={})
+    def transliterate_file(system_code, input_file, output_file, maps={}, compiler: Interscript::Interpreter)
       input = File.read(input_file)
-      output = transliterate(system_code, input, maps)
+      output = transliterate(system_code, input, maps, compiler: compiler)
 
       File.open(output_file, 'w') do |f|
         f.puts(output)

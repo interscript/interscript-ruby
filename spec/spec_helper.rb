@@ -9,6 +9,7 @@ require "bundler/setup"
 require "interscript"
 require "interscript/compiler/ruby"
 require "interscript/compiler/javascript" unless ENV["SKIP_JS"]
+require "interscript/compiler/python" unless ENV["SKIP_PYTHON"]
 require "interscript/utils/helpers"
 
 RSpec.configure do |config|
@@ -29,6 +30,7 @@ RSpec.configure do |config|
     compilers << Interscript::Interpreter
     compilers << Interscript::Compiler::Ruby
     compilers << Interscript::Compiler::Javascript unless ENV["SKIP_JS"]
+    compilers << Interscript::Compiler::Python unless ENV["SKIP_PYTHON"]
 
     compilers.each do |compiler|
       block.(compiler)

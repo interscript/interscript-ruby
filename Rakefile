@@ -14,6 +14,9 @@ task :compile, [:compiler, :target] do |t, args|
   when "javascript"
     require "interscript/compiler/javascript"
     [Interscript::Compiler::Javascript, "js"]
+  when "python"
+    require "interscript/compiler/python"
+    [Interscript::Compiler::Python, "py"]
   end
 
   FileUtils.mkdir_p(args[:target])
@@ -34,7 +37,7 @@ task :compile, [:compiler, :target] do |t, args|
     File.write(args[:target] + "/" + map + "." + ext, code)
   end
 
-  File.write(args[:target] + "/index.json", maplist.to_json)
+  File.write(args[:target] + "/index.json", maplist.to_json) if args[:compiler] == "javascript"
 end
 
 task :generate_visualization_html do

@@ -26,6 +26,12 @@ unless ENV["SKIP_JS"]
   end
 end
 
+unless ENV["SKIP_PYTHON"]
+  group :pyexec do
+    gem 'pycall'
+  end
+end
+
 group :rababa do
   gem 'rababa', "~> 0.1.1"
 end
