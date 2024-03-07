@@ -308,6 +308,7 @@ class Interscript::Compiler::Python < Interscript::Compiler
         self.class.ctx = PyCall.import_module("interscript")
       end
       #puts @code
+      Dir.mkdir("#{python_src_path}/interscript/maps") rescue nil
       File.write("#{python_src_path}/interscript/maps/#{@map.name}.py", @code)
       self.class.ctx.load_map(@map.name)
 

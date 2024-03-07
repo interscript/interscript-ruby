@@ -38,5 +38,6 @@ jobs:
       - name: Run RSpecs
         working-directory: ./ruby
         run: |
+          pip install regex
           bundle install --with=jsexec
           bundle exec rspec
