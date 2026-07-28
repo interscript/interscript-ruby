@@ -9,60 +9,45 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - name: Checkout monorepo
+        uses: actions/checkout@v7
         with:
           repository: interscript/interscript
 
-      - name: Run bootstrap script
+      - name: Bootstrap packages
         run: ruby bootstrap.rb
 
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.0'
+          ruby-version: '3.3'
+          bundler-cache: true
+          working-directory: ruby
 
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v7
         with:
-          node-version: 14.x
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: js/package-lock.json
 
-      # For now let's install without secryst, as we don't necessarily need it.
-      # We may need to change it once we start to depend on secryst maps.
-      - name: Install bundle
-        working-directory: ./ruby
+      - name: Install gems
+        working-directory: ruby
         run: bundle install --jobs 4 --retry 3 --with jsexec --without secryst
 
       - name: Test Ruby package
-        working-directory: ./ruby
+        working-directory: ruby
         run: bundle exec rake
 
       - name: Test JS package
-        working-directory: ./js
+        working-directory: js
         run: npm install && npm run prepareMaps && npm test
 
       - name: Publish to rubygems.org
         env:
-          RUBYGEMS_API_KEY: ${{secrets.INTERSCRIPT_RUBYGEMS_API_KEY}}
+          RUBYGEMS_API_KEY: ${{ secrets.INTERSCRIPT_RUBYGEMS_API_KEY }}
+        working-directory: ruby
         run: |
-          gem install gem-release
           mkdir -p ~/.gem
-          touch ~/.gem/credentials
-          cat > ~/.gem/credentials << EOF
-          ---
-          :rubygems_api_key: ${RUBYGEMS_API_KEY}
-          EOF
+          printf -- "---\n:rubygems_api_key: %s\n" "$RUBYGEMS_API_KEY" > ~/.gem/credentials
           chmod 0600 ~/.gem/credentials
-          pushd ruby
-          git status
+          gem install gem-release
           gem release
-          popd
-
-      # Let's keep it commented out for now. Please uncomment it once you are ready with
-      # interscript-api to support Interscript v2.
-      #
-      #- name: Trigger interscript-api
-      #  uses: peter-evans/repository-dispatch@v1
-      #  with:
-      #    token: ${{ secrets.INTERSCRIPT_CI_PAT_TOKEN }}
-      #    repository: interscript/interscript-api
-      #    event-type: ${{ github.repository }}
-      #    client-payload: '{ "ref": "${{ github.ref }}" }'

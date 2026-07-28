@@ -8,36 +8,39 @@ on:
 
 jobs:
   rspec:
-    name: Test on Ruby ${{ matrix.ruby }} ${{ matrix.os }}
+    name: Test on Ruby ${{ matrix.ruby }} / ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
-    continue-on-error: true
     strategy:
       fail-fast: false
       matrix:
-        ruby: [ 3.3, 3.2, 3.1, "3.0", 2.7, 2.6 ]
-        os: [ ubuntu-latest, windows-latest, macos-latest ]
+        ruby: ["3.3", "3.4"]
+        os: [ubuntu-latest, windows-latest, macos-latest]
     env:
       BUNDLE_WITHOUT: "secryst"
       SKIP_JS: "1"
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - name: Checkout monorepo
+        uses: actions/checkout@v7
         with:
           repository: interscript/interscript
 
-      - name: Run bootstrap script
+      - name: Bootstrap packages
         run: ruby bootstrap.rb
 
-      - name: Use Ruby
+      - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
+          working-directory: ruby
 
-      - name: Run RSpecs
-        working-directory: ./ruby
+      - name: Install Python helper and gems
+        working-directory: ruby
         run: |
           pip install regex
           bundle install --with=jsexec
-          bundle exec rspec
+
+      - name: RSpec
+        working-directory: ruby
+        run: bundle exec rspec

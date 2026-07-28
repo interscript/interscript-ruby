@@ -13,30 +13,31 @@ jobs:
       BUNDLE_WITHOUT: "secryst:jsexec"
       SKIP_JS: "1"
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - name: Checkout monorepo
+        uses: actions/checkout@v7
         with:
           repository: interscript/interscript
 
-      - name: Run bootstrap script
+      - name: Bootstrap packages
         run: ruby bootstrap.rb
 
-      - name: Use Ruby
+      - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.0"
+          ruby-version: "3.3"
           bundler-cache: true
+          working-directory: ruby
 
       - name: Install bundle
-        working-directory: ./ruby
+        working-directory: ruby
         run: bundle install --jobs 4 --retry 3 --with jsexec --without secryst
 
-      - name: Generate visualization json
-        working-directory: ./ruby
+      - name: Generate visualization JSON
+        working-directory: ruby
         run: bundle exec rake generate_visualization_json
 
-      - name: Archive json files from the previous step
-        uses: thedoctor0/zip-release@master
+      - name: Archive visualization JSON
+        uses: thedoctor0/zip-release@v0.7.6
         with:
           filename: 'vis_json.zip'
           path: ./vis_json/*.json
@@ -44,9 +45,9 @@ jobs:
           exclusions: '*.git*'
           type: zip
 
-      - name: Upload artifacts
+      - name: Upload visualization artifact
         id: upload_vis_json
-        uses: svenstaro/upload-release-action@2.2.1
+        uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ruby/vis_json.zip
@@ -55,11 +56,11 @@ jobs:
           overwrite: true
 
       - name: Generate metadata
-        working-directory: ./ruby
+        working-directory: ruby
         run: bundle exec rake generate_metadata_json
 
-      - name: Archive metadata from the previous step
-        uses: thedoctor0/zip-release@master
+      - name: Archive metadata
+        uses: thedoctor0/zip-release@v0.7.6
         with:
           filename: 'metadata.zip'
           path: ./metadata.json
@@ -69,7 +70,7 @@ jobs:
 
       - name: Upload metadata
         id: upload_metadata
-        uses: svenstaro/upload-release-action@2.2.1
+        uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ruby/metadata.zip
@@ -77,15 +78,7 @@ jobs:
           tag: ${{ github.ref }}
           overwrite: true
 
-      - name: Output link
+      - name: Output links
         run: |
           echo ${{ steps.upload_vis_json.outputs.browser_download_url }}
           echo ${{ steps.upload_metadata.outputs.browser_download_url }}
-
-#        - name: Trigger deploy at interscript.org
-#          uses: peter-evans/repository-dispatch@v1
-#          with:
-#            token: ${{ secrets.INTERSCRIPT_CI_TOKEN }}
-#            repository: interscript/interscript.org
-#            event-type: ${{ github.repository }}
-#            client-payload: '{ "ref": "${{ github.ref }}" }'
