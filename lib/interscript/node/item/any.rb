@@ -25,8 +25,13 @@ class Interscript::Node::Item::Any < Interscript::Node::Item
     end
   end
 
-  def downcase; self.class.new(self.data.map(&:downcase)); end
-  def upcase; self.class.new(self.data.map(&:upcase)); end
+  def downcase
+    self.class.new(data.map(&:downcase))
+  end
+
+  def upcase
+    self.class.new(data.map(&:upcase))
+  end
 
   def first_string
     case @value
@@ -44,17 +49,17 @@ class Interscript::Node::Item::Any < Interscript::Node::Item
 
     d = data
     Fiber.yield(:prepare)
-    id = Fiber.yield(:select_nth_string, d.count, self.hash)
+    id = Fiber.yield(:select_nth_string, d.count, hash)
     Fiber.yield(:selection)
     Interscript::Node::Item.try_convert(value[id]).nth_string
   end
 
   def max_length
-    self.data.map(&:max_length).max
+    data.map(&:max_length).max
   end
 
   def to_hash
-    hash = { :class => self.class.to_s }
+    hash = {class: self.class.to_s}
 
     case @value
     when Array
@@ -74,7 +79,7 @@ class Interscript::Node::Item::Any < Interscript::Node::Item
   end
 
   def ==(other)
-    super && self.data == other.data
+    super && data == other.data
   end
 
   def inspect

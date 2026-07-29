@@ -5,7 +5,7 @@ class Interscript::DSL::Group
 
   def initialize(&block)
     @node = Interscript::Node::Group.new
-    self.instance_exec(&block)
+    instance_exec(&block)
   end
 
   def run(stage, **kwargs)
@@ -16,20 +16,27 @@ class Interscript::DSL::Group
   end
 
   def sub(from, to, **kwargs, &block)
-    puts "sub(#{from.inspect},#{to}, kwargs = #{
-      kwargs.inspect
-    }) from #{self.inspect}" if $DEBUG
+    if $DEBUG
+      puts "sub(#{from.inspect},#{to}, kwargs = #{
+        kwargs.inspect
+      }) from #{inspect}"
+    end
 
     rule = Interscript::Node::Rule::Sub.new(from, to, **kwargs)
     @node.children << rule
   end
 
-  def upcase; :upcase; end
-  def downcase; :downcase; end
+  def upcase
+    :upcase
+  end
+
+  def downcase
+    :downcase
+  end
 
   Interscript::Stdlib.available_functions.each do |fun|
     define_method fun do |**kwargs|
-      puts "funcall(#{fun}, #{kwargs.inspect}) from #{self.inspect}" if $DEBUG
+      puts "funcall(#{fun}, #{kwargs.inspect}) from #{inspect}" if $DEBUG
 
       rule = Interscript::Node::Rule::Funcall.new(fun, **kwargs)
       @node.children << rule
@@ -37,10 +44,10 @@ class Interscript::DSL::Group
   end
 
   def parallel(**kwargs, &block)
-    puts "parallel(#{chars.inspect}) from #{self.inspect}" if $DEBUG
+    puts "parallel(#{chars.inspect}) from #{inspect}" if $DEBUG
     group = Interscript::DSL::Group::Parallel.new(**kwargs, &block)
     @node.children << group.node
   end
 end
 
-require 'interscript/dsl/group/parallel'
+require "interscript/dsl/group/parallel"

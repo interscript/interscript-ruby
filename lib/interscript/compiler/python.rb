@@ -1,4 +1,4 @@
-require 'pycall'
+require "pycall"
 
 class Interscript::Compiler::Python < Interscript::Compiler
   def escape(val)
@@ -8,9 +8,9 @@ class Interscript::Compiler::Python < Interscript::Compiler
     when Symbol
       val.to_s.inspect
     when Hash
-      "{"+
-        val.map { |k,v| "#{escape k}:#{escape v}" }.join(",")+
-      "}"
+      "{" +
+        val.map { |k, v| "#{escape k}:#{escape v}" }.join(",") +
+        "}"
     when Array
       "[" + val.map { |i| escape i }.join(",") + "]"
     when nil
@@ -66,21 +66,21 @@ class Interscript::Compiler::Python < Interscript::Compiler
     map.stages.each do |_, stage|
       compile_rule(stage, @map, true)
     end
-    @parallel_trees.each do |k,v|
+    @parallel_trees.each do |k, v|
       emit "_PTREE_#{k} = #{escape v}"
     end
-    @parallel_regexps.each do |k,v|
-      v = %{["#{v[0]}", #{escape v[1]}]}
+    @parallel_regexps.each do |k, v|
+      v = %(["#{v[0]}", #{escape v[1]}])
       emit "_PRE_#{k} = #{v}"
     end
   end
 
   def parallel_regexp_compile(subs_hash)
     # puts subs_hash.inspect
-    regexp = subs_hash.each_with_index.map do |p,i|
-      "(?P<_%d>%s)" % [i,p[0]]
+    subs_hash.each_with_index.map do |p, i|
+      "(?P<_%d>%s)" % [i, p[0]]
     end.join("|")
-    subs_regexp = regexp
+
     # puts subs_regexp.inspect
   end
 
@@ -139,12 +139,12 @@ class Interscript::Compiler::Python < Interscript::Compiler
       end
     when Interscript::Node::Rule::Sub
       from = new_regexp build_regexp(r, map)
-      if r.to == :upcase
-        to = 'interscript.stdlib.upper'
+      to = if r.to == :upcase
+        "interscript.stdlib.upper"
       elsif r.to == :downcase
-        to = 'interscript.stdlib.lower'
+        "interscript.stdlib.lower"
       else
-        to = compile_item(r.to, map, :str)
+        compile_item(r.to, map, :str)
       end
       emit "s = #{from}.sub(#{to}, s)"
     when Interscript::Node::Rule::Funcall
@@ -162,7 +162,7 @@ class Interscript::Compiler::Python < Interscript::Compiler
     end
   end
 
-  def build_regexp(r, map=@map)
+  def build_regexp(r, map = @map)
     from = compile_item(r.from, map, :re)
     before = compile_item(r.before, map, :re) if r.before
     after = compile_item(r.after, map, :re) if r.after
@@ -178,7 +178,7 @@ class Interscript::Compiler::Python < Interscript::Compiler
     re
   end
 
-  def compile_item i, doc=@map, target=nil
+  def compile_item i, doc = @map, target = nil
     i = i.first_string if %i[str parstr].include? target
     i = Interscript::Node::Item.try_convert(i)
     if target == :parstr
@@ -186,7 +186,7 @@ class Interscript::Compiler::Python < Interscript::Compiler
       target = :par
     end
 
-    out = case i
+    case i
     when Interscript::Node::Item::Alias
       astr = if i.map
         d = doc.dep_aliases[i.map].document
@@ -207,14 +207,14 @@ class Interscript::Compiler::Python < Interscript::Compiler
       end
 
       if target == :str
-        astr = astr.sub("_ALIASTYPE(", "(")
+        astr.sub("_ALIASTYPE(", "(")
       elsif target == :re
-        astr = "\"+#{astr.sub("_ALIASTYPE(", "_re(")}+\""
+        "\"+#{astr.sub("_ALIASTYPE(", "_re(")}+\""
       elsif parstr && stdlib_alias
-        astr = Interscript::Stdlib::ALIASES[i.name]
+        Interscript::Stdlib::ALIASES[i.name]
       elsif target == :par
         # raise NotImplementedError, "Can't use aliases in parallel mode yet"
-        astr = Interscript::Stdlib::ALIASES[i.name]
+        Interscript::Stdlib::ALIASES[i.name]
       end
     when Interscript::Node::Item::String
       if target == :str
@@ -229,7 +229,7 @@ class Interscript::Compiler::Python < Interscript::Compiler
       if target == :par
         i.children.map do |j|
           compile_item(j, doc, target)
-        end.reduce([""]) do |j,k|
+        end.reduce([""]) do |j, k|
           Array(j).product(Array(k)).map(&:join)
         end
       elsif target == :str
@@ -246,9 +246,9 @@ class Interscript::Compiler::Python < Interscript::Compiler
          Interscript::Node::Item::MaybeSome,
          Interscript::Node::Item::Some
 
-      resuffix = { Interscript::Node::Item::Maybe     => "?" ,
-                   Interscript::Node::Item::Some      => "+" ,
-                   Interscript::Node::Item::MaybeSome => "*" }[i.class]
+      resuffix = {Interscript::Node::Item::Maybe => "?",
+                  Interscript::Node::Item::Some => "+",
+                  Interscript::Node::Item::MaybeSome => "*"}[i.class]
 
       if target == :par
         raise Interscript::SystemConversionError, "Can't use a Maybe in a #{target} context"
@@ -275,7 +275,7 @@ class Interscript::Compiler::Python < Interscript::Compiler
         case i.value
         when Array
           data = i.data.map { |j| compile_item(j, doc, target) }
-          "(?:"+data.join("|")+")"
+          "(?:" + data.join("|") + ")"
         when String
           "[#{re_escape(i.value)}]"
         when Range
@@ -302,13 +302,17 @@ class Interscript::Compiler::Python < Interscript::Compiler
       end
 
       ctx = self.class.ctx
-      python_src_path = File.join(__dir__, '..', '..', '..', '..', 'python', 'src')
+      python_src_path = File.join(__dir__, "..", "..", "..", "..", "python", "src")
       unless ctx
         PyCall.sys.path.append(python_src_path)
         self.class.ctx = PyCall.import_module("interscript")
       end
-      #puts @code
-      Dir.mkdir("#{python_src_path}/interscript/maps") rescue nil
+      # puts @code
+      begin
+        Dir.mkdir("#{python_src_path}/interscript/maps")
+      rescue
+        nil
+      end
       File.write("#{python_src_path}/interscript/maps/#{@map.name}.py", @code)
       self.class.ctx.load_map(@map.name)
 
@@ -316,16 +320,16 @@ class Interscript::Compiler::Python < Interscript::Compiler
     end
   end
 
-  def call(str, stage=:main)
+  def call(str, stage = :main)
     load
     self.class.ctx.transliterate(@map.name, str, stage.to_s)
   end
 
   def self.read_debug_data
-    (ctx['map_debug'] || []).map(&:to_a).to_a
+    (ctx["map_debug"] || []).map(&:to_a).to_a
   end
 
   def self.reset_debug_data
-    ctx['map_debug'].clear
+    ctx["map_debug"].clear
   end
 end

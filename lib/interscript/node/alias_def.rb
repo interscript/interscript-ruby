@@ -9,13 +9,13 @@ class Interscript::Node::AliasDef < Interscript::Node
 
   def ==(other)
     super &&
-    self.name == other.name &&
-    self.data == other.data
+      name == other.name &&
+      data == other.data
   end
 
   def to_hash
-    { :class => self.class.to_s,
-      :name => @name,
-      :data => @data.to_hash }
+    {class: self.class.to_s,
+     name: @name,
+     data: @data.to_hash}
   end
 end

@@ -1,6 +1,6 @@
 module Interscript::Utils
   module Helpers
-    def document name=nil, &block
+    def document name = nil, &block
       $example_id ||= 0
       $example_id += 1
       name ||= "example-#{$example_id}"
@@ -20,14 +20,14 @@ module Interscript::Utils
 end
 
 class Interscript::Node::Document
-  def call(str, stage=:main, compiler=$compiler || Interscript::Interpreter, **kwargs)
-    compiler.(self).(str, stage, **kwargs)
+  def call(str, stage = :main, compiler = $compiler || Interscript::Interpreter, **kwargs)
+    compiler.call(self).call(str, stage, **kwargs)
   end
 end
 
 module Interscript::DSL
   class << self
-    alias original_parse parse
+    alias_method :original_parse, :parse
     def parse(map_name, **kwargs)
       if $documents && $documents[map_name]
         $documents[map_name]

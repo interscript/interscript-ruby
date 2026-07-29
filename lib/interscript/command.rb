@@ -1,25 +1,25 @@
-require 'thor'
-require 'interscript'
-require 'json'
+require "thor"
+require "interscript"
+require "json"
 
 module Interscript
   # Command line interface
   class Command < Thor
-    desc '<file>', 'Transliterate text'
-    option :system, aliases: '-s', required: true, desc: 'Transliteration system'
-    option :output, aliases: '-o', required: false, desc: 'Output file'
-    option :compiler, aliases: '-c', required: false, desc: 'Compiler (eg. Interscript::Compiler::Python)'
+    desc "<file>", "Transliterate text"
+    option :system, aliases: "-s", required: true, desc: "Transliteration system"
+    option :output, aliases: "-o", required: false, desc: "Output file"
+    option :compiler, aliases: "-c", required: false, desc: "Compiler (eg. Interscript::Compiler::Python)"
     # Was this option really well thought out? The last parameter is a cache, isn't it?
-    #option :map, aliases: '-m', required: false, default: "{}", desc: 'Transliteration mapping json'
+    # option :map, aliases: '-m', required: false, default: "{}", desc: 'Transliteration mapping json'
 
     def translit(input)
       compiler = if options[:compiler]
-                   compiler = options[:compiler].split("::").last.downcase
-                   require "interscript/compiler/#{compiler}"
-                   Object.const_get(options[:compiler])
-                 else
-                   Interscript::Interpreter
-                 end
+        compiler = options[:compiler].split("::").last.downcase
+        require "interscript/compiler/#{compiler}"
+        Object.const_get(options[:compiler])
+      else
+        Interscript::Interpreter
+      end
 
       if options[:output]
         Interscript.transliterate_file(options[:system], input, options[:output], compiler: compiler)
@@ -28,14 +28,14 @@ module Interscript
       end
     end
 
-    desc 'list', 'Prints allowed transliteration systems'
+    desc "list", "Prints allowed transliteration systems"
     def list
       Interscript.maps(load_path: true).each do |path|
         puts path
       end
     end
 
-    desc 'stats', 'Prints statistics about the maps we have'
+    desc "stats", "Prints statistics about the maps we have"
     def stats
       maps = Interscript.maps(load_path: true)
       parsed_maps = maps.map { |i| [i, Interscript.parse(i)] }.to_h
@@ -44,7 +44,7 @@ module Interscript
       end
 
       authorities, languages, source_scripts, target_scripts = 4.times.map do |i|
-        maps.group_by { |map| map.split('-')[i] }
+        maps.group_by { |map| map.split("-")[i] }
       end
 
       puts <<~END

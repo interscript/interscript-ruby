@@ -7,14 +7,13 @@ class Interscript::Node::Item::Stage < Interscript::Node::Item
   end
 
   def to_hash
-    { :class => self.class.to_s,
-      :name => name,
-      :map => map,
-    }
+    {class: self.class.to_s,
+     name: name,
+     map: map}
   end
 
   def ==(other)
-    super && self.name == other.name && self.map == other.map
+    super && name == other.name && map == other.map
   end
 
   def inspect

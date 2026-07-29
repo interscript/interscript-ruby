@@ -5,7 +5,7 @@ class Interscript::DSL::Aliases
 
   def initialize(&block)
     @node = {}
-    self.instance_exec(&block)
+    instance_exec(&block)
   end
 
   def def_alias(name, value)

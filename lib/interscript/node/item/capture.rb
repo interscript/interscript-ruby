@@ -15,16 +15,21 @@ class Interscript::Node::Item::CaptureGroup < Interscript::Node::Item
     data.nth_string
   end
 
-  def downcase; self.dup.tap { |i| i.data = i.data.downcase }; end
-  def upcase; self.dup.tap { |i| i.data = i.data.upcase }; end
+  def downcase
+    dup.tap { |i| i.data = i.data.downcase }
+  end
+
+  def upcase
+    dup.tap { |i| i.data = i.data.upcase }
+  end
 
   def to_hash
-    { :class => self.class.to_s,
-      :data => self.data.to_hash }
+    {class: self.class.to_s,
+     data: data.to_hash}
   end
 
   def ==(other)
-    super && self.data == other.data
+    super && data == other.data
   end
 
   def inspect
@@ -44,15 +49,15 @@ class Interscript::Node::Item::CaptureRef < Interscript::Node::Item
     self
   end
 
-  alias nth_string first_string
+  alias_method :nth_string, :first_string
 
   def to_hash
-    { :class => self.class.to_s,
-      :id => self.id }
+    {class: self.class.to_s,
+     id: id}
   end
 
   def ==(other)
-    super && self.id == other.id
+    super && id == other.id
   end
 
   def inspect

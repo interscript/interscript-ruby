@@ -19,22 +19,21 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
     c << "def self.get_alias_re(map,name);             @maps[map].aliases_re[name]; end\n"
     c << "def self.transliterate(map,string,stage=:main); @maps[map].stages[stage].(string); end\n"
     c << "end; end; end\n"
-    c
 
     map.aliases.each do |name, value|
       val = compile_item(value.data, map, :str)
       c << "Interscript::Maps.add_map_alias(#{map.name.inspect}, #{name.inspect}, #{val})\n"
-      val = '/'+compile_item(value.data, map, :re).gsub('/', '\\\\/')+'/'
+      val = "/" + compile_item(value.data, map, :re).gsub("/", '\\\\/') + "/"
       c << "Interscript::Maps.add_map_alias_re(#{map.name.inspect}, #{name.inspect}, #{val})\n"
     end
 
     map.stages.each do |_, stage|
       c << compile_rule(stage, @map, true)
     end
-    @parallel_trees.each do |k,v|
+    @parallel_trees.each do |k, v|
       c << "Interscript::Maps::Cache::PTREE_#{k} ||= #{v.inspect}\n"
     end
-    @parallel_regexps.each do |k,v|
+    @parallel_regexps.each do |k, v|
       c << "Interscript::Maps::Cache::PRE_#{k} ||= #{v.inspect}\n"
     end
     @code = c
@@ -51,7 +50,7 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
       r.children.each do |t|
         comp = compile_rule(t, map)
         c += comp
-        c += %{$map_debug << [s.dup, #{@map.name.to_s.inspect}, #{r.name.to_s.inspect}, #{t.inspect.inspect}, #{comp.inspect}]\n} if @debug
+        c += %($map_debug << [s.dup, #{@map.name.to_s.inspect}, #{r.name.to_s.inspect}, #{t.inspect.inspect}, #{comp.inspect}]\n) if @debug
       end
       c += "s\n"
       c += "end\n"
@@ -93,12 +92,12 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
       end
     when Interscript::Node::Rule::Sub
       from = "/#{build_regexp(r, map).gsub("/", "\\\\/")}/"
-      if r.to == :upcase
-        to = '&:upcase'
+      to = if r.to == :upcase
+        "&:upcase"
       elsif r.to == :downcase
-        to = '&:downcase'
+        "&:downcase"
       else
-        to = compile_item(r.to, map, :str)
+        compile_item(r.to, map, :str)
       end
       c += "s.gsub!(#{from}, #{to})\n"
     when Interscript::Node::Rule::Funcall
@@ -117,7 +116,7 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
     c
   end
 
-  def build_regexp(r, map=@map)
+  def build_regexp(r, map = @map)
     from = compile_item(r.from, map, :re)
     before = compile_item(r.before, map, :re) if r.before
     after = compile_item(r.after, map, :re) if r.after
@@ -133,7 +132,7 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
     re
   end
 
-  def compile_item i, doc=@map, target=nil
+  def compile_item i, doc = @map, target = nil
     i = i.first_string if %i[str parstr].include? target
     i = Interscript::Node::Item.try_convert(i)
     if target == :parstr
@@ -141,7 +140,7 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
       target = :par
     end
 
-    out = case i
+    case i
     when Interscript::Node::Item::Alias
       astr = if i.map
         d = doc.dep_aliases[i.map].document
@@ -162,14 +161,14 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
       end
 
       if target == :str
-        astr = astr.sub("_ALIASTYPE(", "(")
+        astr.sub("_ALIASTYPE(", "(")
       elsif target == :re
-        astr = "\#{#{astr.sub("_ALIASTYPE(", "_re(")}}"
+        "\#{#{astr.sub("_ALIASTYPE(", "_re(")}}"
       elsif parstr && stdlib_alias
-        astr = Interscript::Stdlib::ALIASES[i.name]
+        Interscript::Stdlib::ALIASES[i.name]
       elsif target == :par
         # raise NotImplementedError, "Can't use aliases in parallel mode yet"
-        astr = Interscript::Stdlib::ALIASES[i.name]
+        Interscript::Stdlib::ALIASES[i.name]
       end
     when Interscript::Node::Item::String
       if target == :str
@@ -184,7 +183,7 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
       if target == :par
         i.children.map do |j|
           compile_item(j, doc, target)
-        end.reduce([""]) do |j,k|
+        end.reduce([""]) do |j, k|
           Array(j).product(Array(k)).map(&:join)
         end
       elsif target == :str
@@ -201,9 +200,9 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
          Interscript::Node::Item::MaybeSome,
          Interscript::Node::Item::Some
 
-      resuffix = { Interscript::Node::Item::Maybe     => "?" ,
-                   Interscript::Node::Item::Some      => "+" ,
-                   Interscript::Node::Item::MaybeSome => "*" }[i.class]
+      resuffix = {Interscript::Node::Item::Maybe => "?",
+                  Interscript::Node::Item::Some => "+",
+                  Interscript::Node::Item::MaybeSome => "*"}[i.class]
 
       if target == :par
         raise Interscript::SystemConversionError, "Can't use a Maybe in a #{target} context"
@@ -230,7 +229,7 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
         case i.value
         when Array
           data = i.data.map { |j| compile_item(j, doc, target) }
-          "(?:"+data.join("|")+")"
+          "(?:" + data.join("|") + ")"
         when String
           "[#{Regexp.escape(i.value)}]"
         when Range
@@ -252,7 +251,7 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
     end
   end
 
-  def call(str, stage=:main)
+  def call(str, stage = :main)
     load
     Interscript::Maps.transliterate(@map.name, str, stage)
   end

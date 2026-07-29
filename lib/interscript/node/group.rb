@@ -6,34 +6,34 @@ class Interscript::Node::Group < Interscript::Node
     @children = []
   end
 
-  def reorder_children(source,target)
+  def reorder_children(source, target)
     @children[source], @children[target] = @children[target], @children[source]
     self
   end
 
   def apply_order(order)
     children_new = [nil] * @children.size
-    order.each_with_index do |pos,idx|
+    order.each_with_index do |pos, idx|
       children_new[idx] = @children[pos]
     end
     @children = children_new
-    #@children[source], @children[target] = @children[target], @children[source]
+    # @children[source], @children[target] = @children[target], @children[source]
     self
   end
 
   def reverse
     self.class.new(reverse_run: reverse_run.nil? ? nil : !reverse_run).tap do |r|
-      r.children = self.children.reverse.map(&:reverse)
+      r.children = children.reverse.map(&:reverse)
     end
   end
 
   def to_hash
-    { :class => self.class.to_s,
-      :children => @children.map{|x| x.to_hash} }
+    {class: self.class.to_s,
+     children: @children.map { |x| x.to_hash }}
   end
 
   def ==(other)
-    super && self.children == other.children && self.reverse_run == other.reverse_run
+    super && children == other.children && reverse_run == other.reverse_run
   end
 
   def inspect

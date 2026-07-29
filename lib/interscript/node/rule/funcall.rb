@@ -7,10 +7,9 @@ class Interscript::Node::Rule::Funcall < Interscript::Node::Rule
   end
 
   def to_hash
-    { :class => self.class.to_s,
-      :name => self.name,
-      :kwargs => self.kwargs
-    }
+    {class: self.class.to_s,
+     name: name,
+     kwargs: kwargs}
   end
 
   def reverse
@@ -19,7 +18,7 @@ class Interscript::Node::Rule::Funcall < Interscript::Node::Rule
   end
 
   def ==
-    super && self.name == other.name && self.kwargs == other.kwargs
+    super && name == other.name && kwargs == other.kwargs
   end
 
   def inspect

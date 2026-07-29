@@ -5,23 +5,23 @@ class Interscript::Node::Rule::Sub < Interscript::Node::Rule
   attr_accessor :reverse_run
   attr_accessor :priority
 
-  def initialize (from, to,
-                  before: nil, not_before: nil,
-                  after: nil, not_after: nil,
-                  priority: nil, reverse_run: nil)
+  def initialize(from, to,
+    before: nil, not_before: nil,
+    after: nil, not_after: nil,
+    priority: nil, reverse_run: nil)
     self.from = Interscript::Node::Item.try_convert from
-    if to == :upcase
-      self.to = :upcase
+    self.to = if to == :upcase
+      :upcase
     elsif to == :downcase
-      self.to = :downcase
+      :downcase
     else
-      self.to = Interscript::Node::Item.try_convert to
+      Interscript::Node::Item.try_convert to
     end
 
     self.priority = priority
 
-    #raise TypeError, "Can't supply both before and not_before" if before && not_before
-    #raise TypeError, "Can't supply both after and not_after" if after && not_after
+    # raise TypeError, "Can't supply both before and not_before" if before && not_before
+    # raise TypeError, "Can't supply both after and not_after" if after && not_after
 
     self.reverse_run = reverse_run
 
@@ -32,34 +32,33 @@ class Interscript::Node::Rule::Sub < Interscript::Node::Rule
   end
 
   def max_length
-    len = self.from.max_length
-    len += self.before.max_length if self.before
-    len += self.after.max_length if self.after
-    len += self.not_before.max_length if self.not_before
-    len += self.not_after.max_length if self.not_after
-    len += self.priority if self.priority
+    len = from.max_length
+    len += before.max_length if before
+    len += after.max_length if after
+    len += not_before.max_length if not_before
+    len += not_after.max_length if not_after
+    len += priority if priority
     len
   end
 
   def to_hash
-    puts self.from.inspect if $DEBUG
+    puts from.inspect if $DEBUG
     puts params.inspect if $DEBUG
-    hash = { :class => self.class.to_s,
-      :from => self.from.to_hash,
-      :to => Symbol === self.to ? self.to : self.to.to_hash,
-      :reverse_run => self.reverse_run,
-      :before => self.before&.to_hash,
-      :not_before => self.not_before&.to_hash,
-      :after => self.after&.to_hash,
-      :not_after => self.not_after&.to_hash,
-      :priority => self.priority
-    }
+    hash = {class: self.class.to_s,
+            from: from.to_hash,
+            to: (Symbol === to) ? to : to.to_hash,
+            reverse_run: reverse_run,
+            before: before&.to_hash,
+            not_before: not_before&.to_hash,
+            after: after&.to_hash,
+            not_after: not_after&.to_hash,
+            priority: priority}
 
-    hash[:before] = self.before&.to_hash if self.before
-    hash[:not_before] = self.not_before&.to_hash if self.not_before
-    hash[:after] = self.after&.to_hash if self.after
-    hash[:not_after] = self.not_after&.to_hash if self.not_after
-    hash[:priority] = self.priority if self.priority
+    hash[:before] = before&.to_hash if before
+    hash[:not_before] = not_before&.to_hash if not_before
+    hash[:after] = after&.to_hash if after
+    hash[:not_after] = not_after&.to_hash if not_after
+    hash[:priority] = priority if priority
 
     hash
   end
@@ -76,12 +75,12 @@ class Interscript::Node::Rule::Sub < Interscript::Node::Rule
     end
 
     # A special case: sub "a", "" shouldn't be present in a reverse map
-    rrun = self.reverse_run.nil? ? nil : !self.reverse_run
+    rrun = reverse_run.nil? ? nil : !reverse_run
     if rrun.nil? && !has_assertions? &&
-      (xfrom == "" ||
-        (Interscript::Node::Item::String === xfrom && xfrom.data == '') ||
-        (Interscript::Node::Item::Alias === xfrom && xfrom.name == :none)
-      )
+        (xfrom == "" ||
+          (Interscript::Node::Item::String === xfrom && xfrom.data == "") ||
+          (Interscript::Node::Item::Alias === xfrom && xfrom.name == :none)
+        )
 
       rrun = true
     end
@@ -92,10 +91,9 @@ class Interscript::Node::Rule::Sub < Interscript::Node::Rule
 
       reverse_run: rrun,
 
-      priority: priority ? -priority : nil
-    )
+      priority: priority ? -priority : nil)
   end
-  
+
   def has_assertions?
     !!(before || not_before || not_after || after)
   end
@@ -140,10 +138,10 @@ class Interscript::Node::Rule::Sub < Interscript::Node::Rule
     end
 
     # This part is about moving backreferences
-    state = {left:[], right:[]}
+    state = {left: [], right: []}
 
-    from  = reverse_transfer_visit(from, :from, state)
-    to    = reverse_transfer_visit(to,   :to,   state)
+    from = reverse_transfer_visit(from, :from, state)
+    to = reverse_transfer_visit(to, :to, state)
 
     [from, to]
   end
@@ -198,23 +196,23 @@ class Interscript::Node::Rule::Sub < Interscript::Node::Rule
 
   def ==(other)
     super &&
-    self.from == other.from &&
-    self.to == other.to &&
-    self.before == other.before &&
-    self.after == other.after &&
-    self.not_before == other.not_before &&
-    self.not_after == other.not_after &&
-    self.priority == other.priority
+      from == other.from &&
+      to == other.to &&
+      before == other.before &&
+      after == other.after &&
+      not_before == other.not_before &&
+      not_after == other.not_after &&
+      priority == other.priority
   end
 
   def inspect
     out = "sub "
     params = []
     params << @from.inspect
-    if Symbol === @to
-      params << @to.to_s
+    params << if Symbol === @to
+      @to.to_s
     else
-      params << @to.inspect
+      @to.inspect
     end
     params << "reverse_run: #{@reverse_run.inspect}" unless @reverse_run.nil?
 

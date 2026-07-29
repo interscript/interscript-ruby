@@ -1,9 +1,9 @@
 begin
-  require 'mini_racer'
+  require "mini_racer"
 rescue LoadError
   # Ignore loading error
 end
-require 'json'
+require "json"
 
 class Interscript::Compiler::Javascript < Interscript::Compiler
   def compile(map, debug: false)
@@ -12,24 +12,23 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
     @parallel_regexps = {}
     @debug = debug
     c = "var map = function(Interscript) {"
-    c << "Interscript.define_map(#{map.name.inspect}, function(Interscript, map) {\n";
+    c << "Interscript.define_map(#{map.name.inspect}, function(Interscript, map) {\n"
     c << "map.dependencies = #{map.dependencies.map(&:full_name).to_json};\n"
-    c
 
     map.aliases.each do |name, value|
       val = compile_item(value.data, map, :str)
       c << "map.aliases.#{name} = #{val};\n"
-      val = '"'+compile_item(value.data, map, :re)+'"'
+      val = '"' + compile_item(value.data, map, :re) + '"'
       c << "map.aliases_re.#{name} = #{val};\n"
     end
 
     map.stages.each do |_, stage|
       c << compile_rule(stage, @map, true)
     end
-    @parallel_trees.each do |k,v|
+    @parallel_trees.each do |k, v|
       c << "map.cache.PTREE_#{k} = #{v.to_json};\n"
     end
-    @parallel_regexps.each do |k,v|
+    @parallel_regexps.each do |k, v|
       v = "[\"#{v[0]}\", #{v[1].to_json}]"
       c << "map.cache.PRE_#{k} = #{v};\n"
     end
@@ -44,10 +43,10 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
 
   def parallel_regexp_compile(subs_hash)
     # puts subs_hash.inspect
-    regexp = subs_hash.each_with_index.map do |p,i|
-      "(?<_%d>%s)" % [i,p[0]]
+    subs_hash.each_with_index.map do |p, i|
+      "(?<_%d>%s)" % [i, p[0]]
     end.join("|")
-    subs_regexp = regexp
+
     # puts subs_regexp.inspect
   end
 
@@ -90,7 +89,7 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
         a = []
         Interscript::Stdlib.deterministic_sort_by_max_length(r.children).each do |i|
           raise Interscript::SystemConversionError, "Can't parallelize #{i.class}" unless Interscript::Node::Rule::Sub === i
-          
+
           next if i.reverse_run == true
           a << [build_regexp(i, map), compile_item(i.to, map, :parstr)]
         end
@@ -102,13 +101,13 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
         c += "s = Interscript.parallel_regexp_gsub(s, map.cache.PRE_#{ah});\n"
       end
     when Interscript::Node::Rule::Sub
-      from = %{"#{build_regexp(r, map).gsub("/", "\\\\/")}"}
-      if r.to == :upcase
-        to = 'function(a){return a.toUpperCase();}'
+      from = %("#{build_regexp(r, map).gsub("/", "\\\\/")}")
+      to = if r.to == :upcase
+        "function(a){return a.toUpperCase();}"
       elsif r.to == :downcase
-        to = 'function(a){return a.toLowerCase();}'
+        "function(a){return a.toLowerCase();}"
       else
-        to = compile_item(r.to, map, :str)
+        compile_item(r.to, map, :str)
       end
       c += "s = Interscript.gsub(s, #{from}, #{to});\n"
     when Interscript::Node::Rule::Funcall
@@ -127,7 +126,7 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
     c
   end
 
-  def build_regexp(r, map=@map)
+  def build_regexp(r, map = @map)
     from = compile_item(r.from, map, :re)
     before = compile_item(r.before, map, :re) if r.before
     after = compile_item(r.after, map, :re) if r.after
@@ -144,7 +143,7 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
     re
   end
 
-  def compile_item i, doc=@map, target=nil
+  def compile_item i, doc = @map, target = nil
     i = i.first_string if %i[str parstr].include? target
     i = Interscript::Node::Item.try_convert(i)
     if target == :parstr
@@ -152,7 +151,7 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
       target = :par
     end
 
-    out = case i
+    case i
     when Interscript::Node::Item::Alias
       astr = if i.map
         d = doc.dep_aliases[i.map].document
@@ -173,14 +172,14 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
       end
 
       if target == :str
-        astr = astr.sub("_ALIASTYPE(", "(")
+        astr.sub("_ALIASTYPE(", "(")
       elsif target == :re
-        astr = %{"+#{astr.sub("_ALIASTYPE(", "_re(")}+"}
+        %("+#{astr.sub("_ALIASTYPE(", "_re(")}+")
       elsif parstr && stdlib_alias
-        astr = Interscript::Stdlib::ALIASES[i.name]
+        Interscript::Stdlib::ALIASES[i.name]
       elsif target == :par
         # raise NotImplementedError, "Can't use aliases in parallel mode yet"
-        astr = Interscript::Stdlib::ALIASES[i.name]
+        Interscript::Stdlib::ALIASES[i.name]
       end
     when Interscript::Node::Item::String
       if target == :str
@@ -195,7 +194,7 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
       if target == :par
         i.children.map do |j|
           compile_item(j, doc, target)
-        end.reduce([""]) do |j,k|
+        end.reduce([""]) do |j, k|
           Array(j).product(Array(k)).map(&:join)
         end
       elsif target == :str
@@ -212,9 +211,9 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
          Interscript::Node::Item::MaybeSome,
          Interscript::Node::Item::Some
 
-      resuffix = { Interscript::Node::Item::Maybe     => "?" ,
-                   Interscript::Node::Item::Some      => "+" ,
-                   Interscript::Node::Item::MaybeSome => "*" }[i.class]
+      resuffix = {Interscript::Node::Item::Maybe => "?",
+                  Interscript::Node::Item::Some => "+",
+                  Interscript::Node::Item::MaybeSome => "*"}[i.class]
 
       if target == :par
         raise Interscript::SystemConversionError, "Can't use a MaybeSome in a #{target} context"
@@ -241,7 +240,7 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
         case i.value
         when Array
           data = i.data.map { |j| compile_item(j, doc, target) }
-          "(?:"+data.join("|")+")"
+          "(?:" + data.join("|") + ")"
         when String
           "[#{Regexp.escape(i.value)}]"
         when Range
@@ -270,28 +269,28 @@ class Interscript::Compiler::Javascript < Interscript::Compiler
       ctx = self.class.ctx
       unless ctx
         ctx = MiniRacer::Context.new
-        ctx.eval File.read(__dir__+"/../../../../js/test-compiler/xregexp.js")
+        ctx.eval File.read(__dir__ + "/../../../../js/test-compiler/xregexp.js")
         # Compatibility with Safari: will come later
-        #ctx.eval File.read(__dir__+"/../../../js/xregexp-oniguruma.js")
-        ctx.eval File.read(__dir__+"/../../../../js/src/stdlib.js")
+        # ctx.eval File.read(__dir__+"/../../../js/xregexp-oniguruma.js")
+        ctx.eval File.read(__dir__ + "/../../../../js/src/stdlib.js")
         self.class.ctx = ctx
       end
-      #puts @code
+      # puts @code
       ctx.eval @code
       self.class.maps_loaded[@map.name] = true
     end
   end
 
-  def call(str, stage=:main)
+  def call(str, stage = :main)
     load
     self.class.ctx.eval "Interscript.transliterate(#{@map.name.to_json}, #{str.to_json}, #{stage.to_json})"
   end
 
   def self.read_debug_data
-    self.ctx.eval "globalThis.map_debug || []"
+    ctx.eval "globalThis.map_debug || []"
   end
 
   def self.reset_debug_data
-    self.ctx.eval "globalThis.map_debug = []"
+    ctx.eval "globalThis.map_debug = []"
   end
 end

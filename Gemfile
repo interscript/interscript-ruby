@@ -38,3 +38,4 @@ gem "iso-639-data"
 gem "iso-15924"
 
 gem "simplecov", require: false, group: :test
+gem "standard", group: :development, require: false

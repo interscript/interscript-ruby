@@ -26,8 +26,8 @@ class Interscript::Detector
   end
 
   def set_from_kwargs(**kwargs)
-    kwargs.each do |k,v|
-      self.public_send(:"#{k}=", v)
+    kwargs.each do |k, v|
+      public_send(:"#{k}=", v)
     end
   end
 
@@ -41,8 +41,8 @@ class Interscript::Detector
 
       [map, try_dest]
     end.map do |map, try_dest|
-      dist = @distance_computer.(try_dest, destination)
-      
+      dist = @distance_computer.call(try_dest, destination)
+
       [map, dist]
     end.sort_by(&:last).to_h
 

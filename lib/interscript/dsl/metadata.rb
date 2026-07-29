@@ -1,4 +1,4 @@
-require 'date'
+require "date"
 
 class Interscript::DSL::Metadata
   attr_accessor :node
@@ -7,27 +7,29 @@ class Interscript::DSL::Metadata
     raise Interscript::MapLogicError, "Can't evaluate metadata from Ruby context" unless yaml
     @map_name = map_name
     @node = Interscript::Node::MetaData.new
-    self.instance_exec(&block)
+    instance_exec(&block)
     @node[:nonstandard] = {}
 
-    NECESSARY_KEYS.each do |i|
-      unless @node.data.key? i
-        warn "[#{@map_name}] Necessary key #{i} wasn't defined. Defaulting to an empty string"
-        @node[i] = ""
+    unless library
+      NECESSARY_KEYS.each do |i|
+        unless @node.data.key? i
+          warn "[#{@map_name}] Necessary key #{i} wasn't defined. Defaulting to an empty string"
+          @node[i] = ""
+        end
       end
-    end unless library
+    end
   end
 
-  STANDARD_STRING_KEYS = %i{authority_id id
-  language source_script destination_script
-  name creation_date adoption_date description
-  character source confirmation_date original_description}
+  STANDARD_STRING_KEYS = %i[authority_id id
+    language source_script destination_script
+    name creation_date adoption_date description
+    character source confirmation_date original_description]
 
-  STANDARD_ARRAY_KEYS = %i{notes implementation_notes original_notes url}
+  STANDARD_ARRAY_KEYS = %i[notes implementation_notes original_notes url]
 
-  NONSTANDARD_KEYS = %i{special_rules}
-  
-  NECESSARY_KEYS = %i{name language source_script destination_script}
+  NONSTANDARD_KEYS = %i[special_rules]
+
+  NECESSARY_KEYS = %i[name language source_script destination_script]
 
   STANDARD_STRING_KEYS.each do |sym|
     define_method sym do |stuff|

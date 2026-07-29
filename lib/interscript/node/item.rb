@@ -7,23 +7,23 @@ class Interscript::Node::Item < Interscript::Node
   def + other
     this = self
 
-    this  = this.children  if Interscript::Node::Item::Group === this
+    this = this.children if Interscript::Node::Item::Group === this
     other = other.children if Interscript::Node::Item::Group === other
 
-    this  = Array(this)
+    this = Array(this)
     other = Array(other)
 
-    this  = this.map  { |i| Interscript::Node::Item.try_convert(i) }
+    this = this.map { |i| Interscript::Node::Item.try_convert(i) }
     other = other.map { |i| Interscript::Node::Item.try_convert(i) }
 
     middle = []
 
     if Interscript::Node::Item::String === this.last &&
-       Interscript::Node::Item::String === other.first
+        Interscript::Node::Item::String === other.first
 
-       middle = [this.last + other.first]
-       this = this[0..-2]
-       other = this[1..-1]
+      middle = [this.last + other.first]
+      this = this[0..-2]
+      other = this[1..-1]
     end
 
     g = Interscript::Node::Item::Group.new(*this, *middle, *other)
@@ -32,8 +32,8 @@ class Interscript::Node::Item < Interscript::Node
   end
 
   def to_hash
-    { :class => self.class.to_s,
-      :item => self.item }
+    {class: self.class.to_s,
+     item: item}
   end
 
   def ==(other)

@@ -25,15 +25,15 @@ task :compile, [:compiler, :target] do |t, args|
 
   maps = Interscript.maps
   maps = Interscript.exclude_maps(maps, compiler: compiler, platform: false)
-  
+
   maps.each do |map|
-    code = compiler.(map).code
+    code = compiler.call(map).code
     File.write(args[:target] + "/" + map + "." + ext, code)
     maplist[map] = nil
   end
 
   Interscript.maps(libraries: true).each do |map|
-    code = compiler.(map).code
+    code = compiler.call(map).code
     File.write(args[:target] + "/" + map + "." + ext, code)
   end
 
@@ -45,12 +45,12 @@ task :generate_visualization_html do
   require "interscript"
   require "interscript/visualize"
 
-  FileUtils.rm_rf(dir = __dir__+"/visualizations/")
+  FileUtils.rm_rf(dir = __dir__ + "/visualizations/")
   FileUtils.mkdir_p(dir)
 
   Interscript.maps.each do |map|
-    html = Interscript::Visualize.(map)
-    File.write(dir+map+".html", html)
+    html = Interscript::Visualize.call(map)
+    File.write(dir + map + ".html", html)
   end
 end
 
@@ -60,16 +60,15 @@ task :generate_metadata_json do
   require "interscript"
   require "interscript/compiler/javascript"
 
-  FileUtils.rm_rf(file = __dir__+"/metadata.json")
+  FileUtils.rm_rf(file = __dir__ + "/metadata.json")
 
   hash = Interscript.maps.map do |map|
     parsed_map = Interscript.parse(map)
     md = parsed_map.metadata.to_hash
     md["test"] = parsed_map.tests&.data&.first
     md["skip_js"] = Interscript.exclude_maps([map],
-                      compiler: Interscript::Compiler::Javascript,
-                      platform: false,
-                    ).empty?
+      compiler: Interscript::Compiler::Javascript,
+      platform: false).empty?
     [map, md]
   end.to_h
 
@@ -81,12 +80,12 @@ task :generate_json do
   require "json"
   require "interscript"
 
-  FileUtils.rm_rf(dir = __dir__+"/json/")
+  FileUtils.rm_rf(dir = __dir__ + "/json/")
   FileUtils.mkdir_p(dir)
 
   (Interscript.maps + Interscript.maps(libraries: true)).each do |map|
     json = JSON.pretty_generate(Interscript.parse(map).to_hash)
-    File.write(dir+map+".json", json)
+    File.write(dir + map + ".json", json)
   end
 end
 
@@ -96,14 +95,14 @@ task :generate_visualization_json do
   require "json"
   require "interscript/visualize"
 
-  FileUtils.rm_rf(dir = __dir__+"/vis_json/")
+  FileUtils.rm_rf(dir = __dir__ + "/vis_json/")
   FileUtils.mkdir_p(dir)
 
   (Interscript.maps + Interscript.maps(libraries: true)).each do |map_name|
     map = Interscript.parse(map_name)
     map.stages.each do |stage_name, stage|
       json = JSON.pretty_generate(stage.to_visualization_array(map))
-      File.write(dir+map_name+"_#{stage_name}.json", json)
+      File.write(dir + map_name + "_#{stage_name}.json", json)
     end
   end
 end
@@ -113,7 +112,7 @@ task :generate_authority_json do
   require "json"
   require "iso-639-data"
 
-  FileUtils.rm_rf(dir = __dir__+"/auth_json/")
+  FileUtils.rm_rf(dir = __dir__ + "/auth_json/")
   FileUtils.mkdir_p(dir)
 
   %w[iso icao din].each do |auth|
@@ -122,10 +121,10 @@ task :generate_authority_json do
     end.sort.map do |map_name|
       map = Interscript.parse(map_name)
       tests = map.tests&.data&.first(2)&.transpose || []
-      std, lang = map.metadata.data[:language].split(':')
+      std, lang = map.metadata.data[:language].split(":")
 
       {
-        lang: std.end_with?("-3") ? Iso639Data.iso_639_3[lang]['Ref_Name'] : Iso639Data.iso_639_2[lang]['eng'],
+        lang: std.end_with?("-3") ? Iso639Data.iso_639_3[lang]["Ref_Name"] : Iso639Data.iso_639_2[lang]["eng"],
         isoName: map.metadata.data[:name],
         systemName: map_name,
         samples: tests[0] || [],
@@ -135,8 +134,8 @@ task :generate_authority_json do
     end
 
     json = JSON.pretty_generate(out)
-    File.write(dir+auth+".json", json)
+    File.write(dir + auth + ".json", json)
   end
 end
 
-task :default => :spec
+task default: :spec

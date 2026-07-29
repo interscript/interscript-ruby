@@ -1,13 +1,12 @@
 class Interscript::Interpreter < Interscript::Compiler
   attr_accessor :map
-  def compile(map, _:nil)
+  def compile(map, _: nil)
     @map = map
     self
   end
 
-  def call(str, stage=:main, each: false, &block)
+  def call(str, stage = :main, each: false, &block)
     stage = @map.stages[stage]
-    s =
     if each
       e = Enumerator.new do |yielder|
         options = []
@@ -35,7 +34,7 @@ class Interscript::Interpreter < Interscript::Compiler
             # unsure how it can be handled.
             #
             # This scenario is described in a commented out test.
-            type, value, hash = f.resume
+            _, value, _ = f.resume
             if options_set
               f.resume(choices[i][iter])
             else
@@ -82,10 +81,10 @@ class Interscript::Interpreter < Interscript::Compiler
         if r.cached_tree
           @str = Interscript::Stdlib.parallel_replace_tree(@str, r.cached_tree)
         elsif r.subs_regexp && r.subs_replacements
-          if $DEBUG_RE
-            @str = Interscript::Stdlib.parallel_regexp_gsub_debug(@str, r.subs_regexp, r.subs_replacements)
+          @str = if $DEBUG_RE
+            Interscript::Stdlib.parallel_regexp_gsub_debug(@str, r.subs_regexp, r.subs_replacements)
           else
-            @str = Interscript::Stdlib.parallel_regexp_gsub(@str, r.subs_regexp, r.subs_replacements)
+            Interscript::Stdlib.parallel_regexp_gsub(@str, r.subs_regexp, r.subs_replacements)
           end
         else
           begin
@@ -100,7 +99,7 @@ class Interscript::Interpreter < Interscript::Compiler
               next if i.reverse_run == true
               subs_array << [build_item(i.from, :par), build_item(i.to, :parstr)]
             end
-            tree = Interscript::Stdlib.parallel_replace_compile_tree(subs_array) #.sort_by{|k,v| -k.length})
+            tree = Interscript::Stdlib.parallel_replace_compile_tree(subs_array) # .sort_by{|k,v| -k.length})
             @str = Interscript::Stdlib.parallel_replace_tree(@str, tree)
             r.cached_tree = tree
             # $using_tree = true
@@ -129,12 +128,12 @@ class Interscript::Interpreter < Interscript::Compiler
           execute_rule(t)
         end
       when Interscript::Node::Rule::Sub
-        if r.to == :upcase
-          @str = @str.gsub(Regexp.new(build_regexp(r)), &:upcase)
+        @str = if r.to == :upcase
+          @str.gsub(Regexp.new(build_regexp(r)), &:upcase)
         elsif r.to == :downcase
-          @str = @str.gsub(Regexp.new(build_regexp(r)), &:downcase)
+          @str.gsub(Regexp.new(build_regexp(r)), &:downcase)
         else
-          @str = @str.gsub(Regexp.new(build_regexp(r)), build_item(r.to, :str))
+          @str.gsub(Regexp.new(build_regexp(r)), build_item(r.to, :str))
         end
       when Interscript::Node::Rule::Funcall
         @str = Interscript::Stdlib::Functions.public_send(r.name, @str, **r.kwargs)
@@ -168,12 +167,12 @@ class Interscript::Interpreter < Interscript::Compiler
       re
     end
 
-    def build_item i, target=nil, doc=@map
+    def build_item i, target = nil, doc = @map
       i = i.nth_string if %i[str parstr].include? target
       i = Interscript::Node::Item.try_convert(i)
       target = :par if target == :parstr
 
-      out = case i
+      case i
       when Interscript::Node::Item::Alias
         if i.map
           d = doc.dep_aliases[i.map].document
@@ -193,14 +192,14 @@ class Interscript::Interpreter < Interscript::Compiler
       when Interscript::Node::Item::String
         if [:str, :par].include? target
           i.data
-        else#if target == :re
+        else # if target == :re
           Regexp.escape(i.data)
         end
       when Interscript::Node::Item::Group
         if target == :par
           i.children.map do |j|
             build_item(j, target, doc)
-          end.reduce([""]) do |j,k|
+          end.reduce([""]) do |j, k|
             Array(j).product(Array(k)).map(&:join)
           end
         else
@@ -215,9 +214,9 @@ class Interscript::Interpreter < Interscript::Compiler
            Interscript::Node::Item::MaybeSome,
            Interscript::Node::Item::Some
 
-        resuffix = { Interscript::Node::Item::Maybe     => "?" ,
-                     Interscript::Node::Item::Some      => "+" ,
-                     Interscript::Node::Item::MaybeSome => "*" }[i.class]
+        resuffix = {Interscript::Node::Item::Maybe => "?",
+                    Interscript::Node::Item::Some => "+",
+                    Interscript::Node::Item::MaybeSome => "*"}[i.class]
 
         if target == :par
           raise Interscript::SystemConversionError, "Can't use a MaybeSome in a #{target} context"
@@ -242,7 +241,7 @@ class Interscript::Interpreter < Interscript::Compiler
           case i.value
           when Array
             data = i.data.map { |j| build_item(j, target, doc) }
-            "(?:"+data.join("|")+")"
+            "(?:" + data.join("|") + ")"
           when String
             "[#{Regexp.escape(i.value)}]"
           when Range
