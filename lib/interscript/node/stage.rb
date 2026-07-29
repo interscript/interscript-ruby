@@ -9,29 +9,26 @@ class Interscript::Node::Stage < Interscript::Node::Group::Sequential
   end
 
   def to_hash
-    { :class => self.class.to_s,
-      :name => name,
-      :children => @children.map{|x| x.to_hash} }
+    {class: self.class.to_s,
+     name: name,
+     children: @children.map { |x| x.to_hash }}
   end
 
   def reverse
     return self if dont_reverse
 
-    @reverse ||= begin
-      self.class.new(name,
-        doc_name: Interscript::Node::Document.reverse_name(doc_name),
-        reverse_run: reverse_run.nil? ? nil : !reverse_run
-      ).tap do |r|
-        r.children = self.children.reverse.map(&:reverse)
-      end
+    @reverse ||= self.class.new(name,
+      doc_name: Interscript::Node::Document.reverse_name(doc_name),
+      reverse_run: reverse_run.nil? ? nil : !reverse_run).tap do |r|
+      r.children = children.reverse.map(&:reverse)
     end
   end
 
   def ==(other)
     super &&
-    self.name == other.name &&
-    self.reverse_run == other.reverse_run &&
-    self.dont_reverse == other.dont_reverse
+      name == other.name &&
+      reverse_run == other.reverse_run &&
+      dont_reverse == other.dont_reverse
   end
 
   def inspect

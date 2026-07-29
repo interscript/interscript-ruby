@@ -1,6 +1,6 @@
 class Interscript::Stdlib
   ALIASES = {
-    any_character: '.',
+    any_character: ".",
     none: "",
     space: " ",
     whitespace: "[\\b \\t\\0\\r\\n]",
@@ -19,7 +19,7 @@ class Interscript::Stdlib
   }
 
   def self.re_only_alias?(a)
-    ! %i[none space].include?(a)
+    !%i[none space].include?(a)
   end
 
   def self.boundary_like_alias?(a)
@@ -30,10 +30,10 @@ class Interscript::Stdlib
 
   def self.parallel_regexp_compile(subs_hash)
     # puts subs_hash.inspect
-    regexp = subs_hash.each_with_index.map do |p,i|
-      "(?<_%d>%s)" % [i,p[0]]
+    regexp = subs_hash.each_with_index.map do |p, i|
+      "(?<_%d>%s)" % [i, p[0]]
     end.join("|")
-    subs_regexp = Regexp.compile(regexp)
+    Regexp.compile(regexp)
     # puts subs_regexp.inspect
   end
 
@@ -50,7 +50,7 @@ class Interscript::Stdlib
     # only gathering debug info, test data is available in maps_analyze_staging
     $subs_matches = []
     $subs_regexp = subs_regexp
-    #$subs_array = subs_array
+    # $subs_array = subs_array
     string.gsub(subs_regexp) do |match|
       lm = Regexp.last_match
       # puts lm.inspect
@@ -65,28 +65,27 @@ class Interscript::Stdlib
     end
   end
 
-
   def self.parallel_replace_compile_hash(a)
     h = {}
-    a.each do |from,to|
+    a.each do |from, to|
       h[from] = to
     end
     h
   end
 
-  def self.parallel_replace_hash(str,h)
+  def self.parallel_replace_hash(str, h)
     newstr = ""
     len = str.length
     max_key_len = h.keys.map(&:length).max
     i = 0
     while i < len
       max_key_len.downto(1).each do |checked_len|
-        substr = str[i,checked_len]
+        substr = str[i, checked_len]
         if h[substr]
           newstr << h[substr]
           i += substr.length
-        elsif checked_len==1
-          newstr << str[i,1]
+        elsif checked_len == 1
+          newstr << str[i, 1]
           i += 1
         end
       end
@@ -130,8 +129,8 @@ class Interscript::Stdlib
       match, repl = nil, nil
 
       j = 0
-      while j < len-i
-        cc = str[i+j]
+      while j < len - i
+        cc = str[i + j]
         if branch.include? cc.ord
           branch = branch[cc.ord]
           sub << cc
@@ -167,7 +166,7 @@ class Interscript::Stdlib
     # Deterministic on Linux:
     # ary.sort_by{ |rule| -rule.max_length }
 
-    ary.each_with_index.sort_by{ |rule,idx| -rule.max_length*100000 + idx }.map(&:first)
+    ary.each_with_index.sort_by { |rule, idx| -rule.max_length * 100000 + idx }.map(&:first)
   end
 
   def self.available_functions
@@ -186,31 +185,31 @@ class Interscript::Stdlib
       unseparate: :separate,
 
       rababa: :rababa_reverse,
-      rababa_reverse: :rababa,
+      rababa_reverse: :rababa
     }
   end
 
   module Functions
     def self.title_case(output, word_separator: " ")
       output = output.gsub(/^(.)/, &:upcase)
-      output = output.gsub(/#{word_separator}(.)/, &:upcase) unless word_separator == ''
+      output = output.gsub(/#{word_separator}(.)/, &:upcase) unless word_separator == ""
       output
     end
 
     def self.downcase(output, word_separator: nil)
       if word_separator
         output = output.gsub(/^(.)/, &:downcase)
-        output = output.gsub(/#{word_separator}(.)/, &:downcase) unless word_separator == ''
+        output.gsub(/#{word_separator}(.)/, &:downcase) unless word_separator == ""
       else
         output.downcase
       end
     end
 
-    def self.compose(output, _:nil)
+    def self.compose(output, _: nil)
       output.unicode_normalize(:nfc)
     end
 
-    def self.decompose(output, _:nil)
+    def self.decompose(output, _: nil)
       output.unicode_normalize(:nfd)
     end
 
@@ -224,7 +223,11 @@ class Interscript::Stdlib
 
     @secryst_models = {}
     def self.secryst(output, model:)
-      require "secryst" rescue nil # Try to load secryst, but don't fail hard if not possible.
+      begin
+        require "secryst"
+      rescue
+        nil
+      end # Try to load secryst, but don't fail hard if not possible.
       unless defined? Secryst
         raise Interscript::ExternalUtilError, "Secryst is not loaded. Please read docs/Usage_with_Secryst.adoc"
       end
@@ -238,14 +241,18 @@ class Interscript::Stdlib
     end
 
     def self.rababa(output, config:)
-      require "rababa" rescue nil # Try to load rababa, but don't fail hard if not possible.
+      begin
+        require "rababa"
+      rescue
+        nil
+      end # Try to load rababa, but don't fail hard if not possible.
       unless defined? Rababa
         raise Interscript::ExternalUtilError, "Rababa is not loaded. Please read docs/Usage_with_Rababa.adoc"
       end
 
       config_value = Interscript.rababa_configs[config]
-      model_uri = config_value['model']
-      rababa_config = config_value['config']
+      model_uri = config_value["model"]
+      rababa_config = config_value["config"]
       model_path = Interscript.rababa_provision(config, model_uri)
 
       @rababa_diacritizer ||= Rababa::Diacritizer.new(model_path, rababa_config)
@@ -263,7 +270,7 @@ class Interscript::Stdlib
       # Rababa::Diacritizer.allocate.remove_diacritics(output)
 
       # Unfortunately, this is broken as of now.
-      output.gsub(/[\u064e\u064b\u064f\u064c\u0650\u064d\u0652\u0651]/, '')
+      output.gsub(/[\u064e\u064b\u064f\u064c\u0650\u064d\u0652\u0651]/, "")
     end
   end
 end

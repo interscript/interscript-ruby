@@ -18,12 +18,12 @@ class Interscript::Node::Item::Repeat < Interscript::Node::Item
   end
 
   def to_hash
-    { :class => self.class.to_s,
-      :data => self.data.to_hash }
+    {class: self.class.to_s,
+     data: data.to_hash}
   end
 
   def ==(other)
-    super && self.data == other.data
+    super && data == other.data
   end
 
   def inspect

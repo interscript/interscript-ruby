@@ -13,7 +13,7 @@ module Interscript
 
   class << self
     def load_path
-      @load_path ||= ['.', *Interscript.map_locations]
+      @load_path ||= [".", *Interscript.map_locations]
     end
 
     def locate map_name
@@ -33,26 +33,26 @@ module Interscript
       Interscript::DSL.parse(map_name)
     end
 
-    def load(system_code, maps={}, compiler: Interscript::Interpreter)
-      maps[[system_code, compiler.name]] ||= compiler.(system_code)
+    def load(system_code, maps = {}, compiler: Interscript::Interpreter)
+      maps[[system_code, compiler.name]] ||= compiler.call(system_code)
     end
 
     # Transliterates the string.
-    def transliterate(system_code, string, maps={}, compiler: Interscript::Interpreter)
+    def transliterate(system_code, string, maps = {}, compiler: Interscript::Interpreter)
       # The current best implementation is Interpreter
-      load(system_code, maps, compiler: compiler).(string)
+      load(system_code, maps, compiler: compiler).call(string)
     end
 
     # Gives each possible value of the transliteration.
-    def transliterate_each(system_code, string, maps={}, &block)
-      load(system_code, maps).(string, each: true, &block)
+    def transliterate_each(system_code, string, maps = {}, &block)
+      load(system_code, maps).call(string, each: true, &block)
     end
 
-    def transliterate_file(system_code, input_file, output_file, maps={}, compiler: Interscript::Interpreter)
+    def transliterate_file(system_code, input_file, output_file, maps = {}, compiler: Interscript::Interpreter)
       input = File.read(input_file)
       output = transliterate(system_code, input, maps, compiler: compiler)
 
-      File.open(output_file, 'w') do |f|
+      File.open(output_file, "w") do |f|
         f.puts(output)
       end
 
@@ -67,17 +67,17 @@ module Interscript
     def detect(source, destination, **kwargs)
       detector = Detector.new
       detector.set_from_kwargs(**kwargs)
-      detector.(source, destination)
+      detector.call(source, destination)
     end
 
     def map_gems
-      @map_gems ||= Gem.find_latest_files('interscript-maps.yaml').map do |i|
+      @map_gems ||= Gem.find_latest_files("interscript-maps.yaml").map do |i|
         [i, YAML.load_file(i)]
       end.to_h
     end
 
     def map_locations
-      @map_locations ||= map_gems.map do |i,v|
+      @map_locations ||= map_gems.map do |i, v|
         paths = v["paths"].dup
         paths += v["staging"] if ENV["INTERSCRIPT_STAGING"] && v["staging"]
 
@@ -88,15 +88,15 @@ module Interscript
     end
 
     def secryst_index_locations
-      @secryst_index_locations ||= map_gems.map do |i,v|
+      @secryst_index_locations ||= map_gems.map do |i, v|
         v["secryst-models"]
       end.compact.flatten
     end
 
     def rababa_configs
-      @rababa_configs ||= map_gems.map do |i,v|
+      @rababa_configs ||= map_gems.map do |i, v|
         v["rababa-configs"]
-      end.compact.inject({}) do |a,b|
+      end.compact.inject({}) do |a, b|
         a.merge(b)
       end
     end
@@ -104,8 +104,8 @@ module Interscript
     # This code is borrowed from Secryst and should end up in Rababa, but for now,
     # let's keep it here.
     def rababa_provision(model_name, model_uri)
-      require 'fileutils'
-      require 'open-uri'
+      require "fileutils"
+      require "open-uri"
 
       # We provision the environment in the following way:
       # First, we try the RABABA_DATA environment variable. If that's available,
@@ -129,18 +129,18 @@ module Interscript
         break
       rescue
       end
-  
+
       raise ExternalUtilError, "Can't find a writable path for Rababa. Consider setting a RABABA_DATA environment variable" unless write_path
 
       model_path = "#{write_path}/model-#{model_name}.onnx"
 
       # Redownload every hour
       if File.exist?(model_path) && File.mtime(model_path) + 3600 >= Time.now
-        return model_path
+        model_path
       else
         data = URI.open(model_uri, encoding: "BINARY").read
         File.binwrite(model_path, data)
-        return model_path
+        model_path
       end
     end
 
@@ -148,7 +148,7 @@ module Interscript
       return @map_aliases if @map_aliases
 
       @map_aliases = {}
-      map_gems.each do |i,v|
+      map_gems.each do |i, v|
         (v["aliases"] || {}).each do |code, value|
           value.each do |al, map|
             @map_aliases[al] = map["alias_to"]
@@ -172,9 +172,9 @@ module Interscript
     # To be used by tests
     # and builders. It uses the `skip` directive in interscript-maps.yaml
     def exclude_maps(maps, compiler:, platform: true)
-      map_gems.each do |i,v|
+      map_gems.each do |i, v|
         [compiler.name, (Gem::Platform.local.os if platform)].compact.each do |name|
-          skips = v.dig('skip', name) || []
+          skips = v.dig("skip", name) || []
           skips.each do |skip|
             skip_re = /#{Regexp.escape(skip).gsub("\\*", ".*?")}/
             maps = maps.grep_v(skip_re)
@@ -186,12 +186,12 @@ module Interscript
   end
 end
 
-require 'interscript/stdlib'
+require "interscript/stdlib"
 
 require "interscript/compiler"
 require "interscript/interpreter"
 
-require 'interscript/dsl'
-require 'interscript/node'
+require "interscript/dsl"
+require "interscript/node"
 
-require 'interscript/detector'
+require "interscript/detector"

@@ -1,6 +1,6 @@
 class Interscript::Node::Rule < Interscript::Node
   def ==(other)
-    super && self.reverse_run == other.reverse_run
+    super && reverse_run == other.reverse_run
   end
 end
 

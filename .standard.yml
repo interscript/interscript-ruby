@@ -1,0 +1,11 @@
+# StandardRB config — enforce Ruby style on lib/, leave specs/bin/exe flexible for now.
+# Existing violations in lib/ were auto-fixed in this PR; remaining violations are
+# tracked in TODO.complete/06-standardrb-ruby-gems.md.
+ignore:
+  - "bin/**/*"
+  - "exe/**/*"
+  - "spec/**/*"
+  - "docs/**/*"
+  - "reference-docs/**/*"
+  - "pkg/**/*"
+  - "vendor/**/*"

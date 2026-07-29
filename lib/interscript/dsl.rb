@@ -52,7 +52,7 @@ module Interscript::DSL
 
     md_reading = false
     md_indent = nil
-    md_inner_indent = nil
+    nil
     file.each do |l|
       if md_reading && l =~ /\A#{md_indent}\}\s*\z/
         md_reading = false
@@ -73,7 +73,7 @@ module Interscript::DSL
     obj = Interscript::DSL::Document.new(map_name)
     obj.instance_eval ruby, exc_fname, 1
 
-    yaml = if yaml =~ /\A\s*\z/
+    yaml = if /\A\s*\z/.match?(yaml)
       {}
     else
       unsafe_load = if YAML.respond_to? :unsafe_load
@@ -85,7 +85,7 @@ module Interscript::DSL
     end
 
     md = Interscript::DSL::Metadata.new(yaml: true, map_name: map_name, library: library) do
-      yaml.each do |k,v|
+      yaml.each do |k, v|
         public_send(k.to_sym, v)
       end
     end
@@ -95,12 +95,12 @@ module Interscript::DSL
   end
 end
 
-require 'interscript/dsl/symbol_mm'
-require 'interscript/dsl/items'
+require "interscript/dsl/symbol_mm"
+require "interscript/dsl/items"
 
-require 'interscript/dsl/document'
-require 'interscript/dsl/group'
-require 'interscript/dsl/stage'
-require 'interscript/dsl/metadata'
-require 'interscript/dsl/tests'
-require 'interscript/dsl/aliases'
+require "interscript/dsl/document"
+require "interscript/dsl/group"
+require "interscript/dsl/stage"
+require "interscript/dsl/metadata"
+require "interscript/dsl/tests"
+require "interscript/dsl/aliases"

@@ -5,39 +5,44 @@ class Interscript::Node::Item::String < Interscript::Node::Item
   end
 
   def to_hash
-    { :class => self.class.to_s,
-      :data => self.data }
+    {class: self.class.to_s,
+     data: data}
   end
 
   def max_length
-    self.data.length
+    data.length
   end
 
   def first_string
-    self.data
+    data
   end
 
-  def downcase; self.dup.tap { |i| i.data = i.data.downcase }; end
-  def upcase; self.dup.tap { |i| i.data = i.data.upcase }; end
+  def downcase
+    dup.tap { |i| i.data = i.data.downcase }
+  end
 
-  alias nth_string first_string
+  def upcase
+    dup.tap { |i| i.data = i.data.upcase }
+  end
+
+  alias_method :nth_string, :first_string
 
   def + other
-    if self.data == ""
+    if data == ""
       Interscript::Node::Item.try_convert(other)
     elsif Interscript::Node::Item::String === self &&
-      (Interscript::Node::Item::String === other || ::String === other)
+        (Interscript::Node::Item::String === other || ::String === other)
 
       other = Interscript::Node::Item.try_convert(other)
 
-      Interscript::Node::Item::String.new(self.data + other.data)
+      Interscript::Node::Item::String.new(data + other.data)
     else
       super
     end
   end
 
   def ==(other)
-    super && self.data == other.data
+    super && data == other.data
   end
 
   def inspect
@@ -47,12 +52,12 @@ end
 
 # stdext
 class String
-  alias plus_before_interscript +
+  alias_method :plus_before_interscript, :+
   def + other
     if Interscript::Node === other
       Interscript::Node::Item.try_convert(self) + other
     else
-      self.plus_before_interscript(other)
+      plus_before_interscript(other)
     end
   end
 end

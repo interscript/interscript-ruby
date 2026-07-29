@@ -6,7 +6,7 @@ class Interscript::DSL::Document
   def initialize(name = nil, &block)
     @node = Interscript::Node::Document.new
     @node.name = name if name
-    self.instance_exec &block if block_given?
+    instance_exec(&block) if block_given?
   end
 
   def metadata(&block)
@@ -22,7 +22,10 @@ class Interscript::DSL::Document
   def aliases(&block)
     aliases = Interscript::DSL::Aliases.new(&block)
     @node.aliases = aliases.node
-    @node.aliases.transform_values { |v| v.doc_name = @node.name; v }
+    @node.aliases.transform_values { |v|
+      v.doc_name = @node.name
+      v
+    }
   end
 
   def dependency(full_name, **kargs)
@@ -38,7 +41,7 @@ class Interscript::DSL::Document
   end
 
   def stage(name = :main, dont_reverse: false, &block)
-    puts "stage(#{name}) from #{self.inspect}" if $DEBUG
+    puts "stage(#{name}) from #{inspect}" if $DEBUG
     stage = Interscript::DSL::Stage.new(name, &block)
     stage.node.doc_name = @node.name
     stage.node.dont_reverse = dont_reverse

@@ -6,18 +6,17 @@ class Interscript::Node::Rule::Run < Interscript::Node::Rule
   end
 
   def to_hash
-    { :class => self.class.to_s,
-      :stage => self.stage.to_hash }
+    {class: self.class.to_s,
+     stage: stage.to_hash}
   end
 
   def reverse
     Interscript::Node::Rule::Run.new(stage,
-      reverse_run: reverse_run.nil? ? nil : !reverse_run
-    )
+      reverse_run: reverse_run.nil? ? nil : !reverse_run)
   end
 
   def ==(other)
-    super && self.stage == other.stage
+    super && stage == other.stage
   end
 
   def inspect

@@ -62,18 +62,18 @@ class Interscript::Node::Document
 
   def ==(other)
     self.class == other.class &&
-    self.metadata == other.metadata &&
-    self.tests == other.tests &&
-    self.stages == other.stages &&
-    self.aliases == other.aliases
+      metadata == other.metadata &&
+      tests == other.tests &&
+      stages == other.stages &&
+      aliases == other.aliases
   end
 
   def to_hash
-    { :class => self.class.to_s, :metadata => @metadata&.to_hash,
-      :tests => @tests&.to_hash,
-      :dependencies => @dependencies.map{|x| x.to_hash},
-      :dep_aliases => @dep_aliases.transform_values(&:to_hash),
-      :aliases => @aliases.transform_values(&:to_hash),
-      :stages => @stages.transform_values(&:to_hash) }
+    {class: self.class.to_s, metadata: @metadata&.to_hash,
+     tests: @tests&.to_hash,
+     dependencies: @dependencies.map { |x| x.to_hash },
+     dep_aliases: @dep_aliases.transform_values(&:to_hash),
+     aliases: @aliases.transform_values(&:to_hash),
+     stages: @stages.transform_values(&:to_hash)}
   end
 end

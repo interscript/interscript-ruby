@@ -7,23 +7,23 @@ class Interscript::Node::Item::Group < Interscript::Node::Item
     end
   end
 
-  def +(item)
-    item = Interscript::Node::Item.try_convert(item)
-    out = self.dup
-    if Interscript::Node::Item::Group === item
-      out.children += item.children
+  def +(other)
+    other = Interscript::Node::Item.try_convert(other)
+    out = dup
+    if Interscript::Node::Item::Group === other
+      out.children += other.children
     else
-      out.children << item
+      out.children << other
     end
     out.verify!
     out
   end
 
   def compact
-    out = self.dup do |n|
+    out = dup do |n|
       n.children = n.children.reject do |i|
         (Interscript::Node::Alias === i && i.name == :none) ||
-        (Interscript::Node::String === i && i.data == "")
+          (Interscript::Node::String === i && i.data == "")
       end
     end
 
@@ -36,15 +36,20 @@ class Interscript::Node::Item::Group < Interscript::Node::Item
     end
   end
 
-  def downcase; self.dup.tap { |i| i.children = i.children.map(&:downcase) }; end
-  def upcase; self.dup.tap { |i| i.children = i.children.map(&:upcase) }; end
+  def downcase
+    dup.tap { |i| i.children = i.children.map(&:downcase) }
+  end
+
+  def upcase
+    dup.tap { |i| i.children = i.children.map(&:upcase) }
+  end
 
   # Verify if a group is valid
   def verify!
     wrong = @children.find do |i|
       Interscript::Node::Item::Stage === i ||
-      ! (Interscript::Node::Item === i) ||
-      i.class == Interscript::Node::Item
+        !(Interscript::Node::Item === i) ||
+        i.class == Interscript::Node::Item
     end
 
     if wrong
@@ -53,11 +58,11 @@ class Interscript::Node::Item::Group < Interscript::Node::Item
   end
 
   def first_string
-    self.children.map(&:first_string).reduce(&:+)
+    children.map(&:first_string).reduce(&:+)
   end
 
   def nth_string
-    self.children.map(&:nth_string).reduce(&:+)
+    children.map(&:nth_string).reduce(&:+)
   end
 
   def max_length
@@ -65,12 +70,12 @@ class Interscript::Node::Item::Group < Interscript::Node::Item
   end
 
   def to_hash
-    { :class => self.class.to_s,
-      :children => self.children.map{|x| x.to_hash} }
+    {class: self.class.to_s,
+     children: children.map { |x| x.to_hash }}
   end
 
   def ==(other)
-    super && self.children == other.children
+    super && children == other.children
   end
 
   def inspect

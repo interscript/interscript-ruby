@@ -1,8 +1,8 @@
 class Interscript::Node::Group
-  def to_visualization_array(map=self)
+  def to_visualization_array(map = self)
     out = []
 
-    self.children.each do |rule|
+    children.each do |rule|
       case rule
       when Interscript::Node::Rule::Sub
         more = []
@@ -16,7 +16,7 @@ class Interscript::Node::Group
         out << {
           type: "Replace",
           from: rule.from.to_html(map),
-          to: Symbol === rule.to ? rule.to : rule.to.to_html(map),
+          to: (Symbol === rule.to) ? rule.to : rule.to.to_html(map),
           more: more
         }
       when Interscript::Node::Group::Parallel
@@ -25,13 +25,13 @@ class Interscript::Node::Group
           children: rule.to_visualization_array(map)
         }
       when Interscript::Node::Rule::Funcall
-        more = rule.kwargs.map do |k,v|
-          "#{k.to_s.gsub("_", " ")}: #{v}"
+        more = rule.kwargs.map do |k, v|
+          "#{k.to_s.tr("_", " ")}: #{v}"
         end
         more << "<nobr>reverse run:</nobr> #{rule.reverse_run}" unless rule.reverse_run.nil?
 
         out << {
-          type: rule.name.to_s.gsub("_", " ").gsub(/^(.)/, &:upcase),
+          type: rule.name.to_s.tr("_", " ").gsub(/^(.)/, &:upcase),
           more: more.join(", ")
         }
       when Interscript::Node::Rule::Run
@@ -50,7 +50,7 @@ class Interscript::Node::Group
           type: "Run",
           doc: doc.name,
           stage: stage,
-          more: more.join(", "),
+          more: more.join(", ")
         }
       else
         out << {

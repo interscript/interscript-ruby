@@ -1,12 +1,13 @@
 class Interscript::Node::MetaData < Interscript::Node
   attr_accessor :data
-  def initialize data={}
+  def initialize data = {}
     @data = data
   end
 
-  def []=(k,v)
+  def []=(k, v)
     @data[k] = v
   end
+
   def [](k)
     @data[k]
   end
@@ -18,11 +19,11 @@ class Interscript::Node::MetaData < Interscript::Node
   end
 
   def ==(other)
-    super && self.data == other.data
+    super && data == other.data
   end
 
   def to_hash
-    {:class => self.class.to_s,
-      :data => @data}
+    {class: self.class.to_s,
+     data: @data}
   end
 end
