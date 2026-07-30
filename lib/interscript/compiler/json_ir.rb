@@ -199,7 +199,7 @@ class Interscript::Compiler::JsonIR < Interscript::Compiler
     when Interscript::Node::Item::Group
       {kind: "group", items: item.children.map { |i| serialise_item(i) }}
     when Interscript::Node::Item::Repeat
-      {kind: "repeat", item: serialise_item(item.data), min: 0, max: Float::INFINITY}
+      {kind: "repeat", item: serialise_item(item.data), min: 0, max: nil}
     when Interscript::Node::Item::Stage
       {kind: "stage_ref", name: item.name.to_s}
     when nil
