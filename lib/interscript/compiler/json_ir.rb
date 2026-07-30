@@ -55,7 +55,22 @@ class Interscript::Compiler::JsonIR < Interscript::Compiler
       end
     end
 
-    # Document's own aliases override dependency aliases.
+    # Also merge ALL library aliases unconditionally. Libraries (posix,
+    # unicode, var-Cyrl, var-kor) define character classes that maps
+    # reference via alias() without listing the library as an explicit
+    # dependency in the dependency list.
+    Interscript.maps(libraries: true).each do |lib|
+      begin
+        libdoc = Interscript.parse(lib)
+        libdoc.aliases.each do |aname, defn|
+          all_aliases[aname.to_s] ||= serialise_item(defn.data)
+        end
+      rescue
+        # skip unparseable libraries
+      end
+    end
+
+    # Document's own aliases override everything.
     doc.aliases.each do |name, defn|
       all_aliases[name.to_s] = serialise_item(defn.data)
     end
