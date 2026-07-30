@@ -33,13 +33,40 @@ class Interscript::Compiler::JsonIR < Interscript::Compiler
   private
 
   def serialise_document(doc)
+    # Merge aliases from the document AND from dependency documents so
+    # that consumers (interscript-ts) can resolve every alias reference
+    # without re-implementing the Ruby dep_aliases indirection.
+    all_aliases = {}
+
+    # Walk dependencies and merge their alias definitions.
+    # posix defines :upper, :lower; unicode defines :combining marks; etc.
+    doc.dependencies.each do |dep|
+      next unless dep.document
+      dep.document.aliases.each do |aname, defn|
+        all_aliases[aname.to_s] ||= serialise_item(defn.data)
+      end
+    end
+
+    # Also walk dep_aliases (for run-rule dependency resolution paths).
+    doc.dep_aliases.each_value do |dep|
+      next unless dep.document
+      dep.document.aliases.each do |aname, defn|
+        all_aliases[aname.to_s] ||= serialise_item(defn.data)
+      end
+    end
+
+    # Document's own aliases override dependency aliases.
+    doc.aliases.each do |name, defn|
+      all_aliases[name.to_s] = serialise_item(defn.data)
+    end
+
     {
       schemaVersion: SCHEMA_VERSION,
       systemCode: doc.name.to_s,
       dependencies: doc.dependencies.map(&:full_name),
       metadata: serialise_metadata(doc.metadata),
       stages: serialise_stages(doc.stages),
-      aliases: serialise_aliases(doc.aliases),
+      aliases: all_aliases,
       functions: {}
     }
   end
