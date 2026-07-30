@@ -194,8 +194,20 @@ class Interscript::Compiler::JsonIR < Interscript::Compiler
       out[:map] = item.map if item.map
       out
     when Interscript::Node::Item::Any
-      data = item.data || []
-      {kind: "any", of: data.map { |i| serialise_item(i) }}
+      # Any with a String payload becomes a character class in Ruby's
+      # regex compilation. Range payloads become `[first-last]`. Both
+      # must survive IR serialisation as char-class form, NOT expanded
+      # into alternatives — Ruby's String#succ expansion of "a".."ᖵ"
+      # produces nonsense like "zzz" and misses most of the BMP.
+      case item.value
+      when ::Range
+        {kind: "any_char_class", range: [item.value.first, item.value.last]}
+      when ::String
+        {kind: "any_char_class", chars: item.value.split("")}
+      else
+        data = item.data || []
+        {kind: "any", of: data.map { |i| serialise_item(i) }}
+      end
     when Interscript::Node::Item::Group
       {kind: "group", items: item.children.map { |i| serialise_item(i) }}
     when Interscript::Node::Item::Repeat
