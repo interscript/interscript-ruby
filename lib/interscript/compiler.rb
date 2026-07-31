@@ -1,5 +1,11 @@
 # An Interscript compiler interface
 class Interscript::Compiler
+  # Autoload all compiler variants (OCP: new compiler = one autoload).
+  autoload :Javascript, "interscript/compiler/javascript"
+  autoload :Python, "interscript/compiler/python"
+  autoload :Ruby, "interscript/compiler/ruby"
+  autoload :JsonIR, "interscript/compiler/json_ir"
+
   attr_accessor :code
 
   def self.call(map, **kwargs)

@@ -1,4 +1,16 @@
 class Interscript::Node
+  # Autoload all node types. Adding a new node type = one autoload
+  # line here. No require_relative (OCP).
+  autoload :Group, "interscript/node/group"
+  autoload :Document, "interscript/node/document"
+  autoload :MetaData, "interscript/node/metadata"
+  autoload :AliasDef, "interscript/node/alias_def"
+  autoload :Dependency, "interscript/node/dependency"
+  autoload :Tests, "interscript/node/tests"
+  autoload :Stage, "interscript/node/stage"
+  autoload :Rule, "interscript/node/rule"
+  autoload :Item, "interscript/node/item"
+
   def initialize
     raise NotImplementedError, "You can't construct a Node directly"
   end
@@ -12,15 +24,3 @@ class Interscript::Node
      question: "is something missing?"}
   end
 end
-
-require "interscript/node/group"
-require "interscript/node/document"
-
-require "interscript/node/metadata"
-require "interscript/node/alias_def"
-require "interscript/node/dependency"
-require "interscript/node/tests"
-
-require "interscript/node/stage"
-require "interscript/node/rule"
-require "interscript/node/item"

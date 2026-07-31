@@ -41,5 +41,7 @@ class Interscript::Node::Group < Interscript::Node
   end
 end
 
-require "interscript/node/group/parallel"
-require "interscript/node/group/sequential"
+class Interscript::Node::Group
+  autoload :Parallel, "interscript/node/group/parallel"
+  autoload :Sequential, "interscript/node/group/sequential"
+end

@@ -47,10 +47,18 @@ class Interscript::Node::Item < Interscript::Node
   end
 end
 
-require "interscript/node/item/alias"
-require "interscript/node/item/string"
-require "interscript/node/item/group"
-require "interscript/node/item/any"
-require "interscript/node/item/stage"
-require "interscript/node/item/capture"
-require "interscript/node/item/repeat"
+class Interscript::Node::Item
+  # Autoload all item types (OCP: new item type = one autoload).
+  autoload :Alias, "interscript/node/item/alias"
+  autoload :String, "interscript/node/item/string"
+  autoload :Group, "interscript/node/item/group"
+  autoload :Any, "interscript/node/item/any"
+  autoload :Stage, "interscript/node/item/stage"
+  autoload :CaptureGroup, "interscript/node/item/capture"
+  autoload :Repeat, "interscript/node/item/repeat"
+  # Maybe, MaybeSome, Some are subclasses of Repeat defined in
+  # the same file. Autoload points to repeat.rb which defines all of them.
+  autoload :Maybe, "interscript/node/item/repeat"
+  autoload :MaybeSome, "interscript/node/item/repeat"
+  autoload :Some, "interscript/node/item/repeat"
+end
