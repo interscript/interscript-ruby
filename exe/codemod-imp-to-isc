@@ -1,0 +1,483 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "optparse"
+require "fileutils"
+require "pathname"
+require "strscan"
+
+module Interscript
+  module Isc
+    # Codemod: converts a legacy `.imp` (Interscript Map Presentation) file
+    # into an `.isc` (Interscript/ISO Script Conversion) source file.
+    #
+    # The transformation is mechanical. It does not parse the .imp file's
+    # semantics — it works at the token level, applying the substitutions
+    # documented in <<migration-annex>> of IS 1.
+    #
+    # Usage:
+    #   codemod-imp-to-isc <file.imp> [<file.imp>...]    # convert files in place
+    #   codemod-imp-to-isc --out-dir=DIR <file.imp>...   # write to DIR
+    #   cat foo.imp | codemod-imp-to-isc --stdin         # stdin→stdout
+    #
+    class Codemod
+      # Compound authority segments that need hyphenation in their canonical
+      # form per ISO 24229 §5. The .imp filename uses the un-hyphenated
+      # lowercase form; the .isc system code uses the canonical hyphenated
+      # upper-case form.
+      AUTHORITY_FIXES = {
+        "bgnpcgn" => "BGN-PCGN",
+        "alalc"   => "ALA-LC",
+        "elot"    => "ELOT",
+        "odni"    => "ODNI",
+      }.freeze
+
+      def initialize(out_dir: nil, stdin: false, write: true)
+        @out_dir = out_dir
+        @stdin_mode = stdin
+        @write = write
+      end
+
+      def self.run(argv)
+        out_dir = nil
+        stdin_mode = false
+        write = true
+
+        parser = OptionParser.new do |opts|
+          opts.banner = "Usage: codemod-imp-to-isc [options] <file.imp>..."
+          opts.on("--out-dir=DIR", "Write .isc files to DIR instead of in place") { |v| out_dir = v }
+          opts.on("--stdin", "Read .imp from stdin, write .isc to stdout") { stdin_mode = true }
+          opts.on("--dry-run", "Print converted output; do not write files") { write = false }
+          opts.on("-h", "--help", "Show this help") do
+            puts opts
+            exit 0
+          end
+        end
+        parser.parse!(argv)
+
+        cm = new(out_dir: out_dir, stdin: stdin_mode, write: write)
+        cm.run(argv)
+      end
+
+      def run(args)
+        if @stdin_mode
+          $stdout.write(convert($stdin.read, filename: "stdin"))
+          return
+        end
+
+        args.each do |path|
+          fail "#{path}: not a .imp file" unless path.end_with?(".imp")
+
+          source = File.read(path, encoding: "UTF-8")
+          converted = convert(source, filename: File.basename(path))
+
+          out_path = derive_out_path(path)
+          if @write
+            FileUtils.mkdir_p(File.dirname(out_path))
+            File.write(out_path, converted)
+            $stderr.puts "#{path} -> #{out_path}"
+          else
+            $stdout.write(converted)
+          end
+        end
+      end
+
+      # Convert the source text of a .imp file to .isc text.
+      def convert(source, filename:)
+        @scanner = StringScanner.new(source)
+        @out = +""
+        @filename = filename
+
+        convert_body
+        @out
+      end
+
+      private
+
+      def convert_body
+        # 1. Emit the system wrapper, deriving the ISO 24229 code from filename.
+        emit_system_open
+
+        # 2. Walk the body, transforming constructs in place.
+        until @scanner.eos?
+          if @scanner.scan(/\s+/m)
+            @out << @scanner.matched
+          elsif @scanner.scan(/#\s.*?$/)
+            @out << @scanner.matched
+          elsif @scanner.scan(/metadata\b/)
+            @out << "metadata"
+            convert_metadata_block
+          elsif @scanner.scan(/tests\b/)
+            @out << "tests"
+            convert_tests_block
+          elsif @scanner.scan(/aliases\b/)
+            @out << "aliases"
+            convert_aliases_block
+          elsif @scanner.scan(/dependency\b/)
+            convert_dependency
+          elsif @scanner.scan(/stage\b/)
+            @out << "stage"
+            convert_stage_header
+          elsif @scanner.scan(/\b(parallel|sequence|separate|deep|compose|downcase|upcase|title_case)\b/)
+            @out << @scanner.matched
+          elsif @scanner.scan(/\bsub\b/)
+            @out << "sub"
+            convert_sub_rule
+          elsif @scanner.scan(/\brun\b/)
+            @out << "run "
+            convert_run_rule
+          elsif @scanner.scan(/\bdef_alias\b/)
+            convert_def_alias
+          elsif @scanner.scan(/"/)
+            @out << '"'
+            convert_string_literal(:double)
+          elsif @scanner.scan(/'/)
+            @out << "'"
+            convert_string_literal(:single)
+          elsif @scanner.scan(/=>/)
+            # Hash rocket — used in legacy `sub "X" => "Y"`. Convert to space.
+            @out << " "
+          elsif @scanner.scan(/,/)
+            # Trailing comma — drop in compact rule contexts, leave elsewhere.
+            @out << ""
+          elsif @scanner.scan(/(before|after|not_before|not_after):/)
+            # Drop the colon in modifier kwarg form.
+            @out << "#{@scanner[1]} "
+          elsif @scanner.scan(/[A-Za-z_][A-Za-z0-9_]*/)
+            @out << @scanner.matched
+          else
+            @out << @scanner.getch
+          end
+        end
+
+        emit_system_close
+      end
+
+      def emit_system_open
+        code = derive_system_code(@filename)
+        @out << %(system "#{code}" {\n\n)
+      end
+
+      def emit_system_close
+        @out << "}\n"
+      end
+
+      def derive_system_code(filename)
+        stem = filename.sub(/\.imp\z/, "")
+        parts = stem.split("-")
+        authority_raw = parts.shift.to_s
+        authority = AUTHORITY_FIXES.fetch(authority_raw.downcase, authority_raw.upcase)
+        # Remaining parts: language, source_script, target_script, [year/identifying]
+        # Standard layout: auth-lang-src-tgt-id
+        language = parts.shift
+        source_script = parts.shift
+        target_script = parts.shift
+        identifying = parts.join("-")
+        # Build the source spelling: "<language>-<source_script>"
+        source_spelling = "#{language}-#{source_script}"
+        # Title-case scripts
+        [authority, source_spelling, target_script, identifying].compact.join(":")
+      end
+
+      def derive_out_path(in_path)
+        base = File.basename(in_path, ".imp")
+        new_name = "#{base}.isc"
+        return File.join(@out_dir, new_name) if @out_dir
+
+        File.join(File.dirname(in_path), new_name)
+      end
+
+      # -- Construct-specific converters
+
+      def convert_metadata_block
+        # Find the opening brace and consume until matching close, transforming
+        # `key: value` -> `key value` and `description: |` / `notes:` heredocs.
+        return unless @scanner.scan(/\s*\{/)
+
+        @out << " {"
+        depth = 1
+
+        until @scanner.eos? || depth == 0
+          if @scanner.scan(/\{/)
+            @out << "{"
+            depth += 1
+          elsif @scanner.scan(/\}/)
+            depth -= 1
+            @out << "}"
+          elsif @scanner.scan(/(?:\A|\n)([ \t]+)description[ \t]*:[ \t]*\|/)
+            # Heredoc form: `description: |` followed by indented body.
+            indent = @scanner[1]
+            @out << "\n#{indent}description {"
+            convert_indented_block_until_dedent(indent)
+            @out << "\n#{indent}}"
+          elsif @scanner.scan(/(?:\A|\n)([ \t]+)notes[ \t]*:[ \t]*\|[ \t]*\n/)
+            # Heredoc-form notes: `notes: |` followed by indented body that's
+            # one big multi-line note.
+            indent = @scanner[1]
+            @out << "\n#{indent}notes {"
+            @out << "\n#{indent}  note \""
+            read_heredoc_into_string(indent)
+            @out << "\""
+            @out << "\n#{indent}}"
+          elsif @scanner.scan(/(?:\A|\n)([ \t]+)notes[ \t]*:[ \t]*/)
+            # Notes block: list of `- item` lines. Collect into a brace block.
+            indent = @scanner[1]
+            @out << "\n#{indent}notes {"
+            convert_notes_list_until_dedent(indent)
+            @out << "\n#{indent}}"
+          elsif @scanner.scan(/(?:\A|\n)([ \t]+)([A-Za-z_][\w]*)[ \t]*:[ \t]*/)
+            # key: value -> key value, only when the key is at the start of a
+            # (indented) line. Use [ \t] instead of \s to avoid eating newlines
+            # (which would merge `key:\n  next:` into `key next:`).
+            @out << "\n#{@scanner[1]}#{@scanner[2]} "
+          elsif @scanner.scan(/"/)
+            @out << '"'
+            convert_string_literal(:double)
+          elsif @scanner.scan(/'/)
+            @out << "'"
+            convert_string_literal(:single)
+          else
+            @out << @scanner.getch
+          end
+        end
+      end
+
+      # Consume an indented heredoc body until a non-blank line dedents at or
+      # below `indent`. Blank lines within the body are preserved.
+      def convert_indented_block_until_dedent(indent)
+        # Look ahead through optional blank lines: if the next non-blank line
+        # is dedented to indent depth <= indent.length, the heredoc ends.
+        dedent_check = /\n(?:[ \t]*\n)*([ \t]{0,#{indent.length}}\S)/
+
+        until @scanner.eos?
+          if @scanner.check(dedent_check)
+            return
+          elsif @scanner.scan(/\n[ \t]*\n/)
+            @out << @scanner.matched
+          elsif @scanner.scan(/\n([ \t]+)/)
+            @out << "\n#{@scanner[1]}"
+          elsif @scanner.scan(/\n/)
+            @out << "\n"
+          elsif @scanner.scan(/[^\n]+/)
+            @out << @scanner.matched
+          else
+            @out << @scanner.getch
+          end
+        end
+      end
+
+      # Notes list: each item begins with `- `. Convert each to `note "..."`.
+      # A `- |` item is a multi-line YAML heredoc; consume subsequent indented lines.
+      def convert_notes_list_until_dedent(indent)
+        # A dedent is: a non-blank line whose first non-whitespace char is at
+        # indent depth <= indent.length AND isn't a `-` list marker (which
+        # would be another note at the same indent).
+        dedent_check = /\n(?:[ \t]*\n)*([ \t]{0,#{indent.length}}[^-\s])/
+
+        loop do
+          break if @scanner.eos?
+
+          if @scanner.check(dedent_check)
+            return
+          elsif @scanner.check(/\n[ \t]{0,#{indent.length}}\}/)
+            # Hit the enclosing metadata `}` — stop here, let the metadata
+            # loop's `\}` rule close it.
+            return
+          elsif @scanner.scan(/\n([ \t]+)-\s+\|\s*\n/)
+            note_indent = @scanner[1]
+            @out << "\n#{note_indent}note \""
+            read_heredoc_into_string(note_indent)
+            @out << "\""
+          elsif @scanner.scan(/\n([ \t]+)-\s+/)
+            note_indent = @scanner[1]
+            @out << "\n#{note_indent}note \""
+            text = @scanner.scan(/[^\n]+/).to_s
+            @out << text.gsub('"', '\\"')
+            # Consume continuation lines: any subsequent line indented deeper
+            # than the `- ` marker is part of the same note.
+            while @scanner.check(/\n[ \t]{#{note_indent.length + 1},}\S/)
+              @scanner.scan(/\n([ \t]+)/)
+              @out << "\\n" + @scanner[1].strip + " "
+              cont = @scanner.scan(/[^\n]+/).to_s
+              @out << cont.gsub('"', '\\"')
+            end
+            @out << "\""
+          elsif @scanner.scan(/\n[ \t]*\n/)
+            @out << @scanner.matched
+          elsif @scanner.scan(/\n/)
+            @out << "\n"
+          else
+            # First item right after `notes: ` consumed; scanner at `- item`.
+            if @scanner.scan(/-\s+/)
+              @out << "\n#{indent}note \""
+              text = @scanner.scan(/[^\n]+/).to_s
+              @out << text.gsub('"', '\\"')
+              while @scanner.check(/\n[ \t]{#{indent.length + 1},}\S/)
+                @scanner.scan(/\n([ \t]+)/)
+                @out << "\\n" + @scanner[1].strip + " "
+                cont = @scanner.scan(/[^\n]+/).to_s
+                @out << cont.gsub('"', '\\"')
+              end
+              @out << "\""
+            else
+              @out << @scanner.getch
+            end
+          end
+        end
+      end
+
+      def read_heredoc_into_string(indent)
+        # Read lines that are indented deeper than `indent` (or blank). Concatenate.
+        until @scanner.eos?
+          if @scanner.check(/\n(?:[ \t]*\n)*([ \t]{0,#{indent.length}}\S)/)
+            return
+          elsif @scanner.scan(/\n[ \t]*\n/)
+            # Blank line inside heredoc — preserve as \n
+            @out << "\\n"
+          elsif @scanner.scan(/\n[ \t]+([^\n]*)/)
+            # Indented line — strip indent, join with \n
+            @out << "\\n" + @scanner[1].to_s
+          elsif @scanner.scan(/\n/)
+            @out << "\\n"
+          elsif @scanner.scan(/([^\n]+)/)
+            @out << @scanner[1].gsub('"', '\\"')
+          else
+            return
+          end
+        end
+      end
+
+      def convert_tests_block
+        return unless @scanner.scan(/\s*\{/)
+        @out << " {"
+        depth = 1
+        until @scanner.eos? || depth == 0
+          if @scanner.scan(/\{/)
+            @out << "{"
+            depth += 1
+          elsif @scanner.scan(/\}/)
+            depth -= 1
+            @out << "}"
+          elsif @scanner.scan(/\btest\b/)
+            # `test "X", "Y"` -> `"X" -> "Y"`
+            @out << ""
+          elsif @scanner.scan(/,/)
+            # Comma between test args -> ` -> `
+            @out << " -> "
+          elsif @scanner.scan(/"/)
+            @out << '"'
+            convert_string_literal(:double)
+          elsif @scanner.scan(/'/)
+            @out << "'"
+            convert_string_literal(:single)
+          else
+            @out << @scanner.getch
+          end
+        end
+      end
+
+      def convert_aliases_block
+        return unless @scanner.scan(/\s*\{/)
+        @out << " {"
+        depth = 1
+        until @scanner.eos? || depth == 0
+          if @scanner.scan(/\{/)
+            @out << "{"
+            depth += 1
+          elsif @scanner.scan(/\}/)
+            depth -= 1
+            @out << "}"
+          elsif @scanner.scan(/\bdef_alias\b\s+([A-Za-z_]\w*)\s*,\s*/)
+            # `def_alias name, X` -> `name = X`
+            @out << "#{@scanner[1]} = "
+          elsif @scanner.scan(/"/)
+            @out << '"'
+            convert_string_literal(:double)
+          elsif @scanner.scan(/'/)
+            @out << "'"
+            convert_string_literal(:single)
+          else
+            @out << @scanner.getch
+          end
+        end
+      end
+
+      def convert_dependency
+        # Forms accepted:
+        #   dependency "X"                       -> dependency "X"
+        #   dependency "X", as: Y                -> dependency "X" as Y
+        #   dependency "X", import: true         -> dependency "X" (import dropped; isc imports via `run`)
+        #   dependency "X", as: Y, import: true  -> dependency "X" as Y
+        @out << "dependency"
+        # Consume up to end of line/statement, handling modifiers.
+        until @scanner.eos?
+          if @scanner.scan(/,?\s*as\s*:\s*/)
+            @out << " as "
+            # Read the alias identifier
+            @scanner.scan(/[A-Za-z_]\w*/) && @out << @scanner.matched
+            # Continue past this; may have more modifiers
+          elsif @scanner.scan(/,?\s*import\s*:\s*true/)
+            # Drop `import: true` — isc handles imports via `run map.X.stage.Y`.
+            # No output.
+          elsif @scanner.scan(/[\n}]/)
+            @scanner.unscan
+            return
+          elsif @scanner.scan(/"/)
+            @out << '"'
+            convert_string_literal(:double)
+          elsif @scanner.scan(/[^\n",}]+/)
+            @out << @scanner.matched
+          else
+            # No progress — bail to avoid infinite loop.
+            @scanner.getch
+          end
+        end
+      end
+
+      def convert_stage_header
+        # Legacy `stage {` becomes `stage main {` if no name is given.
+        if @scanner.scan(/\s*\{/)
+          @out << " main {"
+        elsif @scanner.scan(/\s+([A-Za-z_]\w*)\s*\{/)
+          @out << " #{@scanner[1]} {"
+        end
+      end
+
+      def convert_sub_rule
+        # `sub "X", "Y", before: Z` -> `sub "X" "Y" before Z`
+        # `sub "X" => "Y"` -> `sub "X" "Y"`
+        # Just let the main loop handle the rest; the main loop already drops
+        # commas, hash rockets, and `key:` colons.
+      end
+
+      def convert_run_rule
+        # `run map.X.stage.Y` (already in the right form)
+        if @scanner.scan(/map\.([A-Za-z_]\w*)\.stage\.([A-Za-z_]\w*)/)
+          @out << "map.#{@scanner[1]}.stage.#{@scanner[2]}"
+        end
+      end
+
+      def convert_def_alias
+        # Handled in convert_aliases_block.
+      end
+
+      def convert_string_literal(quote_kind)
+        quote_char = quote_kind == :double ? '"' : "'"
+        until @scanner.eos?
+          if @scanner.scan(/\\./)
+            @out << @scanner.matched
+          elsif @scanner.scan(Regexp.new(Regexp.escape(quote_char)))
+            @out << quote_char
+            return
+          else
+            @out << @scanner.getch
+          end
+        end
+      end
+    end
+  end
+end
+
+if $PROGRAM_NAME == __FILE__
+  Interscript::Isc::Codemod.run(ARGV)
+end

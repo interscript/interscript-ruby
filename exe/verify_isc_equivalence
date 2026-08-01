@@ -1,0 +1,125 @@
+#!/usr/bin/env ruby
+# Verification harness: for each .imp file, compare Ruby DSL parse vs ISC parse.
+# Reports per-file equivalence status.
+
+require "interscript"
+require "interscript/isc"
+require "json"
+
+class Verifier
+  Result = Struct.new(:status, :details, :imp_data, :isc_data)
+
+  def initialize
+    @results = []
+  end
+
+  def verify(imp_path, isc_path)
+    imp_data = parse_imp(imp_path)
+    isc_data = parse_isc(isc_path)
+
+    return Result.new(:both_fail, "Both parsers failed", nil, nil) if imp_data.nil? && isc_data.nil?
+    return Result.new(:imp_fail, "Ruby DSL parse failed", nil, isc_data) if imp_data.nil?
+    return Result.new(:isc_fail, "ISC parse failed", imp_data, nil) if isc_data.nil?
+
+    # Compare semantic equivalence on the dimensions we can compare:
+    #   - system code (derived from filename)
+    #   - test count and contents
+    #   - number of stages
+    details = []
+    if imp_data[:tests_count] != isc_data[:tests_count]
+      details << "test count: imp=#{imp_data[:tests_count]} isc=#{isc_data[:tests_count]}"
+    end
+    if imp_data[:tests].any? { |t| !isc_data[:tests].include?(t) }
+      details << "test contents differ"
+    end
+    if imp_data[:stages_count] != isc_data[:stages_count]
+      details << "stages: imp=#{imp_data[:stages_count]} isc=#{isc_data[:stages_count]}"
+    end
+
+    status = details.empty? ? :equivalent : :differ
+    Result.new(status, details.join("; "), imp_data, isc_data)
+  rescue => e
+    Result.new(:error, "#{e.class}: #{e.message[0..100]}", nil, nil)
+  end
+
+  private
+
+  def parse_imp(path)
+    dsl = Interscript::DSL.parse(File.basename(path, ".imp"))
+    tests_data = (dsl.tests&.data if dsl.tests.respond_to?(:data)) || []
+    tests = tests_data.map { |t| [t[0], t[1]] }
+    {
+      tests_count: tests.size,
+      tests: tests,
+      stages_count: dsl.stages&.size || 0,
+    }
+  rescue => e
+    warn "IMP parse fail #{path}: #{e.message[0..80]}"
+    nil
+  end
+
+  def parse_isc(path)
+    src = File.read(path)
+    tree = Interscript::Isc::Parser.parse(src, filename: File.basename(path))
+    doc = Interscript::Isc::DocumentBuilder.build(tree, filename: File.basename(path))
+    {
+      tests_count: doc[:tests].size,
+      tests: doc[:tests].map { |t| [t[:input], t[:expected]] },
+      stages_count: doc[:stages].size,
+    }
+  rescue => e
+    warn "ISC parse fail #{path}: #{e.message[0..80]}"
+    nil
+  end
+end
+
+if $PROGRAM_NAME == __FILE__
+  maps_dir = "/Users/mulgogi/src/interscript/maps/maps"
+  isc_dir = "/tmp/isc-verify"
+
+  v = Verifier.new
+  results = {}
+  counts = Hash.new(0)
+
+  Dir.glob("#{maps_dir}/*.imp").sort.each do |imp_path|
+    base = File.basename(imp_path, ".imp")
+    isc_path = "#{isc_dir}/#{base}.isc"
+    next unless File.exist?(isc_path)
+
+    r = v.verify(imp_path, isc_path)
+    results[base] = r
+    counts[r.status] += 1
+  end
+
+  puts "=" * 60
+  puts "VERIFICATION REPORT"
+  puts "=" * 60
+  puts "Total maps:   #{results.size}"
+  puts "Equivalent:   #{counts[:equivalent]}"
+  puts "Differ:       #{counts[:differ]}"
+  puts "IMP fail:     #{counts[:imp_fail]}"
+  puts "ISC fail:     #{counts[:isc_fail]}"
+  puts "Both fail:    #{counts[:both_fail]}"
+  puts "Errors:       #{counts[:error]}"
+  puts
+
+  if counts[:differ] > 0
+    puts "First 10 differences:"
+    results.select { |_, r| r.status == :differ }.first(10).each do |base, r|
+      puts "  #{base}: #{r.details}"
+    end
+  end
+
+  # Save full report
+  File.write("/tmp/verification_report.json", JSON.pretty_generate(
+    results.transform_values do |r|
+      {
+        status: r.status,
+        details: r.details,
+        imp: r.imp_data,
+        isc: r.isc_data,
+      }
+    end
+  ))
+  puts "Full report: /tmp/verification_report.json"
+end

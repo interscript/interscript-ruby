@@ -11,6 +11,7 @@ module Interscript
   autoload :DSL, "interscript/dsl"
   autoload :Node, "interscript/node"
   autoload :Detector, "interscript/detector"
+  autoload :ISC, "interscript/isc"
 
   # An error caused by a lack of some map
   class MapNotFoundError < StandardError; end
