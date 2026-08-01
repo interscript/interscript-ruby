@@ -322,12 +322,24 @@ module Interscript
         text = @scanner.scan(/[^\n]+/).to_s
         @out << text.gsub('"', '\\"')
         # Consume continuation lines: any subsequent line indented deeper
-        # than the `- ` marker is part of the same note.
-        while @scanner.check(/\n[ \t]{#{note_indent.length + 1},}\S/)
-          @scanner.scan(/\n([ \t]+)/)
-          @out << "\\n" + @scanner[1].strip + " "
-          cont = @scanner.scan(/[^\n]+/).to_s
-          @out << cont.gsub('"', '\\"')
+        # than the `- ` marker is part of the same note. Blank lines between
+        # continuations are preserved as \n.
+        loop do
+          if @scanner.check(/\n[ \t]{#{note_indent.length + 1},}\S/)
+            # Indented continuation
+            @scanner.scan(/\n([ \t]+)/)
+            @out << "\\n" + @scanner[1].strip + " "
+            cont = @scanner.scan(/[^\n]+/).to_s
+            @out << cont.gsub('"', '\\"')
+          elsif @scanner.check(/\n[ \t]*\n[ \t]{#{note_indent.length + 1},}\S/)
+            # Blank line then indented continuation
+            @scanner.scan(/\n[ \t]*\n([ \t]+)/)
+            @out << "\\n" + @scanner[1].strip + " "
+            cont = @scanner.scan(/[^\n]+/).to_s
+            @out << cont.gsub('"', '\\"')
+          else
+            break
+          end
         end
         @out << "\""
       end
