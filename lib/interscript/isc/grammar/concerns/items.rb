@@ -26,7 +26,9 @@ module Interscript
               str("boundary") |
               str("line_start") |
               str("line_end") |
-              str("word_boundary")
+              str("word_boundary") |
+              str("space") |
+              str("non_boundary")
             ).as(:primitive)
           end
 

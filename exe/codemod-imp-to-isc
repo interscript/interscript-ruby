@@ -497,8 +497,11 @@ module Interscript
         # Drop the trailing newline
         line = line.chomp
 
+        # Strip comments (# ... to end of line) but only when # is at start of
+        # token (not inside a string). Walk char by char.
+        line = strip_comments(line)
+
         # Split into tokens: handle hash rockets, commas, parens, strings.
-        # We do this by walking the string with a simple state machine.
         tokens = []
         current = +""
         in_string = nil
@@ -522,29 +525,43 @@ module Interscript
           elsif paren_depth.zero? && (c == "," || (c == "=" && line[_i + 1] == ">"))
             tokens << current.strip
             current = +""
-            # Skip the comma or `=>`
-            if c == "="
-              @scanner.unscan if false # can't unscan, line already consumed
-            end
           else
             current << c
           end
         end
         tokens << current.strip unless current.strip.empty?
 
-        # Drop hash rocket tokens (already handled above by treating `=>` like `,`)
         tokens = tokens.reject { |t| t == "=>" }
 
-        # First token = from, second = to, rest = constraints
         from_expr = normalize_expr(tokens.shift.to_s)
         to_expr = normalize_expr(tokens.shift.to_s)
         constraints_str = tokens.join(" ")
 
-        # Strip the `before:` etc colon (the codemod dropped these elsewhere,
-        # but here we want to normalize: `before: X` -> `before X`)
         constraints_str = constraints_str.gsub(/(before|after|not_before|not_after)\s*:/, '\1')
 
         [from_expr, to_expr, constraints_str]
+      end
+
+      # Remove `# ...` comments from a line, respecting quoted strings.
+      def strip_comments(line)
+        result = +""
+        in_string = nil
+        line.each_char do |c|
+          if in_string
+            result << c
+            if c == in_string && result[-2] != "\\"
+              in_string = nil
+            end
+          elsif c == '"' || c == "'"
+            in_string = c
+            result << c
+          elsif c == "#"
+            break
+          else
+            result << c
+          end
+        end
+        result
       end
 
       # A "single atom" expression is one quoted string, `none`, `boundary`,
