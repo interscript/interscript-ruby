@@ -62,8 +62,14 @@ module Interscript
           rule(:set_arg) do
             quoted_string.as(:single) |
               (str("[") >> whitespace? >>
-                (quoted_string >> ((comma | whitespace) >> quoted_string).repeat).as(:list) >>
+                (list_item >> ((comma | whitespace) >> list_item).repeat).as(:list) >>
                 whitespace? >> str("]"))
+          end
+
+          # A list item can be a quoted string OR a more complex expression
+          # (e.g., `boundary + "X"` for concat inside a list).
+          rule(:list_item) do
+            quoted_string | item
           end
 
           rule(:alias_reference) do
@@ -105,11 +111,13 @@ module Interscript
 
           # Positive lookahead: the next thing is a valid item_atom continuation.
           # Excludes keywords that end the item (to, before, after, not_before,
-          # not_after, and the closing brace).
+          # not_after, the closing brace, AND `identifier =` which signals a
+          # new alias declaration).
           rule(:item_continuation) do
             (str("to") | str("before") | str("after") |
               str("not_before") | str("not_after") |
               str("}")).absent? >>
+              (identifier >> whitespace? >> str("=")).absent? >>
               item_atom_start
           end
 
