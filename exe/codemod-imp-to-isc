@@ -279,51 +279,57 @@ module Interscript
 
           if @scanner.check(dedent_check)
             return
-          elsif @scanner.check(/\n[ \t]{0,#{indent.length}}\}/)
-            # Hit the enclosing metadata `}` — stop here, let the metadata
-            # loop's `\}` rule close it.
+          elsif @scanner.check(/\n(?:[ \t]*\n)*[ \t]{0,#{indent.length}}\}/)
+            # Hit the enclosing metadata `}` (possibly after blank lines).
             return
-          elsif @scanner.scan(/\n([ \t]+)-\s+\|\s*\n/)
+          elsif @scanner.scan(/\n[ \t]*\n/)
+            # Blank line(s) between items — preserve one newline. Do NOT
+            # consume the indent of the next item; the next-item regexes
+            # require the indent prefix.
+            @out << "\n"
+          elsif @scanner.scan(/\n([ \t]+)-[ \t]*\|[ \t]*\n/)
+            # `|` heredoc form
             note_indent = @scanner[1]
             @out << "\n#{note_indent}note \""
             read_heredoc_into_string(note_indent)
             @out << "\""
-          elsif @scanner.scan(/\n([ \t]+)-\s+/)
+          elsif @scanner.scan(/\n([ \t]+)-[ \t]+/)
+            # Single-line item start (possibly with continuation lines).
             note_indent = @scanner[1]
-            @out << "\n#{note_indent}note \""
-            text = @scanner.scan(/[^\n]+/).to_s
-            @out << text.gsub('"', '\\"')
-            # Consume continuation lines: any subsequent line indented deeper
-            # than the `- ` marker is part of the same note.
-            while @scanner.check(/\n[ \t]{#{note_indent.length + 1},}\S/)
-              @scanner.scan(/\n([ \t]+)/)
-              @out << "\\n" + @scanner[1].strip + " "
-              cont = @scanner.scan(/[^\n]+/).to_s
-              @out << cont.gsub('"', '\\"')
-            end
-            @out << "\""
-          elsif @scanner.scan(/\n[ \t]*\n/)
-            @out << @scanner.matched
+            emit_note_with_continuation(note_indent)
+          elsif @scanner.scan(/([ \t]+)-[ \t]*\|[ \t]*\n/)
+            # First item right after `notes:` consumed; scanner at `<indent>- |\n`.
+            emit_heredoc_note(@scanner[1])
+          elsif @scanner.scan(/([ \t]+)-[ \t]+/)
+            # First item right after `notes:` consumed; scanner at `<indent>- item`.
+            emit_note_with_continuation(@scanner[1])
           elsif @scanner.scan(/\n/)
             @out << "\n"
           else
-            # First item right after `notes: ` consumed; scanner at `- item`.
-            if @scanner.scan(/-\s+/)
-              @out << "\n#{indent}note \""
-              text = @scanner.scan(/[^\n]+/).to_s
-              @out << text.gsub('"', '\\"')
-              while @scanner.check(/\n[ \t]{#{indent.length + 1},}\S/)
-                @scanner.scan(/\n([ \t]+)/)
-                @out << "\\n" + @scanner[1].strip + " "
-                cont = @scanner.scan(/[^\n]+/).to_s
-                @out << cont.gsub('"', '\\"')
-              end
-              @out << "\""
-            else
-              @out << @scanner.getch
-            end
+            @out << @scanner.getch
           end
         end
+      end
+
+      def emit_heredoc_note(indent)
+        @out << "\n#{indent}note \""
+        read_heredoc_into_string(indent)
+        @out << "\""
+      end
+
+      def emit_note_with_continuation(note_indent)
+        @out << "\n#{note_indent}note \""
+        text = @scanner.scan(/[^\n]+/).to_s
+        @out << text.gsub('"', '\\"')
+        # Consume continuation lines: any subsequent line indented deeper
+        # than the `- ` marker is part of the same note.
+        while @scanner.check(/\n[ \t]{#{note_indent.length + 1},}\S/)
+          @scanner.scan(/\n([ \t]+)/)
+          @out << "\\n" + @scanner[1].strip + " "
+          cont = @scanner.scan(/[^\n]+/).to_s
+          @out << cont.gsub('"', '\\"')
+        end
+        @out << "\""
       end
 
       def read_heredoc_into_string(indent)
@@ -444,10 +450,127 @@ module Interscript
       end
 
       def convert_sub_rule
-        # `sub "X", "Y", before: Z` -> `sub "X" "Y" before Z`
-        # `sub "X" => "Y"` -> `sub "X" "Y"`
-        # Just let the main loop handle the rest; the main loop already drops
-        # commas, hash rockets, and `key:` colons.
+        # Read the rule's from, to, and optional constraints from the source.
+        # The .imp form is one of:
+        #   sub "X", "Y", before: Z            (positional + kwargs)
+        #   sub "X" => "Y", before: Z          (hash rocket)
+        #   sub "X", "Y"                        (no constraints)
+        #   sub "X" + any(Y), "Z", before: W   (concat in from)
+        #
+        # Output: if from/to are simple (single quoted string or atom each),
+        # emit compact form `sub "X" "Y"`. Otherwise emit block form:
+        #   sub {
+        #     from <expr>
+        #     to   <expr>
+        #     before <expr>
+        #     ...
+        #   }
+
+        # Tokenize the rule body up to the next `\n` (rules are single-line)
+        # or unindented `}`. Capture: from_expr, comma, to_expr, constraints.
+        from_expr, to_expr, constraints_str = tokenize_sub_rule
+
+        # Decide compact vs block form.
+        compact_safe = single_atom?(from_expr) && single_atom?(to_expr) && constraints_str.empty?
+
+        if compact_safe
+          @out << " #{from_expr} #{to_expr}\n"
+        else
+          @out << " {\n"
+          @out << "    from #{from_expr}\n" unless from_expr.empty?
+          @out << "    to #{to_expr}\n" unless to_expr.empty?
+          unless constraints_str.empty?
+            constraints_str.strip.split(/(?=\b(?:before|after|not_before|not_after)\b)/).each do |c|
+              @out << "    #{c.strip}\n" unless c.strip.empty?
+            end
+          end
+          @out << "  }\n"
+        end
+      end
+
+      # Tokenize a sub rule body. Returns [from, to, constraints_string].
+      # Advances the scanner past the rule (consumes up to and including the
+      # trailing newline).
+      def tokenize_sub_rule
+        # Read until end of line. Rules are single-line in .imp.
+        line = @scanner.scan_until(/\n/).to_s
+        # Drop the trailing newline
+        line = line.chomp
+
+        # Split into tokens: handle hash rockets, commas, parens, strings.
+        # We do this by walking the string with a simple state machine.
+        tokens = []
+        current = +""
+        in_string = nil
+        paren_depth = 0
+
+        line.each_char.with_index do |c, _i|
+          if in_string
+            current << c
+            if c == in_string && current[-2] != "\\"
+              in_string = nil
+            end
+          elsif c == '"' || c == "'"
+            in_string = c
+            current << c
+          elsif c == "("
+            paren_depth += 1
+            current << c
+          elsif c == ")"
+            paren_depth -= 1
+            current << c
+          elsif paren_depth.zero? && (c == "," || (c == "=" && line[_i + 1] == ">"))
+            tokens << current.strip
+            current = +""
+            # Skip the comma or `=>`
+            if c == "="
+              @scanner.unscan if false # can't unscan, line already consumed
+            end
+          else
+            current << c
+          end
+        end
+        tokens << current.strip unless current.strip.empty?
+
+        # Drop hash rocket tokens (already handled above by treating `=>` like `,`)
+        tokens = tokens.reject { |t| t == "=>" }
+
+        # First token = from, second = to, rest = constraints
+        from_expr = normalize_expr(tokens.shift.to_s)
+        to_expr = normalize_expr(tokens.shift.to_s)
+        constraints_str = tokens.join(" ")
+
+        # Strip the `before:` etc colon (the codemod dropped these elsewhere,
+        # but here we want to normalize: `before: X` -> `before X`)
+        constraints_str = constraints_str.gsub(/(before|after|not_before|not_after)\s*:/, '\1')
+
+        [from_expr, to_expr, constraints_str]
+      end
+
+      # A "single atom" expression is one quoted string, `none`, `boundary`,
+      # `line_start`, `line_end`, `word_boundary`, or a bare alias identifier.
+      # Anything with `+`, `any(`, `capture(`, `maybe(`, or concatenation is
+      # NOT a single atom.
+      def single_atom?(expr)
+        return false if expr.nil? || expr.empty?
+        return false if expr.include?("+")
+        return false if expr =~ /\b(any|capture|maybe)\s*\(/
+        s = expr.strip
+        return true if s =~ /\A"[^"]*"\z/ || s =~ /\A'[^']*'\z/
+        return true if ["none", "boundary", "line_start", "line_end", "word_boundary"].include?(s)
+        return true if s =~ /\A[a-zA-Z_][a-zA-Z0-9_]*\z/
+        false
+      end
+
+      # Normalize a captured expression: drop redundant whitespace around
+      # `+` operators. `sub "X" , "Y"` -> tokens ["\"X\"", "\"Y\""].
+      def normalize_expr(expr)
+        expr = expr.strip
+        # Collapse runs of whitespace
+        expr = expr.gsub(/\s+/, " ")
+        # Remove space around +
+        expr = expr.gsub(/\s*\+\s*/, " + ")
+        expr
       end
 
       def convert_run_rule

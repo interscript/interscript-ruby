@@ -72,6 +72,32 @@ module Interscript
         end
       end
 
+      # Wraps a sub-expression that captures its match for later reference via ref(N).
+      class CaptureGroup
+        attr_reader :inner
+
+        def initialize(inner)
+          @inner = inner
+        end
+
+        def inspect
+          "CaptureGroup(#{@inner.inspect})"
+        end
+      end
+
+      # Wraps an optional sub-expression (matches zero or one time).
+      class Maybe
+        attr_reader :inner
+
+        def initialize(inner)
+          @inner = inner
+        end
+
+        def inspect
+          "Maybe(#{@inner.inspect})"
+        end
+      end
+
       class Range
         attr_reader :lo, :hi
 

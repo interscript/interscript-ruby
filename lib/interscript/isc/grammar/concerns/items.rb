@@ -10,19 +10,13 @@ module Interscript
         module Items
           include Parslet
 
-          # An item atom is one of:
-          #   * quoted string literal
-          #   * keyword none (empty match)
-          #   * zero-width primitive (boundary, line_start, etc.)
-          #   * any(...) constructor — range or set
-          #   * bare identifier — alias reference
-          #   * capture reference \N (valid in target only; parser accepts everywhere
-          #     and semantic layer enforces target-only)
           rule(:item_atom) do
             quoted_string |
               str("none").as(:none) |
               zero_width_primitive |
               any_constructor |
+              capture_constructor |
+              maybe_constructor |
               capture_reference |
               alias_reference
           end
@@ -42,6 +36,21 @@ module Interscript
               whitespace? >> str(")")
           end
 
+          # capture(...) — wraps a sub-expression with a capture group.
+          # The captured value can be referenced in the target via `ref(N)`.
+          rule(:capture_constructor) do
+            str("capture") >> str("(") >> whitespace? >>
+              item.as(:capture_inner) >>
+              whitespace? >> str(")")
+          end
+
+          # maybe(...) — optional match (zero or one occurrence).
+          rule(:maybe_constructor) do
+            str("maybe") >> str("(") >> whitespace? >>
+              item.as(:maybe_inner) >>
+              whitespace? >> str(")")
+          end
+
           rule(:range_arg) do
             quoted_string.as(:lo) >>
               whitespace? >> str("..") >> whitespace? >>
@@ -51,18 +60,19 @@ module Interscript
           rule(:set_arg) do
             quoted_string.as(:single) |
               (str("[") >> whitespace? >>
-                (quoted_string >> (whitespace >> quoted_string).repeat).as(:list) >>
+                (quoted_string >> ((comma | whitespace) >> quoted_string).repeat).as(:list) >>
                 whitespace? >> str("]"))
           end
 
           rule(:alias_reference) do
-            # An alias reference is an identifier that isn't a reserved keyword
-            # AND isn't immediately followed by `{` (which would make it a
-            # block opener like `parallel {`).
             (keyword.absent? >> identifier >> str("{").absent?).as(:alias)
           end
 
-          # Reserved keywords that should never be parsed as alias references.
+          # ref(N) — reference to Nth capture group. Only valid in `to` position.
+          rule(:capture_reference) do
+            (str("ref") >> str("(") >> match(/[0-9]/).as(:digit) >> str(")")).as(:ref)
+          end
+
           rule(:keyword) do
             str("parallel") | str("sequence") | str("stage") |
               str("compose") | str("separate") | str("system") |
@@ -73,20 +83,39 @@ module Interscript
               str("not_before") | str("not_after") | str("any") |
               str("none") | str("boundary") | str("line_start") |
               str("line_end") | str("word_boundary") |
-              str("downcase") | str("upcase") | str("title_case")
+              str("downcase") | str("upcase") | str("title_case") |
+              str("capture") | str("maybe") | str("ref")
           end
 
-          rule(:capture_reference) do
-            (str("\\") >> match(/[0-9]/).as(:digit)).as(:capture)
-          end
-
-          # Concatenation: two or more adjacent atoms (whitespace-separated).
-          # A single atom is also accepted (degenerate concatenation).
+          # Concatenation: one or more atoms. The continuation pattern
+          # requires that whitespace or `+` be IMMEDIATELY followed by
+          # something that's clearly an item_atom start (a quote, `(`,
+          # letter, etc.) AND not a block-rule keyword like `to`, `before`.
           rule(:item) do
-            (item_atom >> (whitespace >> item_atom).repeat).as(:concatenation)
+            (item_atom >>
+              ((concat_sep >> item_continuation.present?) >> item_atom).repeat
+            ).as(:concatenation)
           end
 
-          # Constraint clauses attached to a rule.
+          rule(:concat_sep) do
+            (whitespace? >> str("+") >> whitespace?) | whitespace
+          end
+
+          # Positive lookahead: the next thing is a valid item_atom continuation.
+          # Excludes keywords that end the item (to, before, after, not_before,
+          # not_after, and the closing brace).
+          rule(:item_continuation) do
+            (str("to") | str("before") | str("after") |
+              str("not_before") | str("not_after") |
+              str("}")).absent? >>
+              item_atom_start
+          end
+
+          rule(:item_atom_start) do
+            str('"') | str("'") |
+              match(/[A-Za-z_]/)
+          end
+
           rule(:constraint) do
             (
               (str("before")     >> whitespace >> item.as(:before)) |

@@ -53,7 +53,9 @@ module Interscript
       rule(none: simple(:_)) { Items::None.new }
       rule(primitive: simple(:p)) { Items::Primitive.new(p.to_s) }
       rule(alias: simple(:n)) { Items::AliasRef.new(n.to_s) }
-      rule(capture: subtree(:h)) { Items::Capture.new(h[:digit].to_s.to_i) }
+      rule(ref: subtree(:h)) { Items::Capture.new(h[:digit].to_s.to_i) }
+      rule(capture_inner: subtree(:inner)) { Items::CaptureGroup.new(materialize_item(inner)) }
+      rule(maybe_inner: subtree(:inner)) { Items::Maybe.new(materialize_item(inner)) }
 
       rule(dquote: simple(:_)) { '"' }
       rule(backslash: simple(:_)) { "\\" }
@@ -77,6 +79,27 @@ module Interscript
 
       rule(concatenation: subtree(:parts)) do
         Items::Concat.from_parts(Array(parts))
+      end
+
+      def self.materialize_item(fragment)
+        case fragment
+        when Hash
+          if fragment.key?(:concatenation)
+            new.apply(fragment)
+          else
+            new.apply(concatenation: [fragment])
+          end
+        when Array
+          new.apply(concatenation: fragment)
+        when NilClass
+          Items::None.new
+        else
+          fragment
+        end
+      end
+
+      def materialize_item(fragment)
+        self.class.materialize_item(fragment)
       end
 
       rule(before: subtree(:x))     { { kind: :before, item: x } }
