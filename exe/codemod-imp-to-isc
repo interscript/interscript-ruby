@@ -257,6 +257,10 @@ module Interscript
             # `notes: []` — empty notes list
             indent = @scanner[1]
             @out << "\n#{indent}notes { }"
+          elsif @scanner.scan(/(?:\A|\n)([ \t]+)notes[ \t]*:[ \t]*""/)
+            # `notes: ""` — empty quoted notes value
+            indent = @scanner[1]
+            @out << "\n#{indent}notes { }"
           elsif @scanner.scan(/(?:\A|\n)([ \t]+)notes[ \t]*:[ \t]*"[ \t]*\n/)
             # `notes: "X"` — single quoted-string note value
             indent = @scanner[1]
@@ -279,7 +283,21 @@ module Interscript
             @out << "\n#{indent}notes {"
             convert_notes_list_until_dedent(indent)
             @out << "\n#{indent}}"
-          elsif @scanner.scan(/(?:\A|\n)([ \t]+)([A-Za-z_][\w]*)[ \t]*:[ \t]*/)
+          elsif @scanner.scan(/(?:\A|\n)([ \t]+)([A-Za-z_][\w]*)[ \t]*:[ \t]*\n([ \t]+)-[ \t]*/)
+            # Multi-line list value: `field:\n    - item1\n    - item2`
+            indent = @scanner[1]
+            field = @scanner[2]
+            first_item_indent = @scanner[3]
+            @out << "\n#{indent}#{field} "
+            # Read the first item value
+            text = @scanner.scan(/[^\n]+/).to_s
+            @out << text
+            # Read subsequent `- item` lines at the same or deeper indent
+            while @scanner.check(/\n[ \t]{#{first_item_indent.length},}-[ \t]/)
+              @scanner.scan(/\n[ \t]+-[ \t]+/)
+              text = @scanner.scan(/[^\n]+/).to_s
+              @out << " " + text
+            end
             # key: value -> key value, only when the key is at the start of a
             # (indented) line. Use [ \t] instead of \s to avoid eating newlines
             # (which would merge `key:\n  next:` into `key next:`).
