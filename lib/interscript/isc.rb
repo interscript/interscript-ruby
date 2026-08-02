@@ -9,6 +9,7 @@ module Interscript
     autoload :DocumentBuilder, "interscript/isc/document_builder"
     autoload :Grammar, "interscript/isc/grammar"
     autoload :Items, "interscript/isc/items"
+    autoload :Codemod, "interscript/isc/codemod"
 
     SCHEMA_VERSION = 1
 
