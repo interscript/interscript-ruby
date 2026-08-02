@@ -29,6 +29,15 @@ module Interscript
           end
           rule(:whitespace?) { whitespace.maybe }
 
+          # Inline whitespace: spaces and tabs only, NO newlines. Used between
+          # a field name and its value to prevent eating the newline that
+          # signals an empty value.
+          rule(:inline_space) { match(/[ \t]/).repeat(1) }
+          rule(:inline_whitespace) do
+            (inline_space | line_comment).repeat(1)
+          end
+          rule(:inline_whitespace?) { inline_whitespace.maybe }
+
           # Comma, used in lists. Trailing whitespace allowed.
           rule(:comma)      { str(",") >> whitespace? }
 

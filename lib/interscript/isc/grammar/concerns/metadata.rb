@@ -112,7 +112,7 @@ module Interscript
           # close brace). This makes the parser permissive about future
           # field additions; semantic validation happens in DocumentBuilder.
           rule(:generic_field) do
-            identifier.as(:field_name) >> whitespace? >>
+            identifier.as(:field_name) >> inline_whitespace? >>
               (empty_field | field_value.as(:field_value))
           end
 
@@ -122,10 +122,9 @@ module Interscript
           end
 
           rule(:empty_field) do
-            # An identifier with no value (just newline or `}` after). The
-            # separate rule prevents the generic_field's value rule from
-            # consuming into the next field.
-            (newline.present? | str("}").present?).as(:empty)
+            # An identifier with no value (just newline or `}` after). Use
+            # lookahead without consuming.
+            (newline.present? | str("}").present?)
           end
 
           # Raw text inside `{ ... }` — for description blocks. Consumes any
