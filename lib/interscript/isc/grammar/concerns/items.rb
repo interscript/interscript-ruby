@@ -56,7 +56,7 @@ module Interscript
 
           rule(:any_constructor) do
             str("any") >> str("(") >> whitespace? >>
-              (range_arg | set_arg | alias_arg).as(:any) >>
+              (range_arg | set_arg | alias_arg | item.as(:any_item)).as(:any) >>
               whitespace? >> str(")")
           end
 

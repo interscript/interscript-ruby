@@ -197,7 +197,7 @@ module Interscript
       def convert_metadata_block
         # Find the opening brace and consume until matching close, transforming
         # `key: value` -> `key value` and `description: |` / `notes:` heredocs.
-        return unless @scanner.scan(/\s*\{/)
+        return unless @scanner.scan(/[ \t]*\{/)
 
         @out << " {"
         depth = 1
@@ -332,9 +332,9 @@ module Interscript
             @out << "\n#{indent}#{field} { "
             convert_indented_block_until_dedent(indent)
             @out << " }"
+          elsif @scanner.scan(/(?:\A|\n)([ \t]+)([A-Za-z_][\w]*)[ \t]*:[ \t]*/)
             # key: value -> key value, only when the key is at the start of a
-            # (indented) line. Use [ \t] instead of \s to avoid eating newlines
-            # (which would merge `key:\n  next:` into `key next:`).
+            # (indented) line. Use [ \t] instead of \s to avoid eating newlines.
             @out << "\n#{@scanner[1]}#{@scanner[2]} "
           elsif @scanner.scan(/"/)
             @out << '"'
@@ -389,9 +389,8 @@ module Interscript
             # Hit the enclosing metadata `}` (possibly after blank lines).
             return
           elsif @scanner.scan(/\n[ \t]*\n/)
-            # Blank line(s) between items — preserve one newline. Do NOT
-            # consume the indent of the next item; the next-item regexes
-            # require the indent prefix.
+            # Blank line(s) — preserve one newline. Do NOT consume the
+            # indent of the next item.
             @out << "\n"
           elsif @scanner.scan(/\n([ \t]+)-[ \t]*\|[ \t]*\n/)
             # `|` heredoc form
@@ -487,7 +486,7 @@ module Interscript
       end
 
       def convert_tests_block
-        return unless @scanner.scan(/\s*\{/)
+        return unless @scanner.scan(/[ \t]*\{/)
         @out << " {"
         depth = 1
         until @scanner.eos? || depth == 0
@@ -519,7 +518,7 @@ module Interscript
       end
 
       def convert_aliases_block
-        return unless @scanner.scan(/\s*\{/)
+        return unless @scanner.scan(/[ \t]*\{/)
         @out << " {"
         depth = 1
         until @scanner.eos? || depth == 0
@@ -588,7 +587,7 @@ module Interscript
         # `stage(translit) {` becomes `stage translit {`.
         if @scanner.scan(/\s*\(([A-Za-z_]\w*)\)\s*\{/)
           @out << " #{@scanner[1]} {"
-        elsif @scanner.scan(/\s*\{/)
+        elsif @scanner.scan(/[ \t]*\{/)
           @out << " main {"
         elsif @scanner.scan(/\s+([A-Za-z_]\w*)\s*\{/)
           @out << " #{@scanner[1]} {"
