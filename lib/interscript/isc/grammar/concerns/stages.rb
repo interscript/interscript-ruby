@@ -62,7 +62,7 @@ module Interscript
           end
 
           rule(:rule_line) do
-            whitespace? >> rule >> whitespace?
+            whitespace? >> (rule | comment_item) >> whitespace?
           end
 
           # A rule is either compact form (single line) or block form

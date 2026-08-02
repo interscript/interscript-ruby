@@ -14,6 +14,7 @@ module Interscript
             quoted_string |
               str("none").as(:none) |
               zero_width_primitive |
+              any_character |
               any_constructor |
               capture_constructor |
               maybe_constructor |
@@ -46,6 +47,11 @@ module Interscript
               str("space") |
               str("non_boundary")
             ).as(:primitive)
+          end
+
+          # any_character — matches any single character.
+          rule(:any_character) do
+            str("any_character").as(:any_char)
           end
 
           rule(:any_constructor) do
@@ -114,7 +120,8 @@ module Interscript
               str("none") | str("boundary") | str("line_start") |
               str("line_end") | str("word_boundary") |
               str("downcase") | str("upcase") | str("title_case") |
-              str("capture") | str("maybe") | str("some") | str("ref")
+              str("capture") | str("maybe") | str("some") | str("ref") |
+              str("any_character")
           end
 
           # Concatenation: one or more atoms. The continuation pattern
