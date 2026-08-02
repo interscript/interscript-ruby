@@ -17,8 +17,16 @@ module Interscript
               any_constructor |
               capture_constructor |
               maybe_constructor |
+              function_call |
               capture_reference |
               alias_reference
+          end
+
+          # Function call: upcase, downcase, title_case, reverse, etc.
+          # These appear as the `to` value in sub rules: `sub "X" upcase`.
+          rule(:function_call) do
+            (str("upcase") | str("downcase") | str("title_case") |
+              str("reverse") | str("strip") | str("swapcase")).as(:function)
           end
 
           rule(:zero_width_primitive) do
@@ -34,8 +42,13 @@ module Interscript
 
           rule(:any_constructor) do
             str("any") >> str("(") >> whitespace? >>
-              (range_arg | set_arg).as(:any) >>
+              (range_arg | set_arg | alias_arg).as(:any) >>
               whitespace? >> str(")")
+          end
+
+          # `any(identifier)` — accept a bare alias reference inside any().
+          rule(:alias_arg) do
+            (keyword.absent? >> identifier).as(:alias_ref)
           end
 
           # capture(...) — wraps a sub-expression with a capture group.

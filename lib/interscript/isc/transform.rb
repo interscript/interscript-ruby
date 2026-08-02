@@ -52,6 +52,7 @@ module Interscript
 
       rule(none: simple(:_)) { Items::None.new }
       rule(primitive: simple(:p)) { Items::Primitive.new(p.to_s) }
+      rule(function: simple(:f)) { Items::Function.new(f.to_s) }
       rule(alias: simple(:n)) { Items::AliasRef.new(n.to_s) }
       rule(ref: subtree(:h)) { Items::Capture.new(h[:digit].to_s.to_i) }
       rule(capture_inner: subtree(:inner)) { Items::CaptureGroup.new(materialize_item(inner)) }

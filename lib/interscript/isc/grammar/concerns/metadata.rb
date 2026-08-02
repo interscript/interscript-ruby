@@ -113,12 +113,19 @@ module Interscript
           # field additions; semantic validation happens in DocumentBuilder.
           rule(:generic_field) do
             identifier.as(:field_name) >> whitespace? >>
-              field_value.as(:field_value)
+              (empty_field | field_value.as(:field_value))
           end
 
           rule(:field_value) do
             quoted_string |
-              (newline.absent? >> (str("}").absent? >> any)).repeat(0).as(:raw)
+              (newline.absent? >> (str("}").absent? >> any)).repeat(1).as(:raw)
+          end
+
+          rule(:empty_field) do
+            # An identifier with no value (just newline or `}` after). The
+            # separate rule prevents the generic_field's value rule from
+            # consuming into the next field.
+            (newline.present? | str("}").present?).as(:empty)
           end
 
           # Raw text inside `{ ... }` — for description blocks. Consumes any

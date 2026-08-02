@@ -48,6 +48,19 @@ module Interscript
         end
       end
 
+      # Function call: upcase, downcase, etc. Used as `to` value in sub rules.
+      class Function
+        attr_reader :name
+
+        def initialize(name)
+          @name = name
+        end
+
+        def inspect
+          "Function(#{@name})"
+        end
+      end
+
       class AliasRef
         attr_reader :name
 

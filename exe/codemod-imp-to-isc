@@ -376,6 +376,9 @@ module Interscript
           elsif @scanner.scan(/\}/)
             depth -= 1
             @out << "}"
+          elsif @scanner.scan(/#[^\n]*/)
+            # Preserve comment lines verbatim
+            @out << @scanner.matched
           elsif @scanner.scan(/\btest\b/)
             # `test "X", "Y"` -> `"X" -> "Y"`
             @out << ""
