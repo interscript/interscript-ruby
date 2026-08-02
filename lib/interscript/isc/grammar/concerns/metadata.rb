@@ -113,12 +113,14 @@ module Interscript
           # field additions; semantic validation happens in DocumentBuilder.
           rule(:generic_field) do
             identifier.as(:field_name) >> inline_whitespace? >>
-              (empty_field | field_value.as(:field_value))
+              (empty_field |
+               field_value.as(:field_value) |
+               braced(raw_text.as(:field_block)))
           end
 
           rule(:field_value) do
             quoted_string |
-              (newline.absent? >> (str("}").absent? >> any)).repeat(1).as(:raw)
+              (newline.absent? >> (str("}").absent? >> str("{").absent? >> any)).repeat(1).as(:raw)
           end
 
           rule(:empty_field) do
