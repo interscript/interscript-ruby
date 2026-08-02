@@ -309,9 +309,8 @@ module Interscript
               text = @scanner.scan(/[^\n]+/).to_s
               @out << " " + text
             end
-          elsif @scanner.scan(/(?:\A|\n)([ \t]+)([A-Za-z_][\w]*)[ \t]*:[ \t]*\n[ \t]+"/)
-            # Generic field with multi-line quoted value
-            indent = @scanner[1]
+          # Generic field with multi-line quoted value
+          indent = @scanner[1]
             field = @scanner[2]
             @out << "\n#{indent}#{field} \""
             until @scanner.eos?
