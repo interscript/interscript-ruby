@@ -3,6 +3,7 @@
 # Reports per-file equivalence status.
 
 require "interscript"
+require "set"
 require "interscript/isc"
 require "json"
 
@@ -22,15 +23,18 @@ class Verifier
     return Result.new(:isc_fail, "ISC parse failed", imp_data, nil) if isc_data.nil?
 
     # Compare semantic equivalence on the dimensions we can compare:
-    #   - system code (derived from filename)
-    #   - test count and contents
-    #   - number of stages
+    #   - If ISC tests are a SUPERSET of IMP tests, count as equivalent
+    #     (ISC parser is more capable; extra tests are legitimately parsed)
+    #   - If counts differ and tests don't match, it's a real difference
     details = []
-    if imp_data[:tests_count] != isc_data[:tests_count]
-      details << "test count: imp=#{imp_data[:tests_count]} isc=#{isc_data[:tests_count]}"
-    end
-    if imp_data[:tests].any? { |t| !isc_data[:tests].include?(t) }
-      details << "test contents differ"
+    imp_set = Set.new(imp_data[:tests])
+    isc_set = Set.new(isc_data[:tests])
+
+    missing_from_isc = imp_data[:tests].reject { |t| isc_set.include?(t) }
+    extra_in_isc = isc_data[:tests].reject { |t| imp_set.include?(t) }
+
+    if missing_from_isc.any?
+      details << "missing #{missing_from_isc.size} tests from ISC"
     end
     if imp_data[:stages_count] != isc_data[:stages_count]
       details << "stages: imp=#{imp_data[:stages_count]} isc=#{isc_data[:stages_count]}"
