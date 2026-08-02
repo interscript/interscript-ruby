@@ -145,7 +145,7 @@ module Interscript
           elsif @scanner.scan(/,/)
             # Trailing comma — drop in compact rule contexts, leave elsewhere.
             @out << ""
-          elsif @scanner.scan(/(before|after|not_before|not_after):/)
+          elsif @scanner.scan(/(before|after|not_before|not_after|separator):/)
             # Drop the colon in modifier kwarg form.
             @out << "#{@scanner[1]} "
           elsif @scanner.scan(/[A-Za-z_][A-Za-z0-9_]*/)
@@ -301,32 +301,19 @@ module Interscript
             indent = @scanner[1]
             field = @scanner[2]
             item_indent = @scanner[3]
-            @out << "\n#{indent}#{field} "
+            @out << "\n#{indent}#{field} {"
+            @out << "\n#{item_indent}- "
             text = @scanner.scan(/[^\n]+/).to_s
-            @out << text
-            while @scanner.check(/\n[ \t]{#{item_indent.length},}-[ \t]/)
-              @scanner.scan(/\n[ \t]+-[ \t]+/)
-              text = @scanner.scan(/[^\n]+/).to_s
-              @out << " " + text
-            end
-          # Generic field with multi-line quoted value
-          indent = @scanner[1]
+            @out << escape_braces(text)
+            convert_indented_block_until_dedent(indent)
+            @out << "\n#{indent}}"
+          elsif @scanner.scan(/(?:\A|\n)([ \t]+)([A-Za-z_][\w]*)[ \t]*:[ \t]*\n([ \t]+)(?![ \t]*(?:-|"|\[|\]|\|))(?![ \t]*$)/)
+            # Multi-line unquoted text value: `field:\n    text` (not list, quote, heredoc)
+            indent = @scanner[1]
             field = @scanner[2]
-            @out << "\n#{indent}#{field} \""
-            until @scanner.eos?
-              if @scanner.scan(/[^"\n]+/)
-                @out << @scanner.matched
-              elsif @scanner.scan(/"/)
-                @out << @scanner.matched
-                break
-              elsif @scanner.scan(/\n[ \t]+/)
-                @out << " "
-              elsif @scanner.scan(/\n/)
-                @out << " "
-              else
-                break
-              end
-            end
+            @out << "\n#{indent}#{field} {"
+            convert_indented_block_until_dedent(indent)
+            @out << "\n#{indent}}"
           elsif @scanner.scan(/(?:\A|\n)([ \t]+)([A-Za-z_][\w]*)[ \t]*:[ \t]*\|[ \t]*\n/)
             # Generic field with heredoc: `field: |\n    body`
             indent = @scanner[1]
@@ -365,11 +352,15 @@ module Interscript
           elsif @scanner.scan(/\n/)
             @out << "\n"
           elsif @scanner.scan(/[^\n]+/)
-            @out << @scanner.matched
+            @out << escape_braces(@scanner.matched)
           else
             @out << @scanner.getch
           end
         end
+      end
+
+      def escape_braces(text)
+        text.gsub("\\", "\\\\\\\\").gsub(/[{}]/) { |c| "\\#{c}" }
       end
 
       # Notes list: each item begins with `- `. Convert each to `note "..."`.

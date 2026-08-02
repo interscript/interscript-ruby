@@ -48,7 +48,9 @@ module Interscript
           end
 
           rule(:separate_directive) do
-            str("separate").as(:separate)
+            str("separate").as(:separate) >>
+              (whitespace >> str("separator") >> whitespace >>
+                item_atom.as(:separator)).maybe
           end
 
           # `downcase`, `upcase`, `title_case` — string-case directives.

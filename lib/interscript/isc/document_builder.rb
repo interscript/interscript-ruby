@@ -72,6 +72,10 @@ module Interscript
         out.is_a?(Items::StringValue) ? out.value : out.to_s
       end
 
+      def unescape_braces(text)
+        text.gsub(/\\([{}\\])/, '\1')
+      end
+
       # Apply Transform to an identifier fragment.
       def ident(fragment)
         return "" if fragment.nil?
@@ -104,18 +108,22 @@ module Interscript
           when field.key?(:relations)
             h[:relations] = extract_relations(field[:relations])
           when field.key?(:description)
-            h[:description] = field[:description].to_s.strip
+            h[:description] = unescape_braces(field[:description].to_s.strip)
           when field.key?(:field_name)
             # Generic field: identifier + raw value
             name = ident(field[:field_name]).to_sym
-            raw = field[:field_value]
-            val_str = case raw
-                      when Hash
-                        raw.key?(:string) ? unquote(raw) : (raw[:raw]&.to_s || "").strip
-                      when nil then ""
-                      else raw.to_s.strip
-                      end
-            h[name] = val_str
+            if field.key?(:field_block)
+              h[name] = unescape_braces(field[:field_block].to_s.strip)
+            else
+              raw = field[:field_value]
+              val_str = case raw
+                        when Hash
+                          raw.key?(:string) ? unquote(raw) : (raw[:raw]&.to_s || "").strip
+                        when nil then ""
+                        else raw.to_s.strip
+                        end
+              h[name] = val_str
+            end
           else
             # Specific named field (authority, name, system_status, etc.)
             field.each do |key, val|
@@ -171,7 +179,7 @@ module Interscript
         case
         when n[:sequence]  then [{ kind: :sequence,  rules: Array(n[:sequence]).map { |r| extract_rule(r) } }]
         when n[:parallel]  then [{ kind: :parallel,  rules: Array(n[:parallel]).map { |r| extract_rule(r) } }]
-        when n[:separate]  then [{ kind: :separate }]
+        when n[:separate]  then [{ kind: :separate, separator: n[:separator] ? materialize(n[:separator]) : nil }]
         when n[:compose]   then [{ kind: :compose }]
         when n[:case]      then [{ kind: :string_case, op: n[:case].to_s }]
         when n[:dep]       then [{ kind: :run, dependency: ident(n[:dep]), stage: ident(n[:stage]) }]

@@ -61,8 +61,10 @@ module Interscript
           end
 
           # `any(identifier)` — accept a bare alias reference inside any().
+          # Exclude zero-width primitives (space, boundary, etc.) which are
+          # handled by `item` via `zero_width_primitive` in `item_atom`.
           rule(:alias_arg) do
-            (keyword.absent? >> identifier).as(:alias_ref)
+            (zero_width_primitive.absent? >> keyword.absent? >> identifier).as(:alias_ref)
           end
 
           # capture(...) — wraps a sub-expression with a capture group.

@@ -130,9 +130,10 @@ module Interscript
           end
 
           # Raw text inside `{ ... }` — for description blocks. Consumes any
-          # character that isn't an unescaped closing brace.
+          # character that isn't an unescaped closing brace. Literal braces
+          # inside the body are escaped as `\{` and `\}` by the codemod.
           rule(:raw_text) do
-            (str("}").absent? >> any).repeat
+            (str("\\{") | str("\\}") | (str("}").absent? >> any)).repeat
           end
         end
       end
