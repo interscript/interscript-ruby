@@ -213,17 +213,22 @@ module Interscript
             @out << "\n#{indent}}"
           elsif @scanner.scan(/(?:\A|\n)([ \t]+)description[ \t]*:[ \t]*\n[ \t]+/)
             # `description:` with value on subsequent indented line(s).
-            # Capture as brace block with raw text.
+            # Capture as brace block with raw text. Continues until dedent
+            # back to indent level or close brace.
             indent = @scanner[1]
             @out << "\n#{indent}description { "
             # Read until dedent or close brace
             until @scanner.eos?
-              if @scanner.check(/\n[ \t]{0,#{indent.length}}\S/) || @scanner.check(/\n[ \t]{0,#{indent.length}}\}/)
+              if @scanner.check(/\n(?:[ \t]*\n)*([ \t]{0,#{indent.length}}\S)/) ||
+                 @scanner.check(/\n(?:[ \t]*\n)*[ \t]{0,#{indent.length}}\}/)
                 @out << " }"
                 break
               elsif @scanner.scan(/[^\n]+/)
                 @out << @scanner.matched
               elsif @scanner.scan(/\n[ \t]+/)
+                @out << " "
+              elsif @scanner.scan(/\n[ \t]*\n/)
+                # Blank line — preserve as space
                 @out << " "
               elsif @scanner.scan(/\n/)
                 @out << " "

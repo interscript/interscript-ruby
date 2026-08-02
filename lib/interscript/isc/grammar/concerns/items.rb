@@ -91,7 +91,9 @@ module Interscript
 
           # ref(N) — reference to Nth capture group. Only valid in `to` position.
           rule(:capture_reference) do
-            (str("ref") >> str("(") >> match(/[0-9]/).as(:digit) >> str(")")).as(:ref)
+            (str("ref") >> str("(") >> whitespace? >>
+              match(/[0-9]/).as(:digit) >> whitespace? >>
+              str(")")).as(:ref)
           end
 
           rule(:keyword) do
