@@ -119,7 +119,7 @@ module Interscript
           elsif @scanner.scan(/stage\b/)
             @out << "stage"
             convert_stage_header
-          elsif @scanner.scan(/\b(parallel|sequence|separate|deep|compose|downcase|upcase|title_case)\b/)
+          elsif @scanner.scan(/\b(parallel|sequence|separate|deep|compose|decompose|downcase|upcase|title_case)\b/)
             @out << @scanner.matched
           elsif @scanner.scan(/\brababa\b/)
             # rababa config: "200" — special directive, pass through as comment
@@ -307,8 +307,9 @@ module Interscript
             @out << escape_braces(text)
             convert_indented_block_until_dedent(indent)
             @out << "\n#{indent}}"
-          elsif @scanner.scan(/(?:\A|\n)([ \t]+)([A-Za-z_][\w]*)[ \t]*:[ \t]*\n([ \t]+)(?![ \t]*(?:-|"|\[|\]|\|))(?![ \t]*$)/)
-            # Multi-line unquoted text value: `field:\n    text` (not list, quote, heredoc)
+          elsif @scanner.scan(/(?:\A|\n)([ \t]+)([A-Za-z_][\w]*)[ \t]*:[ \t]*\n([ \t]+)(?![ \t]*(?:-|"|\[|\]|\|))(?![ \t]*$)(?![ \t]*[A-Za-z_]\w*[ \t]*:)/)
+            # Multi-line unquoted text value: `field:\n    text` (not list, quote,
+            # heredoc, or another field declaration at the same indent)
             indent = @scanner[1]
             field = @scanner[2]
             @out << "\n#{indent}#{field} {"

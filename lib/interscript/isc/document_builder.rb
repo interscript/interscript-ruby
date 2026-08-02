@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require "interscript/isc/transform"
-require "interscript/isc/items"
-
 module Interscript
   module Isc
     # Builds an intermediate "document hash" from a raw parslet tree.
@@ -76,6 +73,10 @@ module Interscript
         text.gsub(/\\([{}\\])/, '\1')
       end
 
+      def normalize_heredoc(text)
+        text.lines.map { |l| l.strip }.join("\n").strip + "\n"
+      end
+
       # Apply Transform to an identifier fragment.
       def ident(fragment)
         return "" if fragment.nil?
@@ -98,7 +99,10 @@ module Interscript
             h[:specification] << unquote(field[:specification])
           when field.key?(:notes)
             h[:notes] ||= []
-            Array(field[:notes]).each { |n| h[:notes] << unquote(n) }
+            Array(field[:notes]).each do |n|
+              note_val = n.is_a?(Hash) ? n[:note] : n
+              h[:notes] << unquote(note_val)
+            end
           when field.key?(:note)
             h[:notes] ||= []
             h[:notes] << unquote(field[:note])
@@ -108,12 +112,12 @@ module Interscript
           when field.key?(:relations)
             h[:relations] = extract_relations(field[:relations])
           when field.key?(:description)
-            h[:description] = unescape_braces(field[:description].to_s.strip)
+            h[:description] = normalize_heredoc(unescape_braces(field[:description].to_s))
           when field.key?(:field_name)
             # Generic field: identifier + raw value
             name = ident(field[:field_name]).to_sym
             if field.key?(:field_block)
-              h[name] = unescape_braces(field[:field_block].to_s.strip)
+              h[name] = normalize_heredoc(unescape_braces(field[:field_block].to_s))
             else
               raw = field[:field_value]
               val_str = case raw
@@ -177,8 +181,8 @@ module Interscript
       def extract_stage_items(n)
         return [] unless n.is_a?(Hash)
         case
-        when n[:sequence]  then [{ kind: :sequence,  rules: Array(n[:sequence]).map { |r| extract_rule(r) } }]
-        when n[:parallel]  then [{ kind: :parallel,  rules: Array(n[:parallel]).map { |r| extract_rule(r) } }]
+        when n[:sequence]  then [{ kind: :sequence,  rules: filter_noop(Array(n[:sequence]).map { |r| extract_rule(r) }) }]
+        when n[:parallel]  then [{ kind: :parallel,  rules: filter_noop(Array(n[:parallel]).map { |r| extract_rule(r) }) }]
         when n[:separate]  then [{ kind: :separate, separator: n[:separator] ? materialize(n[:separator]) : nil }]
         when n[:compose]   then [{ kind: :compose }]
         when n[:case]      then [{ kind: :string_case, op: n[:case].to_s }]
@@ -188,6 +192,16 @@ module Interscript
         when n[:comment]   then []
         when n[:noop]      then []
         else []
+        end
+      end
+
+      # Filter out noop rules (from: None, to: None) created by empty
+      # parallel/sequence blocks that contain only comments or whitespace.
+      def filter_noop(rules)
+        rules.reject do |r|
+          r.is_a?(Hash) &&
+            r[:from].is_a?(Items::None) &&
+            r[:to].is_a?(Items::None)
         end
       end
 

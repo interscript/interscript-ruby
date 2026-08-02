@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "parslet"
-require "interscript/isc/grammar"
 
 module Interscript
   module Isc

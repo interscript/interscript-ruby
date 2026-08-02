@@ -60,7 +60,7 @@ module Interscript
 
           # `compose` — compose decomposed characters (NFC-ish).
           rule(:compose_directive) do
-            str("compose").as(:compose)
+            (str("compose") | str("decompose")).as(:compose)
           end
 
           rule(:rule_line) do

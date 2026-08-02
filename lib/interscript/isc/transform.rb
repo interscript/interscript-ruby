@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "parslet"
-require "interscript/isc/items"
 
 module Interscript
   module Isc
