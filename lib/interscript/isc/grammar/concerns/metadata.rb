@@ -92,7 +92,7 @@ module Interscript
 
           rule(:notes_field) do
             str("notes") >> whitespace? >>
-              braced(note_line.repeat(0)).as(:notes)
+              braced(note_line.repeat(0).as(:notes))
           end
 
           rule(:note_line) do

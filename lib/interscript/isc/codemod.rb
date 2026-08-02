@@ -458,14 +458,16 @@ module Interscript
 
       def read_heredoc_into_string(indent)
         # Read lines that are indented deeper than `indent` (or blank). Concatenate.
+        # Preserve raw indentation — the DocumentBuilder's normalize_heredoc
+        # handles YAML-style dedent to match the DSL's output.
         until @scanner.eos?
           if @scanner.check(/\n(?:[ \t]*\n)*([ \t]{0,#{indent.length}}\S)/)
             return
           elsif @scanner.scan(/\n[ \t]*\n/)
-            # Blank line inside heredoc — preserve as \n
-            @out << "\\n"
-          elsif @scanner.scan(/\n[ \t]+([^\n]*)/)
-            # Indented line — strip indent, join with \n. Escape quotes.
+            # Blank line inside heredoc — preserve as \n\n
+            @out << "\\n\\n"
+          elsif @scanner.scan(/\n([ \t]+[^\n]*)/)
+            # Indented line — preserve raw content (indent + text)
             @out << "\\n" + @scanner[1].to_s.gsub('"', '\\"')
           elsif @scanner.scan(/\n/)
             @out << "\\n"

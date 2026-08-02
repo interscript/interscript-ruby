@@ -13,6 +13,10 @@ module Interscript
     class DocumentBuilder
       SCHEMA_VERSION = 1
 
+      # Metadata fields that the Ruby DSL stores as Arrays (STANDARD_ARRAY_KEYS).
+      # ISC stores them as generic fields, so we wrap in an Array to match.
+      ARRAY_METADATA_FIELDS = %i[notes implementation_notes original_notes url].freeze
+
       def self.build(tree, filename: nil)
         new(tree, filename: filename).build
       end
@@ -74,7 +78,29 @@ module Interscript
       end
 
       def normalize_heredoc(text)
-        text.lines.map { |l| l.strip }.join("\n").strip + "\n"
+        lines = text.lines.map(&:chomp)
+        content_lines = lines.reject { |l| l.strip.empty? }
+        return "" if content_lines.empty?
+        return content_lines.first.strip if content_lines.size == 1
+
+        # YAML-style dedent: strip the minimum indent across all non-blank
+        # lines. The first line's indent may have been partially consumed
+        # by the grammar, so we compute min_indent from lines 2+ and treat
+        # the first line as having at least that much indent.
+        min_indent = content_lines
+          .drop(1)
+          .map { |l| l[/\A[ \t]*/].length }
+          .min || 0
+
+        lines.map do |l|
+          if l.strip.empty?
+            ""
+          elsif l[/\A[ \t]*/].length >= min_indent
+            l[min_indent..]
+          else
+            l.strip
+          end
+        end.join("\n").strip
       end
 
       # Apply Transform to an identifier fragment.
@@ -101,32 +127,37 @@ module Interscript
             h[:notes] ||= []
             Array(field[:notes]).each do |n|
               note_val = n.is_a?(Hash) ? n[:note] : n
-              h[:notes] << unquote(note_val)
+              h[:notes] << normalize_heredoc(unquote(note_val).to_s)
             end
           when field.key?(:note)
             h[:notes] ||= []
-            h[:notes] << unquote(field[:note])
+            h[:notes] << normalize_heredoc(unquote(field[:note]).to_s)
           when field.key?(:provenance)
             h[:provenance] ||= []
             h[:provenance] << unquote(field[:provenance])
           when field.key?(:relations)
             h[:relations] = extract_relations(field[:relations])
           when field.key?(:description)
-            h[:description] = normalize_heredoc(unescape_braces(field[:description].to_s))
+            h[:description] = normalize_heredoc(unescape_braces(field[:description].to_s)) + "\n"
           when field.key?(:field_name)
             # Generic field: identifier + raw value
             name = ident(field[:field_name]).to_sym
             if field.key?(:field_block)
-              h[name] = normalize_heredoc(unescape_braces(field[:field_block].to_s))
+              val = normalize_heredoc(unescape_braces(field[:field_block].to_s))
             else
               raw = field[:field_value]
-              val_str = case raw
-                        when Hash
-                          raw.key?(:string) ? unquote(raw) : (raw[:raw]&.to_s || "").strip
-                        when nil then ""
-                        else raw.to_s.strip
-                        end
-              h[name] = val_str
+              val = case raw
+                    when Hash
+                      raw.key?(:string) ? unquote(raw) : (raw[:raw]&.to_s || "").strip
+                    when nil then ""
+                    else raw.to_s.strip
+                    end
+            end
+            # DSL stores these as Arrays — match that convention.
+            if ARRAY_METADATA_FIELDS.include?(name)
+              h[name] = val.to_s.empty? ? [] : [val]
+            else
+              h[name] = val
             end
           else
             # Specific named field (authority, name, system_status, etc.)
