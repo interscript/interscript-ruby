@@ -422,8 +422,8 @@ module Interscript
             # Blank line inside heredoc — preserve as \n
             @out << "\\n"
           elsif @scanner.scan(/\n[ \t]+([^\n]*)/)
-            # Indented line — strip indent, join with \n
-            @out << "\\n" + @scanner[1].to_s
+            # Indented line — strip indent, join with \n. Escape quotes.
+            @out << "\\n" + @scanner[1].to_s.gsub('"', '\\"')
           elsif @scanner.scan(/\n/)
             @out << "\\n"
           elsif @scanner.scan(/([^\n]+)/)
