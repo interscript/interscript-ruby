@@ -102,7 +102,8 @@ module Interscript
         until @scanner.eos?
           if @scanner.scan(/\s+/m)
             @out << @scanner.matched
-          elsif @scanner.scan(/#\s.*?$/)
+          elsif @scanner.scan(/#[^\n]*/)
+            # Line comment (without consuming newline)
             @out << @scanner.matched
           elsif @scanner.scan(/metadata\b/)
             @out << "metadata"
@@ -204,12 +205,32 @@ module Interscript
           elsif @scanner.scan(/\}/)
             depth -= 1
             @out << "}"
-          elsif @scanner.scan(/(?:\A|\n)([ \t]+)description[ \t]*:[ \t]*\|/)
+          elsif @scanner.scan(/(?:\A|\n)([ \t]+)description[ \t]*:[ \t]*\|[ \t]*\n/)
             # Heredoc form: `description: |` followed by indented body.
             indent = @scanner[1]
             @out << "\n#{indent}description {"
             convert_indented_block_until_dedent(indent)
             @out << "\n#{indent}}"
+          elsif @scanner.scan(/(?:\A|\n)([ \t]+)description[ \t]*:[ \t]*\n[ \t]+/)
+            # `description:` with value on subsequent indented line(s).
+            # Capture as brace block with raw text.
+            indent = @scanner[1]
+            @out << "\n#{indent}description { "
+            # Read until dedent or close brace
+            until @scanner.eos?
+              if @scanner.check(/\n[ \t]{0,#{indent.length}}\S/) || @scanner.check(/\n[ \t]{0,#{indent.length}}\}/)
+                @out << " }"
+                break
+              elsif @scanner.scan(/[^\n]+/)
+                @out << @scanner.matched
+              elsif @scanner.scan(/\n[ \t]+/)
+                @out << " "
+              elsif @scanner.scan(/\n/)
+                @out << " "
+              else
+                break
+              end
+            end
           elsif @scanner.scan(/(?:\A|\n)([ \t]+)notes[ \t]*:[ \t]*\|[ \t]*\n/)
             # Heredoc-form notes: `notes: |` followed by indented body that's
             # one big multi-line note.
