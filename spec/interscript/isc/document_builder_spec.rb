@@ -22,13 +22,13 @@ RSpec.describe Interscript::Isc::DocumentBuilder do
         }
 
         tests {
-          test "hello", "hello"
-          test "world", "world"
+          "hello" -> "hello"
+          "world" -> "world"
         }
 
         stage main {
-          sub "a", "b"
-          sub "c", "d"
+          sub "a" "b"
+          sub "c" "d"
         }
       }
     ISC
@@ -82,7 +82,7 @@ RSpec.describe Interscript::Isc::DocumentBuilder do
             parallel {
               # just a comment
             }
-            sub "a", "b"
+            sub "a" "b"
           }
         }
       ISC

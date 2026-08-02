@@ -9,7 +9,7 @@ RSpec.describe Interscript::Isc::Grammar::Concerns::Stages do
     tree = parser.parse(<<~ISC, filename: "t.isc")
       system "X:eng-Latn:Latn:2026" {
         stage main {
-          sub "a", "b"
+          sub "a" "b"
         }
       }
     ISC
@@ -35,8 +35,8 @@ RSpec.describe Interscript::Isc::Grammar::Concerns::Stages do
       system "X:eng-Latn:Latn:2026" {
         stage main {
           parallel {
-            sub "a", "b"
-            sub "c", "d"
+            sub "a" "b"
+            sub "c" "d"
           }
         }
       }
@@ -49,8 +49,8 @@ RSpec.describe Interscript::Isc::Grammar::Concerns::Stages do
       system "X:eng-Latn:Latn:2026" {
         stage main {
           sequence {
-            sub "a", "b"
-            sub "c", "d"
+            sub "a" "b"
+            sub "c" "d"
           }
         }
       }
@@ -62,7 +62,7 @@ RSpec.describe Interscript::Isc::Grammar::Concerns::Stages do
     tree = parser.parse(<<~ISC, filename: "t.isc")
       system "X:eng-Latn:Latn:2026" {
         stage main {
-          sub "a", "b"
+          sub "a" "b"
             before "c"
             after "d"
             not_before "e"

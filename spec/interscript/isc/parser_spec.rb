@@ -17,11 +17,11 @@ RSpec.describe Interscript::Isc::Parser do
           }
 
           tests {
-            test "hello", "hello"
+            "hello" -> "hello"
           }
 
           stage main {
-            sub "a", "b"
+            sub "a" "b"
           }
         }
       ISC
