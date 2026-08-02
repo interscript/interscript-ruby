@@ -429,8 +429,13 @@ module Interscript
           elsif @scanner.scan(/\}/)
             depth -= 1
             @out << "}"
-          elsif @scanner.scan(/\bdef_alias\b\s+([A-Za-z_]\w*)\s*,\s*/)
-            # `def_alias name, X` -> `name = X`
+          elsif @scanner.scan(/(?:\A|\n)([ \t]+)def_alias\s+([A-Za-z_]\w*)\s*,\s*/)
+            # Legacy `def_alias name, X` -> `name = X`. Capture indent + name.
+            indent = @scanner[1]
+            name = @scanner[2]
+            @out << "\n#{indent}#{name} = "
+          elsif @scanner.scan(/def_alias\s+([A-Za-z_]\w*)\s*,\s*/)
+            # `def_alias name, X` at start of aliases block (no leading newline)
             @out << "#{@scanner[1]} = "
           elsif @scanner.scan(/"/)
             @out << '"'
@@ -438,6 +443,8 @@ module Interscript
           elsif @scanner.scan(/'/)
             @out << "'"
             convert_string_literal(:single)
+          elsif @scanner.scan(/#[^\n]*/)
+            @out << @scanner.matched
           else
             @out << @scanner.getch
           end
