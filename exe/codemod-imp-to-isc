@@ -211,13 +211,31 @@ module Interscript
             @out << "\n#{indent}description {"
             convert_indented_block_until_dedent(indent)
             @out << "\n#{indent}}"
-          elsif @scanner.scan(/(?:\A|\n)([ \t]+)description[ \t]*:[ \t]*\n[ \t]+/)
-            # `description:` with value on subsequent indented line(s).
-            # Capture as brace block with raw text. Continues until dedent
-            # back to indent level or close brace.
+          elsif @scanner.scan(/(?:\A|\n)([ \t]+)description[ \t]*:[ \t]*\n[ \t]+"/)
+            # `description:` with multi-line QUOTED value: starts with `"` on
+            # next line, ends with `"` somewhere later. Capture as brace block.
             indent = @scanner[1]
             @out << "\n#{indent}description { "
-            # Read until dedent or close brace
+            # We've already consumed the opening `"`. Read until closing `"`.
+            until @scanner.eos?
+              if @scanner.scan(/[^"\n]+/)
+                @out << @scanner.matched
+              elsif @scanner.scan(/"/)
+                @out << @scanner.matched
+                break
+              elsif @scanner.scan(/\n[ \t]+/)
+                @out << " "
+              elsif @scanner.scan(/\n/)
+                @out << " "
+              else
+                break
+              end
+            end
+            @out << " }"
+          elsif @scanner.scan(/(?:\A|\n)([ \t]+)description[ \t]*:[ \t]*\n[ \t]+/)
+            # `description:` with unquoted value on subsequent indented line(s).
+            indent = @scanner[1]
+            @out << "\n#{indent}description { "
             until @scanner.eos?
               if @scanner.check(/\n(?:[ \t]*\n)*([ \t]{0,#{indent.length}}\S)/) ||
                  @scanner.check(/\n(?:[ \t]*\n)*[ \t]{0,#{indent.length}}\}/)
@@ -228,7 +246,6 @@ module Interscript
               elsif @scanner.scan(/\n[ \t]+/)
                 @out << " "
               elsif @scanner.scan(/\n[ \t]*\n/)
-                # Blank line — preserve as space
                 @out << " "
               elsif @scanner.scan(/\n/)
                 @out << " "
