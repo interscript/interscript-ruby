@@ -293,8 +293,8 @@ module Interscript
             @out << "\n#{indent}notes {"
             convert_notes_list_until_dedent(indent)
             @out << "\n#{indent}}"
-          elsif @scanner.scan(/(?:\A|\n)([ \t]+)([A-Za-z_][\w]*)[ \t]*:[ \t]*\n(?:[ \t]*#[^\n]*\n)*([ \t]+)-[ \t]*/)
-            # Multi-line list value: `field:\n    # optional comment\n    - item1\n    - item2`
+          elsif @scanner.scan(/(?:\A|\n)([ \t]+)([A-Za-z_][\w]*)[ \t]*:[ \t]*\n([ \t]+)-[ \t]*/)
+            # Multi-line list value: `field:\n    - item1\n    - item2`
             indent = @scanner[1]
             field = @scanner[2]
             item_indent = @scanner[3]
@@ -306,6 +306,32 @@ module Interscript
               text = @scanner.scan(/[^\n]+/).to_s
               @out << " " + text
             end
+          elsif @scanner.scan(/(?:\A|\n)([ \t]+)([A-Za-z_][\w]*)[ \t]*:[ \t]*\n[ \t]+"/)
+            # Generic field with multi-line quoted value
+            indent = @scanner[1]
+            field = @scanner[2]
+            @out << "\n#{indent}#{field} \""
+            until @scanner.eos?
+              if @scanner.scan(/[^"\n]+/)
+                @out << @scanner.matched
+              elsif @scanner.scan(/"/)
+                @out << @scanner.matched
+                break
+              elsif @scanner.scan(/\n[ \t]+/)
+                @out << " "
+              elsif @scanner.scan(/\n/)
+                @out << " "
+              else
+                break
+              end
+            end
+          elsif @scanner.scan(/(?:\A|\n)([ \t]+)([A-Za-z_][\w]*)[ \t]*:[ \t]*\|[ \t]*\n/)
+            # Generic field with heredoc: `field: |\n    body`
+            indent = @scanner[1]
+            field = @scanner[2]
+            @out << "\n#{indent}#{field} { "
+            convert_indented_block_until_dedent(indent)
+            @out << " }"
             # key: value -> key value, only when the key is at the start of a
             # (indented) line. Use [ \t] instead of \s to avoid eating newlines
             # (which would merge `key:\n  next:` into `key next:`).
