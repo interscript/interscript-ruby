@@ -231,6 +231,13 @@ module Interscript
                 break
               end
             end
+          elsif @scanner.scan(/(?:\A|\n)([ \t]+)notes[ \t]*:[ \t]*"/)
+            # `notes: "X"` — single quoted-string note value
+            indent = @scanner[1]
+            @out << "\n#{indent}notes {\n#{indent}  note \""
+            # Read until matching close quote (may span multiple lines).
+            convert_quoted_note_body
+            @out << "\"\n#{indent}}"
           elsif @scanner.scan(/(?:\A|\n)([ \t]+)notes[ \t]*:[ \t]*\|[ \t]*\n/)
             # Heredoc-form notes: `notes: |` followed by indented body that's
             # one big multi-line note.
@@ -363,6 +370,21 @@ module Interscript
           end
         end
         @out << "\""
+      end
+
+      def convert_quoted_note_body
+        # Read a quoted string body (already past opening quote). Continues
+        # across newlines until matching unescaped `"`.
+        until @scanner.eos?
+          if @scanner.scan(/\\./)
+            @out << @scanner.matched
+          elsif @scanner.scan(/"/)
+            return
+          else
+            c = @scanner.getch
+            @out << (c == "\n" ? "\\n" : c)
+          end
+        end
       end
 
       def read_heredoc_into_string(indent)
