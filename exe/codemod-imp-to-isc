@@ -253,7 +253,11 @@ module Interscript
                 break
               end
             end
-          elsif @scanner.scan(/(?:\A|\n)([ \t]+)notes[ \t]*:[ \t]*"/)
+          elsif @scanner.scan(/(?:\A|\n)([ \t]+)notes[ \t]*:[ \t]*\[\]/)
+            # `notes: []` — empty notes list
+            indent = @scanner[1]
+            @out << "\n#{indent}notes { }"
+          elsif @scanner.scan(/(?:\A|\n)([ \t]+)notes[ \t]*:[ \t]*"[ \t]*\n/)
             # `notes: "X"` — single quoted-string note value
             indent = @scanner[1]
             @out << "\n#{indent}notes {\n#{indent}  note \""
