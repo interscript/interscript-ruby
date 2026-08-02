@@ -261,7 +261,13 @@ module Interscript
             # `notes: ""` — empty quoted notes value
             indent = @scanner[1]
             @out << "\n#{indent}notes { }"
-          elsif @scanner.scan(/(?:\A|\n)([ \t]+)notes[ \t]*:[ \t]*"[ \t]*\n/)
+          elsif @scanner.scan(/(?:\A|\n)([ \t]+)notes[ \t]*:[ \t]*\n[ \t]+"/)
+            # `notes:\n      "multi-line quoted value"` — quote starts on next line
+            indent = @scanner[1]
+            @out << "\n#{indent}notes {\n#{indent}  note \""
+            convert_quoted_note_body
+            @out << "\"\n#{indent}}"
+          elsif @scanner.scan(/(?:\A|\n)([ \t]+)notes[ \t]*:[ \t]*"/)
             # `notes: "X"` — single quoted-string note value
             indent = @scanner[1]
             @out << "\n#{indent}notes {\n#{indent}  note \""
@@ -701,9 +707,13 @@ module Interscript
       end
 
       def convert_run_rule
-        # `run map.X.stage.Y` (already in the right form)
+        # `run map.X.stage.Y` -> preserved
+        # `run stage.Y` -> preserved (without map. prefix)
+        # `run map.X.stage(Y)` -> `run map.X.stage.Y`
         if @scanner.scan(/map\.([A-Za-z_]\w*)\.stage\.([A-Za-z_]\w*)/)
           @out << "map.#{@scanner[1]}.stage.#{@scanner[2]}"
+        elsif @scanner.scan(/stage\.([A-Za-z_]\w*)/)
+          @out << "stage.#{@scanner[1]}"
         end
       end
 
