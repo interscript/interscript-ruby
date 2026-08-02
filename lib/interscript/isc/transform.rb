@@ -55,9 +55,9 @@ module Interscript
       rule(function: simple(:f)) { Items::Function.new(f.to_s) }
       rule(alias: simple(:n)) { Items::AliasRef.new(n.to_s) }
       rule(ref: subtree(:h)) { Items::Capture.new(h[:digit].to_s.to_i) }
-      rule(capture_inner: subtree(:inner)) { Items::CaptureGroup.new(materialize_item(inner)) }
-      rule(maybe_inner: subtree(:inner)) { Items::Maybe.new(materialize_item(inner)) }
-      rule(some_inner: subtree(:inner)) { Items::Some.new(materialize_item(inner)) }
+      rule(capture_inner: subtree(:inner)) { Items::CaptureGroup.new(Interscript::Isc::Transform.materialize_item(inner)) }
+      rule(maybe_inner: subtree(:inner)) { Items::Maybe.new(Interscript::Isc::Transform.materialize_item(inner)) }
+      rule(some_inner: subtree(:inner)) { Items::Some.new(Interscript::Isc::Transform.materialize_item(inner)) }
 
       rule(dquote: simple(:_)) { '"' }
       rule(backslash: simple(:_)) { "\\" }

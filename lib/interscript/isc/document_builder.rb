@@ -145,10 +145,16 @@ module Interscript
 
       def extract_tests(arr)
         Array(arr).map do |t|
+          next { input: "", expected: "" } unless t.is_a?(Hash)
+
+          input_val = t[:input]
+          expected_val = t[:expected]
+          note_val = t[:note]
+
           {
-            input: unquote(t[:input]),
-            expected: unquote(t[:expected]),
-            note: t[:note] && unquote(t[:note]),
+            input: input_val.is_a?(Hash) ? unquote(input_val) : input_val.to_s,
+            expected: expected_val.is_a?(Hash) ? unquote(expected_val) : expected_val.to_s,
+            note: note_val.is_a?(Hash) ? unquote(note_val) : note_val&.to_s,
           }.compact
         end
       end
@@ -161,6 +167,7 @@ module Interscript
       end
 
       def extract_stage_items(n)
+        return [] unless n.is_a?(Hash)
         case
         when n[:sequence]  then [{ kind: :sequence,  rules: Array(n[:sequence]).map { |r| extract_rule(r) } }]
         when n[:parallel]  then [{ kind: :parallel,  rules: Array(n[:parallel]).map { |r| extract_rule(r) } }]
@@ -168,16 +175,22 @@ module Interscript
         when n[:compose]   then [{ kind: :compose }]
         when n[:case]      then [{ kind: :string_case, op: n[:case].to_s }]
         when n[:dep]       then [{ kind: :run, dependency: ident(n[:dep]), stage: ident(n[:stage]) }]
+        when n[:run_stage_only] then [{ kind: :run, dependency: nil, stage: ident(n[:run_stage_only]) }]
         when n[:bare_rule] then [{ kind: :bare_rule, rule: extract_rule(n[:bare_rule]) }]
+        when n[:comment]   then []
+        when n[:noop]      then []
         else []
         end
       end
 
       def extract_rule(r)
+        from_val = r.is_a?(Hash) ? r[:from] : nil
+        to_val = r.is_a?(Hash) ? r[:to] : nil
+        constraints_val = r.is_a?(Hash) ? r[:constraints] : nil
         {
-          from: materialize(r[:from]),
-          to: materialize(r[:to]),
-          constraints: extract_constraints(r[:constraints]),
+          from: from_val ? materialize(from_val) : Items::None.new,
+          to: to_val ? materialize(to_val) : Items::None.new,
+          constraints: extract_constraints(constraints_val),
         }
       end
 

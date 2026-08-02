@@ -87,10 +87,9 @@ module Interscript
                 whitespace? >> str("]"))
           end
 
-          # A list item can be a quoted string OR a more complex expression
-          # (e.g., `boundary + "X"` for concat inside a list).
+          # A list item is an item expression (which includes quoted strings).
           rule(:list_item) do
-            quoted_string | item
+            item
           end
 
           rule(:alias_reference) do

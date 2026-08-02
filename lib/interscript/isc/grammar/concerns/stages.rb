@@ -20,8 +20,15 @@ module Interscript
           rule(:stage_item) do
             whitespace? >>
               (sequence_block | parallel_block | run_rule | separate_directive |
-                string_case_directive | compose_directive | bare_rule) >>
+                string_case_directive | compose_directive | bare_rule |
+                comment_item) >>
               whitespace?
+          end
+
+          # Comments and stray identifiers are silently consumed.
+          rule(:comment_item) do
+            (str("#") >> (str("\n").absent? >> any).repeat).as(:comment) |
+              identifier.as(:noop)
           end
 
           # Bare rule directly in a stage body (not wrapped in sequence/parallel).
@@ -86,8 +93,9 @@ module Interscript
 
           rule(:run_rule) do
             str("run") >> whitespace >>
-              str("map.") >> identifier.as(:dep) >>
-              str(".stage.") >> identifier.as(:stage)
+              ((str("map.") >> identifier.as(:dep) >>
+                str(".stage.") >> identifier.as(:stage)) |
+               (str("stage.") >> identifier.as(:stage)).as(:run_stage_only))
           end
         end
       end
