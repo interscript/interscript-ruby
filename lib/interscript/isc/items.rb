@@ -111,6 +111,19 @@ module Interscript
         end
       end
 
+      # Wraps a one-or-more sub-expression (greedy).
+      class Some
+        attr_reader :inner
+
+        def initialize(inner)
+          @inner = inner
+        end
+
+        def inspect
+          "Some(#{@inner.inspect})"
+        end
+      end
+
       class Range
         attr_reader :lo, :hi
 

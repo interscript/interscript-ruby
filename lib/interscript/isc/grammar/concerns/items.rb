@@ -17,9 +17,17 @@ module Interscript
               any_constructor |
               capture_constructor |
               maybe_constructor |
+              some_constructor |
               function_call |
               capture_reference |
               alias_reference
+          end
+
+          # some(...) — one or more matches (greedy).
+          rule(:some_constructor) do
+            str("some") >> str("(") >> whitespace? >>
+              item.as(:some_inner) >>
+              whitespace? >> str(")")
           end
 
           # Function call: upcase, downcase, title_case, reverse, etc.
@@ -107,7 +115,7 @@ module Interscript
               str("none") | str("boundary") | str("line_start") |
               str("line_end") | str("word_boundary") |
               str("downcase") | str("upcase") | str("title_case") |
-              str("capture") | str("maybe") | str("ref")
+              str("capture") | str("maybe") | str("some") | str("ref")
           end
 
           # Concatenation: one or more atoms. The continuation pattern

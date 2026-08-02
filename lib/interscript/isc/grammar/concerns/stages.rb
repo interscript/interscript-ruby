@@ -11,8 +11,9 @@ module Interscript
           include Parslet
 
           rule(:stage_block) do
-            str("stage") >> whitespace >>
-              identifier.as(:stage_name) >> whitespace? >>
+            str("stage") >>
+              (str("(") >> identifier.as(:stage_name) >> str(")") |
+               whitespace >> identifier.as(:stage_name)) >> whitespace? >>
               braced(stage_item.repeat(0)).as(:stage)
           end
 
