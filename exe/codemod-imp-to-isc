@@ -293,8 +293,8 @@ module Interscript
             @out << "\n#{indent}notes {"
             convert_notes_list_until_dedent(indent)
             @out << "\n#{indent}}"
-          elsif @scanner.scan(/(?:\A|\n)([ \t]+)([A-Za-z_][\w]*)[ \t]*:[ \t]*\n([ \t]+)-[ \t]*/)
-            # Multi-line list value: `field:\n    - item1\n    - item2`
+          elsif @scanner.scan(/(?:\A|\n)([ \t]+)([A-Za-z_][\w]*)[ \t]*:[ \t]*\n(?:[ \t]*#[^\n]*\n)*[ \t]*\n*([ \t]+)-[ \t]*/)
+            # Multi-line list value: `field:\n    [optional comments]\n    [optional blank]\n    - item`
             indent = @scanner[1]
             field = @scanner[2]
             item_indent = @scanner[3]
