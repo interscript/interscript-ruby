@@ -215,6 +215,12 @@ module Interscript
           elsif @scanner.scan(/\n[ \t]*\n/)
             # Blank line — preserve one newline
             @out << "\n"
+          elsif @scanner.scan(/([ \t]+)#[^\n]*/)
+            # Comment line (after newline was consumed by blank-line handler)
+            @out << "\n#{@scanner[1]}#"
+          elsif @scanner.scan(/#[^\n]*\n/)
+            # Comment at start of line
+            @out << "#\n"
           elsif @scanner.scan(/(?:\A|\n)([ \t]+)description[ \t]*:[ \t]*\|[ \t]*\n/)
             # Heredoc form: `description: |` followed by indented body.
             indent = @scanner[1]
