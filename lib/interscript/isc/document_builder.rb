@@ -77,6 +77,16 @@ module Interscript
         text.gsub(/\\([{}\\])/, '\1')
       end
 
+      def parse_array_field(val)
+        return [] if val.nil? || val.to_s.strip.empty?
+        # If the value contains newlines or `- ` markers, split into items
+        items = val.to_s.split(/\n+/)
+                       .map { |l| l.strip.sub(/\A-\s*/, "") }
+                       .reject(&:empty?)
+        return [val.to_s.strip] if items.empty?
+        items
+      end
+
       def normalize_heredoc(text)
         lines = text.lines.map(&:chomp)
         content_lines = lines.reject { |l| l.strip.empty? }
@@ -155,7 +165,7 @@ module Interscript
             end
             # DSL stores these as Arrays — match that convention.
             if ARRAY_METADATA_FIELDS.include?(name)
-              h[name] = val.to_s.empty? ? [] : [val]
+              h[name] = parse_array_field(val)
             else
               h[name] = val
             end

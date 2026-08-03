@@ -417,7 +417,14 @@ module Interscript
       def emit_note_with_continuation(note_indent)
         @out << "\n#{note_indent}note \""
         text = @scanner.scan(/[^\n]+/).to_s
-        @out << text.gsub('"', '\\"')
+        # Strip YAML inline comments: "text # comment" → "text"
+        text = text.sub(/\s+#.*$/, "")
+        # Strip outer quotes if the YAML list item was quoted: - "text"
+        text = text[1..-2] if text.start_with?('"') && text.end_with?('"')
+        text = text[1..-2] if text.start_with?("'") && text.end_with?("'")
+        # Unescape YAML escape sequences, then re-escape for ISC
+        text = text.gsub('\\"', '"').gsub("\\\\", "\\")
+        @out << text.gsub('\\', '\\\\\\\\').gsub('"', '\\"')
         # Consume continuation lines: any subsequent line indented deeper
         # than the `- ` marker is part of the same note. Blank lines between
         # continuations are preserved as \n.
