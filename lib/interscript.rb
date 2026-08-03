@@ -31,8 +31,8 @@ module Interscript
       map_name = map_aliases[map_name] if map_aliases.include? map_name
 
       load_path.each do |i|
-        # iml is an extension for a library, imp for a map
-        ["iml", "imp"].each do |ext|
+        # isc: new ISC format, iml: library, imp: legacy Ruby DSL
+        ["isc", "iml", "imp"].each do |ext|
           f = File.expand_path("#{map_name}.#{ext}", i)
           return f if File.exist?(f)
         end

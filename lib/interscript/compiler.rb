@@ -10,11 +10,26 @@ class Interscript::Compiler
 
   def self.call(map, **kwargs)
     if String === map
-      map = Interscript::DSL.parse(map)
+      path = Interscript.locate(map) rescue nil
+      map = if path&.end_with?(".isc")
+              parse_isc(path)
+            else
+              Interscript::DSL.parse(map)
+            end
     end
     compiler = new
     compiler.compile(map, **kwargs)
     compiler
+  end
+
+  # Parse an ISC source file into an Interscript::Node::Document.
+  # This bridges the new ISC format to the existing runtime.
+  def self.parse_isc(path)
+    source = File.read(path, encoding: "UTF-8")
+    filename = File.basename(path)
+    tree = Interscript::Isc::Parser.parse(source, filename: filename)
+    doc = Interscript::Isc::DocumentBuilder.build(tree, filename: filename)
+    Interscript::Isc::NodeAdapter.to_interscript_node(doc)
   end
 
   def compile(map)
