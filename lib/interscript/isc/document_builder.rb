@@ -79,12 +79,20 @@ module Interscript
 
       def parse_array_field(val)
         return [] if val.nil? || val.to_s.strip.empty?
-        # If the value contains newlines or `- ` markers, split into items
-        items = val.to_s.split(/\n+/)
-                       .map { |l| l.strip.sub(/\A-\s*/, "") }
-                       .reject(&:empty?)
-        return [val.to_s.strip] if items.empty?
-        items
+        text = val.to_s
+        return [text.strip] unless text.include?("\n-")
+        # Multi-line YAML list: merge continuation lines (joined with space)
+        items = []
+        current = nil
+        text.lines.each do |l|
+          stripped = l.strip
+          if stripped.start_with?("- ")
+            items << stripped[2..]
+          elsif !stripped.empty? && items.any?
+            items[-1] += " " + stripped
+          end
+        end
+        items.empty? ? [text.strip] : items
       end
 
       def normalize_heredoc(text)
