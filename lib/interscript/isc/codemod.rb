@@ -437,7 +437,7 @@ module Interscript
         text = text[1..] if text.start_with?("'") && !text.end_with?("'")
         # Unescape YAML escape sequences, then re-escape for ISC
         text = text.gsub('\\"', '"').gsub("\\\\", "\\")
-        @out << text.gsub('\\', '\\\\\\\\').gsub('"', '\\"').gsub("\\u", "\\\\u")
+        @out << text.gsub('\\', '\\\\\\\\').gsub('"', '\\"').gsub("\\u", "\\\\\\\\u")
         # Consume continuation lines: any subsequent line indented deeper
         # than the `- ` marker is part of the same note. Blank lines between
         # continuations are preserved as \n.
@@ -447,13 +447,13 @@ module Interscript
             @scanner.scan(/\n([ \t]+)/)
             @out << "\\n" + @scanner[1].strip + " "
             cont = @scanner.scan(/[^\n]+/).to_s
-            @out << cont.gsub('"', '\\"')
+            @out << cont.gsub('\\', '\\\\\\\\').gsub('"', '\\"').gsub("\\u", "\\\\\\\\u")
           elsif @scanner.check(/\n[ \t]*\n[ \t]{#{note_indent.length + 1},}\S/)
             # Blank line then indented continuation
             @scanner.scan(/\n[ \t]*\n([ \t]+)/)
             @out << "\\n" + @scanner[1].strip + " "
             cont = @scanner.scan(/[^\n]+/).to_s
-            @out << cont.gsub('"', '\\"')
+            @out << cont.gsub('\\', '\\\\\\\\').gsub('"', '\\"').gsub("\\u", "\\\\\\\\u")
           else
             break
           end
@@ -488,11 +488,13 @@ module Interscript
             @out << "\\n\\n"
           elsif @scanner.scan(/\n([ \t]+[^\n]*)/)
             # Indented line — preserve raw content (indent + text)
-            @out << "\\n" + @scanner[1].to_s.gsub('"', '\\"')
+            line = @scanner[1].to_s.gsub('"', '\\"').gsub("\\u", "\\\\\\\\u")
+            @out << "\\n" + line
           elsif @scanner.scan(/\n/)
             @out << "\\n"
           elsif @scanner.scan(/([^\n]+)/)
-            @out << @scanner[1].gsub('"', '\\"')
+            line = @scanner[1].gsub('"', '\\"').gsub("\\u", "\\\\\\\\u")
+            @out << line
           else
             return
           end
