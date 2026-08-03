@@ -81,15 +81,16 @@ module Interscript
         return [] if val.nil? || val.to_s.strip.empty?
         text = val.to_s
         return [text.strip] unless text.include?("\n-")
-        # Multi-line YAML list: merge continuation lines (joined with space)
+        # Multi-line YAML list: merge continuation lines preserving paragraph breaks
         items = []
-        current = nil
         text.lines.each do |l|
           stripped = l.strip
           if stripped.start_with?("- ")
             items << stripped[2..]
+          elsif stripped.empty? && items.any?
+            items[-1] = (items[-1] || "") + "\n\n"
           elsif !stripped.empty? && items.any?
-            items[-1] += " " + stripped
+            items[-1] = (items[-1] || "") + "\n" + stripped
           end
         end
         items.empty? ? [text.strip] : items
@@ -145,11 +146,16 @@ module Interscript
             h[:notes] ||= []
             Array(field[:notes]).each do |n|
               note_val = n.is_a?(Hash) ? n[:note] : n
-              h[:notes] << normalize_heredoc(unquote(note_val).to_s)
+              note_text = normalize_heredoc(unquote(note_val).to_s)
+              note_text = note_text.sub(/"\z/, "")
+              h[:notes] << note_text
             end
           when field.key?(:note)
             h[:notes] ||= []
-            h[:notes] << normalize_heredoc(unquote(field[:note]).to_s)
+            note_text = normalize_heredoc(unquote(field[:note]).to_s)
+            # Strip trailing " leaked from multi-line YAML quoted items
+            note_text = note_text.sub(/"\z/, "")
+            h[:notes] << note_text
           when field.key?(:provenance)
             h[:provenance] ||= []
             h[:provenance] << unquote(field[:provenance])

@@ -423,6 +423,8 @@ module Interscript
         # Strip outer quotes if the YAML list item was quoted: - "text"
         text = text[1..-2] if text.start_with?('"') && text.end_with?('"')
         text = text[1..-2] if text.start_with?("'") && text.end_with?("'")
+        # Also strip leading quote when text spans multiple lines (closing on later line)
+        text = text[1..] if text.start_with?('"') && !text.end_with?('"')
         text = text[1..] if text.start_with?("'") && !text.end_with?("'")
         # Unescape YAML escape sequences, then re-escape for ISC
         text = text.gsub('\\"', '"').gsub("\\\\", "\\")
