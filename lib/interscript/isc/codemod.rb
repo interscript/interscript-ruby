@@ -237,7 +237,7 @@ module Interscript
               if @scanner.scan(/[^"\n]+/)
                 @out << @scanner.matched
               elsif @scanner.scan(/"/)
-                @out << @scanner.matched
+                # Closing quote — don't output it (it's the YAML delimiter)
                 break
               elsif @scanner.scan(/\n[ \t]+/)
                 @out << " "
