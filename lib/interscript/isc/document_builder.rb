@@ -218,7 +218,7 @@ module Interscript
         when n[:compose]   then [{ kind: :compose }]
         when n[:case]      then [{ kind: :string_case, op: n[:case].to_s }]
         when n[:dep]       then [{ kind: :run, dependency: ident(n[:dep]), stage: ident(n[:stage]) }]
-        when n[:run_stage_only] then [{ kind: :run, dependency: nil, stage: ident(n[:run_stage_only]) }]
+        when n[:run_stage_only] then [{ kind: :run, dependency: nil, stage: ident(n[:run_stage_only][:stage]) }]
         when n[:bare_rule] then [{ kind: :bare_rule, rule: extract_rule(n[:bare_rule]) }]
         when n[:comment]   then []
         when n[:noop]      then []

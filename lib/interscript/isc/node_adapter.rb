@@ -106,13 +106,11 @@ module Interscript
       end
 
       def build_run_rule(item)
-        dep = item[:dependency]
-        stage = item[:stage]
-        Interscript::Node::Rule::Run.new(
-          Interscript::Node::Rule::Run::Map.new(
-            (dep ? "#{dep}:" : "") + stage.to_s,
-          ),
+        stage_ref = Interscript::Node::Item::Stage.new(
+          item[:stage].to_sym,
+          map: item[:dependency]&.to_sym,
         )
+        Interscript::Node::Rule::Run.new(stage_ref)
       end
 
       def convert_item(item)
@@ -126,13 +124,13 @@ module Interscript
         when Items::AliasRef
           Interscript::Node::Item::Alias.new(item.name.to_sym)
         when Items::Capture
-          Interscript::Node::Item::Capture.new(item.index)
+          Interscript::Node::Item::CaptureRef.new(item.index)
         when Items::Function
           item.name.to_sym
         when Items::Concat
           convert_concat(item)
         when Items::CaptureGroup
-          convert_item(item.inner)
+          Interscript::Node::Item::CaptureGroup.new(convert_item(item.inner))
         when Items::Maybe
           Interscript::Node::Item::Maybe.new(convert_item(item.inner))
         when Items::Some
@@ -149,20 +147,9 @@ module Interscript
       end
 
       def convert_primitive(item)
-        case item.name
-        when "boundary"
-          Interscript::Node::Item::BeginBoundary.new
-        when "line_start"
-          Interscript::Node::Item::StartBoundary.new
-        when "line_end"
-          Interscript::Node::Item::EndBoundary.new
-        when "word_boundary"
-          Interscript::Node::Item::WordBoundary.new
-        when "space"
-          Interscript::Node::Item::String.new(" ")
-        when "non_boundary"
-          Interscript::Node::Item::NonBoundary.new
-        end
+        # In the Ruby runtime, zero-width primitives are represented as
+        # Alias nodes referencing Stdlib symbols. See Stdlib::ALIASES.
+        Interscript::Node::Item::Alias.new(item.name.to_sym)
       end
 
       def convert_concat(concat)
