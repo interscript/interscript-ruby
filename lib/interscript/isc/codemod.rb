@@ -239,8 +239,9 @@ module Interscript
               end
             end
             @out << " }"
-          elsif @scanner.scan(/(?:\A|\n)([ \t]+)description[ \t]*:[ \t]*\n[ \t]+/)
+          elsif @scanner.scan(/(?:\A|\n)([ \t]+)description[ \t]*:[ \t]*\n(?![ \t]*[A-Za-z_]\w*[ \t]*:)(?![ \t]*\})[ \t]+/)
             # `description:` with unquoted value on subsequent indented line(s).
+            # Negative lookahead prevents consuming next field (e.g. implementation_notes).
             indent = @scanner[1]
             @out << "\n#{indent}description { "
             until @scanner.eos?
