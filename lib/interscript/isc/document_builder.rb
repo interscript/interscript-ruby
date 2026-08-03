@@ -93,7 +93,9 @@ module Interscript
             items[-1] = (items[-1] || "") + "\n" + stripped
           end
         end
-        items.empty? ? [text.strip] : items
+        items = items.empty? ? [text.strip] : items
+        # Treat single-item [""] arrays (YAML empty list markers) as empty arrays
+        items == [""] ? [] : items
       end
 
       def normalize_heredoc(text)
@@ -119,7 +121,7 @@ module Interscript
           else
             l.strip
           end
-        end.join("\n").strip
+        end.join("\n").rstrip.then { |s| text.end_with?("\n") && !text.end_with?("\n\n") ? s + "\n" : s }
       end
 
       # Apply Transform to an identifier fragment.
@@ -162,7 +164,9 @@ module Interscript
           when field.key?(:relations)
             h[:relations] = extract_relations(field[:relations])
           when field.key?(:description)
-            h[:description] = normalize_heredoc(unescape_braces(field[:description].to_s)) + "\n"
+            desc = field[:description]
+            desc_str = desc.is_a?(Array) ? desc.join : desc.to_s
+            h[:description] = normalize_heredoc(unescape_braces(desc_str)) + "\n"
           when field.key?(:field_name)
             # Generic field: identifier + raw value
             name = ident(field[:field_name]).to_sym
