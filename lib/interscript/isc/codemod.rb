@@ -429,6 +429,9 @@ module Interscript
         text = @scanner.scan(/[^\n]+/).to_s
         # Strip YAML inline comments: "text # comment" → "text"
         text = text.sub(/\s+#.*$/, "")
+        # Track if item was YAML-quoted (for trailing quote cleanup)
+        was_dquote = text.start_with?('"') && !text.end_with?('"')
+        was_squote = text.start_with?("'") && !text.end_with?("'")
         # Strip outer quotes if the YAML list item was quoted: - "text"
         text = text[1..-2] if text.start_with?('"') && text.end_with?('"')
         text = text[1..-2] if text.start_with?("'") && text.end_with?("'")
@@ -447,16 +450,25 @@ module Interscript
             @scanner.scan(/\n([ \t]+)/)
             @out << "\\n" + @scanner[1].strip + " "
             cont = @scanner.scan(/[^\n]+/).to_s
-            @out << cont.gsub('\\', '\\\\\\\\').gsub('"', '\\"').gsub("\\u", "\\\\\\\\u")
+            cont = cont.gsub('\\', '\\\\\\\\').gsub('"', '\\"').gsub("\\u", "\\\\\\\\u")
+            @out << cont
           elsif @scanner.check(/\n[ \t]*\n[ \t]{#{note_indent.length + 1},}\S/)
             # Blank line then indented continuation
             @scanner.scan(/\n[ \t]*\n([ \t]+)/)
             @out << "\\n" + @scanner[1].strip + " "
             cont = @scanner.scan(/[^\n]+/).to_s
-            @out << cont.gsub('\\', '\\\\\\\\').gsub('"', '\\"').gsub("\\u", "\\\\\\\\u")
+            cont = cont.gsub('\\', '\\\\\\\\').gsub('"', '\\"').gsub("\\u", "\\\\\\\\u")
+            @out << cont
           else
             break
           end
+        end
+        # If item was multi-line YAML-quoted, strip the trailing closing
+        # quote that leaked from the last continuation line.
+        if was_dquote && @out.end_with?('\\"')
+          @out[-2..] = ""
+        elsif was_squote && @out.end_with?("'")
+          @out[-1..] = ""
         end
         @out << "\""
       end

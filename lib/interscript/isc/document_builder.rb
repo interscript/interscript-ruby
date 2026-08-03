@@ -148,15 +148,11 @@ module Interscript
             h[:notes] ||= []
             Array(field[:notes]).each do |n|
               note_val = n.is_a?(Hash) ? n[:note] : n
-              note_text = normalize_heredoc(unquote(note_val).to_s)
-              note_text = note_text.sub(/["']\z/, "")
-              h[:notes] << note_text
+              h[:notes] << normalize_heredoc(unquote(note_val).to_s)
             end
           when field.key?(:note)
             h[:notes] ||= []
-            note_text = normalize_heredoc(unquote(field[:note]).to_s)
-            note_text = note_text.sub(/["']\z/, "")
-            h[:notes] << note_text
+            h[:notes] << normalize_heredoc(unquote(field[:note]).to_s)
           when field.key?(:provenance)
             h[:provenance] ||= []
             h[:provenance] << unquote(field[:provenance])
