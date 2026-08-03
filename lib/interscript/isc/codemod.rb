@@ -385,8 +385,8 @@ module Interscript
             # Blank line(s) — preserve one newline. Do NOT consume the
             # indent of the next item.
             @out << "\n"
-          elsif @scanner.scan(/\n([ \t]+)-[ \t]*\|[ \t]*\n/)
-            # `|` heredoc form
+          elsif @scanner.scan(/\n([ \t]+)-[ \t]*\|(?:[ \t]*#[^\n]*)?\n/)
+            # `|` heredoc form (with optional inline comment after |)
             note_indent = @scanner[1]
             @out << "\n#{note_indent}note \""
             read_heredoc_into_string(note_indent)
@@ -395,7 +395,7 @@ module Interscript
             # Single-line item start (possibly with continuation lines).
             note_indent = @scanner[1]
             emit_note_with_continuation(note_indent)
-          elsif @scanner.scan(/([ \t]+)-[ \t]*\|[ \t]*\n/)
+          elsif @scanner.scan(/([ \t]+)-[ \t]*\|(?:[ \t]*#[^\n]*)?\n/)
             # First item right after `notes:` consumed; scanner at `<indent>- |\n`.
             emit_heredoc_note(@scanner[1])
           elsif @scanner.scan(/([ \t]+)-[ \t]+/)
