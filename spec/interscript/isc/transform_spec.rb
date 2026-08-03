@@ -3,58 +3,105 @@
 require "interscript/isc"
 
 RSpec.describe Interscript::Isc::Transform do
-  it "transforms a quoted string to StringValue" do
-    tree = { string: { simple: "hello" } }
-    result = described_class.new.apply(tree)
-    expect(result).to be_a(Interscript::Isc::Items::StringValue)
-    expect(result.value).to eq("hello")
+  let(:parser) { Interscript::Isc::Parser.new }
+
+  def parse_item(src)
+    tree = parser.parse(src, filename: "t.isc")
+    doc = Interscript::Isc::DocumentBuilder.build(tree, filename: "t.isc")
+    stage = doc[:stages].first
+    rule = stage[:body].first[:rule] || stage[:body].first[:rules]&.first
+    rule
   end
 
-  it "transforms escape sequences" do
-    tree = { string: { sequence: [{ char: "a" }, { newline: "n" }, { char: "b" }] } }
-    result = described_class.new.apply(tree)
-    expect(result.value).to eq("a\nb")
+  it "transforms a quoted string to StringValue" do
+    rule = parse_item(<<~ISC)
+      system "X:eng-Latn:Latn:1" {
+        metadata { name "T" }
+        stage main { sub "hello" "world" }
+      }
+    ISC
+    expect(rule[:from]).to be_a(Interscript::Isc::Items::StringValue)
+    expect(rule[:from].value).to eq("hello")
+    expect(rule[:to].value).to eq("world")
+  end
+
+  it "transforms escape sequences in strings" do
+    rule = parse_item(<<~ISC)
+      system "X:eng-Latn:Latn:1" {
+        metadata { name "T" }
+        stage main { sub "a\\nb" "c" }
+      }
+    ISC
+    expect(rule[:from].value).to eq("a\nb")
   end
 
   it "transforms unicode escapes" do
-    tree = { string: { sequence: [{ unicode: "00e9" }] } }
-    result = described_class.new.apply(tree)
-    expect(result.value).to eq("é")
+    rule = parse_item(<<~ISC)
+      system "X:eng-Latn:Latn:1" {
+        metadata { name "T" }
+        stage main { sub "\\u00e9" "e" }
+      }
+    ISC
+    expect(rule[:from].value).to eq("é")
   end
 
   it "transforms none to Items::None" do
-    tree = { none: { simple: nil } }
-    result = described_class.new.apply(tree)
-    expect(result).to be_a(Interscript::Isc::Items::None)
+    rule = parse_item(<<~ISC)
+      system "X:eng-Latn:Latn:1" {
+        metadata { name "T" }
+        stage main { sub none "X" }
+      }
+    ISC
+    expect(rule[:from]).to be_a(Interscript::Isc::Items::None)
   end
 
   it "transforms zero-width primitives" do
     %w[boundary line_start line_end word_boundary space non_boundary].each do |prim|
-      tree = { primitive: { simple: prim } }
-      result = described_class.new.apply(tree)
-      expect(result).to be_a(Interscript::Isc::Items::Primitive)
-      expect(result.name).to eq(prim)
+      rule = parse_item(<<~ISC)
+        system "X:eng-Latn:Latn:1" {
+          metadata { name "T" }
+          stage main { sub #{prim} "X" }
+        }
+      ISC
+      expect(rule[:from]).to be_a(Interscript::Isc::Items::Primitive),
+             "expected Primitive for #{prim}, got #{rule[:from].class}"
+      expect(rule[:from].name).to eq(prim)
     end
   end
 
   it "transforms alias references" do
-    tree = { alias: { simple: "my_alias" } }
-    result = described_class.new.apply(tree)
-    expect(result).to be_a(Interscript::Isc::Items::AliasRef)
-    expect(result.name).to eq("my_alias")
+    rule = parse_item(<<~ISC)
+      system "X:eng-Latn:Latn:1" {
+        metadata { name "T" }
+        aliases {
+          my_alias = "abc"
+        }
+        stage main { sub my_alias "X" }
+      }
+    ISC
+    expect(rule[:from]).to be_a(Interscript::Isc::Items::AliasRef)
+    expect(rule[:from].name).to eq("my_alias")
   end
 
   it "transforms capture references" do
-    tree = { ref: { digit: { simple: "3" } } }
-    result = described_class.new.apply(tree)
-    expect(result).to be_a(Interscript::Isc::Items::Capture)
-    expect(result.index).to eq(3)
+    rule = parse_item(<<~ISC)
+      system "X:eng-Latn:Latn:1" {
+        metadata { name "T" }
+        stage main { sub capture("a") ref(1) }
+      }
+    ISC
+    expect(rule[:to]).to be_a(Interscript::Isc::Items::Capture)
+    expect(rule[:to].index).to eq(1)
   end
 
   it "transforms capture groups" do
-    tree = { capture_inner: { string: { simple: "x" } } }
-    result = described_class.new.apply(tree)
-    expect(result).to be_a(Interscript::Isc::Items::CaptureGroup)
+    rule = parse_item(<<~ISC)
+      system "X:eng-Latn:Latn:1" {
+        metadata { name "T" }
+        stage main { sub capture("x") "y" }
+      }
+    ISC
+    expect(rule[:from]).to be_a(Interscript::Isc::Items::CaptureGroup)
   end
 end
 

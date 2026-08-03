@@ -26,8 +26,8 @@ RSpec.describe Interscript::Isc::Parser do
         }
       ISC
       tree = described_class.parse(src, filename: "test.isc")
-      expect(tree).to be_a(Hash)
-      expect(tree[:system][:system_code].to_s).to include("TEST")
+      doc = Interscript::Isc::DocumentBuilder.build(tree, filename: "test.isc")
+      expect(doc[:systemCode]).to include("TEST")
     end
 
     it "raises ParseError on invalid syntax" do

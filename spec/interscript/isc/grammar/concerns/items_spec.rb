@@ -182,7 +182,10 @@ RSpec.describe Interscript::Isc::Grammar::Concerns::Items do
     tree = parser.parse(<<~ISC, filename: "t.isc")
       system "X:e-Latn:Latn:1" {
         stage main {
-          sub "a" + "b" "c"
+          sub {
+            from "a" + "b"
+            to "c"
+          }
         }
       }
     ISC
@@ -193,7 +196,10 @@ RSpec.describe Interscript::Isc::Grammar::Concerns::Items do
     tree = parser.parse(<<~ISC, filename: "t.isc")
       system "X:e-Latn:Latn:1" {
         stage main {
-          sub "a" "b" "c"
+          sub {
+            from "a" "b"
+            to "c"
+          }
         }
       }
     ISC

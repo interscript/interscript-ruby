@@ -34,8 +34,7 @@ module Interscript
             elsif p.key?(:backslash)
               "\\"
             elsif p.key?(:unicode)
-              code = p[:unicode].to_s
-              [code].pack("U")
+              [p[:unicode].to_s.to_i(16)].pack("U")
             else
               p.to_s
             end
@@ -64,7 +63,7 @@ module Interscript
       rule(carriage_return: simple(:_)) { "\r" }
       rule(tab: simple(:_)) { "\t" }
       rule(unicode: simple(:hex)) do
-        [hex.to_s].pack("U")
+        [hex.to_s.to_i(16)].pack("U")
       rescue StandardError
         hex.to_s
       end

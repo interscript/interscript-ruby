@@ -62,13 +62,14 @@ RSpec.describe Interscript::Isc::DocumentBuilder do
 
     it "extracts tests" do
       expect(doc[:tests].size).to eq(2)
-      expect(doc[:tests][0]).to eq(["hello", "hello"])
+      expect(doc[:tests][0][:input]).to eq("hello")
+      expect(doc[:tests][0][:expected]).to eq("hello")
     end
 
     it "extracts stage rules" do
       expect(doc[:stages].size).to eq(1)
       stage = doc[:stages].first
-      expect(stage[:name]).to eq(:main)
+      expect(stage[:name]).to eq("main")
       expect(stage[:body].size).to eq(2)
     end
 

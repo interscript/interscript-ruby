@@ -88,7 +88,7 @@ RSpec.describe Interscript::Isc::Codemod do
   it "converts modifier kwargs (before:, after:)" do
     imp = <<~IMP
       stage {
-        sub "a" "b" before: "c", after: "d"
+        sub "a", "b", before: "c", after: "d"
       }
     IMP
     isc = convert(imp)
