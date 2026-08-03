@@ -437,7 +437,7 @@ module Interscript
         text = text[1..] if text.start_with?("'") && !text.end_with?("'")
         # Unescape YAML escape sequences, then re-escape for ISC
         text = text.gsub('\\"', '"').gsub("\\\\", "\\")
-        @out << text.gsub('\\', '\\\\\\\\').gsub('"', '\\"')
+        @out << text.gsub('\\', '\\\\\\\\').gsub('"', '\\"').gsub("\\u", "\\\\u")
         # Consume continuation lines: any subsequent line indented deeper
         # than the `- ` marker is part of the same note. Blank lines between
         # continuations are preserved as \n.
