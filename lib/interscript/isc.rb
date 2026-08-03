@@ -10,6 +10,7 @@ module Interscript
     autoload :Grammar, "interscript/isc/grammar"
     autoload :Items, "interscript/isc/items"
     autoload :Codemod, "interscript/isc/codemod"
+    autoload :NodeAdapter, "interscript/isc/node_adapter"
 
     SCHEMA_VERSION = 1
 
