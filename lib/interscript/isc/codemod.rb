@@ -209,6 +209,9 @@ module Interscript
           elsif @scanner.scan(/\}/)
             depth -= 1
             @out << "}"
+          elsif @scanner.scan(/\n[ \t]*#[^\n]*/)
+            # Comment line — preserve as-is
+            @out << @scanner.matched
           elsif @scanner.scan(/\n[ \t]*\n/)
             # Blank line — preserve one newline
             @out << "\n"
