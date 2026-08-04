@@ -41,7 +41,8 @@ module Interscript::DSL
     end
     library = path.end_with?(".iml")
 
-    map_name = File.basename(path, ".imp")
+    map_name = File.basename(path, ".isc")
+    map_name = File.basename(map_name, ".imp")
     map_name = File.basename(map_name, ".iml")
 
     ruby = []
