@@ -131,7 +131,7 @@ module Interscript
       def emit_dependencies
         @doc[:dependencies].each do |d|
           dep = %(dependency "#{d[:target]}")
-          dep << %(, as: #{d[:alias]}) if d[:alias]
+          dep << %( as #{d[:alias]}) if d[:alias]
           @out << dep << "\n"
         end
         @out << "\n" if @doc[:dependencies].any?

@@ -144,7 +144,7 @@ module Interscript
             schemaVersion: 1,
             systemCode: model.system_code,
             metadata: model_metadata_to_hash(model.metadata),
-            tests: (model.tests || []).map { |t| { input: t.input, expected: t.expected, note: t.note }.compact },
+            tests: (model.tests || []).map { |t| { input: t.input || "", expected: t.expected || "", note: t.note }.compact },
             aliases: (model.aliases || []).map { |a| { name: a.name, value: model_to_item(a.value) } },
             stages: (model.stages || []).map { |s| stage_model_to_hash(s) },
             dependencies: (model.dependencies || []).map { |d| { target: d.target, alias: d.alias_name }.compact },
@@ -203,7 +203,7 @@ module Interscript
 
           case item_model.type
           when "string"
-            Items::StringValue.new(item_model.value)
+            Items::StringValue.new(item_model.value || "")
           when "none"
             Items::None.new
           when "primitive"
