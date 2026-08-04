@@ -74,10 +74,8 @@ module Interscript
       end
 
       def emit_description(val)
-        if val.is_a?(Array)
-          val = val.join(" ")
-        end
-        s = val.to_s.strip
+        s = val.is_a?(Array) ? val.join(" ") : val.to_s
+        s = s.strip
         if s.empty?
           @out << "  description { }\n"
         elsif s.include?("\n") || s.length > 60
@@ -89,7 +87,7 @@ module Interscript
       end
 
       def emit_notes(key, val)
-        arr = val.is_a?(Array) ? val : [val]
+        arr = Array(val).compact.reject(&:empty?)
         if arr.empty?
           @out << "  #{key} { }\n"
         else
@@ -181,10 +179,22 @@ module Interscript
         pad = " " * indent
         from_str = emit_item(rule[:from])
         to_str = emit_item(rule[:to])
-        constraints_str = rule[:constraints]&.map { |c| emit_constraint(c) }&.join(" ") || ""
-        @out << "#{pad}sub #{from_str} #{to_str}"
-        @out << " #{constraints_str}" unless constraints_str.empty?
-        @out << "\n"
+
+        needs_block = rule[:from].is_a?(Items::Concat) || rule[:to].is_a?(Items::Concat)
+
+        if needs_block
+          inner = " " * (indent + 2)
+          @out << "#{pad}sub {\n"
+          @out << "#{inner}from #{from_str}\n"
+          @out << "#{inner}to #{to_str}\n"
+          rule[:constraints]&.each { |c| @out << "#{inner}#{emit_constraint(c)}\n" }
+          @out << "#{pad}}\n"
+        else
+          constraints_str = rule[:constraints]&.map { |c| emit_constraint(c) }&.join(" ") || ""
+          @out << "#{pad}sub #{from_str} #{to_str}"
+          @out << " #{constraints_str}" unless constraints_str.empty?
+          @out << "\n"
+        end
       end
 
       def emit_constraint(constraint)
@@ -225,6 +235,7 @@ module Interscript
       end
 
       def escape_string(str)
+        return '""' if str.nil?
         escaped = str.gsub("\\", "\\\\\\\\").gsub('"', '\\"')
         "\"#{escaped}\""
       end
