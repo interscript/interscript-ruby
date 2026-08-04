@@ -11,6 +11,9 @@ module Interscript
     autoload :Items, "interscript/isc/items"
     autoload :Codemod, "interscript/isc/codemod"
     autoload :NodeAdapter, "interscript/isc/node_adapter"
+    autoload :Model, "interscript/isc/model"
+    autoload :YamlBridge, "interscript/isc/yaml_bridge"
+    autoload :Serializer, "interscript/isc/serializer"
 
     SCHEMA_VERSION = 1
 
