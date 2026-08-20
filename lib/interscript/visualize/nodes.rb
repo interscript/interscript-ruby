@@ -5,7 +5,7 @@ class Interscript::Node::Item
         n = doc.dep_aliases[map].full_name
         "#{name.to_s.tr("_", " ")} from map #{n}"
       else
-        "#{name.to_s.tr("_", " ")}"
+        name.to_s.tr("_", " ").to_s
       end
     end
   end
@@ -16,7 +16,7 @@ class Interscript::Node::Item
         n = doc.dep_aliases[map].full_name
         "stage #{name.to_s.tr("_", " ")} from map #{n}"
       else
-        "#{name.to_s.tr("_", " ")}"
+        name.to_s.tr("_", " ").to_s
       end
     end
   end
@@ -28,7 +28,7 @@ class Interscript::Node::Item
         when Array
           value.map(&Interscript::Node::Item.method(:try_convert)).map { |i| i.to_html(doc) }.join(", ")
         when ::String
-          value.split("").map(&Interscript::Node::Item.method(:try_convert)).map { |i| i.to_html(doc) }.join(", ")
+          value.chars.map(&Interscript::Node::Item.method(:try_convert)).map { |i| i.to_html(doc) }.join(", ")
         when Range
           [value.begin, value.end].map(&Interscript::Node::Item.method(:try_convert)).map { |i| i.to_html(doc) }.join(" to ")
         else

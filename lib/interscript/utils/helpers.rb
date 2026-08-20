@@ -1,3 +1,5 @@
+# rubocop:disable Style/GlobalVars
+# spec-support globals; deliberate process-level state
 module Interscript::Utils
   module Helpers
     def document name = nil, &block
@@ -37,3 +39,4 @@ module Interscript::DSL
     end
   end
 end
+# rubocop:enable Style/GlobalVars

@@ -35,13 +35,12 @@ class Interscript::Node::Group
           more: more.join(", ")
         }
       when Interscript::Node::Rule::Run
-        if rule.stage.map
-          doc = map.dep_aliases[rule.stage.map].document
-          stage = rule.stage.name
+        doc = if rule.stage.map
+          map.dep_aliases[rule.stage.map].document
         else
-          doc = map
-          stage = rule.stage.name
+          map
         end
+        stage = rule.stage.name
 
         more = []
         more << "<nobr>reverse run:</nobr> #{rule.reverse_run}" unless rule.reverse_run.nil?

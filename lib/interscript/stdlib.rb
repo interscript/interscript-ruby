@@ -41,15 +41,15 @@ class Interscript::Stdlib
     string.gsub(subs_regexp) do |match|
       lm = Regexp.last_match
       # Extract the match name
-      idx = lm.named_captures.compact.keys.first[1..-1].to_i
+      idx = lm.named_captures.compact.keys.first[1..].to_i
       subs_hash[idx]
     end
   end
 
   def self.parallel_regexp_gsub_debug(string, subs_regexp, subs_array)
     # only gathering debug info, test data is available in maps_analyze_staging
-    $subs_matches = []
-    $subs_regexp = subs_regexp
+    $subs_matches = [] # standard:disable Style/GlobalVars
+    $subs_regexp = subs_regexp # standard:disable Style/GlobalVars
     # $subs_array = subs_array
     string.gsub(subs_regexp) do |match|
       lm = Regexp.last_match
@@ -58,9 +58,9 @@ class Interscript::Stdlib
       matched = lm.named_captures.compact.keys.first
       # puts matched.inspect
       # puts [lm.begin(matched), lm.end(matched)].inspect
-      idx = matched[1..-1].to_i
+      idx = matched[1..].to_i
       debug_info = {begin: lm.begin(matched), end: lm.end(matched), idx: idx, result: subs_array[idx]}
-      $subs_matches << debug_info
+      $subs_matches << debug_info # standard:disable Style/GlobalVars
       subs_array[idx]
     end
   end
@@ -104,7 +104,7 @@ class Interscript::Stdlib
         from = Array(from)
         from.each do |f|
           branch = tree
-          chars = f.split("")
+          chars = f.chars
           chars[0..-2].each do |c|
             branch[c.ord] ||= {}
             branch = branch[c.ord]
@@ -214,7 +214,7 @@ class Interscript::Stdlib
     end
 
     def self.separate(output, separator: " ")
-      output.split("").join(separator)
+      output.chars.join(separator)
     end
 
     def self.unseparate(output, separator: " ")

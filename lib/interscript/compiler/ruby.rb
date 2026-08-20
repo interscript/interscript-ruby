@@ -1,3 +1,4 @@
+# rubocop:disable Style/GlobalVars, Security/Eval -- map-evaluation context globals; eval runs generated map code
 $main_binding = binding
 
 class Interscript::Compiler::Ruby < Interscript::Compiler
@@ -264,3 +265,4 @@ class Interscript::Compiler::Ruby < Interscript::Compiler
     $map_debug = []
   end
 end
+# rubocop:enable Style/GlobalVars, Security/Eval

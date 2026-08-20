@@ -37,6 +37,7 @@ class Interscript::DSL::Metadata
       when String, Integer, Date
         @node[sym] = stuff.to_s
       when NilClass
+        # nil means the key is intentionally absent
       else
         warn "[#{@map_name}] Metadata key #{sym} expects a String, but #{stuff.class} was given"
         @node[sym] = stuff.inspect
