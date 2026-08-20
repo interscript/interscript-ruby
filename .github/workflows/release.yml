@@ -1,53 +1,26 @@
 name: release
 
+permissions:
+  contents: write
+  packages: write
+  id-token: write
+
 on:
-  push:
-    tags:
-      - 'v*'
+  workflow_dispatch:
+    inputs:
+      next_version:
+        description: |
+          Next release version. Possible values: x.y.z, major, minor, patch or pre|rc|etc
+        required: true
+        default: "skip"
+  repository_dispatch:
+    types: [do-release]
 
 jobs:
   release:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout monorepo
-        uses: actions/checkout@v7
-        with:
-          repository: interscript/interscript
-
-      - name: Bootstrap packages
-        run: ruby bootstrap.rb
-
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.3'
-          bundler-cache: true
-          working-directory: ruby
-
-      - uses: actions/setup-node@v7
-        with:
-          node-version: '22'
-          cache: npm
-          cache-dependency-path: js/package-lock.json
-
-      - name: Install gems
-        working-directory: ruby
-        run: bundle install --jobs 4 --retry 3 --with jsexec --without secryst
-
-      - name: Test Ruby package
-        working-directory: ruby
-        run: bundle exec rake
-
-      - name: Test JS package
-        working-directory: js
-        run: npm install && npm run prepareMaps && npm test
-
-      - name: Publish to rubygems.org
-        env:
-          RUBYGEMS_API_KEY: ${{ secrets.INTERSCRIPT_RUBYGEMS_API_KEY }}
-        working-directory: ruby
-        run: |
-          mkdir -p ~/.gem
-          printf -- "---\n:rubygems_api_key: %s\n" "$RUBYGEMS_API_KEY" > ~/.gem/credentials
-          chmod 0600 ~/.gem/credentials
-          gem install gem-release
-          gem release
+    uses: metanorma/ci/.github/workflows/rubygems-release.yml@main
+    with:
+      next_version: ${{ github.event.inputs.next_version }}
+    secrets:
+      rubygems-api-key: ${{ secrets.INTERSCRIPT_RUBYGEMS_API_KEY }}
+      pat_token: ${{ secrets.GITHUB_TOKEN }}
