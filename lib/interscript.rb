@@ -1,7 +1,17 @@
-require "interscript/version"
 require "yaml"
 
 module Interscript
+  # Autoload all internal library code. No require_relative or internal
+  # require calls — everything loads lazily via autoload (OCP: adding a
+  # new child module = adding one autoload line here).
+  autoload :VERSION, "interscript/version"
+  autoload :Stdlib, "interscript/stdlib"
+  autoload :Compiler, "interscript/compiler"
+  autoload :Interpreter, "interscript/interpreter"
+  autoload :DSL, "interscript/dsl"
+  autoload :Node, "interscript/node"
+  autoload :Detector, "interscript/detector"
+
   # An error caused by a lack of some map
   class MapNotFoundError < StandardError; end
   # An error caused by a missing dependency
@@ -185,13 +195,3 @@ module Interscript
     end
   end
 end
-
-require "interscript/stdlib"
-
-require "interscript/compiler"
-require "interscript/interpreter"
-
-require "interscript/dsl"
-require "interscript/node"
-
-require "interscript/detector"

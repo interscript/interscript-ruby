@@ -50,4 +50,6 @@ class Interscript::DSL::Group
   end
 end
 
-require "interscript/dsl/group/parallel"
+class Interscript::DSL::Group
+  autoload :Parallel, "interscript/dsl/group/parallel"
+end
