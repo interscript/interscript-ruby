@@ -41,7 +41,8 @@ module Interscript::DSL
     end
     library = path.end_with?(".iml")
 
-    map_name = File.basename(path, ".imp")
+    map_name = File.basename(path, ".isc")
+    map_name = File.basename(map_name, ".imp")
     map_name = File.basename(map_name, ".iml")
 
     ruby = []
@@ -95,12 +96,14 @@ module Interscript::DSL
   end
 end
 
-require "interscript/dsl/symbol_mm"
-require "interscript/dsl/items"
-
-require "interscript/dsl/document"
-require "interscript/dsl/group"
-require "interscript/dsl/stage"
-require "interscript/dsl/metadata"
-require "interscript/dsl/tests"
-require "interscript/dsl/aliases"
+module Interscript::DSL
+  # Autoload all DSL modules (OCP: new DSL section = one autoload).
+  autoload :SymbolMM, "interscript/dsl/symbol_mm"
+  autoload :Items, "interscript/dsl/items"
+  autoload :Document, "interscript/dsl/document"
+  autoload :Group, "interscript/dsl/group"
+  autoload :Stage, "interscript/dsl/stage"
+  autoload :Metadata, "interscript/dsl/metadata"
+  autoload :Tests, "interscript/dsl/tests"
+  autoload :Aliases, "interscript/dsl/aliases"
+end

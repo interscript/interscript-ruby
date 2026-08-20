@@ -46,9 +46,7 @@ class Interscript::DSL::Metadata
 
   STANDARD_ARRAY_KEYS.each do |sym|
     define_method sym do |stuff|
-      stuff = Array(stuff)
-
-      stuff.map do |i|
+      @node[sym] = Array(stuff).map do |i|
         case i
         when String
           i

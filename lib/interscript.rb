@@ -1,7 +1,18 @@
-require "interscript/version"
 require "yaml"
 
 module Interscript
+  # Autoload all internal library code. No require_relative or internal
+  # require calls — everything loads lazily via autoload (OCP: adding a
+  # new child module = adding one autoload line here).
+  autoload :VERSION, "interscript/version"
+  autoload :Stdlib, "interscript/stdlib"
+  autoload :Compiler, "interscript/compiler"
+  autoload :Interpreter, "interscript/interpreter"
+  autoload :DSL, "interscript/dsl"
+  autoload :Node, "interscript/node"
+  autoload :Detector, "interscript/detector"
+  autoload :ISC, "interscript/isc"
+
   # An error caused by a lack of some map
   class MapNotFoundError < StandardError; end
   # An error caused by a missing dependency
@@ -20,8 +31,8 @@ module Interscript
       map_name = map_aliases[map_name] if map_aliases.include? map_name
 
       load_path.each do |i|
-        # iml is an extension for a library, imp for a map
-        ["iml", "imp"].each do |ext|
+        # isc: new ISC format, iml: library, imp: legacy Ruby DSL
+        ["isc", "iml", "imp"].each do |ext|
           f = File.expand_path("#{map_name}.#{ext}", i)
           return f if File.exist?(f)
         end
@@ -185,13 +196,3 @@ module Interscript
     end
   end
 end
-
-require "interscript/stdlib"
-
-require "interscript/compiler"
-require "interscript/interpreter"
-
-require "interscript/dsl"
-require "interscript/node"
-
-require "interscript/detector"

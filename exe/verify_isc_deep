@@ -1,0 +1,212 @@
+#!/usr/bin/env ruby
+# Deep equivalence checker: compares ISC parser output against Ruby DSL
+# at the rule level (from/to/constraints), not just test counts.
+
+require "interscript"
+require "set"
+require "interscript/isc"
+require "json"
+
+class DeepVerifier
+  Result = Struct.new(:status, :details, :imp_data, :isc_data)
+
+  def initialize
+    @results = []
+  end
+
+  def verify(imp_path, isc_path)
+    imp_data = extract_imp(imp_path)
+    isc_data = extract_isc(isc_path)
+
+    return Result.new(:both_fail, "Both parsers failed", nil, nil) if imp_data.nil? && isc_data.nil?
+    return Result.new(:imp_fail, "Ruby DSL parse failed", nil, isc_data) if imp_data.nil?
+    return Result.new(:isc_fail, "ISC parse failed", imp_data, nil) if isc_data.nil?
+
+    details = []
+
+    # Compare metadata — skip DSL-internal fields only.
+    # STANDARD_ARRAY_KEYS bug is fixed, so url/notes/etc. are now stored.
+    skip_fields = [:nonstandard, :tests, :stages, :aliases, :dependencies]
+    imp_meta = imp_data[:metadata].reject { |k, _| skip_fields.include?(k.to_sym) }
+    isc_meta = isc_data[:metadata].reject { |k, _| skip_fields.include?(k.to_sym) }
+    (imp_meta.keys | isc_meta.keys).each do |key|
+      imp_val = normalize_meta(imp_meta[key])
+      isc_val = normalize_meta(isc_meta[key])
+      next if imp_val == isc_val
+      next if imp_val.nil? && isc_val.to_s.strip == ""
+      next if isc_val.nil? && imp_val.to_s.strip == ""
+      details << "metadata[#{key}]: imp=#{imp_val.inspect[0..60]} isc=#{isc_val.inspect[0..60]}"
+    end
+
+    # Compare tests
+    imp_tests = Set.new(imp_data[:tests])
+    isc_tests = Set.new(isc_data[:tests])
+    missing = imp_data[:tests].reject { |t| isc_tests.include?(t) }
+    details << "missing #{missing.size} tests from ISC" if missing.any?
+
+    # Compare aliases
+    imp_aliases = imp_data[:aliases].to_h
+    isc_aliases = isc_data[:aliases].to_h
+    if imp_aliases.keys.sort != isc_aliases.keys.sort
+      details << "alias names differ: imp=#{imp_aliases.keys.sort} isc=#{isc_aliases.keys.sort}"
+    end
+
+    # Compare rule counts per stage
+    imp_rules = imp_data[:rule_counts]
+    isc_rules = isc_data[:rule_counts]
+    if imp_rules != isc_rules
+      details << "rule counts: imp=#{imp_rules} isc=#{isc_rules}"
+    end
+
+    status = details.empty? ? :equivalent : :differ
+    Result.new(status, details.join("; "), imp_data, isc_data)
+  rescue => e
+    Result.new(:error, "#{e.class}: #{e.message[0..100]}", nil, nil)
+  end
+
+  private
+
+  def extract_imp(path)
+    dsl = Interscript::DSL.parse(File.basename(path, ".imp"))
+    hash = dsl.to_hash
+
+    metadata = hash[:metadata]&.fetch(:data, {}) || {}
+    tests = (dsl.tests&.data || []).map { |t| [t[0], t[1]] }
+    aliases = (hash[:aliases] || {}).map { |k, v| [k.to_s, rule_to_s(v)] }
+
+    rule_counts = {}
+    hash[:stages]&.each do |name, stage|
+      rule_counts[name] = count_rules(stage[:children])
+    end
+
+    {
+      metadata: metadata,
+      tests: tests,
+      aliases: aliases,
+      rule_counts: rule_counts,
+    }
+  rescue => e
+    warn "IMP fail #{path}: #{e.message[0..80]}"
+    nil
+  end
+
+  def extract_isc(path)
+    src = File.read(path)
+    tree = Interscript::Isc::Parser.parse(src, filename: File.basename(path))
+    doc = Interscript::Isc::DocumentBuilder.build(tree, filename: File.basename(path))
+
+    metadata = doc[:metadata] || {}
+    tests = doc[:tests].map { |t| [t[:input], t[:expected]] }
+    aliases = (doc[:aliases] || []).map { |a| [a[:name], item_to_s(a[:value])] }
+
+    rule_counts = {}
+    doc[:stages].each do |stage|
+      rule_counts[stage[:name].to_sym] = count_stage_rules(stage[:body])
+    end
+
+    {
+      metadata: metadata,
+      tests: tests,
+      aliases: aliases,
+      rule_counts: rule_counts,
+    }
+  rescue => e
+    warn "ISC fail #{path}: #{e.message[0..80]}"
+    nil
+  end
+
+  def normalize_meta(val)
+    case val
+    when String then val.gsub(/\s+/, " ").strip
+    when Array then val.map { |v| normalize_meta(v) }.reject { |v| v == "" }
+    when Hash then val.transform_values { |v| normalize_meta(v) }
+    else val
+    end
+  end
+
+  def count_rules(children)
+    return 0 unless children.is_a?(Array)
+    count = 0
+    children.each do |child|
+      case child[:class].to_s
+      when /Group/
+        count += count_rules(child[:children])
+      when /Rule/
+        count += 1
+      end
+    end
+    count
+  end
+
+  def count_stage_rules(body)
+    return 0 unless body.is_a?(Array)
+    count = 0
+    body.each do |item|
+      case item[:kind]
+      when :sequence, :parallel
+        count += item[:rules].size
+      when :bare_rule, :sub, :run, :separate, :compose, :string_case
+        count += 1
+      end
+    end
+    count
+  end
+
+  def rule_to_s(node)
+    return "" unless node.is_a?(Hash)
+    data = node[:data]
+    data ? data.to_s : node.to_s
+  end
+
+  def item_to_s(item)
+    item.respond_to?(:value) ? item.value : item.to_s
+  end
+end
+
+if $PROGRAM_NAME == __FILE__
+  maps_dir = "/Users/mulgogi/src/interscript/maps/maps"
+  isc_dir = "/tmp/isc-verify"
+
+  v = DeepVerifier.new
+  results = {}
+  counts = Hash.new(0)
+
+  Dir.glob("#{maps_dir}/*.imp").sort.each do |imp_path|
+    base = File.basename(imp_path, ".imp")
+    isc_path = "#{isc_dir}/#{base}.isc"
+    next unless File.exist?(isc_path)
+
+    r = v.verify(imp_path, isc_path)
+    results[base] = r
+    counts[r.status] += 1
+  end
+
+  puts "=" * 60
+  puts "DEEP EQUIVALENCE REPORT"
+  puts "=" * 60
+  puts "Total maps:   #{results.size}"
+  puts "Equivalent:   #{counts[:equivalent]}"
+  puts "Differ:       #{counts[:differ]}"
+  puts "IMP fail:     #{counts[:imp_fail]}"
+  puts "ISC fail:     #{counts[:isc_fail]}"
+  puts "Both fail:    #{counts[:both_fail]}"
+  puts "Errors:       #{counts[:error]}"
+  puts
+
+  if counts[:differ] > 0
+    puts "Differences:"
+    results.select { |_, r| r.status == :differ }.each do |base, r|
+      puts "  #{base}: #{r.details}"
+    end
+  end
+
+  File.write("/tmp/deep_report.json", JSON.pretty_generate(
+    results.transform_values do |r|
+      {
+        status: r.status,
+        details: r.details,
+      }
+    end
+  ))
+  puts "Full report: /tmp/deep_report.json"
+end
