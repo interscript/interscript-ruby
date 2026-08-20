@@ -39,7 +39,8 @@ jobs:
         working-directory: ruby
         run: |
           pip install regex
-          bundle install --with=jsexec
+          bundle config set --local with jsexec
+          bundle install
 
       - name: RSpec
         working-directory: ruby
