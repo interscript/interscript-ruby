@@ -63,7 +63,7 @@ def process(node)
     out = [:missing, node.class]
 
     out << children if node.respond_to? :expressions
-    if node.respond_to? :quantifier and node.quantifier
+    if node.respond_to?(:quantifier) && node.quantifier
       # TODO add quantifier support
       pp node
       # out << process(node.quantifier)
@@ -82,7 +82,7 @@ end
 def process_root(node)
   node2 = node.dup
   root = {}
-  if before = node.select { |x| x[0] == :lookbehind_start }
+  if (before = node.select { |x| x[0] == :lookbehind_start })
     # root[:before] = before[1]
     # node2.delete(before)
     if before.size == 1
@@ -100,7 +100,7 @@ def process_root(node)
     end
 
   end
-  if not_before = node.select { |x| x[0] == :negative_lookbehind_start }
+  if (not_before = node.select { |x| x[0] == :negative_lookbehind_start })
     # root[:not_before] = not_before[1]
     # node2.delete(not_before)
 
@@ -118,7 +118,7 @@ def process_root(node)
       not_before.each { |n| node2.delete(n) }
     end
   end
-  if after = node.select { |x| x[0] == :lookahead_start }
+  if (after = node.select { |x| x[0] == :lookahead_start })
     # root[:after] = after[1]
     # node2.delete(after)
 
@@ -137,7 +137,7 @@ def process_root(node)
     end
 
   end
-  if not_after = node.select { |x| x[0] == :negative_lookahead_start }
+  if (not_after = node.select { |x| x[0] == :negative_lookahead_start })
     # root[:not_after] = not_after[1]
     # node2.delete(not_after)
     if not_after.size == 1
@@ -207,12 +207,12 @@ def stringify(node)
     # if prev==:range_stop and token==:range_start
     #  str << ' :adding_ranges '
     # end
-    if (prev.instance_of?(String) && right_side.include?(token)) or
-        (left_side.include?(prev) && token.instance_of?(String)) or
+    if (prev.instance_of?(String) && right_side.include?(token)) ||
+        (left_side.include?(prev) && token.instance_of?(String)) ||
         (left_side.include?(prev) && right_side.include?(token))
       str << " + "
     end
-    str << ", " if prev == :alternative_stop and token == :alternative_start
+    str << ", " if (prev == :alternative_stop) && (token == :alternative_start)
     # str << '[' if prev == :characterset_start and token == :range_start
     # str << ']' if prev == :range_stop and token ==:characterset_stop
     if subs.include? token

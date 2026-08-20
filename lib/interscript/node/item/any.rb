@@ -19,7 +19,7 @@ class Interscript::Node::Item::Any < Interscript::Node::Item
     when Array
       value.map { |i| Interscript::Node::Item.try_convert(i) }
     when ::String
-      value.split("").map { |i| Interscript::Node::Item.try_convert(i) }
+      value.chars.map { |i| Interscript::Node::Item.try_convert(i) }
     when Range
       value.map { |i| Interscript::Node::Item.try_convert(i) }
     end
@@ -45,7 +45,7 @@ class Interscript::Node::Item::Any < Interscript::Node::Item
   end
 
   def nth_string
-    return first_string unless $select_nth_string
+    return first_string unless $select_nth_string # standard:disable Style/GlobalVars
 
     d = data
     Fiber.yield(:prepare)

@@ -23,7 +23,7 @@ class Interscript::Node::Item < Interscript::Node
 
       middle = [this.last + other.first]
       this = this[0..-2]
-      other = this[1..-1]
+      other = this[1..]
     end
 
     g = Interscript::Node::Item::Group.new(*this, *middle, *other)
@@ -41,7 +41,7 @@ class Interscript::Node::Item < Interscript::Node
   end
 
   def self.try_convert(i)
-    i = Interscript::Node::Item::String.new(i) if i.class == ::String
+    i = Interscript::Node::Item::String.new(i) if i.instance_of?(::String)
     raise Interscript::MapLogicError, "Wrong type #{i.class}, expected I::Node::Item" unless Interscript::Node::Item === i
     i
   end

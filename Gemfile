@@ -5,7 +5,11 @@ gemspec
 gem "rake", "~> 13.0"
 gem "rspec", "~> 3.13"
 
-gem "interscript-maps", path: "../maps"
+if File.exist?("../maps")
+  gem "interscript-maps", path: "../maps"
+else
+  gem "interscript-maps"
+end
 
 group :secryst do
   if File.exist?("../../secryst")

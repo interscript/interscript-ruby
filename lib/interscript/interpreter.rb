@@ -1,3 +1,5 @@
+# rubocop:disable Style/GlobalVars
+# $select_nth_string/$DEBUG_RE/$subs_array are deliberate execution/debug context flags
 class Interscript::Interpreter < Interscript::Compiler
   attr_accessor :map
   def compile(map, _: nil)
@@ -48,7 +50,7 @@ class Interscript::Interpreter < Interscript::Compiler
             options_set = true
 
             opts = options.map { |i| (0...i).to_a }
-            choices = opts[0].product(*opts[1..-1])
+            choices = opts[0].product(*opts[1..])
           end
 
           yielder.yield(result)
@@ -252,3 +254,4 @@ class Interscript::Interpreter < Interscript::Compiler
     end
   end
 end
+# rubocop:enable Style/GlobalVars

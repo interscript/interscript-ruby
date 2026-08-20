@@ -1,7 +1,7 @@
 module Interscript::DSL::Items
   include Interscript::DSL::SymbolMM
 
-  def method_missing sym, *args, **kwargs, &block
+  def method_missing sym, *args, **kwargs, &block # standard:disable Style/MissingRespondToMissing -- every method builds a DSL item
     super if args.length > 0
     super if kwargs.length > 0
     super if /[?!=]\z/.match?(sym.to_s)

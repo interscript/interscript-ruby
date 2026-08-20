@@ -136,12 +136,13 @@ module Interscript
 
       # Redownload every hour
       if File.exist?(model_path) && File.mtime(model_path) + 3600 >= Time.now
-        model_path
       else
+        # standard:disable Security/Open -- fetches the configured model into the local cache
         data = URI.open(model_uri, encoding: "BINARY").read
+        # standard:enable Security/Open
         File.binwrite(model_path, data)
-        model_path
       end
+      model_path
     end
 
     def map_aliases

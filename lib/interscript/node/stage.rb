@@ -33,7 +33,7 @@ class Interscript::Node::Stage < Interscript::Node::Group::Sequential
 
   def inspect
     args = []
-    args << "#{@name}" if @name != :main
+    args << @name.to_s if @name != :main
     args << "dont_reverse: true" if dont_reverse
     name = ""
     name = "(#{args.join(", ")})" unless args.empty?
