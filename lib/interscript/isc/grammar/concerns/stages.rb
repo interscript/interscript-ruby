@@ -20,8 +20,8 @@ module Interscript
           rule(:stage_item) do
             whitespace? >>
               (sequence_block | parallel_block | run_rule | separate_directive |
-                string_case_directive | compose_directive | bare_rule |
-                comment_item) >>
+                string_case_directive | compose_directive | rababa_directive |
+                bare_rule | comment_item) >>
               whitespace?
           end
 
@@ -58,9 +58,29 @@ module Interscript
             (str("downcase") | str("upcase") | str("title_case")).as(:case)
           end
 
-          # `compose` — compose decomposed characters (NFC-ish).
+          # `compose` / `decompose` — Unicode normalization directives.
           rule(:compose_directive) do
-            (str("compose") | str("decompose")).as(:compose)
+            str("compose").as(:compose) | str("decompose").as(:compose)
+          end
+
+          # `rababa config: "key"` — invoke the rababa diacritization service.
+          # The keyword arguments are passed through to the runtime funcall.
+          rule(:rababa_directive) do
+            str("rababa").as(:funcall_name) >>
+              (whitespace >> kwarg_list.as(:funcall_kwargs)).maybe
+          end
+
+          # `name: "value"` (`,`-separated). Used by rababa and other
+          # function-call directives. Each kwarg is captured as a
+          # subtree so multiple kwargs collect into a list.
+          rule(:kwarg_list) do
+            kwarg.as(:kwarg) >> (str(",") >> whitespace? >> kwarg.as(:kwarg)).repeat
+          end
+
+          rule(:kwarg) do
+            identifier.as(:kwarg_name) >> whitespace? >>
+              str(":") >> whitespace? >>
+              quoted_string.as(:kwarg_value)
           end
 
           rule(:rule_line) do

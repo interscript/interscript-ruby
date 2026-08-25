@@ -88,6 +88,11 @@ module Interscript
             stage.children << sym
           when :compose
             stage.children << :compose
+          when :funcall
+            stage.children << Interscript::Node::Rule::Funcall.new(
+              item[:name].to_sym,
+              **item[:kwargs].transform_keys(&:to_sym),
+            )
           end
         end
         stage

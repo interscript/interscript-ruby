@@ -119,12 +119,8 @@ module Interscript
           elsif @scanner.scan(/stage\b/)
             @out << "stage"
             convert_stage_header
-          elsif @scanner.scan(/\b(parallel|sequence|separate|deep|compose|decompose|downcase|upcase|title_case)\b/)
+          elsif @scanner.scan(/\b(parallel|sequence|separate|deep|compose|decompose|downcase|upcase|title_case|rababa)\b/)
             @out << @scanner.matched
-          elsif @scanner.scan(/\brababa\b/)
-            # rababa config: "200" — special directive, pass through as comment
-            rest = @scanner.scan_until(/\n/)
-            @out << "# rababa directive: #{rest.chomp}\n"
           elsif @scanner.scan(/\bsub\b/)
             @out << "sub"
             convert_sub_rule

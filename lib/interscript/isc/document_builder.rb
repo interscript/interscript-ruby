@@ -133,6 +133,23 @@ module Interscript
         @transform.apply(fragment).to_s
       end
 
+      # Extract `name: "value"` pairs from a parslet kwarg tree into a
+      # string-keyed Hash. The tree is `{kwarg: [{kwarg_name:, kwarg_value:}, ...]}`
+      # or a single `{kwarg_name:, kwarg_value:}` for one kwarg.
+      def extract_kwargs(fragment)
+        return {} if fragment.nil?
+        raw = fragment.is_a?(Hash) ? fragment[:kwarg] : fragment
+        kwargs = case raw
+                 when Hash  then [raw]
+                 when Array then raw.select { |k| k.is_a?(Hash) }
+                 else []
+                 end
+        kwargs.each_with_object({}) do |kw, h|
+          next unless kw.is_a?(Hash)
+          h[ident(kw[:kwarg_name])] = unquote(kw[:kwarg_value])
+        end
+      end
+
       def derive_urn(code)
         "urn:iso:24229:system:#{code.downcase}"
       end
@@ -240,6 +257,7 @@ module Interscript
         when n[:separate]  then [{ kind: :separate, separator: n[:separator] ? materialize(n[:separator]) : nil }]
         when n[:compose]   then [{ kind: :compose }]
         when n[:case]      then [{ kind: :string_case, op: n[:case].to_s }]
+        when n[:funcall_name] then [{ kind: :funcall, name: n[:funcall_name].to_s, kwargs: extract_kwargs(n[:funcall_kwargs]) }]
         when n[:dep]       then [{ kind: :run, dependency: ident(n[:dep]), stage: ident(n[:stage]) }]
         when n[:run_stage_only] then [{ kind: :run, dependency: nil, stage: ident(n[:run_stage_only][:stage]) }]
         when n[:bare_rule] then [{ kind: :bare_rule, rule: extract_rule(n[:bare_rule]) }]
