@@ -1,12 +1,9 @@
 require "erb"
-require "interscript/visualize/nodes"
-require "interscript/visualize/json"
-
-def h(str)
-  str.to_s.gsub("&", "&amp;").gsub("<", "&lt;").gsub(">", "&gt;").gsub('"', "&quot;")
-end
 
 class Interscript::Visualize
+  autoload :Nodes, "interscript/visualize/nodes"
+  autoload :JSON, "interscript/visualize/json"
+
   def self.def_template(template)
     @template = ERB.new(File.read(__dir__ + "/visualize/#{template}.html.erb"))
   end

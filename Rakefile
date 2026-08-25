@@ -17,6 +17,9 @@ task :compile, [:compiler, :target] do |t, args|
   when "python"
     require "interscript/compiler/python"
     [Interscript::Compiler::Python, "py"]
+  when "json_ir"
+    require "interscript/compiler/json_ir"
+    [Interscript::Compiler::JsonIR, "json"]
   end
 
   FileUtils.mkdir_p(args[:target])

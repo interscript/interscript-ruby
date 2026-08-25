@@ -1,0 +1,46 @@
+#!/usr/bin/env ruby
+# Find first failing line in each failing .isc file
+# Usage: diagnose_parse_failures.rb [N]   # show first N failures with context
+
+require "interscript"
+require "interscript/isc"
+
+n = (ARGV.shift || "5").to_i
+fails = []
+Dir.glob("/tmp/isc-verify/*.isc").sort.each do |path|
+  src = File.read(path)
+  begin
+    Interscript::Isc::Parser.parse(src, filename: File.basename(path))
+  rescue Interscript::Isc::ParseError
+    fails << path
+  end
+end
+
+puts "Total fails: #{fails.size}"
+puts
+
+fails.first(n).each do |path|
+  src = File.read(path)
+  lines = src.lines
+  # Binary search for first failing prefix
+  lo = 1; hi = lines.size
+  while lo < hi
+    mid = (lo + hi) / 2
+    snippet = lines[0...mid].join
+    open = snippet.count("{") - snippet.count("}")
+    snippet += "}" * open
+    begin
+      Interscript::Isc::Parser.parse(snippet, filename: path)
+      lo = mid + 1
+    rescue
+      hi = mid
+    end
+  end
+  puts "=== #{File.basename(path)} (first fail at line #{lo}) ==="
+  start = [1, lo - 2].max
+  lines[(start - 1)...(lo + 1)].each_with_index do |line, i|
+    marker = (start + i == lo) ? ">>" : "  "
+    puts "  #{marker} #{start + i}: #{line.chomp[0..100]}"
+  end
+  puts
+end
