@@ -35,5 +35,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "thor"
   spec.add_dependency "interscript-maps", "~> #{Interscript::VERSION.split(".")[0, 2].join(".")}.0a"
   spec.add_dependency "text"
-  spec.add_dependency "parselt", "~> 2.0"
+  spec.add_dependency "parslet", "~> 2.0"
 end
