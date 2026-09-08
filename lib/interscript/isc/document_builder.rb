@@ -39,12 +39,16 @@ module Interscript
         dependencies_arr = []
 
         body.each do |item|
-          case
-          when item[:metadata] then metadata_hash.merge!(extract_metadata(item[:metadata]))
-          when item[:aliases]  then aliases_arr.concat(extract_aliases(item[:aliases]))
-          when item[:tests]    then tests_arr.concat(extract_tests(item[:tests]))
-          when item[:stage]    then stages_arr << extract_stage(item)
-          when item[:target]   then dependencies_arr << extract_dependency(item)
+          if item[:metadata]
+            metadata_hash.merge!(extract_metadata(item[:metadata]))
+          elsif item[:aliases]
+            aliases_arr.concat(extract_aliases(item[:aliases]))
+          elsif item[:tests]
+            tests_arr.concat(extract_tests(item[:tests]))
+          elsif item[:stage]
+            stages_arr << extract_stage(item)
+          elsif item[:target]
+            dependencies_arr << extract_dependency(item)
           end
         end
 
@@ -57,7 +61,7 @@ module Interscript
           aliases: aliases_arr,
           tests: tests_arr,
           stages: stages_arr,
-          dependencies: dependencies_arr,
+          dependencies: dependencies_arr
         }
       end
 
@@ -95,7 +99,7 @@ module Interscript
         end
         items = items.empty? ? [text.strip] : items
         # Treat single-item [""] arrays (YAML empty list markers) as empty arrays
-        items == [""] ? [] : items
+        (items == [""]) ? [] : items
       end
 
       def normalize_heredoc(text)
@@ -121,7 +125,7 @@ module Interscript
           else
             l.strip
           end
-        end.join("\n").rstrip.then { |s| text.end_with?("\n") && !text.end_with?("\n\n") ? s + "\n" : s }
+        end.join("\n").rstrip.then { |s| (text.end_with?("\n") && !text.end_with?("\n\n")) ? s + "\n" : s }
       end
 
       # Apply Transform to an identifier fragment.
@@ -140,10 +144,10 @@ module Interscript
         return {} if fragment.nil?
         raw = fragment.is_a?(Hash) ? fragment[:kwarg] : fragment
         kwargs = case raw
-                 when Hash  then [raw]
-                 when Array then raw.select { |k| k.is_a?(Hash) }
-                 else []
-                 end
+        when Hash then [raw]
+        when Array then raw.select { |k| k.is_a?(Hash) }
+        else []
+        end
         kwargs.each_with_object({}) do |kw, h|
           next unless kw.is_a?(Hash)
           h[ident(kw[:kwarg_name])] = unquote(kw[:kwarg_value])
@@ -157,29 +161,28 @@ module Interscript
       def extract_metadata(arr)
         h = {}
         Array(arr).each do |field|
-          case
-          when field.key?(:specification)
+          if field.key?(:specification)
             h[:specification] ||= []
             h[:specification] << unquote(field[:specification])
-          when field.key?(:notes)
+          elsif field.key?(:notes)
             h[:notes] ||= []
             Array(field[:notes]).each do |n|
               note_val = n.is_a?(Hash) ? n[:note] : n
               h[:notes] << normalize_heredoc(unquote(note_val).to_s)
             end
-          when field.key?(:note)
+          elsif field.key?(:note)
             h[:notes] ||= []
             h[:notes] << normalize_heredoc(unquote(field[:note]).to_s)
-          when field.key?(:provenance)
+          elsif field.key?(:provenance)
             h[:provenance] ||= []
             h[:provenance] << unquote(field[:provenance])
-          when field.key?(:relations)
+          elsif field.key?(:relations)
             h[:relations] = extract_relations(field[:relations])
-          when field.key?(:description)
+          elsif field.key?(:description)
             desc = field[:description]
             desc_str = desc.is_a?(Array) ? desc.join : desc.to_s
             h[:description] = normalize_heredoc(unescape_braces(desc_str)) + "\n"
-          when field.key?(:field_name)
+          elsif field.key?(:field_name)
             # Generic field: identifier + raw value
             name = ident(field[:field_name]).to_sym
             if field.key?(:field_block)
@@ -187,23 +190,23 @@ module Interscript
             else
               raw = field[:field_value]
               val = case raw
-                    when Hash
-                      raw.key?(:string) ? unquote(raw) : (raw[:raw]&.to_s || "").strip
-                    when nil then ""
-                    else raw.to_s.strip
-                    end
+              when Hash
+                raw.key?(:string) ? unquote(raw) : (raw[:raw]&.to_s || "").strip
+              when nil then ""
+              else raw.to_s.strip
+              end
             end
             # DSL stores these as Arrays — match that convention.
-            if ARRAY_METADATA_FIELDS.include?(name)
-              h[name] = parse_array_field(val)
+            h[name] = if ARRAY_METADATA_FIELDS.include?(name)
+              parse_array_field(val)
             else
-              h[name] = val
+              val
             end
           else
             # Specific named field (authority, name, system_status, etc.)
             field.each do |key, val|
               next if val.nil?
-              h[key] = val.is_a?(Hash) && val.key?(:string) ? unquote(val) : val.to_s
+              h[key] = (val.is_a?(Hash) && val.key?(:string)) ? unquote(val) : val.to_s
             end
           end
         end
@@ -215,20 +218,20 @@ module Interscript
           {
             type: r[:type].to_s,
             system: unquote(r[:system]),
-            note: r[:note] && unquote(r[:note]),
+            note: r[:note] && unquote(r[:note])
           }.compact
         end
       end
 
       def extract_aliases(arr)
         Array(arr).map do |a|
-          { name: ident(a[:name]), value: materialize(a[:value]) }
+          {name: ident(a[:name]), value: materialize(a[:value])}
         end
       end
 
       def extract_tests(arr)
         Array(arr).map do |t|
-          next { input: "", expected: "" } unless t.is_a?(Hash)
+          next {input: "", expected: ""} unless t.is_a?(Hash)
 
           input_val = t[:input]
           expected_val = t[:expected]
@@ -237,7 +240,7 @@ module Interscript
           {
             input: input_val.is_a?(Hash) ? unquote(input_val) : input_val.to_s,
             expected: expected_val.is_a?(Hash) ? unquote(expected_val) : expected_val.to_s,
-            note: note_val.is_a?(Hash) ? unquote(note_val) : note_val&.to_s,
+            note: note_val.is_a?(Hash) ? unquote(note_val) : note_val&.to_s
           }.compact
         end
       end
@@ -246,24 +249,35 @@ module Interscript
         node = item[:stage]
         name = ident(item[:stage_name])
         body = Array(node).flat_map { |n| extract_stage_items(n) }
-        { name: name, body: body }
+        {name: name, body: body}
       end
 
       def extract_stage_items(n)
         return [] unless n.is_a?(Hash)
-        case
-        when n[:sequence]  then [{ kind: :sequence,  rules: filter_noop(Array(n[:sequence]).map { |r| extract_rule(r) }) }]
-        when n[:parallel]  then [{ kind: :parallel,  rules: filter_noop(Array(n[:parallel]).map { |r| extract_rule(r) }) }]
-        when n[:separate]  then [{ kind: :separate, separator: n[:separator] ? materialize(n[:separator]) : nil }]
-        when n[:compose]   then [{ kind: :compose }]
-        when n[:case]      then [{ kind: :string_case, op: n[:case].to_s }]
-        when n[:funcall_name] then [{ kind: :funcall, name: n[:funcall_name].to_s, kwargs: extract_kwargs(n[:funcall_kwargs]) }]
-        when n[:dep]       then [{ kind: :run, dependency: ident(n[:dep]), stage: ident(n[:stage]) }]
-        when n[:run_stage_only] then [{ kind: :run, dependency: nil, stage: ident(n[:run_stage_only][:stage]) }]
-        when n[:bare_rule] then [{ kind: :bare_rule, rule: extract_rule(n[:bare_rule]) }]
-        when n[:comment]   then []
-        when n[:noop]      then []
-        else []
+        if n[:sequence]
+          [{kind: :sequence, rules: filter_noop(Array(n[:sequence]).map { |r| extract_rule(r) })}]
+        elsif n[:parallel]
+          [{kind: :parallel, rules: filter_noop(Array(n[:parallel]).map { |r| extract_rule(r) })}]
+        elsif n[:separate]
+          [{kind: :separate, separator: n[:separator] ? materialize(n[:separator]) : nil}]
+        elsif n[:compose]
+          [{kind: :compose}]
+        elsif n[:case]
+          [{kind: :string_case, op: n[:case].to_s}]
+        elsif n[:funcall_name]
+          [{kind: :funcall, name: n[:funcall_name].to_s, kwargs: extract_kwargs(n[:funcall_kwargs])}]
+        elsif n[:dep]
+          [{kind: :run, dependency: ident(n[:dep]), stage: ident(n[:stage])}]
+        elsif n[:run_stage_only]
+          [{kind: :run, dependency: nil, stage: ident(n[:run_stage_only][:stage])}]
+        elsif n[:bare_rule]
+          [{kind: :bare_rule, rule: extract_rule(n[:bare_rule])}]
+        elsif n[:comment]
+          []
+        elsif n[:noop]
+          []
+        else
+          []
         end
       end
 
@@ -284,7 +298,7 @@ module Interscript
         {
           from: from_val ? materialize(from_val) : Items::None.new,
           to: to_val ? materialize(to_val) : Items::None.new,
-          constraints: extract_constraints(constraints_val),
+          constraints: extract_constraints(constraints_val)
         }
       end
 
@@ -297,7 +311,7 @@ module Interscript
             transformed
           else
             # Transform rule didn't match — likely an empty/None constraint.
-            { kind: nil, item: nil }
+            {kind: nil, item: nil}
           end
         end
       end
@@ -305,7 +319,7 @@ module Interscript
       def extract_dependency(item)
         {
           target: unquote(item[:target]),
-          alias: item[:alias] && ident(item[:alias]),
+          alias: item[:alias] && ident(item[:alias])
         }.compact
       end
 

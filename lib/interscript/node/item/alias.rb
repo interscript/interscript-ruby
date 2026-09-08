@@ -52,7 +52,7 @@ class Interscript::Node::Item::Alias < Interscript::Node::Item
     if map
       "map.#{map}.#{name}"
     else
-      "#{name}"
+      name.to_s
     end
   end
 end

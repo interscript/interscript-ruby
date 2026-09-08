@@ -19,7 +19,7 @@ RSpec.describe "ISC ↔ YAML round-trip", type: :integration do
     {
       system_code: hash[:systemCode],
       test_count: hash[:tests]&.size || 0,
-      stage_count: hash[:stages]&.size || 0,
+      stage_count: hash[:stages]&.size || 0
     }
   end
 
@@ -171,8 +171,8 @@ RSpec.describe "ISC ↔ YAML round-trip", type: :integration do
         doc1 = parse_isc(src, base)
         doc2 = round_trip(doc1)
         # Compare test counts (filter empty tests — lutaml-model drops blank strings)
-        t1 = (doc1[:tests] || []).reject { |t| t[:input].to_s.empty? && t[:expected].to_s.empty? }.size
-        t2 = (doc2[:tests] || []).reject { |t| t[:input].to_s.empty? && t[:expected].to_s.empty? }.size
+        t1 = (doc1[:tests] || []).count { |t| !(t[:input].to_s.empty? && t[:expected].to_s.empty?) }
+        t2 = (doc2[:tests] || []).count { |t| !(t[:input].to_s.empty? && t[:expected].to_s.empty?) }
         expect(t1).to eq(t2)
         expect(doc1[:stages]&.size || 0).to eq(doc2[:stages]&.size || 0)
         tested += 1

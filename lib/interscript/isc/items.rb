@@ -176,7 +176,7 @@ module Interscript
         end
 
         def inspect
-          "Concat(#{@parts.map(&:inspect).join(', ')})"
+          "Concat(#{@parts.map(&:inspect).join(", ")})"
         end
       end
     end

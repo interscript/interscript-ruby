@@ -114,7 +114,7 @@ class Interscript::Node::Rule::Sub < Interscript::Node::Rule
         to = out.compact
 
         from = from.dup.tap do |i|
-          i.children = i.children[1..-1]
+          i.children = i.children[1..]
         end.compact
       end
 
@@ -224,4 +224,6 @@ class Interscript::Node::Rule::Sub < Interscript::Node::Rule
     params << "priority: #{@priority.inspect}" if @priority
     out << params.join(", ")
   end
+  # standard:disable Layout/TrailingEmptyLines (deliberate)
 end
+# standard:enable Layout/TrailingEmptyLines

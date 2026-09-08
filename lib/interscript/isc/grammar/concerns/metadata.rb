@@ -126,7 +126,7 @@ module Interscript
           rule(:empty_field) do
             # An identifier with no value (just newline or `}` after). Use
             # lookahead without consuming.
-            (newline.present? | str("}").present?)
+            newline.present? | str("}").present?
           end
 
           # Raw text inside `{ ... }` — for description blocks. Consumes any

@@ -1,11 +1,7 @@
-# StandardRB config — enforce Ruby style on lib/, leave specs/bin/exe flexible for now.
-# Existing violations in lib/ were auto-fixed in this PR; remaining violations are
-# tracked in TODO.complete/06-standardrb-ruby-gems.md.
+# Deliberate-design exclusions, each with its reason:
+#  - utils/helpers.rb: spec-example bookkeeping uses intentional globals
+#  - compiler/ruby.rb: the compiler's job is eval'ing generated code;
+#    debug capture uses intentional globals
 ignore:
-  - "bin/**/*"
-  - "exe/**/*"
-  - "spec/**/*"
-  - "docs/**/*"
-  - "reference-docs/**/*"
-  - "pkg/**/*"
-  - "vendor/**/*"
+  - lib/interscript/utils/helpers.rb
+  - lib/interscript/compiler/ruby.rb

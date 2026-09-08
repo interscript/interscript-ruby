@@ -27,7 +27,7 @@ class Interscript::Stdlib
     end
 
     def self.separate(output, separator: " ")
-      output.split("").join(separator)
+      output.chars.join(separator)
     end
 
     def self.unseparate(output, separator: " ")

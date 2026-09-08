@@ -17,12 +17,12 @@ RSpec.describe Interscript::Detector do
 
   it "should return valid data when map_pattern isn't selected and multiple is true" do
     out = Interscript.detect(
-      "привет", "privet", 
+      "привет", "privet",
       multiple: true,
-      compiler: Interscript::Compiler::Ruby,
+      compiler: Interscript::Compiler::Ruby
     )
     expect(out).to be_a(Hash)
-    expect(out.keys.all? { |i| i.class == String }).to be true
+    expect(out.keys.all? { |i| i.instance_of?(String) }).to be true
     expect(out.values.all? { |i| Numeric === i }).to be true
   end
 end

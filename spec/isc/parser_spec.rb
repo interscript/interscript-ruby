@@ -49,7 +49,7 @@ RSpec.describe Interscript::Isc::Parser do
         }
       ISC
       desc = tree[:system][:body].find { |b| b[:metadata] }[:metadata]
-                          .find { |h| h[:description] }[:description]
+        .find { |h| h[:description] }[:description]
       expect(desc.to_s).to include("multi-line")
     end
   end

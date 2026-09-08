@@ -13,12 +13,12 @@ module Interscript
 
           # -- Whitespace and comments
 
-          rule(:space)      { match(/\s/).repeat(1) }
-          rule(:space?)     { space.maybe }
+          rule(:space) { match(/\s/).repeat(1) }
+          rule(:space?) { space.maybe }
 
-          rule(:newline)    { str("\n") | str("\r\n") | str("\r") }
-          rule(:newlines)   { newline.repeat(1) }
-          rule(:newlines?)  { newlines.maybe }
+          rule(:newline) { str("\n") | str("\r\n") | str("\r") }
+          rule(:newlines) { newline.repeat(1) }
+          rule(:newlines?) { newlines.maybe }
 
           rule(:line_comment) do
             str("#") >> (newline.absent? >> any).repeat
@@ -39,15 +39,15 @@ module Interscript
           rule(:inline_whitespace?) { inline_whitespace.maybe }
 
           # Comma, used in lists. Trailing whitespace allowed.
-          rule(:comma)      { str(",") >> whitespace? }
+          rule(:comma) { str(",") >> whitespace? }
 
           # Arrow, used in tests.
-          rule(:arrow)      { whitespace? >> str("->") >> whitespace? }
+          rule(:arrow) { whitespace? >> str("->") >> whitespace? }
 
           # -- Identifiers
 
           rule(:identifier_first) { match(/[a-zA-Z_]/) }
-          rule(:identifier_rest)  { match(/[a-zA-Z0-9_]/) }
+          rule(:identifier_rest) { match(/[a-zA-Z0-9_]/) }
           rule(:identifier) do
             (identifier_first >> identifier_rest.repeat).as(:identifier)
           end
@@ -81,7 +81,7 @@ module Interscript
           end
 
           rule(:quoted_string) do
-            (double_quoted_string | single_quoted_string)
+            double_quoted_string | single_quoted_string
           end
 
           # -- Brace-delimited block scaffold

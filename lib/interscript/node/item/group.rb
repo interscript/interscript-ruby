@@ -49,7 +49,7 @@ class Interscript::Node::Item::Group < Interscript::Node::Item
     wrong = @children.find do |i|
       Interscript::Node::Item::Stage === i ||
         !(Interscript::Node::Item === i) ||
-        i.class == Interscript::Node::Item
+        i.instance_of?(Interscript::Node::Item)
     end
 
     if wrong

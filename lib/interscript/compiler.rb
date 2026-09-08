@@ -10,12 +10,16 @@ class Interscript::Compiler
 
   def self.call(map, **kwargs)
     if String === map
-      path = Interscript.locate(map) rescue nil
+      path = begin
+        Interscript.locate(map)
+      rescue
+        nil
+      end
       map = if path&.end_with?(".isc")
-              parse_isc(path)
-            else
-              Interscript::DSL.parse(map)
-            end
+        parse_isc(path)
+      else
+        Interscript::DSL.parse(map)
+      end
     end
     compiler = new
     compiler.compile(map, **kwargs)

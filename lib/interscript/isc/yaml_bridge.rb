@@ -31,7 +31,7 @@ module Interscript
             tests: (doc_hash[:tests] || []).map { |t| Model::Test.new(t.transform_keys(&:to_s)) },
             aliases: (doc_hash[:aliases] || []).map { |a| build_alias_model(a) },
             stages: (doc_hash[:stages] || []).map { |s| build_stage_model(s) },
-            dependencies: (doc_hash[:dependencies] || []).map { |d| build_dependency_model(d) },
+            dependencies: (doc_hash[:dependencies] || []).map { |d| build_dependency_model(d) }
           )
         end
 
@@ -52,26 +52,26 @@ module Interscript
         def build_alias_model(alias_hash)
           Model::Alias.new(
             name: alias_hash[:name],
-            value: item_to_model(alias_hash[:value]),
+            value: item_to_model(alias_hash[:value])
           )
         end
 
         def build_stage_model(stage_hash)
           Model::Stage.new(
             name: stage_hash[:name],
-            body: (stage_hash[:body] || []).map { |item| stage_item_to_model(item) },
+            body: (stage_hash[:body] || []).map { |item| stage_item_to_model(item) }
           )
         end
 
         def build_dependency_model(dep_hash)
           Model::Dependency.new(
             target: dep_hash[:target],
-            alias_name: dep_hash[:alias],
+            alias_name: dep_hash[:alias]
           )
         end
 
         def stage_item_to_model(item)
-          attrs = { kind: item[:kind].to_s }
+          attrs = {kind: item[:kind].to_s}
           case item[:kind]
           when :parallel, :sequence
             attrs[:rules] = item[:rules].map { |r| rule_to_model(r) }
@@ -92,14 +92,14 @@ module Interscript
           Model::Rule.new(
             from: item_to_model(rule_hash[:from]),
             to: item_to_model(rule_hash[:to]),
-            constraints: (rule_hash[:constraints] || []).map { |c| constraint_to_model(c) },
+            constraints: (rule_hash[:constraints] || []).map { |c| constraint_to_model(c) }
           )
         end
 
         def constraint_to_model(constraint_hash)
           Model::Constraint.new(
             kind: constraint_hash[:kind]&.to_s,
-            item: constraint_hash[:item] ? item_to_model(constraint_hash[:item]) : nil,
+            item: constraint_hash[:item] ? item_to_model(constraint_hash[:item]) : nil
           )
         end
 
@@ -144,10 +144,10 @@ module Interscript
             schemaVersion: 1,
             systemCode: model.system_code,
             metadata: model_metadata_to_hash(model.metadata),
-            tests: (model.tests || []).map { |t| { input: t.input || "", expected: t.expected || "", note: t.note }.compact },
-            aliases: (model.aliases || []).map { |a| { name: a.name, value: model_to_item(a.value) } },
+            tests: (model.tests || []).map { |t| {input: t.input || "", expected: t.expected || "", note: t.note}.compact },
+            aliases: (model.aliases || []).map { |a| {name: a.name, value: model_to_item(a.value)} },
             stages: (model.stages || []).map { |s| stage_model_to_hash(s) },
-            dependencies: (model.dependencies || []).map { |d| { target: d.target, alias: d.alias_name }.compact },
+            dependencies: (model.dependencies || []).map { |d| {target: d.target, alias: d.alias_name}.compact }
           }
         end
 
@@ -159,26 +159,26 @@ module Interscript
         def stage_model_to_hash(stage_model)
           {
             name: stage_model.name,
-            body: stage_model.body.map { |item| stage_item_model_to_hash(item) },
+            body: stage_model.body.map { |item| stage_item_model_to_hash(item) }
           }
         end
 
         def stage_item_model_to_hash(item)
           case item.kind
           when "parallel", "sequence"
-            { kind: item.kind.to_sym, rules: item.rules.map { |r| rule_model_to_hash(r) } }
+            {kind: item.kind.to_sym, rules: item.rules.map { |r| rule_model_to_hash(r) }}
           when "bare_rule"
-            { kind: :bare_rule, rule: rule_model_to_hash(item.rule) }
+            {kind: :bare_rule, rule: rule_model_to_hash(item.rule)}
           when "run"
-            { kind: :run, dependency: item.dependency, stage: item.stage }
+            {kind: :run, dependency: item.dependency, stage: item.stage}
           when "separate"
-            { kind: :separate, separator: item.separator ? model_to_item(item.separator) : nil }
+            {kind: :separate, separator: item.separator ? model_to_item(item.separator) : nil}
           when "compose"
-            { kind: :compose }
+            {kind: :compose}
           when "string_case"
-            { kind: :string_case, op: item.op }
+            {kind: :string_case, op: item.op}
           else
-            { kind: item.kind&.to_sym }
+            {kind: item.kind&.to_sym}
           end
         end
 
@@ -186,14 +186,14 @@ module Interscript
           {
             from: model_to_item(rule_model.from),
             to: model_to_item(rule_model.to),
-            constraints: (rule_model.constraints || []).map { |c| constraint_model_to_hash(c) },
+            constraints: (rule_model.constraints || []).map { |c| constraint_model_to_hash(c) }
           }
         end
 
         def constraint_model_to_hash(constraint_model)
           {
             kind: constraint_model.kind&.to_sym,
-            item: constraint_model.item ? model_to_item(constraint_model.item) : nil,
+            item: constraint_model.item ? model_to_item(constraint_model.item) : nil
           }
         end
 

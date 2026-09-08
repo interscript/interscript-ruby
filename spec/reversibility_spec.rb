@@ -34,7 +34,7 @@ RSpec.describe "Reversibility" do
 
       b = stage {
         sub "d", "c", after: "d"
-        sub "b", "a", before: "c" 
+        sub "b", "a", before: "c"
       }
 
       expect(a.reverse).to eq(b)
@@ -48,7 +48,7 @@ RSpec.describe "Reversibility" do
 
       b = stage {
         sub "d", "c", not_after: "d"
-        sub "b", "a", not_before: "c" 
+        sub "b", "a", not_before: "c"
       }
 
       expect(a.reverse).to eq(b)
@@ -122,11 +122,11 @@ RSpec.describe "Reversibility" do
   describe "item tests" do
     it "transforms boundary" do
       a = stage {
-        sub "a"+boundary, "b"
+        sub "a" + boundary, "b"
       }
 
       b = stage {
-        sub "b"+boundary, "a"
+        sub "b" + boundary, "a"
       }
 
       expect(a.reverse).to eq(b)
@@ -134,11 +134,11 @@ RSpec.describe "Reversibility" do
 
     it "transforms captures and references" do
       a = stage {
-        sub capture("a"), ref(1)+"b"
+        sub capture("a"), ref(1) + "b"
       }
 
       b = stage {
-        sub capture("a")+"b", ref(1)
+        sub capture("a") + "b", ref(1)
       }
 
       expect(a.reverse).to eq(b)
@@ -159,13 +159,13 @@ RSpec.describe "Reversibility" do
 
   describe "document transformations" do
     it "transforms document name correctly when it transforms between different character sets" do
-      a = document("var-kor-Kore-Hang-test") { }
+      a = document("var-kor-Kore-Hang-test") {}
 
       expect(a.reverse.name).to eq("var-kor-Hang-Kore-test")
     end
 
     it "transforms document name correctly when it transforms between the same character sets" do
-      a = document("var-swe-Latn-Latn-test") { }
+      a = document("var-swe-Latn-Latn-test") {}
 
       expect(a.reverse.name).to eq("var-swe-Latn-Latn-test-reverse")
     end
@@ -207,8 +207,8 @@ RSpec.describe "Reversibility" do
       }
       b = a.reverse
 
-      expect(a.("ab")).to eq("bb")
-      expect(b.("ab")).to eq("aa")
+      expect(a.call("ab")).to eq("bb")
+      expect(b.call("ab")).to eq("aa")
     end
 
     it "transliterates correctly with reverse_run: true" do
@@ -217,8 +217,8 @@ RSpec.describe "Reversibility" do
       }
       b = a.reverse
 
-      expect(a.("ab")).to eq("ab")
-      expect(b.("ab")).to eq("aa")
+      expect(a.call("ab")).to eq("ab")
+      expect(b.call("ab")).to eq("aa")
     end
 
     it "transliterates correctly with reverse_run: false" do
@@ -227,8 +227,8 @@ RSpec.describe "Reversibility" do
       }
       b = a.reverse
 
-      expect(a.("ab")).to eq("bb")
-      expect(b.("ab")).to eq("ab")
+      expect(a.call("ab")).to eq("bb")
+      expect(b.call("ab")).to eq("ab")
     end
 
     it "transliterates correctly with reverse_run and parallel" do
@@ -240,8 +240,8 @@ RSpec.describe "Reversibility" do
       }
       b = a.reverse
 
-      expect(a.("abcd")).to eq("abdd")
-      expect(b.("abcd")).to eq("aacd")
+      expect(a.call("abcd")).to eq("abdd")
+      expect(b.call("abcd")).to eq("aacd")
     end
   end
 
@@ -260,8 +260,8 @@ RSpec.describe "Reversibility" do
       }
       b = a.reverse
 
-      expect(a.("abcdef")).to eq("bbddff")
-      expect(b.("abcdef")).to eq("aaccee")
+      expect(a.call("abcdef")).to eq("bbddff")
+      expect(b.call("abcdef")).to eq("aaccee")
     end
 
     it "correctly reverses multistage documents with dont_reverse" do
@@ -278,8 +278,8 @@ RSpec.describe "Reversibility" do
       }
       b = a.reverse
 
-      expect(a.("abcdef")).to eq("bbddff")
-      expect(b.("abcdef")).to eq("aaccff")
+      expect(a.call("abcdef")).to eq("bbddff")
+      expect(b.call("abcdef")).to eq("aaccff")
     end
   end
 end

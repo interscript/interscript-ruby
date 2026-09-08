@@ -1,6 +1,8 @@
 RSpec.describe "Interscript#transliterate_each" do
   before :example do
+    # standard:disable Style/GlobalVars (deliberate $DEBUG / -d-flag debug idiom)
     $compiler = Interscript::Interpreter
+    # standard:enable Style/GlobalVars
   end
 
   it "works" do
@@ -10,7 +12,7 @@ RSpec.describe "Interscript#transliterate_each" do
       sub "Z", any("ghij")
     }
 
-    expect(s.("XYZ", each: true).take(5)).to eq(%w[adg adh adi adj aeg])
+    expect(s.call("XYZ", each: true).take(5)).to eq(%w[adg adh adi adj aeg])
   end
 
   # it "supports a certain scenario" do

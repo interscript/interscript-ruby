@@ -1,5 +1,5 @@
 if ENV.include? "COVERAGE"
-  require 'simplecov'
+  require "simplecov"
   SimpleCov.start do
     enable_coverage :branch
     primary_coverage :branch
@@ -33,7 +33,7 @@ RSpec.configure do |config|
     compilers << Interscript::Compiler::Python unless ENV["SKIP_PYTHON"]
 
     compilers.each do |compiler|
-      block.(compiler)
+      block.call(compiler)
     end
   end
 end

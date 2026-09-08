@@ -146,13 +146,13 @@ module Interscript
       model_path = "#{write_path}/model-#{model_name}.onnx"
 
       # Redownload every hour
-      if File.exist?(model_path) && File.mtime(model_path) + 3600 >= Time.now
-        model_path
-      else
+      unless File.exist?(model_path) && File.mtime(model_path) + 3600 >= Time.now
+        # standard:disable Security/Open (fetches a fixed interscript-hosted model URI, not user input)
         data = URI.open(model_uri, encoding: "BINARY").read
+        # standard:enable Security/Open
         File.binwrite(model_path, data)
-        model_path
       end
+      model_path
     end
 
     def map_aliases
