@@ -51,11 +51,9 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       # The Gemfile's path dependency needs ../maps to exist for bundler
-      # to resolve; linting itself never loads it.
-      - uses: actions/checkout@v7
-        with:
-          repository: interscript/maps
-          path: ../maps
+      # to resolve; linting itself never loads it. actions/checkout
+      # cannot write outside the workspace, hence the plain clone.
+      - run: git clone --depth 1 https://github.com/interscript/maps ../maps
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.4"
