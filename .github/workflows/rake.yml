@@ -50,6 +50,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+      # The Gemfile's path dependency needs ../maps to exist for bundler
+      # to resolve; linting itself never loads it.
+      - uses: actions/checkout@v7
+        with:
+          repository: interscript/maps
+          path: ../maps
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.4"
