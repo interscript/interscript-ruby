@@ -23,7 +23,8 @@ fails.first(n).each do |path|
   src = File.read(path)
   lines = src.lines
   # Binary search for first failing prefix
-  lo = 1; hi = lines.size
+  lo = 1
+  hi = lines.size
   while lo < hi
     mid = (lo + hi) / 2
     snippet = lines[0...mid].join
