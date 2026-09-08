@@ -3,7 +3,6 @@
 # at the rule level (from/to/constraints), not just test counts.
 
 require "interscript"
-require "set"
 require "interscript/isc"
 require "json"
 
@@ -39,7 +38,7 @@ class DeepVerifier
     end
 
     # Compare tests
-    imp_tests = Set.new(imp_data[:tests])
+    Set.new(imp_data[:tests])
     isc_tests = Set.new(isc_data[:tests])
     missing = imp_data[:tests].reject { |t| isc_tests.include?(t) }
     details << "missing #{missing.size} tests from ISC" if missing.any?
@@ -83,7 +82,7 @@ class DeepVerifier
       metadata: metadata,
       tests: tests,
       aliases: aliases,
-      rule_counts: rule_counts,
+      rule_counts: rule_counts
     }
   rescue => e
     warn "IMP fail #{path}: #{e.message[0..80]}"
@@ -108,7 +107,7 @@ class DeepVerifier
       metadata: metadata,
       tests: tests,
       aliases: aliases,
-      rule_counts: rule_counts,
+      rule_counts: rule_counts
     }
   rescue => e
     warn "ISC fail #{path}: #{e.message[0..80]}"
@@ -204,7 +203,7 @@ if $PROGRAM_NAME == __FILE__
     results.transform_values do |r|
       {
         status: r.status,
-        details: r.details,
+        details: r.details
       }
     end
   ))

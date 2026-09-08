@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require 'interscript/command'
+require "interscript/command"
 
 if ARGV.any? && !Interscript::Command.all_tasks.key?(ARGV.first)
   ARGV.unshift :translit
