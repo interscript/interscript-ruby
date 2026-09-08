@@ -64,7 +64,7 @@ module Interscript
       rule(tab: simple(:_)) { "\t" }
       rule(unicode: simple(:hex)) do
         [hex.to_s.to_i(16)].pack("U")
-      rescue StandardError
+      rescue
         hex.to_s
       end
 
@@ -102,10 +102,10 @@ module Interscript
         self.class.materialize_item(fragment)
       end
 
-      rule(before: subtree(:x))     { { kind: :before, item: x } }
-      rule(after: subtree(:x))      { { kind: :after, item: x } }
-      rule(not_before: subtree(:x)) { { kind: :not_before, item: x } }
-      rule(not_after: subtree(:x))  { { kind: :not_after, item: x } }
+      rule(before: subtree(:x)) { {kind: :before, item: x} }
+      rule(after: subtree(:x)) { {kind: :after, item: x} }
+      rule(not_before: subtree(:x)) { {kind: :not_before, item: x} }
+      rule(not_after: subtree(:x)) { {kind: :not_after, item: x} }
       rule(constraints: sequence(:c)) { c }
     end
   end

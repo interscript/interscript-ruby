@@ -82,7 +82,7 @@ module Interscript
           escaped = s.gsub("\\", "\\\\\\\\").gsub("{", "\\{").gsub("}", "\\}")
           @out << "  description {\n    #{escaped.split("\n").join("\n    ")}\n  }\n"
         else
-          @out << "  description { #{escaped = s.gsub("\\", "\\\\\\\\").gsub("{", "\\{").gsub("}", "\\}")} }\n"
+          @out << "  description { #{s.gsub("\\", "\\\\\\\\").gsub("{", "\\{").gsub("}", "\\}")} }\n"
         end
       end
 
@@ -160,10 +160,10 @@ module Interscript
         when :run
           dep = item[:dependency]
           stage = item[:stage]
-          if dep
-            @out << "  run map.#{dep}.stage.#{stage}\n"
+          @out << if dep
+            "  run map.#{dep}.stage.#{stage}\n"
           else
-            @out << "  run stage.#{stage}\n"
+            "  run stage.#{stage}\n"
           end
         when :separate
           sep = item[:separator]

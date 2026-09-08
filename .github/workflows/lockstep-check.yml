@@ -1,0 +1,28 @@
+name: lockstep-check
+
+# The gemspec derives its interscript-maps constraint from this gem's
+# own version. When maps ships a new minor, bundler resolution fails
+# everywhere with an opaque exit code — that ran silent for two weeks
+# (2026-08-26 to 2026-09-08). This probe makes the drift a named,
+# weekly alert instead.
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Clone the maps corpus as the path dependency
+        run: git clone --depth 1 https://github.com/interscript/maps ../maps
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.4"
+      - name: Report both version numbers
+        run: |
+          echo "gem:    $(ruby -Ilib -e 'require "interscript/version"; print Interscript::VERSION')"
+          echo "maps:   $(ruby -e 'print File.read("../maps/interscript-maps.gemspec")[/INTERSCRIPT_MAPS_VERSION = "([^"]+)"/, 1]')"
+      - name: Resolve the lockfile against the corpus
+        run: bundle lock

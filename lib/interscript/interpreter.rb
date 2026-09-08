@@ -19,9 +19,13 @@ class Interscript::Interpreter < Interscript::Compiler
           result = nil
 
           f = Fiber.new do
+            # standard:disable Style/GlobalVars (deliberate $DEBUG / -d-flag debug idiom)
             $select_nth_string = true
+            # standard:enable Style/GlobalVars
             result = Stage.new(@map, str).execute_rule(stage)
+            # standard:disable Style/GlobalVars (deliberate $DEBUG / -d-flag debug idiom)
             $select_nth_string = false
+            # standard:enable Style/GlobalVars
             Fiber.yield(:end)
           end
 
@@ -48,7 +52,7 @@ class Interscript::Interpreter < Interscript::Compiler
             options_set = true
 
             opts = options.map { |i| (0...i).to_a }
-            choices = opts[0].product(*opts[1..-1])
+            choices = opts[0].product(*opts[1..])
           end
 
           yielder.yield(result)
@@ -81,7 +85,9 @@ class Interscript::Interpreter < Interscript::Compiler
         if r.cached_tree
           @str = Interscript::Stdlib.parallel_replace_tree(@str, r.cached_tree)
         elsif r.subs_regexp && r.subs_replacements
+          # standard:disable Style/GlobalVars (deliberate $DEBUG / -d-flag debug idiom)
           @str = if $DEBUG_RE
+            # standard:enable Style/GlobalVars
             Interscript::Stdlib.parallel_regexp_gsub_debug(@str, r.subs_regexp, r.subs_replacements)
           else
             Interscript::Stdlib.parallel_regexp_gsub(@str, r.subs_regexp, r.subs_replacements)
@@ -114,9 +120,13 @@ class Interscript::Interpreter < Interscript::Compiler
             end
             r.subs_regexp = Interscript::Stdlib.parallel_regexp_compile(subs_array)
             r.subs_replacements = subs_array.map(&:last)
+            # standard:disable Style/GlobalVars (deliberate $DEBUG / -d-flag debug idiom)
             if $DEBUG_RE
+              # standard:enable Style/GlobalVars
               # puts subs_array.inspect
+              # standard:disable Style/GlobalVars (deliberate $DEBUG / -d-flag debug idiom)
               $subs_array = subs_array
+              # standard:enable Style/GlobalVars
               @str = Interscript::Stdlib.parallel_regexp_gsub_debug(@str, r.subs_regexp, r.subs_replacements)
             else
               @str = Interscript::Stdlib.parallel_regexp_gsub(@str, r.subs_regexp, r.subs_replacements)
@@ -251,4 +261,6 @@ class Interscript::Interpreter < Interscript::Compiler
       end
     end
   end
+  # standard:disable Layout/TrailingEmptyLines (deliberate)
 end
+# standard:enable Layout/TrailingEmptyLines

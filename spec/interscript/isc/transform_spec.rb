@@ -9,8 +9,7 @@ RSpec.describe Interscript::Isc::Transform do
     tree = parser.parse(src, filename: "t.isc")
     doc = Interscript::Isc::DocumentBuilder.build(tree, filename: "t.isc")
     stage = doc[:stages].first
-    rule = stage[:body].first[:rule] || stage[:body].first[:rules]&.first
-    rule
+    stage[:body].first[:rule] || stage[:body].first[:rules]&.first
   end
 
   it "transforms a quoted string to StringValue" do
@@ -64,7 +63,7 @@ RSpec.describe Interscript::Isc::Transform do
         }
       ISC
       expect(rule[:from]).to be_a(Interscript::Isc::Items::Primitive),
-             "expected Primitive for #{prim}, got #{rule[:from].class}"
+        "expected Primitive for #{prim}, got #{rule[:from].class}"
       expect(rule[:from].name).to eq(prim)
     end
   end

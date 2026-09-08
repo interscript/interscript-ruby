@@ -6,7 +6,7 @@ require "interscript"
 GALLERY = {
   "Антон Олегович" => "Anton Olehovych",
   "Соломія" => "Solomiia",
-  "Київ" => "Kyiv",
+  "Київ" => "Kyiv"
 }.freeze
 
 RSpec.describe "gallery parity with the TypeScript examples" do

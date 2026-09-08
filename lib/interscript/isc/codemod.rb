@@ -27,9 +27,9 @@ module Interscript
       # upper-case form.
       AUTHORITY_FIXES = {
         "bgnpcgn" => "BGN-PCGN",
-        "alalc"   => "ALA-LC",
-        "elot"    => "ELOT",
-        "odni"    => "ODNI",
+        "alalc" => "ALA-LC",
+        "elot" => "ELOT",
+        "odni" => "ODNI"
       }.freeze
 
       def initialize(out_dir: nil, stdin: false, write: true)
@@ -75,7 +75,7 @@ module Interscript
           if @write
             FileUtils.mkdir_p(File.dirname(out_path))
             File.write(out_path, converted)
-            $stderr.puts "#{path} -> #{out_path}"
+            warn "#{path} -> #{out_path}"
           else
             $stdout.write(converted)
           end
@@ -129,16 +129,16 @@ module Interscript
             convert_run_rule
           elsif @scanner.scan(/\bdef_alias\b/)
             convert_def_alias
-          elsif @scanner.scan(/"/)
+          elsif @scanner.scan('"')
             @out << '"'
             convert_string_literal(:double)
-          elsif @scanner.scan(/'/)
+          elsif @scanner.scan("'")
             @out << "'"
             convert_string_literal(:single)
-          elsif @scanner.scan(/=>/)
+          elsif @scanner.scan("=>")
             # Hash rocket — used in legacy `sub "X" => "Y"`. Convert to space.
             @out << " "
-          elsif @scanner.scan(/,/)
+          elsif @scanner.scan(",")
             # Trailing comma — drop in compact rule contexts, leave elsewhere.
             @out << ""
           elsif @scanner.scan(/(before|after|not_before|not_after|separator):/)
@@ -199,10 +199,10 @@ module Interscript
         depth = 1
 
         until @scanner.eos? || depth == 0
-          if @scanner.scan(/\{/)
+          if @scanner.scan("{")
             @out << "{"
             depth += 1
-          elsif @scanner.scan(/\}/)
+          elsif @scanner.scan("}")
             depth -= 1
             @out << "}"
           elsif @scanner.scan(/\n[ \t]*#[^\n]*/)
@@ -232,12 +232,12 @@ module Interscript
             until @scanner.eos?
               if @scanner.scan(/[^"\n]+/)
                 @out << @scanner.matched
-              elsif @scanner.scan(/"/)
+              elsif @scanner.scan('"')
                 # Closing quote — don't output it (it's the YAML delimiter)
                 break
               elsif @scanner.scan(/\n[ \t]+/)
                 @out << " "
-              elsif @scanner.scan(/\n/)
+              elsif @scanner.scan("\n")
                 @out << " "
               else
                 break
@@ -251,7 +251,7 @@ module Interscript
             @out << "\n#{indent}description { "
             until @scanner.eos?
               if @scanner.check(/\n(?:[ \t]*\n)*([ \t]{0,#{indent.length}}\S)/) ||
-                 @scanner.check(/\n(?:[ \t]*\n)*[ \t]{0,#{indent.length}}\}/)
+                  @scanner.check(/\n(?:[ \t]*\n)*[ \t]{0,#{indent.length}}\}/)
                 @out << " }"
                 break
               elsif @scanner.scan(/[^\n]+/)
@@ -260,7 +260,7 @@ module Interscript
                 @out << " "
               elsif @scanner.scan(/\n[ \t]*\n/)
                 @out << " "
-              elsif @scanner.scan(/\n/)
+              elsif @scanner.scan("\n")
                 @out << " "
               else
                 break
@@ -302,7 +302,7 @@ module Interscript
             @out << "\n#{indent}notes {"
             convert_notes_list_until_dedent(indent)
             @out << "\n#{indent}}"
-          elsif @scanner.scan(/(?:\A|\n)([ \t]+)([A-Za-z_][\w]*)[ \t]*:[ \t]*\n(?:[ \t]*#[^\n]*\n)*[ \t]*\n*([ \t]+)-[ \t]*/)
+          elsif @scanner.scan(/(?:\A|\n)([ \t]+)([A-Za-z_]\w*)[ \t]*:[ \t]*\n(?:[ \t]*#[^\n]*\n)*[ \t]*\n*([ \t]+)-[ \t]*/)
             # Multi-line list value: `field:\n    [optional comments]\n    [optional blank]\n    - item`
             indent = @scanner[1]
             field = @scanner[2]
@@ -313,7 +313,7 @@ module Interscript
             @out << escape_braces(text)
             convert_indented_block_until_dedent(indent)
             @out << "\n#{indent}}"
-          elsif @scanner.scan(/(?:\A|\n)([ \t]+)([A-Za-z_][\w]*)[ \t]*:[ \t]*\n([ \t]+)(?![ \t]*(?:-|"|\[|\]|\|))(?![ \t]*$)(?![ \t]*[A-Za-z_]\w*[ \t]*:)/)
+          elsif @scanner.scan(/(?:\A|\n)([ \t]+)([A-Za-z_]\w*)[ \t]*:[ \t]*\n([ \t]+)(?![ \t]*(?:-|"|\[|\]|\|))(?![ \t]*$)(?![ \t]*[A-Za-z_]\w*[ \t]*:)/)
             # Multi-line unquoted text value: `field:\n    text` (not list, quote,
             # heredoc, or another field declaration at the same indent)
             indent = @scanner[1]
@@ -321,20 +321,20 @@ module Interscript
             @out << "\n#{indent}#{field} {"
             convert_indented_block_until_dedent(indent)
             @out << "\n#{indent}}"
-          elsif @scanner.scan(/(?:\A|\n)([ \t]+)([A-Za-z_][\w]*)[ \t]*:[ \t]*\|[ \t]*\n/)
+          elsif @scanner.scan(/(?:\A|\n)([ \t]+)([A-Za-z_]\w*)[ \t]*:[ \t]*\|[ \t]*\n/)
             # Generic field with heredoc: `field: |\n    body`
             indent = @scanner[1]
             field = @scanner[2]
             @out << "\n#{indent}#{field} { "
             convert_indented_block_until_dedent(indent)
             @out << " }"
-          elsif @scanner.scan(/(?:\A|\n)([ \t]+)([A-Za-z_][\w]*)[ \t]*:[ \t]*/)
+          elsif @scanner.scan(/(?:\A|\n)([ \t]+)([A-Za-z_]\w*)[ \t]*:[ \t]*/)
             # key: value -> key value, only when the key is at the start of a
             # (indented) line. Use [ \t] instead of \s to avoid eating newlines.
             @out << "\n#{@scanner[1]}#{@scanner[2]} "
-          elsif @scanner.scan(/"/)
+          elsif @scanner.scan('"')
             @out << '"'
-          elsif @scanner.scan(/'/)
+          elsif @scanner.scan("'")
             @out << "'"
           else
             @out << @scanner.getch
@@ -356,7 +356,7 @@ module Interscript
             @out << @scanner.matched
           elsif @scanner.scan(/\n([ \t]+)/)
             @out << "\n#{@scanner[1]}"
-          elsif @scanner.scan(/\n/)
+          elsif @scanner.scan("\n")
             @out << "\n"
           elsif @scanner.scan(/[^\n]+/)
             @out << escape_braces(@scanner.matched)
@@ -406,7 +406,7 @@ module Interscript
           elsif @scanner.scan(/([ \t]+)-[ \t]+/)
             # First item right after `notes:` consumed; scanner at `<indent>- item`.
             emit_note_with_continuation(@scanner[1])
-          elsif @scanner.scan(/\n/)
+          elsif @scanner.scan("\n")
             @out << "\n"
           else
             @out << @scanner.getch
@@ -436,7 +436,7 @@ module Interscript
         text = text[1..] if text.start_with?("'") && !text.end_with?("'")
         # Unescape YAML escape sequences, then re-escape for ISC
         text = text.gsub('\\"', '"').gsub("\\\\", "\\")
-        @out << text.gsub('\\', '\\\\\\\\').gsub('"', '\\"').gsub("\\u", "\\\\\\\\u")
+        @out << text.gsub("\\", "\\\\\\\\").gsub('"', '\\"').gsub("\\u", "\\\\\\\\u")
         # Consume continuation lines: any subsequent line indented deeper
         # than the `- ` marker is part of the same note. Blank lines between
         # continuations are preserved as \n.
@@ -446,14 +446,14 @@ module Interscript
             @scanner.scan(/\n([ \t]+)/)
             @out << "\\n" + @scanner[1].strip + " "
             cont = @scanner.scan(/[^\n]+/).to_s
-            cont = cont.gsub('\\', '\\\\\\\\').gsub('"', '\\"').gsub("\\u", "\\\\\\\\u")
+            cont = cont.gsub("\\", "\\\\\\\\").gsub('"', '\\"').gsub("\\u", "\\\\\\\\u")
             @out << cont
           elsif @scanner.check(/\n[ \t]*\n[ \t]{#{note_indent.length + 1},}\S/)
             # Blank line then indented continuation
             @scanner.scan(/\n[ \t]*\n([ \t]+)/)
             @out << "\\n" + @scanner[1].strip + " "
             cont = @scanner.scan(/[^\n]+/).to_s
-            cont = cont.gsub('\\', '\\\\\\\\').gsub('"', '\\"').gsub("\\u", "\\\\\\\\u")
+            cont = cont.gsub("\\", "\\\\\\\\").gsub('"', '\\"').gsub("\\u", "\\\\\\\\u")
             @out << cont
           else
             break
@@ -475,11 +475,11 @@ module Interscript
         until @scanner.eos?
           if @scanner.scan(/\\./)
             @out << @scanner.matched
-          elsif @scanner.scan(/"/)
+          elsif @scanner.scan('"')
             return
           else
             c = @scanner.getch
-            @out << (c == "\n" ? "\\n" : c)
+            @out << ((c == "\n") ? "\\n" : c)
           end
         end
       end
@@ -498,7 +498,7 @@ module Interscript
             # Indented line — preserve raw content (indent + text)
             line = @scanner[1].to_s.gsub('"', '\\"').gsub("\\u", "\\\\\\\\u")
             @out << "\\n" + line
-          elsif @scanner.scan(/\n/)
+          elsif @scanner.scan("\n")
             @out << "\\n"
           elsif @scanner.scan(/([^\n]+)/)
             line = @scanner[1].gsub('"', '\\"').gsub("\\u", "\\\\\\\\u")
@@ -514,10 +514,10 @@ module Interscript
         @out << " {"
         depth = 1
         until @scanner.eos? || depth == 0
-          if @scanner.scan(/\{/)
+          if @scanner.scan("{")
             @out << "{"
             depth += 1
-          elsif @scanner.scan(/\}/)
+          elsif @scanner.scan("}")
             depth -= 1
             @out << "}"
           elsif @scanner.scan(/#[^\n]*/)
@@ -526,13 +526,13 @@ module Interscript
           elsif @scanner.scan(/\btest\b/)
             # `test "X", "Y"` -> `"X" -> "Y"`
             @out << ""
-          elsif @scanner.scan(/,/)
+          elsif @scanner.scan(",")
             # Comma between test args -> ` -> `
             @out << " -> "
-          elsif @scanner.scan(/"/)
+          elsif @scanner.scan('"')
             @out << '"'
             convert_string_literal(:double)
-          elsif @scanner.scan(/'/)
+          elsif @scanner.scan("'")
             @out << "'"
             convert_string_literal(:single)
           else
@@ -546,10 +546,10 @@ module Interscript
         @out << " {"
         depth = 1
         until @scanner.eos? || depth == 0
-          if @scanner.scan(/\{/)
+          if @scanner.scan("{")
             @out << "{"
             depth += 1
-          elsif @scanner.scan(/\}/)
+          elsif @scanner.scan("}")
             depth -= 1
             @out << "}"
           elsif @scanner.scan(/(?:\A|\n)([ \t]+)def_alias\s+([A-Za-z_]\w*)\s*,\s*/)
@@ -560,10 +560,10 @@ module Interscript
           elsif @scanner.scan(/def_alias\s+([A-Za-z_]\w*)\s*,\s*/)
             # `def_alias name, X` at start of aliases block (no leading newline)
             @out << "#{@scanner[1]} = "
-          elsif @scanner.scan(/"/)
+          elsif @scanner.scan('"')
             @out << '"'
             convert_string_literal(:double)
-          elsif @scanner.scan(/'/)
+          elsif @scanner.scan("'")
             @out << "'"
             convert_string_literal(:single)
           elsif @scanner.scan(/#[^\n]*/)
@@ -594,7 +594,7 @@ module Interscript
           elsif @scanner.scan(/[\n}]/)
             @scanner.unscan
             return
-          elsif @scanner.scan(/"/)
+          elsif @scanner.scan('"')
             @out << '"'
             convert_string_literal(:double)
           elsif @scanner.scan(/[^\n",}]+/)
@@ -676,7 +676,7 @@ module Interscript
         in_string = nil
         paren_depth = 0
 
-        line.each_char.with_index do |c, _i|
+        line.each_char.with_index do |c, i|
           if in_string
             current << c
             if c == in_string && current[-2] != "\\"
@@ -740,11 +740,11 @@ module Interscript
       def single_atom?(expr)
         return false if expr.nil? || expr.empty?
         return false if expr.include?("+")
-        return false if expr =~ /\b(any|capture|maybe)\s*\(/
+        return false if /\b(any|capture|maybe)\s*\(/.match?(expr)
         s = expr.strip
         return true if s =~ /\A"[^"]*"\z/ || s =~ /\A'[^']*'\z/
         return true if ["none", "boundary", "line_start", "line_end", "word_boundary"].include?(s)
-        return true if s =~ /\A[a-zA-Z_][a-zA-Z0-9_]*\z/
+        return true if /\A[a-zA-Z_][a-zA-Z0-9_]*\z/.match?(s)
         false
       end
 
@@ -755,8 +755,7 @@ module Interscript
         # Collapse runs of whitespace
         expr = expr.gsub(/\s+/, " ")
         # Remove space around +
-        expr = expr.gsub(/\s*\+\s*/, " + ")
-        expr
+        expr.gsub(/\s*\+\s*/, " + ")
       end
 
       def convert_run_rule
@@ -775,7 +774,7 @@ module Interscript
       end
 
       def convert_string_literal(quote_kind)
-        quote_char = quote_kind == :double ? '"' : "'"
+        quote_char = (quote_kind == :double) ? '"' : "'"
         until @scanner.eos?
           if @scanner.scan(/\\./)
             @out << @scanner.matched

@@ -1,12 +1,12 @@
 RSpec.describe "composability" do
   it "can depend on reversed maps" do
-    a = document("part-1-One-Two") {
+    document("part-1-One-Two") {
       stage {
         sub "a", "b"
       }
     }
 
-    b = document("part-2-One-Two") {
+    document("part-2-One-Two") {
       stage {
         sub "c", "d"
       }
@@ -22,16 +22,16 @@ RSpec.describe "composability" do
       }
     }
 
-    expect(c.("abcd")).to eq("aadd")
+    expect(c.call("abcd")).to eq("aadd")
   end
 
   it "can seamlessly compose two maps" do
-    a = document("part1") {
+    document("part1") {
       stage {
         sub "a", "b"
       }
     }
-    b = document("part2") {
+    document("part2") {
       stage {
         sub "c", "d"
       }
@@ -45,6 +45,6 @@ RSpec.describe "composability" do
       }
     }
 
-    expect(c.("abcd")).to eq("bbdd")
+    expect(c.call("abcd")).to eq("bbdd")
   end
 end

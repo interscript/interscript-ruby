@@ -158,12 +158,10 @@ module Interscript
           end
 
           rule(:constraint) do
-            (
-              (str("before")     >> whitespace >> item.as(:before)) |
-              (str("after")      >> whitespace >> item.as(:after)) |
+            (str("before") >> whitespace >> item.as(:before)) |
+              (str("after") >> whitespace >> item.as(:after)) |
               (str("not_before") >> whitespace >> item.as(:not_before)) |
-              (str("not_after")  >> whitespace >> item.as(:not_after))
-            )
+              (str("not_after") >> whitespace >> item.as(:not_after))
           end
 
           rule(:constraints) do

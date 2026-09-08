@@ -2,7 +2,9 @@ RSpec.describe Interscript::DSL::Stage do
   each_compiler do |compiler|
     describe compiler do
       before :example do
+        # standard:disable Style/GlobalVars (deliberate $DEBUG / -d-flag debug idiom)
         $compiler = compiler
+        # standard:enable Style/GlobalVars
       end
 
       context "#sub" do
@@ -10,65 +12,65 @@ RSpec.describe Interscript::DSL::Stage do
           s = stage {
             sub "b", "e"
           }
-          expect(s.("abcd")).to eq("aecd")
-          expect(s.("aecd")).to eq("aecd")
-          expect(s.("bbbb")).to eq("eeee")
+          expect(s.call("abcd")).to eq("aecd")
+          expect(s.call("aecd")).to eq("aecd")
+          expect(s.call("bbbb")).to eq("eeee")
         end
 
         it "handles substitution with :before" do
           s = stage {
             sub "a", "A", before: space
           }
-          expect(s.("abcda abcda abada")).to eq("abcda Abcda Abada")
+          expect(s.call("abcda abcda abada")).to eq("abcda Abcda Abada")
         end
 
         it "handles substitution with :not_before" do
           s = stage {
             sub "a", "A", not_before: space
           }
-          expect(s.("abcda abcda abada")).to eq("AbcdA abcdA abAdA")
+          expect(s.call("abcda abcda abada")).to eq("AbcdA abcdA abAdA")
         end
 
         it "handles substitution with :after" do
           s = stage {
             sub "a", "A", after: space
           }
-          expect(s.("abcda abcda abada")).to eq("abcdA abcdA abada")
+          expect(s.call("abcda abcda abada")).to eq("abcdA abcdA abada")
         end
 
         it "handles substitution with :not_after" do
           s = stage {
             sub "a", "A", not_after: space
           }
-          expect(s.("abcda abcda abada")).to eq("Abcda Abcda AbAdA")
+          expect(s.call("abcda abcda abada")).to eq("Abcda Abcda AbAdA")
         end
 
         it "handles substitution with :not_before and :not_after" do
           s = stage {
             sub "a", "A", not_before: space, not_after: space
           }
-          expect(s.("abcda abcda abada")).to eq("Abcda abcda abAdA")
+          expect(s.call("abcda abcda abada")).to eq("Abcda abcda abAdA")
         end
 
         it "handles characters inside BMP" do
           s = stage {
             sub "\u1234", "\u1235"
           }
-          expect(s.("\u1234")).to eq("\u1235")
+          expect(s.call("\u1234")).to eq("\u1235")
         end
 
         it "handles characters outside BMP" do
           s = stage {
             sub "\u{12345}", "\u{12346}"
           }
-          expect(s.("\u{12345}")).to eq("\u{12346}")
+          expect(s.call("\u{12345}")).to eq("\u{12346}")
         end
 
         it "works with upcase" do
           s = stage {
             sub "a", upcase
           }
-          expect(s.("a")).to eq("A")
+          expect(s.call("a")).to eq("A")
         end
       end
 
@@ -84,9 +86,9 @@ RSpec.describe Interscript::DSL::Stage do
               sub " ", "X"
             }
           }
-          expect(s.("mary had a little lamb")).to eq("AXBXCXDXE")
-          expect(s.("lamborghini")).to eq("Eorghini")
-          expect(s.("hadahadahada")).to eq("BCBCBC")
+          expect(s.call("mary had a little lamb")).to eq("AXBXCXDXE")
+          expect(s.call("lamborghini")).to eq("Eorghini")
+          expect(s.call("hadahadahada")).to eq("BCBCBC")
         end
 
         it "works with any" do
@@ -97,8 +99,8 @@ RSpec.describe Interscript::DSL::Stage do
               sub any(["AB", "CD"]), "Z"
             }
           }
-          expect(s.("Cameroon")).to eq("CXmXroon")
-          expect(s.("ABfghiabcdCD")).to eq("ZYYYYXXXXZ")
+          expect(s.call("Cameroon")).to eq("CXmXroon")
+          expect(s.call("ABfghiabcdCD")).to eq("ZYYYYXXXXZ")
         end
 
         # The old behaviour was to take the LAST one. We may reintroduce this
@@ -122,19 +124,19 @@ RSpec.describe Interscript::DSL::Stage do
                 sub "b", "B", not_before: space, not_after: space
               }
             }
-            expect(s.("abcda abcda abada")).to eq("ABcda aBcda aBAdA")
+            expect(s.call("abcda abcda abada")).to eq("ABcda aBcda aBAdA")
           end
 
           it "sorts arguments correctly with an extended engine" do
             s = stage {
               parallel {
                 sub "aaaa", "c", not_before: "doesntmatter"
-                sub "a",    "d", not_before: "doesntmatter"
-                sub "aa",   "e", not_before: "doesntmatter"
-                sub "aaa",  "f", not_before: "doesntmatter"
+                sub "a", "d", not_before: "doesntmatter"
+                sub "aa", "e", not_before: "doesntmatter"
+                sub "aaa", "f", not_before: "doesntmatter"
               }
             }
-            expect(s.("aaaaa")).to eq("cd")
+            expect(s.call("aaaaa")).to eq("cd")
           end
 
           it "works with multiple replacements" do
@@ -144,7 +146,7 @@ RSpec.describe Interscript::DSL::Stage do
                 sub "d", any("ef"), not_before: "doesntmatter"
               }
             }
-            expect(s.("aaaddd")).to eq("bbbeee")
+            expect(s.call("aaaddd")).to eq("bbbeee")
           end
 
           it "doesn't trigger a weird off-by-one error" do
@@ -158,7 +160,7 @@ RSpec.describe Interscript::DSL::Stage do
               }
             }
 
-            expect(s.("\u0627")).to eq("a")
+            expect(s.call("\u0627")).to eq("a")
           end
         end
       end
@@ -175,7 +177,7 @@ RSpec.describe Interscript::DSL::Stage do
             }
           }
 
-          expect(s.("aabaa")).to eq("AAbAA")
+          expect(s.call("aabaa")).to eq("AAbAA")
         end
 
         it "can run multiple stages" do
@@ -191,7 +193,7 @@ RSpec.describe Interscript::DSL::Stage do
             }
           }
 
-          expect(s.("0")).to eq("3")
+          expect(s.call("0")).to eq("3")
         end
 
         it "can run stages inside other stages" do
@@ -205,7 +207,7 @@ RSpec.describe Interscript::DSL::Stage do
             }
           }
 
-          expect(s.("0")).to eq("3")
+          expect(s.call("0")).to eq("3")
         end
 
         it "can run remote stages" do
@@ -218,7 +220,7 @@ RSpec.describe Interscript::DSL::Stage do
             stage { run map.remote.stage.hello }
           }
 
-          expect(s.("0")).to eq("3")
+          expect(s.call("0")).to eq("3")
         end
 
         it "can run imported remote stages" do
@@ -231,7 +233,7 @@ RSpec.describe Interscript::DSL::Stage do
             stage { run stage.hellohello }
           }
 
-          expect(s.("0")).to eq("3")
+          expect(s.call("0")).to eq("3")
         end
 
         it "can run remote stages that run remote stages" do
@@ -248,7 +250,7 @@ RSpec.describe Interscript::DSL::Stage do
             stage { run map.remote.stage.six }
           }
 
-          expect(s.("0")).to eq("3")
+          expect(s.call("0")).to eq("3")
         end
       end
 
@@ -258,21 +260,21 @@ RSpec.describe Interscript::DSL::Stage do
             s = stage {
               sub any("abc"), "X"
             }
-            expect(s.("abcda abcda abada")).to eq("XXXdX XXXdX XXXdX")
+            expect(s.call("abcda abcda abada")).to eq("XXXdX XXXdX XXXdX")
           end
 
           it "handles any with range" do
             s = stage {
               sub any("a".."c"), "X"
             }
-            expect(s.("abcda abcda abada")).to eq("XXXdX XXXdX XXXdX")
+            expect(s.call("abcda abcda abada")).to eq("XXXdX XXXdX XXXdX")
           end
 
           it "handles any with array" do
             s = stage {
-              sub any(["a","b","c"]), "X"
+              sub any(["a", "b", "c"]), "X"
             }
-            expect(s.("abcda abcda abada")).to eq("XXXdX XXXdX XXXdX")
+            expect(s.call("abcda abcda abada")).to eq("XXXdX XXXdX XXXdX")
           end
 
           it "handles any with a complex array of anys" do
@@ -284,8 +286,8 @@ RSpec.describe Interscript::DSL::Stage do
                 "123" # string "123"
               ]), "X"
             }
-            expect(s.("Mary had A littlë lámb")).to eq("MXXX XXX X XXXXXë XáXX")
-            expect(s.("1234512345")).to eq("X45X45")
+            expect(s.call("Mary had A littlë lámb")).to eq("MXXX XXX X XXXXXë XáXX")
+            expect(s.call("1234512345")).to eq("X45X45")
           end
 
           it "handles any with concatenations" do
@@ -293,7 +295,7 @@ RSpec.describe Interscript::DSL::Stage do
               sub any([any("ab") + any("cd"), any("AB") + any("CD")]), "X"
             }
 
-            expect(s.("ad AD ba ca Ad Da bd BD bD")).to eq("X X ba ca Ad Da X X bD")
+            expect(s.call("ad AD ba ca Ad Da bd BD bD")).to eq("X X ba ca Ad Da X X bD")
           end
         end
 
@@ -302,47 +304,47 @@ RSpec.describe Interscript::DSL::Stage do
             s = stage {
               sub maybe("a") + "b", "X"
             }
-            expect(s.("abcdb")).to eq("XcdX")
+            expect(s.call("abcdb")).to eq("XcdX")
           end
 
           it "handles maybe with multicharacter string" do
             s = stage {
-              sub "X"+maybe("abcde")+"X", "Y"
+              sub "X" + maybe("abcde") + "X", "Y"
             }
-            expect(s.("XabcdeX")).to eq("Y")
-            expect(s.("XX")).to eq("Y")
+            expect(s.call("XabcdeX")).to eq("Y")
+            expect(s.call("XX")).to eq("Y")
           end
         end
 
         context "#capture" do
           it "captures a string and allows to reference it" do
             s = stage {
-              sub capture("a"), "-"+ref(1)+"-"
+              sub capture("a"), "-" + ref(1) + "-"
             }
-            expect(s.("bab")).to eq("b-a-b")
-            expect(s.("baab")).to eq("b-a--a-b")
+            expect(s.call("bab")).to eq("b-a-b")
+            expect(s.call("baab")).to eq("b-a--a-b")
           end
 
           it "captures multiple strings" do
             s = stage {
-              sub capture("a")+capture("b"), ref(2)+ref(1)
+              sub capture("a") + capture("b"), ref(2) + ref(1)
             }
-            expect(s.("mmabmm")).to eq("mmbamm")
+            expect(s.call("mmabmm")).to eq("mmbamm")
           end
 
           it "allows for any to be used inside a captured string" do
             s = stage {
-              sub capture(any("abc")), "["+ref(1)+"]"
+              sub capture(any("abc")), "[" + ref(1) + "]"
             }
-            expect(s.("abcde")).to eq("[a][b][c]de")
+            expect(s.call("abcde")).to eq("[a][b][c]de")
           end
 
           it "allows for #ref to be used in from part" do
             s = stage {
-              sub capture("a")+ref(1), "X"
+              sub capture("a") + ref(1), "X"
             }
-            expect(s.("xax")).to eq("xax")
-            expect(s.("xaax")).to eq("xXx")
+            expect(s.call("xax")).to eq("xax")
+            expect(s.call("xaax")).to eq("xXx")
           end
 
           it "can be aliased" do
@@ -351,10 +353,10 @@ RSpec.describe Interscript::DSL::Stage do
                 def_alias maybe_dash, capture(any(["-", ""]))
               }
               stage {
-                sub "a"+maybe_dash+"b", "X"+ref(1)+"Y"
+                sub "a" + maybe_dash + "b", "X" + ref(1) + "Y"
               }
             }
-            expect(s.("abca-b-cabc")).to eq("XYcX-Y-cXYc")
+            expect(s.call("abca-b-cabc")).to eq("XYcX-Y-cXYc")
           end
         end
 
@@ -364,7 +366,7 @@ RSpec.describe Interscript::DSL::Stage do
               sub line_start + "a", "X"
               sub "a" + line_end, "Y"
             }
-            expect(s.("aaaaa")).to eq("XaaaY")
+            expect(s.call("aaaaa")).to eq("XaaaY")
           end
 
           it "concatenates any with strings both ways" do
@@ -372,14 +374,14 @@ RSpec.describe Interscript::DSL::Stage do
               sub any("bc") + "a", "X"
               sub "d" + any("ef"), "Y"
             }
-            expect(s.("baca||dedf")).to eq("XX||YY")
+            expect(s.call("baca||dedf")).to eq("XX||YY")
           end
 
           it "concatenates multiple anys" do
             s = stage {
               sub any("ab") + any("cd") + any("ef") + any("gh"), "X"
             }
-            expect(s.("adeg dd ab bcfh")).to eq("X dd ab X")
+            expect(s.call("adeg dd ab bcfh")).to eq("X dd ab X")
           end
         end
 
@@ -388,14 +390,14 @@ RSpec.describe Interscript::DSL::Stage do
             s = stage {
               sub boundary, "|"
             }
-            expect(s.("Mary had A   littlë lámb!")).to eq("|Mary| |had| |A|   |littlë| |lámb|!")
+            expect(s.call("Mary had A   littlë lámb!")).to eq("|Mary| |had| |A|   |littlë| |lámb|!")
           end
 
           it "handles non_word_boundary correctly" do
             s = stage {
               sub non_word_boundary, "|"
             }
-            expect(s.("Mary had A   littlë lámb!")).to eq("M|a|r|y h|a|d A | | l|i|t|t|l|ë l|á|m|b!|")
+            expect(s.call("Mary had A   littlë lámb!")).to eq("M|a|r|y h|a|d A | | l|i|t|t|l|ë l|á|m|b!|")
           end
         end
 
@@ -410,7 +412,7 @@ RSpec.describe Interscript::DSL::Stage do
                 sub hello, "Goodbye"
               }
             }
-            expect(s.("Hello world")).to eq("Goodbye world")
+            expect(s.call("Hello world")).to eq("Goodbye world")
           end
         end
 
@@ -429,7 +431,7 @@ RSpec.describe Interscript::DSL::Stage do
                 sub map.remo.from_name, map.remo.to_name
               }
             }
-            expect(s.("Error 404")).to eq("Error 500")
+            expect(s.call("Error 404")).to eq("Error 500")
           end
 
           it "handles imported remote aliases correctly" do
@@ -439,7 +441,7 @@ RSpec.describe Interscript::DSL::Stage do
                 sub from_name, to_name
               }
             }
-            expect(s.("Route 404")).to eq("Route 500")
+            expect(s.call("Route 404")).to eq("Route 500")
           end
         end
 
@@ -449,35 +451,35 @@ RSpec.describe Interscript::DSL::Stage do
               sub any("a"), any("XY")
               sub any("b"), any(["X", "Y"])
             }
-            expect(s.("abbacus")).to eq("XXXXcus")
+            expect(s.call("abbacus")).to eq("XXXXcus")
           end
 
           it "works with any + concatenation" do
             s = stage {
-              sub any("ab"), "["+any("XY")+"]"
+              sub any("ab"), "[" + any("XY") + "]"
             }
-            expect(s.("abbacus")).to eq("[X][X][X][X]cus")
+            expect(s.call("abbacus")).to eq("[X][X][X][X]cus")
           end
 
           it "works with any(any())" do
             s = stage {
               sub any("ab"), any([any("XY"), "Z"])
             }
-            expect(s.("abbacus")).to eq("XXXXcus")
+            expect(s.call("abbacus")).to eq("XXXXcus")
           end
 
           it "works with references" do
             s = stage {
-              sub capture(any("a".."s")), any(["["+ref(1)+"]", "other"])
+              sub capture(any("a".."s")), any(["[" + ref(1) + "]", "other"])
             }
-            expect(s.("abbacus")).to eq("[a][b][b][a][c]u[s]")
+            expect(s.call("abbacus")).to eq("[a][b][b][a][c]u[s]")
           end
 
           it "works with stdlib aliases" do
             s = stage {
               sub any("ab"), any([none, space])
             }
-            expect(s.("abbacus")).to eq("cus")
+            expect(s.call("abbacus")).to eq("cus")
           end
 
           it "works with parallel" do
@@ -488,7 +490,7 @@ RSpec.describe Interscript::DSL::Stage do
                 sub any("ef"), any("ZT")
               }
             }
-            expect(s.("abcdefgh")).to eq("XAXAc88ZZgh")
+            expect(s.call("abcdefgh")).to eq("XAXAc88ZZgh")
           end
         end
       end
@@ -498,43 +500,43 @@ RSpec.describe Interscript::DSL::Stage do
           s = stage {
             title_case
           }
-          expect(s.("hello world hello hello")).to eq("Hello World Hello Hello")
+          expect(s.call("hello world hello hello")).to eq("Hello World Hello Hello")
         end
 
         it "handles a title case stdlib call with :word_separator correctly" do
           s = stage {
             title_case word_separator: ""
           }
-          expect(s.("hello world hello hello")).to eq("Hello world hello hello")
-          expect(s.("hello world\nhello hello")).to eq("Hello world\nHello hello")
+          expect(s.call("hello world hello hello")).to eq("Hello world hello hello")
+          expect(s.call("hello world\nhello hello")).to eq("Hello world\nHello hello")
         end
 
         it "handles a separate stdlib call correctly" do
           s = stage {
             separate
           }
-          expect(s.("こんいちは")).to eq("こ ん い ち は")
+          expect(s.call("こんいちは")).to eq("こ ん い ち は")
         end
 
         it "handles a separate stdlib call with :separator correctly" do
           s = stage {
             separate separator: "|"
           }
-          expect(s.("こんいちは")).to eq("こ|ん|い|ち|は")
+          expect(s.call("こんいちは")).to eq("こ|ん|い|ち|は")
         end
 
         it "handles a compose call correctly" do
           s = stage {
             compose
           }
-          expect(s.("ᄆ"+"ᅮ")).to eq("무")
+          expect(s.call("ᄆ" + "ᅮ")).to eq("무")
         end
 
         it "handles a decompose call correctly" do
           s = stage {
             decompose
           }
-          expect(s.("무")).to eq("ᄆ"+"ᅮ")
+          expect(s.call("무")).to eq("ᄆ" + "ᅮ")
         end
       end
     end

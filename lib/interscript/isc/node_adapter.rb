@@ -28,6 +28,7 @@ module Interscript
           doc.tests = build_tests
           doc.aliases = build_aliases
           build_stages.each { |name, stage| doc.stages[name] = stage }
+          build_dependencies(doc)
           doc.name = @isc_doc[:system_code]
         end
       end
@@ -58,6 +59,34 @@ module Interscript
         end
       end
 
+      # ISC v1 has no import marker; aliased dependencies are reached
+      # through dep_aliases, which `import` does not gate. Documents
+      # load through the same dispatch the compiler uses, so chains of
+      # .isc/.imp dependencies resolve recursively.
+      def build_dependencies(doc)
+        Array(@isc_doc[:dependencies]).each do |dep_hash|
+          dep = Interscript::Node::Dependency.new
+          dep.full_name = dep_hash[:target]
+          dep.name = dep_hash[:alias]&.to_sym
+          # Aliased dependencies are stage-run targets; unaliased ones are
+          # library imports (the ISC form of `dependency "posix", import:
+          # true` from the .imp corpus) — their aliases merge into scope.
+          dep.import = dep.name.nil?
+          dep.document = load_dependency_document(dep.full_name)
+          doc.dependencies << dep
+          doc.dep_aliases[dep.name] = dep if dep.name
+        end
+      end
+
+      def load_dependency_document(full_name)
+        path = Interscript.locate(full_name)
+        if path&.end_with?(".isc")
+          Interscript::Compiler.parse_isc(path)
+        else
+          Interscript::DSL.parse(full_name)
+        end
+      end
+
       def build_stages
         @isc_doc[:stages].each_with_object({}) do |stage, h|
           h[stage[:name].to_sym] = build_stage(stage)
@@ -81,17 +110,17 @@ module Interscript
           when :separate
             stage.children << Interscript::Node::Rule::Sub.new(
               Interscript::Node::Item::String.new(" "),
-              Interscript::Node::Item::String.new(item[:separator]&.value || "-"),
+              Interscript::Node::Item::String.new(item[:separator]&.value || "-")
             )
           when :string_case
-            sym = item[:op] == "title_case" ? :title_case : item[:op].to_sym
+            sym = (item[:op] == "title_case") ? :title_case : item[:op].to_sym
             stage.children << sym
           when :compose
             stage.children << :compose
           when :funcall
             stage.children << Interscript::Node::Rule::Funcall.new(
               item[:name].to_sym,
-              **item[:kwargs].transform_keys(&:to_sym),
+              **item[:kwargs].transform_keys(&:to_sym)
             )
           end
         end
@@ -105,7 +134,7 @@ module Interscript
         %i[before after not_before not_after].each do |k|
           next unless rule_def[:constraints]&.any? { |c| c[:kind] == k }
           constraint = rule_def[:constraints].find { |c| c[:kind] == k }
-          opts[k] = convert_item(constraint[:value])
+          opts[k] = convert_item(constraint[:item])
         end
         Interscript::Node::Rule::Sub.new(from, to, **opts)
       end
@@ -113,7 +142,7 @@ module Interscript
       def build_run_rule(item)
         stage_ref = Interscript::Node::Item::Stage.new(
           item[:stage].to_sym,
-          map: item[:dependency]&.to_sym,
+          map: item[:dependency]&.to_sym
         )
         Interscript::Node::Rule::Run.new(stage_ref)
       end
@@ -142,7 +171,7 @@ module Interscript
           Interscript::Node::Item::Some.new(convert_item(item.inner))
         when Items::Range
           Interscript::Node::Item::Any.new(
-            (item.lo..item.hi).map { |c| Interscript::Node::Item::String.new(c) },
+            (item.lo..item.hi).map { |c| Interscript::Node::Item::String.new(c) }
           )
         when Items::Set
           convert_set(item)
@@ -165,7 +194,7 @@ module Interscript
 
       def convert_set(set)
         Interscript::Node::Item::Any.new(
-          set.chars.map { |c| Interscript::Node::Item::String.new(c) },
+          set.chars.map { |c| Interscript::Node::Item::String.new(c) }
         )
       end
     end

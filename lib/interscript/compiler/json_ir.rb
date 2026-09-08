@@ -60,14 +60,12 @@ class Interscript::Compiler::JsonIR < Interscript::Compiler
     # reference via alias() without listing the library as an explicit
     # dependency in the dependency list.
     Interscript.maps(libraries: true).each do |lib|
-      begin
-        libdoc = Interscript.parse(lib)
-        libdoc.aliases.each do |aname, defn|
-          all_aliases[aname.to_s] ||= serialise_item(defn.data)
-        end
-      rescue
-        # skip unparseable libraries
+      libdoc = Interscript.parse(lib)
+      libdoc.aliases.each do |aname, defn|
+        all_aliases[aname.to_s] ||= serialise_item(defn.data)
       end
+    rescue
+      # skip unparseable libraries
     end
 
     # Document's own aliases override everything.
@@ -91,9 +89,9 @@ class Interscript::Compiler::JsonIR < Interscript::Compiler
     out = {}
     metadata.data.each do |k, v|
       out[k.to_s] = case v
-                    when Symbol then v.to_s
-                    else v
-                    end
+      when Symbol then v.to_s
+      else v
+      end
     end
     out
   end
@@ -155,7 +153,7 @@ class Interscript::Compiler::JsonIR < Interscript::Compiler
     doc_name = stage.map
     if doc_name && @map.respond_to?(:dep_aliases) && @map.dep_aliases[doc_name.to_sym]
       resolved = @map.dep_aliases[doc_name.to_sym].document
-      doc_name = resolved.name.to_s if resolved && resolved.respond_to?(:name)
+      doc_name = resolved.name.to_s if resolved.respond_to?(:name)
     end
     {
       kind: "run",
@@ -203,7 +201,7 @@ class Interscript::Compiler::JsonIR < Interscript::Compiler
       when ::Range
         {kind: "any_char_class", range: [item.value.first, item.value.last]}
       when ::String
-        {kind: "any_char_class", chars: item.value.split("")}
+        {kind: "any_char_class", chars: item.value.chars}
       else
         data = item.data || []
         {kind: "any", of: data.map { |i| serialise_item(i) }}
