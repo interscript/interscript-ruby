@@ -5,10 +5,10 @@
 # still globbed only the legacy .imp extension.
 require "spec_helper"
 
-RSpec.describe "Interscript.maps" do
-  MAPS = ENV.fetch("INTERSCRIPT_MAPS_PATH", "../maps/maps")
-  LIBS = ENV.fetch("INTERSCRIPT_MAPS_LIBS", File.expand_path("../libs", MAPS))
+MAPS = ENV.fetch("INTERSCRIPT_MAPS_PATH", "../maps/maps")
+LIBS = ENV.fetch("INTERSCRIPT_MAPS_LIBS", File.expand_path("../libs", MAPS))
 
+RSpec.describe "Interscript.maps" do
   def with_load_path(dir)
     dir = File.expand_path(dir)
     added = Interscript.load_path.first != dir

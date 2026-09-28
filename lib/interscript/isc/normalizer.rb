@@ -50,19 +50,19 @@ module Interscript
       def normalize_block(block)
         return block unless block.is_a?(Hash)
         if block.key?(:metadata)
-          { metadata: Array(block[:metadata]).map { |field| normalize_meta_field(field) } }
+          {metadata: Array(block[:metadata]).map { |field| normalize_meta_field(field) }}
         elsif block.key?(:aliases)
           {
             aliases: Array(block[:aliases]).map do |alias_def|
-              { name: scalar(alias_def[:name]), value: alias_def[:value] }.compact
+              {name: scalar(alias_def[:name]), value: alias_def[:value]}.compact
             end
           }
         elsif block.key?(:tests)
-          { tests: merge_tests(Array(block[:tests])) }
+          {tests: merge_tests(Array(block[:tests]))}
         elsif block.key?(:stage)
-          { stage_name: scalar(block[:stage_name]), stage: block[:stage] }
+          {stage_name: scalar(block[:stage_name]), stage: block[:stage]}
         elsif block.key?(:target)
-          { target: scalar(block[:target]), alias: scalar(block[:alias]) }.compact
+          {target: scalar(block[:target]), alias: scalar(block[:alias])}.compact
         else
           block
         end
