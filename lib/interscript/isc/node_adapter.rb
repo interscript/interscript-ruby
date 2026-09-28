@@ -113,10 +113,11 @@ module Interscript
               Interscript::Node::Item::String.new(item[:separator]&.value || "-")
             )
           when :string_case
-            sym = (item[:op] == "title_case") ? :title_case : item[:op].to_sym
-            stage.children << sym
+            stage.children << Interscript::Node::Rule::Funcall.new(item[:op].to_sym)
           when :compose
-            stage.children << :compose
+            stage.children << Interscript::Node::Rule::Funcall.new(:compose)
+          when :decompose
+            stage.children << Interscript::Node::Rule::Funcall.new(:decompose)
           when :funcall
             stage.children << Interscript::Node::Rule::Funcall.new(
               item[:name].to_sym,
