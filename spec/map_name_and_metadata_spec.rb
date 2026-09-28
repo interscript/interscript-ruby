@@ -5,7 +5,7 @@ require "iso-15924"
 RSpec.describe "map names and metadata" do
   valid_authcodes = YAML.load_file(__dir__ + "/authority_codes.yaml").keys
 
-  Interscript.maps.each do |n|
+  legacy_maps.each do |n|
     context n do
       parts = n.split("-", 5)
       authcode, lang, source_script, target_script, id = parts

@@ -36,8 +36,15 @@ class Interscript::Detector
     maps = Interscript.exclude_maps(maps, compiler: self.class)
     maps = Interscript.exclude_maps(maps, compiler: @compiler)
 
-    summary = maps.map do |map|
-      try_dest = Interscript.transliterate(map, source, compiler: @compiler)
+    summary = maps.filter_map do |map|
+      # A map that fails to load or execute (unsupported constructs,
+      # missing dependencies) is skipped, mirroring the TypeScript
+      # detector — one bad map must not kill the whole ranking.
+      begin
+        try_dest = Interscript.transliterate(map, source, compiler: @compiler)
+      rescue
+        next nil
+      end
 
       [map, try_dest]
     end.map do |map, try_dest|
