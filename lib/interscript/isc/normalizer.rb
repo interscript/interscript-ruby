@@ -42,6 +42,8 @@ module Interscript
           Array(node[:string]).map { |part| part.is_a?(Hash) ? part[:char].to_s : part.to_s }.join
         elsif node.key?(:identifier)
           node[:identifier].to_s
+        elsif node.key?(:raw)
+          node[:raw].to_s
         else
           node
         end
@@ -71,7 +73,7 @@ module Interscript
       # {field_name: {identifier: "authority"}, field_value: {string: [...]}}
       # becomes {authority: "BGN-PCGN"}.
       def normalize_meta_field(field)
-        return field unless field.key?(:field_name)
+        return field unless field.is_a?(Hash) && field.key?(:field_name)
 
         name = scalar(field[:field_name]).to_sym
         value = field.key?(:field_block) ? field[:field_block] : scalar(field[:field_value])

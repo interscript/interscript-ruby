@@ -55,7 +55,10 @@ module Interscript
 
       def build_aliases
         @isc_doc[:aliases].each_with_object({}) do |a, h|
-          h[a[:name].to_sym] = convert_item(a[:value])
+          # The runtime resolves aliases through AliasDef#data (see
+          # Interpreter::Stage#build_item); a bare item here hands it a
+          # raw Array once Any#data unrolls.
+          h[a[:name].to_sym] = Interscript::Node::AliasDef.new(a[:name].to_sym, convert_item(a[:value]))
         end
       end
 
