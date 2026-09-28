@@ -39,6 +39,9 @@ module Interscript::DSL
         raise e
       end
     end
+    # ISC documents route through the ISC parser, not the .imp DSL.
+    return Interscript::Compiler.parse_isc(path) if path.end_with?(".isc")
+
     library = path.end_with?(".iml")
 
     map_name = File.basename(path, ".isc")

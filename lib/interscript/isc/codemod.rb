@@ -691,7 +691,7 @@ module Interscript
           elsif c == ")"
             paren_depth -= 1
             current << c
-          elsif paren_depth.zero? && (c == "," || (c == "=" && line[_i + 1] == ">"))
+          elsif paren_depth.zero? && (c == "," || (c == "=" && line[i + 1] == ">"))
             tokens << current.strip
             current = +""
           else

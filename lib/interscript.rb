@@ -172,11 +172,22 @@ module Interscript
     # List all possible maps to use
     def maps(basename: true, load_path: false, select: "*", libraries: false)
       paths = load_path ? Interscript.load_path : Interscript.map_locations
-      ext = libraries ? "iml" : "imp"
+      # isc: the ISC corpus (systems and libraries), imp: legacy Ruby
+      # DSL systems, iml: legacy library format. ISC wins when a name
+      # exists in both.
+      exts = libraries ? %w[isc iml] : %w[isc imp]
 
-      imps = paths.map { |i| Dir["#{i}/#{select}.#{ext}"] }.flatten
+      files = paths.flat_map { |i| exts.flat_map { |ext| Dir["#{i}/#{select}.#{ext}"] } }
+      # The maps corpus keeps dependency libraries in a libs/ directory;
+      # only the libraries: query sees them.
+      libs, systems = files.partition { |j| j.include?("/libs/") }
+      picked = (libraries ? libs : systems)
+        .group_by { |j| File.basename(j, ".*") }
+        .values
+        .map(&:first)
+        .sort
 
-      basename ? imps.map { |j| File.basename(j, ".#{ext}") } : imps
+      basename ? picked.map { |j| File.basename(j, ".*") } : picked
     end
 
     # Removes the excluded maps for a given compiler and RUBY_PLATFORM.

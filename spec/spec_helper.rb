@@ -25,6 +25,15 @@ RSpec.configure do |config|
 
   include Interscript::Utils::Helpers
 
+  # Legacy .imp corpus enumeration. Suites written for the compiled-DSL
+  # pipeline keep their historical scope until each gains ISC-era
+  # conformance (naming rules, metadata schema, per-map timeouts).
+  def legacy_maps(select: "*")
+    Interscript.maps(basename: false, select: select)
+      .select { |f| f.end_with?(".imp") }
+      .map { |f| File.basename(f, ".*") }
+  end
+
   def each_compiler &block
     compilers = []
     compilers << Interscript::Interpreter

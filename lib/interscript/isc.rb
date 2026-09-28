@@ -14,6 +14,7 @@ module Interscript
     autoload :Model, "interscript/isc/model"
     autoload :YamlBridge, "interscript/isc/yaml_bridge"
     autoload :Serializer, "interscript/isc/serializer"
+    autoload :Normalizer, "interscript/isc/normalizer"
 
     SCHEMA_VERSION = 1
 
