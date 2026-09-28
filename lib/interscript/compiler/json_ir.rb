@@ -38,37 +38,9 @@ class Interscript::Compiler::JsonIR < Interscript::Compiler
     # without re-implementing the Ruby dep_aliases indirection.
     all_aliases = {}
 
-    # Walk dependencies and merge their alias definitions.
-    # posix defines :upper, :lower; unicode defines :combining marks; etc.
-    doc.dependencies.each do |dep|
-      next unless dep.document
-      dep.document.aliases.each do |aname, defn|
-        all_aliases[aname.to_s] ||= serialise_item(defn.data)
-      end
-    end
-
-    # Also walk dep_aliases (for run-rule dependency resolution paths).
-    doc.dep_aliases.each_value do |dep|
-      next unless dep.document
-      dep.document.aliases.each do |aname, defn|
-        all_aliases[aname.to_s] ||= serialise_item(defn.data)
-      end
-    end
-
-    # Also merge ALL library aliases unconditionally. Libraries (posix,
-    # unicode, var-Cyrl, var-kor) define character classes that maps
-    # reference via alias() without listing the library as an explicit
-    # dependency in the dependency list.
-    Interscript.maps(libraries: true).each do |lib|
-      libdoc = Interscript.parse(lib)
-      libdoc.aliases.each do |aname, defn|
-        all_aliases[aname.to_s] ||= serialise_item(defn.data)
-      end
-    rescue
-      # skip unparseable libraries
-    end
-
-    # Document's own aliases override everything.
+    # Only the document's own aliases are serialised. Library and
+    # dependency aliases resolve at runtime via the alias `map:` qualifier,
+    # matching the production corpus shape.
     doc.aliases.each do |name, defn|
       all_aliases[name.to_s] = serialise_item(defn.data)
     end
@@ -180,6 +152,7 @@ class Interscript::Compiler::JsonIR < Interscript::Compiler
   end
 
   def serialise_item(item)
+    return {kind: "any", of: item.map { |i| i.is_a?(String) ? {kind: "string", value: i} : serialise_item(i) }} if item.is_a?(::Array)
     case item
     when Interscript::Node::Item::String
       {kind: "string", value: item.data}
