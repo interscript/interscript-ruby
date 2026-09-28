@@ -8,7 +8,7 @@ maps = Interscript.maps(basename: false, select: mask)
 if ENV.include? "PRECACHE"
   each_compiler do |compiler|
     maps.each do |system_file|
-      system_name = File.basename(system_file, ".imp")
+      system_name = File.basename(system_file, ".*")
       Interscript.transliterate(system_name, "", cache, compiler: compiler)
     end
   end
@@ -22,7 +22,7 @@ RSpec.describe Interscript do
       compiler_maps = Interscript.exclude_maps(maps, compiler: compiler)
 
       compiler_maps.each do |system_file|
-        system_name = File.basename(system_file, ".imp")
+        system_name = File.basename(system_file, ".*")
         my_system_name = if ENV["REVERSE"]
           Interscript::Node::Document.reverse_name(system_name)
         else

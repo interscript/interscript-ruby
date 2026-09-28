@@ -21,7 +21,7 @@ module Interscript
       end
 
       def parse_with_callbacks(source, filename: nil)
-        parse(source)
+        Normalizer.normalize(parse(source))
       rescue Parslet::ParseFailed => e
         raise ParseError.new(e.message, filename: filename, source: source, cause: e)
       end
