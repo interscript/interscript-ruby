@@ -178,12 +178,16 @@ module Interscript
       exts = libraries ? %w[isc iml] : %w[isc imp]
 
       files = paths.flat_map { |i| exts.flat_map { |ext| Dir["#{i}/#{select}.#{ext}"] } }
-                   .group_by { |j| File.basename(j, ".*") }
-                   .values
-                   .map(&:first)
-                   .sort
+      # The maps corpus keeps dependency libraries in a libs/ directory;
+      # only the libraries: query sees them.
+      libs, systems = files.partition { |j| j.include?("/libs/") }
+      picked = (libraries ? libs : systems)
+        .group_by { |j| File.basename(j, ".*") }
+        .values
+        .map(&:first)
+        .sort
 
-      basename ? files.map { |j| File.basename(j, ".*") } : files
+      basename ? picked.map { |j| File.basename(j, ".*") } : picked
     end
 
     # Removes the excluded maps for a given compiler and RUBY_PLATFORM.

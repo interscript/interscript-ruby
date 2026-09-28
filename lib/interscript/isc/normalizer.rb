@@ -75,7 +75,7 @@ module Interscript
 
         name = scalar(field[:field_name]).to_sym
         value = field.key?(:field_block) ? field[:field_block] : scalar(field[:field_value])
-        { name => value }
+        {name => value}
       end
 
       # The arrow form usually parses as one {input:, expected:} hash
@@ -86,18 +86,18 @@ module Interscript
         entries.each do |entry|
           next unless entry.is_a?(Hash)
           if entry.key?(:input) && entry.key?(:expected)
-            merged << { input: scalar(entry[:input]), expected: scalar(entry[:expected]) }
+            merged << {input: scalar(entry[:input]), expected: scalar(entry[:expected])}
             pending_input = nil
           elsif entry.key?(:input)
             pending_input = scalar(entry[:input])
           elsif entry.key?(:expected)
-            merged << { input: pending_input, expected: scalar(entry[:expected]) }
+            merged << {input: pending_input, expected: scalar(entry[:expected])}
             pending_input = nil
           else
             merged << entry
           end
         end
-        merged << { input: pending_input, expected: "" } if pending_input
+        merged << {input: pending_input, expected: ""} if pending_input
         merged
       end
     end

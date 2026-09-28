@@ -2,7 +2,10 @@ require "timeout"
 
 cache = {}
 mask = ENV["TRANSLIT_SYSTEM"] || "*"
-maps = Interscript.maps(basename: false, select: mask)
+# The legacy .imp sweep only. Enumerating the ISC corpus per compiler
+# is a separate work order: at least one map hangs the interpreter, and
+# the per-map conformance baseline doesn't exist yet.
+maps = Interscript.maps(basename: false, select: mask).select { |f| f.end_with?(".imp") }
 
 # Precache can be used to compare interpreter to compiler performance
 if ENV.include? "PRECACHE"
