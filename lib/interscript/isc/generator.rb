@@ -126,7 +126,7 @@ module Interscript
         when Interscript::Node::Item::Any
           any(i)
         when Interscript::Node::Item::Alias
-          identifier(i.name)
+          i.map ? "#{i.map}.#{identifier(i.name)}" : identifier(i.name)
         when Interscript::Node::Item::CaptureGroup
           "capture(#{item(i.data)})"
         when Interscript::Node::Item::CaptureRef

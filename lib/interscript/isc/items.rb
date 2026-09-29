@@ -62,10 +62,11 @@ module Interscript
       end
 
       class AliasRef
-        attr_reader :name
+        attr_reader :name, :map
 
-        def initialize(name)
+        def initialize(name, map: nil)
           @name = name
+          @map = map
         end
 
         def inspect
