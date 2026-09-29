@@ -249,3 +249,17 @@ RSpec.describe Interscript::Isc::NodeAdapter do
     end
   end
 end
+
+RSpec.describe "NodeAdapter document identity" do
+  it "carries the system code into the document name" do
+    tree = Interscript::Isc::Parser.parse(
+      'system "X:a-b:C-D:1" { stage main { sub { from "a" to "b" } } }'
+    )
+    doc = Interscript::Isc::DocumentBuilder.build(tree)
+    node = Interscript::Isc::NodeAdapter.to_interscript_node(doc)
+    # The Ruby compiler registers compiled maps under Document#name; a
+    # nil name registered them under "" and every transliterate call
+    # crashed on nil.call.
+    expect(node.name).to eq("X:a-b:C-D:1")
+  end
+end
