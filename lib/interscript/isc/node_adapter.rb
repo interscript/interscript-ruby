@@ -160,7 +160,7 @@ module Interscript
         when Items::Primitive
           convert_primitive(item)
         when Items::AliasRef
-          Interscript::Node::Item::Alias.new(item.name.to_sym)
+          convert_alias_ref(item)
         when Items::Capture
           Interscript::Node::Item::CaptureRef.new(item.index)
         when Items::Function
@@ -188,6 +188,10 @@ module Interscript
         # In the Ruby runtime, zero-width primitives are represented as
         # Alias nodes referencing Stdlib symbols. See Stdlib::ALIASES.
         Interscript::Node::Item::Alias.new(item.name.to_sym)
+      end
+
+      def convert_alias_ref(item)
+        Interscript::Node::Item::Alias.new(item.name.to_sym, map: item.map&.to_sym)
       end
 
       def convert_concat(concat)

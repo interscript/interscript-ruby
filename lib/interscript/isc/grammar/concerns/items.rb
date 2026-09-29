@@ -101,7 +101,9 @@ module Interscript
           end
 
           rule(:alias_reference) do
-            (keyword.absent? >> identifier >> str("{").absent?).as(:alias)
+            (keyword.absent? >> identifier >>
+              (str(".") >> identifier.as(:qualified_name)).maybe >>
+              str("{").absent?).as(:alias)
           end
 
           # ref(N) — reference to Nth capture group. Only valid in `to` position.
