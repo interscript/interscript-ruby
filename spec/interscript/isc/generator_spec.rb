@@ -86,6 +86,29 @@ RSpec.describe Interscript::Isc::Generator do
     expect(reparsed.call("ava eve")).to eq(original.call("ava eve"))
   end
 
+  it "round-trips separate and title_case directives" do
+    original = document {
+      stage {
+        title_case
+        separate
+      }
+    }
+    reparsed = round_trip(original)
+    expect(reparsed.call("hello world")).to eq(original.call("hello world"))
+
+    kwargs_doc = document {
+      stage {
+        title_case word_separator: ""
+        separate separator: "|"
+      }
+    }
+    kwargs_reparsed = round_trip(kwargs_doc)
+    expect(kwargs_reparsed.call("hello world hello hello")).to eq(
+      kwargs_doc.call("hello world hello hello")
+    )
+    expect(kwargs_reparsed.call("こんいちは")).to eq(kwargs_doc.call("こんいちは"))
+  end
+
   it "round-trips multiple stages with a stage run" do
     original = document {
       stage :first do

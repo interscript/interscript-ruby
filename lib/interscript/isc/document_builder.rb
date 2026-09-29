@@ -263,7 +263,9 @@ module Interscript
         elsif n[:compose]
           [{kind: :compose}]
         elsif n[:case]
-          [{kind: :string_case, op: n[:case].to_s}]
+          item = {kind: :string_case, op: n[:case].to_s}
+          item[:kwargs] = extract_kwargs(n[:case_kwargs]) if n[:case_kwargs]
+          [item]
         elsif n[:funcall_name]
           [{kind: :funcall, name: n[:funcall_name].to_s, kwargs: extract_kwargs(n[:funcall_kwargs])}]
         elsif n[:dep]

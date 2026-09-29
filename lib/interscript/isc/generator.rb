@@ -96,12 +96,25 @@ module Interscript
       end
 
       def funcall(rule, pad)
-        unless rule.kwargs.empty?
-          raise UnsupportedConstruct,
-            "cannot generate #{rule.name}(...) with kwargs as ISC"
-        end
+        case rule.name
+        when :separate
+          separator = rule.kwargs[:separator]
+          return "#{pad}separate\n" if separator.nil?
 
-        "#{pad}#{rule.name}\n"
+          "#{pad}separate separator #{item(separator)}\n"
+        when :title_case
+          word_separator = rule.kwargs[:word_separator]
+          return "#{pad}title_case\n" if word_separator.nil?
+
+          "#{pad}title_case word_separator: #{quote(word_separator)}\n"
+        else
+          unless rule.kwargs.empty?
+            raise UnsupportedConstruct,
+              "cannot generate #{rule.name}(...) with kwargs as ISC"
+          end
+
+          "#{pad}#{rule.name}\n"
+        end
       end
 
       # -- items --

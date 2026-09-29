@@ -54,8 +54,11 @@ module Interscript
           end
 
           # `downcase`, `upcase`, `title_case` — string-case directives.
+          # title_case takes an optional word_separator kwarg.
           rule(:string_case_directive) do
-            (str("downcase") | str("upcase") | str("title_case")).as(:case)
+            (str("downcase") | str("upcase")).as(:case) |
+              (str("title_case").as(:case) >>
+                (whitespace >> kwarg_list.as(:case_kwargs)).maybe)
           end
 
           # `compose` / `decompose` — Unicode normalization directives.
