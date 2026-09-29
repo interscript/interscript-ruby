@@ -29,7 +29,7 @@ module Interscript
           doc.aliases = build_aliases
           build_stages.each { |name, stage| doc.stages[name] = stage }
           build_dependencies(doc)
-          doc.name = @isc_doc[:system_code]
+          doc.name = @isc_doc[:systemCode]
         end
       end
 
