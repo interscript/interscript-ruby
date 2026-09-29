@@ -7,10 +7,10 @@ mask = ENV["TRANSLIT_SYSTEM"] || "*"
 # per-map failures are expected until the ISC-era conformance work
 # completes — the sweep exists to MEASURE that gap, gated so CI stays
 # green while it closes.
-if ENV["ISC_SWEEP"]
-  maps = Interscript.maps(basename: false, select: mask)
+maps = if ENV["ISC_SWEEP"]
+  Interscript.maps(basename: false, select: mask)
 else
-  maps = legacy_maps(select: mask)
+  legacy_maps(select: mask)
 end
 
 # Precache can be used to compare interpreter to compiler performance
