@@ -111,12 +111,12 @@ module Interscript
           when :run
             stage.children << build_run_rule(item)
           when :separate
-            stage.children << Interscript::Node::Rule::Sub.new(
-              Interscript::Node::Item::String.new(" "),
-              Interscript::Node::Item::String.new(item[:separator]&.value || "-")
-            )
+            kwargs = {}
+            kwargs[:separator] = item[:separator].value if item[:separator]
+            stage.children << Interscript::Node::Rule::Funcall.new(:separate, **kwargs)
           when :string_case
-            stage.children << Interscript::Node::Rule::Funcall.new(item[:op].to_sym)
+            stage.children << Interscript::Node::Rule::Funcall.new(item[:op].to_sym,
+              **(item[:kwargs] || {}).transform_keys(&:to_sym))
           when :compose
             stage.children << Interscript::Node::Rule::Funcall.new(:compose)
           when :decompose
