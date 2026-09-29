@@ -290,10 +290,14 @@ class Interscript::Compiler::Python < Interscript::Compiler
   class << self
     attr_accessor :maps_loaded
     attr_accessor :ctx
+    attr_accessor :maps_dir
   end
 
   def load
-    if !self.class.maps_loaded[@map.name]
+    # Keyed by document identity: synthetic spec documents reuse names
+    # (example-1, example-2, ...), and a stale engine under a reused
+    # name would silently serve the previous document.
+    if self.class.maps_loaded[@map.name] != @map.object_id
       @map.dependencies.each do |dep|
         dep = dep.full_name
         if !self.class.maps_loaded[dep]
@@ -302,27 +306,42 @@ class Interscript::Compiler::Python < Interscript::Compiler
       end
 
       ctx = self.class.ctx
-      python_src_path = File.join(__dir__, "..", "..", "..", "..", "python", "src")
+      python_src_path = ENV["INTERSCRIPT_PYTHON_SRC"] ||
+        File.join(__dir__, "..", "..", "..", "..", "python", "src")
       unless ctx
-        PyCall.sys.path.append(python_src_path)
+        # Insert at 0: an editable install of interscript-python may
+        # shadow the monorepo checkout on sys.path.
+        PyCall.sys.path.insert(0, python_src_path)
         self.class.ctx = PyCall.import_module("interscript")
+        ctx = self.class.ctx
       end
-      # puts @code
-      begin
-        Dir.mkdir("#{python_src_path}/interscript/maps")
-      rescue
-        nil
+      # The rewritten python runtime executes ISC sources from its load
+      # paths, so in-memory documents cross the boundary as generated
+      # ISC text in a per-process temp dir — never inside the python
+      # package tree.
+      unless self.class.maps_dir
+        require "tmpdir" unless defined?(Dir.mktmpdir)
+        self.class.maps_dir = Dir.mktmpdir("interscript-python")
+        ctx.add_load_path(self.class.maps_dir)
       end
-      File.write("#{python_src_path}/interscript/maps/#{@map.name}.py", @code)
+      File.write(File.join(self.class.maps_dir, "#{@map.name}.isc"),
+        Interscript::Isc::Generator.generate(@map))
       self.class.ctx.load_map(@map.name)
 
-      self.class.maps_loaded[@map.name] = true
+      if self.class.maps_loaded.key?(@map.name)
+        self.class.ctx.unload_map(@map.name)
+      end
+      self.class.maps_loaded[@map.name] = @map.object_id
     end
   end
 
   def call(str, stage = :main)
     load
-    self.class.ctx.transliterate(@map.name, str, stage.to_s)
+    unless stage.to_s == "main"
+      raise Interscript::MapLogicError,
+        "the python runtime transliterates the whole map; stage #{stage} can't be selected"
+    end
+    self.class.ctx.transliterate(@map.name, str)
   end
 
   def self.read_debug_data

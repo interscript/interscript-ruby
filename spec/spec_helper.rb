@@ -19,6 +19,15 @@ RSpec.configure do |config|
   # Disable RSpec exposing methods globally on `Module` and `main`
   config.disable_monkey_patching!
 
+  # dsl_stage_spec sets the $compiler global per example; without a
+  # reset it leaks into every file that runs afterwards, silently
+  # rerouting suites that never opted into a specific compiler.
+  # standard:disable Style/GlobalVars (deliberate $DEBUG / -d-flag debug idiom)
+  config.before(:example) do
+    $compiler = nil
+  end
+  # standard:enable Style/GlobalVars
+
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end

@@ -38,9 +38,13 @@ jobs:
       - name: Install Python helper and gems
         working-directory: ruby
         run: |
-          pip install regex
           bundle config set --local with jsexec
           bundle install
+          # PyCall binds whichever libpython it was built against, which
+          # is not necessarily the python that bare `pip` targets —
+          # install the regex helper into that interpreter.
+          PYBIN=$(bundle exec ruby -e 'require "pycall"; v = PyCall.sys.version[/\d+\.\d+/]; puts "python#{v}"')
+          "$PYBIN" -m pip install regex
 
       - name: RSpec
         working-directory: ruby
