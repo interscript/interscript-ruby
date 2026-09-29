@@ -4,6 +4,11 @@ gemspec
 
 gem "rake", "~> 13.0"
 gem "rspec", "~> 3.13"
+# The ISC YAML bridge (lib/interscript/isc/yaml_bridge.rb) hard-requires
+# lutaml/model; the round-trip specs exercise it. Dev-only here — the
+# gemspec does not declare it (owner decision; the autoload fails
+# without it).
+gem "lutaml-model"
 
 if File.exist?("../maps")
   gem "interscript-maps", path: "../maps"
