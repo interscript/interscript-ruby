@@ -202,7 +202,21 @@ module Interscript
 
       def convert_set(set)
         Interscript::Node::Item::Any.new(
-          set.chars.map { |c| Interscript::Node::Item::String.new(c) }
+          set.chars.map do |c|
+            # Entries may be primitives/alias refs (e.g. any([boundary,
+            # "\u200c", "\u200d"])) — stringifying them baked an object
+            # inspect into the compiled character class.
+            case c
+            when ::String
+              Interscript::Node::Item::String.new(c)
+            when Items::Primitive
+              convert_primitive(c)
+            when Items::AliasRef
+              convert_alias_ref(c)
+            else
+              convert_item(c)
+            end
+          end
         )
       end
     end
