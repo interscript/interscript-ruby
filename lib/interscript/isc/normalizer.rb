@@ -64,11 +64,25 @@ module Interscript
         elsif block.key?(:tests)
           {tests: merge_tests(Array(block[:tests]))}
         elsif block.key?(:stage)
-          {stage_name: scalar(block[:stage_name]), stage: block[:stage]}
+          {stage_name: scalar(block[:stage_name]), stage: normalize_stage_items(block[:stage])}
         elsif block.key?(:target)
           {target: scalar(block[:target]), alias: scalar(block[:alias])}.compact
         else
           block
+        end
+      end
+
+      # A capture-free block (empty or comment-only body — comments are
+      # consumed as whitespace) folds to a raw slice under .as; the .parg
+      # artifact's empty capture is an array. Match it.
+      def normalize_stage_items(items)
+        Array(items).map do |item|
+          if item.is_a?(Hash)
+            %i[parallel sequence].each do |k|
+              item = {k => []} if item.key?(k) && !item[k].is_a?(Array)
+            end
+          end
+          item
         end
       end
 
