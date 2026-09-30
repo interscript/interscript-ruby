@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "parslet"
+require "parsanol"
 
 module Interscript
   module Isc
@@ -11,7 +11,7 @@ module Interscript
     #
     # The returned tree is a parslet-shaped hash — lists of hashes with
     # symbol keys. Convert to a domain object via Interscript::Isc::DocumentBuilder.
-    class Parser < Parslet::Parser
+    class Parser < Parsanol::Parser
       include Grammar::Core
 
       root :isc_source
@@ -22,7 +22,7 @@ module Interscript
 
       def parse_with_callbacks(source, filename: nil)
         Normalizer.normalize(parse(source))
-      rescue Parslet::ParseFailed => e
+      rescue Parsanol::ParseFailed => e
         raise ParseError.new(e.message, filename: filename, source: source, cause: e)
       end
     end

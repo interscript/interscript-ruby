@@ -10,7 +10,7 @@ class Interscript::Compiler
 
   def self.call(map, **kwargs)
     # DSL.parse locates, dispatches .isc and caches the parsed document —
-    # calling parse_isc here re-ran a ~30 s Parslet parse on every
+    # calling parse_isc here re-ran a full grammar parse on every
     # compiler instantiation.
     map = Interscript::DSL.parse(map) if String === map
     compiler = new

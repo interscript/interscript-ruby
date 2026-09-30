@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "parslet"
+require "parsanol"
 
 module Interscript
   module Isc
@@ -8,7 +8,7 @@ module Interscript
       # Core grammar: composes every concern into a single Parser ancestor.
       # Mirrors the structure of LutaML LML's Grammar::Core.
       module Core
-        include Parslet
+        include Parsanol
         include Concerns::Primitives
         include Concerns::Items
         include Concerns::Metadata

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "parslet"
+require "parsanol"
 
 module Interscript
   module Isc
@@ -8,7 +8,7 @@ module Interscript
       module Concerns
         # Tests block: normative input/output pairs.
         module Tests
-          include Parslet
+          include Parsanol
 
           rule(:tests_block) do
             str("tests") >> whitespace? >>

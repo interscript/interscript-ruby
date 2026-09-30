@@ -71,10 +71,12 @@ module Interscript
       def unquote(fragment)
         return "" if fragment.nil?
         return fragment.to_s unless fragment.is_a?(Hash)
-        return fragment.to_s unless fragment.key?(:string)
+        # Direct decode for the overwhelmingly common shape — routing
+        # every quoted string through Transform pattern matching
+        # dominated large-map builds.
+        return Transform.decode_string_parts(fragment[:string]) if fragment.key?(:string)
 
-        out = @transform.apply(fragment)
-        out.is_a?(Items::StringValue) ? out.value : out.to_s
+        fragment.to_s
       end
 
       def unescape_braces(text)
@@ -325,17 +327,19 @@ module Interscript
         }.compact
       end
 
-      # Convert a parslet tree fragment into a concrete Item object via Transform.
+      # Convert a grammar tree fragment into a concrete Item object via
+      # Transform. Reuses the builder's Transform instance — allocating
+      # one per fragment dominated large-map builds.
       def materialize(fragment)
         case fragment
         when Hash
           if fragment.key?(:concatenation)
-            Transform.new.apply(fragment)
+            @transform.apply(fragment)
           else
-            Transform.new.apply(concatenation: [fragment])
+            @transform.apply(concatenation: [fragment])
           end
         when Array
-          Transform.new.apply(concatenation: fragment)
+          @transform.apply(concatenation: fragment)
         when NilClass
           Items::None.new
         else

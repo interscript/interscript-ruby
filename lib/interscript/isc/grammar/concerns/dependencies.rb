@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "parslet"
+require "parsanol"
 
 module Interscript
   module Isc
@@ -8,7 +8,7 @@ module Interscript
       module Concerns
         # Dependencies: references to other systems whose stages may be invoked.
         module Dependencies
-          include Parslet
+          include Parsanol
 
           rule(:dependency_decl) do
             str("dependency") >> whitespace >>
