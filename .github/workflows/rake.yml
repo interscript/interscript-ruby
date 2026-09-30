@@ -18,12 +18,12 @@ jobs:
     env:
       BUNDLE_WITHOUT: "secryst"
       SKIP_JS: "1"
-      # The ISC corpus sweep (ISC_SWEEP=1) stays opt-in until the
-      # conformance gap it measures is closed: it currently exposes real
-      # per-map mismatches across the corpus. Run it locally with
-      #   ISC_SWEEP=1 INTERSCRIPT_MAPS_PATH=../maps/maps \
-      #   rspec spec/interscript_spec.rb
-      # to track that gap; flip it on here once it goes green.
+      ISC_SWEEP: "1"
+      # The ISC corpus sweep: every map's own tests through every
+      # compiler, against the ../maps sibling from the monorepo
+      # checkout. The conformance gap it measured is closed (16,482
+      # examples, 0 failures — interscript-ruby#779..#786); this is
+      # now the CI conformance gate for the corpus.
 
     steps:
       - name: Checkout monorepo
