@@ -129,8 +129,9 @@ grammar InterscriptIsc version "0.1.0" {
 
   item_atom_start = "\"" / "'" / ident_first
   cont_stop = "to" / "before" / "after" / "not_before" / "not_after" / "}"
+  alias_decl_stop = identifier [ws] "="
   item_atom = quoted_string / none_lit / zw_primitive / any_char_lit / any_ctor / capture_ctor / maybe_ctor / some_ctor / fn_lit / capture_reference / alias_reference
-  item = (item_atom 0*(item_sep !cont_stop &item_atom_start item_atom)) as concatenation
+  item = (item_atom 0*(item_sep !cont_stop !(alias_decl_stop) &item_atom_start item_atom)) as concatenation
 
   # -- rules and stages ---------------------------------------------------
 
