@@ -62,7 +62,10 @@ module Interscript
               str('"').as(:dquote) |
               str("\\").as(:backslash) |
               (str("u") >> match(/[0-9a-fA-F]/).repeat(4, 4).as(:unicode)) |
-              (str("U") >> match(/[0-9a-fA-F]/).repeat(8, 8).as(:unicode))
+              # The corpus converter emits \U with 4 hex digits too
+              # (gki-bel "\U040E") — accept 4..8, don't be stricter than
+              # the corpus.
+              (str("U") >> match(/[0-9a-fA-F]/).repeat(4, 8).as(:unicode))
             )
           end
 
