@@ -326,3 +326,35 @@ RSpec.describe "NodeAdapter string escapes" do
     expect(tests[1]).to eq(["a\tb\nc", "déjà"])
   end
 end
+
+RSpec.describe "NodeAdapter alias refs in constraints" do
+  it "compiles bare alias refs in sets like the legacy DSL — no debug dump, no literal-charset lookbehind" do
+    src = <<~ISC
+      system "t:g-c:C-D:1" {
+        metadata { name "T" }
+        stage main {
+          sub {
+            from "γ"
+            to "n"
+            before any(greek)
+            after any("κΚ") + any(greek)
+            not_before boundary
+          }
+        }
+      }
+    ISC
+    node = Interscript::Isc::NodeAdapter.to_interscript_node(
+      Interscript::Isc::DocumentBuilder.build(Interscript::Isc::Parser.parse(src))
+    )
+    rule = node.stages[:main].children.first
+    expect(rule.before).to be_a(Interscript::Node::Item::Any)
+    expect(rule.before.inspect).not_to include("alias_ref")
+    expect(rule.after.inspect).not_to include("alias_ref")
+    # The legacy runtime compiles an imported alias in a set to a vacuous
+    # fragment (Any(nil)); resolving it to the charset *string* would bake
+    # a 1000-char literal into the lookbehind and never match.
+    interp = Interscript::Interpreter.new
+    interp.compile(node)
+    expect(interp.call("αγκα")).to eq("αnκα")
+  end
+end

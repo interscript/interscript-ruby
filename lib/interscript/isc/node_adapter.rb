@@ -218,7 +218,14 @@ module Interscript
             when Items::Primitive
               convert_primitive(c)
             when Items::AliasRef
-              convert_alias_ref(c)
+              # Legacy parity: a bare alias inside any(...) compiles to the
+              # Stdlib value (Any(nil) there for imported aliases). Keeping
+              # the Alias item resolves to the imported charset *string* at
+              # build time, baking a 1000-char literal into the constraint
+              # regexp — a lookbehind that never matches.
+              name = convert_alias_ref(c).name
+              val = Interscript::Stdlib::ALIASES[name]
+              val ? Interscript::Node::Item::Any.new(val) : Interscript::Node::Item::String.new("")
             else
               convert_item(c)
             end

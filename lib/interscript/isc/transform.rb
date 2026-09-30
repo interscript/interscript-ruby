@@ -29,6 +29,11 @@ module Interscript
         Items::AliasRef.new(q.to_s, map: n.to_s)
       }
       rule(alias: simple(:n)) { Items::AliasRef.new(n.to_s) }
+      # Bare identifiers inside any(...) lists parse as :alias_ref (the
+      # :alias key only covers direct item position). Unmatched, the hash
+      # degraded downstream into the debug string "[:alias_ref, \"name\"]".
+      rule(alias_ref: {identifier: simple(:n)}) { Items::AliasRef.new(n.to_s) }
+      rule(alias_ref: simple(:n)) { Items::AliasRef.new(n.to_s) }
       rule(ref: subtree(:h)) { Items::Capture.new(h[:digit].to_s.to_i) }
       rule(capture_inner: subtree(:inner)) { Items::CaptureGroup.new(Interscript::Isc::Transform.materialize_item(inner)) }
       rule(maybe_inner: subtree(:inner)) { Items::Maybe.new(Interscript::Isc::Transform.materialize_item(inner)) }
@@ -84,7 +89,13 @@ module Interscript
       rule(list: sequence(:arr)) do
         Items::Set.new(arr)
       end
-      rule(any: subtree(:h)) { h }
+      rule(any: subtree(:h)) do
+        # A single alias argument keeps set semantics: the legacy runtime
+        # builds Any(Alias) which resolves through Stdlib (Any(nil) for
+        # imported aliases). Unwrapped, the bare Alias resolves to the
+        # imported charset string and compiles as a literal.
+        h.is_a?(Items::AliasRef) ? Items::Set.new([h]) : h
+      end
 
       rule(concatenation: subtree(:parts)) do
         Items::Concat.from_parts(Array(parts))
