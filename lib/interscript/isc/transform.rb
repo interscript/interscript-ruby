@@ -44,6 +44,7 @@ module Interscript
       rule(newline: simple(:_)) { "\n" }
       rule(carriage_return: simple(:_)) { "\r" }
       rule(tab: simple(:_)) { "\t" }
+      rule(u_lone: simple(:_)) { "U" }
       rule(unicode: simple(:hex)) do
         [hex.to_s.to_i(16)].pack("U")
       rescue
@@ -71,6 +72,8 @@ module Interscript
               "\\"
             elsif p.key?(:unicode)
               [p[:unicode].to_s.to_i(16)].pack("U")
+            elsif p.key?(:u_lone)
+              "U"
             else
               p.to_s
             end
