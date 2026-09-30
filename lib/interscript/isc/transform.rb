@@ -23,6 +23,9 @@ module Interscript
       rule(identifier: simple(:i)) { i.to_s }
 
       rule(none: simple(:_)) { Items::None.new }
+      # any_character is the Stdlib any-char alias (".") — without this
+      # rule the fragment stringified to "any_charany_character".
+      rule(any_char: simple(:_)) { Items::AliasRef.new("any_character") }
       rule(primitive: simple(:p)) { Items::Primitive.new(p.to_s) }
       rule(function: simple(:f)) { Items::Function.new(f.to_s) }
       rule(alias: {identifier: simple(:n), qualified_name: simple(:q)}) {
