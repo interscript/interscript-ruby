@@ -395,3 +395,29 @@ RSpec.describe "NodeAdapter compose vs decompose" do
     expect(calls).to eq(%i[decompose compose])
   end
 end
+
+RSpec.describe "NodeAdapter any_character" do
+  it "converts to the Stdlib any-character alias, not a stringified fragment" do
+    src = <<~ISC
+      system "t:a-b:C-D:1" {
+        metadata { name "T" }
+        stage main {
+          sub {
+            from capture(any_character) + ref(1)
+            to ref(1)
+          }
+        }
+      }
+    ISC
+    node = Interscript::Isc::NodeAdapter.to_interscript_node(
+      Interscript::Isc::DocumentBuilder.build(Interscript::Isc::Parser.parse(src))
+    )
+    inner = node.stages[:main].children.first.from.children.first.data
+    expect(inner).to be_a(Interscript::Node::Item::Alias)
+    expect(inner.name).to eq(:any_character)
+    interp = Interscript::Interpreter.new
+    interp.compile(node)
+    # The geminate collapse: any char followed by itself collapses to one.
+    expect(interp.call("чч")).to eq("ч")
+  end
+end
