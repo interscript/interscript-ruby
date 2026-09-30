@@ -39,7 +39,8 @@ grammar InterscriptIsc version "0.1.0" {
   esc_bs = "\\" as backslash
   esc_uni4 = "u" (4hexd) as unicode
   esc_uni8 = "U" (4*8hexd) as unicode
-  escape_sequence = "\\" (esc_nl / esc_cr / esc_tab / esc_dq / esc_bs / esc_uni4 / esc_uni8)
+  esc_u_lone = "U" as u_lone
+  escape_sequence = "\\" (esc_nl / esc_cr / esc_tab / esc_dq / esc_bs / esc_uni4 / esc_uni8 / esc_u_lone)
 
   raw_run = 1*(!("\\" / "\"") chr)
   dq_parts = *(escape_sequence / (raw_run as run))

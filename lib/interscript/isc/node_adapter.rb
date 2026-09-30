@@ -20,6 +20,12 @@ module Interscript
 
       def initialize(isc_doc)
         @isc_doc = isc_doc
+        @imported = {}
+        # Local alias name -> raw value fragment, for set/constraint
+        # charset resolution (grek_latn_any = any([grek_any, …])).
+        @local_raw = Array(isc_doc[:aliases]).to_h { |a| [a[:name].to_sym, a[:value]] }
+        @charset_cache = {}
+        @resolving = []
       end
 
       def build
@@ -39,9 +45,17 @@ module Interscript
           # Ruby/JS compilers emit run directives and alias lookups as
           # Maps.transliterate(stage.doc_name, ...) — without it every
           # aliased-dependency run compiled to transliterate(nil).
+          build_dependencies(doc)
+          # Imported aliases (charset libraries) resolve NOW, at adapter
+          # time: their data is a charset that must compile as a character
+          # class in constraints. Left to the runtime, they degrade to
+          # vacuous fragments and context-gated rules fire wrongly
+          # everywhere (din-grc's word-initial γκ). Dependencies load
+          # FIRST so local aliases composed from imported charsets
+          # (grek_latn_any = any([grek_any, …])) resolve too.
+          @imported = doc.imported_aliases
           doc.aliases = build_aliases(doc.name)
           build_stages(doc.name).each { |name, stage| doc.stages[name] = stage }
-          build_dependencies(doc)
         end
       end
 
@@ -154,7 +168,7 @@ module Interscript
         %i[before after not_before not_after].each do |k|
           next unless rule_def[:constraints]&.any? { |c| c[:kind] == k }
           constraint = rule_def[:constraints].find { |c| c[:kind] == k }
-          opts[k] = convert_item(constraint[:item])
+          opts[k] = convert_item(constraint[:item], :class)
         end
         Interscript::Node::Rule::Sub.new(from, to, **opts)
       end
@@ -167,7 +181,7 @@ module Interscript
         Interscript::Node::Rule::Run.new(stage_ref)
       end
 
-      def convert_item(item)
+      def convert_item(item, ctx = :word)
         case item
         when Items::StringValue
           Interscript::Node::Item::String.new(item.value)
@@ -176,7 +190,7 @@ module Interscript
         when Items::Primitive
           convert_primitive(item)
         when Items::AliasRef
-          convert_alias_ref(item)
+          convert_alias_ref(item, ctx)
         when Items::Capture
           Interscript::Node::Item::CaptureRef.new(item.index)
         when Items::Function
@@ -210,8 +224,42 @@ module Interscript
         Interscript::Node::Item::Alias.new(item.name.to_sym)
       end
 
-      def convert_alias_ref(item)
-        Interscript::Node::Item::Alias.new(item.name.to_sym, map: item.map&.to_sym)
+      def convert_alias_ref(item, ctx = :word)
+        # An alias in class context (constraint position or inside a set)
+        # compiles with class semantics when it names a charset — imported
+        # library sets, or local aliases composed of them. Word-position
+        # aliases stay Alias nodes and resolve at runtime.
+        if ctx == :class
+          # Unresolvable names stay vacuous here — legacy Any(nil) parity.
+          resolve_charset(item.name.to_sym) || Interscript::Node::Item::String.new("")
+        else
+          Interscript::Node::Item::Alias.new(item.name.to_sym, map: item.map&.to_sym)
+        end
+      end
+
+      # The class-semantics node for a charset alias — imported library
+      # sets (Any or charset String) or local aliases composed of them —
+      # or nil. Memoized; a resolving set guards alias cycles.
+      def resolve_charset(name)
+        return @charset_cache[name] if @charset_cache.key?(name)
+        return nil if @resolving.include?(name)
+
+        @resolving << name
+        node =
+          if (imp = @imported[name])
+            data = imp.data
+            case data
+            when Interscript::Node::Item::Any
+              data
+            when Interscript::Node::Item::String
+              Interscript::Node::Item::Any.new(data.data)
+            end
+          elsif (raw = @local_raw[name])
+            converted = convert_item(raw)
+            converted if converted.is_a?(Interscript::Node::Item::Any) || converted.is_a?(Interscript::Node::Item::String)
+          end
+        @resolving.delete(name)
+        @charset_cache[name] = node
       end
 
       def convert_concat(concat)
@@ -234,14 +282,17 @@ module Interscript
             when Items::Primitive
               convert_primitive(c)
             when Items::AliasRef
-              # Legacy parity: a bare alias inside any(...) compiles to the
-              # Stdlib value (Any(nil) there for imported aliases). Keeping
-              # the Alias item resolves to the imported charset *string* at
-              # build time, baking a 1000-char literal into the constraint
-              # regexp — a lookbehind that never matches.
-              name = convert_alias_ref(c).name
-              val = Interscript::Stdlib::ALIASES[name]
-              val ? Interscript::Node::Item::Any.new(val) : Interscript::Node::Item::String.new("")
+              convert_alias_ref(c, :class) ||
+                begin
+                  # Legacy parity: a bare alias inside any(...) compiles to the
+                  # Stdlib value (Any(nil) there for imported aliases). Keeping
+                  # the Alias item resolves to the imported charset *string* at
+                  # build time, baking a 1000-char literal into the constraint
+                  # regexp — a lookbehind that never matches.
+                  name = convert_alias_ref(c).name
+                  val = Interscript::Stdlib::ALIASES[name]
+                  val ? Interscript::Node::Item::Any.new(val) : Interscript::Node::Item::String.new("")
+                end
             else
               convert_item(c)
             end
