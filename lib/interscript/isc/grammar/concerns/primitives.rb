@@ -68,7 +68,7 @@ module Interscript
               (str("U") >> match(/[0-9a-fA-F]/).repeat(4, 8).as(:unicode)) |
               # Converter-corrupted files (un-mar) contain a bare \\U with no
               # hex digits at all — parse it as a literal U so the map loads.
-              (str("U").as(:u_lone))
+              str("U").as(:u_lone)
             )
           end
 
