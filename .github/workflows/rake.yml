@@ -43,6 +43,10 @@ jobs:
 
       - name: Install Python helper and gems
         working-directory: ruby
+        # bash everywhere: the PYBIN substitution is POSIX shell, which
+        # PowerShell (the windows default) cannot parse. --break-system-
+        # packages rides out PEP 668 on Homebrew-managed macos Pythons.
+        shell: bash
         run: |
           bundle config set --local with jsexec
           bundle install
@@ -50,7 +54,7 @@ jobs:
           # is not necessarily the python that bare `pip` targets —
           # install the regex helper into that interpreter.
           PYBIN=$(bundle exec ruby -e 'require "pycall"; v = PyCall.sys.version[/\d+\.\d+/]; puts "python#{v}"')
-          "$PYBIN" -m pip install regex
+          "$PYBIN" -m pip install --break-system-packages regex || "$PYBIN" -m pip install regex
 
       - name: RSpec
         working-directory: ruby
