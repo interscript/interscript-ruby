@@ -421,3 +421,24 @@ RSpec.describe "NodeAdapter any_character" do
     expect(interp.call("чч")).to eq("ч")
   end
 end
+
+RSpec.describe "comment-only blocks" do
+  it "normalize to an empty block, matching the artifact tree" do
+    src = <<~ISC
+      system "t:a-b:C-D:1" {
+        metadata { name "T" }
+        stage main {
+          parallel {
+            # This is a comment
+          }
+        }
+      }
+    ISC
+    tree = Interscript::Isc::Parser.parse(src)
+    stage = tree[:system][:body].find { |b| b.is_a?(Hash) && b[:stage] }[:stage]
+    # The grammar consumes comments as whitespace; a capture-free block
+    # folds to a raw slice that must normalize to an empty array like
+    # the .parg artifact's empty capture.
+    expect(stage).to eq([{parallel: []}])
+  end
+end
