@@ -25,4 +25,14 @@ RSpec.describe "the ISC corpus" do
     expect(Interscript.transliterate("bgnpcgn-deu-Latn-Latn-2000", "Tschüß!"))
       .to eq("Tschueß!")
   end
+
+  it "compiles an aliased-dependency run through the Ruby compiler (un-ell runs elot)" do
+    skip "maps checkout not present" unless File.file?(File.expand_path("un-ell-Grek-Latn-1987-ts.isc", MAPS))
+
+    compiled = Interscript::Compiler::Ruby.call("un-ell-Grek-Latn-1987-ts")
+    # The run directive compiles to Maps.transliterate(stage.doc_name, ...);
+    # without doc_name stamped on ISC stages it emitted transliterate(nil)
+    # and crashed on stages[:main].call at runtime.
+    expect(compiled.call("Ένα")).to eq("Éna")
+  end
 end

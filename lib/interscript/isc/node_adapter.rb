@@ -26,10 +26,22 @@ module Interscript
         Interscript::Node::Document.new.tap do |doc|
           doc.metadata = build_metadata
           doc.tests = build_tests
-          doc.aliases = build_aliases
-          build_stages.each { |name, stage| doc.stages[name] = stage }
+          # Maps are addressed by their file-derived name (locate() and
+          # Maps.transliterate use it); registering under the system code
+          # made every map whose code differs from its file name resolve
+          # to an auto-created empty entry — stages[:main].call crashed.
+          doc.name = if @isc_doc[:filename]
+            File.basename(@isc_doc[:filename].to_s, ".isc")
+          else
+            @isc_doc[:systemCode]
+          end
+          # The legacy DSL stamps doc_name on every alias and stage; the
+          # Ruby/JS compilers emit run directives and alias lookups as
+          # Maps.transliterate(stage.doc_name, ...) — without it every
+          # aliased-dependency run compiled to transliterate(nil).
+          doc.aliases = build_aliases(doc.name)
+          build_stages(doc.name).each { |name, stage| doc.stages[name] = stage }
           build_dependencies(doc)
-          doc.name = @isc_doc[:systemCode]
         end
       end
 
@@ -53,12 +65,14 @@ module Interscript
         tests
       end
 
-      def build_aliases
+      def build_aliases(doc_name)
         @isc_doc[:aliases].each_with_object({}) do |a, h|
           # The runtime resolves aliases through AliasDef#data (see
           # Interpreter::Stage#build_item); a bare item here hands it a
           # raw Array once Any#data unrolls.
-          h[a[:name].to_sym] = Interscript::Node::AliasDef.new(a[:name].to_sym, convert_item(a[:value]))
+          alias_def = Interscript::Node::AliasDef.new(a[:name].to_sym, convert_item(a[:value]))
+          alias_def.doc_name = doc_name
+          h[a[:name].to_sym] = alias_def
         end
       end
 
@@ -90,9 +104,11 @@ module Interscript
         end
       end
 
-      def build_stages
+      def build_stages(doc_name)
         @isc_doc[:stages].each_with_object({}) do |stage, h|
-          h[stage[:name].to_sym] = build_stage(stage)
+          built = build_stage(stage)
+          built.doc_name = doc_name
+          h[stage[:name].to_sym] = built
         end
       end
 

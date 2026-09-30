@@ -358,3 +358,18 @@ RSpec.describe "NodeAdapter alias refs in constraints" do
     expect(interp.call("αγκα")).to eq("αnκα")
   end
 end
+
+RSpec.describe "NodeAdapter document name derivation" do
+  it "names the document after the file, not the system code — transliteration addresses maps by file name" do
+    tree = Interscript::Isc::Parser.parse(
+      'system "TOTALLY:diff-Code:frm:File" { stage main { sub { from "a" to "b" } } }'
+    )
+    doc = Interscript::Isc::DocumentBuilder.build(tree, filename: "test-map.isc")
+    node = Interscript::Isc::NodeAdapter.to_interscript_node(doc)
+    # The Ruby compiler registers compiled maps under Document#name and
+    # Maps.transliterate looks them up by the map name (file-derived).
+    # Registering under the system code auto-creates an empty entry via
+    # the Hash default block and crashes on stages[:main].call.
+    expect(node.name).to eq("test-map")
+  end
+end
