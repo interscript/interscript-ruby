@@ -75,8 +75,10 @@ module Interscript
         Items::Range.new(lo.to_s, hi.to_s)
       end
       rule(single: simple(:s)) { Items::Set.from_string(s.to_s) }
+      # List entries are already Items (strings, primitives, alias refs).
+      # Stringifying here baked an object inspect into the char set.
       rule(list: sequence(:arr)) do
-        Items::Set.from_strings(arr.map(&:to_s))
+        Items::Set.new(arr)
       end
       rule(any: subtree(:h)) { h }
 

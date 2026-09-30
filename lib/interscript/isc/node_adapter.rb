@@ -209,6 +209,8 @@ module Interscript
             case c
             when ::String
               Interscript::Node::Item::String.new(c)
+            when Items::StringValue
+              Interscript::Node::Item::String.new(c.value)
             when Items::Primitive
               convert_primitive(c)
             when Items::AliasRef

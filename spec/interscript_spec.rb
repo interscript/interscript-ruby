@@ -7,8 +7,16 @@ mask = ENV["TRANSLIT_SYSTEM"] || "*"
 # per-map failures are expected until the ISC-era conformance work
 # completes — the sweep exists to MEASURE that gap, gated so CI stays
 # green while it closes.
+# The sweep honors INTERSCRIPT_MAPS_PATH (like the corpus specs) and
+# enumerates through the load path — matching what locate() resolves.
+# Bare maps() would enumerate the installed gem's frozen 2.4.x .imp
+# corpus wherever the maps checkout isn't the active gem.
 maps = if ENV["ISC_SWEEP"]
-  Interscript.maps(basename: false, select: mask)
+  sweep_root = ENV.fetch("INTERSCRIPT_MAPS_PATH", "../maps/maps")
+  unless Interscript.load_path.first == File.expand_path(sweep_root)
+    Interscript.load_path.unshift(File.expand_path(sweep_root))
+  end
+  Interscript.maps(basename: false, select: mask, load_path: true)
 else
   legacy_maps(select: mask)
 end

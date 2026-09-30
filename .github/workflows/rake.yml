@@ -18,6 +18,10 @@ jobs:
     env:
       BUNDLE_WITHOUT: "secryst"
       SKIP_JS: "1"
+      # The ISC corpus sweep: every map's own tests through every
+      # compiler. The ../maps sibling is on the load path via the
+      # Gemfile path dependency.
+      ISC_SWEEP: "1"
 
     steps:
       - name: Checkout monorepo

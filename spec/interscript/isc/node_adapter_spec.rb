@@ -263,3 +263,20 @@ RSpec.describe "NodeAdapter document identity" do
     expect(node.name).to eq("X:a-b:C-D:1")
   end
 end
+
+RSpec.describe "NodeAdapter any-list constraints" do
+  it "keeps primitives as aliases, never their inspect" do
+    tree = Interscript::Isc::Parser.parse(
+      'system "x" { stage main { sub { from "ം" to "m" after any([boundary, "‌", "‍"]) } } }'
+    )
+    doc = Interscript::Isc::DocumentBuilder.build(tree)
+    node = Interscript::Isc::NodeAdapter.to_interscript_node(doc)
+    constraint = node.stages[:main].children.first.after
+    stage = Interscript::Interpreter::Stage.new(node, "")
+    re = stage.send(:build_regexp, node.stages[:main].children.first)
+    # The constraint must match boundary positions — an inspect leak
+    # turns the lookahead into a garbage char class.
+    expect(re).not_to include("Primitive")
+    expect("പ്പം ഹ").to match(Regexp.new(re))
+  end
+end
