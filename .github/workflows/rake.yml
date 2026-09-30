@@ -54,7 +54,11 @@ jobs:
           # is not necessarily the python that bare `pip` targets —
           # install the regex helper into that interpreter.
           PYBIN=$(bundle exec ruby -e 'require "pycall"; v = PyCall.sys.version[/\d+\.\d+/]; puts "python#{v}"')
-          "$PYBIN" -m pip install --break-system-packages regex || "$PYBIN" -m pip install regex
+          if command -v "$PYBIN" >/dev/null 2>&1; then
+            "$PYBIN" -m pip install --break-system-packages regex || "$PYBIN" -m pip install regex
+          else
+            echo "$PYBIN not on PATH — python helper not installed"
+          fi
 
       - name: RSpec
         working-directory: ruby
