@@ -56,9 +56,11 @@ RSpec.describe Interscript::Stdlib::Functions do
 
   describe ".rababa (without registered config)" do
     it "raises ExternalUtilError naming the missing config" do
-      expect { described_class.rababa("كتب", config: "default") }.to raise_error(
+      # A name that cannot be registered: the sweep's load path puts the
+      # monorepo's rababa-configs in scope, where "default" exists.
+      expect { described_class.rababa("كتب", config: "no-such-config") }.to raise_error(
         Interscript::ExternalUtilError,
-        /No rababa config registered under 'default'/
+        /No rababa config registered under 'no-such-config'/
       )
     end
   end
