@@ -263,7 +263,10 @@ module Interscript
         elsif n[:separate]
           [{kind: :separate, separator: n[:separator] ? materialize(n[:separator]) : nil}]
         elsif n[:compose]
-          [{kind: :compose}]
+          # The grammar captures both `compose` and `decompose` under this
+          # key — the value decides the directive. Dropping it compiled
+          # every decompose as NFC compose.
+          [{kind: n[:compose].to_s.to_sym}]
         elsif n[:case]
           item = {kind: :string_case, op: n[:case].to_s}
           item[:kwargs] = extract_kwargs(n[:case_kwargs]) if n[:case_kwargs]
