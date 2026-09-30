@@ -306,3 +306,24 @@ RSpec.describe "NodeAdapter any-list constraints" do
     expect("പ്പം ഹ").to match(Regexp.new(re))
   end
 end
+
+RSpec.describe "NodeAdapter string escapes" do
+  it "decodes escape sequences in test strings" do
+    src = <<~'ISC'
+      system "T:a-b:C-D:1" {
+        metadata { name "T" }
+        tests {
+          "pod\"ezd" -> "p\"ezd"
+          "a\tb\nc" -> "déjà"
+        }
+        stage main { sub "a" "b" }
+      }
+    ISC
+    node = Interscript::Isc::NodeAdapter.to_interscript_node(
+      Interscript::Isc::DocumentBuilder.build(Interscript::Isc::Parser.parse(src))
+    )
+    tests = node.tests.data
+    expect(tests[0]).to eq(['pod"ezd', 'p"ezd'])
+    expect(tests[1]).to eq(["a\tb\nc", "déjà"])
+  end
+end

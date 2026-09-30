@@ -16,33 +16,7 @@ module Interscript
       # StringValue.
       rule(string: simple(:s)) { Items::StringValue.new(s.to_s) }
       rule(string: sequence(:parts)) do
-        combined = parts.map do |p|
-          case p
-          when Hash
-            # Escape sequence fragment: e.g. {newline: "n"}, {unicode: "1234"},
-            # {dquote: '"'}, {char: "a"}
-            if p.key?(:char)
-              p[:char].to_s
-            elsif p.key?(:newline)
-              "\n"
-            elsif p.key?(:carriage_return)
-              "\r"
-            elsif p.key?(:tab)
-              "\t"
-            elsif p.key?(:dquote)
-              '"'
-            elsif p.key?(:backslash)
-              "\\"
-            elsif p.key?(:unicode)
-              [p[:unicode].to_s.to_i(16)].pack("U")
-            else
-              p.to_s
-            end
-          else
-            p.to_s
-          end
-        end.join
-        Items::StringValue.new(combined)
+        Items::StringValue.new(Transform.decode_string_parts(parts))
       end
       rule(char: simple(:c)) { c.to_s }
 
@@ -69,6 +43,36 @@ module Interscript
         [hex.to_s.to_i(16)].pack("U")
       rescue
         hex.to_s
+      end
+
+      # Shared decoder for the pieces of a :string capture — used by the
+      # transform rules above and by the Normalizer's scalar folding. A
+      # fragment without an escape key is a raw character slice.
+      def self.decode_string_parts(parts)
+        Array(parts).map do |p|
+          case p
+          when Hash
+            if p.key?(:char)
+              p[:char].to_s
+            elsif p.key?(:newline)
+              "\n"
+            elsif p.key?(:carriage_return)
+              "\r"
+            elsif p.key?(:tab)
+              "\t"
+            elsif p.key?(:dquote)
+              '"'
+            elsif p.key?(:backslash)
+              "\\"
+            elsif p.key?(:unicode)
+              [p[:unicode].to_s.to_i(16)].pack("U")
+            else
+              p.to_s
+            end
+          else
+            p.to_s
+          end
+        end.join
       end
 
       rule(lo: simple(:lo), hi: simple(:hi)) do

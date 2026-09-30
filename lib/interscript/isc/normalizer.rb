@@ -36,10 +36,12 @@ module Interscript
       def scalar(node)
         return node if node.is_a?(::String) || node.nil?
         if node.key?(:string)
-          # Parts are {char:} hashes in the general grammar; some
-          # constructions (e.g. the rababa directive) capture bare
-          # slices instead.
-          Array(node[:string]).map { |part| part.is_a?(Hash) ? part[:char].to_s : part.to_s }.join
+          # Parts are {char:} hashes and escape fragments ({dquote:},
+          # {unicode:}, …) in the general grammar; some constructions
+          # (e.g. the rababa directive) capture bare slices instead.
+          # Escapes decode via the shared fold — folding only :char here
+          # silently dropped every escaped character.
+          Interscript::Isc::Transform.decode_string_parts(node[:string])
         elsif node.key?(:identifier)
           node[:identifier].to_s
         elsif node.key?(:raw)
