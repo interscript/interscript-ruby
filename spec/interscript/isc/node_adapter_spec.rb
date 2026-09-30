@@ -266,7 +266,7 @@ end
 
 RSpec.describe "NodeAdapter range handling" do
   it "keeps ISC ranges as native Any ranges — codepoint semantics, not string-succ expansion" do
-    src = <<~'ISC'
+    src = <<~ISC
       system "TEST:aze-Arab:Latn:2026" {
         metadata { name "T" }
         stage main {
