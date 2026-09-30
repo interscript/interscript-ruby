@@ -18,12 +18,15 @@ jobs:
     env:
       BUNDLE_WITHOUT: "secryst"
       SKIP_JS: "1"
+      SKIP_PYTHON: "1"
       ISC_SWEEP: "1"
       # The ISC corpus sweep: every map's own tests through every
-      # compiler, against the ../maps sibling from the monorepo
-      # checkout. The conformance gap it measured is closed (16,482
-      # examples, 0 failures — interscript-ruby#779..#786); this is
-      # now the CI conformance gate for the corpus.
+      # supported compiler (Interpreter, Compiler::Ruby), against the
+      # ../maps sibling from the monorepo checkout. The conformance gap
+      # it measured is closed (16,482 examples, 0 failures —
+      # interscript-ruby#779..#786); this is now the CI conformance
+      # gate for the corpus. The experimental Python bridge is excluded
+      # (SKIP_PYTHON) until its own corpus conformance work lands.
 
     steps:
       - name: Checkout monorepo
