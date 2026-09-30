@@ -373,3 +373,25 @@ RSpec.describe "NodeAdapter document name derivation" do
     expect(node.name).to eq("test-map")
   end
 end
+
+RSpec.describe "NodeAdapter compose vs decompose" do
+  it "keeps decompose distinct from compose" do
+    src = <<~ISC
+      system "t:a-b:C-D:1" {
+        metadata { name "T" }
+        stage main {
+          sub "a" "b"
+          decompose
+          compose
+        }
+      }
+    ISC
+    node = Interscript::Isc::NodeAdapter.to_interscript_node(
+      Interscript::Isc::DocumentBuilder.build(Interscript::Isc::Parser.parse(src))
+    )
+    calls = node.stages[:main].children.select { |c| c.is_a?(Interscript::Node::Rule::Funcall) }.map(&:name)
+    # The grammar captures both directives under :compose; the builder must
+    # read the value or decompose compiles as NFC compose.
+    expect(calls).to eq(%i[decompose compose])
+  end
+end
