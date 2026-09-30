@@ -1,0 +1,194 @@
+# Interscript ISC grammar — parsanol grammar language (PG).
+#
+# Line-oriented port of lib/interscript/isc/grammar/concerns/*.rb.
+# The capture tree must reproduce the Ruby-DSL parser's tree exactly:
+#   - repetitions are ABNF prefixes (1*x, *x)
+#   - negation is !x, positive lookahead is &x
+#   - captures at use sites (rule_ref as name) nest inner captures
+#     the same way parslet .as does
+#
+# Consumed by the interscript gem (artifact parse) and parsanol npm.
+
+grammar InterscriptIsc version "0.1.0" {
+
+  # -- lexical primitives -------------------------------------------------
+
+  chr = %x00-10FFFF
+  space_char = %x20 / %x09 / %x0A / %x0B / %x0C / %x0D
+  newline = %x0D.0A / %x0A / %x0D
+  line_comment = "#" *(!(newline) chr)
+  whitespace = 1*(space_char / line_comment)
+  ws = *(space_char / line_comment)
+  inline_space = 1*(%x20 / %x09)
+  inline_ws = *(inline_space / line_comment)
+  hexd = %x30-39 / %x41-46 / %x61-66
+  digit = %x30-39
+
+  ident_first = %x41-5A / %x61-7A / %x5F
+  ident_rest = %x41-5A / %x61-7A / %x30-39 / %x5F
+  identifier = (ident_first 0*ident_rest) as identifier
+
+  keyword = "parallel" / "sequence" / "stage" / "compose" / "separate" / "system" / "metadata" / "aliases" / "tests" / "notes" / "description" / "any_character" / "authority" / "dependency" / "run" / "sub" / "before" / "after" / "not_before" / "not_after" / "any" / "none" / "boundary" / "line_start" / "line_end" / "word_boundary" / "downcase" / "upcase" / "title_case" / "capture" / "maybe" / "some" / "ref" / "name"
+
+  # -- string literals ----------------------------------------------------
+
+  esc_nl = ("n") as newline
+  esc_cr = ("r") as carriage_return
+  esc_tab = ("t") as tab
+  esc_dq = "\"" as dquote
+  esc_bs = "\\" as backslash
+  esc_uni4 = "u" (4hexd) as unicode
+  esc_uni8 = "U" (8hexd) as unicode
+  escape_sequence = "\\" (esc_nl / esc_cr / esc_tab / esc_dq / esc_bs / esc_uni4 / esc_uni8)
+
+  raw_run = 1*(!("\\" / "\"") chr)
+  dq_parts = *(escape_sequence / (raw_run as run))
+  double_quoted = "\"" (dq_parts as string) "\""
+  sq_body = *(!"'" chr)
+  single_quoted = "'" (sq_body as string) "'"
+  quoted_string = double_quoted / single_quoted
+
+  arrow = [whitespace] "->" [whitespace]
+  comma_ws = "," [whitespace]
+
+  # -- metadata -----------------------------------------------------------
+
+  md_authority = "authority" whitespace ((quoted_string) as authority)
+  md_source_spelling = "source_spelling" whitespace ((quoted_string) as source_spelling)
+  md_target_spelling = "target_spelling" whitespace ((quoted_string) as target_spelling)
+  md_identifying = "identifying" whitespace ((quoted_string) as identifying)
+  md_name = "name" whitespace ((quoted_string) as name)
+  md_spec_value = quoted_string as specification
+  md_specification = "specification" whitespace ((md_spec_value *(comma_ws md_spec_value)) as specification)
+  md_description = "description" [whitespace] "{" [ws] (raw_text as description) [ws] "}"
+  md_system_status = "system_status" whitespace (("current" / "former" / "inactive") as system_status)
+  md_code_status = "code_status" whitespace (("preferred" / "proposed" / "deprecated") as code_status)
+
+  relation_type = "supersedes" / "superseded_by" / "based_on" / "basis_for" / "alias_of" / "adopted_from" / "related_to"
+  relation_note = whitespace "note" whitespace (quoted_string as note)
+  relation_item = [whitespace] (relation_type as type) whitespace (quoted_string as system) [(relation_note)] [whitespace]
+  md_relations = "relations" [whitespace] "{" [ws] ((*(relation_item)) as relations) [ws] "}"
+
+  note_item = [whitespace] "note" [whitespace] (quoted_string as note) [whitespace]
+  md_notes = "notes" [whitespace] "{" [ws] ((*(note_item)) as notes) [ws] "}"
+
+  md_provenance_value = quoted_string as provenance
+  md_provenance = "provenance" [whitespace] ((md_provenance_value *(comma_ws md_provenance_value)) as provenance)
+
+  md_empty_field = &(newline)
+  md_raw_field_value = 1*(!%x0A !"}" !"{" chr)
+  md_field_value = quoted_string / (md_raw_field_value as raw)
+  md_field_block = "{" [ws] (raw_text as field_block) [ws] "}"
+  md_generic_field = (identifier as field_name) inline_ws ((md_field_value as field_value) / md_field_block / md_empty_field)
+
+  metadata_field = [whitespace] (md_description / md_relations / md_system_status / md_code_status / md_specification / md_notes / md_provenance / md_generic_field) [whitespace]
+  md_items = *(metadata_field)
+  metadata_block = "metadata" [whitespace] "{" [ws] (md_items as metadata) [ws] "}"
+
+  raw_text = *("\\" chr / (!"}" chr))
+
+  # -- aliases ------------------------------------------------------------
+
+  alias_decl = [whitespace] (identifier as name) [whitespace] "=" [whitespace] (item as value) [whitespace]
+  alias_items = *(alias_decl)
+  aliases_block = "aliases" [whitespace] "{" [ws] (alias_items as aliases) [ws] "}"
+
+  # -- dependencies -------------------------------------------------------
+
+  dep_alias = whitespace "as" whitespace (identifier as alias)
+  dependency_decl = "dependency" whitespace (quoted_string as target) [(dep_alias)]
+
+  # -- item expressions ---------------------------------------------------
+
+  zw_primitive = (("boundary") / ("line_start") / ("line_end") / ("word_boundary") / ("space") / ("non_boundary")) as primitive
+  fn_lit = (("upcase") / ("downcase") / ("title_case") / ("reverse") / ("strip") / ("swapcase")) as function
+  any_char_lit = ("any_character") as any_char
+  none_lit = ("none") as none
+
+  digit_cap = digit as digit
+  capture_reference_body = "ref" "(" [ws] digit_cap [ws] ")"
+  capture_reference = capture_reference_body as ref
+
+  item_ref = identifier "." (identifier as qualified_name)
+  alias_reference = (!(keyword) identifier [("." (identifier as qualified_name))] !"{" ) as alias
+
+  item_seq = item_atom
+  item_sep = ([ws] "+" [ws]) / whitespace
+  item_cont = &item_atom
+
+  range_arg = (quoted_string as lo) [ws] ".." [ws] (quoted_string as hi)
+  list_item = item
+  list_items = (list_item *((comma_ws / whitespace) list_item))
+  set_arg = ((quoted_string as single)) / ("[" [ws] ((list_item *((comma_ws / whitespace) list_item)) as list) [ws] "]")
+  alias_arg = (!zw_primitive !(keyword) identifier) as alias_ref
+  any_arg = range_arg / set_arg / alias_arg
+  any_ctor = "any" "(" [ws] (any_arg as any) [ws] ")"
+  capture_ctor = "capture" "(" [ws] (item as capture_inner) [ws] ")"
+  maybe_ctor = "maybe" "(" [ws] (item as maybe_inner) [ws] ")"
+  some_ctor = "some" "(" [ws] (item as some_inner) [ws] ")"
+
+  item_atom_start = "\"" / "'" / ident_first
+  cont_stop = "to" / "before" / "after" / "not_before" / "not_after" / "}"
+  item_atom = quoted_string / none_lit / zw_primitive / any_char_lit / any_ctor / capture_ctor / maybe_ctor / some_ctor / fn_lit / capture_reference / alias_reference
+  item = (item_atom 0*(item_sep !cont_stop &item_atom_start item_atom)) as concatenation
+
+  # -- rules and stages ---------------------------------------------------
+
+  constraint_after = "after" whitespace (item as after)
+  constraint_before = "before" whitespace (item as before)
+  constraint_not_before = "not_before" whitespace (item as not_before)
+  constraint_not_after = "not_after" whitespace (item as not_after)
+  constraint = constraint_after / constraint_before / constraint_not_before / constraint_not_after
+  constraints = *(whitespace constraint)
+
+  compact_rule = "sub" whitespace (item_atom as from) whitespace (item_atom as to) ((*(whitespace constraint)) as constraints)
+
+  block_rule = "sub" [ws] "{" [ws] "from" whitespace (item as from) [ws] "to" whitespace (item as to) ((*(whitespace constraint)) as constraints) [ws] "}"
+
+  rule = block_rule / compact_rule
+
+  comment_item = (("#" *(!%x0A chr)) as comment) / ((!(keyword) identifier) as noop)
+  rule_line = [ws] (rule / comment_item) [ws]
+  rule_items = *(rule_line)
+  sequence_block = "sequence" [ws] "{" [ws] (rule_items as sequence) [ws] "}"
+  parallel_block = "parallel" [ws] "{" [ws] (rule_items as parallel) [ws] "}"
+
+  separator_part = whitespace "separator" whitespace (item_atom as separator)
+  separate_directive = ("separate") as separate [(separator_part)]
+  case_directive = (("downcase") / ("upcase")) as case
+  case_kwargs_part = whitespace (kwarg_list as case_kwargs)
+  title_case_directive = ("title_case") as case [(case_kwargs_part)]
+  string_case_directive = case_directive / title_case_directive
+  compose_directive = (("compose") / ("decompose")) as compose
+  kwarg = (identifier as kwarg_name) [ws] ":" [ws] ((quoted_string) as kwarg_value)
+  kwarg_item = (kwarg) as kwarg
+  kwarg_list = (kwarg_item *(comma_ws kwarg_item))
+  funcall_kwargs_part = whitespace (kwarg_list as funcall_kwargs)
+  rababa_directive = ("rababa") as funcall_name [(funcall_kwargs_part)]
+  run_dep = "map." (identifier as dep) ".stage." (identifier as stage)
+  run_stage_only = ("stage." (identifier as stage)) as run_stage_only
+  run_rule = "run" whitespace ((run_dep) / run_stage_only)
+
+  bare_rule = (rule) as bare_rule
+  stage_item = [ws] (sequence_block / parallel_block / run_rule / separate_directive / string_case_directive / compose_directive / rababa_directive / bare_rule / comment_item) [ws]
+  stage_items = *(stage_item)
+  stage_name_paren = "(" (identifier as stage_name) ")"
+  stage_name_ws = whitespace (identifier as stage_name)
+  stage_block = "stage" (stage_name_paren / stage_name_ws) [ws] "{" [ws] (stage_items as stage) [ws] "}"
+
+  # -- tests ---------------------------------------------------------------
+
+  test_note = whitespace "note" whitespace (quoted_string as note)
+  test_line = [whitespace] (quoted_string as input) arrow (quoted_string as expected) [(test_note)] [whitespace]
+  test_items = *(test_line)
+  tests_block = "tests" [whitespace] "{" [ws] (test_items as tests) [ws] "}"
+
+  # -- system --------------------------------------------------------------
+
+  block_item = [whitespace] (metadata_block / aliases_block / tests_block / stage_block / dependency_decl) [whitespace]
+  body_items = *(block_item)
+  system_block = "system" whitespace ((quoted_string) as system_code) [whitespace] "{" [ws] ((*(block_item)) as body) [ws] "}" [whitespace]
+  isc_source = [whitespace] ((system_block) as system) [whitespace]
+
+  entry isc: isc_source
+}
