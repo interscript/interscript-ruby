@@ -174,9 +174,13 @@ module Interscript
         when Items::Some
           Interscript::Node::Item::Some.new(convert_item(item.inner))
         when Items::Range
-          Interscript::Node::Item::Any.new(
-            (item.lo..item.hi).map { |c| Interscript::Node::Item::String.new(c) }
-          )
+          # Keep the range native: both runtimes compile Any(Range) to a
+          # codepoint character class [lo-hi]. Expanding it to an Array
+          # iterates Ruby String#succ (a, b, … z, aa, ab …), which never
+          # reaches non-ASCII codepoints and blows up the node size.
+          lo = item.lo.is_a?(Items::StringValue) ? item.lo.value : item.lo
+          hi = item.hi.is_a?(Items::StringValue) ? item.hi.value : item.hi
+          Interscript::Node::Item::Any.new(lo..hi)
         when Items::Set
           convert_set(item)
         else

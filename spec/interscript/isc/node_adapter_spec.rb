@@ -264,6 +264,32 @@ RSpec.describe "NodeAdapter document identity" do
   end
 end
 
+RSpec.describe "NodeAdapter range handling" do
+  it "keeps ISC ranges as native Any ranges — codepoint semantics, not string-succ expansion" do
+    src = <<~'ISC'
+      system "TEST:aze-Arab:Latn:2026" {
+        metadata { name "T" }
+        stage main {
+          parallel { sub "q" "k" }
+          sub { from any("a".."￿") to upcase before boundary }
+        }
+      }
+    ISC
+    node = Interscript::Isc::NodeAdapter.to_interscript_node(
+      Interscript::Isc::DocumentBuilder.build(Interscript::Isc::Parser.parse(src))
+    )
+    upcase_rule = node.stages[:main].children
+      .select { |c| c.is_a?(Interscript::Node::Rule::Sub) }
+      .find { |r| r.to == :upcase }
+    # A Ruby String range expands via String#succ (a, b, ..., z, aa, ab …)
+    # which never reaches non-ASCII codepoints — the range must stay a range.
+    expect(upcase_rule.from.value).to be_a(Range)
+    interp = Interscript::Interpreter.new
+    interp.compile(node)
+    expect(interp.call("īş")).to eq("Īş")
+  end
+end
+
 RSpec.describe "NodeAdapter any-list constraints" do
   it "keeps primitives as aliases, never their inspect" do
     tree = Interscript::Isc::Parser.parse(
