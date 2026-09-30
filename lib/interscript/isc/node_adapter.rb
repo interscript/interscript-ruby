@@ -246,7 +246,13 @@ module Interscript
 
         @resolving << name
         node =
-          if (imp = @imported[name])
+          # Stdlib alias values are regex fragments ("\d", "\b") —
+          # keep them as Alias nodes so the runtimes interpolate them raw;
+          # wrapping in Any escapes the backslashes ([\\d] matches a
+          # literal backslash or d).
+          if Interscript::Stdlib::ALIASES.key?(name)
+            Interscript::Node::Item::Alias.new(name)
+          elsif (imp = @imported[name])
             data = imp.data
             case data
             when Interscript::Node::Item::Any
