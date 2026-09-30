@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "parslet"
+require "parsanol"
 
 module Interscript
   module Isc
@@ -8,7 +8,7 @@ module Interscript
       module Concerns
         # Aliases block: named expressions reused throughout the system.
         module Aliases
-          include Parslet
+          include Parsanol
 
           rule(:aliases_block) do
             str("aliases") >> whitespace? >>

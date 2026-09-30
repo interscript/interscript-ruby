@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "parslet"
+require "parsanol"
 
 module Interscript
   module Isc
@@ -9,7 +9,7 @@ module Interscript
         # Lexical primitives shared by every other concern.
         # Mirrors the structure of LutaML LML's Concerns::Primitives.
         module Primitives
-          include Parslet
+          include Parsanol
 
           # -- Whitespace and comments
 
@@ -74,9 +74,16 @@ module Interscript
           end
 
           # Double-quoted strings: \\uXXXX, \\n, etc. are interpreted.
+          # Escape-free stretches are captured as ONE run slice — a
+          # per-char capture allocates a hash + slice per character
+          # (~700k nodes for a large map) and the Transform pattern
+          # match grinds on them even under the native parse engine.
+          rule(:plain_run) do
+            (str("\\") | str('"')).absent? >> any
+          end
           rule(:double_quoted_string) do
             str('"') >>
-              (escape_sequence | (str('"').absent? >> any).as(:char)).repeat.as(:string) >>
+              (escape_sequence | plain_run.repeat(1).as(:run)).repeat.as(:string) >>
               str('"')
           end
 

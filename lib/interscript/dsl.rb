@@ -40,7 +40,7 @@ module Interscript::DSL
       end
     end
     # ISC documents route through the ISC parser, not the .imp DSL.
-    # The parse is expensive (Parslet over the whole map) — cache it like
+    # The parse is expensive (the whole grammar over the map) — cache it like
     # the .imp path does, or every transliterate call re-parses the map.
     return @cache[map_name] = Interscript::Compiler.parse_isc(path) if path.end_with?(".isc")
 

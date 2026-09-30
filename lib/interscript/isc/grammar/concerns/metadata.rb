@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "parslet"
+require "parsanol"
 
 module Interscript
   module Isc
@@ -8,7 +8,7 @@ module Interscript
       module Concerns
         # Metadata block: identity + provenance + lifecycle of a system.
         module Metadata
-          include Parslet
+          include Parsanol
 
           rule(:metadata_block) do
             str("metadata") >> whitespace? >>

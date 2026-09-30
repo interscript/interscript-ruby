@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "parslet"
+require "parsanol"
 
 module Interscript
   module Isc
@@ -8,7 +8,7 @@ module Interscript
       module Concerns
         # Top-level system block.
         module System
-          include Parslet
+          include Parsanol
 
           # A block-item is any of the top-level constructs that may appear
           # inside `system "<code>" { ... }`.

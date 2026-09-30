@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "parslet"
+require "parsanol"
 
 module Interscript
   module Isc
@@ -8,7 +8,7 @@ module Interscript
       module Concerns
         # Stages: ordered transformation pipelines.
         module Stages
-          include Parslet
+          include Parsanol
 
           rule(:stage_block) do
             str("stage") >>

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "parslet"
+require "parsanol"
 
 module Interscript
   module Isc
@@ -9,7 +9,7 @@ module Interscript
     #
     # String escapes are unescaped here. Items are flattened. Constraints
     # are tagged by kind.
-    class Transform < Parslet::Transform
+    class Transform < Parsanol::Transform
       # String atom: parslet gives us a parslet slice for simple strings,
       # or an array of pieces (escape-sequence fragments interleaved with
       # raw chars) for strings containing escapes. Flatten both to a single
@@ -18,7 +18,7 @@ module Interscript
       rule(string: sequence(:parts)) do
         Items::StringValue.new(Transform.decode_string_parts(parts))
       end
-      rule(char: simple(:c)) { c.to_s }
+      rule(run: simple(:s)) { s.to_s }
 
       rule(identifier: simple(:i)) { i.to_s }
 
@@ -52,13 +52,13 @@ module Interscript
 
       # Shared decoder for the pieces of a :string capture — used by the
       # transform rules above and by the Normalizer's scalar folding. A
-      # fragment without an escape key is a raw character slice.
+      # fragment without an escape key is a raw run slice.
       def self.decode_string_parts(parts)
         Array(parts).map do |p|
           case p
           when Hash
-            if p.key?(:char)
-              p[:char].to_s
+            if p.key?(:run)
+              p[:run].to_s
             elsif p.key?(:newline)
               "\n"
             elsif p.key?(:carriage_return)
