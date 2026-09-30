@@ -1,7 +1,7 @@
 class Interscript::Stdlib
   module Functions
     class RababaAdapter
-      @rababa_diacritizer = nil
+      @rababa_diacritizers = {}
       @mutex = Mutex.new
 
       class << self
@@ -18,7 +18,7 @@ class Interscript::Stdlib
         end
 
         def reset_cache
-          @mutex.synchronize { @rababa_diacritizer = nil }
+          @mutex.synchronize { @rababa_diacritizers.clear }
         end
 
         private
@@ -26,7 +26,7 @@ class Interscript::Stdlib
         def diacritizer_for(config_key)
           require_rababa!
           @mutex.synchronize do
-            @rababa_diacritizer ||= build_diacritizer(config_key)
+            @rababa_diacritizers[config_key] ||= build_diacritizer(config_key)
           end
         end
 
