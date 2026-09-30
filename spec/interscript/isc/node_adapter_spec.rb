@@ -263,3 +263,113 @@ RSpec.describe "NodeAdapter document identity" do
     expect(node.name).to eq("X:a-b:C-D:1")
   end
 end
+
+RSpec.describe "NodeAdapter range handling" do
+  it "keeps ISC ranges as native Any ranges — codepoint semantics, not string-succ expansion" do
+    src = <<~ISC
+      system "TEST:aze-Arab:Latn:2026" {
+        metadata { name "T" }
+        stage main {
+          parallel { sub "q" "k" }
+          sub { from any("a".."￿") to upcase before boundary }
+        }
+      }
+    ISC
+    node = Interscript::Isc::NodeAdapter.to_interscript_node(
+      Interscript::Isc::DocumentBuilder.build(Interscript::Isc::Parser.parse(src))
+    )
+    upcase_rule = node.stages[:main].children
+      .select { |c| c.is_a?(Interscript::Node::Rule::Sub) }
+      .find { |r| r.to == :upcase }
+    # A Ruby String range expands via String#succ (a, b, ..., z, aa, ab …)
+    # which never reaches non-ASCII codepoints — the range must stay a range.
+    expect(upcase_rule.from.value).to be_a(Range)
+    interp = Interscript::Interpreter.new
+    interp.compile(node)
+    expect(interp.call("īş")).to eq("Īş")
+  end
+end
+
+RSpec.describe "NodeAdapter any-list constraints" do
+  it "keeps primitives as aliases, never their inspect" do
+    tree = Interscript::Isc::Parser.parse(
+      'system "x" { stage main { sub { from "ം" to "m" after any([boundary, "‌", "‍"]) } } }'
+    )
+    doc = Interscript::Isc::DocumentBuilder.build(tree)
+    node = Interscript::Isc::NodeAdapter.to_interscript_node(doc)
+    stage = Interscript::Interpreter::Stage.new(node, "")
+    re = stage.send(:build_regexp, node.stages[:main].children.first)
+    # The constraint must match boundary positions — an inspect leak
+    # turns the lookahead into a garbage char class.
+    expect(re).not_to include("Primitive")
+    expect("പ്പം ഹ").to match(Regexp.new(re))
+  end
+end
+
+RSpec.describe "NodeAdapter string escapes" do
+  it "decodes escape sequences in test strings" do
+    src = <<~'ISC'
+      system "T:a-b:C-D:1" {
+        metadata { name "T" }
+        tests {
+          "pod\"ezd" -> "p\"ezd"
+          "a\tb\nc" -> "déjà"
+        }
+        stage main { sub "a" "b" }
+      }
+    ISC
+    node = Interscript::Isc::NodeAdapter.to_interscript_node(
+      Interscript::Isc::DocumentBuilder.build(Interscript::Isc::Parser.parse(src))
+    )
+    tests = node.tests.data
+    expect(tests[0]).to eq(['pod"ezd', 'p"ezd'])
+    expect(tests[1]).to eq(["a\tb\nc", "déjà"])
+  end
+end
+
+RSpec.describe "NodeAdapter alias refs in constraints" do
+  it "compiles bare alias refs in sets like the legacy DSL — no debug dump, no literal-charset lookbehind" do
+    src = <<~ISC
+      system "t:g-c:C-D:1" {
+        metadata { name "T" }
+        stage main {
+          sub {
+            from "γ"
+            to "n"
+            before any(greek)
+            after any("κΚ") + any(greek)
+            not_before boundary
+          }
+        }
+      }
+    ISC
+    node = Interscript::Isc::NodeAdapter.to_interscript_node(
+      Interscript::Isc::DocumentBuilder.build(Interscript::Isc::Parser.parse(src))
+    )
+    rule = node.stages[:main].children.first
+    expect(rule.before).to be_a(Interscript::Node::Item::Any)
+    expect(rule.before.inspect).not_to include("alias_ref")
+    expect(rule.after.inspect).not_to include("alias_ref")
+    # The legacy runtime compiles an imported alias in a set to a vacuous
+    # fragment (Any(nil)); resolving it to the charset *string* would bake
+    # a 1000-char literal into the lookbehind and never match.
+    interp = Interscript::Interpreter.new
+    interp.compile(node)
+    expect(interp.call("αγκα")).to eq("αnκα")
+  end
+end
+
+RSpec.describe "NodeAdapter document name derivation" do
+  it "names the document after the file, not the system code — transliteration addresses maps by file name" do
+    tree = Interscript::Isc::Parser.parse(
+      'system "TOTALLY:diff-Code:frm:File" { stage main { sub { from "a" to "b" } } }'
+    )
+    doc = Interscript::Isc::DocumentBuilder.build(tree, filename: "test-map.isc")
+    node = Interscript::Isc::NodeAdapter.to_interscript_node(doc)
+    # The Ruby compiler registers compiled maps under Document#name and
+    # Maps.transliterate looks them up by the map name (file-derived).
+    # Registering under the system code auto-creates an empty entry via
+    # the Hash default block and crashes on stages[:main].call.
+    expect(node.name).to eq("test-map")
+  end
+end
