@@ -70,3 +70,20 @@ RSpec.describe "Interscript.parse caching for ISC documents" do
     end
   end
 end
+
+RSpec.describe "Compiler.call on ISC maps" do
+  it "reuses the cached document — repeated calls must not re-run the ISC parser" do
+    maps = File.expand_path(MAPS)
+    skip "maps checkout not present" unless File.file?(File.expand_path("alalc-aze-Arab-Latn-1997.isc", maps))
+
+    added = Interscript.load_path.first != maps
+    Interscript.load_path.unshift(maps) if added
+    begin
+      a = Interscript::Interpreter.call("alalc-aze-Arab-Latn-1997")
+      b = Interscript::Interpreter.call("alalc-aze-Arab-Latn-1997")
+      expect(a.map.equal?(b.map)).to be(true)
+    ensure
+      Interscript.load_path.delete_at(0) if added
+    end
+  end
+end

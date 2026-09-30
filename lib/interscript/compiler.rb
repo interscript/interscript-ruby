@@ -9,18 +9,10 @@ class Interscript::Compiler
   attr_accessor :code
 
   def self.call(map, **kwargs)
-    if String === map
-      path = begin
-        Interscript.locate(map)
-      rescue
-        nil
-      end
-      map = if path&.end_with?(".isc")
-        parse_isc(path)
-      else
-        Interscript::DSL.parse(map)
-      end
-    end
+    # DSL.parse locates, dispatches .isc and caches the parsed document —
+    # calling parse_isc here re-ran a ~30 s Parslet parse on every
+    # compiler instantiation.
+    map = Interscript::DSL.parse(map) if String === map
     compiler = new
     compiler.compile(map, **kwargs)
     compiler
