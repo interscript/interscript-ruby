@@ -297,7 +297,6 @@ RSpec.describe "NodeAdapter any-list constraints" do
     )
     doc = Interscript::Isc::DocumentBuilder.build(tree)
     node = Interscript::Isc::NodeAdapter.to_interscript_node(doc)
-    constraint = node.stages[:main].children.first.after
     stage = Interscript::Interpreter::Stage.new(node, "")
     re = stage.send(:build_regexp, node.stages[:main].children.first)
     # The constraint must match boundary positions — an inspect leak
