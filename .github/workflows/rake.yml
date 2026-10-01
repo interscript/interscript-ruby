@@ -59,6 +59,8 @@ jobs:
             # is not necessarily the python that bare `pip` targets —
             # install the regex helper into that interpreter.
             PYBIN=$(bundle exec ruby -e 'require "pycall"; v = PyCall.sys.version[/\d+\.\d+/]; puts "python#{v}"')
+            # Windows names the interpreter python.exe, not python3.X.
+            command -v "$PYBIN" >/dev/null 2>&1 || PYBIN=python
             if command -v "$PYBIN" >/dev/null 2>&1; then
               "$PYBIN" -m pip install --break-system-packages regex || "$PYBIN" -m pip install regex
               # The bridge needs the current engine; the PyPI release
