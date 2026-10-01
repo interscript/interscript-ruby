@@ -64,7 +64,7 @@ RSpec.describe Interscript do
                 # slowest runner (windows, ruby 3.3). Real hangs still
                 # time out well below these ceilings.
                 base = /rababa/.match?(my_system_name) ? 100 : 5
-                timeout = compiler.name.include?("Python") && base == 5 ? 15 : base
+                timeout = (compiler.name.include?("Python") && base == 5) ? 15 : base
                 Timeout.timeout(timeout) do
                   result = Interscript.transliterate(my_system_name, from, cache, compiler: compiler)
                   expect(result).to eq(expected)
