@@ -48,4 +48,48 @@ RSpec.describe Interscript::Isc::Parser do
       expect { described_class.parse(src, filename: "test.isc") }.not_to raise_error
     end
   end
+
+  describe "artifact runtime" do
+    let(:src) do
+      <<~ISC
+        system "s" {
+          metadata { authority_id t }
+          stage main {
+            parallel {
+              sub "a" "b"
+            }
+          }
+        }
+      ISC
+    end
+
+    it "parses through the shipped .parg artifact when parsanol has PARG" do
+      skip "parsanol lacks PARG (needs >= 1.3.61)" unless Interscript::Isc::Parser.respond_to?(:artifact)
+
+      tree = described_class.parse(src)
+      doc = Interscript::Isc::DocumentBuilder.build(tree, filename: "test.isc")
+      expect(doc[:systemCode]).to eq("s")
+      expect(doc[:tests]).to be_empty
+    end
+
+    it "produces byte-identical trees via artifact and DSL paths" do
+      skip "parsanol lacks PARG (needs >= 1.3.61)" unless Interscript::Isc::Parser.respond_to?(:artifact)
+
+      artifact_tree = described_class.parse_with_artifact(src)
+      dsl_tree = described_class.parse_with_dsl(src)
+      expect(artifact_tree).to eq(dsl_tree)
+    end
+
+    it "falls back to the DSL grammar when the artifact cannot load" do
+      skip "parsanol lacks PARG (needs >= 1.3.61)" unless Interscript::Isc::Parser.respond_to?(:artifact)
+
+      allow(File).to receive(:read).and_call_original
+      allow(File).to receive(:read).with(%r{isc\.artifact\.json}).and_raise(Errno::ENOENT)
+      described_class.reset_artifact
+      tree = described_class.parse(src)
+      doc = Interscript::Isc::DocumentBuilder.build(tree, filename: "test.isc")
+      expect(doc[:systemCode]).to eq("s")
+      described_class.reset_artifact
+    end
+  end
 end

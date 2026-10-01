@@ -62,7 +62,11 @@ module Interscript
             end
           }
         elsif block.key?(:tests)
-          {tests: merge_tests(Array(block[:tests]))}
+          # A comment-only or empty tests block captures as its raw
+          # text through the artifact; the DSL grammar folds it. Both
+          # normalize to no tests.
+          items = block[:tests].is_a?(Array) ? block[:tests] : []
+          {tests: merge_tests(items)}
         elsif block.key?(:stage)
           {stage_name: scalar(block[:stage_name]), stage: normalize_stage_items(block[:stage])}
         elsif block.key?(:target)
