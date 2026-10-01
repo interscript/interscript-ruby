@@ -18,15 +18,16 @@ jobs:
     env:
       BUNDLE_WITHOUT: "secryst"
       SKIP_JS: "1"
-      SKIP_PYTHON: "1"
       ISC_SWEEP: "1"
       # The ISC corpus sweep: every map's own tests through every
       # supported compiler (Interpreter, Compiler::Ruby), against the
       # ../maps sibling from the monorepo checkout. The conformance gap
       # it measured is closed (16,482 examples, 0 failures —
       # interscript-ruby#779..#786); this is now the CI conformance
-      # gate for the corpus. The experimental Python bridge is excluded
-      # (SKIP_PYTHON) until its own corpus conformance work lands.
+      # gate for the corpus. The Python bridge now runs too: the
+      # interscript-py engine is corpus-conformant (8,227 examples,
+      # 0 failures — interscript-py#11..#20) and is installed from
+      # its main branch below.
 
     steps:
       - name: Checkout monorepo
@@ -51,20 +52,25 @@ jobs:
         # packages rides out PEP 668 on Homebrew-managed macos Pythons.
         shell: bash
         run: |
-          bundle config set --local with jsexec
+          bundle config set --local with jsexec pyexec
           bundle install
           if bundle exec ruby -e 'require "pycall"' >/dev/null 2>&1; then
             # PyCall binds whichever libpython it was built against, which
             # is not necessarily the python that bare `pip` targets —
             # install the regex helper into that interpreter.
             PYBIN=$(bundle exec ruby -e 'require "pycall"; v = PyCall.sys.version[/\d+\.\d+/]; puts "python#{v}"')
+            # Windows names the interpreter python.exe, not python3.X.
+            command -v "$PYBIN" >/dev/null 2>&1 || PYBIN=python
             if command -v "$PYBIN" >/dev/null 2>&1; then
               "$PYBIN" -m pip install --break-system-packages regex || "$PYBIN" -m pip install regex
+              # The bridge needs the current engine; the PyPI release
+              # predates the conformance work.
+              "$PYBIN" -m pip install --break-system-packages "git+https://github.com/interscript/interscript-py@main" || "$PYBIN" -m pip install "git+https://github.com/interscript/interscript-py@main"
             else
               echo "$PYBIN not on PATH — python helper not installed"
             fi
           else
-            echo "pycall not bundled (SKIP_PYTHON) — python helper not installed"
+            echo "pycall not bundled — the python compiler leg is unavailable this run"
           fi
 
       - name: RSpec

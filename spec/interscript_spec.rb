@@ -59,7 +59,12 @@ RSpec.describe Interscript do
                 # Allow a bigger timeout for Rababa so that model files
                 # can be provisioned. This is temporary until we find a
                 # better location for this code.
-                timeout = /rababa/.match?(my_system_name) ? 100 : 5
+                # The Python bridge pays the per-map ISC emission and
+                # load on its first example — 5s is too tight on the
+                # slowest runner (windows, ruby 3.3). Real hangs still
+                # time out well below these ceilings.
+                base = /rababa/.match?(my_system_name) ? 100 : 5
+                timeout = (compiler.name.include?("Python") && base == 5) ? 15 : base
                 Timeout.timeout(timeout) do
                   result = Interscript.transliterate(my_system_name, from, cache, compiler: compiler)
                   expect(result).to eq(expected)
