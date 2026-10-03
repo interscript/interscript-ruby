@@ -25,9 +25,9 @@ jobs:
       # it measured is closed (16,482 examples, 0 failures —
       # interscript-ruby#779..#786); this is now the CI conformance
       # gate for the corpus. The Python bridge now runs too: the
-      # interscript-py engine is corpus-conformant (8,227 examples,
-      # 0 failures — interscript-py#11..#20) and is installed from
-      # its main branch below.
+      # interscript-py engine is corpus-conformant (8,238 bridge
+      # examples, 0 failures — interscript-py#11..#22) and installs
+      # from its PyPI release.
 
     steps:
       - name: Checkout monorepo
@@ -63,9 +63,7 @@ jobs:
             command -v "$PYBIN" >/dev/null 2>&1 || PYBIN=python
             if command -v "$PYBIN" >/dev/null 2>&1; then
               "$PYBIN" -m pip install --break-system-packages regex || "$PYBIN" -m pip install regex
-              # The bridge needs the current engine; the PyPI release
-              # predates the conformance work.
-              "$PYBIN" -m pip install --break-system-packages "git+https://github.com/interscript/interscript-py@main" || "$PYBIN" -m pip install "git+https://github.com/interscript/interscript-py@main"
+              "$PYBIN" -m pip install --break-system-packages "interscript==0.2.0" || "$PYBIN" -m pip install "interscript==0.2.0"
             else
               echo "$PYBIN not on PATH — python helper not installed"
             fi
