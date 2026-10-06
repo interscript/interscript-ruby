@@ -93,3 +93,14 @@ RSpec.describe Interscript::Stdlib::Functions::SecrystAdapter do
     expect(described_class.name).to eq("Interscript::Stdlib::Functions::SecrystAdapter")
   end
 end
+
+RSpec.describe Interscript::ML::Provisioning do
+  describe "candidate paths" do
+    it "prefers interscript-ml locations, keeping secryst paths as legacy fallbacks" do
+      paths = described_class.candidate_paths
+      expect(paths.first).to eq(File.join(Dir.home, ".local/share/interscript-ml"))
+      expect(paths).to include(File.join(Dir.home, ".local/share/secryst"))
+      expect(paths.join(" ")).not_to match(%r{/var/lib/secryst})
+    end
+  end
+end

@@ -27,12 +27,7 @@ module Interscript::ML
       # we use it to store the Secryst data we need. Otherwise, we try the following
       # paths:
 
-      possible_paths = [
-        "/var/lib/secryst",
-        "/usr/local/share/secryst",
-        "/usr/share/secryst",
-        File.join(Dir.home, ".local/share/secryst")
-      ]
+      possible_paths = candidate_paths
 
       # We find the first writable path to become the primary one. The remaining
       # ones will be used read-only if they exist
@@ -93,6 +88,13 @@ module Interscript::ML
       @set_up = true
 
       @preload_models.each { |i| locate(i) }
+    end
+
+    def self.candidate_paths
+      [
+        File.join(Dir.home, ".local/share/interscript-ml"),
+        File.join(Dir.home, ".local/share/secryst") # legacy fallback
+      ]
     end
 
     def locate(name)
