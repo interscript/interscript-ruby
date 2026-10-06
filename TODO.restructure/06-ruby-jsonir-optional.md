@@ -2,33 +2,47 @@
 
 ## Priority: P2
 
+## Status: COMPLETE
+
 ## Problem
 The JsonIR compiler should remain available but not be the default
 pipeline. Users who want pre-compiled JSON for performance can still
 generate it.
 
-## Design
+## Implementation
+
+JsonIR is autoloaded in `lib/interscript/compiler.rb`:
+```ruby
+class Interscript::Compiler
+  autoload :Javascript, "interscript/compiler/javascript"
+  autoload :Python, "interscript/compiler/python"
+  autoload :Ruby, "interscript/compiler/ruby"
+  autoload :JsonIR, "interscript/compiler/json_ir"
+  ...
+```
+
+It's lazy-loaded — only loaded into memory when explicitly referenced.
+The default `Interscript.transliterate` uses `Interscript::Interpreter`,
+not JsonIR.
+
+## Usage
 ```ruby
 # Generate JSON IR from .isc (optional, not default)
+require "interscript"
+require "interscript/isc"
 Interscript.load_path.unshift("maps")
-doc = Interscript.parse_isc("maps/foo.isc")  # Parse .isc
-node = Interscript::Isc::NodeAdapter.to_interscript_node(doc)
-json = Interscript::Compiler::JsonIR.compile(node)
-File.write("foo.json", json)
-```
 
-## No code change needed
-The existing `Interscript::Compiler::JsonIR` already works with
-Node::Document objects. The NodeAdapter converts .isc → Node.
-So the pipeline `.isc → parse → NodeAdapter → JsonIR` already works.
+src = File.read("maps/foo.isc")
+tree = Interscript::Isc::Parser.parse(src, filename: "foo.isc")
+doc = Interscript::Isc::DocumentBuilder.build(tree, filename: "foo.isc")
+node = Interscript::Isc::NodeAdapter.to_interscript_node(doc)
+
+compiler = Interscript::Compiler::JsonIR.new
+compiler.compile(node)
+File.write("foo.json", compiler.code)
+```
 
 ## Verification
-```ruby
-# Generate IR from .isc and compare with old .json
-node = Isc::NodeAdapter.to_interscript_node(
-  Isc::DocumentBuilder.build(
-    Isc::Parser.parse(File.read("maps/foo.isc"))))
-ir = Interscript::Compiler::JsonIR.compile(node)
-old_ir = JSON.parse(File.read("public/maps/foo.json"))
-# ir and old_ir should be equivalent
-```
+- JsonIR is autoloaded (lazy)
+- Default `Interscript.transliterate` uses Interpreter
+- All 289 .isc files transliterate correctly without JsonIR

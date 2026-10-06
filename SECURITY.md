@@ -1,20 +1,17 @@
 # Security Policy
 
-## Supported Versions
+## Supported versions
 
-The latest released version of this project receives security fixes.
+The deployed public API (api.interscript.org) always runs the latest
+tagged release of this software.
 
-## Reporting a Vulnerability
+## Reporting a vulnerability
 
-Please **do not** open public GitHub issues for security vulnerabilities.
+Please report vulnerabilities privately to the maintainers via the
+GitHub security advisories feature of this repository
+(Security → Report a vulnerability). Do not open public issues for
+suspected vulnerabilities.
 
-Report privately via one of:
-
-- **GitHub Security Advisories** — Security tab → "Report a vulnerability" (preferred)
-- **Email** — open.source@ribose.com
-
-We acknowledge reports within 72 hours and aim to ship a fix within 30 days for critical issues. Coordinated disclosure is supported.
-
-## Disclosure
-
-Public disclosure happens after a fix is released, on a timeline agreed with the reporter.
+Reports are acknowledged within 72 hours. This API executes no
+client-supplied code and stores no user data; transliteration inputs
+are processed in memory only and never logged.

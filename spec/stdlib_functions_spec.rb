@@ -66,6 +66,10 @@ RSpec.describe Interscript::Stdlib::Functions do
   end
 
   describe ".secryst (without Secryst gem loaded)" do
+    before do
+      skip "the Secryst gem is present in this environment" if defined?(Secryst)
+    end
+
     it "raises ExternalUtilError with a helpful message" do
       expect { described_class.secryst("hello", model: "default") }.to raise_error(
         Interscript::ExternalUtilError,
