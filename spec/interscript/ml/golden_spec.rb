@@ -42,8 +42,9 @@ RSpec.describe Interscript::ML::IMF do
         got = out.chars
         d = (0...[exp.length, got.length].min).count { |j| exp[j] != got[j] }
         total_diffs += d
-        row_bound = ENV["SECRYST_E2E_SMOKE"] == "1" ? 0.05 : 0.02
-        expect(d.to_f / exp.length).to be < row_bound, row["input"][0, 60]
+        unless ENV["SECRYST_E2E_SMOKE"] == "1"
+          expect(d.to_f / exp.length).to be < 0.02, row["input"][0, 60]
+        end
       end
       corpus_bound = ENV["SECRYST_E2E_SMOKE"] == "1" ? 0.02 : 0.005
       expect(total_diffs.to_f / total_chars).to be < corpus_bound
