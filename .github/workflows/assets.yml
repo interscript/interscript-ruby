@@ -10,7 +10,7 @@ jobs:
   assets:
     runs-on: ubuntu-latest
     env:
-      BUNDLE_WITHOUT: "secryst:jsexec"
+      BUNDLE_WITHOUT: "jsexec"
       SKIP_JS: "1"
     steps:
       - name: Checkout monorepo
@@ -30,7 +30,7 @@ jobs:
 
       - name: Install bundle
         working-directory: ruby
-        run: bundle install --jobs 4 --retry 3 --with jsexec --without secryst
+        run: bundle install --jobs 4 --retry 3 --with jsexec
 
       - name: Generate visualization JSON
         working-directory: ruby
