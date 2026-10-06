@@ -14,8 +14,9 @@ module Interscript::ML
   autoload :Model, "interscript/ml/model"
   autoload :Vocab, "interscript/ml/vocab"
   autoload :Byt5Onnx, "interscript/ml/byt5_onnx"
+  autoload :PlaneModel, "interscript/ml/plane"
 
-  # Expected to be loaded before IMF/Byt5Onnx entry points.
+  # Expected to be loaded before IMF/Byt5Onnx/PlaneModel entry points.
   def self.require_optional!(gem_name, feature: gem_name)
     require feature
   rescue LoadError => e
