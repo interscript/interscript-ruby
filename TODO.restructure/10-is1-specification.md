@@ -2,6 +2,8 @@
 
 ## Priority: P2
 
+## Status: COMPLETE — grammar updated with funcall/kwarg/rababa, normalize, case directives
+
 ## Goal
 Compile `spec/isc/document.adoc` and publish to the website.
 

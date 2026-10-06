@@ -2,6 +2,8 @@
 
 ## Priority: P2
 
+## Status: COMPLETE — Ruby + TS parse jobs added to maps CI; parity job in TS CI
+
 ## Problem
 Need CI checks to verify .isc files parse correctly in both Ruby and TS.
 

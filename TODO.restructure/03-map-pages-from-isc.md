@@ -2,6 +2,8 @@
 
 ## Priority: P1
 
+## Status: COMPLETE — catalogue is generated from .isc
+
 ## Problem
 Map detail pages (e.g., `/maps/bgnpcgn-ukr-Cyrl-Latn-2019`) currently
 render from JSON IR metadata. They could render directly from .isc source.

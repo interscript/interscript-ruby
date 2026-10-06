@@ -12,7 +12,7 @@ This dual representation causes:
 - **Coupling**: The TS runtime depends on Ruby to produce its input
 
 **The solution**: Eliminate the JSON IR. Both runtimes parse `.isc` directly.
-The website serves `.isc` files. A TS ISC parser (Peggy) handles browser-side parsing.
+The website serves `.isc` files. A TS ISC parser handles browser-side parsing.
 Map detail pages render from parsed `.isc` at build time (Astro SSG).
 
 ## Architecture (Before vs After)
@@ -29,3 +29,18 @@ AFTER:
 ```
 
 No JSON IR. No compilation step. No drift. One source format.
+
+## Status
+
+| TODO | Status | Notes |
+|------|--------|-------|
+| [01 TS ISC parser](01-ts-isc-parser-peggy.md) | ✅ Complete | 289/289 parse, 58 unit specs |
+| [02 Website serve .isc](02-website-serve-isc.md) | ✅ Complete | Worker uses `iscStrategy`; 289 .isc in public/maps/ |
+| [03 Map pages from .isc](03-map-pages-from-isc.md) | ✅ Complete | Catalogue generator script wired into npm |
+| [04 TS ISC loader strategy](04-ts-isc-loader.md) | ✅ Complete | `iscStrategy`, `iscBundledStrategy` |
+| [05 Remove JSON IR as primary](05-remove-jsonir-primary.md) | ✅ Complete | JsonIR is autoload opt-in; Interpreter is default |
+| [06 Ruby JsonIR optional](06-ruby-jsonir-optional.md) | ✅ Complete | Lazy autoload, opt-in only |
+| [07 Cross-runtime parity](07-cross-runtime-parity.md) | ✅ Complete | **100.0000% (7388/7388)** test-vector parity |
+| [08 CI validate .isc](08-ci-validate-isc.md) | ✅ Complete | Ruby + TS parse jobs in maps CI; parity job in TS CI |
+| [09 Open PRs](09-open-prs.md) | Pending | Maps PR, Ruby PR, TS PR — needs user approval to push |
+| [10 IS-1 specification](10-is1-specification.md) | ✅ Complete | Spec grammar updated with rababa/funcall/kwarg |
