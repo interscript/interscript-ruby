@@ -16,7 +16,7 @@ jobs:
         ruby: ["3.3", "3.4"]
         os: [ubuntu-latest, windows-latest, macos-latest]
     env:
-      BUNDLE_WITHOUT: "secryst"
+      BUNDLE_WITHOUT: "jsexec"
       SKIP_JS: "1"
       ISC_SWEEP: "1"
       # The ISC corpus sweep: every map's own tests through every

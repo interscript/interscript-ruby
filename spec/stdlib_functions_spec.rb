@@ -65,16 +65,13 @@ RSpec.describe Interscript::Stdlib::Functions do
     end
   end
 
-  describe ".secryst (without Secryst gem loaded)" do
-    before do
-      skip "the Secryst gem is present in this environment" if defined?(Secryst)
-    end
+  describe ".secryst (built-in ML runtime)" do
+    it "translates through Interscript::ML with no external gem" do
+      zip = File.expand_path("../interscript/fixtures/tiny-imf.zip", __dir__)
+      skip "tiny IMF fixture missing" unless File.exist?(zip)
 
-    it "raises ExternalUtilError with a helpful message" do
-      expect { described_class.secryst("hello", model: "default") }.to raise_error(
-        Interscript::ExternalUtilError,
-        /Secryst is not loaded/
-      )
+      out = described_class.secryst("test", model: zip)
+      expect(out).to be_a(String)
     end
   end
 end

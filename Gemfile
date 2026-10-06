@@ -16,12 +16,10 @@ else
   gem "interscript-maps"
 end
 
-group :secryst do
-  if File.exist?("../../secryst")
-    gem "secryst", path: "../../secryst"
-  else
-    gem "secryst"
-  end
+# The neural layer (Interscript::ML) - optional at runtime, loaded for specs
+group :ml do
+  gem "rubyzip"
+  gem "onnxruntime"
 end
 
 gem "regexp_parser"

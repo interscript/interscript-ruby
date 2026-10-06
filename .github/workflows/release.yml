@@ -31,7 +31,7 @@ jobs:
 
       - name: Install gems
         working-directory: ruby
-        run: bundle install --jobs 4 --retry 3 --with jsexec --without secryst
+        run: bundle install --jobs 4 --retry 3 --with jsexec
 
       - name: Test Ruby package
         working-directory: ruby
