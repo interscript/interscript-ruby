@@ -185,7 +185,7 @@ RSpec.describe Interscript::ML::IMF do
       # the distribution contract has shipped, incl. static-int8 (v6).
       # Bump this spec WITH the constant, never ahead of it.
       expect(Interscript::ML::IMF::DEFAULT_INDEX_URL).to eq(
-        "https://github.com/interscript/interscript-models/releases/download/index-v8/models-index.yaml"
+        "https://github.com/interscript/interscript-models/releases/download/index-v9/models-index.yaml"
       )
       expect(Interscript::ML::IMF::DEFAULT_INDEX_URL).not_to include("raw.githubusercontent")
     end
