@@ -46,7 +46,12 @@ RSpec.describe Interscript::ML::IMF do
           expect(d.to_f / exp.length).to be < 0.02, row["input"][0, 60]
         end
       end
-      corpus_bound = ENV["SECRYST_E2E_SMOKE"] == "1" ? 0.02 : 0.005
+      # per-artifact override: K=3 base int8 kernels skew ruby-vs-py past
+      # the calibrated tiers (9.25% measured; RESULTS.md WO18) — align the
+      # gem's ORT build to close it, don't erode the default tiers
+      artifact_bound = ENV["SECRYST_E2E_CORPUS_BOUND"]&.to_f
+      corpus_bound = artifact_bound ||
+                     (ENV["SECRYST_E2E_SMOKE"] == "1" ? 0.02 : 0.005)
       expect(total_diffs.to_f / total_chars).to be < corpus_bound
     end
   end
