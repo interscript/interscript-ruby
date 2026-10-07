@@ -14,7 +14,7 @@ module Interscript::ML
     EOS_ID = 1
     UNK_ID = 2
 
-    DEFAULT_INDEX_URL = "https://github.com/interscript/interscript-models/releases/download/index-v8/models-index.yaml"
+    DEFAULT_INDEX_URL = "https://github.com/interscript/interscript-models/releases/download/index-v9/models-index.yaml"
 
     class FormatError < StandardError; end
     class RegistryError < StandardError; end
