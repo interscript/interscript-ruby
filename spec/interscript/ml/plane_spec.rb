@@ -50,3 +50,37 @@ RSpec.describe Interscript::ML::PlaneModel do
     end
   end
 end
+
+RSpec.describe Interscript::ML::PlaneModel, "#translate preserve_diacritics" do
+  let(:zip) { File.expand_path("../fixtures/tiny-plane.zip", __dir__) }
+  let(:m) { described_class.from_zip(File.read(zip)) }
+  let(:plain_of) { ->(s) { s.chars.reject { |c| m.classes.include?(c) }.join } }
+
+  it "default path unchanged by flag" do
+    expect(m.translate("كتب")).to eq(m.translate("كتب", preserve_diacritics: false))
+  end
+
+  it "fully labeled input round-trips byte-exactly" do
+    labeled = "كُتُبُ"
+    expect(m.translate(labeled, preserve_diacritics: true)).to eq(labeled)
+  end
+
+  it "partial input keeps user classes and fills the rest" do
+    out = m.translate("كُتب", preserve_diacritics: true)
+    expect(out).to start_with("كُ")
+    expect(plain_of.call(out)).to eq("كتب")
+  end
+
+  it "leading marks round-trip without anchors leaking" do
+    out = m.translate("ُكتب", preserve_diacritics: true)
+    expect(out[0]).to eq("ُ")
+    expect(out).not_to include("\x00")
+    expect(plain_of.call(out)).to eq("كتب")
+  end
+
+  it "unknown cluster still round-trips byte-exactly" do
+    out = m.translate("كُْتب", preserve_diacritics: true)
+    expect(out).to include("كُْ")
+    expect(plain_of.call(out)).to eq("كتب")
+  end
+end
