@@ -28,6 +28,13 @@ module Interscript::ML
         text.bytes.map { |b| b + BYTE_OFFSET } + [EOS_ID]
       end
 
+      # Seq2seq output contract: models trained on multi-reference
+      # corpora emit '/'-separated alternates per token; the runtime
+      # returns the primary choice only.
+      def first_alternates(text)
+        text.split.map { |tok| tok.split('/', 2).first }.join(' ')
+      end
+
       def decode(token_ids)
         out = +""
         token_ids.each do |token|

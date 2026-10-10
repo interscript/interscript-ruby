@@ -24,7 +24,7 @@ module Interscript::ML
 
       hidden = @encoder.predict({ input_ids: [ids] })['last_hidden_state']
       tokens = @kv ? greedy_kv(hidden, max_seq_length) : greedy_plain(hidden, max_seq_length)
-      IMF.decode(tokens)
+      IMF.first_alternates(IMF.decode(tokens))
     end
 
     def id
