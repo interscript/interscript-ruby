@@ -34,13 +34,6 @@ module Interscript
             parse_with_artifact(source)
           rescue ArtifactUnavailable
             parse_with_dsl(source)
-          rescue Parsanol::ParseFailed
-            # A stale or buggy artifact must not fail a source the DSL
-            # grammar accepts (the acadsin-zho-Hani-Latn-2002 incident:
-            # the shipped artifact rejected lowercase system codes the
-            # DSL handles). Re-parse through the Ruby grammar; the
-            # artifact recompile remains the real fix upstream.
-            parse_with_dsl(source)
           end
           Normalizer.normalize(tree)
         rescue Parsanol::ParseFailed => e

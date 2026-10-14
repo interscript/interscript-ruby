@@ -80,19 +80,6 @@ RSpec.describe Interscript::Isc::Parser do
       expect(artifact_tree).to eq(dsl_tree)
     end
 
-    it "retries the DSL grammar when the artifact misparses a corpus map" do
-      skip "parsanol lacks PARG (needs >= 1.3.61)" unless Interscript::Isc::Parser.respond_to?(:artifact)
-
-      # Regression guard: a stale/buggy artifact must not fail a source the
-      # DSL grammar handles (acadsin-zho-Hani-Latn-2002.isc did exactly
-      # this — artifact rejected lowercase system codes, DSL accepted).
-      allow(described_class).to receive(:parse_with_artifact)
-        .and_raise(Parsanol::ParseFailed.new("artifact mismatch"))
-      tree = described_class.parse(src)
-      doc = Interscript::Isc::DocumentBuilder.build(tree, filename: "test.isc")
-      expect(doc[:systemCode]).to eq("s")
-    end
-
     it "falls back to the DSL grammar when the artifact cannot load" do
       skip "parsanol lacks PARG (needs >= 1.3.61)" unless Interscript::Isc::Parser.respond_to?(:artifact)
 
