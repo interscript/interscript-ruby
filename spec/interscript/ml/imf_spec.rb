@@ -45,6 +45,7 @@ RSpec.describe Interscript::ML::IMF do
   end
 
   it "rejects a tampered zip loudly" do
+    skip "windows: rubyzip finalizer holds the tmp zip open (EACCES on mktmpdir cleanup)" if Gem.win_platform?
     Dir.mktmpdir do |tmp|
       source = File.expand_path("../fixtures/tiny-imf.zip", __dir__)
       tampered = File.join(tmp, "tampered.zip")
