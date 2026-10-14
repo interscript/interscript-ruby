@@ -29,7 +29,6 @@ module Interscript::ML
         @stoi = {}
       end
 
-
       # stoi is simply a reverse dict for itos
       @itos.each_with_index do |tok, i|
         @stoi[tok] = i

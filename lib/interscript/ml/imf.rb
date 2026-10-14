@@ -32,7 +32,7 @@ module Interscript::ML
       # corpora emit '/'-separated alternates per token; the runtime
       # returns the primary choice only.
       def first_alternates(text)
-        text.split.map { |tok| tok.split('/', 2).first }.join(' ')
+        text.split.map { |tok| tok.split("/", 2).first }.join(" ")
       end
 
       def decode(token_ids)
@@ -112,7 +112,7 @@ module Interscript::ML
           if channel.start_with?("file://")
             FileUtils.cp(channel.sub(%r{\Afile://}, ""), tmp)
           else
-            URI.open(channel) { |remote| IO.copy_stream(remote, tmp) }
+            URI.parse(channel).open { |remote| IO.copy_stream(remote, tmp) }
           end
         end
         actual = Digest::SHA256.file(tmp).hexdigest
@@ -140,14 +140,14 @@ module Interscript::ML
             if part["url"].start_with?("file://")
               File.open(source, "rb", &open_stream)
             else
-              URI.open(source, "rb", &open_stream)
+              URI.parse(source).open("rb", &open_stream)
             end
             unless digest.hexdigest == part["sha256"]
               raise RegistryError, "part #{index} of #{entry["filename"]} sha256 mismatch: got #{digest.hexdigest}, index says #{part["sha256"]}"
             end
           end
         end
-      rescue StandardError
+      rescue
         File.delete(tmp) if File.file?(tmp)
         raise
       end
@@ -167,10 +167,10 @@ module Interscript::ML
       # HTTP sources must ship a sibling .sha256 sidecar; verify the
       # body against it before parsing (GitHub Releases index assets do).
       def fetch_index_with_sidecar(source)
-        body = URI.open(source, "rb") { |remote| remote.read }
+        body = URI.parse(source).open("rb") { |remote| remote.read }
         sidecar =
           begin
-            URI.open("#{source}.sha256") { |remote| remote.read }
+            URI.parse("#{source}.sha256").open { |remote| remote.read }
           rescue OpenURI::HTTPError => e
             raise RegistryError, "index sha256 sidecar missing: #{source}.sha256 (#{e.message})"
           end

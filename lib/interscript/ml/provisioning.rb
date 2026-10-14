@@ -1,8 +1,8 @@
-require 'open-uri'
-require 'uri'
-require 'fileutils'
-require 'digest/sha2'
-require 'yaml'
+require "open-uri"
+require "uri"
+require "fileutils"
+require "digest/sha2"
+require "yaml"
 
 module Interscript::ML
   # Module Interscript::ML::Provisioning is to provision remote models locally and to
@@ -37,7 +37,7 @@ module Interscript::ML
 
       ([ENV["INTERSCRIPT_ML_DATA"] || ENV["SECRYST_DATA"]] + possible_paths).compact.each do |path|
         FileUtils.mkdir_p(path)
-        @write_path = path unless @write_path
+        @write_path ||= path
       rescue
       ensure
         @read_paths << path if File.readable?(path)
@@ -48,11 +48,11 @@ module Interscript::ML
       # Now, let's locate the first Secrystfile to be found
       path = Dir.pwd
       secrystfilepath = loop do
-        break unless path =~ %r{[/\\]}
+        break unless %r{[/\\]}.match?(path)
         if File.readable?(path + "/Secrystfile")
           break path + "/Secrystfile"
         end
-        path = path.sub(%r{[/\\][^/\\]*?\z}, '')
+        path = path.sub(%r{[/\\][^/\\]*?\z}, "")
       end
 
       # It's found, so let's parse it.
@@ -70,12 +70,12 @@ module Interscript::ML
       @loaded_remotes = @remotes.map do |uri|
         cache_path = "#{@write_path}/remotes/#{Digest::SHA256.hexdigest(uri)}.yaml"
         if !File.exist?(cache_path)
-          data = URI.open(uri).read
+          data = URI.parse(uri).open.read
           File.write(cache_path, data)
         elsif File.mtime(cache_path) + 60 < Time.now
           begin
             # Just *try* to download it.
-            data = URI.open(uri).read
+            data = URI.parse(uri).open.read
             File.write(cache_path, data)
           rescue
           end
@@ -99,7 +99,7 @@ module Interscript::ML
 
     def locate(name)
       # Shortcut this if user gave a filename.
-      return name if name =~ %r{[.\\/]}
+      return name if %r{[.\\/]}.match?(name)
 
       prepare_environment
 
@@ -130,24 +130,24 @@ module Interscript::ML
 
     def download(model, remote:)
       uri = model.uri
-      if uri.start_with?("./") || uri.start_with?("../")
+      if uri.start_with?("./", "../")
         remote_uri = remote.uri
-        if remote_uri =~ %r{\A/|\A\w:[\\/]}
-          remote_uri = "file://"+remote_uri
+        if %r{\A/|\A\w:[\\/]}.match?(remote_uri)
+          remote_uri = "file://" + remote_uri
         end
 
         uri = URI(remote_uri).merge(uri).to_s
-        uri = uri.sub(%r{\Afile://}, '')
+        uri = uri.sub(%r{\Afile://}, "")
       end
 
       warn "* Downloading a Secryst model #{model.name}:#{model.version} from #{uri}..."
 
-      data = URI.open(uri).read
+      data = URI.parse(uri).open.read
       path = @write_path + "/models/" + model.name
       FileUtils.mkdir_p path
       File.write(path + "/version", model.version)
       File.write(path + "/model.zip", data)
-      return path + "/model.zip"
+      path + "/model.zip"
     end
 
     class Remotefile
@@ -166,7 +166,7 @@ module Interscript::ML
         end
       end
 
-      class Model < Struct.new(:name, :uri, :version, keyword_init: true)
+      class Model < Struct.new(:name, :uri, :version)
       end
     end
 
@@ -174,7 +174,7 @@ module Interscript::ML
       def initialize(path)
         @path = path
         @models, @remotes = [], []
-        self.instance_eval(File.read(path), path)
+        instance_eval(File.read(path), path)
       end
 
       def model(name)

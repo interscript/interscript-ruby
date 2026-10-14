@@ -29,8 +29,6 @@ class Interscript::Stdlib
           end
           Interscript::ML::Translator.new(model_file: model_key)
         end
-
-
       end
     end
   end
