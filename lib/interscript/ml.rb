@@ -19,7 +19,7 @@ module Interscript::ML
   # Expected to be loaded before IMF/Byt5Onnx/PlaneModel entry points.
   def self.require_optional!(gem_name, feature: gem_name)
     require feature
-  rescue LoadError => e
+  rescue LoadError
     raise Interscript::ExternalUtilError,
       "the neural layer needs the #{gem_name} gem: gem install #{gem_name} (or use a bundle including it)"
   end

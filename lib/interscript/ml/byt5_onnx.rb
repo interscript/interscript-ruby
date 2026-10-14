@@ -1,4 +1,4 @@
-require 'tmpdir'
+require "tmpdir"
 
 module Interscript::ML
   # Byte-level seq2seq (ByT5 family) inference over ONNX sessions from an
@@ -11,24 +11,24 @@ module Interscript::ML
       Interscript::ML.require_optional!("onnxruntime")
       @manifest = IMF.manifest(zip_path)
       graphs = IMF.verify_and_read(zip_path)
-      @tmpdir = Dir.mktmpdir('secryst-imf')
-      @encoder = build_session(graphs, 'encoder.onnx')
-      @kv = @manifest['decoder'] == 'kv' && graphs.key?('decoder-kv.onnx')
-      @decoder = build_session(graphs, @kv ? 'decoder-kv.onnx' : 'decoder.onnx')
+      @tmpdir = Dir.mktmpdir("secryst-imf")
+      @encoder = build_session(graphs, "encoder.onnx")
+      @kv = @manifest["decoder"] == "kv" && graphs.key?("decoder-kv.onnx")
+      @decoder = build_session(graphs, @kv ? "decoder-kv.onnx" : "decoder.onnx")
       @pasts = @kv ? zero_pasts : {}
     end
 
     def translate(text, max_seq_length: 256)
       ids = IMF.encode(text)
-      return '' if ids.length == 1 # only the trailing EOS: empty input
+      return "" if ids.length == 1 # only the trailing EOS: empty input
 
-      hidden = @encoder.predict({ input_ids: [ids] })['last_hidden_state']
+      hidden = @encoder.predict({input_ids: [ids]})["last_hidden_state"]
       tokens = @kv ? greedy_kv(hidden, max_seq_length) : greedy_plain(hidden, max_seq_length)
       IMF.first_alternates(IMF.decode(tokens))
     end
 
     def id
-      @manifest['id']
+      @manifest["id"]
     end
 
     private
@@ -43,7 +43,7 @@ module Interscript::ML
 
     def zero_pasts
       @decoder.inputs.each_with_object({}) do |meta, pasts|
-        next unless meta[:name].start_with?('past_')
+        next unless meta[:name].start_with?("past_")
         shape = meta[:shape] # [batch, heads, past_seq, d_kv]; dynamic dims are Strings
         heads = shape[1].is_a?(Integer) ? shape[1] : 4
         d_kv = shape[3].is_a?(Integer) ? shape[3] : 8
@@ -71,13 +71,13 @@ module Interscript::ML
       generated = []
       max_seq_length.times do
         results = @decoder.predict(
-          { input_ids: [current], encoder_hidden_states: hidden }.merge(pasts)
+          {input_ids: [current], encoder_hidden_states: hidden}.merge(pasts)
         )
-        token = argmax(results['logits'].first.last)
+        token = argmax(results["logits"].first.last)
         break if token == IMF::EOS_ID
 
         generated << token
-        pasts = pasts.keys.to_h { |name| [name, results[name.sub('past_', 'present_')]] }
+        pasts = pasts.keys.to_h { |name| [name, results[name.sub("past_", "present_")]] }
         current = [token]
       end
       generated
@@ -88,13 +88,13 @@ module Interscript::ML
       generated = []
       max_seq_length.times do
         logits = @decoder.predict(
-          { input_ids: [decoder_ids], encoder_hidden_states: hidden }
-        )['logits']
+          {input_ids: [decoder_ids], encoder_hidden_states: hidden}
+        )["logits"]
         token = argmax(logits.first.last)
         break if token == IMF::EOS_ID
 
         generated << token
-        decoder_ids = decoder_ids + [token]
+        decoder_ids += [token]
       end
       generated
     end
