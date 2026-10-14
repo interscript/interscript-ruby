@@ -65,6 +65,7 @@ RSpec.describe Interscript::Isc::Parser do
 
     it "parses through the shipped .parg artifact when parsanol has PARG" do
       skip "parsanol lacks PARG (needs >= 1.3.61)" unless Interscript::Isc::Parser.respond_to?(:artifact)
+      skip "artifact not shipped (parsanol#5 — compiler mistranslates; DSL is the engine)" unless File.exist?(Interscript::Isc::Parser::ARTIFACT_PATH)
 
       tree = described_class.parse(src)
       doc = Interscript::Isc::DocumentBuilder.build(tree, filename: "test.isc")
@@ -74,6 +75,7 @@ RSpec.describe Interscript::Isc::Parser do
 
     it "produces byte-identical trees via artifact and DSL paths" do
       skip "parsanol lacks PARG (needs >= 1.3.61)" unless Interscript::Isc::Parser.respond_to?(:artifact)
+      skip "artifact not shipped (parsanol#5 — compiler mistranslates; DSL is the engine)" unless File.exist?(Interscript::Isc::Parser::ARTIFACT_PATH)
 
       artifact_tree = described_class.parse_with_artifact(src)
       dsl_tree = described_class.parse_with_dsl(src)
