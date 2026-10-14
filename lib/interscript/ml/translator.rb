@@ -6,7 +6,7 @@ module Interscript::ML
     attr_accessor :model
 
     def initialize(model_file:)
-      @device = 'cpu'
+      @device = "cpu"
       @model = Model.from_file(model_file)
     end
 
@@ -14,9 +14,9 @@ module Interscript::ML
       return @model.translate(phrase, max_seq_length: max_seq_length) if @model.is_a?(Byt5Onnx)
 
       Interscript::ML.require_optional!("numo-narray", feature: "numo/narray")
-      input = ['<sos>'] + phrase.chars + ['<eos>']
+      input = ["<sos>"] + phrase.chars + ["<eos>"]
       input = Numo::NArray[input.map { |i| @model.input_vocab.stoi[i] }].transpose
-      output = Numo::NArray[[@model.target_vocab.stoi['<sos>']]]
+      output = Numo::NArray[[@model.target_vocab.stoi["<sos>"]]]
       src_key_padding_mask = input.transpose.eq(1)
 
       max_seq_length.times do |i|
@@ -27,12 +27,12 @@ module Interscript::ML
           src_key_padding_mask: src_key_padding_mask,
           tgt_key_padding_mask: tgt_key_padding_mask,
           memory_key_padding_mask: src_key_padding_mask)
-        break if @model.target_vocab.itos[prediction[i]] == '<eos>'
+        break if @model.target_vocab.itos[prediction[i]] == "<eos>"
 
         output = Numo::NArray.concatenate([output, Numo::NArray[[prediction[i]]]])
       end
 
-      output[1..-1].to_a.flatten.map { |i| @model.target_vocab.itos[i] }.join('')
+      output[1..].to_a.flatten.map { |i| @model.target_vocab.itos[i] }.join("")
     end
   end
 end

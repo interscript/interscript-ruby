@@ -1,59 +1,60 @@
 require "spec_helper"
 require "zip"
-require 'interscript/ml'
-require 'fileutils'
-require 'tmpdir'
-require 'json'
+require "interscript/ml"
+require "fileutils"
+require "tmpdir"
+require "json"
 
 RSpec.describe Interscript::ML::IMF do
-  it 'uses the canonical ByT5 table (byte + 3, trailing EOS)' do
-    expect(described_class.encode('rok')).to eq([117, 114, 110, 1])
-    expect(described_class.decode([117, 114, 110])).to eq('rok')
-    expect(described_class.decode([117, 1, 114])).to eq('r')
+  it "uses the canonical ByT5 table (byte + 3, trailing EOS)" do
+    expect(described_class.encode("rok")).to eq([117, 114, 110, 1])
+    expect(described_class.decode([117, 114, 110])).to eq("rok")
+    expect(described_class.decode([117, 1, 114])).to eq("r")
   end
 
-  describe 'with the tiny IMF fixture zip' do
-    let(:zip_path) { File.expand_path('../fixtures/tiny-imf.zip', __dir__) }
+  describe "with the tiny IMF fixture zip" do
+    let(:zip_path) { File.expand_path("../fixtures/tiny-imf.zip", __dir__) }
 
-    it 'parses the manifest and verifies graph checksums' do
+    it "parses the manifest and verifies graph checksums" do
       meta = described_class.manifest(zip_path)
-      expect(meta['format']).to eq('imf-v1')
-      expect(meta['tokenizer']).to eq('bytes')
+      expect(meta["format"]).to eq("imf-v1")
+      expect(meta["tokenizer"]).to eq("bytes")
       graphs = described_class.verify_and_read(zip_path)
-      expect(graphs.keys.sort).to eq(['decoder.onnx', 'encoder.onnx'])
+      expect(graphs.keys.sort).to eq(["decoder.onnx", "encoder.onnx"])
     end
 
-    it 'loads sessions from verified bytes' do
+    it "loads sessions from verified bytes" do
       model = Interscript::ML::Byt5Onnx.new(zip_path)
-      expect(model.id).to eq('tiny-1.0')
+      expect(model.id).to eq("tiny-1.0")
     end
 
-    it 'decodes a real zip against the shared golden set', :e2e do
-      zip = ENV['SECRYST_E2E_ZIP']
-      golden = ENV['SECRYST_GOLDEN']
-      skip 'set SECRYST_E2E_ZIP and SECRYST_GOLDEN for the end-to-end run' unless zip && golden
+    it "decodes a real zip against the shared golden set", :e2e do
+      zip = ENV["SECRYST_E2E_ZIP"]
+      golden = ENV["SECRYST_GOLDEN"]
+      skip "set SECRYST_E2E_ZIP and SECRYST_GOLDEN for the end-to-end run" unless zip && golden
       translator = Interscript::ML::Translator.new(model_file: zip)
       ok = 0
       total = 0
       File.readlines(golden).each do |line|
         row = JSON.parse(line)
         total += 1
-        ok += 1 if translator.translate(row['input'], max_seq_length: 128) == row['output']
+        ok += 1 if translator.translate(row["input"], max_seq_length: 128) == row["output"]
       end
       expect(ok).to eq(total)
     end
   end
 
-  it 'rejects a tampered zip loudly' do
+  it "rejects a tampered zip loudly" do
+    skip "windows: rubyzip finalizer holds the tmp zip open (EACCES on mktmpdir cleanup)" if Gem.win_platform?
     Dir.mktmpdir do |tmp|
-      source = File.expand_path('../fixtures/tiny-imf.zip', __dir__)
-      tampered = File.join(tmp, 'tampered.zip')
-      require 'zip'
+      source = File.expand_path("../fixtures/tiny-imf.zip", __dir__)
+      tampered = File.join(tmp, "tampered.zip")
+      require "zip"
       Zip::File.open(source) do |src|
         Zip::File.open(tampered, create: true) do |dst|
           src.entries.each do |e|
-            if e.name == 'encoder.onnx'
-              dst.get_output_stream(e.name) { |io| io.write('corrupted-bytes') }
+            if e.name == "encoder.onnx"
+              dst.get_output_stream(e.name) { |io| io.write("corrupted-bytes") }
             else
               dst.get_output_stream(e.name) { |io| io.write(e.get_input_stream.read) }
             end
@@ -65,15 +66,15 @@ RSpec.describe Interscript::ML::IMF do
     end
   end
 
-  describe '.resolve' do
-    it 'installs a verified copy into the cache from a local index' do
+  describe ".resolve" do
+    it "installs a verified copy into the cache from a local index" do
       Dir.mktmpdir do |tmp|
-        channel = File.join(tmp, 'channel')
+        channel = File.join(tmp, "channel")
         FileUtils.mkdir_p(channel)
-        zip_path = File.expand_path('../fixtures/tiny-imf.zip', __dir__)
-        FileUtils.cp(zip_path, File.join(channel, 'tiny.zip'))
-        require 'digest'
-        index = File.join(tmp, 'models.yaml')
+        zip_path = File.expand_path("../fixtures/tiny-imf.zip", __dir__)
+        FileUtils.cp(zip_path, File.join(channel, "tiny.zip"))
+        require "digest"
+        index = File.join(tmp, "models.yaml")
         File.write(index, <<~YAML)
           version: 1
           models:
@@ -82,41 +83,41 @@ RSpec.describe Interscript::ML::IMF do
               url: file://#{channel}/tiny.zip
               sha256: #{Digest::SHA256.file(zip_path).hexdigest}
         YAML
-        cache = File.join(tmp, 'cache')
-        result = described_class.resolve('tiny-1.0', index_url: index) if false
+        cache = File.join(tmp, "cache")
+
         # env-based cache (the public API reads ENV at call time)
-        ENV['SECRYST_CACHE'] = cache
+        ENV["SECRYST_CACHE"] = cache
         begin
-          installed = described_class.resolve('tiny-1.0', index_url: index)
-          expect(installed).to eq(File.join(cache, 'models', 'tiny-1.0', 'tiny.zip'))
+          installed = described_class.resolve("tiny-1.0", index_url: index)
+          expect(installed).to eq(File.join(cache, "models", "tiny-1.0", "tiny.zip"))
           expect(File.file?(installed)).to be(true)
-          FileUtils.rm_f(File.join(channel, 'tiny.zip'))
-          expect(described_class.resolve('tiny-1.0', index_url: index)).to eq(installed)
+          FileUtils.rm_f(File.join(channel, "tiny.zip"))
+          expect(described_class.resolve("tiny-1.0", index_url: index)).to eq(installed)
         ensure
-          ENV.delete('SECRYST_CACHE')
+          ENV.delete("SECRYST_CACHE")
         end
       end
     end
 
-    it 'raises for unknown ids' do
+    it "raises for unknown ids" do
       Dir.mktmpdir do |tmp|
-        index = File.join(tmp, 'models.yaml')
+        index = File.join(tmp, "models.yaml")
         File.write(index, "version: 1\nmodels: {}\n")
-        expect { described_class.resolve('nope-1.0', index_url: index) }
+        expect { described_class.resolve("nope-1.0", index_url: index) }
           .to raise_error(Interscript::ML::IMF::RegistryError, /unknown model id/)
       end
     end
 
-    it 'assembles and verifies split parts (the >2GiB GitHub cap path)' do
+    it "assembles and verifies split parts (the >2GiB GitHub cap path)" do
       Dir.mktmpdir do |tmp|
-        channel = File.join(tmp, 'channel')
+        channel = File.join(tmp, "channel")
         FileUtils.mkdir_p(channel)
-        zip_path = File.expand_path('../fixtures/tiny-imf.zip', __dir__)
+        zip_path = File.expand_path("../fixtures/tiny-imf.zip", __dir__)
         blob = File.binread(zip_path)
         part_a, part_b = blob[0, (blob.bytesize / 2 + 3)], blob[(blob.bytesize / 2 + 3)..]
-        File.binwrite(File.join(channel, 'tiny.zip.part-00'), part_a)
-        File.binwrite(File.join(channel, 'tiny.zip.part-01'), part_b)
-        index = File.join(tmp, 'models.yaml')
+        File.binwrite(File.join(channel, "tiny.zip.part-00"), part_a)
+        File.binwrite(File.join(channel, "tiny.zip.part-01"), part_b)
+        index = File.join(tmp, "models.yaml")
         File.write(index, <<~YAML)
           version: 1
           models:
@@ -131,29 +132,29 @@ RSpec.describe Interscript::ML::IMF do
                   sha256: #{Digest::SHA256.hexdigest(part_b)}
                   size: #{part_b.bytesize}
         YAML
-        cache = File.join(tmp, 'cache')
-        ENV['SECRYST_CACHE'] = cache
+        cache = File.join(tmp, "cache")
+        ENV["SECRYST_CACHE"] = cache
         begin
-          installed = described_class.resolve('tiny-1.0', index_url: index)
+          installed = described_class.resolve("tiny-1.0", index_url: index)
           expect(File.binread(installed)).to eq(blob)
-          FileUtils.rm_f(File.join(channel, 'tiny.zip.part-00'))
-          expect(described_class.resolve('tiny-1.0', index_url: index)).to eq(installed)
+          FileUtils.rm_f(File.join(channel, "tiny.zip.part-00"))
+          expect(described_class.resolve("tiny-1.0", index_url: index)).to eq(installed)
         ensure
-          ENV.delete('SECRYST_CACHE')
+          ENV.delete("SECRYST_CACHE")
         end
       end
     end
 
-    it 'rejects a corrupt part by index' do
+    it "rejects a corrupt part by index" do
       Dir.mktmpdir do |tmp|
-        channel = File.join(tmp, 'channel')
+        channel = File.join(tmp, "channel")
         FileUtils.mkdir_p(channel)
-        zip_path = File.expand_path('../fixtures/tiny-imf.zip', __dir__)
+        zip_path = File.expand_path("../fixtures/tiny-imf.zip", __dir__)
         blob = File.binread(zip_path)
         part_a, part_b = blob[0, 7], blob[7..]
-        File.binwrite(File.join(channel, 'tiny.zip.part-00'), part_a)
-        File.binwrite(File.join(channel, 'tiny.zip.part-01'), part_b)
-        index = File.join(tmp, 'models.yaml')
+        File.binwrite(File.join(channel, "tiny.zip.part-00"), part_a)
+        File.binwrite(File.join(channel, "tiny.zip.part-01"), part_b)
+        index = File.join(tmp, "models.yaml")
         File.write(index, <<~YAML)
           version: 1
           models:
@@ -168,12 +169,12 @@ RSpec.describe Interscript::ML::IMF do
                   sha256: #{Digest::SHA256.hexdigest(part_b)}
                   size: #{part_b.bytesize}
         YAML
-        ENV['SECRYST_CACHE'] = File.join(tmp, 'cache')
+        ENV["SECRYST_CACHE"] = File.join(tmp, "cache")
         begin
-          expect { described_class.resolve('tiny-1.0', index_url: index) }
+          expect { described_class.resolve("tiny-1.0", index_url: index) }
             .to raise_error(Interscript::ML::IMF::RegistryError, /part 0 .* sha256 mismatch/)
         ensure
-          ENV.delete('SECRYST_CACHE')
+          ENV.delete("SECRYST_CACHE")
         end
       end
     end
@@ -201,7 +202,11 @@ RSpec.describe Interscript::ML::IMF do
         port = server.addr[1]
         thread = Thread.new do
           loop do
-            client = server.accept rescue break
+            client = begin
+              server.accept
+            rescue
+              break
+            end
             request = client.readline
             client.each_line { |line| break if line == "\r\n" }
             path = request.split(" ")[1]

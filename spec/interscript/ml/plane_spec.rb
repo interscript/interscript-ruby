@@ -11,16 +11,16 @@ RSpec.describe Interscript::ML::PlaneModel do
   describe ".from_zip" do
     it "verifies member sha256s and rejects tampering" do
       expect { described_class.from_zip(File.read(zip)) }.not_to raise_error
-      require 'zip'
-      require 'stringio'
+      require "zip"
+      require "stringio"
       src = Zip::File.open(zip)
       bad = Zip::File.open_buffer(StringIO.new(File.binread(zip)))
-      bad_entry = bad.entries.find { |e| e.name == 'plane.onnx' }
+      bad_entry = bad.entries.find { |e| e.name == "plane.onnx" }
       tampered = bad_entry.get_input_stream.read + "x"
       buf = Zip::OutputStream.write_buffer do |out|
         src.entries.each do |e|
           out.put_next_entry(e.name)
-          out.write(e.name == 'plane.onnx' ? tampered : e.get_input_stream.read)
+          out.write((e.name == "plane.onnx") ? tampered : e.get_input_stream.read)
         end
       end.string
       expect { described_class.from_zip(buf) }.to raise_error(Interscript::ML::IMF::FormatError, /sha256 mismatch/)

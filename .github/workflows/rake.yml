@@ -37,6 +37,16 @@ jobs:
 
       - name: Bootstrap packages
         run: ruby bootstrap.rb
+      # bootstrap clones interscript-ruby REMOTE MAIN into ruby/ — for
+      # PRs that would test main's code instead of the PR. Overlay the
+      # actual ref under test onto the bootstrapped sibling layout.
+      - name: Overlay the ref under test onto ruby/
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.ref || github.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name || github.repository }}
+          path: ruby
+          clean: false
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1

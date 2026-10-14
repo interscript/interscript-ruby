@@ -13,6 +13,7 @@ RSpec.describe Interscript::Isc::Parser, :aggregate_failures do
   skip "parsanol lacks PARG (needs >= 1.3.61)" unless Interscript::Isc::Parser.respond_to?(:artifact)
 
   it "parses every corpus map identically via artifact and DSL" do
+    skip "artifact not shipped (parsanol#5 — compiler mistranslates; DSL is the engine)" unless File.exist?(Interscript::Isc::Parser::ARTIFACT_PATH)
     failures = []
 
     maps.each do |path|

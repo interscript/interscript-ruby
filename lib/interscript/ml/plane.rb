@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'tmpdir'
-require 'json'
+require "tmpdir"
+require "json"
 
 module Interscript
   module ML
@@ -16,7 +16,7 @@ module Interscript
       attr_reader :classes, :k_passes
 
       def initialize(graph:, classes:, k_passes: 2)
-        Interscript::ML.require_optional!('onnxruntime')
+        Interscript::ML.require_optional!("onnxruntime")
         @classes = classes.freeze
         @n_classes = classes.length
         @mask_id = @n_classes
@@ -27,8 +27,8 @@ module Interscript
         @class_to_id = classes.each_with_index.to_h.freeze
         # the onnxruntime gem loads from paths, not bytes (as byt5_onnx):
         # verified bytes go to a tmpfile owned by this instance
-        @graph_tmpdir = Dir.mktmpdir('isx-plane')
-        path = File.join(@graph_tmpdir, 'plane.onnx')
+        @graph_tmpdir = Dir.mktmpdir("isx-plane")
+        path = File.join(@graph_tmpdir, "plane.onnx")
         File.binwrite(path, graph)
         @sess = OnnxRuntime::Model.new(path)
       end
@@ -58,7 +58,7 @@ module Interscript
           else
             close.call
             skeleton << ch
-            classes << ''
+            classes << ""
           end
         end
         close.call
@@ -75,18 +75,18 @@ module Interscript
           ch = skeleton[i]
           n = ch.bytesize
           cls = if user_cls.empty?
-                  votes = tok_preds[pos, n] || []
-                  cid = votes.tally.max_by { |_, c| c }&.first || @n_classes
-                  cid < @n_classes ? @classes[cid] : ''
-                else
-                  user_cls # user diacritics round-trip byte-exactly
-                end
+            votes = tok_preds[pos, n] || []
+            cid = votes.tally.max_by { |_, c| c }&.first || @n_classes
+            (cid < @n_classes) ? @classes[cid] : ""
+          else
+            user_cls # user diacritics round-trip byte-exactly
+          end
           pos += n
           cls
         end
         out = +""
         skeleton.each_char.with_index do |ch, i|
-          out << (ch == "\x00" ? final[i] : ch + final[i])
+          out << ((ch == "\x00") ? final[i] : ch + final[i])
         end
         out
       end
@@ -102,7 +102,7 @@ module Interscript
           votes = preds[pos, nbytes] || []
           cid = votes.tally.max_by { |_, c| c }&.first || @n_classes
           pos += nbytes
-          cid < @n_classes ? @classes[cid] : ''
+          (cid < @n_classes) ? @classes[cid] : ""
         end
         PlaneModel.render_plane(text, char_preds)
       end
@@ -111,7 +111,7 @@ module Interscript
         plane = plane0
         preds = nil
         @k_passes.times do
-          logits = @sess.predict({ 'input_ids' => [ids], 'plane_ids' => [plane] })['class_logits'][0]
+          logits = @sess.predict({"input_ids" => [ids], "plane_ids" => [plane]})["class_logits"][0]
           preds = logits.each_with_index.map { |row, i| row.index(row.max) }
           plane = preds
         end
@@ -129,11 +129,11 @@ module Interscript
           pid = @class_to_id.fetch(cls, @mask_id)
           ch.bytesize.times { per_token_pin << pid }
         end
-        plane0 = per_token_pin.map { |p| p == @mask_id ? @mask_id : p }
+        plane0 = per_token_pin.map { |p| (p == @mask_id) ? @mask_id : p }
         k_pass_decode(ids, plane0)
       end
 
-      def self.render_plane(skeleton, char_classes)
+      def self.render_plane(skeleton, char_classes)  # rubocop:disable Lint/IneffectiveAccessModifier
         skeleton.each_char.with_index.map do |ch, i|
           ch + char_classes[i].to_s
         end.join
@@ -142,14 +142,15 @@ module Interscript
       # The zip contract: metadata.yaml (kind=plane, k_passes, member
       # sha256s) + plane.onnx + classes.json, every member sha-verified
       # before the session is created.
+      # rubocop:disable Lint/IneffectiveAccessModifier
       def self.from_zip(data)
-        require 'zip'
+        require "zip"
         zf = Zip::File.open_buffer(data)
         names = zf.entries.map(&:name)
-        meta = YAML.safe_load(zf.read('metadata.yaml'), permitted_classes: [], aliases: false)
-        raise IMF::FormatError, "plane zip: kind=#{meta['kind'].inspect}, expected 'plane'" if meta['kind'] != 'plane'
+        meta = YAML.safe_load(zf.read("metadata.yaml"), permitted_classes: [], aliases: false)
+        raise IMF::FormatError, "plane zip: kind=#{meta["kind"].inspect}, expected 'plane'" if meta["kind"] != "plane"
 
-        members = meta['members'] || {}
+        members = meta["members"] || {}
         plane_graph = nil
         classes_bytes = nil
         %w[plane.onnx classes.json].each do |member|
@@ -161,17 +162,19 @@ module Interscript
           got = Digest::SHA256.hexdigest(bytes)
           raise IMF::FormatError, "plane zip: #{member} sha256 mismatch (#{got})" if want != got
 
-          plane_graph = bytes if member == 'plane.onnx'
-          classes_bytes = bytes if member == 'classes.json'
+          plane_graph = bytes if member == "plane.onnx"
+          classes_bytes = bytes if member == "classes.json"
         end
         classes = JSON.parse(classes_bytes)
-        new(graph: plane_graph, classes: classes, k_passes: meta.fetch('k_passes', 2))
+        new(graph: plane_graph, classes: classes, k_passes: meta.fetch("k_passes", 2))
       ensure
         zf&.close
       end
     end
 
     module_function
+
+    # rubocop:enable Lint/IneffectiveAccessModifier
 
     def render_plane(skeleton, char_classes)
       PlaneModel.render_plane(skeleton, char_classes)

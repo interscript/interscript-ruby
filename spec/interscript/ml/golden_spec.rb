@@ -51,7 +51,7 @@ RSpec.describe Interscript::ML::IMF do
       # gem's ORT build to close it, don't erode the default tiers
       artifact_bound = ENV["SECRYST_E2E_CORPUS_BOUND"]&.to_f
       corpus_bound = artifact_bound ||
-                     (ENV["SECRYST_E2E_SMOKE"] == "1" ? 0.02 : 0.005)
+        ((ENV["SECRYST_E2E_SMOKE"] == "1") ? 0.02 : 0.005)
       expect(total_diffs.to_f / total_chars).to be < corpus_bound
     end
   end
