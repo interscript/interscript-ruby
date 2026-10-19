@@ -36,4 +36,9 @@ Gem::Specification.new do |spec|
   spec.add_dependency "interscript-maps", "~> #{Interscript::VERSION.split(".")[0, 2].join(".")}.0a"
   spec.add_dependency "text"
   spec.add_dependency "parslet", "~> 2.0"
+  # Interscript::Ml (optional at runtime — lib/interscript/ml.rb lazily
+  # requires these and raises a helpful LoadError if absent):
+  spec.add_development_dependency "onnxruntime"
+  spec.add_development_dependency "rubyzip"
+  spec.add_development_dependency "numo-narray
 end
