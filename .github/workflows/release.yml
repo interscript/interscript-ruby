@@ -18,5 +18,11 @@ jobs:
           ruby-version: '3.3'
           bundler-cache: true
       - name: Test
+        # Cross-compiler execution specs need the monorepo's sibling js/
+        # assets; that coverage is owned by rake.yml's matrix on every
+        # push, not by the release gate.
+        env:
+          SKIP_JS: "1"
+          SKIP_PYTHON: "1"
         run: bundle exec rake
       - uses: rubygems/release-gem@v1
