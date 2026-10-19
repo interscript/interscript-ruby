@@ -7,6 +7,7 @@
 #
 #   Interscript::ML::Translator.new(model_file: "khm-latn-1.0")
 #     .translate("ភាសា")
+  require "zip"
 module Interscript::ML
   autoload :IMF, "interscript/ml/imf"
   autoload :Provisioning, "interscript/ml/provisioning"
