@@ -8,46 +8,15 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write # RubyGems.org trusted publishing (OIDC)
+      contents: write
     steps:
-      - name: Checkout monorepo
-        uses: actions/checkout@v7
-        with:
-          repository: interscript/interscript
-
-      - name: Bootstrap packages
-        run: ruby bootstrap.rb
-
-      - uses: actions/setup-node@v7
-        with:
-          node-version: '22'
-          cache: npm
-          cache-dependency-path: js/package-lock.json
-
+      - uses: actions/checkout@v7
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.3'
           bundler-cache: true
-          working-directory: ruby
-
-      - name: Install gems
-        working-directory: ruby
-        run: bundle install --jobs 4 --retry 3 --with jsexec
-
-      - name: Test Ruby package
-        working-directory: ruby
+      - name: Test
         run: bundle exec rake
-
-      - name: Test JS package
-        working-directory: js
-        run: npm install && npm run prepareMaps && npm test
-
-      - name: Publish to rubygems.org
-        env:
-          RUBYGEMS_API_KEY: ${{ secrets.INTERSCRIPT_RUBYGEMS_API_KEY }}
-        working-directory: ruby
-        run: |
-          mkdir -p ~/.gem
-          printf -- "---\n:rubygems_api_key: %s\n" "$RUBYGEMS_API_KEY" > ~/.gem/credentials
-          chmod 0600 ~/.gem/credentials
-          gem install gem-release
-          gem release
+      - uses: rubygems/release-gem@v1
