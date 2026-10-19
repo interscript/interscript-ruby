@@ -142,3 +142,11 @@ task :generate_authority_json do
 end
 
 task default: :spec
+
+# bundler's release task aborts when the v* tag already exists; push the
+# built gem directly (rubygems/release-gem exports the OIDC-derived key).
+Rake::Task["release"].clear
+task release: :build do
+  require "interscript/version"
+  sh "gem push pkg/interscript-#{Interscript::VERSION}.gem"
+end
