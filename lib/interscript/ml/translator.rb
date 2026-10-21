@@ -10,7 +10,7 @@ module Interscript::ML
       @model = Model.from_file(model_file)
     end
 
-    def translate(phrase, max_seq_length: 100)
+    def translate(phrase, max_seq_length: 512)
       return @model.translate(phrase, max_seq_length: max_seq_length) if @model.is_a?(Byt5Onnx)
 
       Interscript::ML.require_optional!("numo-narray", feature: "numo/narray")

@@ -18,7 +18,7 @@ module Interscript::ML
       @pasts = @kv ? zero_pasts : {}
     end
 
-    def translate(text, max_seq_length: 256)
+    def translate(text, max_seq_length: 512)
       ids = IMF.encode(text)
       return "" if ids.length == 1 # only the trailing EOS: empty input
 
