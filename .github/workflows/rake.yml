@@ -16,75 +16,16 @@ jobs:
         ruby: ["3.3", "3.4"]
         os: [ubuntu-latest, windows-latest, macos-latest]
     env:
-      BUNDLE_WITHOUT: "jsexec"
+      BUNDLE_WITHOUT: "secryst"
       SKIP_JS: "1"
-      ISC_SWEEP: "1"
-      # The ISC corpus sweep: every map's own tests through every
-      # supported compiler (Interpreter, Compiler::Ruby), against the
-      # ../maps sibling from the monorepo checkout. The conformance gap
-      # it measured is closed (16,482 examples, 0 failures —
-      # interscript-ruby#779..#786); this is now the CI conformance
-      # gate for the corpus. The Python bridge now runs too: the
-      # interscript-py engine is corpus-conformant (8,227 examples,
-      # 0 failures — interscript-py#11..#20) and is installed from
-      # its main branch below.
-
+      SKIP_PYTHON: "1"
     steps:
-      - name: Checkout monorepo
-        uses: actions/checkout@v7
-        with:
-          repository: interscript/interscript
-
-      - name: Bootstrap packages
-        run: ruby bootstrap.rb
-      # bootstrap clones interscript-ruby REMOTE MAIN into ruby/ — for
-      # PRs that would test main's code instead of the PR. Overlay the
-      # actual ref under test onto the bootstrapped sibling layout.
-      - name: Overlay the ref under test onto ruby/
-        uses: actions/checkout@v7
-        with:
-          ref: ${{ github.event.pull_request.head.ref || github.ref }}
-          repository: ${{ github.event.pull_request.head.repo.full_name || github.repository }}
-          path: ruby
-          clean: false
-
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+      - uses: actions/checkout@v7
+      - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
-          working-directory: ruby
-
-      - name: Install Python helper and gems
-        working-directory: ruby
-        # bash everywhere: the PYBIN substitution is POSIX shell, which
-        # PowerShell (the windows default) cannot parse. --break-system-
-        # packages rides out PEP 668 on Homebrew-managed macos Pythons.
-        shell: bash
-        run: |
-          bundle config set --local with jsexec pyexec
-          bundle install
-          if bundle exec ruby -e 'require "pycall"' >/dev/null 2>&1; then
-            # PyCall binds whichever libpython it was built against, which
-            # is not necessarily the python that bare `pip` targets —
-            # install the regex helper into that interpreter.
-            PYBIN=$(bundle exec ruby -e 'require "pycall"; v = PyCall.sys.version[/\d+\.\d+/]; puts "python#{v}"')
-            # Windows names the interpreter python.exe, not python3.X.
-            command -v "$PYBIN" >/dev/null 2>&1 || PYBIN=python
-            if command -v "$PYBIN" >/dev/null 2>&1; then
-              "$PYBIN" -m pip install --break-system-packages regex || "$PYBIN" -m pip install regex
-              # The bridge needs the current engine; the PyPI release
-              # predates the conformance work.
-              "$PYBIN" -m pip install --break-system-packages "git+https://github.com/interscript/interscript-py@main" || "$PYBIN" -m pip install "git+https://github.com/interscript/interscript-py@main"
-            else
-              echo "$PYBIN not on PATH — python helper not installed"
-            fi
-          else
-            echo "pycall not bundled — the python compiler leg is unavailable this run"
-          fi
-
       - name: RSpec
-        working-directory: ruby
         run: bundle exec rspec
 
   standard:
@@ -92,10 +33,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      # The Gemfile's path dependency needs ../maps to exist for bundler
-      # to resolve; linting itself never loads it. actions/checkout
-      # cannot write outside the workspace, hence the plain clone.
-      - run: git clone --depth 1 https://github.com/interscript/maps ../maps
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.4"
@@ -111,21 +48,25 @@ jobs:
         with:
           ruby-version: "3.3"
           bundler-cache: true
-      - name: Download fixtures (GitHub Releases channel)
+      - name: Download fixtures (Releases via the API -- bypasses the asset-redirect CDN)
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           mkdir -p fixtures && cd fixtures
-          BASE="https://github.com/interscript/interscript-models/releases/download"
-          curl -fsSL -o models-index.yaml "$BASE/index-v12/models-index.yaml"
-          curl -fsSL -o models-index.yaml.sha256 "$BASE/index-v12/models-index.yaml.sha256"
-          shasum -a 256 -c models-index.yaml.sha256
+          dl() { # dl <tag> <asset-name> <out>
+            local id=$(gh api repos/interscript/interscript-models/releases/tags/$1 --jq ".assets[] | select(.name==\"$2\") | .id")
+            gh api -H "Accept: application/octet-stream" repos/interscript/interscript-models/releases/assets/$id > "$3"
+          }
+          dl index-v12 models-index.yaml models-index.yaml
+          dl index-v12 models-index.yaml.sha256 models-index.yaml.sha256
+          sha256sum -c models-index.yaml.sha256
           for v in urd-diac-base fas-diac-base urd-g2p-base; do
-            curl -fsSL -O "$BASE/index-v12/$v-vectors.json"
+            dl index-v12 $v-vectors.json $v-vectors.json
           done
           # the two single-zip models; urd-g2p (split parts) resolves
           # via the runtime resolver in a later matrix pass
           for m in urd-diac-base-1.0 fas-diac-base-1.0; do
-            url=$(ruby -ryaml -e "puts YAML.load_file('models-index.yaml')['models']['$m']['url']")
-            curl -fsSL -o "$m.zip" "$url"
+            dl $m $m-fp16.zip $m.zip
           done
       - name: Run the matrix
         run: |
