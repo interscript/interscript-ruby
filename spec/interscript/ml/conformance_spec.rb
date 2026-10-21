@@ -22,7 +22,8 @@ RSpec.describe "frozen conformance fixtures" do
       failures << "#{v["src"].inspect} -> #{got.inspect} (expected #{v["out"].inspect})" if got != v["out"]
     end
     expect(failures).to be_empty,
-      "#{vectors['model']}: #{failures.length}/#{vectors['vectors'].length} mismatched\n" +
-      failures.first(3).join("\n")
+      "#{vectors["model"]}: #{failures.length}/#{vectors["vectors"].length} mismatched
+" +
+        failures.first(3).join("\n")
   end
 end
