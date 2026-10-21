@@ -101,3 +101,39 @@ jobs:
           ruby-version: "3.4"
           bundler-cache: true
       - run: bundle exec standardrb
+
+  conformance-matrix:
+    name: Conformance matrix (frozen fixtures)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+      - name: Download fixtures (GitHub Releases channel)
+        run: |
+          mkdir -p fixtures && cd fixtures
+          BASE="https://github.com/interscript/interscript-models/releases/download"
+          curl -fsSL -o models-index.yaml "$BASE/index-v12/models-index.yaml"
+          curl -fsSL -o models-index.yaml.sha256 "$BASE/index-v12/models-index.yaml.sha256"
+          shasum -a 256 -c models-index.yaml.sha256
+          for v in urd-diac-base fas-diac-base urd-g2p-base; do
+            curl -fsSL -O "$BASE/index-v12/$v-vectors.json"
+          done
+          # the two single-zip models; urd-g2p (split parts) resolves
+          # via the runtime resolver in a later matrix pass
+          for m in urd-diac-base-1.0 fas-diac-base-1.0; do
+            url=$(ruby -ryaml -e "puts YAML.load_file('models-index.yaml')['models']['$m']['url']")
+            curl -fsSL -o "$m.zip" "$url"
+          done
+      - name: Run the matrix
+        run: |
+          for pair in "urd-diac-base-1.0 urd-diac-base" "fas-diac-base-1.0 fas-diac-base"; do
+            set -- $pair
+            echo "::group::$1"
+            SECRYST_E2E_ZIP="$PWD/fixtures/$1.zip" \
+              CONFORMANCE_VECTORS="$PWD/fixtures/$2-vectors.json" \
+              bundle exec rspec spec/interscript/ml/conformance_spec.rb
+            echo "::endgroup::"
+          done

@@ -38,7 +38,9 @@ module Interscript::ML
     def build_session(graphs, name)
       path = File.join(@tmpdir, name)
       File.binwrite(path, graphs.fetch(name))
-      OnnxRuntime::Model.new(path)
+      # single-thread decode: the conformance contract is byte-exact
+      # across environments (WO79); multi-thread fp16 ties flip rows
+      OnnxRuntime::Model.new(path, intra_op_num_threads: 1)
     end
 
     def zero_pasts
