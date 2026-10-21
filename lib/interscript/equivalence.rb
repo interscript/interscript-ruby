@@ -35,12 +35,12 @@ module Interscript
         if a == b
           matched += 1
         else
-          distinguishing << { sample: sample, first: a, second: b }
+          distinguishing << {sample: sample, first: a, second: b}
         end
       end
       ratio = tested.zero? ? 1.0 : matched.fdiv(tested)
-      { tested: tested, matched: matched, ratio: ratio,
-        distinguishing: distinguishing }
+      {tested: tested, matched: matched, ratio: ratio,
+       distinguishing: distinguishing}
     end
   end
 end

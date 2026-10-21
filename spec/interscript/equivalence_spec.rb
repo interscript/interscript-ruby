@@ -30,7 +30,7 @@ RSpec.describe Interscript::Equivalence do
 
   it "reports full agreement for identical systems" do
     Dir.mktmpdir do |dir|
-      a, b = identical_pair(dir)
+      identical_pair(dir)
       Interscript.load_path.unshift(dir)
       begin
         result = described_class.check("tst-a-1", "tst-b-1", samples: ["ab", "abc", "b"])
@@ -63,7 +63,7 @@ RSpec.describe Interscript::Equivalence do
       begin
         result = described_class.check("tst-c-1", "tst-c-2", samples: ["a", "b"])
         expect(result[:ratio]).to eq(0.5)
-        expect(result[:distinguishing]).to eq([{ sample: "a", first: "x", second: "y" }])
+        expect(result[:distinguishing]).to eq([{sample: "a", first: "x", second: "y"}])
       ensure
         Interscript.load_path.delete(dir)
       end
