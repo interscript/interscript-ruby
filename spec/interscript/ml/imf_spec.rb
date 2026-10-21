@@ -251,3 +251,12 @@ RSpec.describe Interscript::ML::IMF do
     end
   end
 end
+
+RSpec.describe "IMF.decode byte hygiene" do
+  it "scrubs invalid UTF-8 produced by mid-character sequence caps" do
+    # 0xF0 0x9E begins a 4-byte UTF-8 sequence that never completes: the
+    # python reference decodes with errors="replace" (U+FFFD); the ruby
+    # runtime must match byte-for-byte (the C1 matrix catch)
+    expect(Interscript::ML::IMF.decode([100, 243, 161])).to eq("a�")
+  end
+end

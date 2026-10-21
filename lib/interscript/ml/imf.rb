@@ -42,7 +42,10 @@ module Interscript::ML
           next if token == PAD_ID || token == UNK_ID
           out << ((token - BYTE_OFFSET) % 256).chr
         end
-        out.force_encoding(Encoding::UTF_8)
+        # the python reference decodes with errors="replace": invalid
+        # bytes (mid-character sequence caps) become U+FFFD -- scrub to
+        # match byte-for-byte (the C1 matrix catch)
+        out.force_encoding(Encoding::UTF_8).scrub
       end
 
       def manifest(zip_path)
