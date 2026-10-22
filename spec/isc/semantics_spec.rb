@@ -208,3 +208,135 @@ RSpec.describe "ISC semantics — run and to-directives" do
     end
   end
 end
+
+RSpec.describe "ISC semantics — funcall and stdlib" do
+  def with_map(name, body)
+    dir = Dir.mktmpdir
+    File.write(File.join(dir, name), body)
+    Interscript.load_path.unshift(dir)
+    yield
+  ensure
+    Interscript.load_path.delete(dir) if dir
+  end
+
+  def system_map(id, body)
+    <<~ISC
+      system "TST:xx-Latn:Latn:#{id}" {
+        metadata { authority_id tst; id #{id}; language iso-639-2:xx; source_script Latn; destination_script Latn }
+        #{body}
+      }
+    ISC
+  end
+
+  it "rules: run <stdlib-name> dispatches the stdlib function" do
+    with_map("tst-fn-1.isc", system_map(51, "stage main { run downcase }")) do
+      expect(Interscript.transliterate("tst-fn-1", "AbC")).to eq("abc")
+    end
+  end
+
+  it "rules: stage-level case directives run at their position, on the whole string" do
+    with_map("tst-fn-2.isc", system_map(52,
+      "stage main { downcase parallel { sub { from \"b\" to \"B\" } } }")) do
+      # downcase applies before the sub (rule order), so b -> B still fires
+      expect(Interscript.transliterate("tst-fn-2", "AB")).to eq("aB")
+    end
+  end
+
+  it "rules: run accepts no kwargs — kwargs belong to declared funcall directives (rababa)" do
+    with_map("tst-fn-3.isc", system_map(53, "stage main { run separate separator: \"-\" }")) do
+      expect { Interscript.transliterate("tst-fn-3", "abc") }
+        .to raise_error(Interscript::Isc::ParseError)
+    end
+  end
+
+  it "rules: stray identifiers are consumed as no-ops — pinned as a hazard" do
+    # HAZARD (A4 follow-up): `run nosuchfunction` drops BOTH identifiers
+    # at parse time and the stage becomes empty — a typo'd map is
+    # silently wrong. Ruled normative-for-now (legacy .imp corpus
+    # tolerance, grammar/concerns/stages.rb comment_item); the stricter
+    # parse is an open item tracked in the IS-1 v2 text, gated on a
+    # clean parse of the full 293-map corpus across all three compilers.
+    with_map("tst-fn-4.isc", system_map(54, "stage main { run nosuchfunction parallel { sub { from \"a\" to \"b\" } } }")) do
+      expect(Interscript.transliterate("tst-fn-4", "a")).to eq("b")
+    end
+  end
+end
+
+RSpec.describe "ISC semantics — item algebra and boundary" do
+  def with_map(name, body)
+    dir = Dir.mktmpdir
+    File.write(File.join(dir, name), body)
+    Interscript.load_path.unshift(dir)
+    yield
+  ensure
+    Interscript.load_path.delete(dir) if dir
+  end
+
+  def system_map(id, body)
+    <<~ISC
+      system "TST:xx-Latn:Latn:#{id}" {
+        metadata { authority_id tst; id #{id}; language iso-639-2:xx; source_script Latn; destination_script Latn }
+        #{body}
+      }
+    ISC
+  end
+
+  it "rules: any(<chars>) is a character set of length 1" do
+    with_map("tst-item-1.isc", system_map(61,
+      "stage main { parallel { sub { from any(\"bc\") to \"X\" } } }")) do
+      expect(Interscript.transliterate("tst-item-1", "abcd")).to eq("aXXd")
+    end
+  end
+
+  it "rules: any(<lo>..<hi>) is an inclusive codepoint range" do
+    with_map("tst-item-2.isc", system_map(62,
+      "stage main { parallel { sub { from any(\"0\"..\"9\") to \"N\" } } }")) do
+      expect(Interscript.transliterate("tst-item-2", "a7b")).to eq("aNb")
+    end
+  end
+
+  it "rules: capture + ref substitutes the captured source text" do
+    with_map("tst-item-3.isc", system_map(63,
+      "stage main { sequence { sub { from capture(\"a\") + \"b\" to ref(1) + \"Y\" } } }")) do
+      expect(Interscript.transliterate("tst-item-3", "ab")).to eq("aY")
+    end
+  end
+
+  it "rules: boundary is a zero-width word-edge, not string-edge-only" do
+    with_map("tst-item-4.isc", system_map(64,
+      "stage main { parallel { sub { from \"a\" to \"X\" after boundary } } }")) do
+      # string end IS a word edge
+      expect(Interscript.transliterate("tst-item-4", "xa")).to eq("xX")
+      # mid-word: no edge after a
+      expect(Interscript.transliterate("tst-item-4", "ab")).to eq("ab")
+    end
+  end
+end
+
+RSpec.describe "ISC semantics — metadata contract and embedded tests" do
+  def with_map(name, body)
+    dir = Dir.mktmpdir
+    File.write(File.join(dir, name), body)
+    Interscript.load_path.unshift(dir)
+    yield
+  ensure
+    Interscript.load_path.delete(dir) if dir
+  end
+
+  it "rules: embedded tests are normative data — never executed by transliterate" do
+    dir = Dir.mktmpdir
+    File.write(File.join(dir, "tst-test-1.isc"), <<~ISC)
+      system "TST:xx-Latn:Latn:71" {
+        metadata { authority_id tst; id 71; language iso-639-2:xx; source_script Latn; destination_script Latn }
+        stage main { parallel { sub { from "a" to "b" } } }
+        tests { "zzz" -> "wrong" }
+      }
+    ISC
+    Interscript.load_path.unshift(dir)
+    # a deliberately wrong expectation does not fire; the verification
+    # layer (conformance runner / artifact build) executes tests
+    expect(Interscript.transliterate("tst-test-1", "a")).to eq("b")
+  ensure
+    Interscript.load_path.delete(dir) if dir
+  end
+end
