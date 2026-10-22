@@ -139,3 +139,72 @@ RSpec.describe "ISC semantics — contexts, maybe, capture" do
     end
   end
 end
+
+RSpec.describe "ISC semantics — run and to-directives" do
+  def with_map(name, body)
+    dir = Dir.mktmpdir
+    File.write(File.join(dir, name), body)
+    Interscript.load_path.unshift(dir)
+    yield
+  ensure
+    Interscript.load_path.delete(dir) if dir
+  end
+
+  it "rules: run dispatches to a dependency-aliased cross-map stage" do
+    lib = <<~ISC
+      system "TST:xx-Latn:Latn:22" {
+        metadata {
+          authority_id tst
+          id 22
+          language iso-639-2:xx
+          source_script Latn
+          destination_script Latn
+        }
+        stage main { parallel { sub "1" "one" } }
+      }
+    ISC
+    runner = <<~ISC
+      system "TST:xx-Latn:Latn:23" {
+        metadata {
+          authority_id tst
+          id 23
+          language iso-639-2:xx
+          source_script Latn
+          destination_script Latn
+        }
+        dependency "tst-lib-1" as lib
+        stage main {
+          run map.lib.stage.main
+          parallel { sub "2" "two" }
+        }
+      }
+    ISC
+    with_map("tst-lib-1.isc", lib) do
+      with_map("tst-run-1.isc", runner) do
+        expect(Interscript.transliterate("tst-run-1", "12")).to eq("onetwo")
+      end
+    end
+  end
+
+  it "rules: the to upcase directive is unimplemented in the ISC interpreter (WO80)" do
+    # The corpus's rus map exercises `to upcase` via the legacy path; the
+    # ISC executor raises on the directive for both literal and any-class
+    # froms. IS-1 v2 must either specify the directive or scope it out
+    # for the ISC engine (the A4 decision).
+    with_map("tst-up-1.isc", <<~ISC) do
+      system "TST:xx-Latn:Latn:21" {
+        metadata {
+          authority_id tst
+          id 21
+          language iso-639-2:xx
+          source_script Latn
+          destination_script Latn
+        }
+        stage main { parallel { sub { from any("a".."c") to upcase } } }
+      }
+    ISC
+      expect { Interscript.transliterate("tst-up-1", "abc") }
+        .to raise_error(NoMethodError, /nth_string/)
+    end
+  end
+end
