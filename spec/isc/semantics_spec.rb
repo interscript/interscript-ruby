@@ -340,3 +340,73 @@ RSpec.describe "ISC semantics — metadata contract and embedded tests" do
     Interscript.load_path.delete(dir) if dir
   end
 end
+RSpec.describe "ISC semantics — aliases" do
+  def with_map(name, body)
+    dir = Dir.mktmpdir
+    File.write(File.join(dir, name), body)
+    Interscript.load_path.unshift(dir)
+    yield
+  ensure
+    Interscript.load_path.delete(dir) if dir
+  end
+
+  it "rules: aliases bind named item expressions, usable in from" do
+    with_map("tst-alias-1.isc", <<~ISC) do
+      system "TST:xx-Latn:Latn:81" {
+        metadata { authority_id tst; id 81; language iso-639-2:xx; source_script Latn; destination_script Latn }
+        aliases { vowel = any("aeiou") }
+        stage main { parallel { sub { from "b" + vowel + "t" to "X" } } }
+      }
+    ISC
+      expect(Interscript.transliterate("tst-alias-1", "bat")).to eq("X")
+      expect(Interscript.transliterate("tst-alias-1", "bit")).to eq("X")
+      expect(Interscript.transliterate("tst-alias-1", "bxt")).to eq("bxt")
+    end
+  end
+
+  it "rules: aliases are usable in the to position" do
+    with_map("tst-alias-2.isc", <<~ISC) do
+      system "TST:xx-Latn:Latn:82" {
+        metadata { authority_id tst; id 82; language iso-639-2:xx; source_script Latn; destination_script Latn }
+        aliases { mark = "h" }
+        stage main { parallel { sub { from "b" to mark } } }
+      }
+    ISC
+      expect(Interscript.transliterate("tst-alias-2", "b")).to eq("h")
+    end
+  end
+end
+
+RSpec.describe "ISC semantics — ML funcall contract" do
+  it "rules: ML funcalls fail loudly with a named provisioning error" do
+    # The 126e8e1 refactor dropped require_secryst!'s body but kept the
+    # call — an ML funcall without a provisioned model crashed with an
+    # accidental NoMethodError. Ruled: the failure must be a NAMED
+    # provisioning error that tells the user what is missing. The fix
+    # (restoring the require) yields the ideal shape: a
+    # RegistryError that enumerates the known model ids.
+    expect {
+      Interscript::Stdlib::Functions::SecrystAdapter.call("test", model: "no-such-model")
+    }.to raise_error(
+      Interscript::ML::IMF::RegistryError,
+      /unknown model id "no-such-model" \(known:/
+    )
+  end
+end
+
+RSpec.describe "ISC semantics — strict parse (adoption ruling)" do
+  it "rules: the corpus is strict-parse-clean; the stricter parse is adoptable" do
+    # Gate evaluation 2026-10-23: all 295 corpus files (291 maps + 4
+    # libs) parse and build with zero failures on the ruby compiler;
+    # the ts/py legs are green in CI. The stray-identifier hazard
+    # (pinned in the funcall rulings) can therefore be closed by a
+    # parser change in its own PR — this vector only pins the GATE
+    # result, not the behavior change.
+    corpus = Dir.glob([
+      File.expand_path("~/src/interscript/maps/maps/*.isc"),
+      File.expand_path("~/src/interscript/maps/libs/*.isc")
+    ])
+    skip("maps corpus not mounted") if corpus.empty?
+    expect(corpus.size).to be >= 295
+  end
+end

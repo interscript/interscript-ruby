@@ -23,6 +23,17 @@ class Interscript::Stdlib
           end
         end
 
+        # The 126e8e1 split lost this body but kept the call — an ML
+        # funcall without a provisioned model crashed with an accidental
+        # NoMethodError instead of a named provisioning error (A4).
+        def require_secryst!
+          require "interscript/ml/translator"
+        rescue LoadError => e
+          raise LoadError,
+                "the secryst funcall requires Interscript::ML — " \
+                "loading failed: #{e.message}"
+        end
+
         def build_translator(model_key)
           Interscript.secryst_index_locations.each do |remote|
             Interscript::ML::Provisioning.add_remote(remote)
