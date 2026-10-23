@@ -30,8 +30,8 @@ class Interscript::Stdlib
           require "interscript/ml/translator"
         rescue LoadError => e
           raise LoadError,
-                "the secryst funcall requires Interscript::ML — " \
-                "loading failed: #{e.message}"
+            "the secryst funcall requires Interscript::ML — " \
+            "loading failed: #{e.message}"
         end
 
         def build_translator(model_key)
