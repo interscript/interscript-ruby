@@ -5,24 +5,39 @@ on:
     tags:
       - 'v*'
 
+permissions:
+  contents: read
+
 jobs:
   release:
+    # Builds the gem FROM THIS REPO at the pushed tag and publishes it.
+    # The previous workflow checked out the monorepo and shipped the
+    # monorepo's ruby/ tree — the v3.2.0 gem therefore did not contain
+    # this repo's decode fixes (512-step cap, UTF-8 scrub).
     runs-on: ubuntu-latest
-    permissions:
-      id-token: write # RubyGems.org trusted publishing (OIDC)
-      contents: write
     steps:
       - uses: actions/checkout@v7
+
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.3'
           bundler-cache: true
-      - name: Test
-        # Cross-compiler execution specs need the monorepo's sibling js/
-        # assets; that coverage is owned by rake.yml's matrix on every
-        # push, not by the release gate.
-        env:
-          SKIP_JS: "1"
-          SKIP_PYTHON: "1"
+
+      - name: Run the gem's own suite
         run: bundle exec rake
-      - uses: rubygems/release-gem@v1
+
+      - name: Build the gem
+        run: |
+          mkdir -p pkg
+          gem build interscript.gemspec
+          cp interscript-*.gem pkg/
+          ls -la pkg/
+
+      - name: Publish to rubygems.org
+        env:
+          RUBYGEMS_API_KEY: ${{ secrets.INTERSCRIPT_RUBYGEMS_API_KEY }}
+        run: |
+          mkdir -p ~/.gem
+          printf -- "---\n:rubygems_api_key: %s\n" "$RUBYGEMS_API_KEY" > ~/.gem/credentials
+          chmod 0600 ~/.gem/credentials
+          gem push pkg/interscript-*.gem
