@@ -35,11 +35,10 @@ jobs:
           cp interscript-*.gem pkg/
           ls -la pkg/
 
-      - name: Publish to rubygems.org
-        env:
-          RUBYGEMS_API_KEY: ${{ secrets.INTERSCRIPT_RUBYGEMS_API_KEY }}
-        run: |
-          mkdir -p ~/.gem
-          printf -- "---\n:rubygems_api_key: %s\n" "$RUBYGEMS_API_KEY" > ~/.gem/credentials
-          chmod 0600 ~/.gem/credentials
-          gem push pkg/interscript-*.gem
+      - name: Publish to rubygems.org (trusted publishing)
+        # Org law: OIDC trusted publishing, never API-key tokens. Requires
+        # the one-time rubygems.org trusted-publisher registration for
+        # this repo + workflow.
+        permissions:
+          id-token: write
+        uses: rubygems/release-gem@v1
