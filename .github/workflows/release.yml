@@ -24,7 +24,9 @@ jobs:
           bundler-cache: true
 
       - name: Run the gem's own suite
-        run: bundle exec rake
+        # the cross-compiler specs need the monorepo's js/ fixtures —
+        # skip them here (the CI matrix covers them)
+        run: SKIP_JS=1 SKIP_PYTHON=1 bundle exec rake
 
       - name: Build the gem
         run: |
