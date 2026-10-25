@@ -15,6 +15,9 @@ jobs:
     # monorepo's ruby/ tree — the v3.2.0 gem therefore did not contain
     # this repo's decode fixes (512-step cap, UTF-8 scrub).
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - uses: actions/checkout@v7
 
@@ -38,7 +41,5 @@ jobs:
       - name: Publish to rubygems.org (trusted publishing)
         # Org law: OIDC trusted publishing, never API-key tokens. Requires
         # the one-time rubygems.org trusted-publisher registration for
-        # this repo + workflow.
-        permissions:
-          id-token: write
+        # this repo + workflow (confirmed registered 2026-10-25).
         uses: rubygems/release-gem@v1
