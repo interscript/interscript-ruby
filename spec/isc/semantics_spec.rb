@@ -228,9 +228,16 @@ RSpec.describe "ISC semantics — funcall and stdlib" do
     ISC
   end
 
-  it "rules: run <stdlib-name> dispatches the stdlib function" do
-    with_map("tst-fn-1.isc", system_map(51, "stage main { run downcase }")) do
+  it "rules: stdlib string functions are stage DIRECTIVES (downcase), not run targets" do
+    # The strict parse revealed `run downcase` only ever worked by
+    # accident (noop + case-directive). The sanctioned spelling is the
+    # bare directive.
+    with_map("tst-fn-1.isc", system_map(51, "stage main { downcase }")) do
       expect(Interscript.transliterate("tst-fn-1", "AbC")).to eq("abc")
+    end
+    with_map("tst-fn-1b.isc", system_map(51, "stage main { run downcase }")) do
+      expect { Interscript.transliterate("tst-fn-1b", "AbC") }
+        .to raise_error(Interscript::Isc::ParseError)
     end
   end
 
@@ -249,15 +256,14 @@ RSpec.describe "ISC semantics — funcall and stdlib" do
     end
   end
 
-  it "rules: stray identifiers are consumed as no-ops — pinned as a hazard" do
-    # HAZARD (A4 follow-up): `run nosuchfunction` drops BOTH identifiers
-    # at parse time and the stage becomes empty — a typo'd map is
-    # silently wrong. Ruled normative-for-now (legacy .imp corpus
-    # tolerance, grammar/concerns/stages.rb comment_item); the stricter
-    # parse is an open item tracked in the IS-1 v2 text, gated on a
-    # clean parse of the full 293-map corpus across all three compilers.
+  it "rules: stray identifiers are a PARSE ERROR (the strict-parse ruling, A4 adopted)" do
+    # The batch-4 hazard (silent no-op) is CLOSED: the corpus gate
+    # passed (295/295 strict-clean after the odni-prs stray-'s' fix,
+    # maps#207), so the grammar rejects stray identifiers — a typo'd
+    # map fails loudly instead of being silently wrong.
     with_map("tst-fn-4.isc", system_map(54, "stage main { run nosuchfunction parallel { sub { from \"a\" to \"b\" } } }")) do
-      expect(Interscript.transliterate("tst-fn-4", "a")).to eq("b")
+      expect { Interscript.transliterate("tst-fn-4", "a") }
+        .to raise_error(Interscript::Isc::ParseError)
     end
   end
 end
