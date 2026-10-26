@@ -25,10 +25,11 @@ module Interscript
               whitespace?
           end
 
-          # Comments and stray identifiers are silently consumed.
+          # Comments are consumed; stray identifiers are a parse error
+          # (WO87/A4 strict-parse ruling: the corpus is 295/295 strict-clean,
+          # so a typo'd map can no longer silently no-op).
           rule(:comment_item) do
-            (str("#") >> (str("\n").absent? >> any).repeat).as(:comment) |
-              identifier.as(:noop)
+            (str("#") >> (str("\n").absent? >> any).repeat).as(:comment)
           end
 
           # Bare rule directly in a stage body (not wrapped in sequence/parallel).
