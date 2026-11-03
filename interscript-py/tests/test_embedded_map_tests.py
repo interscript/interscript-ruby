@@ -6,7 +6,7 @@ block; the Ruby and TS runtimes gate on these. Here each bundled
 compiled map is paired with its source block and executed — output must
 match byte-exactly, no normalization, no tolerance.
 
-The bundled artifact is a curated 263-map subset (see data/maps-ir);
+The bundled artifact is a curated 268-map subset (see data/maps-ir);
 point `$INTERSCRIPT_MAPS_IR` at a full artifact directory to run the
 whole corpus (315 test-bearing maps).
 """

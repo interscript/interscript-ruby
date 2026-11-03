@@ -121,7 +121,7 @@ tolerance), on two fixture sets:
 
 1. **Maps corpus embedded tests** — every `.isc` file ships a
    `tests { "src" -> "out" }` block. `pytest` replays the bundled
-   265-map subset of compiled maps against those rows; point
+   268-map subset of compiled maps against those rows; point
    `$INTERSCRIPT_MAPS_IR` at a full artifact to run all 315
    test-bearing maps. Two maps are expected-divergent (see
    `tests/test_embedded_map_tests.py::KNOWN_IR_LIMITATION`): the
@@ -158,5 +158,5 @@ src/interscript/
   artifact_fetch.py  `python -m interscript.artifact_fetch` (GH Releases)
   models/            model layer (optional extra): tokens, loader, registry, model
 tests/
-  data/maps-ir/      curated 265-map compiled subset (manifest + SHA256SUMS)
+  data/maps-ir/      curated 268-map compiled subset (manifest + SHA256SUMS)
 ```

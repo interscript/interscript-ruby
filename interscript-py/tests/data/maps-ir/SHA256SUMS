@@ -1,4 +1,4 @@
-9a4741eeb15e66776edf6bb7bae6c38372013965cd239614bc8c8daf97f72a57  manifest.json
+bcecbee1f5dad8266a20b04e736e41dda62dabb7ea7204545dd20d80e077c2ed  manifest.json
 5864e8e64b55133ef242718ca303d86d3c5ce74792db2efada35f5dc61a21a11  maps/alalc-amh-Ethi-Latn-1997.json
 62e52ba5735a53ecdee36f3c069e4cb60ae4048dd4d2c93dff6a0c524e8bb45a  maps/alalc-amh-Ethi-Latn-2011.json
 063e1f9e1b6da4bde79ea39b960518f7f94c76ebb5ed6e9c8ae7ba256a348e33  maps/alalc-asm-Deva-Latn-1997.json
@@ -253,10 +253,13 @@ dfcbc50e56b3f27a313890422b00e9c2ec6b309f73ea8c93d518ae22c668a560  maps/un-tam-Ta
 883f45f5a5cf97f3c71cd1ce4bda4b96645872a337e6dfc1ed7266f668865ddb  maps/un-tel-Telu-Latn-1972.json
 326697cb92b51751d313b366a844c501efdbe25862b16bd27f93befb2dc0c69d  maps/un-ukr-Cyrl-Latn-2012.json
 58c56376cadc5054784f1bf4ac09c67ce8c143da041569c545a59da1d19be1de  maps/un-urd-Arab-Latn-1972.json
+d2f1dab1bd82e97c1e129a3af12db24f51de4793c1bbac1da142b13ddaca8798  maps/unicode.json
+77d597ef02554315576c73be3371172aca427e830c7dcdd114b2aa210bbabe47  maps/var-Cyrl.json
 bc2ac5ebe685d8a4e58d4ab7720d4ada096557125bf80382bf17aac6d82f65ce  maps/var-amh-Ethi-Latn-eae-2003.json
 ec343d4710c02445b9643a2cbb0e8cfa97c104c1dad039cad5b56b49bf1322ef  maps/var-gez-Ethi-Latn-eae-2003.json
 2874cbf49e6935756673d99b44746398fb78689ddac687095df725c4042003d1  maps/var-hin-Deva-Latn-hunterian-1872.json
 2046b256b4309d0437323405a9b419843e4b85b8281a7f04917f746512e9b579  maps/var-jpn-Hrkt-Latn-hepburn-1954.json
+d5d82b6956176d65e0474b23f7ecc53237b2b0dcb01f6eead9333ceb2a67ff1e  maps/var-kor.json
 5a89158fb9cd3b39c62fd69f22232ea6deb02740f50bdd448597f6d4c1b19c23  maps/var-mar-Deva-Latn-hunterian-1872.json
 9176195440fabac1affc03a2992ac2c8481fce7f39f8ee6d64a621ca6a44ae6b  maps/var-mon-Mong-Latn-1930.json
 88f96536ae9881e99274950315fe1d43b589cd8ecbee0e255cb3176c799d4850  maps/var-mon-Mong-Latn-lessing.json
