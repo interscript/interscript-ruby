@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "interscript-py"
+version = "0.1.0"
+description = "Python runtime for Interscript: executes the compiled JSON-IR map artifact"
+readme = "README.md"
+license = { text = "BSD-3-Clause" }
+requires-python = ">=3.10"
+authors = [{ name = "Interscript Project" }]
+keywords = ["transliteration", "interscript", "iso", "bgnpcgn", "un", "ala-lc"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: BSD License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Text Processing :: Linguistic",
+]
+dependencies = [
+  "regex>=2023.10",
+]
+
+[project.optional-dependencies]
+# Model (IMF v1 / ByT5 ONNX) layer. The conformance fixtures for the six
+# frozen vector families live in interscript-models/conformance/.
+ml = ["numpy>=1.26", "pyyaml>=6.0", "onnxruntime>=1.17"]
+dev = ["pytest>=8.0"]
+
+[project.urls]
+Homepage = "https://www.interscript.org"
+Maps = "https://github.com/interscript/maps"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+interscript = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra -q"
+markers = [
+  "ml: model-layer (ONNX) tests; needs a local IMF zip; deselect with -m 'not ml'",
+]
