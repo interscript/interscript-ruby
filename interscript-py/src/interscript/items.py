@@ -10,7 +10,6 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from . import stdlib
 from ._ir_types import (
     AliasItem,
     AnyCharClassItem,
@@ -273,5 +272,3 @@ ALIAS_COMPILED: dict[str, _StdlibAlias] = {
     "string_start": _StdlibAlias(re="^", literal=""),
     "string_end": _StdlibAlias(re="$", literal=""),
 }
-
-_ = stdlib  # keep import surface explicit for linters
