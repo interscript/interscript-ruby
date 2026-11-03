@@ -1,0 +1,11 @@
+system "T:directives:x-Latn:1" {
+stage main {
+parallel {
+sub { from some("a") to ref(1) }
+sub { from maybe("-") + "b" to "B" }
+}
+downcase
+compose
+separate separator "-"
+}
+}

@@ -1,0 +1,11 @@
+system "T:aliases:x-Latn:1" {
+aliases {
+vowel = any(['a', 'e', 'i'])
+cons = any("a".."z")
+}
+stage main {
+parallel {
+sub { from capture(vowel) + "-" to ref(1) + "-" after cons }
+}
+}
+}

@@ -1,0 +1,7 @@
+system "T:stage-paren:x-Latn:1" {
+stage(main) {
+parallel {
+sub "a" "b"
+}
+}
+}

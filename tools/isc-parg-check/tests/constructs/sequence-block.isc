@@ -1,0 +1,8 @@
+system "T:sequence:x-Latn:1" {
+stage main {
+sequence {
+sub "a" "b"
+sub { from "c" to "d" after "b" }
+}
+}
+}

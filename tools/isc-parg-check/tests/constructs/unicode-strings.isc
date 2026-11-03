@@ -1,0 +1,14 @@
+system "T:unicode:x-Hani:Latn:1" {
+metadata {
+notes {
+note "CJK 中文 and emoji-adjacent ✅, quotes \" and \\ and 中"
+note 'single quoted with # hash and "quotes"'
+}
+}
+stage main {
+parallel {
+sub "中" "zhōng"
+sub "\U0001F600" ":)"
+}
+}
+}

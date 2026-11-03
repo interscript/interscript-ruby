@@ -1,0 +1,20 @@
+system "T:meta:x-Latn:1" {
+metadata {
+specification "ISO 9", "ISO 23951"
+provenance "a", "b"
+relations {
+supersedes "OLD:x:y:1999" note "replaced"
+basis_for "NEW:x:y:2020"
+}
+system_status current
+code_status preferred
+empty_field_example
+}
+dependency "other-sys" as other
+stage main {
+parallel {
+sub "x" "y"
+}
+run map.other.stage.main
+}
+}

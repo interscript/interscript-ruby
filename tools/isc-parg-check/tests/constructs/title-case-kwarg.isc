@@ -1,0 +1,5 @@
+system "T:titlecase:x-Latn:1" {
+stage main {
+title_case word_separator: "-"
+}
+}
