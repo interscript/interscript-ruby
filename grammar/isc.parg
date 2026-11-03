@@ -1,0 +1,323 @@
+# Interscript ISC grammar — portable .parg (parsanol grammar language).
+#
+# A 1:1 port of the canonical Ruby-DSL grammar in
+# lib/interscript/isc/grammar/concerns/*.rb (+ core.rb). Every rule in
+# this file carries a comment naming its concern rule of origin. The
+# port is semantic, not cosmetic — the parsanol .parg surface has no
+# `.maybe`/`.repeat`/`.absent?` combinators, so they map as:
+#
+#   Ruby                     .parg
+#   -----------------------  --------------------------------
+#   x.repeat(0) / repeat     *x
+#   x.repeat(1)              1*x
+#   x.maybe                  [x]
+#   x.absent?                !x
+#   x.present?               &x
+#   a | b                    a / b            (ordered choice, PEG)
+#   a >> b                   a b
+#   expr.as(:name)           (expr) as name
+#
+# Two semantics worth calling out because the corpus depends on them:
+#
+# * The Ruby DSL's `any` matches ANY character including raw newlines
+#   (multiline `description { ... }` bodies parse). `chr` here is that
+#   true any-character matcher. Wherever the concerns stop at a newline
+#   they do it with an EXPLICIT newline.absent? — mirrored verbatim
+#   below (line_comment, field_raw, comment_item).
+# * Choice is ordered (PEG), exactly like the Ruby alternation — the
+#   alternative order below is copied verbatim from the concerns and is
+#   load-bearing (item_atom, metadata_field, stage_item, ...).
+#
+# Consumed by tools/isc-parg-check (parsanol-rs validation harness).
+
+grammar InterscriptIsc version "1.0.0" edition "v1" {
+
+  ## Interscript ISC map language, ported from the Ruby-DSL concerns.
+
+  # ---------------------------------------------------------------------
+  # Concerns::Primitives — whitespace, comments, identifiers, strings
+  # ---------------------------------------------------------------------
+
+  # The DSL's `any` — every Unicode scalar value, raw newlines included.
+  utf = %x00-10FFFF
+  chr = utf
+
+  # rule(:newline) — "\n" | "\r\n" | "\r"
+  newline = %x0A / %x0D.0A / %x0D
+
+  # rule(:line_comment) — "#" >> (newline.absent? >> any).repeat
+  # (stops at CR too — the absent? is on the full newline rule)
+  line_comment = "#" *(!newline chr)
+
+  # rule(:space) — /\s/ is [ \t\r\n\f\v]
+  space = 1*(%x20 / %x09 / %x0A / %x0B / %x0C / %x0D)
+
+  # rule(:whitespace) / rule(:whitespace?)
+  whitespace = 1*(space / line_comment)
+  wsq = [whitespace]
+
+  # rule(:inline_space) / rule(:inline_whitespace) / inline_whitespace?
+  inline_space = 1*(%x20 / %x09)
+  inline_whitespace = 1*(inline_space / line_comment)
+  iwsq = [inline_whitespace]
+
+  # rule(:comma) — "," with trailing whitespace allowed
+  comma = "," [whitespace]
+
+  # rule(:arrow) — whitespace? >> "->" >> whitespace?
+  arrow = [whitespace] "->" [whitespace]
+
+  # rule(:identifier)
+  ident_first = %x41-5A / %x61-7A / %x5F
+  ident_rest = %x41-5A / %x61-7A / %x30-39 / %x5F
+  identifier = (ident_first 0*ident_rest) as identifier
+
+  # rule(:escape_sequence) — the corpus rulings are in the concerns:
+  # \uXXXX (exactly 4), \U with 4..8 hex (gki-bel "\U040E"), and a lone
+  # \U (un-mar converter corruption).
+  esc_nl = ("n") as newline
+  esc_cr = ("r") as carriage_return
+  esc_tab = ("t") as tab
+  esc_dq = (%x22) as dquote
+  esc_bs = (%x5C) as backslash
+  esc_uni4 = "u" (4hexd) as unicode
+  esc_uni = "U" (4*8hexd) as unicode
+  esc_u_lone = ("U") as u_lone
+  hexd = %x30-39 / %x41-46 / %x61-66
+  escape_sequence = %x5C (esc_nl / esc_cr / esc_tab / esc_dq / esc_bs / esc_uni4 / esc_uni / esc_u_lone)
+
+  # rule(:plain_run) — escape-free stretch of a double-quoted string
+  plain_run = (!%x22 !%x5C chr)
+
+  # rule(:double_quoted_string) — runs captured as slices
+  dq_part = escape_sequence / (1*plain_run as run)
+  double_quoted_string = %x22 (*(dq_part) as string) %x22
+
+  # rule(:single_quoted_string) — no escape interpretation
+  single_quoted_string = %x27 (*( !%x27 chr ) as string) %x27
+
+  # rule(:quoted_string)
+  quoted_string = double_quoted_string / single_quoted_string
+
+  # braced(inner) is a Ruby method (scaffold), not a rule: every use
+  # site below spells "{" [whitespace] inner [whitespace] "}" inline.
+
+  # ---------------------------------------------------------------------
+  # Concerns::Items — item expressions
+  # ---------------------------------------------------------------------
+
+  # rule(:keyword) — the concern's ordered list. One deviation, forced
+  # by the parg compiler's shadow lint: "any_character" must precede
+  # "any" (longest-first). Semantically identical — keyword is used
+  # only under negative lookahead, where any matching branch suffices.
+  keyword = ("parallel" / "sequence" / "stage" / "compose" / "separate" / "system" / "metadata" / "aliases" / "tests" / "notes" / "description" / "name" / "authority" / "dependency" / "run" / "sub" / "before" / "after" / "not_before" / "not_after" / "any_character" / "any" / "none" / "boundary" / "line_start" / "line_end" / "word_boundary" / "downcase" / "upcase" / "title_case" / "capture" / "maybe" / "some" / "ref")
+
+  # rule(:zero_width_primitive)
+  zw_primitive = (("boundary" / "line_start" / "line_end" / "word_boundary" / "space" / "non_boundary")) as primitive
+
+  # rule(:function_call)
+  fn_lit = (("upcase" / "downcase" / "title_case" / "reverse" / "strip" / "swapcase")) as function
+
+  # rule(:any_character)
+  any_char_lit = ("any_character") as any_char
+
+  # str("none").as(:none)
+  none_lit = ("none") as none
+
+  # rule(:capture_reference) — ref(N), single digit
+  digit = %x30-39
+  capture_reference = (("ref" "(" [whitespace] (digit as digit) [whitespace] ")")) as ref
+
+  # rule(:alias_reference) — identifier with optional .qualified part,
+  # rejected when a keyword or followed by "{".
+  alias_reference = ((!(keyword) identifier [("." (identifier as qualified_name))] !"{")) as alias
+
+  # rule(:range_arg)
+  range_arg = ((quoted_string) as lo) [whitespace] ".." [whitespace] ((quoted_string) as hi)
+
+  # rule(:set_arg) — quoted single, or [ item, item, ... ]
+  list_items = item 0*((comma / whitespace) item)
+  set_arg = ((quoted_string) as single) / ("[" [whitespace] ((list_items) as list) [whitespace] "]")
+
+  # rule(:alias_arg) — bare alias inside any(...)
+  alias_arg = ((!(zw_primitive) !(keyword) identifier)) as alias_ref
+
+  # rule(:any_constructor)
+  any_ctor = "any" "(" [whitespace] ((range_arg / set_arg / alias_arg / (item as any_item)) as any) [whitespace] ")"
+
+  # rule(:capture_constructor) / maybe / some
+  capture_ctor = "capture" "(" [whitespace] ((item) as capture_inner) [whitespace] ")"
+  maybe_ctor = "maybe" "(" [whitespace] ((item) as maybe_inner) [whitespace] ")"
+  some_ctor = "some" "(" [whitespace] ((item) as some_inner) [whitespace] ")"
+
+  # rule(:item_atom) — ordered exactly as the concern
+  item_atom = quoted_string / none_lit / zw_primitive / any_char_lit / any_ctor / capture_ctor / maybe_ctor / some_ctor / fn_lit / capture_reference / alias_reference
+
+  # rule(:item_continuation) — lookahead only: not a block-rule keyword,
+  # not `identifier =` (an alias declaration), and starts like an atom.
+  item_atom_start = %x22 / %x27 / ident_first
+  item_continuation = !("to" / "before" / "after" / "not_before" / "not_after" / "}") (!(identifier [whitespace] "=") item_atom_start)
+
+  # rule(:concat_sep) — "+" with optional ws, or required whitespace
+  concat_sep = ([whitespace] "+" [whitespace]) / whitespace
+
+  # rule(:item) — concatenation, one or more atoms
+  item = ((item_atom 0*((concat_sep &(item_continuation)) item_atom))) as concatenation
+
+  # ---------------------------------------------------------------------
+  # Concerns::Items — constraints
+  # ---------------------------------------------------------------------
+
+  # rule(:constraint) — order verbatim: before | after | not_before | not_after
+  constraint = ("before" whitespace ((item) as before)) / ("after" whitespace ((item) as after)) / ("not_before" whitespace ((item) as not_before)) / ("not_after" whitespace ((item) as not_after))
+
+  # rule(:constraints) — (whitespace >> constraint).repeat
+  constraints = (*(whitespace constraint)) as constraints
+
+  # ---------------------------------------------------------------------
+  # Concerns::Stages — rules, directives, stage bodies
+  # ---------------------------------------------------------------------
+
+  # rule(:compact_rule) — from/to are single atoms
+  compact_rule = "sub" whitespace ((item_atom) as from) whitespace ((item_atom) as to) constraints
+
+  # rule(:block_rule) — from/to are concatenations
+  block_rule = "sub" [whitespace] "{" [whitespace] "from" whitespace ((item) as from) [whitespace] "to" whitespace ((item) as to) constraints [whitespace] "}"
+
+  # rule(:rule) — block | compact, ordered
+  rule = block_rule / compact_rule
+
+  # rule(:comment_item) — strict parse: comments only, no stray
+  # identifiers (WO87/A4 ruling).
+  comment_item = ("#" *(!%x0A chr)) as comment
+
+  # rule(:bare_rule) — legacy .imp compatibility
+  bare_rule = ((rule)) as bare_rule
+
+  # rule(:sequence_block) / rule(:parallel_block)
+  rule_line = [whitespace] (rule / comment_item) [whitespace]
+  rule_items = *(rule_line)
+  sequence_block = "sequence" [whitespace] "{" [whitespace] ((rule_items) as sequence) [whitespace] "}"
+  parallel_block = "parallel" [whitespace] "{" [whitespace] ((rule_items) as parallel) [whitespace] "}"
+
+  # rule(:separate_directive)
+  separate_directive = (("separate")) as separate [whitespace "separator" whitespace ((item_atom) as separator)]
+
+  # rule(:string_case_directive) — title_case takes optional kwargs
+  kwarg = ((identifier) as kwarg_name) [whitespace] ":" [whitespace] ((quoted_string) as kwarg_value)
+  kwarg_list = ((kwarg) as kwarg) 0*(("," [whitespace]) ((kwarg) as kwarg))
+  string_case_directive = (("downcase" / "upcase")) as case / (("title_case") as case [whitespace ((kwarg_list) as case_kwargs)])
+
+  # rule(:compose_directive)
+  compose_directive = (("compose" / "decompose")) as compose
+
+  # rule(:rababa_directive)
+  rababa_directive = (("rababa")) as funcall_name [whitespace ((kwarg_list) as funcall_kwargs)]
+
+  # rule(:run_rule) — map.<dep>.stage.<stage> | stage.<stage>
+  run_rule = "run" whitespace (("map." ((identifier) as dep) ".stage." ((identifier) as stage)) / (("stage." ((identifier) as stage))) as run_stage_only)
+
+  # rule(:stage_item) — order verbatim
+  stage_item = [whitespace] (sequence_block / parallel_block / run_rule / separate_directive / string_case_directive / compose_directive / rababa_directive / bare_rule / comment_item) [whitespace]
+  stage_items = *(stage_item)
+
+  # rule(:stage_block) — stage(name) | stage name
+  stage_block = "stage" (( "(" ((identifier) as stage_name) ")" ) / (whitespace ((identifier) as stage_name))) [whitespace] "{" [whitespace] ((stage_items) as stage) [whitespace] "}"
+
+  # ---------------------------------------------------------------------
+  # Concerns::Tests
+  # ---------------------------------------------------------------------
+
+  # rule(:test_line)
+  test_line = [whitespace] ((quoted_string) as input) arrow ((quoted_string) as expected) [(whitespace "note" whitespace ((quoted_string) as note))] [whitespace]
+  test_items = *(test_line)
+  tests_block = "tests" [whitespace] "{" [whitespace] ((test_items) as tests) [whitespace] "}"
+
+  # ---------------------------------------------------------------------
+  # Concerns::Metadata
+  # ---------------------------------------------------------------------
+
+  # rule(:raw_text)
+  raw_text = *( %x5C "{" / %x5C "}" / (!"}" chr) )
+
+  # rule(:description_field)
+  description_field = "description" [whitespace] "{" [whitespace] ((raw_text) as description) [whitespace] "}"
+
+  # rule(:relations_field) / relation_block / relation_type
+  relation_type = "supersedes" / "superseded_by" / "based_on" / "basis_for" / "alias_of" / "adopted_from" / "related_to"
+  relation_block = [whitespace] ((relation_type)) as type whitespace ((quoted_string)) as system [(whitespace "note" whitespace ((quoted_string) as note))] [whitespace]
+  relations_block = "relations" [whitespace] "{" [whitespace] ((*(relation_block)) as relations) [whitespace] "}"
+
+  # rule(:notes_field) / note_line
+  note_line = [whitespace] "note" [whitespace] ((quoted_string) as note) [whitespace]
+  notes_field = "notes" [whitespace] "{" [whitespace] ((*(note_line)) as notes) [whitespace] "}"
+
+  # rule(:system_status_field) / code_status_field
+  system_status_field = "system_status" whitespace (("current" / "former" / "inactive")) as system_status
+  code_status_field = "code_status" whitespace (("preferred" / "proposed" / "deprecated")) as code_status
+
+  # rule(:specification_field)
+  spec_value = (quoted_string) as specification
+  specification_field = "specification" whitespace ((spec_value 0*((comma) (spec_value))) as specification)
+
+  # rule(:provenance_field)
+  provenance_value = (quoted_string) as provenance
+  provenance_field = "provenance" [whitespace] ((provenance_value 0*((comma) (provenance_value))) as provenance)
+
+  # rule(:generic_field) / empty_field / field_value
+  empty_field = (&newline / &"}")
+  field_raw = 1*(!newline !"}" !"{" chr)
+  field_value = ((quoted_string / field_raw)) as field_value
+  field_block = "{" [whitespace] ((raw_text) as field_block) [whitespace] "}"
+  generic_field = ((identifier) as field_name) iwsq (empty_field / field_value / field_block)
+
+  # rule(:metadata_field) — order verbatim. The concern's dead rules
+  # (authority_field, source/target_spelling_field, identifying_field,
+  # name_field) are unreachable from metadata_field and are subsumed by
+  # generic_field here; see grammar/ISC-PARG-GAPS.md.
+  metadata_field = [whitespace] (description_field / relations_block / system_status_field / code_status_field / specification_field / notes_field / provenance_field / generic_field) [whitespace]
+  metadata_items = *(metadata_field)
+  metadata_block = "metadata" [whitespace] "{" [whitespace] ((metadata_items) as metadata) [whitespace] "}"
+
+  # ---------------------------------------------------------------------
+  # Concerns::Aliases
+  # ---------------------------------------------------------------------
+
+  # rule(:alias_decl)
+  alias_decl = [whitespace] ((identifier) as name) [whitespace] "=" [whitespace] ((item) as value) [whitespace]
+  alias_items = *(alias_decl)
+  aliases_block = "aliases" [whitespace] "{" [whitespace] ((alias_items) as aliases) [whitespace] "}"
+
+  # ---------------------------------------------------------------------
+  # Concerns::Dependencies
+  # ---------------------------------------------------------------------
+
+  # rule(:dependency_decl)
+  dependency_decl = "dependency" whitespace ((quoted_string) as target) [(whitespace "as" whitespace ((identifier) as alias))]
+
+  # ---------------------------------------------------------------------
+  # Concerns::System
+  # ---------------------------------------------------------------------
+
+  # rule(:block_item) — order verbatim
+  block_item = [whitespace] (metadata_block / aliases_block / tests_block / stage_block / dependency_decl) [whitespace]
+
+  # rule(:system_block)
+  system_block = "system" whitespace ((quoted_string) as system_code) [whitespace] "{" [whitespace] ((*(block_item)) as body) [whitespace] "}" [whitespace]
+
+  # rule(:isc_source) — root; !utf pins full-input consumption
+  isc_source = [whitespace] ((system_block)) as system [whitespace] !utf
+
+  entry isc: isc_source
+
+  test isc {
+    accept "system \"T:a-b:c-d:1\" { stage main { parallel { sub \"a\" \"b\" } } }"
+    accept "system \"T:a-b:c-d:1\" { metadata { } tests { } }"
+    accept "system \"T:a-b:c-d:1\" { stage main { sub { from \"x\" to \"y\" before boundary } } }"
+    accept "system \"T:a-b:c-d:1\" { stage main { sub { from \"e\" to \"f\" after any(\"aeiou\") } } }"
+    reject "system \"T:a-b:c-d:1\" {"
+    reject "system \"T:a-b:c-d:1\" { stage main { sub \"a\" } }"
+    reject "system \"T:a-b:c-d:1\" { stage main { oops } }"
+    reject "system \"T:a-b:c-d:1\" }"
+  }
+}
