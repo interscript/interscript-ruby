@@ -1,0 +1,6 @@
+system "T:a-b:c-d:1" {
+stage main {
+parallel {
+sub "a" "b"
+}
+}

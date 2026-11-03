@@ -1,0 +1,11 @@
+[package]
+name = "isc-parg-check"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+# WO13 validation harness: parse .isc corpus files with grammar/isc.parg
+# through parsanol-rs. Local development tool — the parsanol path is a
+# local checkout, not a crates.io release pin.
+[dependencies]
+parsanol = { path = "/Users/mulgogi/src/parsanol/parsanol-rs/parsanol" }
