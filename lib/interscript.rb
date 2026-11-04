@@ -91,7 +91,7 @@ module Interscript
     def locate_map_gems_yaml
       found = begin
         Gem.find_latest_files("interscript-maps.yaml")
-      rescue StandardError
+      rescue
         nil
       end
       return found if found.is_a?(Array) && found.any?
