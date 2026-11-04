@@ -82,8 +82,28 @@ module Interscript
       detector.call(source, destination)
     end
 
+    # Locate the interscript-maps registry yaml(s) across installed gems.
+    #
+    # rubygems 4 removed StubSpecification#files, which
+    # Gem.find_latest_files relies on, so the fast path can raise there;
+    # the fallback globs the interscript-maps gems directly (there are
+    # only ever one or two of them, so this stays cheap).
+    def locate_map_gems_yaml
+      found = begin
+        Gem.find_latest_files("interscript-maps.yaml")
+      rescue StandardError, NameError
+        nil
+      end
+      return found if found.is_a?(Array) && found.any?
+
+      Gem::Specification.latest_specs
+        .select { |spec| spec.name == "interscript-maps" }
+        .flat_map { |spec| Dir.glob(File.join(spec.full_gem_path, "**", "interscript-maps.yaml")) }
+        .uniq
+    end
+
     def map_gems
-      @map_gems ||= Gem.find_latest_files("interscript-maps.yaml").map do |i|
+      @map_gems ||= locate_map_gems_yaml.map do |i|
         [i, YAML.load_file(i)]
       end.to_h
     end
