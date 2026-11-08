@@ -217,7 +217,7 @@ module Interscript
       # Same-map rulesets build here; dependency rulesets arrive already
       # built through the recursive adapter of the dependency document.
       def resolve_ruleset(dep_alias, name, doc_name: nil)
-        key = [dep_alias && dep_alias.to_sym, name.to_sym]
+        key = [dep_alias&.to_sym, name.to_sym]
         return @ruleset_memo[key] if @ruleset_memo&.key?(key)
         raise cycle_error(name) if @resolving_rulesets.include?(key)
 
