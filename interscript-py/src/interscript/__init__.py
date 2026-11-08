@@ -26,10 +26,12 @@ from typing import TypeVar
 from .errors import (
     ArtifactIntegrityError,
     AsyncFunctionError,
+    IscParseError,
     MapFormatError,
     MapLogicError,
     MapNotFoundError,
 )
+from .isc import IscDocument, isc_to_compiled_map, parse_isc
 from .loader import (
     MapLoader,
     default_load_paths,
@@ -72,11 +74,26 @@ class Runtime:
     def load_map(self, system_code: str):
         return self.loader.load(system_code)
 
-    def transliterate(self, system_code: str, text: str, stage: str | None = None) -> str:
+    def transliterate(
+        self,
+        system_code: str,
+        text: str,
+        stage: str | None = None,
+        language: str | None = None,
+    ) -> str:
+        """Apply a transliteration system to `text` (default stage: "main").
+
+        `language` is the ISC-WF-1 W3 caller selection: when it names one
+        of the map's declared `languages`, `when`-guarded rules for it
+        apply (and beat unguarded same-from rules); any other value makes
+        every guard inert (§5.1).
+        """
         from .executor import execute_stage
 
         map_ = self.loader.load(system_code)
-        return execute_stage(map_, stage or self.default_stage, text, self.loader)
+        return execute_stage(
+            map_, stage or self.default_stage, text, self.loader, language
+        )
 
 
 def _default_runtime() -> Runtime:
@@ -109,15 +126,26 @@ def load_map(system_code: str):
     return _default_runtime().load_map(system_code)
 
 
-def transliterate(system_code: str, text: str, stage: str | None = None) -> str:
-    """Apply a transliteration system to `text` (default stage: "main")."""
-    return _default_runtime().transliterate(system_code, text, stage)
+def transliterate(
+    system_code: str,
+    text: str,
+    stage: str | None = None,
+    language: str | None = None,
+) -> str:
+    """Apply a transliteration system to `text` (default stage: "main").
+
+    `language` selects one of the map's declared languages (ISC-WF-1 W3,
+    `--language kur` in the CLI contract); guards are inert otherwise.
+    """
+    return _default_runtime().transliterate(system_code, text, stage, language)
 
 
 __all__ = [
     "DEFAULT_STAGE",
     "ArtifactIntegrityError",
     "AsyncFunctionError",
+    "IscDocument",
+    "IscParseError",
     "MapFormatError",
     "MapLoader",
     "MapLogicError",
@@ -126,10 +154,12 @@ __all__ = [
     "add_load_path",
     "default_load_paths",
     "extract_release_tarball",
+    "isc_to_compiled_map",
     "load_manifest",
     "load_map",
     "map_exist",
     "map_list",
+    "parse_isc",
     "transliterate",
     "verify_artifact",
 ]

@@ -18,6 +18,21 @@ class MapFormatError(ValueError):
     """A compiled JSON-IR map file is not a valid `interscript.maps.ir.v1` document."""
 
 
+class IscParseError(MapFormatError):
+    """An .isc source could not be parsed (bad token, unclosed block,
+    malformed rule, `use` cycle...).
+
+    Carries the byte `position` plus 1-based `line`/`col` of the failure,
+    mirroring the TypeScript `IscParseError`.
+    """
+
+    def __init__(self, message: str, position: int, line: int, col: int) -> None:
+        self.position = position
+        self.line = line
+        self.col = col
+        super().__init__(f"ISC parse error at line {line}:{col}: {message}")
+
+
 class ArtifactIntegrityError(ValueError):
     """The compiled artifact failed its SHA256SUMS verification."""
 

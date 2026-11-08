@@ -28,9 +28,13 @@ License: BSD-3-Clause.
 ```
 
 This package **executes the compiled JSON-IR maps** — the same artifact
-the TypeScript runtime consumes. It does NOT parse `.isc` sources; the
-compiler is the maps repo's CI (single source of truth, shared by every
-runtime, which is what makes cross-runtime byte-identity checkable).
+the TypeScript runtime consumes, which is what makes cross-runtime
+byte-identity checkable. It also ships `interscript.isc`, a
+recursive-descent parser for the `.isc` DSL (a port of the TypeScript
+`src/isc/parser.ts`) that implements the ISC-WF-1 workflow extension:
+named `ruleset`s and `use`/`override` expand at parse time, while
+`languages`/`when` guards flow into the IR and resolve at run time
+(`transliterate(map, text, language="kur")`).
 
 ### Map execution (now)
 
@@ -149,6 +153,8 @@ make lint        # ruff if available
 src/interscript/
   __init__.py        public API: add_load_path, map_list, transliterate, Runtime
   _ir_types.py       typed mirror of the JSON-IR wire format (strict decode)
+  isc.py             .isc DSL parser (port of ts src/isc/parser.ts) + WF-1
+                     parse-time ruleset/use/override expansion + IR lowering
   loader.py          artifact dirs, SHA256SUMS verify, tarball extraction
   context.py         execution context: alias + dependency resolution
   items.py           Item -> regex/literal compilation (port of compile-item.ts)
