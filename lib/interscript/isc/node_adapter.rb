@@ -26,10 +26,16 @@ module Interscript
         @local_raw = Array(isc_doc[:aliases]).to_h { |a| [a[:name].to_sym, a[:value]] }
         @charset_cache = {}
         @resolving = []
+        # ISC-WF-1 W1: memoized fully-expanded rulesets, keyed
+        # [dependency alias or nil, ruleset name]; @resolving_rulesets
+        # guards `use` cycles (a load error, spec §6.4).
+        @ruleset_memo = {}
+        @resolving_rulesets = []
       end
 
       def build
         Interscript::Node::Document.new.tap do |doc|
+          @doc = doc
           doc.metadata = build_metadata
           doc.tests = build_tests
           # Maps are addressed by their file-derived name (locate() and
@@ -55,6 +61,10 @@ module Interscript
           # (grek_latn_any = any([grek_any, …])) resolve too.
           @imported = doc.imported_aliases
           doc.aliases = build_aliases(doc.name)
+          # ISC-WF-1: declarations before stage building — `use` expansion
+          # resolves against the document's rulesets and its dependencies'.
+          doc.languages = build_languages
+          doc.rulesets = build_rulesets(doc.name)
           build_stages(doc.name).each { |name, stage| doc.stages[name] = stage }
         end
       end
@@ -126,39 +136,189 @@ module Interscript
         end
       end
 
+      # ISC-WF-1 W1: build + memoize every declared ruleset, fully
+      # expanded (nested `use` resolved, cycles rejected).
+      def build_rulesets(doc_name)
+        Array(@isc_doc[:rulesets]).each_with_object({}) do |rs, h|
+          h[rs[:name].to_sym] = resolve_ruleset(nil, rs[:name], doc_name: doc_name)
+        end
+      end
+
+      def build_languages
+        return nil unless @isc_doc[:languages]&.any?
+
+        Interscript::Node::LanguagesDecl.new(@isc_doc[:languages].map(&:to_sym))
+      end
+
       def build_stage(stage_def)
         stage = Interscript::Node::Stage.new(stage_def[:name].to_sym)
-        stage_def[:body].each do |item|
-          case item[:kind]
-          when :parallel
-            group = Interscript::Node::Group::Parallel.new
-            item[:rules].each { |r| group.children << build_rule(r) }
-            stage.children << group
-          when :sequence
-            item[:rules].each { |r| stage.children << build_rule(r) }
-          when :bare_rule
-            stage.children << build_rule(item[:rule])
-          when :run
-            stage.children << build_run_rule(item)
-          when :separate
-            kwargs = {}
-            kwargs[:separator] = item[:separator].value if item[:separator]
-            stage.children << Interscript::Node::Rule::Funcall.new(:separate, **kwargs)
-          when :string_case
-            stage.children << Interscript::Node::Rule::Funcall.new(item[:op].to_sym,
-              **(item[:kwargs] || {}).transform_keys(&:to_sym))
-          when :compose
-            stage.children << Interscript::Node::Rule::Funcall.new(:compose)
-          when :decompose
-            stage.children << Interscript::Node::Rule::Funcall.new(:decompose)
-          when :funcall
-            stage.children << Interscript::Node::Rule::Funcall.new(
-              item[:name].to_sym,
-              **item[:kwargs].transform_keys(&:to_sym)
-            )
+        expand_items(stage_def[:body]).each { |node| stage.children << node }
+        stage
+      end
+
+      # Build the Nodes for one ISC stage-item def (no `use` — that goes
+      # through expand_use). Returns a list; sequence blocks contribute
+      # their rules individually, parallel blocks one group.
+      def build_stage_item_nodes(item)
+        case item[:kind]
+        when :parallel
+          group = Interscript::Node::Group::Parallel.new
+          item[:rules].each { |r| group.children << build_rule(r) }
+          [group]
+        when :sequence
+          item[:rules].map { |r| build_rule(r) }
+        when :bare_rule
+          [build_rule(item[:rule])]
+        when :run
+          [build_run_rule(item)]
+        when :separate
+          kwargs = {}
+          kwargs[:separator] = item[:separator].value if item[:separator]
+          [Interscript::Node::Rule::Funcall.new(:separate, **kwargs)]
+        when :string_case
+          [Interscript::Node::Rule::Funcall.new(item[:op].to_sym,
+            **(item[:kwargs] || {}).transform_keys(&:to_sym))]
+        when :compose
+          [Interscript::Node::Rule::Funcall.new(:compose)]
+        when :decompose
+          [Interscript::Node::Rule::Funcall.new(:decompose)]
+        when :funcall
+          [Interscript::Node::Rule::Funcall.new(
+            item[:name].to_sym,
+            **item[:kwargs].transform_keys(&:to_sym)
+          )]
+        else
+          []
+        end
+      end
+
+      # -- ISC-WF-1 W1/W2: ruleset expansion --------------------------------
+
+      # Expand a list of ISC stage-item defs into Node children, resolving
+      # `use` directives recursively. Used for both stage bodies and
+      # ruleset bodies (a ruleset body is a stage body, spec §3.1).
+      def expand_items(items)
+        Array(items).flat_map do |item|
+          if item.is_a?(Hash) && item[:kind] == :use
+            expand_use(item)
+          else
+            build_stage_item_nodes(item)
           end
         end
-        stage
+      end
+
+      # Resolve + deep-copy + merge-override one `use` site (spec §3.2, §4).
+      def expand_use(item)
+        rs = resolve_ruleset(item[:dependency], item[:ruleset])
+        apply_overrides(deep_copy_children(rs.children), item[:overrides])
+      end
+
+      # The fully-expanded Node::Ruleset for a reference, memoized.
+      # Same-map rulesets build here; dependency rulesets arrive already
+      # built through the recursive adapter of the dependency document.
+      def resolve_ruleset(dep_alias, name, doc_name: nil)
+        key = [dep_alias && dep_alias.to_sym, name.to_sym]
+        return @ruleset_memo[key] if @ruleset_memo&.key?(key)
+        raise cycle_error(name) if @resolving_rulesets.include?(key)
+
+        @resolving_rulesets << key
+        node =
+          if dep_alias
+            dep = @doc.dep_aliases[dep_alias.to_sym] ||
+              raise(Interscript::MapLogicError,
+                "use #{dep_alias}.#{name}: no declared dependency aliased #{dep_alias}")
+            dep.document&.rulesets&.[](name.to_sym) ||
+              raise(Interscript::MapLogicError,
+                "use #{dep_alias}.#{name}: ruleset not found in dependency #{dep.full_name}")
+          else
+            rs_def = Array(@isc_doc[:rulesets]).find { |r| r[:name] == name } ||
+              raise(Interscript::MapLogicError, "use #{name}: ruleset not found")
+            Interscript::Node::Ruleset.new(rs_def[:name].to_sym).tap do |rs|
+              rs.doc_name = doc_name
+              expand_items(rs_def[:body]).each { |child| rs.children << child }
+            end
+          end
+        @ruleset_memo[key] = node
+        node
+      ensure
+        @resolving_rulesets.delete(key)
+      end
+
+      def cycle_error(name)
+        Interscript::MapLogicError.new(
+          "use cycle: ruleset #{name} revisited through #{@resolving_rulesets.map { |_, n| n }.join(" -> ")}"
+        )
+      end
+
+      # Per-site deep copy: expansions must not share Group nodes (the
+      # Interpreter caches compiled pass trees on them) nor be mutated by
+      # another site's override merge. Rule/Item leaves are read-only at
+      # execution time and may be shared.
+      def deep_copy_children(children)
+        children.map { |node| deep_copy_node(node) }
+      end
+
+      def deep_copy_node(node)
+        case node
+        when Interscript::Node::Group
+          copy = node.class.new(reverse_run: node.reverse_run)
+          if node.is_a?(Interscript::Node::Stage)
+            copy.name = node.name
+            copy.doc_name = node.doc_name
+            copy.dont_reverse = node.dont_reverse
+          end
+          copy.children = node.children.map { |c| deep_copy_node(c) }
+          copy
+        else
+          node.dup
+        end
+      end
+
+      # ISC-WF-1 W2 merge (spec §4.2). R = the fully expanded ruleset rows
+      # (document order), O = the override rows.
+      #   1. A row whose from is byte-exact equal to an override from is
+      #      REPLACED — removed from wherever it sits; all same-from
+      #      duplicates go (the ruleset's internal last-wins winner is
+      #      superseded too). From-equality is computed on the node's
+      #      structural inspect — for plain strings this is exactly the
+      #      byte-exact string of the corpus convention.
+      #   2. Kept rows keep their order and block structure (§4.2.2 with
+      #      the §3.2 pass-structure inheritance).
+      #   3. The override rows land at the expansion tail: appended INTO
+      #      the final parallel block when the expansion ends with one, so
+      #      the child rows join that block's single longest-match pass
+      #      (§4.2.5, §4.3 — replacement on the source-script pass, not
+      #      post-pass re-substitution); otherwise appended as trailing
+      #      rows. Unmatched overrides are simply added (§4.2.4).
+      def apply_overrides(children, overrides)
+        return children if overrides.nil? || overrides.empty?
+
+        o_rules = overrides.map { |r| build_rule(r) }
+        o_keys = o_rules.map { |r| from_key(r) }
+
+        kept = children.filter_map do |node|
+          case node
+          when Interscript::Node::Group::Parallel
+            node.children.reject! { |c| c.is_a?(Interscript::Node::Rule::Sub) && o_keys.include?(from_key(c)) }
+            node
+          when Interscript::Node::Rule::Sub
+            o_keys.include?(from_key(node)) ? nil : node
+          else
+            node
+          end
+        end
+
+        tail = kept.last
+        if tail.is_a?(Interscript::Node::Group::Parallel)
+          tail.children.push(*o_rules)
+        else
+          kept.push(*o_rules)
+        end
+        kept
+      end
+
+      def from_key(rule)
+        rule.from.inspect
       end
 
       def build_rule(rule_def)
@@ -170,6 +330,9 @@ module Interscript
           constraint = rule_def[:constraints].find { |c| c[:kind] == k }
           opts[k] = convert_item(constraint[:item], :class)
         end
+        # ISC-WF-1 W3: the language guard rides on the rule; inert unless
+        # the interpreter selects a declared language.
+        opts[:when_languages] = rule_def[:when_languages] if rule_def[:when_languages]&.any?
         Interscript::Node::Rule::Sub.new(from, to, **opts)
       end
 

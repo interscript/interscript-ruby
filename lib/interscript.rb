@@ -50,9 +50,22 @@ module Interscript
     end
 
     # Transliterates the string.
-    def transliterate(system_code, string, maps = {}, compiler: Interscript::Interpreter)
+    #
+    # ISC-WF-1 W3: `language:` selects one of the map's declared
+    # `languages`, activating the matching `when`-guarded rules. A
+    # selection outside the declaration (or no selection) leaves every
+    # guard inert (spec §5.1).
+    def transliterate(system_code, string, maps = {}, compiler: Interscript::Interpreter, language: nil)
       # The current best implementation is Interpreter
-      load(system_code, maps, compiler: compiler).call(string)
+      compiled = load(system_code, maps, compiler: compiler)
+      if language.nil?
+        compiled.call(string)
+      elsif compiler.equal?(Interscript::Interpreter)
+        compiled.call(string, language: language)
+      else
+        raise ArgumentError,
+          "language selection is only supported by Interscript::Interpreter, not #{compiler}"
+      end
     end
 
     # Gives each possible value of the transliteration.

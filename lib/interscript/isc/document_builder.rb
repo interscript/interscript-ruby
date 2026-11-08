@@ -37,6 +37,8 @@ module Interscript
         tests_arr = []
         stages_arr = []
         dependencies_arr = []
+        rulesets_arr = []
+        languages_arr = []
 
         body.each do |item|
           if item[:metadata]
@@ -45,6 +47,12 @@ module Interscript
             aliases_arr.concat(extract_aliases(item[:aliases]))
           elsif item[:tests]
             tests_arr.concat(extract_tests(item[:tests]))
+          elsif item[:languages]
+            # ISC-WF-1 W3: map-declared languages.
+            languages_arr.concat(Array(item[:languages]).map { |l| ident(l) })
+          elsif item[:ruleset]
+            # ISC-WF-1 W1: named ruleset declaration.
+            rulesets_arr << extract_ruleset(item)
           elsif item[:stage]
             stages_arr << extract_stage(item)
           elsif item[:target]
@@ -52,7 +60,7 @@ module Interscript
           end
         end
 
-        {
+        doc = {
           schemaVersion: SCHEMA_VERSION,
           filename: @filename,
           systemCode: code,
@@ -63,6 +71,11 @@ module Interscript
           stages: stages_arr,
           dependencies: dependencies_arr
         }
+        # ISC-WF-1 keys are present only when the map uses the constructs —
+        # documents of maps that don't keep their exact pre-WF1 shape.
+        doc[:languages] = languages_arr if languages_arr.any?
+        doc[:rulesets] = rulesets_arr if rulesets_arr.any?
+        doc
       end
 
       private
@@ -254,6 +267,15 @@ module Interscript
         {name: name, body: body}
       end
 
+      # ISC-WF-1 W1: a named ruleset declaration — same body shape as a
+      # stage, addressed by name through `use` expansion.
+      def extract_ruleset(item)
+        node = item[:ruleset]
+        name = ident(item[:ruleset_name])
+        body = Array(node).flat_map { |n| extract_stage_items(n) }
+        {name: name, body: body}
+      end
+
       def extract_stage_items(n)
         return [] unless n.is_a?(Hash)
         if n[:sequence]
@@ -279,6 +301,10 @@ module Interscript
           [{kind: :run, dependency: nil, stage: ident(n[:run_stage_only][:stage])}]
         elsif n[:bare_rule]
           [{kind: :bare_rule, rule: extract_rule(n[:bare_rule])}]
+        elsif n[:use]
+          # ISC-WF-1 W1/W2: `use <ident>` or `use <alias>.<ident>` with an
+          # optional override block.
+          [extract_use(n[:use])]
         elsif n[:comment]
           []
         elsif n[:noop]
@@ -286,6 +312,19 @@ module Interscript
         else
           []
         end
+      end
+
+      # `use <name>` (same-map ruleset) or `use <dep>.<name>` (dependency-
+      # declared ruleset), plus the optional override rows (W2).
+      def extract_use(u)
+        dep = u[:qualified_name] ? ident(u[:use_alias]) : nil
+        name = ident(u[:qualified_name] || u[:use_alias])
+        item = {kind: :use, ruleset: name, dependency: dep}
+        overrides = Array(u[:use_overrides])
+          .select { |r| r.is_a?(Hash) && r.key?(:from) }
+          .map { |r| extract_rule(r) }
+        item[:overrides] = overrides if overrides.any?
+        item
       end
 
       # Filter out noop rules (from: None, to: None) created by empty
@@ -302,11 +341,17 @@ module Interscript
         from_val = r.is_a?(Hash) ? r[:from] : nil
         to_val = r.is_a?(Hash) ? r[:to] : nil
         constraints_val = r.is_a?(Hash) ? r[:constraints] : nil
-        {
+        rule = {
           from: from_val ? materialize(from_val) : Items::None.new,
           to: to_val ? materialize(to_val) : Items::None.new,
           constraints: extract_constraints(constraints_val)
         }
+        # ISC-WF-1 W3: a `when` guard folds to the list of language names.
+        # The rule hash never goes through Transform as a whole (from/to/
+        # constraints are materialized individually), so the guard fragment
+        # gets its own apply.
+        rule[:when_languages] = @transform.apply(when: r[:when]) if r.is_a?(Hash) && r[:when]
+        rule
       end
 
       def extract_constraints(arr)

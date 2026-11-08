@@ -28,7 +28,7 @@ grammar InterscriptIsc version "0.1.0" {
   ident_rest = %x41-5A / %x61-7A / %x30-39 / %x5F
   identifier = (ident_first 0*ident_rest) as identifier
 
-  keyword = "parallel" / "sequence" / "stage" / "compose" / "separate" / "system" / "metadata" / "aliases" / "tests" / "notes" / "description" / "any_character" / "authority" / "dependency" / "run" / "sub" / "before" / "after" / "not_before" / "not_after" / "any" / "none" / "boundary" / "line_start" / "line_end" / "word_boundary" / "downcase" / "upcase" / "title_case" / "capture" / "maybe" / "some" / "ref" / "name"
+  keyword = "parallel" / "sequence" / "stage" / "compose" / "separate" / "system" / "metadata" / "aliases" / "tests" / "notes" / "description" / "any_character" / "authority" / "dependency" / "run" / "sub" / "before" / "after" / "not_before" / "not_after" / "any" / "none" / "boundary" / "line_start" / "line_end" / "word_boundary" / "downcase" / "upcase" / "title_case" / "capture" / "maybe" / "some" / "ref" / "name" / "ruleset" / "use" / "override" / "languages" / "when"
 
   # -- string literals ----------------------------------------------------
 
@@ -143,9 +143,12 @@ grammar InterscriptIsc version "0.1.0" {
   constraint = constraint_after / constraint_before / constraint_not_before / constraint_not_after
   constraints = *(whitespace constraint)
 
-  compact_rule = "sub" whitespace (item_atom as from) whitespace (item_atom as to) ((*(whitespace constraint)) as constraints)
+  compact_rule = "sub" whitespace (item_atom as from) whitespace (item_atom as to) ((*(whitespace constraint)) as constraints) [(when_guard)]
 
-  block_rule = "sub" [ws] "{" [ws] "from" whitespace (item as from) [ws] "to" whitespace (item as to) ((*(whitespace constraint)) as constraints) [ws] "}"
+  block_rule = "sub" [ws] "{" [ws] "from" whitespace (item as from) [ws] "to" whitespace (item as to) ((*(whitespace constraint)) as constraints) [(when_guard)] [ws] "}"
+
+  when_lang = (!(keyword) identifier) as when_lang
+  when_guard = (whitespace "when" whitespace (when_lang) *(((comma_ws / whitespace) (when_lang)))) as when
 
   rule = block_rule / compact_rule
 
@@ -172,11 +175,20 @@ grammar InterscriptIsc version "0.1.0" {
   run_rule = "run" whitespace ((run_dep) / run_stage_only)
 
   bare_rule = (rule) as bare_rule
-  stage_item = [ws] (sequence_block / parallel_block / run_rule / separate_directive / string_case_directive / compose_directive / rababa_directive / bare_rule / comment_item) [ws]
+
+  use_alias = (identifier) as use_alias
+  use_qualified = "." (identifier as qualified_name)
+  use_overrides_part = whitespace "override" [ws] "{" [ws] ((*(rule_line)) as use_overrides) [ws] "}"
+  use_directive = (("use" whitespace (use_alias) [(use_qualified)] [(use_overrides_part)]) as use)
+
+  stage_item = [ws] (sequence_block / parallel_block / run_rule / separate_directive / string_case_directive / compose_directive / rababa_directive / use_directive / bare_rule / comment_item) [ws]
   stage_items = *(stage_item)
   stage_name_paren = "(" (identifier as stage_name) ")"
   stage_name_ws = whitespace (identifier as stage_name)
   stage_block = "stage" (stage_name_paren / stage_name_ws) [ws] "{" [ws] (stage_items as stage) [ws] "}"
+
+  ruleset_name_ws = whitespace (identifier as ruleset_name)
+  ruleset_block = "ruleset" (ruleset_name_ws) [ws] "{" [ws] (stage_items as ruleset) [ws] "}"
 
   # -- tests ---------------------------------------------------------------
 
@@ -187,7 +199,10 @@ grammar InterscriptIsc version "0.1.0" {
 
   # -- system --------------------------------------------------------------
 
-  block_item = [whitespace] (metadata_block / aliases_block / tests_block / stage_block / dependency_decl) [whitespace]
+  language_ident = (!(keyword) identifier) as language
+  languages_decl = ("languages" whitespace ((language_ident *(((comma_ws / whitespace) (language_ident))))) as languages)
+
+  block_item = [whitespace] (metadata_block / aliases_block / tests_block / languages_decl / ruleset_block / stage_block / dependency_decl) [whitespace]
   body_items = *(block_item)
   system_block = "system" whitespace ((quoted_string) as system_code) [whitespace] "{" [ws] ((*(block_item)) as body) [ws] "}" [whitespace]
   isc_source = [whitespace] ((system_block) as system) [whitespace]

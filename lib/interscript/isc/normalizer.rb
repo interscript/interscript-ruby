@@ -69,6 +69,16 @@ module Interscript
           {tests: merge_tests(items)}
         elsif block.key?(:stage)
           {stage_name: scalar(block[:stage_name]), stage: normalize_stage_items(block[:stage])}
+        elsif block.key?(:ruleset)
+          # ISC-WF-1 W1: same shape as a stage, under the ruleset key.
+          {ruleset_name: scalar(block[:ruleset_name]), ruleset: normalize_stage_items(block[:ruleset])}
+        elsif block.key?(:languages)
+          # ISC-WF-1 W3: `languages a, b` folds to a plain list of names.
+          # One language captures as a single {language:} hash, several as
+          # a list.
+          langs = block[:languages]
+          list = langs.is_a?(Hash) ? [langs] : Array(langs)
+          {languages: list.map { |l| l.is_a?(Hash) ? scalar(l[:language]) : scalar(l) }}
         elsif block.key?(:target)
           {target: scalar(block[:target]), alias: scalar(block[:alias])}.compact
         else
@@ -84,6 +94,17 @@ module Interscript
           if item.is_a?(Hash)
             %i[parallel sequence].each do |k|
               item = {k => []} if item.key?(k) && !item[k].is_a?(Array)
+            end
+            # ISC-WF-1 W1/W2: `use` items get their reference identifiers
+            # folded to strings; the override rules keep their parslet
+            # shape (DocumentBuilder materializes them through Transform).
+            if item.key?(:use) && item[:use].is_a?(Hash)
+              use = item[:use]
+              item = {use: {
+                use_alias: use[:use_alias] && scalar(use[:use_alias]),
+                qualified_name: use[:qualified_name] && scalar(use[:qualified_name]),
+                use_overrides: use[:use_overrides]
+              }.compact}
             end
           end
           item

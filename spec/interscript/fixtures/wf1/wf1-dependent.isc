@@ -1,0 +1,27 @@
+system "WF1:dep-thai-Thai:Latn:2026" {
+  metadata {
+    authority_id wf1-test
+    id 2026
+    name "WF1 dependent map"
+  }
+
+  dependency "wf1-base" as base
+
+  # W3: the languages this map serves.
+  languages tha
+
+  tests {
+    "กะาิ" -> "gaāyy"
+  }
+
+  stage main {
+    # W1/W2: dependency-declared ruleset, per-site override with a
+    # language guard (the guard applies to that row alone, spec §4.2.3).
+    use base.leading_vowels override {
+      sub "ิ" "yy" when tha
+    }
+    parallel {
+      sub "ก" "g"
+    }
+  }
+}

@@ -2,6 +2,9 @@ class Interscript::Node::Document
   attr_accessor :metadata, :tests, :name
   attr_accessor :dependencies, :aliases, :stages, :dep_aliases
   attr_accessor :reversed_from
+  # ISC-WF-1: map-declared languages (LanguagesDecl or nil) and the named
+  # rulesets available to `use` expansion (name => Node::Ruleset).
+  attr_accessor :languages, :rulesets
 
   def initialize
     puts "Interscript::Node::Document.new " if $DEBUG
@@ -11,6 +14,8 @@ class Interscript::Node::Document
     @dep_aliases = {}
     @aliases = {}
     @stages = {}
+    @languages = nil
+    @rulesets = {}
   end
 
   def imported_aliases
@@ -69,11 +74,18 @@ class Interscript::Node::Document
   end
 
   def to_hash
-    {class: self.class.to_s, metadata: @metadata&.to_hash,
-     tests: @tests&.to_hash,
-     dependencies: @dependencies.map { |x| x.to_hash },
-     dep_aliases: @dep_aliases.transform_values(&:to_hash),
-     aliases: @aliases.transform_values(&:to_hash),
-     stages: @stages.transform_values(&:to_hash)}
+    hash = {
+      class: self.class.to_s, metadata: @metadata&.to_hash,
+      tests: @tests&.to_hash,
+      dependencies: @dependencies.map { |x| x.to_hash },
+      dep_aliases: @dep_aliases.transform_values(&:to_hash),
+      aliases: @aliases.transform_values(&:to_hash),
+      stages: @stages.transform_values(&:to_hash)
+    }
+    # ISC-WF-1 keys appear only on maps that use the constructs — the IR
+    # of every pre-WF1 map stays byte-identical.
+    hash[:languages] = @languages.to_hash if @languages
+    hash[:rulesets] = @rulesets.transform_values(&:to_hash) if @rulesets&.any?
+    hash
   end
 end

@@ -1,0 +1,27 @@
+system "WF1:base-thai-Thai:Latn:2026" {
+  metadata {
+    authority_id wf1-test
+    id 2026
+    name "WF1 base shared machinery"
+  }
+
+  # W1: the shared block the dependent map imports with an override.
+  ruleset leading_vowels {
+    parallel {
+      sub "ะ" "a"
+      sub "า" "ā"
+      sub "ิ" "i"
+    }
+  }
+
+  tests {
+    "กะาิ" -> "kaāi"
+  }
+
+  stage main {
+    use leading_vowels
+    parallel {
+      sub "ก" "k"
+    }
+  }
+}

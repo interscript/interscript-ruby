@@ -21,10 +21,12 @@ module Interscript
 
       def serialize
         emit_system_open
+        emit_languages if @doc[:languages]&.any?
         emit_metadata if @doc[:metadata]&.any?
         emit_tests if @doc[:tests]&.any?
         emit_aliases if @doc[:aliases]&.any?
         emit_dependencies if @doc[:dependencies]&.any?
+        emit_rulesets
         emit_stages
         emit_system_close
         @out
@@ -38,6 +40,21 @@ module Interscript
 
       def emit_system_close
         @out << "}\n"
+      end
+
+      # ISC-WF-1 W3: the map's declared languages.
+      def emit_languages
+        @out << "\nlanguages #{@doc[:languages].join(" ")}\n"
+      end
+
+      # ISC-WF-1 W1: named rulesets, emitted ahead of the stages that
+      # reference them.
+      def emit_rulesets
+        @doc[:rulesets]&.each do |rs|
+          @out << "\nruleset #{rs[:name]} {\n"
+          rs[:body].each { |item| emit_stage_item(item) }
+          @out << "}\n"
+        end
       end
 
       def emit_blank
@@ -157,6 +174,19 @@ module Interscript
           @out << "  }\n"
         when :bare_rule
           emit_rule(item[:rule], 2)
+        when :use
+          # ISC-WF-1 W1/W2: `use <dep>.<name> [override { rows }]` — the
+          # override block is part of the use directive (one syntax, one
+          # site, spec §4.1).
+          ref = item[:dependency] ? "#{item[:dependency]}.#{item[:ruleset]}" : item[:ruleset]
+          overrides = item[:overrides]
+          if overrides&.any?
+            @out << "  use #{ref} override {\n"
+            overrides.each { |r| emit_rule(r, 4) }
+            @out << "  }\n"
+          else
+            @out << "  use #{ref}\n"
+          end
         when :run
           dep = item[:dependency]
           stage = item[:stage]
@@ -179,6 +209,8 @@ module Interscript
         pad = " " * indent
         from_str = emit_item(rule[:from])
         to_str = emit_item(rule[:to])
+        # ISC-WF-1 W3: the language guard trails the constraints.
+        when_str = rule[:when_languages]&.any? ? "when #{rule[:when_languages].join(" ")}" : nil
 
         needs_block = rule[:from].is_a?(Items::Concat) || rule[:to].is_a?(Items::Concat)
 
@@ -188,11 +220,13 @@ module Interscript
           @out << "#{inner}from #{from_str}\n"
           @out << "#{inner}to #{to_str}\n"
           rule[:constraints]&.each { |c| @out << "#{inner}#{emit_constraint(c)}\n" }
+          @out << "#{inner}#{when_str}\n" if when_str
           @out << "#{pad}}\n"
         else
           constraints_str = rule[:constraints]&.map { |c| emit_constraint(c) }&.join(" ") || ""
           @out << "#{pad}sub #{from_str} #{to_str}"
           @out << " #{constraints_str}" unless constraints_str.empty?
+          @out << " #{when_str}" if when_str
           @out << "\n"
         end
       end

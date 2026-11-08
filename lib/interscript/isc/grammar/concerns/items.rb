@@ -125,7 +125,14 @@ module Interscript
               str("line_end") | str("word_boundary") |
               str("downcase") | str("upcase") | str("title_case") |
               str("capture") | str("maybe") | str("some") | str("ref") |
-              str("any_character")
+              str("any_character") |
+              # ISC-WF-1: ruleset / use / override / languages / when join
+              # the keyword table (spec §2). Prefix matching follows the
+              # existing table behavior; quoted-string forms remain the
+              # pass-through escape hatch. Verified against the 404-map
+              # corpus: no bare identifier starts with any of these words.
+              str("ruleset") | str("use") | str("override") |
+              str("languages") | str("when")
           end
 
           # Concatenation: one or more atoms. The continuation pattern

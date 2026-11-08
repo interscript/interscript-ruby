@@ -5,7 +5,7 @@ class Interscript::Interpreter < Interscript::Compiler
     self
   end
 
-  def call(str, stage = :main, each: false, &block)
+  def call(str, stage = :main, each: false, language: nil, &block)
     stage = @map.stages[stage]
     if each
       e = Enumerator.new do |yielder|
@@ -22,7 +22,7 @@ class Interscript::Interpreter < Interscript::Compiler
             # standard:disable Style/GlobalVars (deliberate $DEBUG / -d-flag debug idiom)
             $select_nth_string = true
             # standard:enable Style/GlobalVars
-            result = Stage.new(@map, str).execute_rule(stage)
+            result = Stage.new(@map, str, language: language).execute_rule(stage)
             # standard:disable Style/GlobalVars (deliberate $DEBUG / -d-flag debug idiom)
             $select_nth_string = false
             # standard:enable Style/GlobalVars
@@ -68,20 +68,72 @@ class Interscript::Interpreter < Interscript::Compiler
         e
       end
     else
-      Stage.new(@map, str).execute_rule(stage)
+      Stage.new(@map, str, language: language).execute_rule(stage)
     end
   end
 
+  # ISC-WF-1 W3: effective language for a run. A selection outside the
+  # map's `languages` declaration (or any selection on a map without a
+  # declaration) means every `when` guard is inert (spec §5.1).
+  def self.select_language(map, language)
+    return nil if language.nil?
+
+    declared = map.languages
+    return nil unless declared.is_a?(Interscript::Node::LanguagesDecl) &&
+      declared.include?(language.to_sym)
+
+    language.to_sym
+  end
+
   class Stage
-    def initialize(map, str)
+    attr_reader :language
+
+    def initialize(map, str, language: nil)
       @str = str
       @map = map
+      @language = Interscript::Interpreter.select_language(map, language)
+    end
+
+    # ISC-WF-1 W3 guard applicability. Unguarded rules always apply; a
+    # guarded rule applies only under a selected language that its `when`
+    # list contains. Inert rules are absent from the pass (spec §5.1).
+    def guard_applies? rule
+      return true unless Interscript::Node::Rule::Sub === rule && rule.when_languages
+      return false unless @language
+
+      rule.when_languages.include?(@language)
+    end
+
+    # ISC-WF-1 W3: the effective rule set of a parallel pass = unguarded
+    # rules ∪ guard-applicable rules; where an unguarded rule and a
+    # guard-applicable rule share the same from-string, the
+    # guard-applicable rule wins (spec §5.2). Passes without any guard
+    # return the group untouched — zero change for pre-WF1 maps. Filtered
+    # variants are memoized per selected language on the group so the
+    # compiled-tree cache below stays per-language.
+    def resolve_parallel_guards r
+      return r unless r.children.any? { |c| Interscript::Node::Rule::Sub === c && c.when_languages }
+
+      r.wf1_variants ||= {}
+      r.wf1_variants[@language] ||= begin
+        applicable = r.children.select { |c| guard_applies?(c) }
+        guarded_froms = applicable
+          .select { |c| Interscript::Node::Rule::Sub === c && c.when_languages }
+          .map { |c| c.from.inspect }
+        filtered = Interscript::Node::Group::Parallel.new
+        filtered.children = applicable.reject do |c|
+          Interscript::Node::Rule::Sub === c && !c.when_languages &&
+            guarded_froms.include?(c.from.inspect)
+        end
+        filtered
+      end
     end
 
     def execute_rule r
       return if r.reverse_run == true
       case r
       when Interscript::Node::Group::Parallel
+        r = resolve_parallel_guards(r)
         if r.cached_tree
           @str = Interscript::Stdlib.parallel_replace_tree(@str, r.cached_tree)
         elsif r.subs_regexp && r.subs_replacements
@@ -135,9 +187,12 @@ class Interscript::Interpreter < Interscript::Compiler
         end
       when Interscript::Node::Group
         r.children.each do |t|
+          # ISC-WF-1 W3: in sequence, an inert guarded rule is skipped.
+          next unless guard_applies?(t)
           execute_rule(t)
         end
       when Interscript::Node::Rule::Sub
+        return @str unless guard_applies?(r)
         @str = if r.to == :upcase
           @str.gsub(Regexp.new(build_regexp(r)), &:upcase)
         elsif r.to == :downcase
@@ -151,10 +206,10 @@ class Interscript::Interpreter < Interscript::Compiler
         if r.stage.map
           doc = @map.dep_aliases[r.stage.map].document
           stage = doc.imported_stages[r.stage.name]
-          @str = Stage.new(doc, @str).execute_rule(stage)
+          @str = Stage.new(doc, @str, language: @language).execute_rule(stage)
         else
           stage = @map.imported_stages[r.stage.name]
-          @str = Stage.new(@map, @str).execute_rule(stage)
+          @str = Stage.new(@map, @str, language: @language).execute_rule(stage)
         end
       end
 

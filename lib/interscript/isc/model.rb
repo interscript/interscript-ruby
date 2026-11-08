@@ -10,6 +10,7 @@ module Interscript
       autoload :Rule, "interscript/isc/model/rule"
       autoload :StageItem, "interscript/isc/model/stage_item"
       autoload :Stage, "interscript/isc/model/stage"
+      autoload :Ruleset, "interscript/isc/model/ruleset"
       autoload :Alias, "interscript/isc/model/alias"
       autoload :Test, "interscript/isc/model/test"
       autoload :Dependency, "interscript/isc/model/dependency"
