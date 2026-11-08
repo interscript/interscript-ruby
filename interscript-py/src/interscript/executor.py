@@ -72,16 +72,17 @@ def execute_stage(
     stage_name: str,
     text: str,
     loader: MapResolver | None = None,
+    language: str | None = None,
 ) -> str:
     """Run one stage by name; returns the transformed string.
 
     A missing stage is a no-op (returns the input unchanged), matching
-    the TS runtime.
+    the TS runtime. `language` is the ISC-WF-1 W3 caller selection (§5.1).
     """
     stage = map_.stage(stage_name)
     if stage is None:
         return text
-    ctx = ExecutionContext(map_, text, loader)
+    ctx = ExecutionContext(map_, text, loader, language)
     execute_stage_rules(stage, ctx)
     return ctx.current
 
@@ -100,6 +101,8 @@ def execute_stage_rules(stage: Stage, ctx: ExecutionContext) -> None:
 def execute_rule(rule: Rule, ctx: ExecutionContext) -> None:
     kind = rule.kind
     if kind == "sub":
+        if not _guard_active(rule, ctx):  # type: ignore[arg-type]
+            return
         _execute_sub_rule(rule, ctx)  # type: ignore[arg-type]
     elif kind == "run":
         _execute_run_rule(rule, ctx)  # type: ignore[arg-type]
@@ -112,6 +115,40 @@ def execute_rule(rule: Rule, ctx: ExecutionContext) -> None:
             execute_rule(inner, ctx)
     else:  # pragma: no cover - exhaustive over the Rule union
         raise MapLogicError(f"unknown rule kind: {kind!r}")
+
+
+# ---------------------------------------------------------------------------
+# ISC-WF-1 W3 language guards
+# ---------------------------------------------------------------------------
+
+
+def _guard_active(rule: SubRule, ctx: ExecutionContext) -> bool:
+    """A `when`-guarded sub rule applies only when the caller selected a
+    language the map declares AND the rule's `when` list contains it
+    (§5.1); unguarded rules always apply. Inert guards skip the rule
+    entirely, in every context (bare, sequence, parallel)."""
+    if rule.when is None:
+        return True
+    selected = ctx.effective_language
+    return selected is not None and selected in rule.when
+
+
+def _drop_shadowed_unguarded(rules: list[SubRule]) -> list[SubRule]:
+    """§5.2 precedence: when a guard-applicable rule and an unguarded
+    rule share the same from-string, the guard-applicable rule wins —
+    the unguarded one is dropped so no first-alternative/insertion-order
+    tie can resurrect the generic value. Structural equality of the
+    `from` items is the same-from test (byte-exact for string rows)."""
+    guarded_froms = {
+        r.from_ for r in rules if r.when is not None and r.from_ is not None
+    }
+    if not guarded_froms:
+        return rules
+    return [
+        r
+        for r in rules
+        if r.when is not None or r.from_ is None or r.from_ not in guarded_froms
+    ]
 
 
 # ---------------------------------------------------------------------------
@@ -227,16 +264,20 @@ def _execute_parallel(rule: ParallelRule, ctx: ExecutionContext) -> None:
     trailing: list[Rule] = []
     for inner in rule.rules:
         if inner.kind == "sub" and inner.from_ is not None:  # type: ignore[union-attr]
-            sub_rules.append(inner)  # type: ignore[arg-type]
+            # Inert W3 guards (§5.1) leave the rule out of the pass; a
+            # guard-applicable rule beats an unguarded same-from rule (§5.2).
+            if _guard_active(inner, ctx):  # type: ignore[arg-type]
+                sub_rules.append(inner)  # type: ignore[arg-type]
         else:
             trailing.append(inner)
 
+    sub_rules = _drop_shadowed_unguarded(sub_rules)
     any_constrained = any(not _tree_compatible(r, ctx) for r in sub_rules)
 
     if not any_constrained:
         # Tree mode: every `from` expands to literals; rules whose `to`
         # is an inline funcall or non-literal are skipped (mirrors TS).
-        trie_pairs: list[tuple[str, str]] = []
+        flagged: list[tuple[str, str, bool]] = []  # (from_lit, to_lit, guarded)
         for r in sub_rules:
             if r.to is not None and r.to.kind == "funcall_inline":
                 continue
@@ -247,7 +288,13 @@ def _execute_parallel(rule: ParallelRule, ctx: ExecutionContext) -> None:
             if from_alts is None:
                 continue
             for from_lit in from_alts:
-                trie_pairs.append((from_lit, to_lit))
+                flagged.append((from_lit, to_lit, r.when is not None))
+        # §5.2 at string level: an expanded literal shared by a
+        # guard-applicable rule and an unguarded rule keeps the guard.
+        guarded_literals = {f for f, _t, g in flagged if g}
+        trie_pairs = [
+            (f, t) for f, t, g in flagged if g or f not in guarded_literals
+        ]
         if trie_pairs:
             ctx.current = parallel_replace_tree(
                 ctx.current, compile_parallel_tree(trie_pairs)
@@ -268,12 +315,20 @@ def _execute_parallel(rule: ParallelRule, ctx: ExecutionContext) -> None:
             return (-length, idx)
 
         mega_rules: list[MegaregexpRule] = []
+        compiled: list[tuple[SubRule, str, str, str, str, str]] = []
         for _idx, r in sorted(enumerate(sub_rules), key=sort_key):
             src = compile_item(r.from_, ctx).re  # type: ignore[arg-type]
             before = compile_item(r.before, ctx).re if r.before else ""
             after = compile_item(r.after, ctx).re if r.after else ""
             not_before = compile_item(r.not_before, ctx).re if r.not_before else ""
             not_after = compile_item(r.not_after, ctx).re if r.not_after else ""
+            compiled.append((r, src, before, after, not_before, not_after))
+        # §5.2 at pattern level: identical compiled `from` source under a
+        # guard-applicable rule shadows the unguarded one.
+        guarded_srcs = {c[1] for c in compiled if c[0].when is not None}
+        for r, src, before, after, not_before, not_after in compiled:
+            if r.when is None and src in guarded_srcs:
+                continue
             pattern = (
                 (f"(?<={before})" if before else "")
                 + (f"(?<!{not_before})" if not_before else "")

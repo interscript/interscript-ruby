@@ -15,12 +15,14 @@ Shape summary (see interscript-ts/src/types.ts for the normative doc):
       systemCode: str
       dependencies: [str]
       metadata?: {str: ...}          # omitted when empty
+      languages?: [str]              # ISC-WF-1 W3; omitted when undeclared
       stages: [Stage]
       aliases: {name: Item}
       functions: {name: {...}}       # always {} today
     }
     Stage   = {kind: "stage", name: str, rules: [Rule]}
     Rule    = SubRule | RunRule | FuncallRule | ParallelRule | SequentialRule
+    SubRule carries optional `when: [str]` (ISC-WF-1 W3 guard).
     Item    = StringItem | CaptureGroupItem | CaptureRefItem | AliasItem
             | AnyItem | AnyCharClassItem | GroupItem | RepeatItem | StageItem
 """
@@ -131,6 +133,7 @@ class SubRule:
     not_before: Item | None = None
     not_after: Item | None = None
     priority: int | None = None
+    when: tuple[str, ...] | None = None  # ISC-WF-1 W3 guard languages
     kind: str = "sub"
 
 
@@ -189,6 +192,7 @@ class CompiledMap:
     aliases: dict[str, Item]
     functions: dict[str, FunctionDef]
     metadata: dict[str, Any] | None = None
+    languages: tuple[str, ...] | None = None  # ISC-WF-1 W3 declared languages
 
     def stage(self, name: str) -> Stage | None:
         for s in self.stages:
@@ -254,6 +258,7 @@ def rule_from_json(obj: dict[str, Any]) -> Rule:
             not_before=item_from_json(obj["notBefore"]) if obj.get("notBefore") else None,
             not_after=item_from_json(obj["notAfter"]) if obj.get("notAfter") else None,
             priority=int(obj["priority"]) if obj.get("priority") is not None else None,
+            when=tuple(str(w) for w in obj["when"]) if obj.get("when") else None,
         )
     if kind == "run":
         return RunRule(stage=obj["stage"], doc_name=obj.get("docName"))
@@ -287,4 +292,5 @@ def map_from_json(obj: dict[str, Any]) -> CompiledMap:
             for name, fd in obj.get("functions", {}).items()
         },
         metadata=dict(obj["metadata"]) if obj.get("metadata") else None,
+        languages=tuple(str(x) for x in obj["languages"]) if obj.get("languages") else None,
     )
