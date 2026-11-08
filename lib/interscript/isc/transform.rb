@@ -133,6 +133,21 @@ module Interscript
       rule(not_before: subtree(:x)) { {kind: :not_before, item: x} }
       rule(not_after: subtree(:x)) { {kind: :not_after, item: x} }
       rule(constraints: sequence(:c)) { c }
+
+      # ISC-WF-1 W3: a `when` guard folds to the plain list of language
+      # names. A single language captures as one {when_lang:} hash,
+      # several as a list; identifier leaves may still be raw slices at
+      # this point, so decode them here.
+      rule(when: subtree(:langs)) do
+        list = langs.is_a?(Hash) ? [langs] : Array(langs)
+        list.map do |l|
+          lang = l.is_a?(Hash) ? l[:when_lang] : l
+          case lang
+          when Hash then lang[:identifier].to_s
+          else lang.to_s
+          end
+        end.compact
+      end
     end
   end
 end

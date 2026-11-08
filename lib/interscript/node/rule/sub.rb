@@ -4,11 +4,14 @@ class Interscript::Node::Rule::Sub < Interscript::Node::Rule
   attr_accessor :reverse_before, :reverse_not_before, :reverse_after, :reverse_not_after
   attr_accessor :reverse_run
   attr_accessor :priority
+  # ISC-WF-1 W3: the language guard (`when kur, chv`). nil = unguarded.
+  attr_accessor :when_languages
 
   def initialize(from, to,
     before: nil, not_before: nil,
     after: nil, not_after: nil,
-    priority: nil, reverse_run: nil)
+    priority: nil, reverse_run: nil,
+    when_languages: nil)
     self.from = Interscript::Node::Item.try_convert from
     self.to = if to == :upcase
       :upcase
@@ -19,6 +22,7 @@ class Interscript::Node::Rule::Sub < Interscript::Node::Rule
     end
 
     self.priority = priority
+    self.when_languages = when_languages&.map(&:to_sym)
 
     # raise TypeError, "Can't supply both before and not_before" if before && not_before
     # raise TypeError, "Can't supply both after and not_after" if after && not_after
@@ -59,6 +63,7 @@ class Interscript::Node::Rule::Sub < Interscript::Node::Rule
     hash[:after] = after&.to_hash if after
     hash[:not_after] = not_after&.to_hash if not_after
     hash[:priority] = priority if priority
+    hash[:when_languages] = when_languages if when_languages
 
     hash
   end
@@ -91,7 +96,8 @@ class Interscript::Node::Rule::Sub < Interscript::Node::Rule
 
       reverse_run: rrun,
 
-      priority: priority ? -priority : nil)
+      priority: priority ? -priority : nil,
+      when_languages: when_languages)
   end
 
   def has_assertions?
@@ -202,7 +208,8 @@ class Interscript::Node::Rule::Sub < Interscript::Node::Rule
       after == other.after &&
       not_before == other.not_before &&
       not_after == other.not_after &&
-      priority == other.priority
+      priority == other.priority &&
+      when_languages == other.when_languages
   end
 
   def inspect
@@ -222,6 +229,7 @@ class Interscript::Node::Rule::Sub < Interscript::Node::Rule
     params << "not_after: #{@not_after.inspect}" if @not_after
 
     params << "priority: #{@priority.inspect}" if @priority
+    params << "when: #{@when_languages.join(", ")}" if @when_languages
     out << params.join(", ")
   end
   # standard:disable Layout/TrailingEmptyLines (deliberate)

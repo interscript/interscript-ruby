@@ -17,11 +17,44 @@ module Interscript
               braced(stage_item.repeat(0)).as(:stage)
           end
 
+          # ISC-WF-1 W1: a named, reusable block of stage items. Declared at
+          # map top level anywhere a stage may appear; never executes on its
+          # own (only `use` expansion reaches the runtime).
+          rule(:ruleset_block) do
+            str("ruleset") >> whitespace >>
+              identifier.as(:ruleset_name) >> whitespace? >>
+              braced(stage_item.repeat(0)).as(:ruleset)
+          end
+
+          # ISC-WF-1 W1/W2: `use <ident>` (same-map ruleset) or
+          # `use <alias>.<ident>` (dependency-declared ruleset), with an
+          # optional override block of full replacement rows (child-wins on
+          # exact from-equality).
+          rule(:use_directive) do
+            (str("use") >> whitespace >>
+              identifier.as(:use_alias) >>
+              (str(".") >> identifier.as(:qualified_name)).maybe >>
+              (whitespace >> str("override") >> whitespace? >>
+                braced(rule_line.repeat(0)).as(:use_overrides)).maybe
+            ).as(:use)
+          end
+
+          # ISC-WF-1 W3: `when <ident> (","|ws <ident>)*` — a language guard
+          # on a sub rule. Inert unless the caller selects a language the
+          # map declares (spec §5.1). Identifiers are keyword-guarded so the
+          # repeat stops at the next rule instead of swallowing it.
+          rule(:when_guard) do
+            (whitespace >> str("when") >> whitespace >>
+              keyword.absent? >> identifier.as(:when_lang) >>
+              ((comma | whitespace) >> (keyword.absent? >> identifier.as(:when_lang))).repeat
+            ).as(:when)
+          end
+
           rule(:stage_item) do
             whitespace? >>
               (sequence_block | parallel_block | run_rule | separate_directive |
                 string_case_directive | compose_directive | rababa_directive |
-                bare_rule | comment_item) >>
+                use_directive | bare_rule | comment_item) >>
               whitespace?
           end
 
@@ -105,7 +138,8 @@ module Interscript
             str("sub") >> whitespace >>
               item_atom.as(:from) >> whitespace >>
               item_atom.as(:to) >>
-              constraints
+              constraints >>
+              when_guard.maybe
           end
 
           rule(:block_rule) do
@@ -114,6 +148,7 @@ module Interscript
               str("from") >> whitespace >> item.as(:from) >> whitespace? >>
               str("to") >> whitespace >> item.as(:to) >>
               (whitespace >> constraint).repeat.as(:constraints) >>
+              when_guard.maybe >>
               whitespace? >> str("}")
           end
 

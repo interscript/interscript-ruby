@@ -3,6 +3,7 @@ class Interscript::Node::Rule < Interscript::Node
   autoload :Sub, "interscript/node/rule/sub"
   autoload :Run, "interscript/node/rule/run"
   autoload :Funcall, "interscript/node/rule/funcall"
+  autoload :Use, "interscript/node/rule/use"
 
   def ==(other)
     super && reverse_run == other.reverse_run

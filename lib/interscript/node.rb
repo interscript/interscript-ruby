@@ -8,6 +8,8 @@ class Interscript::Node
   autoload :Dependency, "interscript/node/dependency"
   autoload :Tests, "interscript/node/tests"
   autoload :Stage, "interscript/node/stage"
+  autoload :Ruleset, "interscript/node/ruleset"
+  autoload :LanguagesDecl, "interscript/node/languages_decl"
   autoload :Rule, "interscript/node/rule"
   autoload :Item, "interscript/node/item"
 

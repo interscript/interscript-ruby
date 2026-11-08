@@ -4,6 +4,7 @@ require "lutaml/model"
 require "interscript/isc/model/test"
 require "interscript/isc/model/alias"
 require "interscript/isc/model/stage"
+require "interscript/isc/model/ruleset"
 require "interscript/isc/model/dependency"
 
 module Interscript
@@ -15,6 +16,8 @@ module Interscript
         attribute :tests, Test, collection: true
         attribute :aliases, Alias, collection: true
         attribute :stages, Stage, collection: true
+        attribute :rulesets, Ruleset, collection: true
+        attribute :languages, :string, collection: true
         attribute :dependencies, Dependency, collection: true
 
         yaml do
@@ -23,6 +26,8 @@ module Interscript
           map "tests", to: :tests
           map "aliases", to: :aliases
           map "stages", to: :stages
+          map "rulesets", to: :rulesets
+          map "languages", to: :languages
           map "dependencies", to: :dependencies
         end
       end

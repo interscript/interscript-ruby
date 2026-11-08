@@ -31,6 +31,8 @@ module Interscript
             tests: (doc_hash[:tests] || []).map { |t| Model::Test.new(t.transform_keys(&:to_s)) },
             aliases: (doc_hash[:aliases] || []).map { |a| build_alias_model(a) },
             stages: (doc_hash[:stages] || []).map { |s| build_stage_model(s) },
+            rulesets: (doc_hash[:rulesets] || []).map { |r| build_ruleset_model(r) },
+            languages: doc_hash[:languages],
             dependencies: (doc_hash[:dependencies] || []).map { |d| build_dependency_model(d) }
           )
         end
@@ -63,6 +65,13 @@ module Interscript
           )
         end
 
+        def build_ruleset_model(ruleset_hash)
+          Model::Ruleset.new(
+            name: ruleset_hash[:name],
+            body: (ruleset_hash[:body] || []).map { |item| stage_item_to_model(item) }
+          )
+        end
+
         def build_dependency_model(dep_hash)
           Model::Dependency.new(
             target: dep_hash[:target],
@@ -80,6 +89,11 @@ module Interscript
           when :run
             attrs[:dependency] = item[:dependency]
             attrs[:stage] = item[:stage]
+          when :use
+            # ISC-WF-1 W1/W2
+            attrs[:dependency] = item[:dependency]
+            attrs[:ruleset] = item[:ruleset]
+            attrs[:overrides] = (item[:overrides] || []).map { |r| rule_to_model(r) }
           when :separate
             attrs[:separator] = item[:separator] ? item_to_model(item[:separator]) : nil
           when :string_case
@@ -92,7 +106,8 @@ module Interscript
           Model::Rule.new(
             from: item_to_model(rule_hash[:from]),
             to: item_to_model(rule_hash[:to]),
-            constraints: (rule_hash[:constraints] || []).map { |c| constraint_to_model(c) }
+            constraints: (rule_hash[:constraints] || []).map { |c| constraint_to_model(c) },
+            when_languages: rule_hash[:when_languages]
           )
         end
 
@@ -140,7 +155,7 @@ module Interscript
         # --- Reverse direction: model → document hash ---
 
         def model_to_hash(model)
-          {
+          hash = {
             schemaVersion: 1,
             systemCode: model.system_code,
             metadata: model_metadata_to_hash(model.metadata),
@@ -149,6 +164,11 @@ module Interscript
             stages: (model.stages || []).map { |s| stage_model_to_hash(s) },
             dependencies: (model.dependencies || []).map { |d| {target: d.target, alias: d.alias_name}.compact }
           }
+          # ISC-WF-1 keys round-trip only when present — pre-WF1 documents
+          # keep their exact hash shape.
+          hash[:languages] = model.languages if model.languages&.any?
+          hash[:rulesets] = (model.rulesets || []).map { |r| ruleset_model_to_hash(r) } if model.rulesets&.any?
+          hash
         end
 
         def model_metadata_to_hash(meta)
@@ -171,6 +191,11 @@ module Interscript
             {kind: :bare_rule, rule: rule_model_to_hash(item.rule)}
           when "run"
             {kind: :run, dependency: item.dependency, stage: item.stage}
+          when "use"
+            # ISC-WF-1 W1/W2
+            hash = {kind: :use, ruleset: item.ruleset, dependency: item.dependency}
+            hash[:overrides] = (item.overrides || []).map { |r| rule_model_to_hash(r) } if item.overrides&.any?
+            hash.compact
           when "separate"
             {kind: :separate, separator: item.separator ? model_to_item(item.separator) : nil}
           when "compose"
@@ -182,12 +207,21 @@ module Interscript
           end
         end
 
-        def rule_model_to_hash(rule_model)
+        def ruleset_model_to_hash(ruleset_model)
           {
+            name: ruleset_model.name,
+            body: ruleset_model.body.map { |item| stage_item_model_to_hash(item) }
+          }
+        end
+
+        def rule_model_to_hash(rule_model)
+          hash = {
             from: model_to_item(rule_model.from),
             to: model_to_item(rule_model.to),
             constraints: (rule_model.constraints || []).map { |c| constraint_model_to_hash(c) }
           }
+          hash[:when_languages] = rule_model.when_languages if rule_model.when_languages&.any?
+          hash
         end
 
         def constraint_model_to_hash(constraint_model)
