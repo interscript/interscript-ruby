@@ -391,13 +391,37 @@ RSpec.describe "ISC semantics — ML funcall contract" do
     # provisioning error that tells the user what is missing. The fix
     # (restoring the require) yields the ideal shape: a
     # RegistryError that enumerates the known model ids.
-    expect {
-      Interscript::Stdlib::Functions::SecrystAdapter.call("test", model: "no-such-model")
-    }.to raise_error(
-      Interscript::ML::IMF::RegistryError,
-      /unknown model id "no-such-model" \(known:/
-    )
+    #
+    # The unknown-id rejection is pinned against a LOCAL index fixture:
+    # resolve() fetches DEFAULT_INDEX_URL over HTTP before validating,
+    # and on a network-constrained runner the raw Net::ReadTimeout used
+    # to surface instead of the named error. The contract under test —
+    # unknown ids fail loudly with a RegistryError — does not need the
+    # network.
+    Dir.mktmpdir do |dir|
+      index = File.join(dir, "models.yaml")
+      File.write(index, <<~YAML)
+        version: 1
+        models: {}
+      YAML
+      with_env("INTERSCRIPT_ML_INDEX", index) do
+        expect {
+          Interscript::Stdlib::Functions::SecrystAdapter.call("test", model: "no-such-model")
+        }.to raise_error(
+          Interscript::ML::IMF::RegistryError,
+          /unknown model id "no-such-model" \(known:/
+        )
+      end
+    end
   end
+end
+
+def with_env(name, value)
+  old = ENV[name]
+  ENV[name] = value
+  yield
+ensure
+  ENV[name] = old
 end
 
 RSpec.describe "ISC semantics — strict parse (adoption ruling)" do
