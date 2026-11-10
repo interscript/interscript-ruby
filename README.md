@@ -33,6 +33,32 @@ Interscript.transliterate("odni-rus-Cyrl-Latn-2015", "привет")
 # => "privet"
 ----
 
+== Workflow extension (ISC-WF-1)
+
+Maps can reuse rule blocks and condition rows on a language. A
+`ruleset` is spliced at a `use` position (recursively, across
+declared dependencies); `use ... override { ... }` replaces rows on
+byte-exact from-equality; a `languages` declaration plus `when`
+guards let the caller select a language per call — guards are inert
+without a selection:
+
+[source,ruby]
+----
+# alalc-tha and bgnpcgn-tha share their leading-vowel machinery
+# through libs/thai-latn.isc — one ruleset, per-map overrides
+Interscript.transliterate("bgnpcgn-tha-Thai-Latn-2002", "กรุงเทพ")
+
+# language conditioning: select one of the map's declared languages;
+# guards are inert when no (or an undeclared) language is passed
+Interscript.transliterate("some-map-id", "...", {}, language: "kur")
+----
+
+The constructs are additive: maps that don't use them transliterate
+identically. The corpus adoption so far is the Thai leading-vowel
+shared ruleset (W1/W2); W3 conditioning is exercised by the
+conformance fixtures. Normative text: interscript/maps
+`docs/isc-wf-1.md`.
+
 == Neural models (Interscript::ML)
 
 The gem embeds the IMF v1 model runtime — resolve a model id through
