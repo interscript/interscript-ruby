@@ -5,6 +5,11 @@ on:
     tags:
       - 'v*'
   workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release tag to attach the assets to (defaults to the dispatching ref)'
+        required: false
+        type: string
 
 jobs:
   assets:
@@ -37,7 +42,7 @@ jobs:
         run: bundle exec rake generate_visualization_json
 
       - name: Archive visualization JSON
-        uses: thedoctor0/zip-release@v0.7.6
+        uses: thedoctor0/zip-release@0.7.6
         with:
           filename: 'vis_json.zip'
           path: ./vis_json/*.json
@@ -52,7 +57,7 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ruby/vis_json.zip
           file_glob: true
-          tag: ${{ github.ref }}
+          tag: ${{ inputs.tag || github.ref }}
           overwrite: true
 
       - name: Generate metadata
@@ -60,7 +65,7 @@ jobs:
         run: bundle exec rake generate_metadata_json
 
       - name: Archive metadata
-        uses: thedoctor0/zip-release@v0.7.6
+        uses: thedoctor0/zip-release@0.7.6
         with:
           filename: 'metadata.zip'
           path: ./metadata.json
@@ -75,7 +80,7 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ruby/metadata.zip
           asset_name: metadata.json.zip
-          tag: ${{ github.ref }}
+          tag: ${{ inputs.tag || github.ref }}
           overwrite: true
 
       - name: Output links
