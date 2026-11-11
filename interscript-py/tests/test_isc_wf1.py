@@ -470,3 +470,47 @@ class TestFixtureLanguageConditioned:
         rt = interscript.Runtime([tmp_path])
         assert rt.transliterate(cm.system_code, "қ") == "ķ"
         assert rt.transliterate(cm.system_code, "қ", language="kur") == "k"
+
+
+class TestOverridePlacement:
+    """§4.2.6 (WO17, cross-grammar parity finding): ALL override rows —
+    replacements AND additions — join the expansion's trailing parallel
+    block, so the whole expansion shares one longest-match pass. The
+    pre-parity behavior appended unmatched additions as bare stage
+    rules, splitting the pass (found by maps scripts/parse-parity.mjs
+    on bgnpcgn-tha / alalc-tha: 344 vs 327+17, 1523 vs 327+1196)."""
+
+    SRC = """
+system "test-ovr-place" {
+  ruleset rs {
+    parallel {
+      sub "a" "x"
+      sub "b" "y"
+    }
+  }
+  stage main {
+    use rs override {
+      sub "a" "A"
+      sub "c" "Z"
+    }
+  }
+}
+"""
+
+    def test_additions_join_the_trailing_parallel(self):
+        doc = parse_isc(self.SRC)
+        body = doc.stages[0].items
+        assert len(body) == 1, f"expected one pass, got {len(body)} items"
+        blk = body[0]
+        froms = [r.from_source for r in blk.rules if getattr(r, "from_source", None)]
+        # kept row keeps its order; overrides join after it
+        assert froms == ['"b"', '"a"', '"c"']
+
+    def test_expansion_executes_as_one_pass(self):
+        doc = parse_isc(self.SRC)
+        cm = isc_to_compiled_map(doc)
+        from interscript.executor import execute_stage
+
+        # one longest-match pass over the joined block: "ac" -> "AZ"
+        assert execute_stage(cm, "main", "ac") == "AZ"
+        assert execute_stage(cm, "main", "ab") == "Ay"

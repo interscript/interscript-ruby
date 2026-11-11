@@ -1050,14 +1050,16 @@ class _Parser:
     def _apply_override(
         self, items: list[Any], overrides: list[ParsedRule]
     ) -> list[Any]:
-        """ISC-WF-1 §4.2 merge: R_kept (in R's order) followed by O (in
-        O's order); ALL rules sharing an override's from-string are
-        replaced. For rows inside a parallel/sequence block the matched
-        overrides are appended at that block's end so they stay in the
-        pass where the replaced row lived (§4.3); overrides matching
-        nothing are simply added at the end (§4.2 rule 4)."""
+        """ISC-WF-1 §4.2 + §4.2.6 merge: partition R by byte-exact
+        from-equality (ALL same-from rules replaced), then place O —
+        when the expansion ends with a parallel block, ALL of O joins
+        that block (replacements and additions share one longest-match
+        pass, §4.2.5/§4.2.6); otherwise O appends after R_kept as
+        stage-level rows. Cross-grammar canonical: the ruby reference
+        and the ts runtime both join the trailing parallel (found by
+        maps scripts/parse-parity.mjs — py appended unmatched additions
+        as bare stage rules, splitting the pass)."""
         okeys = [self._from_key(o) for o in overrides]
-        placed: set[int] = set()
         out: list[Any] = []
         for it in items:
             if isinstance(it, ParsedRule):
@@ -1065,24 +1067,19 @@ class _Parser:
                     continue
                 out.append(it)
             elif isinstance(it, (ParallelBlock, SequenceBlock)):
-                kept: list[Any] = []
-                dropped_keys: set[Any] = set()
-                for r in it.rules:
-                    if isinstance(r, ParsedRule) and self._from_key(r) in okeys:
-                        dropped_keys.add(self._from_key(r))
-                    else:
-                        kept.append(r)
-                block_overrides: list[ParsedRule] = []
-                for i, o in enumerate(overrides):
-                    if i not in placed and self._from_key(o) in dropped_keys:
-                        block_overrides.append(o)
-                        placed.add(i)
-                out.append(type(it)(rules=tuple(kept + block_overrides)))
+                kept = tuple(
+                    r
+                    for r in it.rules
+                    if not (isinstance(r, ParsedRule) and self._from_key(r) in okeys)
+                )
+                out.append(type(it)(rules=kept))
             else:
                 out.append(it)
-        for i, o in enumerate(overrides):
-            if i not in placed:
-                out.append(o)
+        tail = out[-1] if out else None
+        if isinstance(tail, ParallelBlock):
+            out[-1] = ParallelBlock(rules=tuple(tail.rules) + tuple(overrides))
+            return out
+        out.extend(overrides)
         return out
 
     # -- Scanner helpers (mirror the TypeScript parser) ----------------------
