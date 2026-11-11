@@ -138,6 +138,43 @@ RSpec.describe "ISC semantics — contexts, maybe, capture" do
         .to raise_error(NoMethodError, /max_length/)
     end
   end
+
+  # WO17 — rs parity: the deterministic parallel sort counts every
+  # alias as max_length 1 (rs Item::max_length: Prim/Alias => 1). The
+  # reference runtime raised NotImplementedError for map-local aliases,
+  # erroring the whole megaregexp pass — 33 golden rows across the
+  # Arabic maps. Pinned to the rs outputs for the same document.
+  it "rules: a map-local alias in a megaregexp pass sorts like the rs runtime (WO17)" do
+    body = <<~ISC
+      system "TST:xx-Arab:Latn:31" {
+        metadata {
+          authority_id tst
+          id 31
+          language iso-639-2:xx
+          source_script Arab
+          destination_script Latn
+        }
+        aliases {
+          arab_letter = any("ابتثجحخدذرزسشصضطظعغفقكلمنهوي")
+        }
+        stage main {
+          parallel {
+            sub { from "ب" + arab_letter to "X" not_before "ن" }
+          }
+        }
+      }
+    ISC
+    with_map("tst-aliasmax-1.isc", body) do
+      expect(Interscript.transliterate("tst-aliasmax-1", "بتة")).to eq("Xة")
+      expect(Interscript.transliterate("tst-aliasmax-1", "بتن")).to eq("Xن")
+    end
+  end
+
+  it "rules: Item::Alias#max_length counts 1 for any alias (rs parity, WO17)" do
+    expect(Interscript::Node::Item::Alias.new(:some_document_alias).max_length).to eq(1)
+    expect(Interscript::Node::Item::Alias.new(:none).max_length).to eq(0)
+    expect(Interscript::Node::Item::Alias.new(:arab_alphabet).max_length).to eq(1)
+  end
 end
 
 RSpec.describe "ISC semantics — run and to-directives" do
