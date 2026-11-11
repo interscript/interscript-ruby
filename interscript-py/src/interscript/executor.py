@@ -161,10 +161,12 @@ def _execute_sub_rule(rule: SubRule, ctx: ExecutionContext) -> None:
         raise MapLogicError("sub rule missing 'from'")
 
     src = compile_item(rule.from_, ctx)
-    before = compile_item(rule.before, ctx).re if rule.before else ""
-    after = compile_item(rule.after, ctx).re if rule.after else ""
-    not_before = compile_item(rule.not_before, ctx).re if rule.not_before else ""
-    not_after = compile_item(rule.not_after, ctx).re if rule.not_after else ""
+    # Constraints compile in CLASS context (charset aliases resolve
+    # per-character — mirrors rs materialize_class / convert_class_alias).
+    before = compile_item(rule.before, ctx, True).re if rule.before else ""
+    after = compile_item(rule.after, ctx, True).re if rule.after else ""
+    not_before = compile_item(rule.not_before, ctx, True).re if rule.not_before else ""
+    not_after = compile_item(rule.not_after, ctx, True).re if rule.not_after else ""
 
     parts: list[str] = []
     if before:
@@ -318,10 +320,12 @@ def _execute_parallel(rule: ParallelRule, ctx: ExecutionContext) -> None:
         compiled: list[tuple[SubRule, str, str, str, str, str]] = []
         for _idx, r in sorted(enumerate(sub_rules), key=sort_key):
             src = compile_item(r.from_, ctx).re  # type: ignore[arg-type]
-            before = compile_item(r.before, ctx).re if r.before else ""
-            after = compile_item(r.after, ctx).re if r.after else ""
-            not_before = compile_item(r.not_before, ctx).re if r.not_before else ""
-            not_after = compile_item(r.not_after, ctx).re if r.not_after else ""
+            # Constraints compile in CLASS context (charset aliases
+            # resolve per-character — mirrors rs materialize_class).
+            before = compile_item(r.before, ctx, True).re if r.before else ""
+            after = compile_item(r.after, ctx, True).re if r.after else ""
+            not_before = compile_item(r.not_before, ctx, True).re if r.not_before else ""
+            not_after = compile_item(r.not_after, ctx, True).re if r.not_after else ""
             compiled.append((r, src, before, after, not_before, not_after))
         # §5.2 at pattern level: identical compiled `from` source under a
         # guard-applicable rule shadows the unguarded one.

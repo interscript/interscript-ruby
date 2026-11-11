@@ -44,19 +44,49 @@ def _compiled(re_src: str, literal: str) -> CompiledItem:
     return CompiledItem(re=re_src, literal=literal)
 
 
+def _string_charset(value: str) -> CompiledItem:
+    """Compile a string charset as a per-character SET (class context).
+    Mirrors rs convert_class_alias expanding Item::Str into one entry
+    per char, and Ruby Any#to_regexp building a char class from string
+    data. Compiled as an alternation (not a [...] class) so astral code
+    points and regexp-escaped chars stay correct."""
+    chars = list(value)
+    return _compiled(
+        "(?:" + "|".join(regexp_escape(c) for c in chars) + ")",
+        chars[0] if chars else "",
+    )
+
+
 def _alias_compiled(name: str) -> _StdlibAlias:
     return _StdlibAlias(re=ALIAS_COMPILED[name].re, literal=ALIAS_COMPILED[name].literal)
 
 
-def compile_item(item: Item, ctx: ExecutionContext) -> CompiledItem:
-    """Compile an Item into regex source + literal replacement text."""
+def compile_item(
+    item: Item, ctx: ExecutionContext, class_ctx: bool = False
+) -> CompiledItem:
+    """Compile an Item into regex source + literal replacement text.
+
+    ``class_ctx`` selects the compile context (rs parity, WO17 —
+    mirrors builder.rs materialize_class vs materialize):
+
+    - sequence context (default): an alias resolving to a string is a
+      literal sequence;
+    - class context (constraint positions — before/not_before/after/
+      not_after — and the arguments of ``any()``): an IMPORTED charset
+      alias (a dependency map's alias) resolving to a string expands
+      one entry per character (rs convert_class_alias). A LOCAL string
+      alias stays a sequence even in class context.
+    """
     kind = item.kind
     if kind == "string":
         assert isinstance(item, StringItem)
         return _compiled(regexp_escape(item.value), item.value)
     if kind == "capture_group":
         assert isinstance(item, CaptureGroupItem)
-        inner = compile_item(item.data, ctx)
+        # rs converts capture innards in sequence context even inside a
+        # constraint (convert_class_fragment only class-resolves the
+        # top-level alias).
+        inner = compile_item(item.data, ctx, False)
         return _compiled(f"({inner.re})", inner.literal)
     if kind == "capture_ref":
         assert isinstance(item, CaptureRefItem)
@@ -69,14 +99,33 @@ def compile_item(item: Item, ctx: ExecutionContext) -> CompiledItem:
         resolved = ctx.resolve_alias(item.name)
         if resolved is None:
             return _compiled("", "")
-        return compile_item(resolved, ctx)
+        if (
+            class_ctx
+            and item.name not in ctx.map.aliases
+            and resolved.kind == "string"
+        ):
+            # Imported charset alias in class position: per-char set.
+            assert isinstance(resolved, StringItem)
+            return _string_charset(resolved.value)
+        return compile_item(resolved, ctx, class_ctx)
     if kind == "any":
         assert isinstance(item, AnyItem)
-        parts = [compile_item(child, ctx).re for child in item.of]
+        # any() arguments are class-resolved regardless of the
+        # surrounding context (rs convert_any_arg routes alias entries
+        # through convert_set_entry -> convert_class_alias).
+        # Concatenation/capture entries stay sequence-resolved — only
+        # alias entries differ per context.
+        parts = [
+            compile_item(child, ctx, child.kind == "alias").re for child in item.of
+        ]
         # Mirror Ruby's Any#nth_string: the literal form picks the first
         # alternative (sub rules with `to: any("ie")` use it as the
         # canonical replacement).
-        first = compile_item(item.of[0], ctx).literal if item.of else ""
+        first = (
+            compile_item(item.of[0], ctx, item.of[0].kind == "alias").literal
+            if item.of
+            else ""
+        )
         return _compiled("(?:" + "|".join(parts) + ")", first)
     if kind == "any_char_class":
         assert isinstance(item, AnyCharClassItem)
