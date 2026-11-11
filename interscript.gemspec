@@ -33,7 +33,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "thor"
-  spec.add_dependency "interscript-maps", "~> 2.5"
+  spec.add_dependency "interscript-maps", "~> 3.0"
   spec.add_dependency "text"
   spec.add_dependency "parsanol", ">= 1.3.61", "< 2"
 end
