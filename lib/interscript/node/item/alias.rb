@@ -14,12 +14,15 @@ class Interscript::Node::Item::Alias < Interscript::Node::Item
     Interscript::Stdlib.boundary_like_alias?(name)
   end
 
+  # rs parity (WO17): the deterministic parallel sort counts every
+  # alias as 1 (0 for none) — rs Item::max_length treats Prim/Alias
+  # uniformly, and resolving the expansion here would need document
+  # context the sort site does not carry.
   def max_length
     if stdlib?
       [:none].include?(name) ? 0 : 1
     else
-      return 1 if name == :unicode_hangul
-      raise NotImplementedError, "can't get a max length of this alias"
+      1
     end
   end
 
