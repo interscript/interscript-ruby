@@ -1,0 +1,32 @@
+name: release-py
+
+# PyPI Trusted Publishing: the package owner registers `interscript-py`
+# on pypi.org (Publishing -> add a pending trusted publisher:
+# owner interscript, repository interscript-ruby, workflow
+# release-py.yml) — until that registration exists, the OIDC exchange
+# is rejected. The version comes from interscript-py/pyproject.toml;
+# bump it via PR first (versions are owner decisions). Dispatch only
+# after the version is merged.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+
+jobs:
+  pypi:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build sdist and wheel
+        run: |
+          python -m pip install --upgrade build
+          python -m build --outdir dist interscript-py
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: dist
