@@ -132,11 +132,30 @@ RSpec.describe "ISC semantics — contexts, maybe, capture" do
     end
   end
 
-  it "rules: capture inside parallel is pending capture support (WO80)" do
+  # WO18 G1 — capture inside parallel. The tree path rejects captures
+  # by design; with Item::CaptureGroup/CaptureRef#max_length defined
+  # (rs parity), the deterministic parallel sort no longer crashes with
+  # NoMethodError and the megaregexp fallback surfaces the named
+  # SystemConversionError for ref templates.
+  it "rules: capture with a ref template in parallel fails loud and named (WO18 G1)" do
     with_map("tst-cappar-1.isc", context_map(15, 'from capture(any("0".."9")) to ref(1)')) do
       expect { Interscript.transliterate("tst-cappar-1", "5") }
-        .to raise_error(NoMethodError, /max_length/)
+        .to raise_error(Interscript::SystemConversionError, /Can't use CaptureRef in parallel mode/)
     end
+  end
+
+  it "rules: capture without a ref template runs the megaregexp fallback (WO18 G1)" do
+    with_map("tst-cappar-2.isc", context_map(16, 'from capture(any("0".."9")) to "N"')) do
+      expect(Interscript.transliterate("tst-cappar-2", "a5b")).to eq("aNb")
+    end
+  end
+
+  it "rules: Item::CaptureGroup/#CaptureRef max_length mirrors the rs runtime (WO18 G1)" do
+    expect(Interscript::Node::Item::CaptureGroup.new("abc").max_length).to eq(3)
+    expect(Interscript::Node::Item::CaptureGroup.new(
+      Interscript::Node::Item::Group.new("ab", "cde")
+    ).max_length).to eq(5)
+    expect(Interscript::Node::Item::CaptureRef.new(1).max_length).to eq(1)
   end
 
   # WO17 — rs parity: the deterministic parallel sort counts every

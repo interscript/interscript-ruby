@@ -7,6 +7,13 @@ class Interscript::Node::Item::CaptureGroup < Interscript::Node::Item
     @data = data
   end
 
+  # rs parity (WO18 G1): the deterministic parallel sort needs a
+  # max_length on every Item. A capture's length is its innards'
+  # length (ts maxLengthOfItem: capture_group -> inner).
+  def max_length
+    data.max_length
+  end
+
   def first_string
     data.first_string
   end
@@ -43,6 +50,11 @@ class Interscript::Node::Item::CaptureRef < Interscript::Node::Item
 
   def initialize(id)
     @id = id
+  end
+
+  # rs parity (WO18 G1): a backreference matches one captured run.
+  def max_length
+    1
   end
 
   def first_string
