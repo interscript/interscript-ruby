@@ -18,6 +18,27 @@ class Interscript::Stdlib
       end
     end
 
+    # WO18 G8 (parity audit): the ISC surface's fn literals. upcase
+    # mirrors the ts/py/rs directive semantics (String#upcase); the ISC
+    # grammars carry reverse/strip/swapcase as fn literals too, so the
+    # Funcall dispatcher needs them (plain String semantics — no other
+    # runtime executes them yet).
+    def self.upcase(output, _: nil)
+      output.upcase
+    end
+
+    def self.reverse(output, _: nil)
+      output.reverse
+    end
+
+    def self.strip(output, _: nil)
+      output.strip
+    end
+
+    def self.swapcase(output, _: nil)
+      output.swapcase
+    end
+
     def self.compose(output, _: nil)
       output.unicode_normalize(:nfc)
     end

@@ -35,6 +35,12 @@ class Interscript::DSL::Group
   end
 
   Interscript::Stdlib.available_functions.each do |fun|
+    # upcase stays the to-symbol builder (`sub "a", upcase`): the
+    # Interpreter special-cases `to == :upcase` on the compiled rule,
+    # and dsl_stage_spec pins that path. The ISC surface's upcase
+    # directive does not go through this DSL.
+    next if fun == :upcase
+
     define_method fun do |**kwargs|
       puts "funcall(#{fun}, #{kwargs.inspect}) from #{inspect}" if $DEBUG
 

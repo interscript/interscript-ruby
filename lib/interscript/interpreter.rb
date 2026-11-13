@@ -6,7 +6,12 @@ class Interscript::Interpreter < Interscript::Compiler
   end
 
   def call(str, stage = :main, each: false, language: nil, &block)
+    stage_name = stage
     stage = @map.stages[stage]
+    # WO18 G4 (parity audit): a missing stage used to crash with an
+    # accidental NoMethodError (nil flowed into execute_rule). rs's
+    # named error is canon.
+    raise Interscript::MapLogicError, %(stage "#{stage_name}" not found in #{@map.name}) unless stage
     if each
       e = Enumerator.new do |yielder|
         options = []
@@ -203,12 +208,17 @@ class Interscript::Interpreter < Interscript::Compiler
       when Interscript::Node::Rule::Funcall
         @str = Interscript::Stdlib::Functions.public_send(r.name, @str, **r.kwargs)
       when Interscript::Node::Rule::Run
+        # WO18 G4 (parity audit): a missing run-target stage used to
+        # crash with `NoMethodError undefined method 'reverse_run' for
+        # nil`; raise the named error instead (rs canon).
         if r.stage.map
           doc = @map.dep_aliases[r.stage.map].document
           stage = doc.imported_stages[r.stage.name]
+          raise Interscript::MapLogicError, %(stage "#{r.stage.name}" not found in #{doc.name}) unless stage
           @str = Stage.new(doc, @str, language: @language).execute_rule(stage)
         else
           stage = @map.imported_stages[r.stage.name]
+          raise Interscript::MapLogicError, %(stage "#{r.stage.name}" not found in #{@map.name}) unless stage
           @str = Stage.new(@map, @str, language: @language).execute_rule(stage)
         end
       end

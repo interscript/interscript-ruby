@@ -55,9 +55,13 @@ class TestSubRule:
         m = make_map([stage("main", [sub("a", "b")])])
         assert execute_stage(m, "main", "aaa") == "bbb"
 
-    def test_missing_stage_is_noop(self):
+    def test_missing_stage_raises(self):
+        # WO18 G4 (parity audit): a missing stage used to be a silent
+        # no-op returning the input, hiding map typos. Canon (rs, and
+        # ruby post-fix) is a named MapLogicError.
         m = make_map([stage("other", [sub("a", "b")])])
-        assert execute_stage(m, "main", "aaa") == "aaa"
+        with pytest.raises(MapLogicError, match='stage "main" not found'):
+            execute_stage(m, "main", "aaa")
 
     def test_before_after_constraints(self):
         rules = [
@@ -244,6 +248,17 @@ class TestAliases:
         )
         m = make_map([stage("main", [rule])])
         assert execute_stage(m, "main", "ab cd") == "|ab| |cd|"
+
+    def test_unresolved_alias_raises(self):
+        # WO18 G3 (parity audit): an unresolved alias used to compile to
+        # the EMPTY matcher, which matches at every string boundary and
+        # silently spliced the replacement text ("a" -> "XaX"). Canon
+        # (ruby SystemConversionError / rs load error) is fail loud.
+        m = make_map(
+            [stage("main", [sub(AliasItem(name="nowhere"), "X")])]
+        )
+        with pytest.raises(MapLogicError, match="Alias nowhere not found"):
+            execute_stage(m, "main", "a")
 
 
 class TestItemKinds:
