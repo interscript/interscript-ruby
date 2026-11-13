@@ -76,12 +76,13 @@ def execute_stage(
 ) -> str:
     """Run one stage by name; returns the transformed string.
 
-    A missing stage is a no-op (returns the input unchanged), matching
-    the TS runtime. `language` is the ISC-WF-1 W3 caller selection (§5.1).
+    A missing stage raises MapLogicError (WO18 G4 parity audit: the old
+    silent no-op hid map typos; mirrors rs/ruby). `language` is the
+    ISC-WF-1 W3 caller selection (§5.1).
     """
     stage = map_.stage(stage_name)
     if stage is None:
-        return text
+        raise MapLogicError(f'stage "{stage_name}" not found in {map_.system_code}')
     ctx = ExecutionContext(map_, text, loader, language)
     execute_stage_rules(stage, ctx)
     return ctx.current

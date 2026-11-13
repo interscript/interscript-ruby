@@ -9,6 +9,37 @@ RSpec.describe Interscript::Stdlib::Functions do
     expect(Interscript::Stdlib.available_functions).to include(:rababa, :secryst, :rababa_reverse)
   end
 
+  # WO18 G8 (parity audit): the ISC surface's fn literals —
+  # upcase/reverse/strip/swapcase — must be declared and implemented,
+  # not NoMethodError at dispatch (probe funcall-upcase-exec).
+  it "lists the four ISC fn literals as available functions" do
+    expect(Interscript::Stdlib.available_functions).to include(:upcase, :reverse, :strip, :swapcase)
+  end
+
+  describe ".upcase" do
+    it "uppercases (ts semantics: to_uppercase)" do
+      expect(described_class.upcase("abc")).to eq("ABC")
+    end
+  end
+
+  describe ".reverse" do
+    it "reverses the string" do
+      expect(described_class.reverse("abc")).to eq("cba")
+    end
+  end
+
+  describe ".strip" do
+    it "strips leading and trailing whitespace" do
+      expect(described_class.strip("  a b  ")).to eq("a b")
+    end
+  end
+
+  describe ".swapcase" do
+    it "swaps character case" do
+      expect(described_class.swapcase("aBc")).to eq("AbC")
+    end
+  end
+
   it "reverse-maps rababa to rababa_reverse" do
     expect(Interscript::Stdlib.reverse_function[:rababa]).to eq(:rababa_reverse)
     expect(Interscript::Stdlib.reverse_function[:rababa_reverse]).to eq(:rababa)

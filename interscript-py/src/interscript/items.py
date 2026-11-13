@@ -97,8 +97,13 @@ def compile_item(
             a = _alias_compiled(item.name)
             return _compiled(a.re, a.literal)
         resolved = ctx.resolve_alias(item.name)
+        # WO18 G3 (parity audit): an unresolved alias is map-logic
+        # damage, not an empty matcher. Compiling re="" matched at every
+        # string boundary and silently spliced the replacement text
+        # ("a" -> "XaX"); ruby raises SystemConversionError and rs
+        # fails at load.
         if resolved is None:
-            return _compiled("", "")
+            raise MapLogicError(f"Alias {item.name} not found")
         if (
             class_ctx
             and item.name not in ctx.map.aliases

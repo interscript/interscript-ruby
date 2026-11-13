@@ -176,7 +176,10 @@ class Interscript::Stdlib
   end
 
   def self.available_functions
-    %i[title_case downcase compose decompose separate unseparate secryst rababa rababa_reverse]
+    # WO18 G8 (parity audit): the ISC fn literals upcase/reverse/strip/
+    # swapcase are part of the grammar surface; declare them alongside
+    # the classic set (Stdlib::Functions implements all four).
+    %i[title_case downcase upcase compose decompose separate unseparate reverse strip swapcase secryst rababa rababa_reverse]
   end
 
   def self.reverse_function
