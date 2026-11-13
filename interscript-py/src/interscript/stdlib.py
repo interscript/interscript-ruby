@@ -119,9 +119,11 @@ def parallel_megaregexp(text: str, rules: list[MegaregexpRule]) -> str:
     `parallelMegaregexp`.
 
     Each alternative is wrapped in a uniquely-named group so the
-    callback can tell which rule matched; the group also shifts inner
-    capture numbering exactly as in the TS/Ruby engines, so `$1`
-    templates resolve against the same global group list.
+    callback can tell which rule matched. The wrappers occupy the
+    leading slots of the global numbered-group list, so the replacement
+    receives only the SLICE of groups belonging to the matched rule's
+    own pattern (rs semantics, WO18 G1): `$1` templates resolve against
+    the rule's first capture, never the wrapper's whole match.
     """
     if not rules:
         return text
@@ -129,11 +131,25 @@ def parallel_megaregexp(text: str, rules: list[MegaregexpRule]) -> str:
     mega = regex.compile("|".join(parts), REGEX_FLAGS)
     n_groups = mega.groups
 
+    # Numbered groups BEFORE each rule's wrapper: one wrapper per
+    # earlier rule plus each earlier rule's inner captures. The wrapper
+    # itself is global group (base + 1) — list index base — so the
+    # rule's own captures occupy list slice [base + 1, base + 1 + n).
+    # Compiling each pattern on its own yields its exact group count —
+    # the same grammar the alternation embeds.
+    offsets: list[tuple[int, int]] = []
+    base = 0
+    for r in rules:
+        n = regex.compile(r.pattern, REGEX_FLAGS).groups
+        offsets.append((base + 1, n))
+        base += 1 + n
+
     def _sub(m: regex.Match) -> str:
         for i, rule in enumerate(rules):
             if m.group(f"__r{i}") is not None:
+                start, n = offsets[i]
                 captures = [m.group(k) for k in range(1, n_groups + 1)]
-                return rule.replace(m.group(0), captures)
+                return rule.replace(m.group(0), captures[start : start + n])
         return m.group(0)
 
     return mega.sub(_sub, text)

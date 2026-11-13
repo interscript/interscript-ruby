@@ -111,6 +111,50 @@ class TestParallel:
         m = make_map([stage("main", [ParallelRule(rules=tuple(rules))])])
         assert execute_stage(m, "main", "ac a") == "Xc Y"
 
+    # WO18 G1 — capture/ref inside parallel blocks. A capture in `from`
+    # forces the megaregexp path; ref(N) templates must resolve against
+    # the matched rule's own capture list (rs semantics; the audit's
+    # probe maps tst-capture-parallel / tst-capture-par2 pin these).
+
+    def _probe_parallel_map(self, rules):
+        return make_map([stage("main", [ParallelRule(rules=tuple(rules))])])
+
+    def test_capture_ref_in_parallel_resolves_rule_locally(self):
+        # tst-capture-parallel: capture(a-z)+"x" -> ref(1)+"X", then "b" -> "B"
+        rules = [
+            SubRule(
+                from_=GroupItem(
+                    items=(
+                        CaptureGroupItem(data=AnyCharClassItem(range=("a", "z"))),
+                        StringItem(value="x"),
+                    )
+                ),
+                to=GroupItem(items=(CaptureRefItem(id=1), StringItem(value="X"))),
+            ),
+            sub("b", "B"),
+        ]
+        m = self._probe_parallel_map(rules)
+        assert execute_stage(m, "main", "ax") == "aX"
+        assert execute_stage(m, "main", "axb") == "aXB"
+
+    def test_capture_numbering_not_shifted_by_earlier_parallel_rule(self):
+        # tst-capture-par2: "k" -> "K", capture(a-z)+capture(0-9) -> ref(2)+ref(1)
+        rules = [
+            sub("k", "K"),
+            SubRule(
+                from_=GroupItem(
+                    items=(
+                        CaptureGroupItem(data=AnyCharClassItem(range=("a", "z"))),
+                        CaptureGroupItem(data=AnyCharClassItem(range=("0", "9"))),
+                    )
+                ),
+                to=GroupItem(items=(CaptureRefItem(id=2), CaptureRefItem(id=1))),
+            ),
+        ]
+        m = self._probe_parallel_map(rules)
+        assert execute_stage(m, "main", "k3a") == "3ka"
+
+
     def test_trailing_rules_run_after_parallel_pass(self):
         rules = [sub("a", "b")]
         m = make_map(
