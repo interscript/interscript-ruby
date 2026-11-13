@@ -1,8 +1,8 @@
 {
   "schema": "interscript.maps.ir.v1",
-  "source": "interscript/maps",
+  "source": "interscript/maps v3.2.0",
   "note": "curated subset of the full artifact for the interscript-py test suite; full artifact from interscript/maps GitHub Releases (interscript-maps-ir-<version>.tar.gz)",
-  "generatedAt": "2026-11-03T00:00:00.000Z",
+  "generatedAt": "2026-11-13T00:00:00.000Z",
   "count": 268,
   "systems": [
     "alalc-amh-Ethi-Latn-1997",
