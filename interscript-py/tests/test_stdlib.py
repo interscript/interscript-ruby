@@ -87,6 +87,48 @@ class TestMegaregexp:
         rules = [MegaregexpRule(pattern="([0-9]+)", replace=repl)]
         assert parallel_megaregexp("a12b3", rules) == "a<12>b<3>"
 
+    # WO18 G1 — the megaregexp join wraps each rule in a named group;
+    # $N templates must resolve against the RULE's own capture list
+    # (rs semantics), not the global list that includes the wrappers.
+
+    def test_rule_gets_its_own_captures_not_the_wrapper_match(self):
+        seen = []
+
+        def repl(m, groups):
+            seen.append(list(groups))
+            return f"{groups[0]}X"
+
+        rules = [
+            MegaregexpRule(pattern="([a-z])x", replace=repl),
+            MegaregexpRule(pattern="b", replace=lambda m, g: m.upper()),
+        ]
+        assert parallel_megaregexp("axb", rules) == "aXB"
+        assert seen[0] == ["a"]
+
+    def test_later_rule_captures_offset_past_earlier_inner_groups(self):
+        rules = [
+            MegaregexpRule(
+                pattern="([a-z])x",
+                replace=lambda m, g: f"{g[0]}X",
+            ),
+            MegaregexpRule(
+                pattern="b([0-9])",
+                replace=lambda m, g: g[0] if g[0] is not None else "?",
+            ),
+        ]
+        # "ax" hits rule 0; "b5" hits rule 1, whose only capture is "5" —
+        # the wrappers of rule 0 and rule 1 must not shift it.
+        assert parallel_megaregexp("axb5", rules) == "aX5"
+
+    def test_rule_local_numbering_with_two_captures(self):
+        rules = [
+            MegaregexpRule(
+                pattern="([a-z])([0-9])",
+                replace=lambda m, g: f"{g[1]}{g[0]}",
+            )
+        ]
+        assert parallel_megaregexp("k3", rules) == "3k"
+
 
 class TestFunctions:
     def test_case_functions(self):

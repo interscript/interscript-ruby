@@ -359,8 +359,10 @@ def _execute_parallel(rule: ParallelRule, ctx: ExecutionContext) -> None:
 
 
 class _MegaMatch:
-    """Adapter so _resolve_template can read megaregexp captures, whose
-    global numbering already includes the wrapping named group."""
+    """Adapter so _resolve_template can read megaregexp captures. The
+    group list is already RULE-LOCAL (parallel_megaregexp strips the
+    wrapping named groups, WO18 G1), so $N indexes the matched rule's
+    own captures, matching rs."""
 
     def __init__(self, whole: str, groups: list[str | None]) -> None:
         self._whole = whole
