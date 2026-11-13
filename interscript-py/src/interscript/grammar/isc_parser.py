@@ -35,6 +35,12 @@ from .peg import PegError, PegInterpreter
 # them with the tree in walk order.
 _SPAN_CAPTURES = frozenset({"from", "to"})
 
+# The rules whose failures carry diagnostic state the error renderer
+# below reads: "double_quoted" (Unterminated string) and "item_atom"
+# (keyword-in-item-position). The interpreter keeps per-failure
+# position tables for exactly these rules.
+_DIAG_RULES = frozenset({"double_quoted", "item_atom"})
+
 # extract [A-Za-z0-9_]* at a position (the hand parser's peek_word)
 _WORD_RE = re.compile(r"[A-Za-z0-9_]*")
 
@@ -94,7 +100,7 @@ def parse_isc(source, filename=None, resolve_dependency=None):
     on syntax errors.
     """
     c = compile_grammar()
-    interp = PegInterpreter(c.rules, source, span_names=_SPAN_CAPTURES)
+    interp = PegInterpreter(c.rules, source, span_names=_SPAN_CAPTURES, diag_rules=_DIAG_RULES)
     try:
         tree, _end = interp.parse_root(c.entry)
     except PegError as e:
