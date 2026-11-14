@@ -28,7 +28,16 @@ grammar InterscriptIsc version "0.1.0" {
   ident_rest = %x41-5A / %x61-7A / %x30-39 / %x5F
   identifier = (ident_first 0*ident_rest) as identifier
 
-  keyword = "parallel" / "sequence" / "stage" / "compose" / "separate" / "system" / "metadata" / "aliases" / "tests" / "notes" / "description" / "any_character" / "authority" / "dependency" / "run" / "sub" / "before" / "after" / "not_before" / "not_after" / "any" / "none" / "boundary" / "line_start" / "line_end" / "word_boundary" / "downcase" / "upcase" / "title_case" / "capture" / "maybe" / "some" / "ref" / "name" / "ruleset" / "use" / "override" / "languages" / "when"
+  # keyword — WO19 G6 ruling: the six fn-literal names are reserved
+  # words (upcase/downcase/title_case were already here; reverse/strip/
+  # swapcase join). A bare fn name is never an alias reference or an
+  # alias(...) argument: item-position uses parse as fn_lit (function
+  # capture). `downcase = any(...)` still declares an alias NAMED
+  # downcase (alias_decl has no keyword guard), matching the ruby
+  # concern grammar; the name is simply not reachable via a bare
+  # reference. Keyword is used only under negative lookahead, where any
+  # matching branch suffices.
+  keyword = "parallel" / "sequence" / "stage" / "compose" / "separate" / "system" / "metadata" / "aliases" / "tests" / "notes" / "description" / "any_character" / "authority" / "dependency" / "run" / "sub" / "before" / "after" / "not_before" / "not_after" / "any" / "none" / "boundary" / "line_start" / "line_end" / "word_boundary" / "downcase" / "upcase" / "title_case" / "reverse" / "strip" / "swapcase" / "capture" / "maybe" / "some" / "ref" / "name" / "ruleset" / "use" / "override" / "languages" / "when"
 
   # -- string literals ----------------------------------------------------
 
@@ -164,7 +173,11 @@ grammar InterscriptIsc version "0.1.0" {
 
   separator_part = whitespace "separator" whitespace (item_atom as separator)
   separate_directive = ("separate") as separate [(separator_part)]
-  case_directive = (("downcase") / ("upcase")) as case
+  # WO19 G6 ruling: all six fn-literal names are stage DIRECTIVES.
+  # downcase/upcase keep the keywordless bare form; reverse/strip/
+  # swapcase join with plain String semantics as the reference (ruby
+  # Stdlib::Functions: String#reverse / String#strip / String#swapcase).
+  case_directive = (("downcase") / ("upcase") / ("reverse") / ("strip") / ("swapcase")) as case
   case_kwargs_part = whitespace (kwarg_list as case_kwargs)
   title_case_directive = ("title_case") as case [(case_kwargs_part)]
   string_case_directive = case_directive / title_case_directive
