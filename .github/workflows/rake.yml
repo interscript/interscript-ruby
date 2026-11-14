@@ -6,6 +6,9 @@ on:
     tags: [ v* ]
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   rspec:
     name: Test on Ruby ${{ matrix.ruby }} / ${{ matrix.os }}

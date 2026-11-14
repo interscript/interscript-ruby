@@ -4,6 +4,9 @@ on:
   push:
     tags:
       - 'v*'
+
+permissions:
+  contents: write
   workflow_dispatch:
     inputs:
       tag:
