@@ -121,7 +121,10 @@ module Interscript
           end
 
           rule(:rule_line) do
-            whitespace? >> (rule | comment_item) >> whitespace?
+            # ISC-WF-1 #3.2: a `use` directive is a rule-line item - items
+            # inside a parallel/sequence block participate in that block's
+            # single pass (mirrors rs grammar/isc.parg rule_line).
+            whitespace? >> (rule | use_directive | comment_item) >> whitespace?
           end
 
           # A rule is either compact form (single line) or block form

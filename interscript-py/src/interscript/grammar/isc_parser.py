@@ -12,7 +12,7 @@ on syntax errors.
 Single-sourcing contract: the grammar TEXT embedded in grammar_source.py
 is the semantic source of truth (synced from interscript-ruby's
 lib/interscript/isc/grammar/isc.parg via scripts/sync_isc_grammar.py).
-The four documented grammar-table extensions below (GRAMMAR_EXTENSIONS)
+The three documented grammar-table extensions below (GRAMMAR_EXTENSIONS)
 restore hand-parser behaviors the canonical .parg rejects — each is
 spelled in the grammar language, named, and corpus-proven dormant.
 """
@@ -69,7 +69,7 @@ def compile_grammar() -> CompiledGrammar:
     # Shape-guarded merge: if a future .parg edit renames any of the three
     # rules, the merge raises instead of silently misparsing.
     ext = parse_parg(GRAMMAR_EXTENSIONS)
-    for name in ("any_arg", "block_rule", "run_dep", "rule_items"):
+    for name in ("any_arg", "block_rule", "run_dep"):
         if name not in rules or name not in ext.rules:
             raise RuntimeError(
                 f"grammar extension target {name} missing from isc.parg — "
@@ -141,7 +141,6 @@ grammar IscExtensions version "0.0.0" {
   any_arg = range_arg / set_arg / alias_arg / ((item) as any_item)
   block_rule = ("sub" [ws] "{" [ws] "from" whitespace ((item) as from) [ws] "to" whitespace ((item) as to) ((*(whitespace constraint)) as constraints) [ws] "}" [(when_guard)]) / ("sub" [ws] "{" [ws] "from" whitespace ((item) as from) [ws] "to" whitespace ((item) as to) ((*(whitespace constraint)) as constraints) [(when_guard)] [ws] "}")
   run_dep = "map." (((identifier *("-" identifier)) / identifier) as dep) ".stage." (identifier as stage)
-  rule_items = *(([ws] ((use_directive / rule / comment_item)) [ws]))
 }
 """
 
@@ -149,8 +148,8 @@ grammar IscExtensions version "0.0.0" {
 # syntax the canonical .parg rejects. Each is spelled in the grammar
 # language itself and merged into the rule table, so the .parg remains
 # the only semantic source and every extension is one visible, named
-# block (the first three are the same extensions the ts generated
-# parser ships):
+# block (all three are the same extensions the ts generated parser
+# ships):
 #
 # 1. `any_arg` — restore the ruby DSL's final `item as :any_item`
 #    fallback (concerns/items.rb any_constructor), which the canonical
@@ -167,20 +166,15 @@ grammar IscExtensions version "0.0.0" {
 #    parser's identifier admitted `-` in structural positions. Only the
 #    dependency slot is widened; the corpus is hyphen-free in every
 #    identifier position (proven by the corpus parity driver).
-# 4. `rule_items` — accept `use` directives inside parallel/sequence
-#    blocks (ISC-WF-1 §3: a ruleset can be spliced into one pass). The
-#    canonical .parg only feeds rule_line (sub-rows/comments) to pass
-#    blocks; the hand parser accepted `use` there and the py suite pins
-#    it (test_isc_parser.py::test_use_inside_parallel_participates_in_pass).
-#    `use` shadows nothing in rule position (rule always starts with
-#    "sub", comment with "#"). The override block's rule_line is left
-#    canonical — the hand parser silently DROPPED non-sub rows there,
-#    so a `use` inside `override {}` is a generated-parser rejection of
-#    a construct the corpus never uses.
+# The former fourth extension (`rule_items` accepting `use` inside
+# parallel/sequence blocks) was RETIRED by WO18 G5: the canonical .parg
+# now carries use_directive in rule_line (spec §3.2, mirroring the rs
+# grammar), so the extension is redundant and its merge-guard slot is
+# gone. The override block's rule_line accepts `use` rows for free —
+# the expansion flattens them (isc._Expander._expand_override_rows).
 #
-# Ruby rejects (1)'s absence aside, the outside-when, hyphen-dep, and
-# use-in-pass forms are cross-runtime divergences (ruby parses none);
-# aligning ruby/ts/py on one placement is an owner decision. None of the
-# four extensions fires on any corpus map (proven: the corpus py-vs-py
-# document-diff driver passes byte-identical with them in place, and a
-# corpus-wide scan finds no `use` inside a pass block).
+# Ruby rejects (1)'s absence aside, the outside-when and hyphen-dep
+# forms are cross-runtime divergences (ruby parses none); aligning
+# ruby/ts/py on one placement is an owner decision. None of the three
+# extensions fires on any corpus map (proven: the corpus py-vs-py
+# document-diff driver passes byte-identical with them in place).

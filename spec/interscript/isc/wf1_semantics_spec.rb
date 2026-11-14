@@ -434,4 +434,104 @@ RSpec.describe "ISC-WF-1 semantics" do
       expect(rule.when_languages).to be_nil
     end
   end
+
+  # WO18 G5 — spec §3.2: items inside a parallel/sequence block participate
+  # in that block's single pass; a ruleset containing a parallel block
+  # contributes that block as one pass at the expansion position. The
+  # expansion flattens the referenced ruleset's rules into the enclosing
+  # collection; non-rule targets (funcalls/stage runs) are a named
+  # MapLogicError — the interscript-rs behavior (probe tst-use-inseq).
+  describe "use inside blocks" do
+    it "splices the used ruleset's rules into a sequence block, in position" do
+      i = interpreter_for(<<~ISC)
+        system "T:tst-use-inseq:1" {
+          ruleset r1 {
+            parallel { sub "a" "1" }
+          }
+          stage main {
+            sequence {
+              use r1
+              sub "b" "2"
+            }
+          }
+        }
+      ISC
+      expect(i.call("ab")).to eq("12")
+    end
+
+    it "joins the pass: the used ruleset's rules flatten into the enclosing parallel" do
+      i = interpreter_for(<<~ISC)
+        system "T:tst-use-inpar:1" {
+          ruleset r1 {
+            parallel { sub "a" "1" }
+          }
+          stage main {
+            parallel {
+              use r1
+              sub "b" "2"
+            }
+          }
+        }
+      ISC
+      # one simultaneous pass: a→1 and b→2 together
+      expect(i.call("ab")).to eq("12")
+    end
+
+    it "merges an override block per-rule on the flattened list (child-wins)" do
+      i = interpreter_for(<<~ISC)
+        system "T:e-L:Latn:1" {
+          ruleset tbl {
+            parallel {
+              sub "a" "A1"
+              sub "b" "B"
+            }
+          }
+          stage main {
+            parallel {
+              use tbl override {
+                sub "a" "A2"
+              }
+            }
+          }
+        }
+      ISC
+      # the replacement row joins the same single pass, after the kept rows
+      expect(i.call("xa xb")).to eq("xA2 xB")
+    end
+
+    it "rejects a non-rule target (funcall in the used ruleset) with a named error" do
+      expect {
+        build_node_doc(<<~ISC)
+          system "T:e-L:Latn:1" {
+            ruleset tbl {
+              sub "a" "A"
+              upcase
+            }
+            stage main {
+              parallel { use tbl }
+            }
+          }
+        ISC
+      }.to raise_error(Interscript::MapLogicError, /cannot join the pass/)
+    end
+
+    it "rejects a non-rule target reached through nested use" do
+      expect {
+        build_node_doc(<<~ISC)
+          system "T:e-L:Latn:1" {
+            ruleset tbl {
+              sub "a" "A"
+              upcase
+            }
+            ruleset wrap {
+              use tbl
+            }
+            stage main {
+              sequence { use wrap }
+            }
+          }
+        ISC
+      }.to raise_error(Interscript::MapLogicError, /cannot join the pass/)
+    end
+  end
 end

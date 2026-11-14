@@ -279,9 +279,9 @@ module Interscript
       def extract_stage_items(n)
         return [] unless n.is_a?(Hash)
         if n[:sequence]
-          [{kind: :sequence, rules: filter_noop(Array(n[:sequence]).map { |r| extract_rule(r) })}]
+          [{kind: :sequence, rules: filter_noop(Array(n[:sequence]).map { |r| extract_stage_row(r) })}]
         elsif n[:parallel]
-          [{kind: :parallel, rules: filter_noop(Array(n[:parallel]).map { |r| extract_rule(r) })}]
+          [{kind: :parallel, rules: filter_noop(Array(n[:parallel]).map { |r| extract_stage_row(r) })}]
         elsif n[:separate]
           [{kind: :separate, separator: n[:separator] ? materialize(n[:separator]) : nil}]
         elsif n[:compose]
@@ -314,15 +314,26 @@ module Interscript
         end
       end
 
+      # WO18 G5: one rule-line entry of a parallel/sequence block — a
+      # rule def, or (since §3.2) a `use` directive splicing into the
+      # block's rule list.
+      def extract_stage_row(r)
+        return extract_use(r[:use]) if r.is_a?(Hash) && r.key?(:use)
+        extract_rule(r)
+      end
+
       # `use <name>` (same-map ruleset) or `use <dep>.<name>` (dependency-
       # declared ruleset), plus the optional override rows (W2).
       def extract_use(u)
         dep = u[:qualified_name] ? ident(u[:use_alias]) : nil
         name = ident(u[:qualified_name] || u[:use_alias])
         item = {kind: :use, ruleset: name, dependency: dep}
+        # WO18 G5: override rows are rule_line items, so they may
+        # themselves be `use` directives — carried as nested use defs and
+        # flattened at expansion time (rs extract_rule_list recursion).
         overrides = Array(u[:use_overrides])
-          .select { |r| r.is_a?(Hash) && r.key?(:from) }
-          .map { |r| extract_rule(r) }
+          .select { |r| r.is_a?(Hash) && (r.key?(:from) || r.key?(:use)) }
+          .map { |r| r.key?(:use) ? extract_use(r[:use]) : extract_rule(r) }
         item[:overrides] = overrides if overrides.any?
         item
       end

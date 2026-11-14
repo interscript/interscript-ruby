@@ -153,7 +153,11 @@ grammar InterscriptIsc version "0.1.0" {
   rule = block_rule / compact_rule
 
   comment_item = (("#" *(!%x0A chr)) as comment) / ((!(keyword) identifier) as noop)
-  rule_line = [ws] (rule / comment_item) [ws]
+  # ISC-WF-1 §3.2: a `use` directive is a rule-line item — items inside a
+  # parallel/sequence block participate in that block's single pass, and
+  # the expansion flattens the referenced ruleset's rules at this
+  # position (mirrors interscript-rs grammar/isc.parg rule_line).
+  rule_line = [ws] (rule / use_directive / comment_item) [ws]
   rule_items = *(rule_line)
   sequence_block = "sequence" [ws] "{" [ws] (rule_items as sequence) [ws] "}"
   parallel_block = "parallel" [ws] "{" [ws] (rule_items as parallel) [ws] "}"

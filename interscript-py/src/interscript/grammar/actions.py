@@ -393,8 +393,8 @@ class TreeToDocument:
 
     def rule_list(self, trees: list) -> list:
         """rule_items for parallel/sequence blocks: skip comment/noop rows;
-        `use` directives splice into the pass (GRAMMAR_EXTENSIONS
-        rule_items — the expansion resolves them in place)."""
+        `use` directives splice into the pass (canonical grammar
+        rule_line — the expansion resolves them in place, spec §3.2)."""
         out: list[Any] = []
         for t in trees:
             h = _hash(t)
