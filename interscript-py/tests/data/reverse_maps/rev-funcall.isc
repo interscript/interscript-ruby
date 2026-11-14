@@ -1,0 +1,6 @@
+system "rev:funcall" {
+stage main {
+  separate separator "-"
+  compose
+}
+}

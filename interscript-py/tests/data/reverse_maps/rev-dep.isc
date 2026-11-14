@@ -1,0 +1,7 @@
+system "rev:dep-main" {
+dependency "rev-dep-lib" as base
+stage main {
+  sub "m" "n"
+  run map.base.stage.main
+}
+}

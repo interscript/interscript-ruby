@@ -1,0 +1,9 @@
+system "rev:case" {
+stage main {
+  sub {
+    from "abc"
+    to upcase
+  }
+  downcase
+}
+}

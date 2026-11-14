@@ -1,0 +1,5 @@
+system "rev:delete" {
+stage main {
+  sub "h" none
+}
+}

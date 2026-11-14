@@ -18,6 +18,7 @@ from interscript.stdlib import (
     regexp_escape,
     separate,
     title_case,
+    unseparate,
     upcase,
 )
 
@@ -143,6 +144,11 @@ class TestFunctions:
         assert separate("abc") == "a b c"
         assert separate("abc", {"separator": "-"}) == "a-b-c"
 
+    def test_unseparate(self):
+        assert unseparate("a b c") == "abc"
+        assert unseparate("a-b-c", {"separator": "-"}) == "abc"
+        assert unseparate("a  b") == "ab"
+
     def test_compose_decompose(self):
         composed = "ñ"
         decomposed = decompose(composed)
@@ -155,6 +161,7 @@ class TestFunctions:
             "upcase",
             "title_case",
             "separate",
+            "unseparate",
             "compose",
             "decompose",
         }

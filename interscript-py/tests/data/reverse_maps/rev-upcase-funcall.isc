@@ -1,0 +1,5 @@
+system "rev:upcase" {
+stage main {
+  upcase
+}
+}

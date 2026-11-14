@@ -1,0 +1,6 @@
+system "rev:boundary" {
+stage main {
+  sub "x" "y" after boundary
+  sub "q" "r" before line_end
+}
+}

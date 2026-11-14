@@ -1,0 +1,8 @@
+system "rev:upcase-repeat" {
+stage main {
+  sub {
+    from maybe("a")
+    to upcase
+  }
+}
+}

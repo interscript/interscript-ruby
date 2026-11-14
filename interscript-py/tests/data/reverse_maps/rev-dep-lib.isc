@@ -1,0 +1,6 @@
+system "rev:dep-lib" {
+stage main {
+  sub "n" "p"
+  sub "e" "f"
+}
+}
