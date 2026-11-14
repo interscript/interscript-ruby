@@ -45,9 +45,10 @@ Parser fidelity notes:
   corpus-dormant; see grammar/actions.py for the full deviation list.
 - `languages` is declared once per map; a second declaration is a parse
   error. `use` may appear in stage bodies, ruleset bodies and inside
-  `parallel`/`sequence` blocks; a ruleset whose expansion contains a
-  pass block may not itself be used inside a pass block (a nested pass
-  has no meaning in the one-simultaneous-pass model).
+  `parallel`/`sequence` blocks (WO18 G5, spec §3.2): inside a pass block
+  the expansion flattens the referenced ruleset's rules into the
+  enclosing collection, and a referenced ruleset carrying non-rule
+  items (funcalls/stage runs) is a named load error.
 
 Performance note (measured, same machine): the generated parser parses
 the full 434-file corpus in ~86s where the hand parser took ~7s — the
@@ -219,11 +220,6 @@ class _Expander:
             if isinstance(it, RawUse):
                 out.extend(self.expand_use(it, chain, in_block))
                 continue
-            if in_block and isinstance(it, (ParallelBlock, SequenceBlock)):
-                self.error(
-                    "a ruleset containing a parallel/sequence block cannot be "
-                    "used inside a parallel/sequence block"
-                )
             if isinstance(it, (ParallelBlock, SequenceBlock)):
                 it = type(it)(rules=tuple(self.expand_items(list(it.rules), chain, True)))
             out.append(it)
@@ -237,15 +233,71 @@ class _Expander:
         else:
             expanded = self.expand_ruleset(use.name, chain)
 
-        if in_block and any(isinstance(x, (ParallelBlock, SequenceBlock)) for x in expanded):
-            self.error(
-                "a ruleset containing a parallel/sequence block cannot be used "
-                "inside a parallel/sequence block"
-            )
+        if in_block:
+            # WO18 G5 — spec §3.2: items inside a parallel/sequence block
+            # participate in that block's single pass; the expansion
+            # inherits the enclosing pass structure — the target's rule
+            # content flattens into the enclosing collection (interscript-rs
+            # resolve_use_rules). Overrides merge per-rule on the flat list.
+            rules = self._flatten_pass_items(expanded, chain)
+            if use.override is not None:
+                rules = self._merge_override_rules(
+                    rules, self._expand_override_rows(use.override, chain)
+                )
+            return rules
 
         if use.override is not None:
             expanded = self._apply_override(expanded, list(use.override))
         return list(expanded)
+
+    def _flatten_pass_items(
+        self, items: list[Any], chain: tuple[tuple[str, str], ...]
+    ) -> list[Any]:
+        """WO18 G5: flatten a structural expansion into the ordered rule
+        list of an enclosing pass (§3.2). Pass blocks contribute their
+        (already-expanded) rules in position; raw uses inside them were
+        flattened during expand_items. Non-rule items (funcalls, stage
+        runs) cannot join a pass — named load error."""
+        out: list[Any] = []
+        for it in items:
+            if isinstance(it, (ParallelBlock, SequenceBlock)):
+                out.extend(it.rules)
+            elif isinstance(it, ParsedRule):
+                out.append(it)
+            elif isinstance(it, RawUse):
+                out.extend(self.expand_use(it, chain, True))
+            else:
+                self.error(
+                    "use inside a parallel/sequence block: the referenced ruleset "
+                    "carries non-rule items (funcalls/stage runs) that cannot join "
+                    "the pass"
+                )
+        return out
+
+    def _expand_override_rows(
+        self, rows: tuple[ParsedRule, ...], chain: tuple[tuple[str, str], ...]
+    ) -> list[ParsedRule]:
+        """WO18 G5: an override block is a rule_line list, so its rows may
+        themselves be `use` directives (rs extract_rule_list recursion);
+        their content flattens into the override row list."""
+        out: list[ParsedRule] = []
+        for row in rows:
+            if isinstance(row, RawUse):
+                out.extend(self.expand_use(row, chain, True))
+            else:
+                out.append(row)
+        return out
+
+    def _merge_override_rules(
+        self, rules: list[Any], overrides: list[ParsedRule]
+    ) -> list[Any]:
+        """§4.2 child-wins merge over a FLAT rule list (the block-position
+        use): matching rules drop wherever they sit; the override rows land
+        at the expansion tail. No trailing-parallel join here — the caller
+        re-wraps the list into the enclosing block's structure."""
+        o_keys = {self._from_key(o) for o in overrides}
+        kept = [r for r in rules if self._from_key(r) not in o_keys]
+        return kept + list(overrides)
 
     def expand_via_dependency(
         self, use: RawUse, chain: tuple[tuple[str, str], ...]

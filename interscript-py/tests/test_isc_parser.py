@@ -310,11 +310,63 @@ class TestW1Rulesets:
         with pytest.raises(IscParseError, match="unknown ruleset"):
             parse('system "s" { stage main { use nope } }')
 
-    def test_block_in_block_error(self):
-        with pytest.raises(IscParseError, match="parallel/sequence block"):
+    # WO18 G5 — §3.2: items inside a pass block participate in that
+    # block's single pass; a ruleset containing a parallel block
+    # contributes that block as one pass at the expansion position.
+    # The expansion flattens the referenced ruleset's rules into the
+    # enclosing collection; non-rule targets are a named load error.
+
+    def test_use_in_sequence_flattens_in_position(self):
+        # mirrors maps probe tst-use-inseq (rs expects "12")
+        doc = parse(
+            'system "T:tst-use-inseq:1" { ruleset r1 { parallel { sub "a" "1" } } '
+            'stage main { sequence { use r1  sub "b" "2" } } }'
+        )
+        cm = isc_to_compiled_map(doc)
+        assert execute_stage(cm, "main", "ab") == "12"
+
+    def test_use_in_parallel_joins_the_pass(self):
+        doc = parse(
+            'system "T:tst-use-inpar:1" { ruleset r1 { parallel { sub "a" "1" } } '
+            'stage main { parallel { use r1  sub "b" "2" } } }'
+        )
+        cm = isc_to_compiled_map(doc)
+        # one simultaneous pass: a→1 and b→2 together
+        assert execute_stage(cm, "main", "ab") == "12"
+
+    def test_ruleset_with_parallel_block_is_one_pass_in_sequence(self):
+        doc = parse(
+            'system "s" { ruleset tbl { parallel { sub "a" "b" } sub "c" "d" } '
+            'stage main { sequence { use tbl  sub "e" "E" } } }'
+        )
+        # the used ruleset's rules splice flat, in position (spec §3.2)
+        seq = doc.stages[0].items[0]
+        assert [row(r)[:2] for r in seq.rules] == [("a", "b"), ("c", "d"), ("e", "E")]
+
+    def test_override_in_block_merges_per_rule(self):
+        doc = parse(
+            'system "s" { ruleset tbl { parallel { sub "a" "A1"  sub "b" "B" } } '
+            'stage main { parallel { use tbl override { sub "a" "A2" } } } }'
+        )
+        cm = isc_to_compiled_map(doc)
+        # child-wins replacement on the flat row list, all inside one pass
+        assert execute_stage(cm, "main", "xa xb") == "xA2 xB"
+
+    def test_non_rule_target_in_block_is_named_error(self):
+        with pytest.raises(IscParseError, match="cannot join the pass"):
             parse(
-                'system "s" { ruleset tbl { parallel { sub "a" "b" } } '
+                'system "s" { ruleset tbl { sub "a" "A"  upcase } '
                 'stage main { parallel { use tbl } } }'
+            )
+
+    def test_non_rule_target_through_nested_use_is_named_error(self):
+        # the funcall sits in the indirectly referenced ruleset; the
+        # flattening reaches it through one use-of-a-use hop
+        with pytest.raises(IscParseError, match="cannot join the pass"):
+            parse(
+                'system "s" { ruleset tbl { sub "a" "A"  upcase } '
+                'ruleset wrap { use tbl } '
+                'stage main { sequence { use wrap } } }'
             )
 
     def test_cross_dependency_use(self):

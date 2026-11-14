@@ -146,6 +146,49 @@ RSpec.describe "ISC-WF-1 grammar" do
       src = %(system "T:e-L:Latn:1" {\nstage main {\n  override {\n    sub "a" "b"\n  }\n}\n}\n)
       expect { Interscript::Isc::Parser.parse(src) }.to raise_error(Interscript::Isc::ParseError)
     end
+
+    # WO18 G5 — §3.2: `use` inside a parallel/sequence block is a
+    # rule-line position (rs grammar: rule_line carries use_directive).
+    it "parses a use directive inside a sequence block" do
+      doc = parse_doc(<<~ISC)
+        system "T:tst-use-inseq:1" {
+          ruleset r1 {
+            parallel { sub "a" "1" }
+          }
+          stage main {
+            sequence {
+              use r1
+              sub "b" "2"
+            }
+          }
+        }
+      ISC
+      item = doc[:stages].first[:body].first
+      expect(item[:kind]).to eq(:sequence)
+      expect(item[:rules].first[:kind]).to eq(:use)
+      expect(item[:rules].first[:ruleset]).to eq("r1")
+      expect(item[:rules].last[:from]).to eq(Interscript::Isc::Items::StringValue.new("b"))
+    end
+
+    it "parses a use directive inside a parallel block" do
+      doc = parse_doc(<<~ISC)
+        system "T:tst-use-inpar:1" {
+          ruleset r1 {
+            parallel { sub "a" "1" }
+          }
+          stage main {
+            parallel {
+              use r1
+              sub "b" "2"
+            }
+          }
+        }
+      ISC
+      item = doc[:stages].first[:body].first
+      expect(item[:kind]).to eq(:parallel)
+      expect(item[:rules].first[:kind]).to eq(:use)
+      expect(item[:rules].last[:from]).to eq(Interscript::Isc::Items::StringValue.new("b"))
+    end
   end
 
   describe "W3 when guard" do

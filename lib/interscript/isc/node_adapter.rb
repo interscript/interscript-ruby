@@ -163,10 +163,10 @@ module Interscript
         case item[:kind]
         when :parallel
           group = Interscript::Node::Group::Parallel.new
-          item[:rules].each { |r| group.children << build_rule(r) }
+          item[:rules].each { |r| group.children.push(*build_stage_row(r)) }
           [group]
         when :sequence
-          item[:rules].map { |r| build_rule(r) }
+          item[:rules].flat_map { |r| build_stage_row(r) }
         when :bare_rule
           [build_rule(item[:rule])]
         when :run
@@ -211,6 +211,61 @@ module Interscript
       def expand_use(item)
         rs = resolve_ruleset(item[:dependency], item[:ruleset])
         apply_overrides(deep_copy_children(rs.children), item[:overrides])
+      end
+
+      # WO18 G5 — `use` inside a parallel/sequence block (spec §3.2):
+      # the expansion inherits the enclosing pass structure — the target's
+      # rule content flattens into the enclosing collection. Non-rule
+      # items (funcalls, stage runs) cannot join a pass — named error
+      # (interscript-rs resolve_use_rules).
+      def expand_use_flat(item)
+        rs = resolve_ruleset(item[:dependency], item[:ruleset])
+        rules = flatten_rules(rs.children)
+        if item[:overrides]
+          o_rules = item[:overrides].flat_map { |r| build_override_row(r) }
+          rules = merge_override_rules(rules, o_rules)
+        end
+        rules
+      end
+
+      # One flattened row of a parallel/sequence block (§3.2): `use` rows
+      # splice the referenced ruleset's rules; rule rows build directly.
+      # Both builders return ARRAYS: a use row expands to possibly
+      # several flattened rules (spec §3.2), a rule row to itself.
+      def build_stage_row(row)
+        row.is_a?(Hash) && row[:kind] == :use ? expand_use_flat(row) : [build_rule(row)]
+      end
+
+      def build_override_row(row)
+        row.is_a?(Hash) && row[:kind] == :use ? expand_use_flat(row) : [build_rule(row)]
+      end
+
+      def flatten_rules(children)
+        children.flat_map do |node|
+          case node
+          when Interscript::Node::Group
+            node.children
+          when Interscript::Node::Rule::Sub
+            node
+          else
+            raise(Interscript::MapLogicError,
+              "use inside a parallel/sequence block: the referenced ruleset carries " \
+              "non-rule items (funcalls/stage runs) that cannot join the pass")
+          end
+        end
+      end
+
+      # §4.2 merge over a FLAT rule list (the block-position use):
+      # matching rules drop wherever they sit (child-wins on exact
+      # from-equality); the override rules land at the expansion tail.
+      # No trailing-parallel join here — the caller re-wraps the list
+      # into the enclosing block's structure.
+      def merge_override_rules(rules, o_rules)
+        o_keys = o_rules.map { |r| from_key(r) }
+        kept = rules.reject do |r|
+          r.is_a?(Interscript::Node::Rule::Sub) && o_keys.include?(from_key(r))
+        end
+        kept + o_rules
       end
 
       # The fully-expanded Node::Ruleset for a reference, memoized.
@@ -293,7 +348,9 @@ module Interscript
       def apply_overrides(children, overrides)
         return children if overrides.nil? || overrides.empty?
 
-        o_rules = overrides.map { |r| build_rule(r) }
+        # WO18 G5: an override row may itself be a `use` directive; its
+        # content flattens into the override list (rs extract_rule_list).
+        o_rules = overrides.flat_map { |r| build_override_row(r) }
         o_keys = o_rules.map { |r| from_key(r) }
 
         kept = children.filter_map do |node|
