@@ -160,6 +160,11 @@ class TestFunctions:
             "downcase",
             "upcase",
             "title_case",
+            # WO19 G6: the three new fn literals execute as directives
+            # and inline to-funcalls (ruby String semantics).
+            "reverse",
+            "strip",
+            "swapcase",
             "separate",
             "unseparate",
             "compose",

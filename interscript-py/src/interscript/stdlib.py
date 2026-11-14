@@ -221,6 +221,27 @@ def decompose(text: str, opts: dict | None = None) -> str:
     return unicodedata.normalize("NFD", text)
 
 
+# Ruby String#strip's character set: null, horizontal tab, line feed,
+# vertical tab, form feed, carriage return, space (ASCII set only —
+# deliberately NOT python's default Unicode-whitespace strip).
+_RUBY_STRIP_SET = "\0\t\n\v\f\r "
+
+
+def reverse(text: str, opts: dict | None = None) -> str:
+    """Ruby Stdlib::Functions.reverse = String#reverse (WO19 G6)."""
+    return text[::-1]
+
+
+def strip(text: str, opts: dict | None = None) -> str:
+    """Ruby Stdlib::Functions.strip = String#strip (WO19 G6)."""
+    return text.strip(_RUBY_STRIP_SET)
+
+
+def swapcase(text: str, opts: dict | None = None) -> str:
+    """Ruby Stdlib::Functions.swapcase = String#swapcase (WO19 G6)."""
+    return text.swapcase()
+
+
 class Function(Protocol):
     def __call__(self, text: str, opts: dict | None = None) -> str: ...
 
@@ -229,6 +250,12 @@ BUILTIN_FUNCTIONS: dict[str, Function] = {
     "downcase": downcase,
     "upcase": upcase,
     "title_case": title_case,
+    # WO19 G6: the three new fn literals execute as directives and
+    # inline to-funcalls with the plain String semantics of ruby
+    # Stdlib::Functions.
+    "reverse": reverse,
+    "strip": strip,
+    "swapcase": swapcase,
     "separate": separate,
     # Reverse-mode counterpart of `separate` (Stdlib.reverse_function).
     "unseparate": unseparate,

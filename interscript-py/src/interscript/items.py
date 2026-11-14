@@ -25,6 +25,16 @@ from .context import ExecutionContext
 from .errors import MapLogicError
 from .stdlib import regexp_escape
 
+# WO19 G6: the six fn literals are never from/constraint values — they
+# execute only as stage directives or `to` funcalls (FuncallInline).
+# ruby raises (canon), rs raises at build; the former alias fallback
+# degraded to a misleading "Alias <name> not found". `any_character` is
+# NOT in this set: it is the primitive spelled as a function atom
+# (rs lowers it to the any_character stdlib alias).
+FN_LITERALS = frozenset(
+    {"upcase", "downcase", "title_case", "reverse", "strip", "swapcase"}
+)
+
 
 @dataclass(frozen=True)
 class CompiledItem:
@@ -96,6 +106,14 @@ def compile_item(
         if item.name in ALIAS_COMPILED:
             a = _alias_compiled(item.name)
             return _compiled(a.re, a.literal)
+        # WO19 G6 item 2: a fn literal in FROM position is map-logic
+        # damage — raise the named error instead of the misleading
+        # "Alias <name> not found".
+        if item.name in FN_LITERALS:
+            raise MapLogicError(
+                f'function literal "{item.name}" in from position '
+                "(fn literals are directives or to-funcalls, not from values)"
+            )
         resolved = ctx.resolve_alias(item.name)
         # WO18 G3 (parity audit): an unresolved alias is map-logic
         # damage, not an empty matcher. Compiling re="" matched at every

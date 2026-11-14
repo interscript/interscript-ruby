@@ -698,7 +698,14 @@ def _compile_rules(rules: dict, span_names: frozenset, diag_rules: frozenset) ->
 
     def c_pred(body, positive):
         def pred(pos, I):
+            spans = I.spans
+            mark = len(spans)
             r = body(pos, I)
+            # A lookahead never contributes captures: drop any match
+            # spans its body recorded, success or failure (WO19: without
+            # this, a speculative rule re-parse inside a lookahead leaks
+            # from/to spans and desyncs the action layer's span walk).
+            del spans[mark:]
             if r[0] is not positive:
                 return _FAIL
             return (True, None, pos)
@@ -846,6 +853,32 @@ def _compile_rules(rules: dict, span_names: frozenset, diag_rules: frozenset) ->
 
         return seq
 
+    def c_seq_final_span(children):
+        # c_seq_final with span rollback: when a child fails, spans any
+        # EARLIER sibling recorded must be dropped — the sequence never
+        # happened. (WO19: the bare variant let a failed speculative
+        # parse leak from/to spans, desyncing the action layer's span
+        # walk on block rules carrying a `when` guard.)
+        def seq(pos, I):
+            spans = I.spans
+            cur = pos
+            parts: list = []
+            mark = len(spans)
+            for f, is_raw in children:
+                r = f(cur, I)
+                if not r[0]:
+                    if len(spans) != mark:
+                        del spans[mark:]
+                    return _FAIL
+                if is_raw:
+                    parts.append(flatten(r[1], False))
+                else:
+                    parts.append(r[1])
+                cur = r[2]
+            return (True, _flatten_sequence(parts), cur)
+
+        return seq
+
     def c_rep_final(body, body_raw, mn, mx, maybe, named):
         # The repetition's value is the CanFlatten fold over its
         # flattened items (named flag: direct capture bodies fold an
@@ -871,6 +904,44 @@ def _compile_rules(rules: dict, span_names: frozenset, diag_rules: frozenset) ->
             if count < mn:
                 if cur > I.farthest:
                     I.farthest = cur
+                return _FAIL
+            if maybe:
+                first = parts[0] if parts else None
+                if named or not (first is None or first == ""):
+                    return (True, first, cur)
+                return (True, "", cur)
+            return (True, _flatten_repetition(parts, named), cur)
+
+        return rep
+
+    def c_rep_final_span(body, body_raw, mn, mx, maybe, named):
+        # c_rep_final with span rollback: a failed iteration drops its
+        # own partial spans; a rep that fails outright (count < mn) drops
+        # every iteration's spans. (WO19, see c_seq_final_span.)
+        def rep(pos, I):
+            spans = I.spans
+            parts: list = []
+            cur = pos
+            count = 0
+            mark = len(spans)
+            while mx is None or count < mx:
+                mark_i = len(spans)
+                r = body(cur, I)
+                if not r[0]:
+                    if len(spans) != mark_i:
+                        del spans[mark_i:]
+                    break
+                if body_raw:
+                    parts.append(flatten(r[1], False))
+                else:
+                    parts.append(r[1])
+                cur = r[2]
+                count += 1
+            if count < mn:
+                if cur > I.farthest:
+                    I.farthest = cur
+                if len(spans) != mark:
+                    del spans[mark:]
                 return _FAIL
             if maybe:
                 first = parts[0] if parts else None
@@ -1239,6 +1310,10 @@ def _compile_rules(rules: dict, span_names: frozenset, diag_rules: frozenset) ->
                 ranges = _merge_ranges([r for ch in branches for r in ch.ranges])
                 return c_cc(ranges, _charset_for(ranges))
             children = tuple(build(ch, raw, named) for ch in branches)
+            # WO19: a spanning alternation whose branch fails after a
+            # later branch's span caps recorded must roll them back.
+            if node_spanning(node):
+                return c_alt_span(children)
             return c_alt(children)
         if t is Seq:
             if raw:
@@ -1248,6 +1323,8 @@ def _compile_rules(rules: dict, span_names: frozenset, diag_rules: frozenset) ->
                 (build(ch, False, False), type(ch) is Ref and ch.name in raw_rules)
                 for ch in node.a
             )
+            if node_spanning(node):
+                return c_seq_final_span(children)
             return c_seq_final(children)
         if t is Rep:
             body = node.a
@@ -1261,6 +1338,7 @@ def _compile_rules(rules: dict, span_names: frozenset, diag_rules: frozenset) ->
                 and node.min == 0
                 and node.max == 1
                 and type(body) is Ref
+                and not node_spanning(node)
             ):
                 wrap = maybe_wrap_of(body.name)
                 if wrap is not None:
@@ -1295,6 +1373,10 @@ def _compile_rules(rules: dict, span_names: frozenset, diag_rules: frozenset) ->
             if raw:
                 return c_rep(build(body, True, False), node.min, node.max, node.maybe)
             body_raw = type(body) is Ref and body.name in raw_rules
+            if node_spanning(node):
+                return c_rep_final_span(
+                    build(body, False, False), body_raw, node.min, node.max, node.maybe, named
+                )
             return c_rep_final(
                 build(body, False, False), body_raw, node.min, node.max, node.maybe, named
             )

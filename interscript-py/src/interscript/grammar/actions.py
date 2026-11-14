@@ -241,20 +241,14 @@ class TreeToDocument:
                 out.append("U")
             elif "unicode" in h:
                 digits = _text(h["unicode"])  # type: ignore[arg-type]
-                # DEVIATION (hand-parser parity): the grammar cannot
-                # distinguish `\uXXXX` from `\UXXXX` at the capture-name
-                # level (both are :unicode) — but the hand parser only
-                # DECODED lowercase \u and rendered a capital \U as a
-                # literal "U" followed by the raw digits. The slice offset
-                # tells us which spelling the source used (the escape
-                # letter sits one position before the digits). Mirroring
-                # the hand parser keeps documents byte-identical across
-                # the swap. (The ruby artifact parser decodes both
-                # spellings; aligning runtimes is an owner decision.)
-                if ord(self._src[h["unicode"].offset - 1]) == 0x55:
-                    out.append("U" + digits)
-                else:
-                    out.append(chr(int(digits, 16)))
+                # WO19 G6 ruling: BOTH escape spellings decode. The former
+                # hand parser only decoded lowercase \u and rendered a
+                # capital \U as a literal "U" followed by the raw digits,
+                # so gki-bel's `sub "\U040E" "Ŭ"` carried the from-value
+                # "U040E" and the row never fired. The grammar captures
+                # both spellings under :unicode and the tree carries the
+                # decoded codepoint (ruby/rs always decoded both).
+                out.append(chr(int(digits, 16)))
             else:
                 raise ValueError(f"unknown string part {sorted(h.keys())}")
         return "".join(out)

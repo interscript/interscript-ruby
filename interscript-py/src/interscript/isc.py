@@ -36,13 +36,21 @@ JSON-IR loader share one runtime representation.
 Parser fidelity notes:
 
 - The generated parser reproduces the former hand parser's documents
-  byte-for-byte across the whole maps corpus (434/434 through the
+  byte-for-byte across the whole maps corpus (432/435 through the
   py-vs-py parity driver, scripts/parse_parity_py.py), including the
   §4.2.6 trailing-parallel override join and byte-exact `from_source`
   override keys. Documented hand-parser quirks the grammar rejects
   (invalid `\\u` escapes, hyphenated identifiers outside run targets,
-  multi-digit capture refs, stage-level reverse/strip/swapcase) are
-  corpus-dormant; see grammar/actions.py for the full deviation list.
+  multi-digit capture refs) are corpus-dormant; see grammar/actions.py
+  for the full deviation list. (WO19 G6: stage-level
+  reverse/strip/swapcase moved from rejected quirk to IMPLEMENTED
+  directive; the capital `\\UXXXX` escape now decodes, and the
+  outside-form block-rule `when` extension was retired — canonical rs
+  binds the guard inside the braces, ruby parses the inside form only.)
+  The three py-vs-py holdouts (gki-bel, mvd-bel, odni-bel) are the
+  capital-`\\U` maps: the generated parser decodes the escape (ruby/rs
+  canon) where the hand parser carried the literal digits — the hand
+  side is the bug WO19 G6 item 4 fixes.
 - `languages` is declared once per map; a second declaration is a parse
   error. `use` may appear in stage bodies, ruleset bodies and inside
   `parallel`/`sequence` blocks (WO18 G5, spec §3.2): inside a pass block

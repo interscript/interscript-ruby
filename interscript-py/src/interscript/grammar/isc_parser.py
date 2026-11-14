@@ -12,7 +12,7 @@ on syntax errors.
 Single-sourcing contract: the grammar TEXT embedded in grammar_source.py
 is the semantic source of truth (synced from interscript-ruby's
 lib/interscript/isc/grammar/isc.parg via scripts/sync_isc_grammar.py).
-The three documented grammar-table extensions below (GRAMMAR_EXTENSIONS)
+The two documented grammar-table extensions below (GRAMMAR_EXTENSIONS)
 restore hand-parser behaviors the canonical .parg rejects — each is
 spelled in the grammar language, named, and corpus-proven dormant.
 """
@@ -66,10 +66,10 @@ def compile_grammar() -> CompiledGrammar:
 
     grammar = parse_parg(ISC_PARG_SOURCE)
     rules = dict(grammar.rules)
-    # Shape-guarded merge: if a future .parg edit renames any of the three
-    # rules, the merge raises instead of silently misparsing.
+    # Shape-guarded merge: if a future .parg edit renames any of the
+    # extension rules, the merge raises instead of silently misparsing.
     ext = parse_parg(GRAMMAR_EXTENSIONS)
-    for name in ("any_arg", "block_rule", "run_dep"):
+    for name in ("any_arg", "run_dep"):
         if name not in rules or name not in ext.rules:
             raise RuntimeError(
                 f"grammar extension target {name} missing from isc.parg — "
@@ -139,7 +139,6 @@ def _hand_style_failure(source, c, interp, peg_error) -> tuple[str, int]:
 GRAMMAR_EXTENSIONS = """
 grammar IscExtensions version "0.0.0" {
   any_arg = range_arg / set_arg / alias_arg / ((item) as any_item)
-  block_rule = ("sub" [ws] "{" [ws] "from" whitespace ((item) as from) [ws] "to" whitespace ((item) as to) ((*(whitespace constraint)) as constraints) [ws] "}" [(when_guard)]) / ("sub" [ws] "{" [ws] "from" whitespace ((item) as from) [ws] "to" whitespace ((item) as to) ((*(whitespace constraint)) as constraints) [(when_guard)] [ws] "}")
   run_dep = "map." (((identifier *("-" identifier)) / identifier) as dep) ".stage." (identifier as stage)
 }
 """
@@ -148,30 +147,29 @@ grammar IscExtensions version "0.0.0" {
 # syntax the canonical .parg rejects. Each is spelled in the grammar
 # language itself and merged into the rule table, so the .parg remains
 # the only semantic source and every extension is one visible, named
-# block (all three are the same extensions the ts generated parser
-# ships):
+# block (all remaining ones are the same extensions the ts generated
+# parser ships):
 #
 # 1. `any_arg` — restore the ruby DSL's final `item as :any_item`
 #    fallback (concerns/items.rb any_constructor), which the canonical
 #    .parg dropped; the interscript-rs vendored copy keeps it.
 #    (`any(space)`, `any(space + line_end)` — the ts suite pins both.)
-# 2. `block_rule` — accept the `when` guard AFTER the closing brace of
-#    the block form. The ruby DSL places the guard inside the braces;
-#    the ts and py runtimes both place it outside, and the py suite pins
-#    the outside form (test_isc_parser.py::test_when_suffix_after_block_form).
-#    The outside branch is tried first (it is the greedy one; its
-#    mandatory `}` keeps it from shadowing the inside form).
-# 3. `run_dep` — allow hyphenated dependency names (`run map.some-dep.…`).
+# 2. `run_dep` — allow hyphenated dependency names (`run map.some-dep.…`).
 #    The grammar's identifier is [A-Za-z_][A-Za-z0-9_]*; the former hand
 #    parser's identifier admitted `-` in structural positions. Only the
 #    dependency slot is widened; the corpus is hyphen-free in every
 #    identifier position (proven by the corpus parity driver).
-# The former fourth extension (`rule_items` accepting `use` inside
+# The former third extension (`rule_items` accepting `use` inside
 # parallel/sequence blocks) was RETIRED by WO18 G5: the canonical .parg
 # now carries use_directive in rule_line (spec §3.2, mirroring the rs
 # grammar), so the extension is redundant and its merge-guard slot is
 # gone. The override block's rule_line accepts `use` rows for free —
 # the expansion flattens them (isc._Expander._expand_override_rows).
+# The former fourth extension (block_rule accepting the `when` guard
+# AFTER the closing brace) was RETIRED by WO19 item 5: the canonical
+# binding is INSIDE the braces — rs (the golden executor) and the ruby
+# DSL reject the outside form outright, and the generated grammar now
+# matches them (test_isc_wf1.py::test_when_after_block_brace_rejected).
 #
 # Ruby rejects (1)'s absence aside, the outside-when and hyphen-dep
 # forms are cross-runtime divergences (ruby parses none); aligning
