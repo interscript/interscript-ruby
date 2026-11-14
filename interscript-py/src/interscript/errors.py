@@ -20,7 +20,7 @@ class MapFormatError(ValueError):
 
 class IscParseError(MapFormatError):
     """An .isc source could not be parsed (bad token, unclosed block,
-    malformed rule, `use` cycle...).
+    malformed rule, ...).
 
     Carries the byte `position` plus 1-based `line`/`col` of the failure,
     mirroring the TypeScript `IscParseError`.
@@ -31,6 +31,23 @@ class IscParseError(MapFormatError):
         self.line = line
         self.col = col
         super().__init__(f"ISC parse error at line {line}:{col}: {message}")
+
+
+class IscLoadError(MapFormatError):
+    """A parsed .isc document could not be expanded/loaded (use cycle,
+    unknown ruleset, a ruleset carrying non-rule items asked to join a
+    pass, ...). The source parsed; its WF-1 constructs do not resolve.
+
+    WO18 G9: expander-phase failures were routed through IscParseError,
+    misreporting semantic failures under the parse class (rs/ruby raise
+    their MapLogicError for the same failures).
+    """
+
+    def __init__(self, message: str, position: int, line: int, col: int) -> None:
+        self.position = position
+        self.line = line
+        self.col = col
+        super().__init__(f"ISC load error at line {line}:{col}: {message}")
 
 
 class ArtifactIntegrityError(ValueError):

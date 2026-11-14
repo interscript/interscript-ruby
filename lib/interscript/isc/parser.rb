@@ -66,12 +66,28 @@ module Interscript
     class ParseError < StandardError
       attr_reader :filename, :source
 
+      # Parsanol's expected-set dumps can run to hundreds of characters
+      # (WO18 G9); the message keeps the position and the first few
+      # alternatives — rs/ts/py give compact line:col pointers.
+      MAX_EXPECTED = 6
+
       def initialize(message, filename:, source:, cause: nil)
         @filename = filename
         @source = source
         @cause = cause
         loc = filename ? "#{filename}: " : ""
-        super("#{loc}#{message}")
+        super("#{loc}#{self.class.trim_expected(message)}")
+      end
+
+      def self.trim_expected(message)
+        message.sub(/expected one of \[([^\]]*)\]/) do
+          items = Regexp.last_match(1).split(", ")
+          if items.length > MAX_EXPECTED
+            "expected one of [#{items.first(MAX_EXPECTED).join(", ")} …(+#{items.length - MAX_EXPECTED} more)]"
+          else
+            Regexp.last_match(0)
+          end
+        end
       end
     end
   end

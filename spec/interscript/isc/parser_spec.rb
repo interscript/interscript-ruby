@@ -36,6 +36,20 @@ RSpec.describe Interscript::Isc::Parser do
       }.to raise_error(Interscript::Isc::ParseError)
     end
 
+    # WO18 G9 (parity audit): parsanol's expected-set dumps can run to
+    # hundreds of characters; the message keeps the position and the
+    # first few alternatives instead of the full list (rs/ts/py give
+    # compact line:col pointers).
+    it "trims a long expected-set in the parse error message" do
+      expect {
+        described_class.parse("system \"x\" { stage main { sub \"a\" \"b\" ", filename: "cut.isc")
+      }.to raise_error(Interscript::Isc::ParseError) { |e|
+        expect(e.message).to match(/expected one of \[[^\]]*\(\+\d+ more\)\]/)
+        expect(e.message.length).to be < 200
+        expect(e.message).to include("line 1")
+      }
+    end
+
     it "accepts empty metadata block" do
       src = <<~ISC
         system "TEST:eng-Latn:Latn:2026" {

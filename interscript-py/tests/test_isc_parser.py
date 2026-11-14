@@ -17,7 +17,7 @@ from interscript._ir_types import (
     StringItem,
     SubRule,
 )
-from interscript.errors import IscParseError
+from interscript.errors import IscLoadError, IscParseError
 from interscript.executor import execute_stage
 from interscript.isc import (
     IscDocument,
@@ -296,18 +296,18 @@ class TestW1Rulesets:
         assert row(bare_rules(doc)[0])[:2] == ("a", "A")
 
     def test_cycle_error(self):
-        with pytest.raises(IscParseError, match="use cycle"):
+        with pytest.raises(IscLoadError, match="use cycle"):
             parse(
                 'system "s" { ruleset a { use b } ruleset b { use a } '
                 'stage main { use a } }'
             )
 
     def test_self_cycle_error(self):
-        with pytest.raises(IscParseError, match="use cycle"):
+        with pytest.raises(IscLoadError, match="use cycle"):
             parse('system "s" { ruleset a { use a } stage main { use a } }')
 
     def test_unknown_ruleset_error(self):
-        with pytest.raises(IscParseError, match="unknown ruleset"):
+        with pytest.raises(IscLoadError, match="unknown ruleset"):
             parse('system "s" { stage main { use nope } }')
 
     # WO18 G5 — §3.2: items inside a pass block participate in that
@@ -353,7 +353,7 @@ class TestW1Rulesets:
         assert execute_stage(cm, "main", "xa xb") == "xA2 xB"
 
     def test_non_rule_target_in_block_is_named_error(self):
-        with pytest.raises(IscParseError, match="cannot join the pass"):
+        with pytest.raises(IscLoadError, match="cannot join the pass"):
             parse(
                 'system "s" { ruleset tbl { sub "a" "A"  upcase } '
                 'stage main { parallel { use tbl } } }'
@@ -362,7 +362,7 @@ class TestW1Rulesets:
     def test_non_rule_target_through_nested_use_is_named_error(self):
         # the funcall sits in the indirectly referenced ruleset; the
         # flattening reaches it through one use-of-a-use hop
-        with pytest.raises(IscParseError, match="cannot join the pass"):
+        with pytest.raises(IscLoadError, match="cannot join the pass"):
             parse(
                 'system "s" { ruleset tbl { sub "a" "A"  upcase } '
                 'ruleset wrap { use tbl } '
@@ -380,23 +380,23 @@ class TestW1Rulesets:
         assert rows == [("a", "A"), ("b", "B")]
 
     def test_unknown_dependency_alias(self):
-        with pytest.raises(IscParseError, match="unknown dependency alias"):
+        with pytest.raises(IscLoadError, match="unknown dependency alias"):
             parse('system "s" { stage main { use ghost.tbl } }')
 
     def test_unresolvable_dependency(self):
-        with pytest.raises(IscParseError, match="cannot resolve dependency"):
+        with pytest.raises(IscLoadError, match="cannot resolve dependency"):
             parse(
                 'system "s" { dependency "missing" as m  stage main { use m.tbl } }',
                 resolve_dependency=lambda code: None,
             )
 
     def test_no_resolver(self):
-        with pytest.raises(IscParseError, match="no resolver"):
+        with pytest.raises(IscLoadError, match="no resolver"):
             parse('system "s" { dependency "d" as m  stage main { use m.tbl } }')
 
     def test_missing_ruleset_in_dependency(self):
         base = parse('system "base" { ruleset other { sub "a" "A" } }')
-        with pytest.raises(IscParseError, match="unknown ruleset in dependency"):
+        with pytest.raises(IscLoadError, match="unknown ruleset in dependency"):
             parse(
                 'system "s" { dependency "base" as b  stage main { use b.tbl } }',
                 resolve_dependency=lambda code: base,
