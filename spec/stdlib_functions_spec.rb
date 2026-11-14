@@ -135,3 +135,16 @@ RSpec.describe Interscript::ML::Provisioning do
     end
   end
 end
+
+RSpec.describe Interscript::Stdlib::Functions do
+  # WO18 G11 (parity audit): a bare `rababa` directive (no config:) is a
+  # map-logic error, not a Ruby ArgumentError — ts/py raise their named
+  # provisioning errors, rs rejects at load; ruby must fail named too.
+  describe ".rababa without config" do
+    it "raises MapLogicError, not ArgumentError" do
+      expect { described_class.rababa("مرحبا") }.to raise_error(
+        Interscript::MapLogicError, /rababa requires config/
+      )
+    end
+  end
+end

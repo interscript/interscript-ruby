@@ -59,7 +59,12 @@ class Interscript::Stdlib
       SecrystAdapter.call(output, model: model)
     end
 
-    def self.rababa(output, config:)
+    # A bare `rababa` directive (no config:) is a map-logic error — the
+    # grammar's kwargs are optional, and a Ruby ArgumentError here is
+    # accidental (WO18 G11; ts/py raise their named errors, rs rejects
+    # at load).
+    def self.rababa(output, config: nil)
+      raise Interscript::MapLogicError, "rababa requires config:" unless config
       RababaAdapter.call(output, config: config)
     end
 
