@@ -18,6 +18,16 @@ RSpec.describe "ISC-WF-1 semantics" do
   end
 
   describe "W1 expansion" do
+    # WO18 G7 (py canon): a duplicate ruleset declaration is a load
+    # error - keep-first hides map bugs and makes the executed body
+    # declaration-order dependent (rs #19, ts #138).
+    it "rejects a duplicate ruleset definition" do
+      src = 'system "T:g7:1" { ruleset a { sub "x" "1" } ruleset a { sub "x" "2" } stage main { use a } }'
+      expect { build_node_doc(src) }.to raise_error(
+        Interscript::MapLogicError, /ruleset "a" declared more than once/
+      )
+    end
+
     let(:src) do
       <<~ISC
         system "T:e-L:Latn:1" {
