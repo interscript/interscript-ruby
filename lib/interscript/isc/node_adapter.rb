@@ -233,11 +233,11 @@ module Interscript
       # Both builders return ARRAYS: a use row expands to possibly
       # several flattened rules (spec §3.2), a rule row to itself.
       def build_stage_row(row)
-        row.is_a?(Hash) && row[:kind] == :use ? expand_use_flat(row) : [build_rule(row)]
+        (row.is_a?(Hash) && row[:kind] == :use) ? expand_use_flat(row) : [build_rule(row)]
       end
 
       def build_override_row(row)
-        row.is_a?(Hash) && row[:kind] == :use ? expand_use_flat(row) : [build_rule(row)]
+        (row.is_a?(Hash) && row[:kind] == :use) ? expand_use_flat(row) : [build_rule(row)]
       end
 
       def flatten_rules(children)
