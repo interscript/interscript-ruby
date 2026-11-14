@@ -153,7 +153,14 @@ class MapLoader(MapResolver):
         return sorted(self._known)
 
     def map_exist(self, system_code: str) -> bool:
-        return system_code in self._known
+        return system_code in self._known or system_code in self._cache
+
+    def register(self, system_code: str, map_: CompiledMap) -> None:
+        """Register a compiled map directly (bypasses load paths) — the
+        mirror of interscript-ts's `MapLoader.register`. Used by the
+        runtime's reverse-name load fallback to cache a reversed
+        document under the requested name."""
+        self._cache[system_code] = map_
 
 
 def _default_cache_dir() -> Path:

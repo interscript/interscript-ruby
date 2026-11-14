@@ -1,0 +1,8 @@
+system "rev:sequence" {
+stage main {
+  sequence {
+    sub "ab" "X"
+    sub "X" "Q"
+  }
+}
+}

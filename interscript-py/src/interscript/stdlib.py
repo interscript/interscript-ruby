@@ -169,17 +169,44 @@ def upcase(text: str, opts: dict | None = None) -> str:
 
 
 def title_case(text: str, opts: dict | None = None) -> str:
+    """`Interscript::Stdlib::Functions.title_case` / rs `title_case`
+    parity: upcase the FIRST character of the string, then the
+    character following each word separator. Other characters are
+    untouched (ruby `gsub(/^(.)/)` + `gsub(/#{sep}(.)/)` — notably NOT
+    full per-word title-casing)."""
     sep = (opts or {}).get("wordSeparator", " ")
+    chars = list(text)
+    if chars:
+        chars[0] = chars[0].upper()
     if sep == "":
-        return text[:1].upper() + text[1:].lower()
-    return sep.join(
-        w[:1].upper() + w[1:].lower() if w else w for w in text.split(sep)
-    )
+        return "".join(chars)
+    sep_chars = list(sep)
+    out: list[str] = []
+    i = 0
+    while i < len(chars):
+        if i + len(sep_chars) < len(chars) and chars[i : i + len(sep_chars)] == sep_chars:
+            out.append(sep)
+            out.append(chars[i + len(sep_chars)].upper())
+            i += len(sep_chars) + 1
+        else:
+            out.append(chars[i])
+            i += 1
+    return "".join(out)
 
 
 def separate(text: str, opts: dict | None = None) -> str:
     sep = (opts or {}).get("separator", " ")
     return sep.join(text)
+
+
+def unseparate(text: str, opts: dict | None = None) -> str:
+    """Remove every separator (the inverse of `separate`).
+    `Interscript.functions.unseparate` — used by reverse mode
+    (`Stdlib.reverse_function` maps separate <-> unseparate). Split
+    semantics mirror rs/ruby: trailing empty segments survive the split
+    and rejoin (no trimming)."""
+    sep = (opts or {}).get("separator", " ")
+    return "".join(text.split(sep))
 
 
 def compose(text: str, opts: dict | None = None) -> str:
@@ -203,6 +230,8 @@ BUILTIN_FUNCTIONS: dict[str, Function] = {
     "upcase": upcase,
     "title_case": title_case,
     "separate": separate,
+    # Reverse-mode counterpart of `separate` (Stdlib.reverse_function).
+    "unseparate": unseparate,
     "compose": compose,
     "decompose": decompose,
 }

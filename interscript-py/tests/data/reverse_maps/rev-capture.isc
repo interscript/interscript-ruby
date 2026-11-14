@@ -1,0 +1,8 @@
+system "rev:capture" {
+stage main {
+  sub {
+    from "a" + capture("b" + maybe("c")) + "d"
+    to "X" + ref(1)
+  }
+}
+}

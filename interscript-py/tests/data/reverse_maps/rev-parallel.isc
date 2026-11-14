@@ -1,0 +1,9 @@
+system "rev:parallel" {
+stage main {
+  parallel {
+    sub "ph" "f"
+    sub "th" "t"
+    sub "x" "ks"
+  }
+}
+}
