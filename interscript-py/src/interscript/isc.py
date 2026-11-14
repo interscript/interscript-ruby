@@ -78,7 +78,7 @@ from ._ir_types import (
     Stage,
     SubRule,
 )
-from .errors import IscParseError, MapFormatError
+from .errors import IscLoadError, IscParseError, MapFormatError
 
 DependencyResolver = Callable[[str], "IscDocument | None"]
 
@@ -196,7 +196,11 @@ class _Expander:
         line = self._src[:pos].count("\n") + 1
         col = pos - self._src.rfind("\n", 0, pos)
         full_msg = f"{self._filename}: {msg}" if self._filename else msg
-        raise IscParseError(full_msg, pos, line, col)
+        # The expander runs post-parse: every failure here is a WF-1
+        # construct that does not resolve (cycle, unknown ruleset, a
+        # non-rule target asked to join a pass) — the load class, not
+        # the parse class (WO18 G9; rs/ruby raise MapLogicError).
+        raise IscLoadError(full_msg, pos, line, col)
 
     def expand_ruleset(self, name: str, chain: tuple[tuple[str, str], ...] = ()) -> list[Any]:
         entry = (self._system_code, name)
@@ -470,6 +474,7 @@ def _lower_rule(rule: ParsedRule) -> SubRule:
 __all__ = [
     "IscDependency",
     "IscDocument",
+    "IscLoadError",
     "IscParseError",
     "IscStage",
     "IscTest",
