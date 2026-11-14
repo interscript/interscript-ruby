@@ -52,7 +52,15 @@ module Interscript
             languages_arr.concat(Array(item[:languages]).map { |l| ident(l) })
           elsif item[:ruleset]
             # ISC-WF-1 W1: named ruleset declaration.
-            rulesets_arr << extract_ruleset(item)
+            rs = extract_ruleset(item)
+            # WO18 G7 (py canon): a duplicate declaration is a load
+            # error - keep-first hides map bugs and makes the executed
+            # body declaration-order dependent (rs #19, ts #138).
+            if rulesets_arr.any? { |existing| existing[:name] == rs[:name] }
+              raise Interscript::MapLogicError,
+                %(ruleset "#{rs[:name]}" declared more than once in #{@filename})
+            end
+            rulesets_arr << rs
           elsif item[:stage]
             stages_arr << extract_stage(item)
           elsif item[:target]
