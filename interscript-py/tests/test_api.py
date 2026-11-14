@@ -9,8 +9,10 @@ import interscript
 
 
 def test_transliterate_known_vector(runtime):
-    # From the map's own embedded tests block (un-bul-Cyrl-Latn-1977).
-    assert runtime.transliterate("un-bul-Cyrl-Latn-1977", "нос Бяга БЯГА") == "nos Byaga BYAGA"
+    # From the map's own embedded tests block (un-bul-Cyrl-Latn-1977):
+    # the 1977 system romanizes я/Я as ja/Ja (the map was reissued from
+    # the yu/ya values of the superseding current system).
+    assert runtime.transliterate("un-bul-Cyrl-Latn-1977", "нос Бяга БЯГА") == "nos Bjaga BJAGA"
 
 
 def test_transliterate_module_level(artifact_dir):
