@@ -22,6 +22,7 @@ from interscript._ir_types import (
     Stage,
     StringItem,
     SubRule,
+    FuncallInline,
 )
 from interscript.errors import AsyncFunctionError, MapLogicError
 from interscript.executor import execute_stage
@@ -281,3 +282,45 @@ class TestItemKinds:
         )
         m = make_map([stage("main", [rule])])
         assert execute_stage(m, "main", "a ab abb") == "X X Xb"
+
+
+class TestWO19G6FnLiterals:
+    """WO19 G6 — fn-literal alignment (items 1-3)."""
+
+    def test_fn_literal_in_from_raises_named_error(self):
+        # Item 2: a fn literal in FROM position is map-logic damage —
+        # ruby raises (canon), rs raises at build; the former alias
+        # fallback said "Alias downcase not found".
+        m = make_map([stage("main", [sub(AliasItem(name="downcase"), "X")])])
+        with pytest.raises(
+            MapLogicError,
+            match='function literal "downcase" in from position',
+        ):
+            execute_stage(m, "main", "abc")
+
+    def test_reverse_directive_executes(self):
+        # Item 3: ruby String#reverse semantics.
+        m = make_map(
+            [stage("main", [sub("1", "2"), FuncallRule(name="reverse")])]
+        )
+        assert execute_stage(m, "main", "abc1") == "2cba"
+
+    def test_strip_directive_executes(self):
+        # Item 3: ruby String#strip semantics (ASCII whitespace + NUL).
+        m = make_map([stage("main", [FuncallRule(name="strip")])])
+        assert execute_stage(m, "main", "  x  ") == "x"
+        assert execute_stage(m, "main", "\t y \n") == "y"
+
+    def test_swapcase_directive_executes(self):
+        # Item 3: ruby String#swapcase semantics.
+        m = make_map(
+            [stage("main", [sub("a", "b"), FuncallRule(name="swapcase")])]
+        )
+        assert execute_stage(m, "main", "aBc") == "BbC"
+
+    def test_reverse_inline_to_funcall_executes(self):
+        # Item 3: a reverse fn literal as a `to` target.
+        m = make_map(
+            [stage("main", [SubRule(from_=StringItem(value="abc"), to=FuncallInline(name="reverse"))])]
+        )
+        assert execute_stage(m, "main", "xabcy") == "xcbay"

@@ -211,11 +211,40 @@ class TestW3ParseSide:
         rows = [row(r) for r in bare_rules(doc)]
         assert rows == [("x", "y", ("kur",)), ("z", "w", None)]
 
-    def test_when_suffix_after_block_form(self):
+    def test_when_inside_block_form(self):
+        # WO19 G6 item 5: canonical rs binds the when guard inside the
+        # braces; ruby parses the inside form only. The former py/ts
+        # outside-form extension (`} when kur`) is retired.
         doc = parse(
-            'system "s" { stage main { sub { from "x" to "y" } when kur } }'
+            'system "s" { stage main { sub { from "x" to "y" when kur } } }'
         )
         assert row(bare_rules(doc)[0]) == ("x", "y", ("kur",))
+
+    def test_when_suffix_after_block_form_rejected(self):
+        # WO19 G6 item 5: the outside form is no longer accepted (the
+        # block_rule extension was retired with the alignment).
+        with pytest.raises(IscParseError):
+            parse(
+                'system "s" { stage main { sub { from "x" to "y" } when kur } }'
+            )
+
+    def test_capital_u_escape_decodes(self):
+        # WO19 G6 item 4 (the gki-bel shape): `sub "\U040E" "Ŭ"` — the
+        # former hand parser carried the from as the literal text
+        # "U040E" and the row never fired. Both spellings decode now
+        # (ruby/rs always did).
+        doc = parse('system "s" { stage main { sub "\\U040E" "Ŭ" } }')
+        assert row(bare_rules(doc)[0]) == ("Ў", "Ŭ", None)
+
+    def test_keyword_alias_declaration_parses(self):
+        # WO19 G6 item 1: the six fn names are reserved — a bare name is
+        # never an alias reference — but `downcase = any(...)` still
+        # DECLARES an alias named downcase (alias_decl has no keyword
+        # guard).
+        doc = parse(
+            'system "s" { aliases { downcase = any("a".."z") } stage main { sub "k" "K" } }'
+        )
+        assert row(bare_rules(doc)[0]) == ("k", "K", None)
 
     def test_when_is_not_parsed_as_to(self):
         # §2: `when` joins the keyword table — `sub "x" when kur` must not
