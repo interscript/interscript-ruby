@@ -55,6 +55,13 @@ class Interscript::Node::Item
   autoload :Any, "interscript/node/item/any"
   autoload :Stage, "interscript/node/item/stage"
   autoload :CaptureGroup, "interscript/node/item/capture"
+  # CaptureRef lives in the same file as CaptureGroup. It MUST have its
+  # own autoload entry: a map carrying only a to-position ref(1) (27
+  # corpus maps) references the constant without ever touching
+  # CaptureGroup, and without the entry it crashed with a NameError
+  # whenever no earlier parse had loaded the file by accident
+  # (interscript-ruby#864, WO20 fuzz campaign).
+  autoload :CaptureRef, "interscript/node/item/capture"
   autoload :Repeat, "interscript/node/item/repeat"
   # Maybe, MaybeSome, Some are subclasses of Repeat defined in
   # the same file. Autoload points to repeat.rb which defines all of them.
