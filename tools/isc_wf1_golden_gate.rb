@@ -95,6 +95,14 @@ else
   Set.new
 end
 
+# Missing golden = missing sibling checkout: skip like the rs/ts/py
+# gates do instead of crashing (the reverse golden lands on rs main
+# with the WO20 branch; until then this gate is a no-op).
+unless File.exist?(options[:golden])
+  puts "skip: no golden capture at #{options[:golden]}"
+  exit 0
+end
+
 rows = File.readlines(options[:golden], encoding: "UTF-8").map { |l| JSON.parse(l) }
 captured = rows.map do |row|
   out = begin
