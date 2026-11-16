@@ -379,6 +379,20 @@ module Interscript
       end
 
       def build_rule(rule_def)
+        # A capture reference whose capture group the from expression
+        # never opens is a named parse-time rejection (WO18 G8's
+        # fn-literal-in-from convention: a named MapLogicError, never an
+        # accidental exception — before the WO20 fix this exact surface
+        # crashed with a NameError, interscript-ruby#864). Paired refs
+        # stay legal: the geminate idiom `from capture(x) + ref(1)` is
+        # pinned by node_adapter_spec, and `to`-position refs (27 corpus
+        # maps) are unaffected. Whether unpaired refs should instead be
+        # a run-time error like ts/py/rs is the owner-held
+        # cross-runtime question from the fuzz triage.
+        if (unpaired = unpaired_capture_ref(rule_def[:from]))
+          raise Interscript::MapLogicError,
+            "ref(#{unpaired}) in from position has no matching capture group"
+        end
         from = convert_item(rule_def[:from])
         to = convert_item(rule_def[:to])
         opts = {}
@@ -492,6 +506,47 @@ module Interscript
         parts = concat.parts.map { |p| convert_item(p) }
         return parts.first if parts.size == 1
         parts.reduce { |acc, part| acc + part }
+      end
+
+      # The highest capture-reference index the from expression has no
+      # capture group to point at, or nil when every ref is paired.
+      # Onigmo accepts any existing group number from any position
+      # (forward and nested refs included), so pairing is a count
+      # comparison: a ref(N) is valid iff the expression opens >= N
+      # capture groups (CaptureGroup is the only capturing wrapper in
+      # build_item; plain groups and repeats render non-capturing).
+      def unpaired_capture_ref(item)
+        refs = max_capture_ref(item)
+        return nil if refs.nil? || refs <= count_capture_groups(item)
+        refs
+      end
+
+      def max_capture_ref(item)
+        case item
+        when Items::Capture
+          item.index
+        when Items::Concat
+          item.parts.filter_map { |p| max_capture_ref(p) }.max
+        when Items::CaptureGroup, Items::Maybe, Items::Some
+          max_capture_ref(item.inner)
+        when Items::Set
+          item.chars.filter_map { |c| max_capture_ref(c) }.max
+        end
+      end
+
+      def count_capture_groups(item)
+        case item
+        when Items::CaptureGroup
+          1 + count_capture_groups(item.inner)
+        when Items::Concat
+          item.parts.sum { |p| count_capture_groups(p) }
+        when Items::Maybe, Items::Some
+          count_capture_groups(item.inner)
+        when Items::Set
+          item.chars.sum { |c| count_capture_groups(c) }
+        else
+          0
+        end
       end
 
       def convert_set(set)
