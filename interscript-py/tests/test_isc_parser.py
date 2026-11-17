@@ -502,3 +502,85 @@ class TestW2Override:
                 'system "s" { ruleset t { sub "a" "b" } ruleset t { sub "c" "d" } '
                 'stage main { use t } }'
             )
+
+
+class TestParseBoundaryFuzzFamilies:
+    """WO20 fuzz families (maps#293) — the py parser's accept/reject
+    boundary must match ruby/ts/rs on every family the campaign filed.
+    Verified against origin/main 2026-11-17: the fuzz-era drift families
+    (nested blocks, unknown keywords, malformed escapes, zero-width
+    primitives in compound from) are already aligned with the shared
+    .parg grammar; these pins keep the boundary from drifting back. The
+    ruleset-in-metadata rejection is grammar-canonical (the .parg
+    metadata_field production has no ruleset_block) — ruby/ts/rs accept
+    it and that laxness is an owner ruling, not a py defect."""
+
+    def test_nested_parallel_in_sequence_rejected(self):
+        with pytest.raises(IscParseError):
+            parse(
+                'system "s" { stage main { sequence { sub "a" "b" '
+                'parallel { sub "c" "d" } } } }'
+            )
+
+    def test_unknown_keyword_in_item_position_rejected(self):
+        with pytest.raises(IscParseError):
+            parse('system "s" { stage main { frobnicate "a" "b" } }')
+
+    def test_malformed_escape_in_rule_string_rejected(self):
+        with pytest.raises(IscParseError):
+            parse('system "s" { stage main { sub "a\\q" "b" } }')
+
+    def test_ruleset_inside_metadata_rejected(self):
+        with pytest.raises(IscParseError):
+            parse(
+                'system "s" { metadata { ruleset probe { sub "a" "b" } } '
+                'stage main { sub "a" "b" } }'
+            )
+
+    def test_zero_width_primitive_in_compound_from_parses(self):
+        # maps#293 family B1: ruby/ts/rs parse-accept (then fail at
+        # execution with named logic errors); py must accept at parse too.
+        doc = parse(
+            'system "s" { stage main { sequence { sub { '
+            'from word_boundary + capture(some("z")) + word_boundary '
+            'to "W" + ref(1) not_before "j" not_after "k" } } } }'
+        )
+        seq = doc.stages[0].items[0]
+        assert isinstance(seq, SequenceBlock) and len(seq.rules) == 1
+
+
+
+class TestNoteTextIsInert:
+    """WO20 fuzz finding (maps#295A): a `{` inside a metadata note string
+    used to corrupt the py parser's block/string scanning so the map
+    parsed a DIFFERENT rule set (silently altered transliteration output).
+    The fuzz evidence map (din-kaa with `standard's` -> `standa{d's`) now
+    parses to the same rule set as the clean map; this pin keeps metadata
+    free-text inert."""
+
+    BASE = (
+        'system "s" {\n'
+        '  metadata {\n'
+        "    description { the standa%D's text layer }\n"
+        '  }\n'
+        '  tests { "б" -> "b" }\n'
+        '  stage main { parallel { sub "б" "b" } }\n'
+        '}\n'
+    )
+
+    def test_brace_in_note_text_does_not_alter_rules(self):
+        from interscript.executor import execute_stage as ex
+
+        good = self.BASE.replace("%D", "r")
+        bad = self.BASE.replace("%D", "{")
+        for probe in ("б", "бб", "x"):
+            cm_good = isc_to_compiled_map(parse(good))
+            cm_bad = isc_to_compiled_map(parse(bad))
+            assert ex(cm_good, "main", probe) == ex(cm_bad, "main", probe)
+
+    def test_brace_note_transliteration_matches_clean_map(self):
+        from interscript.executor import execute_stage as ex
+
+        bad = self.BASE.replace("%D", "{")
+        cm = isc_to_compiled_map(parse(bad))
+        assert ex(cm, "main", "б") == "b"
