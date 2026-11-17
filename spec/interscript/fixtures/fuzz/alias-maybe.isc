@@ -1,0 +1,10 @@
+system "T:fuzz-alias-maybe:1" {
+  aliases {
+    a_chain = maybe(any(["x", "y", "z"]) + any("1".."3"))
+  }
+  stage main {
+    sequence {
+      sub a_chain "R"
+    }
+  }
+}

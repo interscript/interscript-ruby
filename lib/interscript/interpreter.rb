@@ -296,10 +296,15 @@ class Interscript::Interpreter < Interscript::Compiler
         if target == :par
           raise Interscript::SystemConversionError, "Can't use a MaybeSome in a #{target} context"
         end
-        if Interscript::Node::Item::String === i.data && i.data.data.length != 1
-          "(?:" + build_item(i.data, target, doc) + ")" + resuffix
-        else
+        # maps#292 (WO20 fuzz): the optionality suffix must bind to the
+        # WHOLE built body, not to its last atom — an unwrapped body like
+        # `(?:x|y|z)[1-3]` + `?` made only `[1-3]` optional and the rule
+        # silently never matched. Only a single-character string body is
+        # its own atomic unit and may skip the group.
+        if Interscript::Node::Item::String === i.data && i.data.data.length == 1
           build_item(i.data, target, doc) + resuffix
+        else
+          "(?:" + build_item(i.data, target, doc) + ")" + resuffix
         end
       when Interscript::Node::Item::CaptureRef
         if target == :par
