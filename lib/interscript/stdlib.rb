@@ -42,7 +42,11 @@ class Interscript::Stdlib
       lm = Regexp.last_match
       # Extract the match name
       idx = lm.named_captures.compact.keys.first[1..].to_i
-      subs_hash[idx]
+      # A deferred replacement (a `to` whose parstr build raises
+      # eagerly — rs renders replacements only when a rule fires)
+      # builds now.
+      replacement = subs_hash[idx]
+      replacement.is_a?(Proc) ? replacement.call : replacement
     end
   end
 
@@ -63,11 +67,12 @@ class Interscript::Stdlib
       # puts matched.inspect
       # puts [lm.begin(matched), lm.end(matched)].inspect
       idx = matched[1..].to_i
-      debug_info = {begin: lm.begin(matched), end: lm.end(matched), idx: idx, result: subs_array[idx]}
+      replacement = subs_array[idx]
+      debug_info = {begin: lm.begin(matched), end: lm.end(matched), idx: idx, result: replacement}
       # standard:disable Style/GlobalVars (deliberate $DEBUG / -d-flag debug idiom)
       $subs_matches << debug_info
       # standard:enable Style/GlobalVars
-      subs_array[idx]
+      replacement.is_a?(Proc) ? replacement.call : replacement
     end
   end
 

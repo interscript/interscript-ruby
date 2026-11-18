@@ -90,6 +90,35 @@ class Interscript::Interpreter < Interscript::Compiler
     language.to_sym
   end
 
+  # Does this replacement item carry a capture-ref template anywhere?
+  # (WO18 G1: ref templates fail loud and named in a parallel pass.)
+  def self.ref_template?(item)
+    case item
+    when Interscript::Node::Item::CaptureRef
+      true
+    when Interscript::Node::Item::Group
+      item.children.any? { |c| ref_template?(c) }
+    when Interscript::Node::Item::Repeat, Interscript::Node::Item::Maybe,
+         Interscript::Node::Item::Some, Interscript::Node::Item::MaybeSome,
+         Interscript::Node::Item::CaptureGroup
+      ref_template?(item.data)
+    else
+      false
+    end
+  end
+
+  # Does this rule pattern carry a `\N` backreference to a capture
+  # group the pattern itself does not define? Machine-generated rule
+  # patterns only: capture groups open with `(` not followed by `?`
+  # (lookarounds and `(?:` are not capture groups); backrefs are `\N`.
+  # Such a rule can never match (rs match_item fails a ref on an
+  # unparticipated group), so a megaregexp pass drops it instead of
+  # failing the combined compile (WO20 reverse-golden bgnpcgn-zho).
+  def self.backref_without_group?(pattern)
+    group_count = pattern.scan(/\((?!\?)/).size
+    pattern.scan(/\\(\d+)/).any? { |(n)| n.to_i > group_count }
+  end
+
   class Stage
     attr_reader :language
 
@@ -173,7 +202,40 @@ class Interscript::Interpreter < Interscript::Compiler
             Interscript::Stdlib.deterministic_sort_by_max_length(r.children).each do |i|  # rule.from.max_length gives somewhat better test results, why is that
               raise Interscript::SystemConversionError, "Can't parallelize #{i.class}" unless Interscript::Node::Rule::Sub === i
               next if i.reverse_run == true
-              subs_array << [build_regexp(i), build_item(i.to, :parstr)]
+              pattern = build_regexp(i)
+              # A from-pattern backreference to a group the pattern does
+              # not itself define (reversed rules re-reference capture
+              # groups their reversal hoisted away — the WO20
+              # reverse-golden bgnpcgn-zho family) can never match: rs
+              # `match_item` fails the ref on an unparticipated group,
+              # and ruby's combined alternation refuses to compile the
+              # numbered ref next to the named-group wrappers at all.
+              # Drop the rule, mirroring the rs never-matches semantics.
+              next if Interscript::Interpreter.backref_without_group?(pattern)
+              # WO18 G1 canon: a ref TEMPLATE in a parallel pass fails
+              # loud and named (spec/isc/semantics_spec.rb pins it).
+              raise Interscript::SystemConversionError,
+                "Can't use CaptureRef in parallel mode" if Interscript::Interpreter.ref_template?(i.to)
+              # The megaregexp replacement carries the STRING build
+              # (:str semantics — groups join, captures parenthesize,
+              # refs become \N), which is what rs `build_replacement`
+              # renders over the nth_string collapse. `build_item(:parstr)`
+              # demotes to the :par product build and returns ARRAYS for
+              # group `to`s — stringified as Ruby inspect into the
+              # output (the WO20 reverse-golden odni-pus family).
+              # rs also renders a sub's replacement LAZILY (only when
+              # the rule fires): a re-only alias in a reversed `to` —
+              # the boundary a word-boundary rule's reversal hoists onto
+              # the to side — must not poison the whole pass when the
+              # rule never matches (WO20 reverse-golden bgnpcgn-per /
+              # un-prs family). Defer the build to match time in that
+              # case.
+              begin
+                replacement = build_item(i.to, :str)
+              rescue Interscript::SystemConversionError
+                replacement = -> { build_item(i.to, :str) }
+              end
+              subs_array << [pattern, replacement]
             end
             r.subs_regexp = Interscript::Stdlib.parallel_regexp_compile(subs_array)
             r.subs_replacements = subs_array.map(&:last)
