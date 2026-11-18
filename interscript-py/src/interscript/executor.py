@@ -198,7 +198,10 @@ def _execute_sub_rule(rule: SubRule, ctx: ExecutionContext) -> None:
 def _resolve_template(template: str, m: regex.Match) -> str:
     """Resolve `$1`, `$2`, ... capture references in a replacement
     template. `$'`/`` $` ``/`$$` are NOT interpreted (literal), matching
-    the TS runtime. Out-of-range references resolve to the whole match.
+    the TS runtime. Ruby gsub semantics (rs ``decode_replacement``
+    parity): a reference whose group did not participate — or does not
+    exist in the pattern at all (reversed rules re-reference groups
+    their reversed pattern lost) — inserts the EMPTY string.
     """
 
     def repl(tmpl_match: regex.Match) -> str:
@@ -207,7 +210,7 @@ def _resolve_template(template: str, m: regex.Match) -> str:
             group = m.group(idx)
         except IndexError:
             group = None
-        return group if group is not None else m.group(0)
+        return group if group is not None else ""
 
     return regex.sub(r"\$(\d+)", repl, template)
 
@@ -250,6 +253,18 @@ def _execute_funcall(rule: FuncallRule, ctx: ExecutionContext) -> None:
 # ---------------------------------------------------------------------------
 # parallel
 # ---------------------------------------------------------------------------
+
+
+def _backref_without_group(pattern: str) -> bool:
+    """Does this rule pattern carry a `\\N` backreference to a capture
+    group the pattern itself does not define? Machine-generated rule
+    patterns only: capture groups open with `(` not followed by `?`
+    (lookarounds and `(?:` are not capture groups). Such a rule can
+    never match (rs match_item fails a ref on an unparticipated group),
+    so a megaregexp pass drops it instead of failing the combined
+    compile (WO20 reverse-golden bgnpcgn-zho)."""
+    group_count = len(regex.findall(r"\((?!\?)", pattern))
+    return any(int(n) > group_count for n in regex.findall(r"\\(\d+)", pattern))
 
 
 def _tree_compatible(rule: SubRule, ctx: ExecutionContext) -> bool:
@@ -327,6 +342,22 @@ def _execute_parallel(rule: ParallelRule, ctx: ExecutionContext) -> None:
             after = compile_item(r.after, ctx, True).re if r.after else ""
             not_before = compile_item(r.not_before, ctx, True).re if r.not_before else ""
             not_after = compile_item(r.not_after, ctx, True).re if r.not_after else ""
+            # A from-pattern backreference to a group the pattern does
+            # not itself define (reversed rules re-reference capture
+            # groups their reversal hoisted away — the WO20
+            # reverse-golden bgnpcgn-zho family) can never match: rs
+            # `match_item` fails the ref on an unparticipated group,
+            # and the combined alternation would refuse to compile.
+            # Drop the rule, mirroring the rs never-matches semantics.
+            full = (
+                (f"(?<={before})" if before else "")
+                + (f"(?<!{not_before})" if not_before else "")
+                + src
+                + (f"(?={after})" if after else "")
+                + (f"(?!{not_after})" if not_after else "")
+            )
+            if _backref_without_group(full):
+                continue
             compiled.append((r, src, before, after, not_before, not_after))
         # §5.2 at pattern level: identical compiled `from` source under a
         # guard-applicable rule shadows the unguarded one.

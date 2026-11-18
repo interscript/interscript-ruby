@@ -69,15 +69,7 @@ def _build_corpus() -> tuple[dict[str, object], object]:
                 resolve_dependency=resolve_dependency,
             )
     compiled = {stem: isc_to_compiled_map(doc) for stem, doc in docs.items()}
-
-    class _Resolver:
-        """MapResolver over the in-memory corpus (the MapLoader protocol:
-        .load(system_code))."""
-
-        def load(self, system_code: str):
-            return compiled[system_code]
-
-    return compiled, _Resolver()
+    return compiled
 
 
 @pytest.mark.skipif(
@@ -91,7 +83,46 @@ def test_golden_reverse_capture_additivity() -> None:
         if line.strip()
     ]
     assert rows, "reverse golden file has no rows"
-    compiled, resolver = _build_corpus()
+    compiled = _build_corpus()
+
+    # rs reverse_document reverses the dependency CLOSURE with the
+    # parent (ruby Dependency#reverse parity). The compiled IR carries
+    # dependency names, not documents, so the replay must serve
+    # reversed dependency maps to the run rules — Runtime.reverse's
+    # _ReversedDependencyResolver flow. Replaying reverse_map against
+    # forward deps made every run-carrying reverse doc execute the
+    # FORWARD dependency stage (the WO20 91-map identity-output family:
+    # alalc-rus-2012's "Azov" etc.).
+    reversed_closure: dict[str, tuple[object, dict[str, object]]] = {}
+
+    def _reversed_closure(name: str) -> tuple[object, dict[str, object]]:
+        if name in reversed_closure:
+            return reversed_closure[name]
+        map_ = compiled[name]
+        revs: dict[str, object] = {}
+
+        def collect(m: object) -> None:
+            for dep in m.dependencies:  # type: ignore[union-attr]
+                if dep in revs:
+                    continue
+                dep_map = compiled[dep]
+                revs[dep] = reverse_map(dep_map)
+                collect(dep_map)
+
+        collect(map_)
+        entry = (reverse_map(map_), revs)
+        reversed_closure[name] = entry
+        return entry
+
+    class _ReversedResolver:
+        """Serves reversed dependency documents under their forward
+        names (run rules reference the forward names)."""
+
+        def __init__(self, revs: dict[str, object]) -> None:
+            self._revs = revs
+
+        def load(self, system_code: str):
+            return self._revs[system_code]
 
     deltas: list[str] = []
     failed_maps: set[str] = set()
@@ -103,8 +134,8 @@ def test_golden_reverse_capture_additivity() -> None:
             got = "null"
         else:
             try:
-                reversed_map = reverse_map(compiled_map)
-                got = execute_stage(reversed_map, "main", row["src"], resolver)
+                reversed_map, revs = _reversed_closure(map_id)
+                got = execute_stage(reversed_map, "main", row["src"], _ReversedResolver(revs))
             except Exception:  # noqa: BLE001 — mirror the rs/ts/ruby gates
                 got = "null"
         checked += 1
