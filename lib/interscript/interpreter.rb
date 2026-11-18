@@ -214,8 +214,10 @@ class Interscript::Interpreter < Interscript::Compiler
               next if Interscript::Interpreter.backref_without_group?(pattern)
               # WO18 G1 canon: a ref TEMPLATE in a parallel pass fails
               # loud and named (spec/isc/semantics_spec.rb pins it).
-              raise Interscript::SystemConversionError,
-                "Can't use CaptureRef in parallel mode" if Interscript::Interpreter.ref_template?(i.to)
+              if Interscript::Interpreter.ref_template?(i.to)
+                raise Interscript::SystemConversionError,
+                  "Can't use CaptureRef in parallel mode"
+              end
               # The megaregexp replacement carries the STRING build
               # (:str semantics — groups join, captures parenthesize,
               # refs become \N), which is what rs `build_replacement`
