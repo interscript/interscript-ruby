@@ -152,7 +152,28 @@ def parallel_megaregexp(text: str, rules: list[MegaregexpRule]) -> str:
                 return rule.replace(m.group(0), captures[start : start + n])
         return m.group(0)
 
-    return mega.sub(_sub, text)
+    # Ruby gsub scan semantics: attempt the megaregexp at every position
+    # INCLUDING the end, and after a zero-width match skip one character
+    # (ruby cannot loop an empty match). Python's regex.sub continues at
+    # the SAME position after an empty match — the next alternative then
+    # also fires there, double-inserting where ruby inserts once (the
+    # WO20 reverse-golden bgnpcgn-prs/pus family). Mirrors rs
+    # `apply_parallel`'s megaregexp loop.
+    parts: list[str] = []
+    copied = 0  # text[:copied] already emitted
+    pos = 0
+    n = len(text)
+    while pos <= n:
+        m = mega.match(text, pos)
+        if m is not None:
+            parts.append(text[copied : m.start()])
+            parts.append(_sub(m))
+            copied = m.end()
+            pos = max(m.end(), pos + 1)
+        else:
+            pos += 1
+    parts.append(text[copied:])
+    return "".join(parts)
 
 
 # ---------------------------------------------------------------------------
@@ -170,14 +191,20 @@ def upcase(text: str, opts: dict | None = None) -> str:
 
 def title_case(text: str, opts: dict | None = None) -> str:
     """`Interscript::Stdlib::Functions.title_case` / rs `title_case`
-    parity: upcase the FIRST character of the string, then the
+    parity: upcase the first character of each LINE, then the
     character following each word separator. Other characters are
-    untouched (ruby `gsub(/^(.)/)` + `gsub(/#{sep}(.)/)` — notably NOT
-    full per-word title-casing)."""
+    untouched (ruby `gsub(/^(.)/)` + `gsub(/#{sep}(.)/)` — ruby `^` is
+    line-anchored, so `gsub(/^(.)/)` upcases the head of every line;
+    the string-head-only reading deviated from the ruby ground truth on
+    reversed-downcase runs — the WO20 reverse-golden
+    un-ell-Grek-Latn-1987-phonetic family)."""
     sep = (opts or {}).get("wordSeparator", " ")
     chars = list(text)
-    if chars:
-        chars[0] = chars[0].upper()
+    at_line_start = True
+    for k, c in enumerate(chars):
+        if at_line_start and c != "\n":
+            chars[k] = c.upper()
+        at_line_start = c == "\n"
     if sep == "":
         return "".join(chars)
     sep_chars = list(sep)

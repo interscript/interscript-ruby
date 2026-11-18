@@ -171,12 +171,18 @@ def compile_item(
         )
     if kind == "repeat":
         assert isinstance(item, RepeatItem)
-        inner = compile_item(item.item, ctx).re
+        inner = compile_item(item.item, ctx)
         if item.max is None:
             quant = "*" if item.min == 0 else "+"
         else:
             quant = f"{{{item.min},{item.max}}}"
-        return _compiled(f"(?:{inner}){quant}", "")
+        # Replacement-position collapse mirrors Ruby `Repeat#nth_string`
+        # (= data.nth_string): a maybe/some contributes its inner data's
+        # string, not the quantifier and not an empty string. The
+        # empty-literal reading dropped the restored segment on reversed
+        # rules whose `to` carries a maybe (the WO20 reverse-golden
+        # bgnpcgn-ara-1956 / hin-Deva / odni-ara / yaghoubi families).
+        return _compiled(f"(?:{inner.re}){quant}", inner.literal)
     if kind == "stage_ref":
         # Stage references are handled by the executor, not by item
         # compilation.

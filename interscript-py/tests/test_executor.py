@@ -95,13 +95,20 @@ class TestSubRule:
         m = make_map([stage("main", [rule])])
         assert execute_stage(m, "main", "ab ab") == "aa aa"
 
-    def test_capture_out_of_range_resolves_to_match(self):
+    def test_capture_out_of_range_inserts_empty(self):
+        # rs `decode_replacement` / ruby gsub parity: a `$N` reference
+        # whose group did not participate — or does not exist in the
+        # pattern at all — inserts the EMPTY string, never the whole
+        # match. Reversed rules re-reference capture groups their
+        # reversal hoisted away (the WO20 reverse-golden hin-Deva
+        # family), so the whole-match fallback there deleted nothing
+        # and diverged from the rs golden.
         rule = SubRule(
             from_=StringItem(value="a"),
             to=CaptureRefItem(id=3),
         )
         m = make_map([stage("main", [rule])])
-        assert execute_stage(m, "main", "ab") == "ab"
+        assert execute_stage(m, "main", "ab") == "b"
 
 
 class TestParallel:
