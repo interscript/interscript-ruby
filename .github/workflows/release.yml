@@ -10,6 +10,7 @@ permissions:
 
 jobs:
   release:
+    if: startsWith(github.ref, 'refs/tags/v') || github.event_name == 'workflow_dispatch'
     # Builds the gem FROM THIS REPO at the pushed tag and publishes it.
     # The previous workflow checked out the monorepo and shipped the
     # monorepo's ruby/ tree — the v3.2.0 gem therefore did not contain
