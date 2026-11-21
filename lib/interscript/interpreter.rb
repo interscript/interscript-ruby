@@ -27,7 +27,8 @@ class Interscript::Interpreter < Interscript::Compiler
             # standard:disable Style/GlobalVars (deliberate $DEBUG / -d-flag debug idiom)
             $select_nth_string = true
             # standard:enable Style/GlobalVars
-            result = Stage.new(@map, str, language: language).execute_rule(stage)
+            result = Stage.new(@map, str, language: language,
+              run_chain: ["map.#{@map.name}.stage.#{stage_name}"]).execute_rule(stage)
             # standard:disable Style/GlobalVars (deliberate $DEBUG / -d-flag debug idiom)
             $select_nth_string = false
             # standard:enable Style/GlobalVars
@@ -73,7 +74,8 @@ class Interscript::Interpreter < Interscript::Compiler
         e
       end
     else
-      Stage.new(@map, str, language: language).execute_rule(stage)
+      Stage.new(@map, str, language: language,
+        run_chain: ["map.#{@map.name}.stage.#{stage_name}"]).execute_rule(stage)
     end
   end
 
@@ -122,10 +124,14 @@ class Interscript::Interpreter < Interscript::Compiler
   class Stage
     attr_reader :language
 
-    def initialize(map, str, language: nil)
+    def initialize(map, str, language: nil, run_chain: [])
       @str = str
       @map = map
       @language = Interscript::Interpreter.select_language(map, language)
+      # maps#294: stages currently in flight, keyed "map.<doc>.stage.<name>"
+      # (the resolved target, not the alias spelling). Seeded by
+      # Interpreter#call with the invoked stage; every nested run extends it.
+      @run_chain = run_chain
     end
 
     # ISC-WF-1 W3 guard applicability. Unguarded rules always apply; a
@@ -279,15 +285,37 @@ class Interscript::Interpreter < Interscript::Compiler
           doc = @map.dep_aliases[r.stage.map].document
           stage = doc.imported_stages[r.stage.name]
           raise Interscript::MapLogicError, %(stage "#{r.stage.name}" not found in #{doc.name}) unless stage
-          @str = Stage.new(doc, @str, language: @language).execute_rule(stage)
+          @str = Stage.new(doc, @str, language: @language,
+            run_chain: enter_run(doc, r.stage.name)).execute_rule(stage)
         else
           stage = @map.imported_stages[r.stage.name]
           raise Interscript::MapLogicError, %(stage "#{r.stage.name}" not found in #{@map.name}) unless stage
-          @str = Stage.new(@map, @str, language: @language).execute_rule(stage)
+          @str = Stage.new(@map, @str, language: @language,
+            run_chain: enter_run(@map, r.stage.name)).execute_rule(stage)
         end
       end
 
       @str
+    end
+
+    # maps#294 (WO20 fuzz): a self- or mutual-recursive `run stage.<x>`
+    # recursed until SystemStackError — a crash-class death embedders
+    # cannot handle (rs aborted the process outright pre-0.3.3; ts
+    # overflowed its stack the same way). The run chain is threaded
+    # through nested stages; a revisited RESOLVED target (document +
+    # stage, not the alias spelling — a dependency chain may reuse one
+    # alias for different targets) is a named MapLogicError carrying the
+    # chain, in the directive's own syntax. Mirrors rs's shipped 0.3.3
+    # guard and the W1 `use cycle:` named errors; py's conversion-time
+    # guard fires earlier still. A NON-cyclic re-run (a diamond: two
+    # callers sharing one downstream run) stays legal — the chain holds
+    # only the stages in flight.
+    def enter_run(doc, stage_name)
+      entry = "map.#{doc.name}.stage.#{stage_name}"
+      if @run_chain.include?(entry)
+        raise Interscript::MapLogicError, "run cycle: #{(@run_chain + [entry]).join(" -> ")}"
+      end
+      @run_chain + [entry]
     end
 
     def build_regexp(r)

@@ -1,0 +1,8 @@
+system "T:fz-selfrun:1" {
+  stage main {
+    parallel {
+      sub "a" "b"
+    }
+    run stage.main
+  }
+}

@@ -1,0 +1,13 @@
+system "T:fz-mutrun:1" {
+  stage main {
+    run stage.a
+  }
+  stage a {
+    sub "x" "y"
+    run stage.b
+  }
+  stage b {
+    sub "y" "x"
+    run stage.a
+  }
+}

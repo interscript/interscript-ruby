@@ -1,0 +1,17 @@
+system "T:fz-diamondrun:1" {
+  stage common {
+    sub "1" "2"
+  }
+  stage a {
+    sub "a" "A"
+    run stage.common
+  }
+  stage b {
+    sub "b" "B"
+    run stage.common
+  }
+  stage main {
+    run stage.a
+    run stage.b
+  }
+}
