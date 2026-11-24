@@ -17,8 +17,9 @@ jobs:
     # this repo's decode fixes (512-step cap, UTF-8 scrub).
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       id-token: write
+      attestations: write
     steps:
       - uses: actions/checkout@v7
 
@@ -44,3 +45,38 @@ jobs:
         # the one-time rubygems.org trusted-publisher registration for
         # this repo + workflow (confirmed registered 2026-10-25).
         uses: rubygems/release-gem@v1
+      # Everything below runs AFTER a successful publish and must never
+      # gate it. Org supply-chain layer (SOTA-2027): every release ships a
+      # CycloneDX 1.6 JSON SBOM + sha256 sidecar (house sidecar pattern)
+      # and build provenance attestations (gh attestation-compatible).
+      # syft is the standard Ruby emitter here: the cyclonedx-ruby gem
+      # only writes legacy CycloneDX 1.1 XML. File-source mode over the
+      # workspace Gemfile.lock (materialized by bundler-cache above) is
+      # deterministic and stays inside the checkout.
+      - name: Emit CycloneDX SBOM (syft over Gemfile.lock)
+        id: sbom
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh \
+            | sh -s -- -b /usr/local/bin v1.57.2
+          version=$(ruby -e 'puts Gem::Specification.load("interscript.gemspec").version')
+          syft Gemfile.lock \
+            --source-name interscript --source-version "$version" \
+            -o "cyclonedx-json@1.6=interscript-${version}.cdx.json"
+          sha256sum "interscript-${version}.cdx.json" \
+            > "interscript-${version}.cdx.json.sha256"
+          echo "version=${version}" >> "$GITHUB_OUTPUT"
+          ls -la "interscript-${version}.cdx.json"*
+      - name: Attest build provenance (gem + SBOM)
+        continue-on-error: true
+        uses: actions/attest-build-provenance@v4
+        with:
+          subject-path: |
+            pkg/interscript-*.gem
+            interscript-${{ steps.sbom.outputs.version }}.cdx.json
+      - name: Attach SBOM + sidecar to the GitHub release
+        uses: softprops/action-gh-release@v3
+        with:
+          tag_name: ${{ github.ref_name }}
+          files: |
+            interscript-${{ steps.sbom.outputs.version }}.cdx.json
+            interscript-${{ steps.sbom.outputs.version }}.cdx.json.sha256
