@@ -169,7 +169,7 @@ module Interscript
         classes_bytes = nil
         {
           graph_member => ->(bytes) { plane_graph = bytes },
-          "classes.json" => ->(bytes) { classes_bytes = bytes },
+          "classes.json" => ->(bytes) { classes_bytes = bytes }
         }.each do |member, sink|
           bytes = zf.read(member)
           got = Digest::SHA256.hexdigest(bytes)
