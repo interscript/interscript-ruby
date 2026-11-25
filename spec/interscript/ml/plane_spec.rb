@@ -40,10 +40,10 @@ RSpec.describe Interscript::ML::PlaneModel do
             content = e.get_input_stream.read
             if e.name == "metadata.yaml"
               content = content
-                         .sub("members:", "sha256:")
-                         .sub(/  plane\.onnx:/, "  plane-int8dynamic.onnx:")
+                .sub("members:", "sha256:")
+                .sub("  plane.onnx:", "  plane-int8dynamic.onnx:")
             end
-            out.put_next_entry(e.name == "plane.onnx" ? "plane-int8dynamic.onnx" : e.name)
+            out.put_next_entry((e.name == "plane.onnx") ? "plane-int8dynamic.onnx" : e.name)
             out.write(content)
           end
         end.string
@@ -65,7 +65,7 @@ RSpec.describe Interscript::ML::PlaneModel do
       buf = Zip::OutputStream.write_buffer do |out|
         src.entries.each do |e|
           out.put_next_entry(e.name)
-          out.write(e.name == "plane-int8dynamic.onnx" ? e.get_input_stream.read + "x" : e.get_input_stream.read)
+          out.write((e.name == "plane-int8dynamic.onnx") ? e.get_input_stream.read + "x" : e.get_input_stream.read)
         end
       end.string
       expect { described_class.from_zip(buf) }.to raise_error(Interscript::ML::IMF::FormatError, /sha256 mismatch/)
@@ -81,7 +81,7 @@ RSpec.describe Interscript::ML::PlaneModel do
             # drop the graph row from the hash table, keep the member in the zip
             content = content.sub("members:", "sha256:").sub(/  plane\.onnx: [0-9a-f]+\n/, "")
           end
-          out.put_next_entry(e.name == "plane.onnx" ? "plane-int8dynamic.onnx" : e.name)
+          out.put_next_entry((e.name == "plane.onnx") ? "plane-int8dynamic.onnx" : e.name)
           out.write(content)
         end
       end.string
