@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "digest"
 require "tmpdir"
 require "json"
 
@@ -140,8 +141,10 @@ module Interscript
       end
 
       # The zip contract: metadata.yaml (kind=plane, k_passes, member
-      # sha256s) + plane.onnx + classes.json, every member sha-verified
-      # before the session is created.
+      # sha256s under `members` — or `sha256` on the int8-dynamic
+      # shipgate layout) + one manifest-covered graph member
+      # (plane.onnx / plane-int8dynamic.onnx) + classes.json, every
+      # member sha-verified before the session is created.
       # rubocop:disable Lint/IneffectiveAccessModifier
       def self.from_zip(data)
         require "zip"
@@ -150,20 +153,29 @@ module Interscript
         meta = YAML.safe_load(zf.read("metadata.yaml"), permitted_classes: [], aliases: false)
         raise IMF::FormatError, "plane zip: kind=#{meta["kind"].inspect}, expected 'plane'" if meta["kind"] != "plane"
 
-        members = meta["members"] || {}
+        members = meta["members"] || meta["sha256"] || {}
+        raise IMF::FormatError, "plane zip: classes.json missing" unless names.include?("classes.json")
+
+        classes_want = members["classes.json"]
+        raise IMF::FormatError, "plane zip: classes.json has no sha256 in metadata" if classes_want.nil? || classes_want.empty?
+
+        # the graph member carries its precision in the file name;
+        # resolve it through the manifest so a rename cannot silently
+        # skip verification
+        graph_member = members.keys.find { |n| n.end_with?(".onnx") && names.include?(n) }
+        raise IMF::FormatError, "plane zip: no manifest-covered .onnx member" unless graph_member
+
         plane_graph = nil
         classes_bytes = nil
-        %w[plane.onnx classes.json].each do |member|
-          raise IMF::FormatError, "plane zip: #{member} missing" unless names.include?(member)
-
+        {
+          graph_member => ->(bytes) { plane_graph = bytes },
+          "classes.json" => ->(bytes) { classes_bytes = bytes },
+        }.each do |member, sink|
           bytes = zf.read(member)
-          want = members[member]
-          raise IMF::FormatError, "plane zip: #{member} has no sha256 in metadata" if want.nil?
           got = Digest::SHA256.hexdigest(bytes)
-          raise IMF::FormatError, "plane zip: #{member} sha256 mismatch (#{got})" if want != got
+          raise IMF::FormatError, "plane zip: #{member} sha256 mismatch (#{got})" if members[member] != got
 
-          plane_graph = bytes if member == "plane.onnx"
-          classes_bytes = bytes if member == "classes.json"
+          sink.call(bytes)
         end
         classes = JSON.parse(classes_bytes)
         new(graph: plane_graph, classes: classes, k_passes: meta.fetch("k_passes", 2))

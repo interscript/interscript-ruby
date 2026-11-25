@@ -27,6 +27,68 @@ RSpec.describe Interscript::ML::PlaneModel do
     end
   end
 
+  describe ".from_zip (shipgate layout)" do
+    # The int8-dynamic release zips (WO92 shipgate layout, e.g.
+    # heb-vocalized-plane-3.0) list member hashes under `sha256` and
+    # name the graph after its precision (plane-int8dynamic.onnx).
+    let(:shipgate_zip) do
+      require "zip"
+      src = Zip::File.open(zip)
+      begin
+        Zip::OutputStream.write_buffer do |out|
+          src.entries.each do |e|
+            content = e.get_input_stream.read
+            if e.name == "metadata.yaml"
+              content = content
+                         .sub("members:", "sha256:")
+                         .sub(/  plane\.onnx:/, "  plane-int8dynamic.onnx:")
+            end
+            out.put_next_entry(e.name == "plane.onnx" ? "plane-int8dynamic.onnx" : e.name)
+            out.write(content)
+          end
+        end.string
+      ensure
+        src.close
+      end
+    end
+
+    it "loads the sha256-keyed precision-named layout" do
+      m = described_class.from_zip(shipgate_zip)
+      expect(m.k_passes).to eq(2)
+      expect(m.translate("كتب")).to eq("كُتُبُ")
+    end
+
+    it "rejects a tampered shipgate graph" do
+      require "zip"
+      require "stringio"
+      src = Zip::File.open_buffer(StringIO.new(shipgate_zip))
+      buf = Zip::OutputStream.write_buffer do |out|
+        src.entries.each do |e|
+          out.put_next_entry(e.name)
+          out.write(e.name == "plane-int8dynamic.onnx" ? e.get_input_stream.read + "x" : e.get_input_stream.read)
+        end
+      end.string
+      expect { described_class.from_zip(buf) }.to raise_error(Interscript::ML::IMF::FormatError, /sha256 mismatch/)
+    end
+
+    it "rejects an .onnx member the manifest does not cover" do
+      require "zip"
+      src = Zip::File.open(zip)
+      buf = Zip::OutputStream.write_buffer do |out|
+        src.entries.each do |e|
+          content = e.get_input_stream.read
+          if e.name == "metadata.yaml"
+            # drop the graph row from the hash table, keep the member in the zip
+            content = content.sub("members:", "sha256:").sub(/  plane\.onnx: [0-9a-f]+\n/, "")
+          end
+          out.put_next_entry(e.name == "plane.onnx" ? "plane-int8dynamic.onnx" : e.name)
+          out.write(content)
+        end
+      end.string
+      expect { described_class.from_zip(buf) }.to raise_error(Interscript::ML::IMF::FormatError, /manifest-covered/)
+    end
+  end
+
   describe "#translate" do
     it "runs the K-pass loop and renders one class per char" do
       m = described_class.from_zip(File.read(zip))
